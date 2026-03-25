@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "5e702e8d-195c-44ea-8dfe-87ff16859cf0",
+		"name": "Reportei Connect V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17991087"
+	},
+	"item": [
+		{
+			"name": "Merchant",
+			"item": [
+				{
+					"name": "Show current merchant settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_connect}}/merchants/settings",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"merchants",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "List all customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_connect}}/customers",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show a customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_connect}}/customers/:customer_uuid",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers",
+								":customer_uuid"
+							],
+							"variable": [
+								{
+									"key": "customer_uuid",
+									"value": "{{customer_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show current customer settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-customer-token",
+								"value": "{{customer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_connect}}/customers/settings",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer's payment status Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_paying\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/customers/:customer_uuid/update-payment-status",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers",
+								":customer_uuid",
+								"update-payment-status"
+							],
+							"variable": [
+								{
+									"key": "customer_uuid",
+									"value": "{{customer_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"",
+									"// Extract the customer API token from the response",
+									"const customer = responseData.customer;",
+									"",
+									"if (customer) {",
+									"    // Set the customer token in the environment variable",
+									"    pm.collectionVariables.set(\"customer_token\", customer.api_token);",
+									"    pm.environment.set(\"customer_token\", customer.api_token);",
+									"",
+									"    pm.collectionVariables.set(\"customer_uuid\", customer.uuid);",
+									"    pm.environment.set(\"customer_uuid\", customer.uuid);",
+									"",
+									"    // Log success message",
+									"    console.log(\"Customer UUID has been set: \" + customer.uuid);",
+									"    console.log(\"Customer API token has been set: \" + customer.api_token);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Example Customer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/customers",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Example Customer Update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/customers/:customer_uuid",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers",
+								":customer_uuid"
+							],
+							"variable": [
+								{
+									"key": "customer_uuid",
+									"value": "{{customer_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_connect}}/customers/:customer_uuid",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customers",
+								":customer_uuid"
+							],
+							"variable": [
+								{
+									"key": "customer_uuid",
+									"value": "{{customer_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers Integration",
+			"item": [
+				{
+					"name": "Create a customer integration session",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-customer-token",
+								"value": "{{customer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"redirect_url\": \"https://example.com\",\n    \"locale\": \"pt_br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/customer-integrations/session",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customer-integrations",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer integration",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url_connect}}/customer-integrations/:customer_integration_uuid?session_id={{session_uuid}}",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customer-integrations",
+								":customer_integration_uuid"
+							],
+							"query": [
+								{
+									"key": "session_id",
+									"value": "{{session_uuid}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "customer_integration_uuid",
+									"value": "{{customer_integration_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show a customer integration",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-customer-token",
+								"value": "{{customer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_connect}}/customer-integrations/:customer_integration_uuid",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"customer-integrations",
+								":customer_integration_uuid"
+							],
+							"variable": [
+								{
+									"key": "customer_integration_uuid",
+									"value": "{{customer_integration_uuid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "Get metrics data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-customer-token",
+								"value": "{{customer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_integration\": \"{{customer_integration_uuid}}\",\n    \"start\": \"{{start}}\",\n    \"end\": \"{{end}}\",\n    \"metrics\": [\n        {\n            \"id\": \"0c13d5f2-1965-4c77-9479-b1220364e600\",\n            \"component\": \"number_v1\",\n            \"reference_key\": \"nuvem_shop:sales\",\n            \"references\": {\n                \"title\": \"Vendas\",\n                \"description\": \"O número total de vendas com pagamento confirmado no período selecionado.\"\n            },\n            \"metrics\": [\n                \"sales_count\"\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/metrics/get-data",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"metrics",
+								"get-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get metrics data async",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-customer-token",
+								"value": "{{customer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metrics_webhook_url\": \"https://example.com/webhooks\",\n    \"customer_integration\": \"{{customer_integration_uuid}}\",\n    \"start\": \"{{start}}\",\n    \"end\": \"{{end}}\",\n    \"metrics\": [\n        {\n            \"id\": \"0c13d5f2-1965-4c77-9479-b1220364e600\",\n            \"component\": \"number_v1\",\n            \"reference_key\": \"nuvem_shop:sales\",\n            \"references\": {\n                \"title\": \"Vendas\",\n                \"description\": \"O número total de vendas com pagamento confirmado no período selecionado.\"\n            },\n            \"metrics\": [\n                \"sales_count\"\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_connect}}/metrics/get-data-async",
+							"host": [
+								"{{base_url_connect}}"
+							],
+							"path": [
+								"metrics",
+								"get-data-async"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token_connect}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"var Header = require('postman-collection').Header;",
+					"pm.request.headers.add(new Header(\"Accept:application/json\"))"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url_connect",
+			"value": "https://connect.reportei.com/api"
+		},
+		{
+			"key": "api_token_connect",
+			"value": ""
+		},
+		{
+			"key": "customer_token",
+			"value": ""
+		},
+		{
+			"key": "customer_uuid",
+			"value": ""
+		},
+		{
+			"key": "merchant_uuid",
+			"value": ""
+		},
+		{
+			"key": "customer_integration_uuid",
+			"value": ""
+		},
+		{
+			"key": "session_uuid",
+			"value": ""
+		},
+		{
+			"key": "start",
+			"value": ""
+		},
+		{
+			"key": "end",
+			"value": ""
+		},
+		{
+			"key": "comparison_start",
+			"value": ""
+		},
+		{
+			"key": "comparison_end",
+			"value": ""
+		},
+		{
+			"key": "api_token",
+			"value": ""
+		}
+	]
+}
