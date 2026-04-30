@@ -18,6 +18,7 @@ import {
   Github,
   Code2,
   Zap,
+  FlaskConical,
 } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -175,6 +176,21 @@ export default function DocumentacaoPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full justify-start text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50"
+                      asChild
+                    >
+                      <a
+                        href="https://connect.reportei.com/tools/explorer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FlaskConical className="mr-2 w-4 h-4" />
+                        Connect Explorer
+                      </a>
+                    </Button>
                     <Button
                       variant="ghost"
                       size="sm"
@@ -1091,48 +1107,54 @@ export default function DocumentacaoPage() {
               <div id="metrics" className="scroll-mt-24">
                 <h2 className="text-3xl font-bold mb-8">Metrics</h2>
                 <p className="text-gray-600 mb-8">
-                  Consulte métricas de integrações conectadas. Recomendamos fortemente que você acesse o{" "}
+                  Consulte métricas de integrações conectadas. Utilize o{" "}
                   <a
-                    href="https://app.reportei.com"
+                    href="https://connect.reportei.com/tools/explorer"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-700 underline"
+                    className="text-blue-600 hover:text-blue-700 underline font-semibold"
                   >
-                    Reportei Application
+                    Connect Explorer
                   </a>
-                  , crie uma conta de teste, integre suas redes, gere um dashboard e então use os endpoints abaixo para
-                  obter os dados.
+                  {" "}para testar a coleta de dados e visualizar as métricas disponíveis para cada integração, ou use os endpoints abaixo para obter os dados programaticamente.
                 </p>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-purple-50 border-blue-200 mb-8">
+                {/* Connect Explorer Card */}
+                <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 mb-8">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-blue-900">
-                      <Database className="w-5 h-5" />
-                      Como Copiar Payloads do Reportei
+                    <CardTitle className="flex items-center gap-2 text-emerald-900">
+                      <FlaskConical className="w-5 h-5" />
+                      Connect Explorer
                     </CardTitle>
                     <CardDescription>
-                      Siga estes passos para obter o JSON de qualquer métrica diretamente da interface do Reportei
+                      Teste consultas de métricas e explore os dados disponíveis diretamente no navegador
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
+                    <p className="text-gray-700">
+                      O <strong>Connect Explorer</strong> é uma ferramenta interativa que permite validar seus tokens,
+                      explorar as métricas disponíveis por integração e testar consultas à API — tudo sem escrever
+                      código. Ideal para descobrir quais métricas e dimensões estão disponíveis antes de implementar a
+                      integração.
+                    </p>
+
                     <div className="space-y-6">
                       {/* Step 1 */}
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold">
                             1
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 mb-2">Acesse a integração desejada</h4>
+                            <h4 className="font-semibold text-gray-900 mb-2">Valide seus tokens</h4>
                             <p className="text-sm text-gray-700 mb-3">
-                              Logue na sua conta de teste do Reportei, realize as integrações, gere um dashboard com as
-                              redes desejadas e navegue até a integração (Facebook, Google Ads, etc.) e visualize as
-                              métricas disponíveis.
+                              Acesse o Explorer, insira seu Bearer Token (merchant) e x-customer-token (customer) para
+                              validar a conexão e carregar as integrações disponíveis.
                             </p>
                             <img
-                              src="/images/design-mode/copy_payload_source.png"
-                              alt="Acesse a integração desejada"
-                              className="rounded-lg border shadow-sm w-full"
+                              src="/images/explorer/explorer_validate_tokens.png"
+                              alt="Validação de tokens no Connect Explorer"
+                              className="rounded-lg border shadow-sm max-w-md"
                             />
                           </div>
                         </div>
@@ -1141,19 +1163,19 @@ export default function DocumentacaoPage() {
                       {/* Step 2 */}
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold">
                             2
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 mb-2">Clique no ícone de código</h4>
+                            <h4 className="font-semibold text-gray-900 mb-2">Explore métricas disponíveis</h4>
                             <p className="text-sm text-gray-700 mb-3">
-                              Passe o mouse sobre o widget desejado e clique no ícone de código (&lt;/&gt;) para gerar a
-                              consulta.
+                              Selecione uma integração e navegue pelo catálogo completo de métricas, organizadas por tipo
+                              (Numbers, Charts, Tables). Customize métricas e dimensões conforme necessário.
                             </p>
                             <img
-                              src="/images/design-mode/copy_payload_widget.png"
-                              alt="Clique no ícone de código"
-                              className="rounded-lg border shadow-sm w-full"
+                              src="/images/explorer/explorer_metrics_catalog.png"
+                              alt="Catálogo de métricas no Connect Explorer"
+                              className="rounded-lg border shadow-sm max-w-md"
                             />
                           </div>
                         </div>
@@ -1162,33 +1184,41 @@ export default function DocumentacaoPage() {
                       {/* Step 3 */}
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold">
                             3
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 mb-2">Copie o JSON</h4>
+                            <h4 className="font-semibold text-gray-900 mb-2">Teste a consulta e copie o payload</h4>
                             <p className="text-sm text-gray-700 mb-3">
-                              No modal que aparecer, você verá o payload JSON completo. Clique no botão "Copiar" para
-                              usar na API.
+                              Defina o período desejado, execute a consulta e visualize a resposta da API em tempo real.
+                              Copie o payload gerado para usar diretamente nos endpoints{" "}
+                              <code className="bg-white px-2 py-1 rounded">/metrics/get-data</code> ou{" "}
+                              <code className="bg-white px-2 py-1 rounded">/metrics/get-data-async</code>.
                             </p>
                             <img
-                              src="/images/design-mode/copy_payload_modal.png"
-                              alt="Copie o JSON"
-                              className="rounded-lg border shadow-sm w-full"
+                              src="/images/explorer/explorer_test_query.png"
+                              alt="Teste de consulta no Connect Explorer"
+                              className="rounded-lg border shadow-sm max-w-md"
                             />
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Tip */}
-                    <div className="bg-white rounded-lg p-4 border border-blue-200">
-                      <p className="text-sm text-gray-700">
-                        <strong>Dica:</strong> O payload copiado já contém todas as métricas, dimensões e filtros
-                        configurados no widget. Você pode usar esse JSON diretamente nos endpoints{" "}
-                        <code className="bg-gray-100 px-2 py-1 rounded">/metrics/get-data</code> ou{" "}
-                        <code className="bg-gray-100 px-2 py-1 rounded">/metrics/get-data-async</code>.
-                      </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Button
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                        asChild
+                      >
+                        <a
+                          href="https://connect.reportei.com/tools/explorer"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FlaskConical className="mr-2 w-4 h-4" />
+                          Acessar Connect Explorer
+                        </a>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -1673,8 +1703,17 @@ export default function DocumentacaoPage() {
                       sessão e conectar a conta do cliente
                     </p>
                     <p>
-                      2. <strong>Copie o payload:</strong> Acesse o Reportei Application e copie o JSON da métrica
-                      desejada (veja a seção Metrics acima)
+                      2. <strong>Explore as métricas:</strong> Use o{" "}
+                      <a
+                        href="https://connect.reportei.com/tools/explorer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-700 underline"
+                      >
+                        Connect Explorer
+                      </a>
+                      {" "}para testar a coleta e ver métricas disponíveis, ou copie payloads diretamente do Reportei
+                      Application (veja a seção Metrics acima)
                     </p>
                     <p>
                       3. <strong>Consulte os dados:</strong> Use os endpoints{" "}
