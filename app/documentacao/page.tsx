@@ -1790,7 +1790,6 @@ export default function DocumentacaoPage() {
                         { name: "Google Ads", slug: "google_adwords", icon: "google_ads" },
                         { name: "Google Search Console", slug: "search_console", icon: "search_console" },
                         { name: "Google My Business", slug: "google_my_business", icon: "google_my_business" },
-                        { name: "Google Sheets", slug: "google_sheets", icon: "google_sheets" },
                         { name: "YouTube", slug: "youtube", icon: "youtube" },
                         { name: "LinkedIn", slug: "linkedin", icon: "linkedin" },
                         { name: "LinkedIn Ads", slug: "linkedin_ads", icon: "linkedin_ads" },
