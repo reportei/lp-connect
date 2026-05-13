@@ -8,17 +8,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   ExternalLink,
   Code,
-  Database,
   Lock,
   Users,
   BarChart3,
   Download,
   BookOpen,
   Video,
-  Github,
-  Code2,
   Zap,
   FlaskConical,
+  Plug,
 } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -164,6 +162,15 @@ export default function DocumentacaoPage() {
                       <BarChart3 className="mr-2 w-4 h-4" />
                       Metrics
                     </Button>
+                    <Button
+                      variant={activeSection === "available-integrations" ? "default" : "ghost"}
+                      size="sm"
+                      className={`w-full justify-start ${activeSection === "available-integrations" ? "bg-blue-600 hover:bg-blue-700" : ""}`}
+                      onClick={() => scrollToSection("available-integrations")}
+                    >
+                      <Plug className="mr-2 w-4 h-4" />
+                      Integrações Disponíveis
+                    </Button>
                   </CardContent>
                 </Card>
 
@@ -171,7 +178,7 @@ export default function DocumentacaoPage() {
                 <Card className="mt-4 shadow-lg border-gray-200">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg flex items-center gap-2">
-                      <Code2 className="w-5 h-5 text-purple-600" />
+                      <Code className="w-5 h-5 text-purple-600" />
                       Recursos
                     </CardTitle>
                   </CardHeader>
@@ -220,28 +227,13 @@ export default function DocumentacaoPage() {
                         Vídeo Guia
                       </a>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-                      asChild
-                    >
-                      <a
-                        href="https://github.com/reportei/connect-docs/tree/main"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="mr-2 w-4 h-4" />
-                        GitHub
-                      </a>
-                    </Button>
                   </CardContent>
                 </Card>
               </div>
             </aside>
 
             {/* Main Documentation Content */}
-            <main className="flex-1 space-y-12">
+            <main className="flex-1 min-w-0 space-y-12">
               {/* Introduction */}
               <div id="intro" className="scroll-mt-24">
                 <h2 className="text-3xl font-bold mb-6">Introdução</h2>
@@ -971,12 +963,96 @@ export default function DocumentacaoPage() {
                           <TabsTrigger value="curl">cURL Example</TabsTrigger>
                         </TabsList>
                         <TabsContent value="request">
+                          <p className="text-sm text-gray-600 mb-3">
+                            Todos os campos são opcionais.
+                          </p>
                           <CodeBlock
                             language="json"
                             code={`{
-  "redirect_url": "https://sua-aplicacao.com/dashboard"
+  "redirect_url": "https://sua-aplicacao.com/dashboard",
+  "locale": "pt_BR",
+  "limits": {},
+  "limit_reached_url": "https://sua-aplicacao.com/limite",
+  "expires_in_minutes": 30,
+  "close_on_finish": true,
+  "enable_multi_account_selection": false
 }`}
                           />
+                          <div className="mt-4 space-y-2">
+                            <h5 className="font-semibold text-sm text-gray-800">Descrição dos campos:</h5>
+                            <ul className="text-sm text-gray-600 space-y-2">
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">redirect_url</code> — URL de redirecionamento após a integração</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">locale</code> — Idioma da interface de integração (ex: <code className="bg-gray-100 px-1.5 py-0.5 rounded">pt_BR</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded">en</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded">es</code>, <code className="bg-gray-100 px-1.5 py-0.5 rounded">fr</code>)</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">limits</code> — Array de objetos para controlar o comportamento da sessão (veja detalhes abaixo)</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">limit_reached_url</code> — URL para redirecionar quando o limite de integrações for atingido</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">expires_in_minutes</code> — Tempo de expiração da sessão em minutos (mínimo: 1)</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">close_on_finish</code> — Se <code className="bg-gray-100 px-1.5 py-0.5 rounded">true</code>, fecha a janela ao finalizar a integração</li>
+                              <li><code className="bg-gray-100 px-1.5 py-0.5 rounded">enable_multi_account_selection</code> — Permite que o usuário selecione múltiplas contas na mesma sessão</li>
+                            </ul>
+                          </div>
+                          <div className="mt-6 space-y-4">
+                            <h5 className="font-semibold text-sm text-gray-800">Limits disponíveis:</h5>
+                            <p className="text-sm text-gray-600">
+                              O campo <code className="bg-gray-100 px-1.5 py-0.5 rounded">limits</code> recebe um array de objetos, cada um com <code className="bg-gray-100 px-1.5 py-0.5 rounded">name</code> e <code className="bg-gray-100 px-1.5 py-0.5 rounded">value</code>. É possível combinar múltiplos limites na mesma sessão.
+                            </p>
+
+                            <div className="space-y-3">
+                              <div className="border-l-4 border-blue-500 bg-blue-50 p-4 rounded">
+                                <h6 className="font-semibold text-blue-900 mb-1 text-sm">
+                                  <code className="bg-white px-1.5 py-0.5 rounded">integration_count</code>{" "}
+                                  <Badge variant="outline" className="ml-2 text-xs">integer</Badge>
+                                  <Badge variant="outline" className="ml-1 text-xs text-red-600 border-red-300">bloqueia</Badge>
+                                </h6>
+                                <p className="text-sm text-blue-700 mb-2">Limita o número total de integrações que o customer pode conectar nesta sessão.</p>
+                                <CodeBlock language="json" code={`{ "name": "integration_count", "value": 5 }`} />
+                              </div>
+
+                              <div className="border-l-4 border-purple-500 bg-purple-50 p-4 rounded">
+                                <h6 className="font-semibold text-purple-900 mb-1 text-sm">
+                                  <code className="bg-white px-1.5 py-0.5 rounded">same_type_integration</code>{" "}
+                                  <Badge variant="outline" className="ml-2 text-xs">integer</Badge>
+                                  <Badge variant="outline" className="ml-1 text-xs text-red-600 border-red-300">bloqueia</Badge>
+                                </h6>
+                                <p className="text-sm text-purple-700 mb-2">Limita quantas integrações do mesmo tipo (ex: Instagram Business) o customer pode conectar.</p>
+                                <CodeBlock language="json" code={`{ "name": "same_type_integration", "value": 2 }`} />
+                              </div>
+
+                              <div className="border-l-4 border-orange-500 bg-orange-50 p-4 rounded">
+                                <h6 className="font-semibold text-orange-900 mb-1 text-sm">
+                                  <code className="bg-white px-1.5 py-0.5 rounded">same_integration_across_customers</code>{" "}
+                                  <Badge variant="outline" className="ml-2 text-xs">integer</Badge>
+                                  <Badge variant="outline" className="ml-1 text-xs text-red-600 border-red-300">bloqueia</Badge>
+                                </h6>
+                                <p className="text-sm text-orange-700 mb-2">Limita quantos customers (non-paying) do mesmo merchant podem conectar a mesma conta. Útil para evitar abuso de trial — customers pagantes são sempre permitidos.</p>
+                                <CodeBlock language="json" code={`{ "name": "same_integration_across_customers", "value": 1 }`} />
+                              </div>
+
+                              <div className="border-l-4 border-green-500 bg-green-50 p-4 rounded">
+                                <h6 className="font-semibold text-green-900 mb-1 text-sm">
+                                  <code className="bg-white px-1.5 py-0.5 rounded">available_integrations</code>{" "}
+                                  <Badge variant="outline" className="ml-2 text-xs">array de slugs</Badge>
+                                  <Badge variant="outline" className="ml-1 text-xs text-blue-600 border-blue-300">filtro de UI</Badge>
+                                </h6>
+                                <p className="text-sm text-green-700 mb-2">Filtra quais integrações são exibidas na tela de conexão. Não bloqueia — apenas controla a visibilidade. Se omitido, todas as integrações do merchant são exibidas.</p>
+                                <CodeBlock language="json" code={`{ "name": "available_integrations", "value": ["instagram_business", "facebook_ads", "google_analytics_4"] }`} />
+                              </div>
+                            </div>
+
+                            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                              <h6 className="font-semibold text-sm text-gray-800 mb-2">Exemplo combinando múltiplos limites:</h6>
+                              <CodeBlock
+                                language="json"
+                                code={`{
+  "redirect_url": "https://sua-aplicacao.com/dashboard",
+  "limits": [
+    { "name": "integration_count", "value": 3 },
+    { "name": "available_integrations", "value": ["instagram_business", "facebook_ads"] }
+  ],
+  "limit_reached_url": "https://sua-aplicacao.com/upgrade"
+}`}
+                              />
+                            </div>
+                          </div>
                         </TabsContent>
                         <TabsContent value="response">
                           <CodeBlock
@@ -1318,38 +1394,6 @@ export default function DocumentacaoPage() {
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                      <h5 className="font-semibold text-blue-900 mb-2">Métricas e Dimensões Disponíveis</h5>
-                      <p className="text-sm text-gray-700 mb-3">
-                        Se você não quiser copiar o payload de um dashboard existente do Reportei, há uma lista completa
-                        de métricas e dimensões disponíveis por integração no GitHub:
-                      </p>
-                      <Button variant="outline" size="sm" asChild>
-                        <a
-                          href="https://github.com/reportei/connect-docs/blob/master/payloads"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <Github className="h-4 w-4" />
-                          Ver Payloads no GitHub
-                        </a>
-                      </Button>
-                      <p className="text-sm text-gray-600 mt-3">
-                        Cada pasta em <code className="bg-white px-2 py-1 rounded">/payloads</code> contém dois arquivos
-                        JSON:
-                      </p>
-                      <ul className="text-sm text-gray-600 space-y-1 ml-4 mt-2">
-                        <li>
-                          • <code className="bg-white px-2 py-1 rounded">metrics.json</code> - Métricas predefinidas com
-                          componentes específicos
-                        </li>
-                        <li>
-                          • <code className="bg-white px-2 py-1 rounded">setup.json</code> - Métricas e dimensões
-                          disponíveis para construir seus próprios payloads
-                        </li>
-                      </ul>
-                    </div>
                   </CardContent>
                 </Card>
 
@@ -1693,7 +1737,7 @@ export default function DocumentacaoPage() {
                 <Card className="bg-blue-50 border-blue-200 mb-8">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-blue-900">
-                      <Database className="w-5 h-5" />
+                      <Plug className="w-5 h-5" />
                       Como Usar as Integrações
                     </CardTitle>
                   </CardHeader>
@@ -1720,58 +1764,76 @@ export default function DocumentacaoPage() {
                       <code className="bg-white px-2 py-1 rounded">/metrics/get-data</code> ou{" "}
                       <code className="bg-white px-2 py-1 rounded">/metrics/get-data-async</code> com o payload copiado
                     </p>
-                    <p className="pt-2 border-t border-blue-200">
-                      <strong>Documentação completa:</strong> Para ver todas as métricas e dimensões disponíveis para
-                      cada integração, consulte o{" "}
-                      <a
-                        href="https://github.com/reportei/reportei-connect-api"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 underline"
-                      >
-                        repositório no GitHub
-                      </a>
-                      .
-                    </p>
                   </CardContent>
                 </Card>
 
-                {/* GitHub Reference */}
-                <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white border-0 mt-8">
+                {/* Integrations List */}
+                <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Code2 className="w-5 h-5" />
-                      Documentação Completa no GitHub
+                      <Plug className="w-5 h-5 text-blue-600" />
+                      Lista de Integrações
                     </CardTitle>
-                    <CardDescription className="text-gray-300">
-                      Acesse o repositório para ver todos os payloads JSON disponíveis
+                    <CardDescription>
+                      Nome e slug de cada integração disponível para uso na API
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-gray-300">
-                      Para cada integração, você encontrará dois arquivos no repositório:
-                    </p>
-                    <ul className="text-sm text-gray-300 space-y-2 ml-4">
-                      <li>
-                        • <code className="bg-gray-700 px-2 py-1 rounded">metrics.json</code> - Métricas predefinidas
-                        prontas para uso
-                      </li>
-                      <li>
-                        • <code className="bg-gray-700 px-2 py-1 rounded">setup.json</code> - Todas as métricas e
-                        dimensões disponíveis para construir payloads customizados
-                      </li>
-                    </ul>
-                    <Button className="bg-white text-gray-900 hover:bg-gray-100">
-                      <a
-                        href="https://github.com/reportei/connect-docs/blob/master/payloads"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        <Code2 className="h-4 w-4" />
-                        Ver Repositório no GitHub
-                      </a>
-                    </Button>
+                  <CardContent>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {[
+                        { name: "Facebook", slug: "facebook", icon: "facebook" },
+                        { name: "Meta Ads", slug: "facebook_ads", icon: "meta_ads" },
+                        { name: "Instagram", slug: "instagram", icon: "instagram_business" },
+                        { name: "Threads", slug: "threads", icon: "threads" },
+                        { name: "Google Analytics", slug: "google_analytics", icon: "google_analytics" },
+                        { name: "Google Analytics 4", slug: "google_analytics_4", icon: "google_analytics_4" },
+                        { name: "Google Ads", slug: "google_adwords", icon: "google_ads" },
+                        { name: "Google Search Console", slug: "search_console", icon: "search_console" },
+                        { name: "Google My Business", slug: "google_my_business", icon: "google_my_business" },
+                        { name: "Google Sheets", slug: "google_sheets", icon: "google_sheets" },
+                        { name: "YouTube", slug: "youtube", icon: "youtube" },
+                        { name: "LinkedIn", slug: "linkedin", icon: "linkedin" },
+                        { name: "LinkedIn Ads", slug: "linkedin_ads", icon: "linkedin_ads" },
+                        { name: "Twitter", slug: "twitter", icon: "twitter" },
+                        { name: "Twitter Ads", slug: "twitter_ads", icon: "twitter_ads" },
+                        { name: "TikTok", slug: "tiktok", icon: "tiktokads" },
+                        { name: "TikTok Ads", slug: "tiktok_ads", icon: "tiktokads" },
+                        { name: "Pinterest", slug: "pinterest", icon: "pinterest" },
+                        { name: "Pinterest Ads", slug: "pinterest_ads", icon: "pinterest" },
+                        { name: "RD Station Marketing", slug: "rdstation", icon: "rd" },
+                        { name: "RD Station CRM", slug: "rd_crm", icon: "rd_crm" },
+                        { name: "HubSpot Marketing", slug: "hubspot_marketing", icon: "hubspot_marketing" },
+                        { name: "HubSpot CRM", slug: "hubspot_crm", icon: "hubspot_marketing" },
+                        { name: "Pipedrive", slug: "pipedrive", icon: "pipedrive" },
+                        { name: "Active Campaign", slug: "active_campaign", icon: "active_campaign" },
+                        { name: "Mailchimp", slug: "mailchimp", icon: "mailchimp" },
+                        { name: "Egoi", slug: "egoi", icon: "egoi" },
+                        { name: "Kommo", slug: "kommo", icon: "kommo" },
+                        { name: "Phonetrack", slug: "phonetrack", icon: "phonetrack" },
+                        { name: "Shopify", slug: "shopify", icon: "shopify" },
+                        { name: "WooCommerce", slug: "woo_commerce", icon: "woo_commerce" },
+                        { name: "NuvemShop", slug: "nuvem_shop", icon: "nuvem_shop" },
+                        { name: "Hotmart", slug: "hotmart", icon: "hotmart" },
+                        { name: "Eduzz", slug: "eduzz", icon: "eduzz" },
+                      ].map((integration) => (
+                        <div
+                          key={integration.slug}
+                          className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50/30 transition-colors"
+                        >
+                          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center">
+                            <img
+                              src={`/images/integrations/${integration.icon}.svg`}
+                              alt={integration.name}
+                              className="w-5 h-5"
+                            />
+                          </div>
+                          <div className="flex flex-col min-w-0">
+                            <span className="font-semibold text-gray-900 text-sm truncate">{integration.name}</span>
+                            <code className="text-xs text-blue-600 truncate">{integration.slug}</code>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               </div>
