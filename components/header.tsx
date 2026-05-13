@@ -12,7 +12,7 @@ export function Header() {
       <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-14 w-auto" />
+            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-7 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
