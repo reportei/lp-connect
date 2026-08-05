@@ -17,6 +17,7 @@ import {
   Zap,
   FlaskConical,
   Plug,
+  Webhook,
 } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -170,6 +171,15 @@ export default function DocumentacaoPage() {
                     >
                       <Plug className="mr-2 w-4 h-4" />
                       Integrações Disponíveis
+                    </Button>
+                    <Button
+                      variant={activeSection === "webhooks" ? "default" : "ghost"}
+                      size="sm"
+                      className={`w-full justify-start ${activeSection === "webhooks" ? "bg-blue-600 hover:bg-blue-700" : ""}`}
+                      onClick={() => scrollToSection("webhooks")}
+                    >
+                      <Webhook className="mr-2 w-4 h-4" />
+                      Webhooks
                     </Button>
                   </CardContent>
                 </Card>
@@ -1835,6 +1845,287 @@ export default function DocumentacaoPage() {
                     </div>
                   </CardContent>
                 </Card>
+              </div>
+
+              {/* Webhooks Section */}
+              <div id="webhooks" className="scroll-mt-24">
+                <h2 className="text-3xl font-bold mb-8">Webhooks</h2>
+                <p className="text-gray-600 mb-8">
+                  Cadastre webhooks para ser notificado automaticamente sobre eventos das integrações dos seus
+                  clientes, como expiração de token ou remoção de uma integração — sem precisar ficar consultando a
+                  API periodicamente.
+                </p>
+                <div className="space-y-12">
+                  <Card className="bg-amber-50 border-amber-200">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <ExternalLink className="w-5 h-5 text-amber-600" />
+                        Eventos disponíveis
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      <p className="text-gray-700 mb-3">
+                        Ao cadastrar um webhook, você escolhe quais eventos ele deve receber através do campo{" "}
+                        <code className="bg-white px-2 py-1 rounded">events</code>:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-gray-700">
+                        <li>
+                          <code className="bg-white px-2 py-1 rounded">customer_integration.status_updated</code> -
+                          disparado quando o status de uma integração muda (ex: token expirou e a integração precisa
+                          ser reconectada)
+                        </li>
+                        <li>
+                          <code className="bg-white px-2 py-1 rounded">customer_integration.deleted</code> - disparado
+                          quando uma integração de cliente é removida
+                        </li>
+                        <li>
+                          <code className="bg-white px-2 py-1 rounded">oauth_started</code> - disparado quando um
+                          cliente inicia o fluxo de autenticação OAuth de uma integração
+                        </li>
+                        <li>
+                          <code className="bg-white px-2 py-1 rounded">oauth_saved</code> - disparado quando as
+                          credenciais OAuth de uma integração são salvas com sucesso
+                        </li>
+                        <li>
+                          <code className="bg-white px-2 py-1 rounded">session_completed</code> - disparado quando uma
+                          sessão de integração é concluída
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        Listar Webhooks
+                      </CardTitle>
+                      <CardDescription>GET /webhook-subscriptions</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-gray-600">
+                        Retorna uma lista paginada dos webhooks cadastrados para o seu merchant.
+                      </p>
+                      <Tabs defaultValue="response" className="mb-8">
+                        <TabsList>
+                          <TabsTrigger value="response">Response</TabsTrigger>
+                          <TabsTrigger value="curl">cURL Example</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="response">
+                          <CodeBlock
+                            language="json"
+                            code={`{
+  "data": [
+    {
+      "id": 12,
+      "url": "https://sua-aplicacao.com/webhooks/reportei",
+      "events": ["customer_integration.status_updated", "customer_integration.deleted"],
+      "is_active": true,
+      "created_at": "2026-08-05T18:23:55.000000Z",
+      "updated_at": "2026-08-05T18:23:55.000000Z"
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "per_page": 15,
+    "total": 1
+  }
+}`}
+                          />
+                        </TabsContent>
+                        <TabsContent value="curl">
+                          <CodeBlock
+                            code={`curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \\
+  https://connect.reportei.com/api/webhook-subscriptions`}
+                          />
+                        </TabsContent>
+                      </Tabs>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <ExternalLink className="w-5 h-5 text-green-600" />
+                        Cadastrar Webhook
+                      </CardTitle>
+                      <CardDescription>POST /webhook-subscriptions</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-gray-600">
+                        Cadastra uma nova URL de webhook para o seu merchant. A URL deve usar{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded">http</code> ou{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded">https</code> e não pode apontar para endereços
+                        privados/internos (ex: <code className="bg-gray-100 px-2 py-1 rounded">localhost</code>,{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded">127.0.0.1</code>, redes{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded">10.x.x.x</code>/
+                        <code className="bg-gray-100 px-2 py-1 rounded">192.168.x.x</code>).
+                      </p>
+
+                      <div>
+                        <h4 className="font-semibold mb-3">Parâmetros:</h4>
+                        <ul className="list-disc list-inside space-y-2 text-gray-600">
+                          <li>
+                            <code className="bg-gray-100 px-2 py-1 rounded">url</code> - URL que receberá as
+                            notificações (obrigatório, deve ser única por merchant)
+                          </li>
+                          <li>
+                            <code className="bg-gray-100 px-2 py-1 rounded">events</code> - array com pelo menos um dos
+                            eventos listados acima (obrigatório)
+                          </li>
+                          <li>
+                            <code className="bg-gray-100 px-2 py-1 rounded">is_active</code> - habilita/desabilita o
+                            envio de notificações para este webhook (opcional, padrão{" "}
+                            <code className="bg-gray-100 px-2 py-1 rounded">true</code>)
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm text-gray-700">
+                          <strong>Nota:</strong> Tentar cadastrar uma URL já registrada para o seu merchant retorna{" "}
+                          <code className="bg-white px-2 py-1 rounded">422</code> com uma mensagem de validação.
+                        </p>
+                      </div>
+
+                      <Tabs defaultValue="request" className="mb-8">
+                        <TabsList>
+                          <TabsTrigger value="request">Request Body</TabsTrigger>
+                          <TabsTrigger value="response">Response</TabsTrigger>
+                          <TabsTrigger value="curl">cURL Example</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="request">
+                          <CodeBlock
+                            language="json"
+                            code={`{
+  "url": "https://sua-aplicacao.com/webhooks/reportei",
+  "events": ["customer_integration.status_updated", "customer_integration.deleted"],
+  "is_active": true
+}`}
+                          />
+                        </TabsContent>
+                        <TabsContent value="response">
+                          <CodeBlock
+                            language="json"
+                            code={`{
+  "webhook_subscription": {
+    "id": 12,
+    "url": "https://sua-aplicacao.com/webhooks/reportei",
+    "events": ["customer_integration.status_updated", "customer_integration.deleted"],
+    "is_active": true,
+    "created_at": "2026-08-05T18:23:55.000000Z",
+    "updated_at": "2026-08-05T18:23:55.000000Z"
+  }
+}`}
+                          />
+                        </TabsContent>
+                        <TabsContent value="curl">
+                          <CodeBlock
+                            code={`curl -s -X POST https://connect.reportei.com/api/webhook-subscriptions \\
+  -H "Authorization: Bearer $ACCESS_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "url": "https://sua-aplicacao.com/webhooks/reportei",
+    "events": ["customer_integration.status_updated", "customer_integration.deleted"]
+  }'`}
+                          />
+                        </TabsContent>
+                      </Tabs>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <ExternalLink className="w-5 h-5 text-blue-600" />
+                        Atualizar Webhook
+                      </CardTitle>
+                      <CardDescription>PUT /webhook-subscriptions/{"{id}"}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-gray-600">
+                        Atualiza parcialmente um webhook já cadastrado. Envie apenas os campos que deseja alterar.
+                      </p>
+                      <Tabs defaultValue="request" className="mb-8">
+                        <TabsList>
+                          <TabsTrigger value="request">Request Body</TabsTrigger>
+                          <TabsTrigger value="curl">cURL Example</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="request">
+                          <CodeBlock
+                            language="json"
+                            code={`{
+  "is_active": false
+}`}
+                          />
+                        </TabsContent>
+                        <TabsContent value="curl">
+                          <CodeBlock
+                            code={`curl -s -X PUT https://connect.reportei.com/api/webhook-subscriptions/12 \\
+  -H "Authorization: Bearer $ACCESS_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{"is_active": false}'`}
+                          />
+                        </TabsContent>
+                      </Tabs>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <ExternalLink className="w-5 h-5 text-red-600" />
+                        Remover Webhook
+                      </CardTitle>
+                      <CardDescription>DELETE /webhook-subscriptions/{"{id}"}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-gray-600">Remove um webhook cadastrado do seu merchant.</p>
+                      <Tabs defaultValue="response" className="mb-8">
+                        <TabsList>
+                          <TabsTrigger value="response">Response</TabsTrigger>
+                          <TabsTrigger value="curl">cURL Example</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="response">
+                          <CodeBlock language="json" code={`{
+  "success": true
+}`} />
+                        </TabsContent>
+                        <TabsContent value="curl">
+                          <CodeBlock
+                            code={`curl -s -X DELETE https://connect.reportei.com/api/webhook-subscriptions/12 \\
+  -H "Authorization: Bearer $ACCESS_TOKEN"`}
+                          />
+                        </TabsContent>
+                      </Tabs>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-amber-50 border-amber-200">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Lock className="w-5 h-5 text-amber-600" />
+                        Verificando a autenticidade das notificações
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-gray-700">
+                        Toda requisição enviada para a sua <code className="bg-white px-2 py-1 rounded">url</code>{" "}
+                        cadastrada inclui os headers{" "}
+                        <code className="bg-white px-2 py-1 rounded">x-api-token</code> e{" "}
+                        <code className="bg-white px-2 py-1 rounded">x-api-signature</code>, permitindo validar que a
+                        notificação realmente veio do Reportei Connect antes de processá-la.
+                      </p>
+                      <p className="text-gray-700">
+                        O header <code className="bg-white px-2 py-1 rounded">x-api-signature</code> tem o formato{" "}
+                        <code className="bg-white px-2 py-1 rounded">t=&#123;timestamp&#125;,s=&#123;assinatura&#125;</code>
+                        , onde a assinatura é um HMAC-SHA256 de <code className="bg-white px-2 py-1 rounded">{"{timestamp}{client_id}"}</code>{" "}
+                        usando o seu <code className="bg-white px-2 py-1 rounded">client_secret</code> como chave.
+                        Recalcule esse hash do seu lado e compare com o valor recebido para confirmar a autenticidade.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </main>
           </div>
