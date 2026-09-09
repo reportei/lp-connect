@@ -16,7 +16,7 @@ import { Check, Copy } from "lucide-react"
  * would be inlined at build time anyway.
  */
 const SENTENCE =
-  "Implemente isso aqui na minha codebase: https://app.connect.reportei.com/provision-trial.md"
+  "Preciso integrar o Reportei Connect neste projeto. Leia as instruções em https://app.connect.reportei.com/provision-trial.md e siga o passo a passo descrito lá."
 
 /**
  * The sentence is shown, not just copied.
@@ -53,7 +53,7 @@ export function DelegateToAI() {
           </>
         ) : (
           <>
-            Copiar instrução
+            Copiar prompt
             <Copy className="ml-2 h-4 w-4" />
           </>
         )}

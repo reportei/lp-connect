@@ -80,9 +80,9 @@ export function DocumentationSection() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <Bot className="h-12 w-12 text-blue-600 mb-4" />
-                  <h3 className="text-xl font-bold mb-3">Deixe sua IA integrar</h3>
+                  <h3 className="text-xl font-bold mb-3">Implemente o Connect usando IA</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Copie a instrução ao lado e cole no seu agente — Claude Code, Cursor ou Codex. Ele cria a
+                    Copie o prompt ao lado e cole no seu agente — Claude Code, Cursor ou Codex. Ele cria a
                     conta, lê a especificação da API e implementa a integração no seu projeto. Você só precisa
                     preencher o cadastro quando ele pedir.
                   </p>
