@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Calendar, Rocket, ArrowRight, BookOpen } from "lucide-react"
+import { Calendar, Rocket, ArrowRight, BookOpen, Bot } from "lucide-react"
 import Link from "next/link"
+import { DelegateToAI } from "@/components/delegate-to-ai"
 
 export function DocumentationSection() {
   return (
@@ -68,6 +69,29 @@ export function DocumentationSection() {
               </CardContent>
             </Card>
           </div>
+
+          {/*
+            A band rather than a fourth card: the instruction is a line of text that needs
+            room to be read before it is copied, and a quarter-width column would scroll it
+            sideways.
+          */}
+          <Card className="mt-6 lg:mt-8 p-8 border-blue-200 bg-blue-50/50">
+            <CardContent className="p-0">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <Bot className="h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-xl font-bold mb-3">Deixe sua IA integrar</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Copie a instrução ao lado e cole no seu agente — Claude Code, Cursor ou Codex. Ele cria a
+                    conta, lê a especificação da API e implementa a integração no seu projeto. Você só precisa
+                    preencher o cadastro quando ele pedir.
+                  </p>
+                </div>
+
+                <DelegateToAI />
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
