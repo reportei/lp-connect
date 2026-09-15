@@ -37,7 +37,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
-              <Link href="/teste-gratuito">Teste Gratuitamente</Link>
+              <a href="https://app.connect.reportei.com/login">Teste Gratuitamente</a>
             </Button>
           </div>
 
@@ -69,7 +69,7 @@ export function Header() {
             </Link>
             <div className="pt-4">
               <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700" asChild>
-                <Link href="/teste-gratuito">Teste Gratuitamente</Link>
+                <a href="https://app.connect.reportei.com/login">Teste Gratuitamente</a>
               </Button>
             </div>
           </nav>

@@ -72,7 +72,7 @@ export default function DocumentacaoPage() {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 asChild
               >
-                <a href="/teste-gratuito">
+                <a href="https://app.connect.reportei.com/login">
                   <Zap className="mr-2 w-4 h-4" />
                   Testar API Gratuitamente
                 </a>

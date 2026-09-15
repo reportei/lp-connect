@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { Calendar, Rocket } from "lucide-react"
-import Link from "next/link"
 
 export function DemoCTASection() {
   return (
@@ -41,7 +40,7 @@ export function DemoCTASection() {
 
                 <div className="space-y-3">
                   <Button size="lg" className="w-full justify-start text-left h-auto py-4" asChild>
-                    <Link href="/teste-gratuito">
+                    <a href="https://app.connect.reportei.com/login">
                       <div className="flex items-start gap-3">
                         <Rocket className="h-5 w-5 mt-0.5 flex-shrink-0" />
                         <div>
@@ -49,7 +48,7 @@ export function DemoCTASection() {
                           <div className="text-sm opacity-90 font-normal">Experimente agora sem compromisso</div>
                         </div>
                       </div>
-                    </Link>
+                    </a>
                   </Button>
 
                   <Button

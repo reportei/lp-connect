@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -26,10 +25,10 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="text-base px-8 bg-blue-600 hover:bg-blue-700" asChild>
-                <Link href="/teste-gratuito">
+                <a href="https://app.connect.reportei.com/login">
                   Teste Gratuitamente
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8 bg-transparent" asChild>
                 <a href="https://calendly.com/felipe-reportei/30min" target="_blank" rel="noopener noreferrer">
