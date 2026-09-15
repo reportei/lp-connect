@@ -41,10 +41,10 @@ export function DocumentationSection() {
                   Experimente todas as funcionalidades sem compromisso
                 </p>
                 <Button className="bg-blue-600 hover:bg-blue-700 w-full" size="lg" asChild>
-                  <Link href="/teste-gratuito" className="flex items-center justify-center">
+                  <a href="https://app.connect.reportei.com/login" className="flex items-center justify-center">
                     Iniciar teste
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </CardContent>
             </Card>
