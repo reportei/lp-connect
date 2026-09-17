@@ -6,6 +6,7 @@ import { BenefitsSection } from "@/components/benefits-section"
 import { DemoCTASection } from "@/components/demo-cta-section"
 import { NetworksSection } from "@/components/networks-section"
 import { CaseStudySection } from "@/components/case-study-section"
+import { PlansPricingSection } from "@/components/plans-pricing-section"
 import { DocumentationSection } from "@/components/documentation-section"
 import { Footer } from "@/components/footer"
 
@@ -21,6 +22,7 @@ export default function HomePage() {
         <DemoCTASection />
         <NetworksSection />
         <CaseStudySection />
+        <PlansPricingSection />
         <DocumentationSection />
       </main>
       <Footer />
