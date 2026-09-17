@@ -30,6 +30,9 @@ export function Header() {
             <a href="/#case-study" className="text-sm font-medium hover:text-primary transition-colors">
               Cases
             </a>
+            <a href="/#precos" className="text-sm font-medium hover:text-primary transition-colors">
+              Planos e preços
+            </a>
             <Link href="/documentacao" className="text-sm font-medium hover:text-primary transition-colors">
               Documentação
             </Link>
@@ -63,6 +66,9 @@ export function Header() {
             </a>
             <a href="/#case-study" className="block text-sm font-medium hover:text-primary transition-colors">
               Cases
+            </a>
+            <a href="/#precos" className="block text-sm font-medium hover:text-primary transition-colors">
+              Planos e preços
             </a>
             <Link href="/documentacao" className="block text-sm font-medium hover:text-primary transition-colors">
               Documentação
