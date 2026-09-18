@@ -84,7 +84,7 @@ export default function ObrigadoPage() {
               </CardHeader>
               <CardContent>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-                  <a href="https://lp.connect.reportei.com/documentacao" target="_blank" rel="noopener noreferrer">
+                  <a href="https://developers.reportei.com/connect" target="_blank" rel="noopener noreferrer">
                     Acessar documentação
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
