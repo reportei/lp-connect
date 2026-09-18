@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, Rocket, ArrowRight, BookOpen, Bot } from "lucide-react"
-import Link from "next/link"
 import { DelegateToAI } from "@/components/delegate-to-ai"
 
 export function DocumentationSection() {
@@ -26,10 +25,10 @@ export function DocumentationSection() {
                   Explore todos os endpoints, exemplos de código e guias de integração
                 </p>
                 <Button variant="outline" className="w-full bg-transparent" size="lg" asChild>
-                  <Link href="/documentacao" className="flex items-center justify-center">
+                  <a href="https://developers.reportei.com/connect" className="flex items-center justify-center">
                     Ver documentação
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </CardContent>
             </Card>

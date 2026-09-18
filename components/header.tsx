@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import Link from "next/link"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -33,9 +32,9 @@ export function Header() {
             <a href="/#precos" className="text-sm font-medium hover:text-primary transition-colors">
               Planos e preços
             </a>
-            <Link href="/documentacao" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="https://developers.reportei.com/connect" className="text-sm font-medium hover:text-primary transition-colors">
               Documentação
-            </Link>
+            </a>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -70,9 +69,9 @@ export function Header() {
             <a href="/#precos" className="block text-sm font-medium hover:text-primary transition-colors">
               Planos e preços
             </a>
-            <Link href="/documentacao" className="block text-sm font-medium hover:text-primary transition-colors">
+            <a href="https://developers.reportei.com/connect" className="block text-sm font-medium hover:text-primary transition-colors">
               Documentação
-            </Link>
+            </a>
             <div className="pt-4">
               <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700" asChild>
                 <a href="https://app.connect.reportei.com/login">Teste Gratuitamente</a>
