@@ -47,7 +47,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/documentacao" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://developers.reportei.com/connect" className="text-muted-foreground hover:text-foreground transition-colors">
                   API
                 </a>
               </li>
@@ -85,7 +85,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Desenvolvedores</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/documentacao" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://developers.reportei.com/connect" className="text-muted-foreground hover:text-foreground transition-colors">
                   Documentação
                 </a>
               </li>
