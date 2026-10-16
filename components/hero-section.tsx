@@ -44,7 +44,7 @@ export function HeroSection() {
           <div className="mb-5 flex items-baseline justify-between gap-4">
             <p className="text-base font-semibold">Por dentro do Connect</p>
             <a
-              href="/images/explorer/explorer_metrics_catalog.png"
+              href="/images/explorer/explorer_meta_ads_code.webp"
               target="_blank"
               rel="noopener noreferrer"
               className="lp-link whitespace-nowrap text-xs"
@@ -54,14 +54,14 @@ export function HeroSection() {
             </a>
           </div>
           <img
-            src="/images/explorer/explorer_metrics_catalog.png"
-            alt="Interface real do Explorer: conta conectada e seleção das métricas que serão consultadas."
-            width={796}
-            height={815}
+            src="/images/explorer/explorer_meta_ads_code.webp"
+            alt="Interface real do Explorer: métrica de alcance do Meta Ads selecionada, com o payload enviado e a resposta da API."
+            width={2000}
+            height={1195}
             fetchPriority="high"
           />
           <figcaption className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Explore as métricas de cada conta antes de levar a consulta para o seu código.
+            Escolha as métricas, veja a resposta real da API e copie o código em cURL, Node.js, Python ou PHP.
           </figcaption>
         </figure>
       </div>

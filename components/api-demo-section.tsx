@@ -90,38 +90,33 @@ function Panel({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function MetricTile({ label, value, delta }: { label: string; value: string; delta: string }) {
-  return (
-    <div className="rounded-lg border p-4">
-      <p className="text-sm text-muted-foreground">{label}</p>
-      <p className="mt-1 text-3xl font-semibold tracking-tight">{value}</p>
-      <p className="mt-1 text-xs font-medium text-emerald-700">{delta} vs. período anterior</p>
-    </div>
-  )
-}
-
 function MetricsResult() {
   return (
     <div className="flex flex-col gap-3">
       <Code
-        text={`200 OK
+        text={`200 OK · 1629 ms
 
 {
   "data": {
-    "cb669cf6-…": { "value": 48210, "previous_value": 39875 },
-    "20337d4a-…": { "value": 3184, "previous_value": 2833 }
+    "88ad8a15-6e29-4f54-a18c-ef944ff1ee01": {
+      "reference_key": "fb_ads:reach",
+      "values": "46847",
+      "trend": { "data": [] },
+      "comparison": { "values": null }
+    }
   }
 }`}
       />
       <ArrowDown className="mx-auto h-4 w-4 text-muted-foreground" aria-hidden="true" />
       <Panel title="No seu produto">
         <div className="mb-4 flex items-center gap-2 text-sm font-medium">
-          <img src="/images/integrations/youtube.svg" alt="" className="h-5 w-5" />
-          Canal do seu cliente · setembro
+          <img src="/images/integrations/meta_ads.svg" alt="" className="h-5 w-5" />
+          Meta Ads do seu cliente · setembro
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <MetricTile label="Visualizações" value="48.210" delta="+20,9%" />
-          <MetricTile label="Curtidas" value="3.184" delta="+12,4%" />
+        <div className="rounded-lg border p-4">
+          <p className="text-sm text-muted-foreground">Alcance total</p>
+          <p className="mt-1 text-3xl font-semibold tracking-tight">46.847</p>
+          <p className="mt-1 text-xs text-muted-foreground">pessoas viram os anúncios pelo menos uma vez</p>
         </div>
       </Panel>
     </div>
@@ -175,27 +170,21 @@ const CAPABILITIES: Capability[] = [
       {
         label: "Consultar",
         title: "Peça as métricas de uma conta conectada",
-        body: "Você escolhe a conexão, o período e as métricas. O Connect busca na plataforma e devolve o valor do período e o do período anterior.",
+        body: "Você escolhe a conexão, o período e as métricas. O Connect busca na plataforma e devolve os valores no mesmo formato para qualquer integração.",
         request: `POST /metrics/get-data
 Authorization: Bearer <chave da sua conta>
 x-customer-token: <token do cliente>
 
 {
-  "customer_integration": "d443741f-02e6-4e6e-a520-f141168b27fa",
+  "customer_integration": "1ce9fd68-e1ad-4c4a-96fd-b18267256cc4",
   "start": "2026-09-01",
   "end": "2026-09-30",
   "metrics": [
     {
-      "id": "cb669cf6-a320-4e9b-a74e-b48fee64de38",
-      "reference_key": "youtube:views",
+      "id": "88ad8a15-6e29-4f54-a18c-ef944ff1ee01",
+      "reference_key": "fb_ads:reach",
       "component": "number_v1",
-      "metrics": ["views"]
-    },
-    {
-      "id": "20337d4a-5101-4b9c-8864-8821ba3a5875",
-      "reference_key": "youtube:likes",
-      "component": "number_v1",
-      "metrics": ["likes"]
+      "metrics": ["reach"]
     }
   ]
 }`,
