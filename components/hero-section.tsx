@@ -4,14 +4,14 @@ import { INTEGRATIONS } from "@/lib/integrations"
 export function HeroSection() {
   return (
     <section className="lp-hero">
-      <div className="lp-container">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <h1 className="lp-hero-title max-w-[16ch]">Dados de {INTEGRATIONS.length} plataformas, no seu produto.</h1>
-          <p className="lp-copy mt-7 max-w-2xl">
+      <div className="lp-container grid items-center gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
+        <div>
+          <h1 className="lp-hero-title lg:text-[clamp(2.6rem,4vw,3.9rem)]">Dados de {INTEGRATIONS.length} plataformas, no seu produto.</h1>
+          <p className="lp-copy mt-7 max-w-lg">
             Conecte as contas de marketing, CRM e e-commerce dos seus clientes. Acesse as métricas em uma única API e
             crie suas próprias análises, relatórios e dashboards.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-5">
+          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-5">
             <a href="https://app.connect.reportei.com/signup" className="lp-button">
               Começar teste grátis
             </a>
@@ -26,7 +26,7 @@ export function HeroSection() {
           </div>
           <p className="mt-5 text-sm text-muted-foreground">15 dias para testar. Sem cartão de crédito.</p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-sm">
+          <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 border-t pt-6 text-sm">
             <span className="text-muted-foreground">Implemente com</span>
             <AgentLogos />
             <a href="#ia" className="lp-link">
@@ -35,7 +35,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <figure className="lp-product-figure mx-auto mt-14 max-w-6xl">
+        <figure className="lp-product-figure min-w-0">
           <div className="mb-5 flex items-baseline justify-between gap-4">
             <p className="text-base font-semibold">Por dentro do Connect</p>
             <a

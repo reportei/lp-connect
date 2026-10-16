@@ -14,7 +14,6 @@ type Step = {
 type Capability = {
   key: string
   label: string
-  soon?: boolean
   steps: Step[]
 }
 
@@ -294,44 +293,158 @@ Idempotency-Key: 9b3e7d10-bf-budget
   {
     key: "posts",
     label: "Publicações",
-    soon: true,
-    steps: [],
+    steps: [
+      {
+        label: "Publicar",
+        title: "Publique no Instagram do seu cliente",
+        body: "Você manda a legenda e a mídia. O Connect sobe o conteúdo pela conta que o cliente já conectou e cuida da publicação.",
+        request: `POST /posts
+Idempotency-Key: post-2026-10-08-001-v1
+
+{
+  "integration_slug": "instagram_business",
+  "source_name": "minha_marca",
+  "external_reference": "post-2026-10-08-001",
+  "format": "feed",
+  "caption": "Coleção de verão #verao",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://cdn.example.com/posts/colecao.jpg"
+    }
+  ],
+  "instagram": { "first_comment": "Link na bio!" }
+}`,
+        result: (
+          <SocialPost
+            network="instagram"
+            status={
+              <Badge tone="amber">
+                <Clock className="h-3 w-3" aria-hidden="true" />
+                Publicando
+              </Badge>
+            }
+          />
+        ),
+      },
+      {
+        label: "Acompanhar",
+        title: "Saiba quando o post foi ao ar",
+        body: "Consulte pelo uuid ou pela sua própria referência. A resposta traz o status de cada mídia e o link do post publicado.",
+        request: `GET /posts/9f1c2b7e-1d3a-4c55-9a8e-2f6b0c1d4e5f
+
+{
+  "post": {
+    "status": "published",
+    "permalink": "https://www.instagram.com/p/DePI16BER0c/",
+    "publishing": {
+      "status": "published",
+      "published_at": "2026-10-08 14:00:42"
+    }
+  }
+}`,
+        result: (
+          <SocialPost
+            network="instagram"
+            published
+            status={
+              <Badge tone="green">
+                <Check className="h-3 w-3" aria-hidden="true" />
+                Publicado
+              </Badge>
+            }
+          />
+        ),
+      },
+      {
+        label: "Facebook",
+        title: "A mesma chamada para a página do Facebook",
+        body: "Troque a integração e o mesmo formato publica na página do cliente. Você não aprende uma API nova por rede.",
+        request: `POST /posts
+Idempotency-Key: post-2026-10-08-002-v1
+
+{
+  "integration_slug": "facebook",
+  "source_name": "Minha Marca",
+  "external_reference": "post-2026-10-08-002",
+  "format": "feed",
+  "caption": "Coleção de verão chegando às lojas",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://cdn.example.com/posts/colecao.jpg"
+    }
+  ]
+}`,
+        result: (
+          <SocialPost
+            network="facebook"
+            published
+            status={
+              <Badge tone="green">
+                <Check className="h-3 w-3" aria-hidden="true" />
+                Publicado
+              </Badge>
+            }
+          />
+        ),
+      },
+    ],
   },
 ]
 
-function PostsSoon() {
-  const rows = [
-    { logo: "/images/integrations/instagram_business.svg", name: "Instagram", kind: "Post no feed" },
-    { logo: "/images/integrations/facebook.svg", name: "Facebook", kind: "Post na página" },
-  ]
+function SocialPost({
+  network,
+  status,
+  published = false,
+}: {
+  network: "instagram" | "facebook"
+  status: ReactNode
+  published?: boolean
+}) {
+  const instagram = network === "instagram"
 
   return (
-    <div className="grid items-center gap-10 lg:grid-cols-2">
-      <div>
-        <Badge tone="gray">Em breve</Badge>
-        <h3 className="mt-4 text-2xl font-semibold tracking-tight">Publique nas redes dos seus clientes</h3>
-        <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">
-          Envie o conteúdo uma vez e acompanhe o status da publicação em cada rede, pela mesma API e com as mesmas
-          contas que seus clientes já conectaram.
-        </p>
+    <Panel title={instagram ? "No Instagram do seu cliente" : "Na página do seu cliente"}>
+      <div className="overflow-hidden rounded-lg border">
+        <div className="flex items-center justify-between gap-3 p-3">
+          <div className="flex items-center gap-2.5">
+            <span className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-[#7039f3] to-[#070e4d] text-xs font-semibold text-white">
+              MM
+            </span>
+            <div>
+              <p className="text-sm font-semibold">{instagram ? "minha_marca" : "Minha Marca"}</p>
+              <p className="text-xs text-muted-foreground">{published ? "Agora" : "Enviando…"}</p>
+            </div>
+          </div>
+          <img
+            src={instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg"}
+            alt=""
+            className="h-5 w-5"
+          />
+        </div>
+        {!instagram && <p className="px-3 pb-3 text-sm">Coleção de verão chegando às lojas</p>}
+        <div
+          className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-[#ffb36b] via-[#ff6f91] to-[#7039f3] text-2xl font-semibold text-white ${published ? "" : "opacity-60"}`}
+        >
+          Coleção de verão
+        </div>
+        {instagram && (
+          <div className="space-y-1 p-3 text-sm">
+            <p>
+              <span className="font-semibold">minha_marca</span> Coleção de verão #verao
+            </p>
+            <p className="text-muted-foreground">
+              <span className="font-semibold text-foreground">minha_marca</span> Link na bio!
+            </p>
+          </div>
+        )}
       </div>
-      <Panel title="Status da publicação">
-        <ul className="divide-y">
-          {rows.map((row) => (
-            <li key={row.name} className="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
-              <div className="flex items-center gap-3">
-                <img src={row.logo} alt="" className="h-6 w-6" />
-                <div>
-                  <p className="text-sm font-medium">{row.name}</p>
-                  <p className="text-xs text-muted-foreground">{row.kind}</p>
-                </div>
-              </div>
-              <Badge tone="gray">Em breve</Badge>
-            </li>
-          ))}
-        </ul>
-      </Panel>
-    </div>
+      <div className="mt-4 flex items-center justify-between gap-3">
+        {status}
+        {published && <span className="text-xs text-muted-foreground">{instagram ? "instagram.com/p/DePI16BER0c" : "facebook.com/minhamarca"}</span>}
+      </div>
+    </Panel>
   )
 }
 
@@ -371,15 +484,12 @@ export function ApiDemoSection() {
               }`}
             >
               {c.label}
-              {c.soon && <span className="ml-2 text-xs opacity-80">em breve</span>}
             </button>
           ))}
         </div>
 
         <div role="tabpanel" className="mt-8">
-          {capability.soon || !step ? (
-            <PostsSoon />
-          ) : (
+          {step && (
             <>
               {capability.steps.length > 1 && (
                 <ol className="mb-8 grid gap-3 sm:grid-cols-3">

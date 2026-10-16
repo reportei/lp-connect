@@ -14,8 +14,8 @@ const PRODUCT: Question[] = [
           consultar as métricas delas por uma única API.
         </p>
         <p>
-          No Meta Ads, também dá para criar e gerenciar campanhas, conjuntos e anúncios na conta do seu cliente. A
-          publicação em redes sociais está a caminho.
+          Também dá para publicar no Instagram e no Facebook dos seus clientes e, no Meta Ads, criar e gerenciar
+          campanhas, conjuntos e anúncios, tudo pelas mesmas contas conectadas.
         </p>
       </>
     ),
