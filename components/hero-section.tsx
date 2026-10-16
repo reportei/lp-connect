@@ -1,4 +1,5 @@
 import { AgentLogos } from "@/components/agent-logos"
+import { ProductShots } from "@/components/product-shots"
 import { INTEGRATIONS } from "@/lib/integrations"
 
 export function HeroSection() {
@@ -35,30 +36,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <figure className="lp-product-figure min-w-0">
-          <div className="mb-5 flex items-baseline justify-between gap-4">
-            <p className="text-base font-semibold">Por dentro do Connect</p>
-            <a
-              href="/images/explorer/explorer_meta_ads_code.webp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="lp-link whitespace-nowrap text-xs"
-              aria-label="Ampliar captura do Explorer em nova aba"
-            >
-              Ampliar tela
-            </a>
-          </div>
-          <img
-            src="/images/explorer/explorer_meta_ads_code.webp"
-            alt="Interface real do Explorer: métrica de alcance do Meta Ads selecionada, com o payload enviado e a resposta da API."
-            width={2000}
-            height={1195}
-            fetchPriority="high"
-          />
-          <figcaption className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Escolha as métricas, veja a resposta real da API e copie o código em cURL, Node.js, Python ou PHP.
-          </figcaption>
-        </figure>
+        <ProductShots />
       </div>
     </section>
   )
