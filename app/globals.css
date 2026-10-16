@@ -76,7 +76,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-dm-sans), Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -123,4 +123,161 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Landing page palette and type scale, scoped so /documentacao keeps the old tokens.
+   Layered as components so utilities on the same element still win. */
+@layer components {
+.connect-page {
+  --background: #fff;
+  --foreground: #070e4d;
+  --primary: #7039f3;
+  --primary-foreground: #fff;
+  --muted: #f5f3fc;
+  --muted-foreground: #626578;
+  --card: #fff;
+  --card-foreground: #070e4d;
+  --border: #e5e3ec;
+  --input: #e5e3ec;
+  --ring: #7039f3;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.connect-page section[id] {
+  scroll-margin-top: 88px;
+}
+
+.lp-container {
+  width: 100%;
+  max-width: 1248px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.lp-section {
+  padding-block: 96px;
+}
+
+.lp-eyebrow {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.lp-title {
+  letter-spacing: -0.04em;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.lp-copy {
+  max-width: 62ch;
+  color: var(--muted-foreground);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.lp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.15s;
+}
+
+.lp-button:hover {
+  background: #5b28d4;
+}
+
+.lp-link {
+  font-weight: 500;
+  text-decoration: underline #bab7ca;
+  text-underline-offset: 5px;
+}
+
+.lp-link:hover {
+  color: var(--primary);
+  text-decoration-color: currentColor;
+}
+
+.lp-button:focus-visible,
+.lp-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.lp-hero {
+  padding-block: 76px 64px;
+}
+
+.lp-hero-title {
+  max-width: 10.7ch;
+  letter-spacing: -0.055em;
+  font-size: clamp(2.9rem, 5.2vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.lp-product-figure {
+  background: var(--muted);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.lp-product-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.lp-client-logo {
+  width: auto;
+  max-width: 100%;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+/* The code panels mirror the dark payload block of the Explorer. */
+.lp-code {
+  background: #0f1229;
+  color: #e6e8f5;
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+  .lp-container {
+    padding-inline: 20px;
+  }
+  .lp-section {
+    padding-block: 64px;
+  }
+  .lp-hero {
+    padding-block: 44px 48px;
+  }
+  .lp-hero-title {
+    max-width: 13ch;
+  }
+  .lp-product-figure {
+    padding: 18px;
+  }
+  .lp-copy {
+    font-size: 17px;
+  }
+}
 }

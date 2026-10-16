@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Check, Copy } from "lucide-react"
 
 /**
@@ -40,24 +39,27 @@ export function DelegateToAI() {
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-xs leading-relaxed text-left">
+    <div className="flex min-w-0 flex-col items-start gap-4">
+      <pre className="w-full whitespace-pre-wrap break-all rounded-md border bg-muted/40 p-4 text-left text-sm leading-relaxed">
         <code>{SENTENCE}</code>
       </pre>
 
-      <Button className="bg-blue-600 hover:bg-blue-700 w-full" size="lg" onClick={copy}>
+      <button type="button" className="lp-button" onClick={copy}>
         {copied ? (
           <>
+            <Check className="h-4 w-4" />
             Copiado!
-            <Check className="ml-2 h-4 w-4" />
           </>
         ) : (
           <>
+            <Copy className="h-4 w-4" />
             Copiar prompt
-            <Copy className="ml-2 h-4 w-4" />
           </>
         )}
-      </Button>
+      </button>
+      <p role="status" className="sr-only">
+        {copied ? "Prompt copiado" : ""}
+      </p>
     </div>
   )
 }
