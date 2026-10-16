@@ -20,7 +20,7 @@ export function Header() {
       <div className="lp-container">
         <div className="flex h-20 items-center justify-between">
           <a href="/" className="flex items-center">
-            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-12 w-auto" />
+            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-10 w-auto" />
           </a>
 
           <nav className="hidden xl:flex items-center gap-7">
