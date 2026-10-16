@@ -11,6 +11,8 @@ Landing page do Reportei Connect, com página de documentação e formulário de
 
 ## Deploy
 
+> **Para publicar, basta mergear o PR na `main`.** O deploy roda sozinho a partir daí: não rode `wrangler` nem `npm run deploy` para subir uma mudança.
+
 O deploy sobe o conteúdo de `out/` para o Worker `lp-connect` via Wrangler. A configuração está em `wrangler.toml` (nome do Worker, conta e pasta de assets) e o comando em `package.json` (script `deploy`).
 
 ### Automático (padrão)
