@@ -1,18 +1,17 @@
+import { AgentLogos } from "@/components/agent-logos"
 import { INTEGRATIONS } from "@/lib/integrations"
-
-const AGENTS = ["Claude Code", "Cursor", "Codex"]
 
 export function HeroSection() {
   return (
     <section className="lp-hero">
-      <div className="lp-container grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        <div>
-          <h1 className="lp-hero-title">Dados de {INTEGRATIONS.length} plataformas, no seu produto.</h1>
-          <p className="lp-copy mt-7 max-w-lg">
+      <div className="lp-container">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <h1 className="lp-hero-title max-w-[16ch]">Dados de {INTEGRATIONS.length} plataformas, no seu produto.</h1>
+          <p className="lp-copy mt-7 max-w-2xl">
             Conecte as contas de marketing, CRM e e-commerce dos seus clientes. Acesse as métricas em uma única API e
             crie suas próprias análises, relatórios e dashboards.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-5">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-5">
             <a href="https://app.connect.reportei.com/signup" className="lp-button">
               Começar teste grátis
             </a>
@@ -27,20 +26,16 @@ export function HeroSection() {
           </div>
           <p className="mt-5 text-sm text-muted-foreground">15 dias para testar. Sem cartão de crédito.</p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t pt-6 text-sm">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-sm">
             <span className="text-muted-foreground">Implemente com</span>
-            {AGENTS.map((agent) => (
-              <span key={agent} className="rounded-md border bg-white px-2.5 py-1 font-medium">
-                {agent}
-              </span>
-            ))}
-            <a href="#ia" className="lp-link ml-1">
+            <AgentLogos />
+            <a href="#ia" className="lp-link">
               Ver o prompt
             </a>
           </div>
         </div>
 
-        <figure className="lp-product-figure min-w-0">
+        <figure className="lp-product-figure mx-auto mt-14 max-w-6xl">
           <div className="mb-5 flex items-baseline justify-between gap-4">
             <p className="text-base font-semibold">Por dentro do Connect</p>
             <a

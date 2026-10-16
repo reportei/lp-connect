@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { AgentLogos } from "@/components/agent-logos"
 import { DelegateToAI } from "@/components/delegate-to-ai"
 
 // Mirrors the steps provision-trial.md tells the agent to follow, in that order.
@@ -44,6 +45,9 @@ export function AiSection() {
               Copie o prompt e cole no Claude Code, Cursor ou Codex. Ele orienta o agente a abrir o seu cadastro, ler a
               especificação da API e implementar a integração no backend do seu projeto.
             </p>
+            <div className="mt-6">
+              <AgentLogos withNames />
+            </div>
             <div className="mt-8">
               <DelegateToAI />
             </div>
