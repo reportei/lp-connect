@@ -568,10 +568,10 @@ export function ApiDemoSection() {
                         type="button"
                         onClick={() => setStepIndex(i)}
                         aria-current={i === stepIndex ? "step" : undefined}
-                        className={`w-full border-t-2 pt-3 text-left text-sm transition-colors ${
+                        className={`w-full border-t-2 pt-3 text-left text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
                           i === stepIndex
                             ? "border-primary font-semibold text-foreground"
-                            : "border-border text-muted-foreground hover:text-foreground"
+                            : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
                         }`}
                       >
                         <span className="mr-2 text-primary">{i + 1}</span>
