@@ -1,82 +1,76 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+
+const NAV = [
+  { href: "/#na-pratica", label: "Na prática" },
+  { href: "/#networks", label: "Integrações" },
+  { href: "/#clientes", label: "Clientes" },
+  { href: "/#ia", label: "Com IA" },
+  { href: "/#precos", label: "Preços" },
+  { href: "https://developers.reportei.com/connect", label: "Documentação" },
+]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-14 w-auto" />
-          </div>
+    <header className="connect-page sticky top-0 z-50 w-full border-b bg-white">
+      <div className="lp-container">
+        <div className="flex h-20 items-center justify-between">
+          <a href="/" className="flex items-center">
+            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-10 w-auto" />
+          </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="/#what-is" className="text-sm font-medium hover:text-primary transition-colors">
-              O que é
-            </a>
-            <a href="/#how-it-works" className="text-sm font-medium hover:text-primary transition-colors">
-              Como funciona
-            </a>
-            <a href="/#networks" className="text-sm font-medium hover:text-primary transition-colors">
-              Redes
-            </a>
-            <a href="/#case-study" className="text-sm font-medium hover:text-primary transition-colors">
-              Cases
-            </a>
-            <a href="/#precos" className="text-sm font-medium hover:text-primary transition-colors">
-              Planos e preços
-            </a>
-            <a href="https://developers.reportei.com/connect" className="text-sm font-medium hover:text-primary transition-colors">
-              Documentação
-            </a>
+          <nav className="hidden xl:flex items-center gap-7">
+            {NAV.map((item) => (
+              <a key={item.href} href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
-              <a href="https://app.connect.reportei.com/login">Teste Gratuitamente</a>
-            </Button>
+          <div className="hidden xl:flex items-center gap-5">
+            <a href="https://app.connect.reportei.com/login" className="text-sm font-medium hover:text-primary">
+              Entrar
+            </a>
+            <a href="https://app.connect.reportei.com/signup" className="lp-button min-h-10 px-4 py-2 text-sm">
+              Começar teste grátis
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            type="button"
+            className="xl:hidden inline-flex size-10 items-center justify-center rounded-md hover:bg-muted"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t bg-background">
-          <nav className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-4 space-y-4">
-            <a href="/#what-is" className="block text-sm font-medium hover:text-primary transition-colors">
-              O que é
+        <div className="xl:hidden border-t bg-white">
+          <nav className="lp-container flex flex-col gap-4 py-5">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-base font-medium hover:text-primary"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a href="https://app.connect.reportei.com/login" className="text-base font-medium hover:text-primary">
+              Entrar
             </a>
-            <a href="/#how-it-works" className="block text-sm font-medium hover:text-primary transition-colors">
-              Como funciona
+            <a href="https://app.connect.reportei.com/signup" className="lp-button mt-2 w-full">
+              Começar teste grátis
             </a>
-            <a href="/#networks" className="block text-sm font-medium hover:text-primary transition-colors">
-              Redes
-            </a>
-            <a href="/#case-study" className="block text-sm font-medium hover:text-primary transition-colors">
-              Cases
-            </a>
-            <a href="/#precos" className="block text-sm font-medium hover:text-primary transition-colors">
-              Planos e preços
-            </a>
-            <a href="https://developers.reportei.com/connect" className="block text-sm font-medium hover:text-primary transition-colors">
-              Documentação
-            </a>
-            <div className="pt-4">
-              <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700" asChild>
-                <a href="https://app.connect.reportei.com/login">Teste Gratuitamente</a>
-              </Button>
-            </div>
           </nav>
         </div>
       )}

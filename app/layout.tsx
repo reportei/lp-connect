@@ -1,15 +1,24 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { DM_Sans } from "next/font/google"
 import { Suspense } from "react"
 import "./globals.css"
 
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" })
+
 export const metadata: Metadata = {
-  title: "Reportei Connect - Integração de Dados de Marketing",
+  title: "Reportei Connect | Dados de 50 plataformas em uma API",
   description:
-    "Conecte mais de 25 redes de marketing em seu sistema sem desenvolvimento complexo. Google Ads, Meta Ads, LinkedIn Ads e muito mais.",
-  generator: "v0.app",
+    "Conecte as contas de marketing, CRM e e-commerce dos seus clientes e acesse as métricas de 50 plataformas por uma única API.",
+  // Same Reportei mark the Connect app uses, so the tab looks the same on both.
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: { url: "/favicons/apple-touch-icon.png", sizes: "180x180" },
+    other: [{ rel: "mask-icon", url: "/favicons/safari-pinned-tab.svg", color: "#2f64e0" }],
   },
 }
 
@@ -20,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans">
+      <body className={`${dmSans.variable} font-sans`}>
         <Suspense fallback={null}>{children}</Suspense>
       </body>
     </html>
