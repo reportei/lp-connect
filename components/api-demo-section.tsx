@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, type ReactNode } from "react"
-import { ArrowDown, Check, Clock } from "lucide-react"
+import { ArrowDown, Bookmark, Check, Clock, Heart, MessageCircle, Send, Share2, ThumbsUp } from "lucide-react"
 
 type Step = {
   label: string
@@ -393,6 +393,38 @@ Idempotency-Key: post-2026-10-08-002-v1
   },
 ]
 
+/**
+ * Stand-in for the post's photo: a beach scene drawn in SVG, so the mockup reads as a picture
+ * without shipping a stock image.
+ */
+function SummerArt({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#ffd9a8" />
+          <stop offset="1" stopColor="#ff9f8a" />
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#4fb6d6" />
+          <stop offset="1" stopColor="#2a7fb8" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="400" fill="url(#sky)" />
+      <circle cx="285" cy="150" r="58" fill="#fff4d6" />
+      <path d="M0 238 C 70 222 130 252 200 238 S 330 222 400 238 V 300 H 0 Z" fill="url(#sea)" />
+      <path d="M0 262 C 80 250 140 276 210 262 S 340 250 400 262 V 300 H 0 Z" fill="#7fd0e6" opacity="0.6" />
+      <path d="M0 290 C 120 270 260 300 400 282 V 400 H 0 Z" fill="#f6dcb0" />
+      <g transform="translate(92 236)">
+        <path d="M0 64 L 6 -6" stroke="#8a5a3c" strokeWidth="5" strokeLinecap="round" />
+        <path d="M-58 4 Q 6 -58 70 4 Z" fill="#ff5e7e" />
+        <path d="M-58 4 Q -26 -30 6 -6 Q 38 -30 70 4 Q 38 -10 6 -6 Q -26 -10 -58 4 Z" fill="#fff" opacity="0.35" />
+      </g>
+      <rect x="236" y="300" width="70" height="40" rx="6" fill="#ffffff" opacity="0.85" transform="rotate(-8 271 320)" />
+    </svg>
+  )
+}
+
 function SocialPost({
   network,
   status,
@@ -406,31 +438,49 @@ function SocialPost({
 
   return (
     <Panel title={instagram ? "No Instagram do seu cliente" : "Na página do seu cliente"}>
-      <div className="overflow-hidden rounded-lg border">
-        <div className="flex items-center justify-between gap-3 p-3">
-          <div className="flex items-center gap-2.5">
-            <span className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-[#7039f3] to-[#070e4d] text-xs font-semibold text-white">
-              MM
-            </span>
-            <div>
-              <p className="text-sm font-semibold">{instagram ? "minha_marca" : "Minha Marca"}</p>
-              <p className="text-xs text-muted-foreground">{published ? "Agora" : "Enviando…"}</p>
-            </div>
+      <div className="mx-auto max-w-[360px] overflow-hidden rounded-lg border bg-white text-[13px]">
+        <div className="flex items-center gap-2.5 px-3 py-2.5">
+          <span
+            className={`flex size-8 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold text-white ${
+              instagram
+                ? "bg-[#7039f3] ring-2 ring-[#f58529] ring-offset-2"
+                : "bg-[#7039f3]"
+            }`}
+          >
+            MM
+          </span>
+          <div className="min-w-0 flex-1 leading-tight">
+            <p className="font-semibold">{instagram ? "minha_marca" : "Minha Marca"}</p>
+            <p className="text-xs text-muted-foreground">
+              {published ? (instagram ? "Agora" : "Agora · Público") : "Publicando…"}
+            </p>
           </div>
           <img
             src={instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg"}
             alt=""
-            className="h-5 w-5"
+            className="h-4 w-4"
           />
         </div>
-        {!instagram && <p className="px-3 pb-3 text-sm">Coleção de verão chegando às lojas</p>}
-        <div
-          className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-[#ffb36b] via-[#ff6f91] to-[#7039f3] text-2xl font-semibold text-white ${published ? "" : "opacity-60"}`}
-        >
-          Coleção de verão
+
+        {!instagram && <p className="px-3 pb-2.5">Coleção de verão chegando às lojas ☀️</p>}
+
+        <div className={`relative ${instagram ? "aspect-square" : "aspect-[1.91/1]"}`}>
+          <SummerArt className={`absolute inset-0 h-full w-full transition-opacity ${published ? "" : "opacity-50"}`} />
+          {!published && (
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="size-8 animate-spin rounded-full border-[3px] border-white/60 border-t-white" />
+            </span>
+          )}
         </div>
-        {instagram && (
-          <div className="space-y-1 p-3 text-sm">
+
+        {instagram ? (
+          <div className="space-y-1 px-3 py-2.5">
+            <div className="flex items-center gap-3 pb-1 text-foreground">
+              <Heart className="h-5 w-5" aria-hidden="true" />
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              <Send className="h-5 w-5" aria-hidden="true" />
+              <Bookmark className="ml-auto h-5 w-5" aria-hidden="true" />
+            </div>
             <p>
               <span className="font-semibold">minha_marca</span> Coleção de verão #verao
             </p>
@@ -438,11 +488,30 @@ function SocialPost({
               <span className="font-semibold text-foreground">minha_marca</span> Link na bio!
             </p>
           </div>
+        ) : (
+          <div className="flex justify-around border-t px-3 py-2 text-xs font-medium text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <ThumbsUp className="h-4 w-4" aria-hidden="true" />
+              Curtir
+            </span>
+            <span className="flex items-center gap-1.5">
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              Comentar
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Share2 className="h-4 w-4" aria-hidden="true" />
+              Compartilhar
+            </span>
+          </div>
         )}
       </div>
-      <div className="mt-4 flex items-center justify-between gap-3">
+      <div className="mx-auto mt-4 flex max-w-[360px] items-center justify-between gap-3">
         {status}
-        {published && <span className="text-xs text-muted-foreground">{instagram ? "instagram.com/p/DePI16BER0c" : "facebook.com/minhamarca"}</span>}
+        {published && (
+          <span className="truncate text-xs text-muted-foreground">
+            {instagram ? "instagram.com/p/DePI16BER0c" : "facebook.com/minhamarca"}
+          </span>
+        )}
       </div>
     </Panel>
   )

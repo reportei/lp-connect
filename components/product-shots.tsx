@@ -16,10 +16,10 @@ const SHOTS = [
     key: "posts",
     label: "Posts",
     src: "/images/explorer/app_posts.png",
-    width: 1225,
-    height: 626,
+    width: 1247,
+    height: 577,
     alt: "Painel de posts do Connect: publicações de um cliente no Instagram com tipo, status e data de publicação.",
-    caption: "Acompanhe cada post publicado nas contas dos seus clientes, pelo painel ou pela API.",
+    caption: "Acompanhe cada post publicado nas contas dos seus clientes pela API, com tipo, status e horário de publicação.",
   },
   {
     key: "ads",
