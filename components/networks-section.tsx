@@ -1,5 +1,6 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { Plug, Search } from "lucide-react"
 import { useMemo, useState } from "react"
 import {
@@ -34,7 +35,7 @@ function IntegrationCard({ item }: { item: Integration }) {
   const base = "flex h-full items-center gap-3 rounded-md border bg-white px-4 py-3"
 
   return item.page ? (
-    <a href={`/${item.page}`} className={`${base} transition-colors hover:border-primary hover:text-primary`}>
+    <a href={withBase(`/${item.page}`)} className={`${base} transition-colors hover:border-primary hover:text-primary`}>
       {body}
     </a>
   ) : (
@@ -124,7 +125,7 @@ export function NetworksSection() {
           <a href="#precos" className="text-primary underline underline-offset-4">
             Veja como funciona o plano.
           </a>{" "}
-          <a href="/integracoes" className="text-primary underline underline-offset-4">
+          <a href={withBase("/integracoes")} className="text-primary underline underline-offset-4">
             Detalhes de cada integração.
           </a>
         </p>

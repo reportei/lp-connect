@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 // The agents the provisioning prompt is written for, each on its brand colour, as the app shows them.
 export const AGENTS = [
   { name: "Claude Code", icon: "claude", background: "#D14D24" },
@@ -20,7 +21,7 @@ export function AgentLogos({ withNames = false }: { withNames?: boolean }) {
             className="flex size-7 items-center justify-center rounded-lg"
             style={{ background: agent.background }}
           >
-            <img src={`/images/agents/${agent.icon}.svg`} alt={withNames ? "" : agent.name} className="size-4" />
+            <img src={withBase(`/images/agents/${agent.icon}.svg`)} alt={withNames ? "" : agent.name} className="size-4" />
           </span>
           {withNames && <span className="text-sm font-medium">{agent.name}</span>}
         </li>

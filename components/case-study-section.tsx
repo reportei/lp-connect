@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 import LeadsterCarousel from "@/components/leadster-carousel"
 
 export function CaseStudySection() {
@@ -19,7 +20,7 @@ export function CaseStudySection() {
             <p>Custo por conversão, CPM e desempenho por campanha, em uma visão consolidada dos canais.</p>
           </div>
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
-            <a href="/clientes/leadster" className="lp-link">
+            <a href={withBase("/clientes/leadster")} className="lp-link">
               Ler o case completo
             </a>
             <a

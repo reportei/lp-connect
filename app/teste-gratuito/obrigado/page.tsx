@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, BookOpen, Calendar, CheckCircle2, Home } from "lucide-react"
@@ -10,7 +11,7 @@ export default function ObrigadoPage() {
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/images/reportei-connect-logo.png" alt="Reportei Connect" className="h-10 w-auto" />
+            <img src={withBase("/images/reportei-connect-logo.png")} alt="Reportei Connect" className="h-10 w-auto" />
           </Link>
         </div>
       </header>

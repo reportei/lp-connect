@@ -1,5 +1,6 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { useState, type ReactNode } from "react"
 import { ArrowDown, Bookmark, Check, Clock, Heart, MessageCircle, Send, Share2, ThumbsUp } from "lucide-react"
 
@@ -109,7 +110,7 @@ function MetricsResult() {
       <ArrowDown className="mx-auto h-4 w-4 text-muted-foreground" aria-hidden="true" />
       <Panel title="No seu produto">
         <div className="mb-4 flex items-center gap-2 text-sm font-medium">
-          <img src="/images/integrations/meta_ads.svg" alt="" className="h-5 w-5" />
+          <img src={withBase("/images/integrations/meta_ads.svg")} alt="" className="h-5 w-5" />
           Meta Ads do seu cliente · setembro
         </div>
         <div className="rounded-lg border p-4">
@@ -127,7 +128,7 @@ function AdTree({ budget, status }: { budget: ReactNode; status: ReactNode }) {
     <Panel title="Na conta de anúncios do seu cliente">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
-          <img src="/images/integrations/meta_ads.svg" alt="" className="h-5 w-5" />
+          <img src={withBase("/images/integrations/meta_ads.svg")} alt="" className="h-5 w-5" />
           <p className="font-semibold">Black Friday</p>
         </div>
         {status}

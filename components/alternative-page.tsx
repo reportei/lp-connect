@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 import { CheckCircle2 } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -29,7 +30,7 @@ export function AlternativePageView({ page }: { page: AlternativePage }) {
         <section className="lp-hero">
           <div className="lp-container">
             <nav aria-label="Trilha" className="mb-8 text-sm text-muted-foreground">
-              <a href="/integracoes#comparativos" className="hover:text-foreground">
+              <a href={withBase("/integracoes#comparativos")} className="hover:text-foreground">
                 Comparativos
               </a>
               <span className="mx-2" aria-hidden="true">
@@ -44,7 +45,7 @@ export function AlternativePageView({ page }: { page: AlternativePage }) {
               <a href={SIGNUP_URL} className="lp-button">
                 Começar teste grátis
               </a>
-              <a href="/integracoes" className="lp-link text-sm">
+              <a href={withBase("/integracoes")} className="lp-link text-sm">
                 Ver as integrações
               </a>
             </div>

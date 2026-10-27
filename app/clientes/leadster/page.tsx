@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 import type { Metadata } from "next"
 import { CheckCircle2, XCircle } from "lucide-react"
 import { Header } from "@/components/header"
@@ -41,7 +42,7 @@ export default function LeadsterCasePage() {
         <section className="lp-hero">
           <div className="lp-container">
             <nav aria-label="Trilha" className="mb-8 text-sm text-muted-foreground">
-              <a href="/#clientes" className="hover:text-foreground">
+              <a href={withBase("/#clientes")} className="hover:text-foreground">
                 Histórias de clientes
               </a>
               <span className="mx-2" aria-hidden="true">
@@ -52,7 +53,7 @@ export default function LeadsterCasePage() {
 
             <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr] lg:gap-16">
               <div>
-                <img src="/images/clients/leadster.png" alt="Leadster" className="mb-8 h-7 w-auto" />
+                <img src={withBase("/images/clients/leadster.png")} alt="Leadster" className="mb-8 h-7 w-auto" />
                 <h1 className="lp-title max-w-[22ch] text-[clamp(2.4rem,4.4vw,3.6rem)]">
                   Como a Leadster levou os dados de mídia para dentro do Super Dashboard
                 </h1>
