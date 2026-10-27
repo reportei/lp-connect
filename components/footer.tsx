@@ -16,7 +16,18 @@ const COLUMNS = [
     links: [
       { href: "https://reportei.com", label: "Sobre o Reportei" },
       { href: "/clientes/leadster", label: "Histórias de clientes" },
+      { href: "/integracoes#comparativos", label: "Comparativos" },
       { href: "mailto:connect@reportei.com", label: "Contato" },
+    ],
+  },
+  {
+    title: "APIs",
+    links: [
+      { href: "/api-instagram", label: "API do Instagram" },
+      { href: "/api-meta-ads", label: "API do Meta Ads" },
+      { href: "/api-google-ads", label: "API do Google Ads" },
+      { href: "/api-rd-station", label: "API do RD Station" },
+      { href: "/integracoes", label: "Todas as integrações" },
     ],
   },
   {
@@ -33,7 +44,7 @@ export function Footer() {
   return (
     <footer className="connect-page border-t py-16">
       <div className="lp-container">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">

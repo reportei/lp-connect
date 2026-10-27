@@ -4,12 +4,14 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import LeadsterCarousel from "@/components/leadster-carousel"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Leadster e Reportei Connect | Histórias de clientes",
   description:
     "Como a Leadster passou a cruzar dados de leads com Google Ads, Meta Ads e LinkedIn Ads no Super Dashboard usando o Reportei Connect.",
-}
+  path: "/clientes/leadster",
+})
 
 const FACTS = [
   { label: "Empresa", value: "Leadster, plataforma de marketing conversacional" },
