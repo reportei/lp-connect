@@ -11,7 +11,7 @@ Landing page do Reportei Connect, com página de documentação e formulário de
 
 - O `next.config.mjs` usa `basePath: '/connect'`. Links e imagens comuns (`<a>`, `<img>`) passam por `withBase()` de `lib/base-path.ts`, porque o Next só prefixa os próprios assets e o `next/link`.
 - `worker/index.js` roda antes dos assets: redireciona `lp.connect.reportei.com` para `reportei.com/connect`, força https e tira o prefixo `/connect` antes de ler os arquivos de `out/`.
-- As rotas `reportei.com/connect` e `reportei.com/connect/*` apontam para o Worker `lp-connect`. Foram criadas uma vez na zona `reportei.com` e **não** ficam no `wrangler.toml`, para o token do deploy não precisar de acesso à zona. O domínio `lp.connect.reportei.com` continua ligado ao Worker.
+- As rotas `reportei.com/connect*` e `reportei.com/connect/*` apontam para o Worker `lp-connect`. A primeira tem curinga de propósito: o padrão exato `reportei.com/connect` não casa com `/connect?utm_source=...` e mandava essas visitas para o WordPress, que dava 404. O curinga também pega caminhos como `/connections`, que o Worker devolve intactos para a origem. Foram criadas uma vez na zona `reportei.com` e **não** ficam no `wrangler.toml`, para o token do deploy não precisar de acesso à zona. O domínio `lp.connect.reportei.com` continua ligado ao Worker.
 - No WordPress, o Yoast tem um redirect antigo de `/connect` para `lp.connect`. A rota do Worker passa na frente dele e ele nunca é alcançado. Não precisa remover.
 - A tabela de preços é um iframe de `app.connect.reportei.com/prices/embed`. O app só deixa ser emoldurado pelas origens em `EMBED_FRAME_ANCESTORS` (repo `connect-app`, `config/embed.php`). Se a origem da LP não estiver lá, a seção mostra um link para `/prices`.
 

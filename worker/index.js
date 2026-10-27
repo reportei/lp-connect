@@ -1,4 +1,4 @@
-// The LP lives at reportei.com/connect. Cloudflare routes reportei.com/connect and reportei.com/connect/*
+// The LP lives at reportei.com/connect. Cloudflare routes reportei.com/connect* and reportei.com/connect/*
 // to this Worker (set once in the dashboard/API, not in wrangler.toml, so the deploy token needs no zone access),
 // and lp.connect.reportei.com stays attached as its old address, now a permanent redirect.
 const BASE = "/connect"
@@ -23,8 +23,9 @@ export default {
     }
 
     if (url.pathname !== BASE && !url.pathname.startsWith(`${BASE}/`)) {
-      // Only reachable locally: production routes send nothing else here.
-      return local ? Response.redirect(`${url.origin}${BASE}`, 302) : env.ASSETS.fetch(request)
+      // The route is reportei.com/connect* (an exact /connect pattern misses /connect?utm=...), so it also
+      // catches paths like /connections. Those belong to WordPress: send them to the origin untouched.
+      return local ? Response.redirect(`${url.origin}${BASE}`, 302) : fetch(request)
     }
 
     const assetUrl = new URL(url)
