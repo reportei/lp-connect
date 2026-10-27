@@ -1,7 +1,10 @@
 name = "lp-connect"
 account_id = "aa3170f67af55dfb4dbfd8c8ab8dea10"
 compatibility_date = "2026-09-22"
+main = "worker/index.js"
 
 [assets]
 directory = "./out"
+binding = "ASSETS"
 not_found_handling = "404-page"
+run_worker_first = true
