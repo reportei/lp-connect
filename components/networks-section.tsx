@@ -2,13 +2,44 @@
 
 import { Plug, Search } from "lucide-react"
 import { useMemo, useState } from "react"
-import { INTEGRATION_CATEGORIES, INTEGRATIONS, integrationLogoSrc, type IntegrationCategory } from "@/lib/integrations"
+import {
+  INTEGRATION_CATEGORIES,
+  INTEGRATIONS,
+  integrationLogoSrc,
+  type Integration,
+  type IntegrationCategory,
+} from "@/lib/integrations"
 
 function normalize(text: string) {
   return text
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
+}
+
+// Entries with their own landing page link to it; the rest stay plain cards.
+function IntegrationCard({ item }: { item: Integration }) {
+  const body = (
+    <>
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center">
+        {item.logo ? (
+          <img src={integrationLogoSrc(item.logo)} alt="" loading="lazy" className="max-h-8 max-w-8 object-contain" />
+        ) : (
+          <Plug className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
+        )}
+      </div>
+      <span className="text-sm font-medium leading-snug">{item.name}</span>
+    </>
+  )
+  const base = "flex h-full items-center gap-3 rounded-md border bg-white px-4 py-3"
+
+  return item.page ? (
+    <a href={`/${item.page}`} className={`${base} transition-colors hover:border-primary hover:text-primary`}>
+      {body}
+    </a>
+  ) : (
+    <div className={base}>{body}</div>
+  )
 }
 
 export function NetworksSection() {
@@ -81,15 +112,8 @@ export function NetworksSection() {
 
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {filtered.map((item) => (
-            <li key={item.name} className="flex items-center gap-3 rounded-md border bg-white px-4 py-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center">
-                {item.logo ? (
-                  <img src={integrationLogoSrc(item.logo)} alt="" loading="lazy" className="max-h-8 max-w-8 object-contain" />
-                ) : (
-                  <Plug className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
-                )}
-              </div>
-              <span className="text-sm font-medium leading-snug">{item.name}</span>
+            <li key={item.name}>
+              <IntegrationCard item={item} />
             </li>
           ))}
         </ul>
@@ -99,6 +123,9 @@ export function NetworksSection() {
           Connect, e é a unidade usada na cobrança.{" "}
           <a href="#precos" className="text-primary underline underline-offset-4">
             Veja como funciona o plano.
+          </a>{" "}
+          <a href="/integracoes" className="text-primary underline underline-offset-4">
+            Detalhes de cada integração.
           </a>
         </p>
       </div>
