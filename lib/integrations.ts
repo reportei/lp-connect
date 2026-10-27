@@ -1,3 +1,5 @@
+import { withBase } from "@/lib/base-path"
+
 export const INTEGRATION_CATEGORIES = [
   "Mídia paga",
   "Redes sociais",
@@ -78,5 +80,5 @@ export const INTEGRATIONS: Integration[] = [
 ]
 
 export function integrationLogoSrc(logo: string) {
-  return logo.startsWith("/") ? logo : `/images/integrations/${logo}.svg`
+  return withBase(logo.startsWith("/") ? logo : `/images/integrations/${logo}.svg`)
 }

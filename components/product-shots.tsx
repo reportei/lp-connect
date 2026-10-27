@@ -1,12 +1,13 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { useState } from "react"
 
 const SHOTS = [
   {
     key: "metrics",
     label: "Métricas",
-    src: "/images/explorer/explorer_meta_ads_code.webp",
+    src: withBase("/images/explorer/explorer_meta_ads_code.webp"),
     width: 2000,
     height: 1195,
     alt: "Interface real do Explorer: métrica de alcance do Meta Ads selecionada, com o payload enviado e a resposta da API.",
@@ -15,7 +16,7 @@ const SHOTS = [
   {
     key: "posts",
     label: "Posts",
-    src: "/images/explorer/app_posts.png",
+    src: withBase("/images/explorer/app_posts.png"),
     width: 1247,
     height: 577,
     alt: "Painel de posts do Connect: publicações de um cliente no Instagram com tipo, status e data de publicação.",
@@ -24,7 +25,7 @@ const SHOTS = [
   {
     key: "ads",
     label: "Ads",
-    src: "/images/explorer/app_ads.png",
+    src: withBase("/images/explorer/app_ads.png"),
     width: 1228,
     height: 647,
     alt: "Painel de anúncios do Connect: campanhas e conjuntos do Meta Ads de um cliente com objetivo, status e orçamento.",

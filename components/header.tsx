@@ -1,14 +1,15 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
 const NAV = [
-  { href: "/#na-pratica", label: "Na prática" },
-  { href: "/#networks", label: "Integrações" },
-  { href: "/#clientes", label: "Clientes" },
-  { href: "/#ia", label: "Com IA" },
-  { href: "/#precos", label: "Preços" },
+  { href: withBase("/#na-pratica"), label: "Na prática" },
+  { href: withBase("/#networks"), label: "Integrações" },
+  { href: withBase("/#clientes"), label: "Clientes" },
+  { href: withBase("/#ia"), label: "Com IA" },
+  { href: withBase("/#precos"), label: "Preços" },
   { href: "https://developers.reportei.com/connect", label: "Documentação" },
 ]
 
@@ -19,8 +20,8 @@ export function Header() {
     <header className="connect-page sticky top-0 z-50 w-full border-b bg-white">
       <div className="lp-container">
         <div className="flex h-20 items-center justify-between">
-          <a href="/" className="flex items-center">
-            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-10 w-auto" />
+          <a href={withBase("/")} className="flex items-center">
+            <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-10 w-auto" />
           </a>
 
           <nav className="hidden xl:flex items-center gap-7">

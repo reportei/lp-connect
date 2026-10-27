@@ -1,10 +1,11 @@
+import { withBase } from "@/lib/base-path"
 import { ArrowRight, CheckCircle2, ChevronDown, XCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { INTEGRATIONS, integrationLogoSrc } from "@/lib/integrations"
 import { findPlatformPage, type PlatformFaq, type PlatformPage } from "@/lib/plataformas"
-import { SIGNUP_URL, SITE_URL } from "@/lib/seo"
+import { SIGNUP_URL, absoluteUrl } from "@/lib/seo"
 
 const WITH_CONNECT = [
   "Seu cliente autoriza a conta numa tela pronta, hospedada pelo Connect.",
@@ -53,7 +54,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${SITE_URL}${item.path}`,
+      item: absoluteUrl(item.path),
     })),
   }
 }
@@ -123,7 +124,7 @@ export function PlatformPageView({ page }: { page: PlatformPage }) {
         <section className="lp-hero">
           <div className="lp-container">
             <nav aria-label="Trilha" className="mb-8 text-sm text-muted-foreground">
-              <a href="/integracoes" className="hover:text-foreground">
+              <a href={withBase("/integracoes")} className="hover:text-foreground">
                 Integrações
               </a>
               <span className="mx-2" aria-hidden="true">
@@ -235,7 +236,7 @@ export function PlatformPageView({ page }: { page: PlatformPage }) {
                 {related.map((item) => (
                   <li key={item.slug}>
                     <a
-                      href={`/${item.slug}`}
+                      href={withBase(`/${item.slug}`)}
                       className="flex items-center gap-3 rounded-md border bg-white px-4 py-3 font-medium transition-colors hover:border-primary"
                     >
                       <img src={integrationLogoSrc(item.logo)} alt="" className="h-6 w-6 object-contain" />
@@ -244,7 +245,7 @@ export function PlatformPageView({ page }: { page: PlatformPage }) {
                   </li>
                 ))}
               </ul>
-              <a href="/integracoes" className="lp-link mt-6 inline-flex items-center gap-1.5 text-sm">
+              <a href={withBase("/integracoes")} className="lp-link mt-6 inline-flex items-center gap-1.5 text-sm">
                 Ver as {INTEGRATIONS.length} integrações
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>

@@ -1,16 +1,17 @@
+import { withBase } from "@/lib/base-path"
 const CLIENTS = [
-  { name: "Leadster", logo: "/images/clients/leadster.png", href: "/clientes/leadster", width: 190, height: 28 },
-  { name: "Morada.ai", logo: "/images/clients/morada.svg", href: "https://morada.ai/", width: 164, height: 50 },
+  { name: "Leadster", logo: withBase("/images/clients/leadster.png"), href: withBase("/clientes/leadster"), width: 190, height: 28 },
+  { name: "Morada.ai", logo: withBase("/images/clients/morada.svg"), href: "https://morada.ai/", width: 164, height: 50 },
   {
     name: "Mercado Phone",
-    logo: "/images/clients/mercado-phone.svg",
+    logo: withBase("/images/clients/mercado-phone.svg"),
     href: "https://mercadophone.app.br/",
     width: 188,
     height: 50,
   },
   {
     name: "Santana Inteligência Política",
-    logo: "/images/clients/santana.png",
+    logo: withBase("/images/clients/santana.png"),
     href: "https://www.santanainteligencia.com.br/",
     width: 110,
     height: 76,

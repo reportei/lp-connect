@@ -1,5 +1,6 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -84,7 +85,7 @@ export default function DocumentacaoPage() {
                 className="border-orange-300 hover:bg-orange-50 bg-transparent"
                 asChild
               >
-                <a href="/Reportei-Connect.postman_collection.json" download="Reportei-Connect.postman_collection.json">
+                <a href={withBase("/Reportei-Connect.postman_collection.json")} download="Reportei-Connect.postman_collection.json">
                   <Download className="mr-2 w-4 h-4" />
                   Postman Collection
                 </a>
@@ -215,7 +216,7 @@ export default function DocumentacaoPage() {
                       asChild
                     >
                       <a
-                        href="/Reportei-Connect.postman_collection.json"
+                        href={withBase("/Reportei-Connect.postman_collection.json")}
                         download="Reportei-Connect.postman_collection.json"
                       >
                         <Download className="mr-2 w-4 h-4" />
@@ -1238,7 +1239,7 @@ export default function DocumentacaoPage() {
                               validar a conexão e carregar as integrações disponíveis.
                             </p>
                             <img
-                              src="/images/explorer/explorer_validate_tokens.png"
+                              src={withBase("/images/explorer/explorer_validate_tokens.png")}
                               alt="Validação de tokens no Connect Explorer"
                               className="rounded-lg border shadow-sm max-w-md"
                             />
@@ -1259,7 +1260,7 @@ export default function DocumentacaoPage() {
                               (Numbers, Charts, Tables). Customize métricas e dimensões conforme necessário.
                             </p>
                             <img
-                              src="/images/explorer/explorer_metrics_catalog.png"
+                              src={withBase("/images/explorer/explorer_metrics_catalog.png")}
                               alt="Catálogo de métricas no Connect Explorer"
                               className="rounded-lg border shadow-sm max-w-md"
                             />
@@ -1282,7 +1283,7 @@ export default function DocumentacaoPage() {
                               <code className="bg-white px-2 py-1 rounded">/metrics/get-data-async</code>.
                             </p>
                             <img
-                              src="/images/explorer/explorer_test_query.png"
+                              src={withBase("/images/explorer/explorer_test_query.png")}
                               alt="Teste de consulta no Connect Explorer"
                               className="rounded-lg border shadow-sm max-w-md"
                             />
@@ -1831,7 +1832,7 @@ export default function DocumentacaoPage() {
                         >
                           <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center">
                             <img
-                              src={`/images/integrations/${integration.icon}.svg`}
+                              src={withBase(`/images/integrations/${integration.icon}.svg`)}
                               alt={integration.name}
                               className="w-5 h-5"
                             />

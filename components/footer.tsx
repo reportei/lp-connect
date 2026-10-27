@@ -1,40 +1,41 @@
+import { withBase } from "@/lib/base-path"
 import { INTEGRATIONS } from "@/lib/integrations"
 
 const COLUMNS = [
   {
     title: "Produto",
     links: [
-      { href: "/#what-is", label: "O que é" },
-      { href: "/#na-pratica", label: "Na prática" },
-      { href: "/#networks", label: "Integrações" },
-      { href: "/#precos", label: "Planos e preços" },
-      { href: "/#faq", label: "Perguntas frequentes" },
+      { href: withBase("/#what-is"), label: "O que é" },
+      { href: withBase("/#na-pratica"), label: "Na prática" },
+      { href: withBase("/#networks"), label: "Integrações" },
+      { href: withBase("/#precos"), label: "Planos e preços" },
+      { href: withBase("/#faq"), label: "Perguntas frequentes" },
     ],
   },
   {
     title: "Empresa",
     links: [
       { href: "https://reportei.com", label: "Sobre o Reportei" },
-      { href: "/clientes/leadster", label: "Histórias de clientes" },
-      { href: "/integracoes#comparativos", label: "Comparativos" },
+      { href: withBase("/clientes/leadster"), label: "Histórias de clientes" },
+      { href: withBase("/integracoes#comparativos"), label: "Comparativos" },
       { href: "mailto:connect@reportei.com", label: "Contato" },
     ],
   },
   {
     title: "APIs",
     links: [
-      { href: "/api-instagram", label: "API do Instagram" },
-      { href: "/api-meta-ads", label: "API do Meta Ads" },
-      { href: "/api-google-ads", label: "API do Google Ads" },
-      { href: "/api-rd-station", label: "API do RD Station" },
-      { href: "/integracoes", label: "Todas as integrações" },
+      { href: withBase("/api-instagram"), label: "API do Instagram" },
+      { href: withBase("/api-meta-ads"), label: "API do Meta Ads" },
+      { href: withBase("/api-google-ads"), label: "API do Google Ads" },
+      { href: withBase("/api-rd-station"), label: "API do RD Station" },
+      { href: withBase("/integracoes"), label: "Todas as integrações" },
     ],
   },
   {
     title: "Desenvolvedores",
     links: [
       { href: "https://developers.reportei.com/connect", label: "Documentação" },
-      { href: "/#ia", label: "Implementar com IA" },
+      { href: withBase("/#ia"), label: "Implementar com IA" },
       { href: "https://app.connect.reportei.com/signup", label: "Começar teste grátis" },
     ],
   },
@@ -46,7 +47,7 @@ export function Footer() {
       <div className="lp-container">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
-            <img src="/images/reportei-connect-logo-horizontal.png" alt="Reportei Connect" className="h-12 w-auto" />
+            <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {INTEGRATIONS.length} integrações de marketing, CRM e e-commerce em uma API para o seu sistema.
             </p>

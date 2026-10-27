@@ -161,16 +161,16 @@ export const PLATFORM_PAGES: PlatformPage[] = [
     slug: "api-google-ads",
     platform: "Google Ads",
     logo: "google_ads",
-    title: "API do Google Ads sem developer token próprio | Reportei Connect",
+    title: "API do Google Ads para o seu produto | Reportei Connect",
     description:
-      "Cliques, impressões, custo, conversões e palavras-chave das contas de Google Ads dos seus clientes no seu sistema, sem pedir developer token ao Google.",
-    h1: "API do Google Ads: dados das contas dos seus clientes sem developer token próprio",
+      "Cliques, impressões, custo, conversões e palavras-chave das contas de Google Ads dos seus clientes no seu sistema, sem projeto no Google Cloud nem pedido de nível de acesso.",
+    h1: "API do Google Ads: dados das contas dos seus clientes no seu produto",
     intro:
-      "Conecte as contas de Google Ads dos seus clientes e consulte custo, cliques, conversões e palavras-chave por uma API. Você não precisa de developer token, de conta MCC nem de aprovação do Google.",
+      "Conecte as contas de Google Ads dos seus clientes e consulte custo, cliques, conversões e palavras-chave por uma API. Sem projeto no Google Cloud, sem pedir nível de acesso e sem verificação de marca.",
     officialSteps: [
-      "Criar uma conta de administrador (MCC) e pedir um developer token.",
-      "Esperar a aprovação do acesso básico ou padrão. Sem ela, o token só lê contas de teste.",
-      "Configurar um projeto no Google Cloud e a tela de consentimento OAuth.",
+      "Criar um projeto no Google Cloud e ativar a Google Ads API. Desde 9 de setembro de 2026 o acesso fica no projeto, e o developer token deixou de existir.",
+      "Pedir o acesso Explorer, de até 2.880 operações por dia em contas reais. Para passar disso, o Basic ou o Standard, que exigem verificação de marca.",
+      "Configurar a tela de consentimento OAuth para os seus clientes autorizarem as contas.",
       "Escrever consultas em GAQL, migrar para cada nova versão da API antes que a antiga seja desligada e respeitar as cotas.",
     ],
     metrics: [
@@ -198,8 +198,8 @@ export const PLATFORM_PAGES: PlatformPage[] = [
     ],
     faq: [
       {
-        q: "Preciso de developer token do Google Ads?",
-        a: "Não. O Connect usa a própria integração com o Google Ads. Seu cliente autoriza a conta e você consulta os dados pela API do Connect.",
+        q: "Ainda preciso de developer token do Google Ads?",
+        a: "O Google descontinuou o developer token em 9 de setembro de 2026. Hoje o acesso à API fica num projeto do Google Cloud, com os níveis Test, Explorer, Basic e Standard. Com o Connect você não precisa de projeto nem de nível de acesso: seu cliente autoriza a conta e você consulta os dados pela API do Connect.",
       },
       {
         q: "Funciona com contas gerenciadas por MCC?",
@@ -314,7 +314,7 @@ export const PLATFORM_PAGES: PlatformPage[] = [
       "Conecte as propriedades GA4 dos seus clientes e consulte usuários, eventos, conversões e receita por uma API. Sem montar projeto no Google Cloud nem passar pela verificação do app.",
     officialSteps: [
       "Criar um projeto no Google Cloud e ativar a Google Analytics Data API.",
-      "Configurar a tela de consentimento OAuth e passar pela verificação do Google para acessar contas de terceiros.",
+      "Configurar a tela de consentimento OAuth, que o Google pode exigir verificar antes de liberar o app para contas de outras empresas.",
       "Montar as consultas de dimensões e métricas e respeitar as cotas por propriedade.",
     ],
     metrics: [

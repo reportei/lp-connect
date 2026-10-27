@@ -1,14 +1,15 @@
 "use client"
 
+import { withBase } from "@/lib/base-path"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
 
 export const LEADSTER_SLIDES = [
-  { src: "/images/leadster-dashboard-1.png", alt: "Super Dashboard Leadster - Customização de eventos e investimentos por conversão" },
-  { src: "/images/leadster-dashboard-2.png", alt: "Campanhas Google Ads com métricas detalhadas de investimento e conversão" },
-  { src: "/images/leadster-dashboard-3.png", alt: "Visão consolidada por canal - Google Ads, LinkedIn Ads e Meta Ads" },
-  { src: "/images/leadster-dashboard-4.png", alt: "Investimentos por conversão com custo por lead e taxa de conversão" },
-  { src: "/images/leadster-dashboard-5.png", alt: "Análise completa de campanhas com métricas de todos os canais" },
+  { src: withBase("/images/leadster-dashboard-1.png"), alt: "Super Dashboard Leadster - Customização de eventos e investimentos por conversão" },
+  { src: withBase("/images/leadster-dashboard-2.png"), alt: "Campanhas Google Ads com métricas detalhadas de investimento e conversão" },
+  { src: withBase("/images/leadster-dashboard-3.png"), alt: "Visão consolidada por canal - Google Ads, LinkedIn Ads e Meta Ads" },
+  { src: withBase("/images/leadster-dashboard-4.png"), alt: "Investimentos por conversão com custo por lead e taxa de conversão" },
+  { src: withBase("/images/leadster-dashboard-5.png"), alt: "Análise completa de campanhas com métricas de todos os canais" },
 ]
 
 export default function LeadsterCarousel() {

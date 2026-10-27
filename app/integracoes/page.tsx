@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/base-path"
 import { ArrowRight, Plug } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -38,7 +39,7 @@ export default function IntegracoesPage() {
               {PLATFORM_PAGES.map((page) => (
                 <li key={page.slug}>
                   <a
-                    href={`/${page.slug}`}
+                    href={withBase(`/${page.slug}`)}
                     className="flex h-full items-start gap-4 rounded-lg border bg-white p-5 transition-colors hover:border-primary"
                   >
                     <img src={integrationLogoSrc(page.logo)} alt="" className="h-8 w-8 shrink-0 object-contain" />
@@ -73,7 +74,7 @@ export default function IntegracoesPage() {
                         <li key={item.name} className="flex items-center gap-3 text-sm">
                           {logo}
                           {item.page ? (
-                            <a href={`/${item.page}`} className="lp-link">
+                            <a href={withBase(`/${item.page}`)} className="lp-link">
                               {item.name}
                             </a>
                           ) : (
@@ -96,7 +97,7 @@ export default function IntegracoesPage() {
               {ALTERNATIVE_PAGES.map((page) => (
                 <li key={page.slug}>
                   <a
-                    href={`/${page.slug}`}
+                    href={withBase(`/${page.slug}`)}
                     className="flex h-full items-center justify-between gap-3 rounded-lg border bg-white p-5 font-semibold transition-colors hover:border-primary"
                   >
                     Connect ou {page.competitor}
