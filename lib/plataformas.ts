@@ -441,18 +441,18 @@ export const PLATFORM_PAGES: PlatformPage[] = [
       },
       ...COMMON_FAQ,
     ],
-    related: ["api-rd-station", "api-linkedin-ads", "api-meta-ads"],
+    related: ["api-pipedrive", "api-kommo", "api-rd-station"],
   },
   {
     slug: "api-nuvemshop",
     platform: "Nuvemshop",
     logo: "nuvem_shop",
-    title: "API da Nuvemshop, Shopify e WooCommerce para o seu produto | Reportei Connect",
+    title: "API da Nuvemshop para o seu produto | Reportei Connect",
     description:
-      "Vendas, ticket médio, produtos e clientes das lojas Nuvemshop, Shopify e WooCommerce dos seus clientes, ao lado dos dados de mídia, por uma API.",
+      "Vendas, ticket médio, produtos, carrinhos e cupons das lojas Nuvemshop dos seus clientes, ao lado dos dados de mídia, por uma API.",
     h1: "API da Nuvemshop: vendas das lojas dos seus clientes no seu produto",
     intro:
-      "Conecte as lojas Nuvemshop, Shopify e WooCommerce dos seus clientes e consulte as vendas por uma API, no mesmo formato das métricas de Meta Ads e Google Ads. Também tem Magazord, Olist, Hotmart, Eduzz e Kiwify.",
+      "Conecte as lojas Nuvemshop dos seus clientes e consulte as vendas por uma API, no mesmo formato das métricas de Meta Ads e Google Ads. Na mesma API estão Shopify, WooCommerce, Magazord e Olist.",
     officialSteps: [
       "Criar um app no portal de parceiros de cada plataforma de loja.",
       "Implementar a instalação do app em cada loja e guardar os tokens.",
@@ -465,7 +465,6 @@ export const PLATFORM_PAGES: PlatformPage[] = [
       "Clientes novos e recorrentes",
       "Desempenho dos cupons",
       "Meios de envio selecionados",
-      "Na Shopify: pedidos, devoluções, descontos e lucro por produto",
     ],
     useCases: [
       {
@@ -488,7 +487,290 @@ export const PLATFORM_PAGES: PlatformPage[] = [
       },
       ...COMMON_FAQ,
     ],
-    related: ["api-google-analytics-4", "api-meta-ads", "api-google-ads"],
+    related: ["api-shopify", "api-google-analytics-4", "api-meta-ads"],
+  },
+  {
+    slug: "api-ifood",
+    platform: "iFood",
+    logo: "ifood",
+    title: "API do iFood para o seu produto | Reportei Connect",
+    description:
+      "Vendas, ticket médio, cancelamentos, reembolsos e comissão das lojas iFood dos seus clientes no seu sistema, por uma API, ao lado dos dados de mídia.",
+    h1: "API do iFood: vendas dos restaurantes dos seus clientes no seu produto",
+    intro:
+      "Conecte as lojas iFood dos seus clientes e consulte vendas, ticket médio, cancelamentos e comissão por uma API. Os números chegam no mesmo formato das métricas de Meta Ads, Google Ads e Instagram.",
+    officialSteps: [
+      "Criar uma conta no Portal do Desenvolvedor iFood, que pede CNPJ.",
+      "Montar o app completo e pedir a homologação ao iFood antes de ir para produção.",
+      "Pedir acesso a cada loja e esperar um usuário gerencial do restaurante aceitar a permissão.",
+      "Renovar o token de acesso, que vale poucas horas.",
+    ],
+    metrics: [
+      "Total e valor das vendas",
+      "Ticket médio",
+      "Taxa de cancelamento",
+      "Taxa de entrega",
+      "Reembolsos",
+      "Comissão do iFood",
+      "Melhores dias e horários de venda",
+    ],
+    useCases: [
+      {
+        title: "Sistemas para restaurantes",
+        body: "Mostre ao dono do restaurante as vendas do iFood ao lado do caixa e do estoque que já estão no seu sistema.",
+      },
+      {
+        title: "Agências de delivery",
+        body: "Cruze o investimento em Meta Ads e Google Ads com as vendas do iFood de cada loja atendida.",
+      },
+      {
+        title: "Redes e franquias",
+        body: "Compare ticket médio, cancelamento e comissão entre as unidades num painel só.",
+      },
+    ],
+    faq: [
+      {
+        q: "Também tem outros apps de delivery e cardápio?",
+        a: "Sim. O catálogo tem iFood, Goomer, Cardápio Web e Repediu, todos pela mesma API.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-nuvemshop", "api-meta-ads", "api-instagram"],
+  },
+  {
+    slug: "api-pipedrive",
+    platform: "Pipedrive",
+    logo: "pipedrive",
+    title: "API do Pipedrive para o seu produto | Reportei Connect",
+    description:
+      "Negócios ganhos e perdidos, valor, funil, atividades e e-mails do Pipedrive dos seus clientes no seu sistema, por uma API. Sem app no Marketplace do Pipedrive.",
+    h1: "API do Pipedrive: o funil de vendas dos seus clientes no seu produto",
+    intro:
+      "Conecte as contas do Pipedrive dos seus clientes e consulte negócios, valores, funil e atividades por uma API. Sem registrar app no Developer Hub e sem esperar a revisão do Marketplace.",
+    officialSteps: [
+      "Criar uma conta de desenvolvedor sandbox e registrar o app no Developer Hub do Pipedrive.",
+      "Para usar com contas de outras empresas, enviar o app para a revisão do Marketplace, com vídeo de demonstração e contas de teste. A análise leva até 21 dias úteis.",
+      "Renovar o token de acesso, que vale uma hora, e respeitar o orçamento diário de chamadas de cada conta.",
+    ],
+    metrics: [
+      "Negócios ganhos e perdidos",
+      "Valor ganho e valor médio dos negócios",
+      "Duração média dos negócios",
+      "Funil de vendas por pipeline",
+      "Atividades, ligações e reuniões",
+      "E-mails enviados e recebidos",
+      "Desempenho por usuário",
+    ],
+    useCases: [
+      {
+        title: "Custo por negócio",
+        body: "Junte os negócios do Pipedrive com o investimento em mídia e mostre quanto custou cada venda.",
+      },
+      {
+        title: "Ferramentas de gestão comercial",
+        body: "Leve funil, atividades e metas do time para dentro do seu produto.",
+      },
+      {
+        title: "Um conector para vários CRMs",
+        body: "Atenda clientes de Pipedrive, HubSpot, Kommo e RD Station CRM com a mesma integração.",
+      },
+    ],
+    faq: [
+      {
+        q: "Dá para ver os dados de cada pipeline?",
+        a: "Sim. As métricas podem ser consultadas para a conta toda ou por pipeline, com o funil de cada um.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-hubspot", "api-kommo", "api-rd-station"],
+  },
+  {
+    slug: "api-kommo",
+    platform: "Kommo",
+    logo: "kommo",
+    title: "API da Kommo para o seu produto | Reportei Connect",
+    description:
+      "Leads criados, ganhos e perdidos, valor do funil e tarefas da Kommo dos seus clientes no seu sistema, por uma API. Sem integração pública nem moderação da Kommo.",
+    h1: "API da Kommo: leads e vendas dos seus clientes no seu produto",
+    intro:
+      "Conecte as contas da Kommo dos seus clientes e consulte leads, valores e tarefas por uma API. Sem criar integração pública e sem passar pela moderação da Kommo.",
+    officialSteps: [
+      "Para atender contas de outras empresas, criar uma integração pública numa conta técnica da Kommo.",
+      "Passar pela moderação da Kommo antes de publicar a integração.",
+      "Implementar o OAuth 2.0: o token de acesso vale 24 horas e o de renovação, três meses.",
+      "Respeitar o limite de 7 requisições por segundo.",
+    ],
+    metrics: [
+      "Leads criados, ganhos e perdidos",
+      "Valor dos leads ganhos, perdidos e abertos",
+      "Leads sem tarefa",
+      "Tarefas abertas e finalizadas",
+      "Leads criados por usuário",
+      "Valor total do funil",
+    ],
+    useCases: [
+      {
+        title: "Custo por lead do WhatsApp",
+        body: "Cruze os leads que chegam na Kommo com o investimento em Meta Ads e mostre o custo de cada um.",
+      },
+      {
+        title: "Agências de performance",
+        body: "Entregue ao cliente o resultado da mídia até a venda fechada, num relatório só.",
+      },
+      {
+        title: "Ferramentas de atendimento",
+        body: "Mostre funil e tarefas do time comercial dentro do seu produto.",
+      },
+    ],
+    faq: [
+      {
+        q: "A Kommo é a antiga amoCRM?",
+        a: "Sim. A amoCRM passou a se chamar Kommo. A integração do Connect funciona com as contas atuais da Kommo.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-pipedrive", "api-hubspot", "api-rd-station"],
+  },
+  {
+    slug: "api-hotmart",
+    platform: "Hotmart",
+    logo: "hotmart",
+    title: "API da Hotmart para o seu produto | Reportei Connect",
+    description:
+      "Receita, vendas, reembolsos e chargebacks das contas Hotmart dos seus clientes no seu sistema, por uma API, ao lado dos dados de Meta Ads e Google Ads.",
+    h1: "API da Hotmart: vendas dos produtores no seu produto",
+    intro:
+      "Conecte as contas Hotmart dos seus clientes e consulte receita, vendas, reembolsos e chargebacks por uma API. Os dados chegam no mesmo formato das campanhas de Meta Ads e Google Ads que levaram a essas vendas.",
+    officialSteps: [
+      "Gerar credenciais de desenvolvedor na conta de cada produtor e guardar client_id, client_secret e o token Basic de cada uma.",
+      "Gerar o token de acesso de cada conta e gerar de novo quando ele expirar.",
+      "Converter as vendas da Hotmart para o mesmo formato das outras plataformas que o seu produto usa.",
+    ],
+    metrics: [
+      "Receita final e receita total",
+      "Número de vendas",
+      "Vendas canceladas",
+      "Reembolsos",
+      "Número e valor de chargebacks",
+      "Receita por produto",
+      "Evolução da receita e das vendas",
+    ],
+    useCases: [
+      {
+        title: "Ferramentas para infoprodutores",
+        body: "Mostre ao produtor quanto ele vendeu e quanto investiu em anúncios para vender, numa tela só.",
+      },
+      {
+        title: "Agências de lançamento",
+        body: "Calcule o retorno de cada lançamento com as vendas reais da Hotmart e o custo da mídia.",
+      },
+      {
+        title: "Painéis de coprodução",
+        body: "Acompanhe receita, reembolso e chargeback de vários produtos e contas.",
+      },
+    ],
+    faq: [
+      {
+        q: "Também tem Kiwify e Eduzz?",
+        a: "Sim. O catálogo tem Hotmart, Kiwify e Eduzz para produtos digitais, todos pela mesma API.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-kiwify", "api-meta-ads", "api-instagram"],
+  },
+  {
+    slug: "api-kiwify",
+    platform: "Kiwify",
+    logo: "kiwify",
+    title: "API da Kiwify para o seu produto | Reportei Connect",
+    description:
+      "Receita bruta e líquida, pedidos, reembolsos, chargebacks e afiliados das contas Kiwify dos seus clientes no seu sistema, por uma API.",
+    h1: "API da Kiwify: vendas dos produtores no seu produto",
+    intro:
+      "Conecte as contas Kiwify dos seus clientes e consulte receita, pedidos, reembolsos e afiliados por uma API. Junto com Hotmart, Eduzz e as plataformas de anúncio, no mesmo formato.",
+    officialSteps: [
+      "Pedir a cada cliente que crie uma chave de API na própria conta Kiwify e repasse o client_id e o client_secret.",
+      "Gerar o token de acesso e renovar quando ele expirar.",
+      "Respeitar o limite de 100 chamadas por minuto.",
+    ],
+    metrics: [
+      "Receita bruta e líquida",
+      "Total de pedidos e ticket médio",
+      "Taxa de aprovação do cartão de crédito",
+      "Reembolsos e chargebacks",
+      "Afiliados e comissões",
+      "Produtos ativos",
+      "Pedidos aguardando pagamento",
+    ],
+    useCases: [
+      {
+        title: "Ferramentas para infoprodutores",
+        body: "Mostre receita líquida e reembolsos ao lado do investimento em anúncios.",
+      },
+      {
+        title: "Gestão de afiliados",
+        body: "Acompanhe afiliados e comissões de cada produto dentro do seu sistema.",
+      },
+      {
+        title: "Agências de lançamento",
+        body: "Some Kiwify e Hotmart no mesmo painel quando o cliente vende nas duas.",
+      },
+    ],
+    faq: [
+      {
+        q: "Meu cliente vende na Kiwify e na Hotmart. Dá para juntar?",
+        a: "Sim. Cada conta é uma conexão, e as métricas das duas chegam no mesmo formato pela API do Connect.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-hotmart", "api-meta-ads", "api-instagram"],
+  },
+  {
+    slug: "api-shopify",
+    platform: "Shopify",
+    logo: "shopify",
+    title: "API da Shopify para o seu produto | Reportei Connect",
+    description:
+      "Pedidos, ticket médio, devoluções, lucro por produto e clientes recorrentes das lojas Shopify dos seus clientes no seu sistema, por uma API.",
+    h1: "API da Shopify: vendas das lojas dos seus clientes no seu produto",
+    intro:
+      "Conecte as lojas Shopify dos seus clientes e consulte pedidos, lucro e clientes recorrentes por uma API, no mesmo formato das métricas de Meta Ads e Google Ads. Sem app público nem revisão da App Store.",
+    officialSteps: [
+      "Criar uma conta de parceiro e um app público. O app personalizado só atende uma loja.",
+      "Passar pela revisão da App Store da Shopify, com instruções de teste e vídeo.",
+      "Implementar a instalação por OAuth em cada loja e renovar os tokens, que passam a expirar para apps públicos a partir de 2027.",
+    ],
+    metrics: [
+      "Pedidos processados",
+      "Ticket médio e média de unidades por pedido",
+      "Devoluções e descontos",
+      "Lucro bruto, por produto e por variante",
+      "Taxa de clientes recorrentes",
+      "Taxa de sell-through",
+      "Pedidos ao longo do tempo",
+    ],
+    useCases: [
+      {
+        title: "Ferramentas de performance",
+        body: "Calcule o retorno das campanhas com o lucro real de cada produto da loja.",
+      },
+      {
+        title: "ERPs e sistemas de gestão",
+        body: "Mostre vendas e mídia lado a lado para o lojista, sem ele sair do seu sistema.",
+      },
+      {
+        title: "Agências de e-commerce",
+        body: "Entregue um relatório por loja com Shopify, Meta Ads, Google Ads e GA4.",
+      },
+    ],
+    faq: [
+      {
+        q: "Também tem Nuvemshop e WooCommerce?",
+        a: "Sim. O catálogo tem Shopify, Nuvemshop, WooCommerce, Magazord e Olist, todos pela mesma API.",
+      },
+      ...COMMON_FAQ,
+    ],
+    related: ["api-nuvemshop", "api-google-analytics-4", "api-meta-ads"],
   },
 ]
 

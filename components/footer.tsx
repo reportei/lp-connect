@@ -29,6 +29,7 @@ const COLUMNS = [
       { href: withBase("/api-google-ads"), label: "API do Google Ads" },
       { href: withBase("/api-rd-station"), label: "API do RD Station" },
       { href: withBase("/integracoes"), label: "Todas as integrações" },
+      { href: withBase("/guias"), label: "Guias de APIs" },
     ],
   },
   {
