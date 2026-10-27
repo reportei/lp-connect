@@ -4,6 +4,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { INTEGRATIONS, integrationLogoSrc } from "@/lib/integrations"
+import { GUIDES } from "@/lib/guias"
 import { findPlatformPage, type PlatformFaq, type PlatformPage } from "@/lib/plataformas"
 import { SIGNUP_URL, absoluteUrl } from "@/lib/seo"
 
@@ -109,6 +110,7 @@ function MetricsCard({ page }: { page: PlatformPage }) {
 export function PlatformPageView({ page }: { page: PlatformPage }) {
   const related = page.related.map(findPlatformPage).filter((p): p is PlatformPage => Boolean(p))
   const path = `/${page.slug}`
+  const guide = GUIDES.find((item) => item.platformPage === page.slug)
 
   return (
     <div className="connect-page min-h-screen">
@@ -245,6 +247,14 @@ export function PlatformPageView({ page }: { page: PlatformPage }) {
                   </li>
                 ))}
               </ul>
+              {guide && (
+                <a
+                  href={withBase(`/guias/${guide.slug}`)}
+                  className="mt-6 block rounded-md border bg-white px-4 py-3 text-sm leading-relaxed transition-colors hover:border-primary"
+                >
+                  <span className="font-semibold">Guia:</span> {guide.h1}
+                </a>
+              )}
               <a href={withBase("/integracoes")} className="lp-link mt-6 inline-flex items-center gap-1.5 text-sm">
                 Ver as {INTEGRATIONS.length} integrações
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
