@@ -106,6 +106,15 @@ export function AlternativePageView({ page }: { page: AlternativePage }) {
                   </li>
                 ))}
               </ul>
+              {page.related && (
+                <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                  {page.related.before}{" "}
+                  <a href={page.related.href} className="text-primary underline underline-offset-4">
+                    {page.related.label}
+                  </a>
+                  .
+                </p>
+              )}
             </div>
             <div>
               <h2 className="text-2xl font-semibold tracking-tight">Quando o Reportei Connect faz mais sentido</h2>

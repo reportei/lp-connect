@@ -9,16 +9,17 @@ import { CaseStudySection } from "@/components/case-study-section"
 import { NetworksSection } from "@/components/networks-section"
 import { AiSection } from "@/components/ai-section"
 import { PlansPricingSection } from "@/components/plans-pricing-section"
-import { FaqSection } from "@/components/faq-section"
+import { FAQ_ITEMS, FaqSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
-import { JsonLd } from "@/components/platform-page"
+import { JsonLd, faqJsonLd } from "@/components/platform-page"
 import { INTEGRATIONS } from "@/lib/integrations"
 import { SITE_URL, pageMetadata } from "@/lib/seo"
 
+// The title leads with the category term people search ("api de marketing"); the brand alone only wins branded queries.
 export const metadata = pageMetadata({
-  title: `Reportei Connect | Dados de ${INTEGRATIONS.length} plataformas em uma API`,
-  description: `Conecte as contas de marketing, CRM e e-commerce dos seus clientes e acesse as métricas de ${INTEGRATIONS.length} plataformas por uma única API.`,
+  title: "API de dados de marketing para SaaS | Reportei Connect",
+  description: `API para o seu software consultar Instagram, Meta Ads, Google Ads, RD Station e mais ${INTEGRATIONS.length - 4} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
   path: "/",
 })
 
@@ -38,6 +39,7 @@ export default function HomePage() {
   return (
     <div className="connect-page min-h-screen">
       <JsonLd data={SOFTWARE} />
+      <JsonLd data={faqJsonLd(FAQ_ITEMS)} />
       <Header />
       <main>
         <HeroSection />

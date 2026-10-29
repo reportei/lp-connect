@@ -7,10 +7,11 @@ export function HeroSection() {
     <section className="lp-hero">
       <div className="lp-container grid items-center gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
         <div>
-          <h1 className="lp-hero-title lg:text-[clamp(2.6rem,4vw,3.9rem)]">Dados de {INTEGRATIONS.length} plataformas, no seu produto.</h1>
+          <h1 className="lp-hero-title lg:text-[clamp(2.6rem,4vw,3.9rem)]">API de dados de marketing para o seu produto.</h1>
           <p className="lp-copy mt-7 max-w-lg">
-            Conecte as contas de marketing, CRM e e-commerce dos seus clientes. Acesse as métricas em uma única API e
-            crie suas próprias análises, relatórios e dashboards.
+            Conecte as contas dos seus clientes em {INTEGRATIONS.length} plataformas de marketing, CRM e e-commerce,
+            como Instagram, Meta Ads, Google Ads e RD Station. Acesse as métricas em uma única API e crie suas próprias
+            análises, relatórios e dashboards.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-5">
             <a href="https://app.connect.reportei.com/signup" className="lp-button">

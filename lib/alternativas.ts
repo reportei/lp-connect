@@ -20,6 +20,8 @@ export type AlternativePage = {
   whenCompetitor: string[]
   whenConnect: string[]
   faq: PlatformFaq[]
+  // Another Reportei product that fits the reader better than the Connect, shown under "Quando a X faz mais sentido".
+  related?: { before: string; label: string; href: string }
 }
 
 const CONNECT = {
@@ -185,6 +187,11 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
         a: "Dá, consumindo a API no seu código. O Connect foi feito para produtos de software que mostram os dados aos próprios clientes, e não traz conectores prontos para planilhas.",
       },
     ],
+    related: {
+      before: "Se o time de marketing quer os dados no Google Sheets, sem programar, o Reportei tem o",
+      label: "Reportei Sync, que compara com a Supermetrics nesse uso",
+      href: "https://reportei.com/supermetrics-x-reportei-sync/",
+    },
   },
   {
     slug: "alternativa-windsor-ai",

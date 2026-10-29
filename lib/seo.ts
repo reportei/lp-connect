@@ -12,8 +12,19 @@ export function absoluteUrl(path: string) {
 
 // Next replaces openGraph and twitter wholesale when a page sets them, so every page builds all three here.
 // URLs are absolute: resolving "/x" against a metadataBase that has a path would drop the /connect segment.
-export function pageMetadata({ title, description, path }: { title: string; description: string; path: string }): Metadata {
-  const url = absoluteUrl(path)
+// `canonical` sends search engines to another address when that one is the official copy of the page.
+export function pageMetadata({
+  title,
+  description,
+  path,
+  canonical,
+}: {
+  title: string
+  description: string
+  path: string
+  canonical?: string
+}): Metadata {
+  const url = canonical ?? absoluteUrl(path)
   return {
     title,
     description,
