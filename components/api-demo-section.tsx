@@ -457,7 +457,7 @@ function SocialPost({
             </p>
           </div>
           <img
-            src={instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg"}
+            src={withBase(instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg")}
             alt=""
             className="h-4 w-4"
           />
