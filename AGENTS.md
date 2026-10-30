@@ -15,6 +15,18 @@ Landing page do Reportei Connect, com página de documentação e formulário de
 - No WordPress, o Yoast tem um redirect antigo de `/connect` para `lp.connect`. A rota do Worker passa na frente dele e ele nunca é alcançado. Não precisa remover.
 - A tabela de preços é um iframe de `app.connect.reportei.com/prices/embed`. O app só deixa ser emoldurado pelas origens em `EMBED_FRAME_ANCESTORS` (repo `connect-app`, `config/embed.php`). Se a origem da LP não estiver lá, a seção mostra um link para `/prices`.
 
+## Idiomas
+
+A home e a página de integrações existem em português (raiz), inglês (`/connect/en`), espanhol (`/connect/es`) e francês (`/connect/fr`). As demais páginas (APIs por plataforma, comparativos, guias, case da Leadster, documentação, teste gratuito) são só em português.
+
+- **Rotas:** cada idioma é um route group com layout raiz próprio (`app/(pt)`, `app/(en)/en`, `app/(es)/es`, `app/(fr)/fr`), o que permite o `<html lang>` certo. Os arquivos de rota são finos; o conteúdo fica em `components/home-page.tsx` e `components/integrations-page.tsx`. O caminho de cada página por idioma está em `TRANSLATED_PAGES` (`lib/i18n.ts`): por exemplo, `/integracoes`, `/en/integrations`, `/es/integraciones`.
+- **Textos:** em `lib/messages/{pt,en,es,fr}.ts`. O `pt.ts` define o tipo `Messages`; os outros são tipados por ele, então chave faltando aparece no `npx tsc --noEmit` (o build ignora erros de tipo). Textos que vão para client components usam `{placeholders}` preenchidos por `fill()`, porque função não atravessa a fronteira servidor/cliente.
+- **`getMessages()` só no servidor.** Importar de um client component põe os quatro idiomas no bundle. Client components recebem só a fatia de que precisam, por props, e importam `Messages` como `import type`.
+- **SEO:** `pageMetadata({ locale, page })` gera `canonical`, `hreflang` dos quatro idiomas mais `x-default` (inglês) e `og:locale`. O sitemap lista cada versão com os alternates.
+- **Links para o app:** `appUrl(locale, path)` acrescenta `?lang=en|es|fr` fora do português (login, signup, termos, `/prices` e o embed `/prices/embed`). O português segue sem parâmetro.
+- **Seletor de idioma:** `components/language-switcher.tsx`, na navbar e no rodapé. Leva para a mesma página no outro idioma quando ela é traduzida, e para a home do idioma nas demais.
+- **Página nova traduzida:** acrescentar a entrada em `TRANSLATED_PAGES`, os textos nos quatro arquivos e um arquivo de rota em cada route group.
+
 ---
 
 ## Deploy

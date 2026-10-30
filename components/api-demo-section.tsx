@@ -1,6 +1,9 @@
 "use client"
 
 import { withBase } from "@/lib/base-path"
+import { fill } from "@/lib/fill"
+import { formatNumber, type Locale } from "@/lib/i18n"
+import type { Messages } from "@/lib/messages"
 import { useState, type ReactNode } from "react"
 import { ArrowDown, Bookmark, Check, Clock, Heart, MessageCircle, Send, Share2, ThumbsUp } from "lucide-react"
 
@@ -11,6 +14,8 @@ type Step = {
   request: string
   result: ReactNode
 }
+
+type T = Messages["apiDemo"]
 
 type Capability = {
   key: string
@@ -90,7 +95,7 @@ function Panel({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function MetricsResult() {
+function MetricsResult({ t, locale }: { t: T; locale: Locale }) {
   return (
     <div className="flex flex-col gap-3">
       <Code
@@ -108,24 +113,24 @@ function MetricsResult() {
 }`}
       />
       <ArrowDown className="mx-auto h-4 w-4 text-muted-foreground" aria-hidden="true" />
-      <Panel title="No seu produto">
+      <Panel title={t.metrics.inProduct}>
         <div className="mb-4 flex items-center gap-2 text-sm font-medium">
           <img src={withBase("/images/integrations/meta_ads.svg")} alt="" className="h-5 w-5" />
-          Meta Ads do seu cliente · setembro
+          {t.metrics.account}
         </div>
         <div className="rounded-lg border p-4">
-          <p className="text-sm text-muted-foreground">Alcance total</p>
-          <p className="mt-1 text-3xl font-semibold tracking-tight">46.847</p>
-          <p className="mt-1 text-xs text-muted-foreground">pessoas viram os anúncios pelo menos uma vez</p>
+          <p className="text-sm text-muted-foreground">{t.metrics.reach}</p>
+          <p className="mt-1 text-3xl font-semibold tracking-tight">{formatNumber(locale, 46847)}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{t.metrics.reachHint}</p>
         </div>
       </Panel>
     </div>
   )
 }
 
-function AdTree({ budget, status }: { budget: ReactNode; status: ReactNode }) {
+function AdTree({ t, budget, status }: { t: T; budget: ReactNode; status: ReactNode }) {
   return (
-    <Panel title="Na conta de anúncios do seu cliente">
+    <Panel title={t.ads.panel}>
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
           <img src={withBase("/images/integrations/meta_ads.svg")} alt="" className="h-5 w-5" />
@@ -135,25 +140,27 @@ function AdTree({ budget, status }: { budget: ReactNode; status: ReactNode }) {
       </div>
       <ul className="mt-4 space-y-3 border-l-2 border-primary/30 pl-4 text-sm">
         <li>
-          <p className="text-xs text-muted-foreground">Campanha</p>
-          <p className="font-medium">Tráfego · {budget}</p>
+          <p className="text-xs text-muted-foreground">{t.ads.campaign}</p>
+          <p className="font-medium">
+            {t.ads.traffic} · {budget}
+          </p>
         </li>
         <li>
-          <p className="text-xs text-muted-foreground">Conjunto</p>
-          <p className="font-medium">BR 25-45 · Facebook e Instagram</p>
+          <p className="text-xs text-muted-foreground">{t.ads.adset}</p>
+          <p className="font-medium">BR 25-45 · {t.ads.placements}</p>
         </li>
         <li>
-          <p className="text-xs text-muted-foreground">Anúncio</p>
+          <p className="text-xs text-muted-foreground">{t.ads.ad}</p>
           <div className="mt-2 overflow-hidden rounded-lg border">
             <div className="flex aspect-[2/1] items-center justify-center bg-gradient-to-br from-[#7039f3] to-[#070e4d] text-2xl font-semibold text-white">
-              Até 50% off
+              {t.ads.offer}
             </div>
             <div className="flex items-center justify-between gap-3 p-3">
               <div>
                 <p className="text-xs text-muted-foreground">loja.com</p>
                 <p className="font-semibold">Black Friday</p>
               </div>
-              <span className="rounded-md bg-muted px-3 py-1.5 text-xs font-semibold">Comprar agora</span>
+              <span className="rounded-md bg-muted px-3 py-1.5 text-xs font-semibold">{t.ads.shopNow}</span>
             </div>
           </div>
         </li>
@@ -162,18 +169,21 @@ function AdTree({ budget, status }: { budget: ReactNode; status: ReactNode }) {
   )
 }
 
-const CAPABILITIES: Capability[] = [
+function capabilities(t: T, locale: Locale): Capability[] {
+  const p = t.placeholders
+
+  return [
   {
     key: "metrics",
-    label: "Métricas",
+    label: t.metrics.label,
     steps: [
       {
-        label: "Consultar",
-        title: "Peça as métricas de uma conta conectada",
-        body: "Você escolhe a conexão, o período e as métricas. O Connect busca na plataforma e devolve os valores no mesmo formato para qualquer integração.",
+        label: t.metrics.step,
+        title: t.metrics.title,
+        body: t.metrics.body,
         request: `POST /metrics/get-data
-Authorization: Bearer <chave da sua conta>
-x-customer-token: <token do cliente>
+Authorization: Bearer ${p.accountKey}
+x-customer-token: ${p.customerToken}
 
 {
   "customer_integration": "1ce9fd68-e1ad-4c4a-96fd-b18267256cc4",
@@ -188,23 +198,23 @@ x-customer-token: <token do cliente>
     }
   ]
 }`,
-        result: <MetricsResult />,
+        result: <MetricsResult t={t} locale={locale} />,
       },
     ],
   },
   {
     key: "ads",
-    label: "Anúncios",
+    label: t.ads.label,
     steps: [
       {
-        label: "Criar",
-        title: "Crie a campanha, o conjunto e o anúncio numa chamada",
-        body: "Tudo nasce pausado e só é ativado no último passo. Se algo falhar no meio, nada fica rodando com o dinheiro do seu cliente.",
-        request: `POST /ads?customer_integration=<conexão Meta Ads>
+        label: t.ads.create.step,
+        title: t.ads.create.title,
+        body: t.ads.create.body,
+        request: `POST /ads?customer_integration=${p.metaConnection}
 Idempotency-Key: 6f1c2a9e-bf-2026-11-19
 
 {
-  "name": "Black Friday, imagem",
+  "name": "${t.ads.adName}",
   "status": "active",
   "campaign": {
     "name": "Black Friday",
@@ -219,7 +229,7 @@ Idempotency-Key: 6f1c2a9e-bf-2026-11-19
   "ad": {
     "format": "image",
     "headline": "Black Friday",
-    "body": "Até 50% off",
+    "body": "${t.ads.offer}",
     "link_url": "https://loja.com/bf",
     "call_to_action": "shop_now",
     "media": [{ "type": "image", "url": "https://cdn.loja.com/bf.jpg" }],
@@ -228,20 +238,21 @@ Idempotency-Key: 6f1c2a9e-bf-2026-11-19
 }`,
         result: (
           <AdTree
-            budget="R$ 50/dia"
+            t={t}
+            budget={fill(t.ads.budget, { amount: 50 })}
             status={
               <Badge tone="amber">
                 <Clock className="h-3 w-3" aria-hidden="true" />
-                Em análise
+                {t.ads.inReview}
               </Badge>
             }
           />
         ),
       },
       {
-        label: "Ajustar",
-        title: "Mude orçamento e status sem abrir o gerenciador",
-        body: "Cada escrita é registrada e pode ser repetida com a mesma Idempotency-Key sem duplicar nada.",
+        label: t.ads.adjust.step,
+        title: t.ads.adjust.title,
+        body: t.ads.adjust.body,
         request: `PATCH /ads/campaigns/120250000000000001
 Idempotency-Key: 9b3e7d10-bf-budget
 
@@ -250,40 +261,43 @@ Idempotency-Key: 9b3e7d10-bf-budget
 }`,
         result: (
           <AdTree
+            t={t}
             budget={
               <>
-                <span className="text-muted-foreground line-through">R$ 50</span> R$ 80/dia
+                <span className="text-muted-foreground line-through">{fill(t.ads.was, { amount: 50 })}</span>{" "}
+                {fill(t.ads.budget, { amount: 80 })}
               </>
             }
             status={
               <Badge tone="green">
                 <Check className="h-3 w-3" aria-hidden="true" />
-                Ativo
+                {t.ads.active}
               </Badge>
             }
           />
         ),
       },
       {
-        label: "Acompanhar",
-        title: "Saiba quando a plataforma aprovou",
-        body: "O status efetivo vem direto da plataforma, então seu produto mostra se o anúncio está em análise, rodando ou foi recusado.",
-        request: `GET /ads/120250000000000003?customer_integration=<conexão Meta Ads>
+        label: t.ads.track.step,
+        title: t.ads.track.title,
+        body: t.ads.track.body,
+        request: `GET /ads/120250000000000003?customer_integration=${p.metaConnection}
 
 {
   "data": {
-    "name": "Black Friday, imagem",
+    "name": "${t.ads.adName}",
     "status": "active",
     "effective_status": "active"
   }
 }`,
         result: (
           <AdTree
-            budget="R$ 80/dia"
+            t={t}
+            budget={fill(t.ads.budget, { amount: 80 })}
             status={
               <Badge tone="green">
                 <Check className="h-3 w-3" aria-hidden="true" />
-                Rodando
+                {t.ads.running}
               </Badge>
             }
           />
@@ -293,45 +307,46 @@ Idempotency-Key: 9b3e7d10-bf-budget
   },
   {
     key: "posts",
-    label: "Publicações",
+    label: t.posts.label,
     steps: [
       {
-        label: "Publicar",
-        title: "Publique no Instagram do seu cliente",
-        body: "Você manda a legenda e a mídia. O Connect sobe o conteúdo pela conta que o cliente já conectou e cuida da publicação.",
+        label: t.posts.publish.step,
+        title: t.posts.publish.title,
+        body: t.posts.publish.body,
         request: `POST /posts
 Idempotency-Key: post-2026-10-08-001-v1
 
 {
   "integration_slug": "instagram_business",
-  "source_name": "minha_marca",
+  "source_name": "${t.posts.handle}",
   "external_reference": "post-2026-10-08-001",
   "format": "feed",
-  "caption": "Coleção de verão #verao",
+  "caption": "${t.posts.caption}",
   "media": [
     {
       "type": "image",
       "url": "https://cdn.example.com/posts/colecao.jpg"
     }
   ],
-  "instagram": { "first_comment": "Link na bio!" }
+  "instagram": { "first_comment": "${t.posts.firstComment}" }
 }`,
         result: (
           <SocialPost
+            t={t}
             network="instagram"
             status={
               <Badge tone="amber">
                 <Clock className="h-3 w-3" aria-hidden="true" />
-                Publicando
+                {t.posts.statusPublishing}
               </Badge>
             }
           />
         ),
       },
       {
-        label: "Acompanhar",
-        title: "Saiba quando o post foi ao ar",
-        body: "Consulte pelo uuid ou pela sua própria referência. A resposta traz o status de cada mídia e o link do post publicado.",
+        label: t.posts.track.step,
+        title: t.posts.track.title,
+        body: t.posts.track.body,
         request: `GET /posts/9f1c2b7e-1d3a-4c55-9a8e-2f6b0c1d4e5f
 
 {
@@ -346,30 +361,31 @@ Idempotency-Key: post-2026-10-08-001-v1
 }`,
         result: (
           <SocialPost
+            t={t}
             network="instagram"
             published
             status={
               <Badge tone="green">
                 <Check className="h-3 w-3" aria-hidden="true" />
-                Publicado
+                {t.posts.statusPublished}
               </Badge>
             }
           />
         ),
       },
       {
-        label: "Facebook",
-        title: "A mesma chamada para a página do Facebook",
-        body: "Troque a integração e o mesmo formato publica na página do cliente. Você não aprende uma API nova por rede.",
+        label: t.posts.facebook.step,
+        title: t.posts.facebook.title,
+        body: t.posts.facebook.body,
         request: `POST /posts
 Idempotency-Key: post-2026-10-08-002-v1
 
 {
   "integration_slug": "facebook",
-  "source_name": "Minha Marca",
+  "source_name": "${t.posts.brand}",
   "external_reference": "post-2026-10-08-002",
   "format": "feed",
-  "caption": "Coleção de verão chegando às lojas",
+  "caption": "${t.posts.facebookCaption}",
   "media": [
     {
       "type": "image",
@@ -379,12 +395,13 @@ Idempotency-Key: post-2026-10-08-002-v1
 }`,
         result: (
           <SocialPost
+            t={t}
             network="facebook"
             published
             status={
               <Badge tone="green">
                 <Check className="h-3 w-3" aria-hidden="true" />
-                Publicado
+                {t.posts.statusPublished}
               </Badge>
             }
           />
@@ -392,7 +409,8 @@ Idempotency-Key: post-2026-10-08-002-v1
       },
     ],
   },
-]
+  ]
+}
 
 /**
  * Stand-in for the post's photo: a beach scene drawn in SVG, so the mockup reads as a picture
@@ -427,10 +445,12 @@ function SummerArt({ className = "" }: { className?: string }) {
 }
 
 function SocialPost({
+  t,
   network,
   status,
   published = false,
 }: {
+  t: T
   network: "instagram" | "facebook"
   status: ReactNode
   published?: boolean
@@ -438,7 +458,7 @@ function SocialPost({
   const instagram = network === "instagram"
 
   return (
-    <Panel title={instagram ? "No Instagram do seu cliente" : "Na página do seu cliente"}>
+    <Panel title={instagram ? t.posts.instagramPanel : t.posts.facebookPanel}>
       <div className="mx-auto max-w-[360px] overflow-hidden rounded-lg border bg-white text-[13px]">
         <div className="flex items-center gap-2.5 px-3 py-2.5">
           <span
@@ -451,19 +471,19 @@ function SocialPost({
             MM
           </span>
           <div className="min-w-0 flex-1 leading-tight">
-            <p className="font-semibold">{instagram ? "minha_marca" : "Minha Marca"}</p>
+            <p className="font-semibold">{instagram ? t.posts.handle : t.posts.brand}</p>
             <p className="text-xs text-muted-foreground">
-              {published ? (instagram ? "Agora" : "Agora · Público") : "Publicando…"}
+              {published ? (instagram ? t.posts.now : t.posts.nowPublic) : t.posts.publishing}
             </p>
           </div>
           <img
-            src={instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg"}
+            src={withBase(instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg")}
             alt=""
             className="h-4 w-4"
           />
         </div>
 
-        {!instagram && <p className="px-3 pb-2.5">Coleção de verão chegando às lojas ☀️</p>}
+        {!instagram && <p className="px-3 pb-2.5">{t.posts.facebookCaption} ☀️</p>}
 
         <div className={`relative ${instagram ? "aspect-square" : "aspect-[1.91/1]"}`}>
           <SummerArt className={`absolute inset-0 h-full w-full transition-opacity ${published ? "" : "opacity-50"}`} />
@@ -483,25 +503,25 @@ function SocialPost({
               <Bookmark className="ml-auto h-5 w-5" aria-hidden="true" />
             </div>
             <p>
-              <span className="font-semibold">minha_marca</span> Coleção de verão #verao
+              <span className="font-semibold">{t.posts.handle}</span> {t.posts.caption}
             </p>
             <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">minha_marca</span> Link na bio!
+              <span className="font-semibold text-foreground">{t.posts.handle}</span> {t.posts.firstComment}
             </p>
           </div>
         ) : (
           <div className="flex justify-around border-t px-3 py-2 text-xs font-medium text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <ThumbsUp className="h-4 w-4" aria-hidden="true" />
-              Curtir
+              {t.posts.like}
             </span>
             <span className="flex items-center gap-1.5">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Comentar
+              {t.posts.comment}
             </span>
             <span className="flex items-center gap-1.5">
               <Share2 className="h-4 w-4" aria-hidden="true" />
-              Compartilhar
+              {t.posts.share}
             </span>
           </div>
         )}
@@ -518,7 +538,8 @@ function SocialPost({
   )
 }
 
-export function ApiDemoSection() {
+export function ApiDemoSection({ t, locale }: { t: T; locale: Locale }) {
+  const CAPABILITIES = capabilities(t, locale)
   const [active, setActive] = useState(CAPABILITIES[0].key)
   const [stepIndex, setStepIndex] = useState(0)
 
@@ -533,13 +554,11 @@ export function ApiDemoSection() {
   return (
     <section id="na-pratica" className="lp-section border-y bg-muted/40">
       <div className="lp-container">
-        <p className="lp-eyebrow mb-4">Na prática</p>
-        <h2 className="lp-title max-w-[22ch]">Uma chamada à API, o resultado na conta do seu cliente.</h2>
-        <p className="lp-copy mt-5">
-          Veja o que você envia ao Connect e o que acontece do outro lado, em cada parte da API.
-        </p>
+        <p className="lp-eyebrow mb-4">{t.eyebrow}</p>
+        <h2 className="lp-title max-w-[22ch]">{t.title}</h2>
+        <p className="lp-copy mt-5">{t.copy}</p>
 
-        <div role="tablist" aria-label="Partes da API" className="mt-10 flex flex-wrap gap-2">
+        <div role="tablist" aria-label={t.tabsLabel} className="mt-10 flex flex-wrap gap-2">
           {CAPABILITIES.map((c) => (
             <button
               key={c.key}
@@ -596,9 +615,9 @@ export function ApiDemoSection() {
         </div>
 
         <p className="mt-10 text-sm text-muted-foreground">
-          Valores ilustrativos. O contrato completo de cada endpoint está na{" "}
+          {t.footnote}{" "}
           <a href="https://developers.reportei.com/connect" className="lp-link">
-            documentação da API
+            {t.footnoteLink}
           </a>
           .
         </p>
