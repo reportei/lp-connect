@@ -2,8 +2,18 @@ import { ChevronDown } from "lucide-react"
 import { appUrl, type Locale } from "@/lib/i18n"
 import { INTEGRATIONS } from "@/lib/integrations"
 import { getMessages, type Rich } from "@/lib/messages"
+import type { PlatformFaq } from "@/lib/plataformas"
 
 type Question = { q: string; a: Rich[] }
+
+const plain = (parts: Rich) => parts.map((part) => (typeof part === "string" ? part : part.text)).join("")
+
+// Same questions as the section, as plain text for the FAQPage JSON-LD.
+export function faqItems(locale: Locale): PlatformFaq[] {
+  const t = getMessages(locale).faq
+  const n = INTEGRATIONS.length
+  return [...t.product, ...t.pricing].map((item) => ({ q: item.q(n), a: item.a(n).map(plain).join(" ") }))
+}
 
 function RichText({ parts, locale }: { parts: Rich; locale: Locale }) {
   return (

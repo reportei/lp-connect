@@ -22,6 +22,7 @@ export function languageAlternates(page: TranslatedPage) {
 
 // Next replaces openGraph and twitter wholesale when a page sets them, so every page builds all three here.
 // URLs are absolute: resolving "/x" against a metadataBase that has a path would drop the /connect segment.
+// `canonical` sends search engines to another address when that one is the official copy of the page.
 export function pageMetadata({
   title,
   description,
@@ -29,6 +30,7 @@ export function pageMetadata({
   locale = DEFAULT_LOCALE,
   page,
   imageAlt,
+  canonical,
 }: {
   title: string
   description: string
@@ -37,8 +39,9 @@ export function pageMetadata({
   // Set on pages that exist in every language, so they announce their translations.
   page?: TranslatedPage
   imageAlt?: string
+  canonical?: string
 }): Metadata {
-  const url = absoluteUrl(path)
+  const url = canonical ?? absoluteUrl(path)
   const image = imageAlt ? { ...OG_IMAGE_BASE, alt: imageAlt } : OG_IMAGE
   return {
     title,

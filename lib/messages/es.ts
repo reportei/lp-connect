@@ -2,9 +2,9 @@ import type { Messages, Rich } from "@/lib/messages/pt"
 
 export const es: Messages = {
   meta: {
-    homeTitle: (n) => `Reportei Connect | Datos de ${n} plataformas en una API`,
+    homeTitle: "API de datos de marketing para SaaS | Reportei Connect",
     homeDescription: (n) =>
-      `Conecta las cuentas de marketing, CRM y e-commerce de tus clientes y accede a las métricas de ${n} plataformas con una única API.`,
+      `API para que tu software consulte Instagram, Meta Ads, Google Ads, RD Station y ${n - 4} plataformas más de marketing, CRM y e-commerce de tus clientes.`,
     softwareDescription: (n) =>
       `API para llevar a tu producto las métricas de ${n} plataformas de marketing, CRM y e-commerce de tus clientes.`,
     integrationsTitle: (n) => `Integraciones de Reportei Connect: ${n} APIs de marketing, CRM y e-commerce`,
@@ -53,8 +53,9 @@ export const es: Messages = {
     terms: "Términos de servicio",
   },
   hero: {
-    title: (n) => `Datos de ${n} plataformas, en tu producto.`,
-    copy: "Conecta las cuentas de marketing, CRM y e-commerce de tus clientes. Accede a las métricas con una única API y crea tus propios análisis, informes y dashboards.",
+    title: "API de datos de marketing para tu producto.",
+    copy: (n) =>
+      `Conecta las cuentas de tus clientes en ${n} plataformas de marketing, CRM y e-commerce, como Instagram, Meta Ads, Google Ads y RD Station. Accede a las métricas con una única API y crea tus propios análisis, informes y dashboards.`,
     signup: "Empezar prueba gratis",
     demo: "Agendar una demo",
     trial: "15 días de prueba. Sin tarjeta de crédito.",

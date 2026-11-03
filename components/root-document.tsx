@@ -19,7 +19,7 @@ export function rootMetadata(locale: Locale): Metadata {
   const image = { url: "https://reportei.com/connect/og.png", width: 1200, height: 630, alt: t.ogImageAlt }
   return {
     metadataBase: new URL("https://reportei.com"),
-    title: t.homeTitle(INTEGRATIONS.length),
+    title: t.homeTitle,
     description: t.homeDescription(INTEGRATIONS.length),
     // Same Reportei mark the Connect app uses, so the tab looks the same on both.
     icons: {

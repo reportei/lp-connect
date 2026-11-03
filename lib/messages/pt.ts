@@ -7,9 +7,9 @@ const faqs = (items: Faq[]) => items
 // Strings that reach client components must be plain data, so those use {placeholders} filled by `fill`.
 export const pt = {
   meta: {
-    homeTitle: (n: number) => `Reportei Connect | Dados de ${n} plataformas em uma API`,
+    homeTitle: "API de dados de marketing para SaaS | Reportei Connect",
     homeDescription: (n: number) =>
-      `Conecte as contas de marketing, CRM e e-commerce dos seus clientes e acesse as métricas de ${n} plataformas por uma única API.`,
+      `API para o seu software consultar Instagram, Meta Ads, Google Ads, RD Station e mais ${n - 4} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     softwareDescription: (n: number) =>
       `API para levar ao seu produto as métricas de ${n} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     integrationsTitle: (n: number) => `Integrações do Reportei Connect: ${n} APIs de marketing, CRM e e-commerce`,
@@ -58,8 +58,9 @@ export const pt = {
     terms: "Termos de serviço",
   },
   hero: {
-    title: (n: number) => `Dados de ${n} plataformas, no seu produto.`,
-    copy: "Conecte as contas de marketing, CRM e e-commerce dos seus clientes. Acesse as métricas em uma única API e crie suas próprias análises, relatórios e dashboards.",
+    title: "API de dados de marketing para o seu produto.",
+    copy: (n: number) =>
+      `Conecte as contas dos seus clientes em ${n} plataformas de marketing, CRM e e-commerce, como Instagram, Meta Ads, Google Ads e RD Station. Acesse as métricas em uma única API e crie suas próprias análises, relatórios e dashboards.`,
     signup: "Começar teste grátis",
     demo: "Agendar demonstração",
     trial: "15 dias para testar. Sem cartão de crédito.",

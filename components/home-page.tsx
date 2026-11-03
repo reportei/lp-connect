@@ -9,10 +9,10 @@ import { CaseStudySection } from "@/components/case-study-section"
 import { NetworksSection } from "@/components/networks-section"
 import { AiSection } from "@/components/ai-section"
 import { PlansPricingSection } from "@/components/plans-pricing-section"
-import { FaqSection } from "@/components/faq-section"
+import { FaqSection, faqItems } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
-import { JsonLd } from "@/components/platform-page"
+import { JsonLd, faqJsonLd } from "@/components/platform-page"
 import { DEFAULT_LOCALE, LOCALE_INFO, pageHref, pagePath, type Locale } from "@/lib/i18n"
 import { INTEGRATIONS } from "@/lib/integrations"
 import { getMessages } from "@/lib/messages"
@@ -21,7 +21,7 @@ import { absoluteUrl, pageMetadata } from "@/lib/seo"
 export function homeMetadata(locale: Locale) {
   const t = getMessages(locale).meta
   return pageMetadata({
-    title: t.homeTitle(INTEGRATIONS.length),
+    title: t.homeTitle,
     description: t.homeDescription(INTEGRATIONS.length),
     path: pagePath(locale, "home"),
     locale,
@@ -47,6 +47,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <div className="connect-page min-h-screen">
       <JsonLd data={software} />
+      <JsonLd data={faqJsonLd(faqItems(locale))} />
       <Header locale={locale} page="home" />
       <main>
         <HeroSection locale={locale} />

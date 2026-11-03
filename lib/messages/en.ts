@@ -2,9 +2,9 @@ import type { Messages, Rich } from "@/lib/messages/pt"
 
 export const en: Messages = {
   meta: {
-    homeTitle: (n) => `Reportei Connect | Data from ${n} platforms in one API`,
+    homeTitle: "Marketing data API for SaaS | Reportei Connect",
     homeDescription: (n) =>
-      `Connect your customers' marketing, CRM and e-commerce accounts and access metrics from ${n} platforms through a single API.`,
+      `An API for your software to query your customers' Instagram, Meta Ads, Google Ads, RD Station and ${n - 4} more marketing, CRM and e-commerce platforms.`,
     softwareDescription: (n) =>
       `An API that brings your customers' metrics from ${n} marketing, CRM and e-commerce platforms into your product.`,
     integrationsTitle: (n) => `Reportei Connect integrations: ${n} marketing, CRM and e-commerce APIs`,
@@ -53,8 +53,9 @@ export const en: Messages = {
     terms: "Terms of service",
   },
   hero: {
-    title: (n) => `Data from ${n} platforms, inside your product.`,
-    copy: "Connect your customers' marketing, CRM and e-commerce accounts. Access their metrics through a single API and build your own analyses, reports and dashboards.",
+    title: "Marketing data API for your product.",
+    copy: (n) =>
+      `Connect your customers' accounts on ${n} marketing, CRM and e-commerce platforms, such as Instagram, Meta Ads, Google Ads and RD Station. Access the metrics through a single API and build your own analyses, reports and dashboards.`,
     signup: "Start free trial",
     demo: "Book a demo",
     trial: "15-day trial. No credit card required.",

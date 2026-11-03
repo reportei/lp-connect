@@ -22,6 +22,11 @@ export default {
       return Response.redirect(url.toString(), 301)
     }
 
+    // "/connect/" serves the same page as "/connect": keep a single address for the home.
+    if (url.pathname === `${BASE}/`) {
+      return Response.redirect(`${url.origin}${BASE}${url.search}`, 301)
+    }
+
     if (url.pathname !== BASE && !url.pathname.startsWith(`${BASE}/`)) {
       // The route is reportei.com/connect* (an exact /connect pattern misses /connect?utm=...), so it also
       // catches paths like /connections. Those belong to WordPress: send them to the origin untouched.
