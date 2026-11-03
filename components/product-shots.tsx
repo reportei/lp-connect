@@ -1,47 +1,41 @@
 "use client"
 
 import { withBase } from "@/lib/base-path"
+import { fill } from "@/lib/fill"
+import type { Messages } from "@/lib/messages"
 import { useState } from "react"
 
 const SHOTS = [
   {
-    key: "metrics",
-    label: "Métricas",
+    key: "metrics" as const,
     src: withBase("/images/explorer/explorer_meta_ads_code.webp"),
     width: 2000,
     height: 1195,
-    alt: "Interface real do Explorer: métrica de alcance do Meta Ads selecionada, com o payload enviado e a resposta da API.",
-    caption: "Escolha as métricas, veja a resposta real da API e copie o código em cURL, Node.js, Python ou PHP.",
   },
   {
-    key: "posts",
-    label: "Posts",
+    key: "posts" as const,
     src: withBase("/images/explorer/app_posts.png"),
     width: 1247,
     height: 577,
-    alt: "Painel de posts do Connect: publicações de um cliente no Instagram com tipo, status e data de publicação.",
-    caption: "Acompanhe cada post publicado nas contas dos seus clientes pela API, com tipo, status e horário de publicação.",
   },
   {
-    key: "ads",
-    label: "Ads",
+    key: "ads" as const,
     src: withBase("/images/explorer/app_ads.png"),
     width: 1228,
     height: 647,
-    alt: "Painel de anúncios do Connect: campanhas e conjuntos do Meta Ads de um cliente com objetivo, status e orçamento.",
-    caption: "Veja campanhas, conjuntos e anúncios criados pela API, com status e orçamento de cada um.",
   },
 ]
 
-export function ProductShots() {
-  const [active, setActive] = useState(SHOTS[0].key)
+export function ProductShots({ t }: { t: Messages["productShots"] }) {
+  const [active, setActive] = useState<(typeof SHOTS)[number]["key"]>(SHOTS[0].key)
   const shot = SHOTS.find((s) => s.key === active) ?? SHOTS[0]
+  const text = t[shot.key]
 
   return (
     <figure className="lp-product-figure min-w-0">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
-        <p className="text-base font-semibold">Por dentro do Connect</p>
-        <div role="tablist" aria-label="Telas do Connect" className="flex gap-1 rounded-md border bg-white p-1">
+        <p className="text-base font-semibold">{t.heading}</p>
+        <div role="tablist" aria-label={t.tabsLabel} className="flex gap-1 rounded-md border bg-white p-1">
           {SHOTS.map((s) => (
             <button
               key={s.key}
@@ -53,7 +47,7 @@ export function ProductShots() {
                 s.key === active ? "bg-primary text-white" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {s.label}
+              {t[s.key].label}
             </button>
           ))}
         </div>
@@ -64,19 +58,19 @@ export function ProductShots() {
         href={shot.src}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Ampliar captura de ${shot.label} em nova aba`}
+        aria-label={fill(t.enlarge, { label: text.label })}
         className="block aspect-[2000/1195] overflow-hidden rounded-lg border bg-white"
       >
         <img
           src={shot.src}
-          alt={shot.alt}
+          alt={text.alt}
           width={shot.width}
           height={shot.height}
           fetchPriority={shot.key === "metrics" ? "high" : undefined}
           className="!h-full !w-full !rounded-none !border-0 object-contain object-top"
         />
       </a>
-      <figcaption className="mt-5 text-sm leading-relaxed text-muted-foreground">{shot.caption}</figcaption>
+      <figcaption className="mt-5 text-sm leading-relaxed text-muted-foreground">{text.caption}</figcaption>
 
       {/* Preload the other captures so the first switch is instant. */}
       <div hidden>

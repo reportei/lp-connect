@@ -1,4 +1,6 @@
 import type React from "react"
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
 import { pageMetadata } from "@/lib/seo"
 
 // The official docs moved to developers.reportei.com (every link on the LP points there). This older copy stays up for
@@ -10,6 +12,13 @@ export const metadata = pageMetadata({
   canonical: "https://developers.reportei.com/connect",
 })
 
+// Header and footer live here, not in the page: the page is a client component and would ship every language.
 export default function DocumentacaoLayout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-gray-50">
+      <Header />
+      {children}
+      <Footer />
+    </div>
+  )
 }

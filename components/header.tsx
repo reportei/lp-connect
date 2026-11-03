@@ -1,81 +1,36 @@
-"use client"
+import { HeaderBar } from "@/components/header-bar"
+import { appUrl, DEFAULT_LOCALE, languageLinks, pageHref, type Locale, type TranslatedPage } from "@/lib/i18n"
+import { getMessages } from "@/lib/messages"
 
-import { withBase } from "@/lib/base-path"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+type HeaderProps = {
+  locale?: Locale
+  // The page being shown, when it exists in every language; the picker then links to its translations.
+  page?: TranslatedPage
+}
 
-const NAV = [
-  { href: withBase("/#na-pratica"), label: "Na prática" },
-  { href: withBase("/#networks"), label: "Integrações" },
-  { href: withBase("/#clientes"), label: "Clientes" },
-  { href: withBase("/#ia"), label: "Com IA" },
-  { href: withBase("/#precos"), label: "Preços" },
-  { href: "https://developers.reportei.com/connect", label: "Documentação" },
-]
-
-export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export function Header({ locale = DEFAULT_LOCALE, page }: HeaderProps) {
+  const m = getMessages(locale)
+  const t = m.header
+  const home = (hash: string) => pageHref(locale, "home", hash)
 
   return (
-    <header className="connect-page sticky top-0 z-50 w-full border-b bg-white">
-      <div className="lp-container">
-        <div className="flex h-20 items-center justify-between">
-          <a href={withBase("/")} className="flex items-center">
-            <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-10 w-auto" />
-          </a>
-
-          <nav className="hidden xl:flex items-center gap-7">
-            {NAV.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden xl:flex items-center gap-5">
-            <a href="https://app.connect.reportei.com/login" className="text-sm font-medium hover:text-primary">
-              Entrar
-            </a>
-            <a href="https://app.connect.reportei.com/signup" className="lp-button min-h-10 px-4 py-2 text-sm">
-              Começar teste grátis
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className="xl:hidden inline-flex size-10 items-center justify-center rounded-md hover:bg-muted"
-            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {isMenuOpen && (
-        <div className="xl:hidden border-t bg-white">
-          <nav className="lp-container flex flex-col gap-4 py-5">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-base font-medium hover:text-primary"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a href="https://app.connect.reportei.com/login" className="text-base font-medium hover:text-primary">
-              Entrar
-            </a>
-            <a href="https://app.connect.reportei.com/signup" className="lp-button mt-2 w-full">
-              Começar teste grátis
-            </a>
-          </nav>
-        </div>
-      )}
-    </header>
+    <HeaderBar
+      locale={locale}
+      homeHref={pageHref(locale, "home")}
+      nav={[
+        { href: home("#na-pratica"), label: t.nav.practice },
+        { href: home("#networks"), label: t.nav.integrations },
+        { href: home("#clientes"), label: t.nav.clients },
+        { href: home("#ia"), label: t.nav.ai },
+        { href: home("#precos"), label: t.nav.pricing },
+        { href: "https://developers.reportei.com/connect", label: t.nav.docs },
+      ]}
+      login={{ href: appUrl(locale, "/login"), label: t.login }}
+      signup={{ href: appUrl(locale, "/signup"), label: t.signup }}
+      menuLabels={{ open: t.openMenu, close: t.closeMenu }}
+      languageLabel={m.language.label}
+      languageLinks={languageLinks(page)}
+    />
   )
 }
 

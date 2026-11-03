@@ -9,13 +9,14 @@ const FALLBACK_HEIGHT_CLASSES = "h-[1500px] sm:h-[1300px] lg:h-[1050px]"
 // The app only allows the origins in its EMBED_FRAME_ANCESTORS to frame the table. A refused frame still fires
 // load but never reports a height, so this long after load the section links to the app's own price page instead.
 const HEIGHT_TIMEOUT_MS = 4000
-const PRICES_PAGE = `${TRUSTED_ORIGIN}/prices`
 
 type PricingEmbedProps = {
   src: string
+  pricesUrl: string
+  t: { embedTitle: string; fallbackTitle: string; fallbackBody: string; fallbackCta: string }
 }
 
-export function PricingEmbed({ src }: PricingEmbedProps) {
+export function PricingEmbed({ src, pricesUrl, t }: PricingEmbedProps) {
   const [height, setHeight] = useState<number | null>(null)
   const [refused, setRefused] = useState(false)
 
@@ -50,13 +51,10 @@ export function PricingEmbed({ src }: PricingEmbedProps) {
   if (refused && !height) {
     return (
       <div className="rounded-lg border bg-white p-6 md:p-8">
-        <h3 className="text-2xl font-semibold">Plano Connect</h3>
-        <p className="mt-3 leading-relaxed text-muted-foreground">
-          Conexões incluídas no plano e valor fixo por conexão adicional, igual em qualquer plataforma. Veja os valores
-          e simule quanto você pagaria.
-        </p>
-        <a href={PRICES_PAGE} className="lp-button mt-6">
-          Ver planos e preços
+        <h3 className="text-2xl font-semibold">{t.fallbackTitle}</h3>
+        <p className="mt-3 leading-relaxed text-muted-foreground">{t.fallbackBody}</p>
+        <a href={pricesUrl} className="lp-button mt-6">
+          {t.fallbackCta}
         </a>
       </div>
     )
@@ -65,7 +63,7 @@ export function PricingEmbed({ src }: PricingEmbedProps) {
   return (
     <iframe
       src={src}
-      title="Planos e preços do Reportei Connect"
+      title={t.embedTitle}
       loading="lazy"
       scrolling="no"
       onLoad={() => setLoaded(true)}

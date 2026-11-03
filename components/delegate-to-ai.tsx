@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Check, Copy } from "lucide-react"
+import type { Messages } from "@/lib/messages"
 
 /**
  * The sentence a visitor hands to their own AI coding agent.
@@ -9,14 +10,7 @@ import { Check, Copy } from "lucide-react"
  * That url is the whole feature: it serves a markdown that instructs the agent to create the
  * account link, wait for the signup, ask for the API key and implement the integration. What
  * gets copied is one line, and the agent does the rest.
- *
- * Hardcoded because that is this repository's convention — there is no env layer and no
- * constants module, and every url on this site is a literal. With `output: 'export'` an env
- * would be inlined at build time anyway.
  */
-const SENTENCE =
-  "Preciso integrar o Reportei Connect neste projeto. Leia as instruções em https://app.connect.reportei.com/provision-trial.md e siga o passo a passo descrito lá."
-
 /**
  * The sentence is shown, not just copied.
  *
@@ -24,12 +18,12 @@ const SENTENCE =
  * read into an agent with access to their codebase. Seeing the line first is what makes that
  * a reasonable thing to do.
  */
-export function DelegateToAI() {
+export function DelegateToAI({ t }: { t: Messages["delegate"] }) {
   const [copied, setCopied] = useState(false)
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(SENTENCE)
+      await navigator.clipboard.writeText(t.sentence)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
@@ -41,24 +35,24 @@ export function DelegateToAI() {
   return (
     <div className="flex min-w-0 flex-col items-start gap-4">
       <pre className="w-full whitespace-pre-wrap break-all rounded-md border bg-muted/40 p-4 text-left text-sm leading-relaxed">
-        <code>{SENTENCE}</code>
+        <code>{t.sentence}</code>
       </pre>
 
       <button type="button" className="lp-button" onClick={copy}>
         {copied ? (
           <>
             <Check className="h-4 w-4" />
-            Copiado!
+            {t.copied}
           </>
         ) : (
           <>
             <Copy className="h-4 w-4" />
-            Copiar prompt
+            {t.copy}
           </>
         )}
       </button>
       <p role="status" className="sr-only">
-        {copied ? "Prompt copiado" : ""}
+        {copied ? t.copiedStatus : ""}
       </p>
     </div>
   )

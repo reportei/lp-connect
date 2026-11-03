@@ -1,24 +1,19 @@
 "use client"
 
 import { withBase } from "@/lib/base-path"
+import type { Messages } from "@/lib/messages"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
 
-export const LEADSTER_SLIDES = [
-  { src: withBase("/images/leadster-dashboard-1.png"), alt: "Super Dashboard Leadster - Customização de eventos e investimentos por conversão" },
-  { src: withBase("/images/leadster-dashboard-2.png"), alt: "Campanhas Google Ads com métricas detalhadas de investimento e conversão" },
-  { src: withBase("/images/leadster-dashboard-3.png"), alt: "Visão consolidada por canal - Google Ads, LinkedIn Ads e Meta Ads" },
-  { src: withBase("/images/leadster-dashboard-4.png"), alt: "Investimentos por conversão com custo por lead e taxa de conversão" },
-  { src: withBase("/images/leadster-dashboard-5.png"), alt: "Análise completa de campanhas com métricas de todos os canais" },
-]
+export const LEADSTER_SLIDES = [1, 2, 3, 4, 5].map((n) => withBase(`/images/leadster-dashboard-${n}.png`))
 
-export default function LeadsterCarousel() {
+export default function LeadsterCarousel({ t }: { t: Messages["carousel"] }) {
   const [index, setIndex] = useState(0)
   const total = LEADSTER_SLIDES.length
-  const slide = LEADSTER_SLIDES[index]
+  const slide = { src: LEADSTER_SLIDES[index], alt: t.slides[index] }
 
   return (
-    <div className="w-full" role="region" aria-roledescription="carrossel" aria-label="Telas do Super Dashboard Leadster">
+    <div className="w-full" role="region" aria-roledescription={t.roledescription} aria-label={t.label}>
       <div className="relative aspect-[2/1] w-full overflow-hidden rounded-lg border bg-background">
         <img src={slide.src} alt={slide.alt} loading="lazy" className="absolute inset-0 h-full w-full object-contain" />
       </div>
@@ -34,8 +29,8 @@ export default function LeadsterCarousel() {
         </p>
         <div className="flex shrink-0 gap-2">
           {[
-            { label: "Slide anterior", Icon: ChevronLeft, step: -1 },
-            { label: "Próximo slide", Icon: ChevronRight, step: 1 },
+            { label: t.previous, Icon: ChevronLeft, step: -1 },
+            { label: t.next, Icon: ChevronRight, step: 1 },
           ].map(({ label, Icon, step }) => (
             <button
               key={label}

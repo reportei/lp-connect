@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import LeadsterCarousel from "@/components/leadster-carousel"
+import { pt } from "@/lib/messages/pt"
 import { pageMetadata } from "@/lib/seo"
 
 export const metadata: Metadata = pageMetadata({
@@ -118,7 +119,7 @@ export default function LeadsterCasePage() {
           <div className="lp-container">
             <p className="lp-eyebrow mb-3">O que eles construíram</p>
             <h2 className="lp-title mb-8">O Super Dashboard da Leadster.</h2>
-            <LeadsterCarousel />
+            <LeadsterCarousel t={pt.carousel} />
             <a
               href="https://www.youtube.com/watch?v=5SnKj1rrUJM"
               target="_blank"

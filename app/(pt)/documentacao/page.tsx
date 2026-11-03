@@ -20,8 +20,6 @@ import {
   Plug,
   Webhook,
 } from "lucide-react"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
 import { CodeBlock } from "@/components/code-block"
 
 export default function DocumentacaoPage() {
@@ -43,9 +41,7 @@ export default function DocumentacaoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-gray-50">
-      <Header />
-
+    <>
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         {/* Background decoration */}
@@ -2132,8 +2128,6 @@ export default function DocumentacaoPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   )
 }
