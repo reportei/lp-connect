@@ -519,15 +519,22 @@ export const pt = {
   },
   toolkits: {
     breadcrumb: "Toolkits",
+    home: {
+      eyebrow: "Toolkits",
+      title: (n: number) => `Além dos dados: ${n} apps que o seu produto opera`,
+      copy: (tools: string) =>
+        `Envie mensagens no WhatsApp, crie tarefas no Jira, agende no Google Calendar. São ${tools} tools que o seu produto e os seus agentes de IA executam na conta do cliente, pela mesma API.`,
+      cta: (n: number) => `Ver os ${n} toolkits`,
+    },
     hub: {
-      metaTitle: (n: number, tools: number) => `Toolkits do Reportei Connect: ${n} apps e ${tools} tools por uma API`,
-      metaDescription: (n: number, tools: number) =>
+      metaTitle: (n: number, tools: string) => `Toolkits do Reportei Connect: ${n} apps e ${tools} tools por uma API`,
+      metaDescription: (n: number, tools: string) =>
         `WhatsApp, Notion, Jira, Stripe, Google Calendar e mais ${n - 5} apps: ${tools} tools que o seu produto e os seus agentes de IA executam na conta dos seus clientes por uma API.`,
       eyebrow: "Toolkits",
       h1: (n: number) => `${n} apps que o seu produto e os seus agentes de IA operam por uma API`,
       copy: "Seu cliente conecta a conta do app uma vez. Seu sistema envia mensagens, cria tarefas, lê contatos e agenda reuniões chamando as tools pelo mesmo endpoint, sem implementar a API de cada app.",
       toolCount: (n: number) => (n === 1 ? "1 tool" : `${n} tools`),
-      stats: (n: number, tools: number) => `${n} toolkits · ${tools} tools`,
+      stats: (n: number, tools: string) => `${n} toolkits · ${tools} tools`,
     },
     categories: {
       communication: "Comunicação",

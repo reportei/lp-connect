@@ -7,6 +7,7 @@ import { HowItWorksSection } from "@/components/how-it-works-section"
 import { ProblemsSection } from "@/components/problems-section"
 import { CaseStudySection } from "@/components/case-study-section"
 import { NetworksSection } from "@/components/networks-section"
+import { ToolkitsHomeSection } from "@/components/toolkit-pages"
 import { AiSection } from "@/components/ai-section"
 import { PlansPricingSection } from "@/components/plans-pricing-section"
 import { FaqSection, faqItems } from "@/components/faq-section"
@@ -64,6 +65,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           integrationsHref={pageHref(locale, "integrations")}
           linkPages={locale === DEFAULT_LOCALE}
         />
+        <ToolkitsHomeSection locale={locale} />
         <AiSection locale={locale} />
         <PlansPricingSection locale={locale} />
         <FaqSection locale={locale} />

@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { FaqList, JsonLd, faqJsonLd } from "@/components/platform-page"
 import { withBase } from "@/lib/base-path"
-import { appUrl, LOCALE_INFO, localePath, type AlternatePath, type Locale } from "@/lib/i18n"
+import { appUrl, formatNumber, LOCALE_INFO, localePath, type AlternatePath, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
 import {
@@ -197,13 +197,66 @@ function RelatedToolkits({ locale, toolkit }: { locale: Locale; toolkit: Toolkit
   )
 }
 
+// ---------- Home block ----------
+
+const HOME_PICKS = [
+  "whatsapp",
+  "slack",
+  "notion",
+  "google_calendar",
+  "gmail",
+  "jira",
+  "stripe",
+  "asana",
+  "calendly",
+  "github",
+  "typeform",
+  "mercado_livre",
+]
+
+export function ToolkitsHomeSection({ locale }: { locale: Locale }) {
+  const t = getMessages(locale).toolkits.home
+  const picks = HOME_PICKS.map((slug) => TOOLKITS.find((toolkit) => toolkit.slug === slug)).filter(
+    (toolkit): toolkit is Toolkit => Boolean(toolkit),
+  )
+
+  return (
+    <section id="toolkits" className="lp-section border-t bg-muted/40">
+      <div className="lp-container">
+        <div className="mb-10 max-w-3xl">
+          <p className="lp-eyebrow mb-3">{t.eyebrow}</p>
+          <h2 className="lp-title mb-5">{t.title(TOOLKITS.length)}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">{t.copy(formatNumber(locale, TOOL_COUNT))}</p>
+        </div>
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          {picks.map((toolkit) => (
+            <li key={toolkit.slug}>
+              <a
+                href={href(locale, toolkitPath(toolkit))}
+                className="flex h-full items-center gap-3 rounded-md border bg-white px-4 py-3 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+              >
+                <ToolkitLogo toolkit={toolkit} className="h-7 w-7 shrink-0" />
+                {toolkit.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href={href(locale, toolkitsHubPath())} className="lp-button mt-10 inline-flex items-center gap-2">
+          {t.cta(TOOLKITS.length)}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </a>
+      </div>
+    </section>
+  )
+}
+
 // ---------- Hub: /toolkits ----------
 
 export function toolkitsHubMetadata(locale: Locale) {
   const t = getMessages(locale).toolkits.hub
   return pageMetadata({
-    title: t.metaTitle(TOOLKITS.length, TOOL_COUNT),
-    description: t.metaDescription(TOOLKITS.length, TOOL_COUNT),
+    title: t.metaTitle(TOOLKITS.length, formatNumber(locale, TOOL_COUNT)),
+    description: t.metaDescription(TOOLKITS.length, formatNumber(locale, TOOL_COUNT)),
     path: localePath(locale, toolkitsHubPath()),
     locale,
     page: toolkitsHubPath,
@@ -215,7 +268,7 @@ export function ToolkitsHubPage({ locale }: { locale: Locale }) {
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: t.hub.metaTitle(TOOLKITS.length, TOOL_COUNT),
+    name: t.hub.metaTitle(TOOLKITS.length, formatNumber(locale, TOOL_COUNT)),
     numberOfItems: TOOLKITS.length,
     itemListElement: TOOLKITS.map((toolkit, i) => ({
       "@type": "ListItem",
@@ -232,7 +285,7 @@ export function ToolkitsHubPage({ locale }: { locale: Locale }) {
           <p className="lp-eyebrow mb-4">{t.hub.eyebrow}</p>
           <h1 className="lp-title max-w-[24ch] text-[clamp(2.2rem,4vw,3.4rem)]">{t.hub.h1(TOOLKITS.length)}</h1>
           <p className="lp-copy mt-6">{t.hub.copy}</p>
-          <p className="mt-6 text-sm font-medium text-muted-foreground">{t.hub.stats(TOOLKITS.length, TOOL_COUNT)}</p>
+          <p className="mt-6 text-sm font-medium text-muted-foreground">{t.hub.stats(TOOLKITS.length, formatNumber(locale, TOOL_COUNT))}</p>
         </div>
       </section>
 

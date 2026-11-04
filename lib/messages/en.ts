@@ -511,6 +511,13 @@ export const en: Messages = {
   },
   toolkits: {
     breadcrumb: "Toolkits",
+    home: {
+      eyebrow: "Toolkits",
+      title: (n) => `Beyond data: ${n} apps your product operates`,
+      copy: (tools) =>
+        `Send WhatsApp messages, create Jira issues, book on Google Calendar. ${tools} tools your product and your AI agents run on your customer's account, through the same API.`,
+      cta: (n) => `See all ${n} toolkits`,
+    },
     hub: {
       metaTitle: (n, tools) => `Reportei Connect toolkits: ${n} apps and ${tools} tools through one API`,
       metaDescription: (n, tools) =>
