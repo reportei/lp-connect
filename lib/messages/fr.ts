@@ -515,6 +515,7 @@ export const fr: Messages = {
   },
   toolkits: {
     breadcrumb: "Toolkits",
+    breadcrumbLabel: "Fil d'Ariane",
     home: {
       eyebrow: "Toolkits",
       title: (n) => `Au-delà des données : ${n} apps que votre produit pilote`,
@@ -525,7 +526,7 @@ export const fr: Messages = {
     hub: {
       metaTitle: (n, tools) => `Toolkits Reportei Connect : ${n} apps et ${tools} tools via une API`,
       metaDescription: (n, tools) =>
-        `WhatsApp, Notion, Jira, Stripe, Google Calendar et ${n - 5} autres apps : ${tools} tools que votre produit et vos agents IA exécutent sur les comptes de vos clients via une API.`,
+        `WhatsApp, Notion, Jira, Stripe et ${n - 4} autres apps : ${tools} tools que votre produit et vos agents IA exécutent sur les comptes de vos clients.`,
       eyebrow: "Toolkits",
       h1: (n) => `${n} apps que votre produit et vos agents IA pilotent via une API`,
       copy: "Votre client connecte son compte une seule fois. Votre système envoie des messages, crée des tâches, lit des contacts et planifie des réunions en appelant les tools par le même endpoint, sans intégrer l'API de chaque app.",
@@ -564,7 +565,7 @@ export const fr: Messages = {
     },
     hostParams: (params) => `À la connexion, votre client indique aussi ${params} : l'adresse de son compte sur l'API de l'app.`,
     toolkit: {
-      metaTitle: (name) => `API ${name} pour SaaS et agents IA | Reportei Connect`,
+      metaTitle: (name) => `API ${name} pour SaaS et agents IA`,
       h1: (name) => `${name} dans votre produit et vos agents IA, via une API`,
       signup: "Essai gratuit",
       docs: "Voir la documentation",
@@ -617,7 +618,7 @@ export const fr: Messages = {
       officialDocs: (name) => `Documentation officielle de ${name}`,
     },
     toolsPage: {
-      metaTitle: (name, n) => `${name} : les ${n} tools de l'API | Reportei Connect`,
+      metaTitle: (name, n) => `${name} : les ${n} tools de l'API`,
       metaDescription: (name, n, examples) =>
         `Les ${n} tools du toolkit ${name} sur Reportei Connect : ${examples} et plus. Chacune avec ses paramètres et un exemple d'appel.`,
       h1: (name) => `Tools ${name}`,
@@ -625,7 +626,8 @@ export const fr: Messages = {
         `Les ${n} opérations ${name} que votre produit exécute sur le compte de votre client via Connect. Elles utilisent toutes le même endpoint, POST /api/tools/{tool}/execute.`,
     },
     tool: {
-      metaTitle: (tool, name) => `${name} : ${tool} via l'API | Reportei Connect`,
+      metaTitle: (tool, name) => `API ${name} : ${tool}`,
+      metaSuffix: (name) => `Exécutez-la sur le compte ${name} de votre client via Reportei Connect.`,
       h1: (tool, name) => `${tool} avec l'API ${name}`,
       requestTitle: "L'appel",
       requestCopy:

@@ -44,7 +44,8 @@ O slug da URL troca `_` por `-` e a tool perde o prefixo do toolkit (`whatsapp_s
 - **Textos:** `lib/toolkits/copy/{slug}.json` tem a tagline, a introdução e os 3 casos de uso do toolkit nos quatro idiomas, e o nome e a descrição de cada tool em pt, es e fr (o inglês é o da spec). `node scripts/check-toolkit-copy.mjs` confere que nada falta e que não há travessão. Toolkit sem arquivo de textos ainda ganha as páginas, com o texto em inglês da spec.
 - **Interface:** os rótulos ficam em `toolkits` nos `lib/messages/*.ts`, as páginas em `components/toolkit-pages.tsx` e as rotas em `app/(pt)/toolkit*` e no equivalente de cada idioma. Como o caminho é calculado por slug, essas páginas passam `alternatePath` (não `page`) ao `pageMetadata`, ao `Header` e ao `Footer`.
 - As descrições dos parâmetros ficam em inglês em todos os idiomas, como na spec, e a página avisa isso.
-- O sitemap lista cada página nos quatro idiomas com os `hreflang`. Um toolkit novo entra no sitemap sozinho depois do sync.
+- **Sitemap próprio:** as páginas de toolkits ficam em `/connect/sitemap-toolkits.xml` (`app/sitemap-toolkits.xml/route.ts`), separadas do `/connect/sitemap.xml`. Cada página aparece nos quatro idiomas com os `hreflang`, e um toolkit novo entra sozinho depois do sync. O `robots.txt` do domínio é o do WordPress (Yoast) e não cita os sitemaps do Connect: os dois são enviados no Search Console.
+- **Títulos:** o sufixo ` | Reportei Connect` só entra quando o título inteiro cabe em 60 caracteres (`withBrand`). Descrição de tool com menos de 110 caracteres ganha uma frase com o nome do app (`metaSuffix`), para nenhuma descrição se repetir.
 
 ---
 

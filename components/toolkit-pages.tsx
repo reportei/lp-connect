@@ -41,6 +41,18 @@ function truncate(text: string, max = 155) {
   return `${cut.slice(0, cut.lastIndexOf(" "))}…`
 }
 
+// The brand goes at the end of the title only while the whole title fits in a search result.
+function withBrand(title: string) {
+  const branded = `${title} | Reportei Connect`
+  return branded.length <= 60 ? branded : title
+}
+
+// Short tool descriptions get a sentence that names the app, so no two meta descriptions are alike.
+function toolDescription(locale: Locale, toolkit: Toolkit, description: string) {
+  const suffix = getMessages(locale).toolkits.tool.metaSuffix(toolkit.name)
+  return description.length < 110 ? `${description} ${suffix}` : description
+}
+
 function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -56,7 +68,7 @@ function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[
 
 function Breadcrumb({ locale, items }: { locale: Locale; items: { name: string; path?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+    <nav aria-label={getMessages(locale).toolkits.breadcrumbLabel} className="mb-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
       {items.map((item, i) => (
         <span key={item.name} className="flex items-center gap-2">
           {i > 0 && <span aria-hidden="true">/</span>}
@@ -344,7 +356,7 @@ export function toolkitMetadata(locale: Locale, slug: string) {
   if (!toolkit) return {}
   const t = getMessages(locale).toolkits.toolkit
   return pageMetadata({
-    title: t.metaTitle(toolkit.name),
+    title: withBrand(t.metaTitle(toolkit.name)),
     description: truncate(toolkitCopy(toolkit, locale).tagline, 160),
     path: localePath(locale, toolkitPath(toolkit)),
     locale,
@@ -486,7 +498,7 @@ export function toolkitToolsMetadata(locale: Locale, slug: string) {
     .map((tool) => toolText(toolkit, tool, locale).name.toLowerCase())
     .join(", ")
   return pageMetadata({
-    title: t.metaTitle(toolkit.name, toolkit.tools.length),
+    title: withBrand(t.metaTitle(toolkit.name, toolkit.tools.length)),
     description: truncate(t.metaDescription(toolkit.name, toolkit.tools.length, examples), 160),
     path: localePath(locale, toolkitToolsPath(toolkit)),
     locale,
@@ -558,8 +570,8 @@ export function toolMetadata(locale: Locale, slug: string, toolSlug: string) {
   const t = getMessages(locale).toolkits.tool
   const text = toolText(toolkit, tool, locale)
   return pageMetadata({
-    title: t.metaTitle(text.name, toolkit.name),
-    description: truncate(text.description, 160),
+    title: withBrand(t.metaTitle(text.name, toolkit.name)),
+    description: truncate(toolDescription(locale, toolkit, text.description), 160),
     path: localePath(locale, toolPath(toolkit, tool)),
     locale,
     page: () => toolPath(toolkit, tool),

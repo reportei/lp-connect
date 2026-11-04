@@ -519,6 +519,7 @@ export const pt = {
   },
   toolkits: {
     breadcrumb: "Toolkits",
+    breadcrumbLabel: "Trilha",
     home: {
       eyebrow: "Toolkits",
       title: (n: number) => `Além dos dados: ${n} apps que o seu produto opera`,
@@ -529,7 +530,7 @@ export const pt = {
     hub: {
       metaTitle: (n: number, tools: string) => `Toolkits do Reportei Connect: ${n} apps e ${tools} tools por uma API`,
       metaDescription: (n: number, tools: string) =>
-        `WhatsApp, Notion, Jira, Stripe, Google Calendar e mais ${n - 5} apps: ${tools} tools que o seu produto e os seus agentes de IA executam na conta dos seus clientes por uma API.`,
+        `WhatsApp, Notion, Jira, Stripe e mais ${n - 4} apps: ${tools} tools que o seu produto e os seus agentes de IA executam na conta dos clientes.`,
       eyebrow: "Toolkits",
       h1: (n: number) => `${n} apps que o seu produto e os seus agentes de IA operam por uma API`,
       copy: "Seu cliente conecta a conta do app uma vez. Seu sistema envia mensagens, cria tarefas, lê contatos e agenda reuniões chamando as tools pelo mesmo endpoint, sem implementar a API de cada app.",
@@ -569,7 +570,7 @@ export const pt = {
     hostParams: (params: string) =>
       `Na conexão, o cliente informa também ${params}: o endereço da conta dele na API do app.`,
     toolkit: {
-      metaTitle: (name: string) => `API do ${name} para SaaS e agentes de IA | Reportei Connect`,
+      metaTitle: (name: string) => `API do ${name} para SaaS e agentes de IA`,
       h1: (name: string) => `${name} no seu produto e nos seus agentes de IA, por uma API`,
       signup: "Começar teste grátis",
       docs: "Ver documentação",
@@ -622,7 +623,7 @@ export const pt = {
       officialDocs: (name: string) => `Documentação oficial do ${name}`,
     },
     toolsPage: {
-      metaTitle: (name: string, n: number) => `${name}: as ${n} tools da API | Reportei Connect`,
+      metaTitle: (name: string, n: number) => `${name}: as ${n} tools da API`,
       metaDescription: (name: string, n: number, examples: string) =>
         `As ${n} tools do toolkit ${name} no Reportei Connect: ${examples} e mais. Cada uma com os parâmetros e um exemplo de chamada.`,
       h1: (name: string) => `Tools do ${name}`,
@@ -630,7 +631,8 @@ export const pt = {
         `As ${n} operações do ${name} que o seu produto executa na conta do cliente pelo Connect. Todas usam o mesmo endpoint, POST /api/tools/{tool}/execute.`,
     },
     tool: {
-      metaTitle: (tool: string, name: string) => `${name}: ${tool} por API | Reportei Connect`,
+      metaTitle: (tool: string, name: string) => `API do ${name}: ${tool}`,
+      metaSuffix: (name: string) => `Execute na conta do ${name} do seu cliente pelo Reportei Connect.`,
       h1: (tool: string, name: string) => `${tool} no ${name}, por uma API`,
       requestTitle: "A chamada",
       requestCopy:
