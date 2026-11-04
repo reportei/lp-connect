@@ -7,10 +7,10 @@ export const en: Messages = {
       `An API for your software to query your customers' Instagram, Meta Ads, Google Ads, RD Station and ${n - 4} more marketing, CRM and e-commerce platforms.`,
     softwareDescription: (n) =>
       `An API that brings your customers' metrics from ${n} marketing, CRM and e-commerce platforms into your product.`,
-    integrationsTitle: (n) => `Reportei Connect integrations: ${n} marketing, CRM and e-commerce APIs`,
+    integrationsTitle: (n) => `Reportei Connect integrations: ${n} platforms in one API`,
     integrationsDescription: (n) =>
-      `Meta Ads, Google Ads, Instagram, TikTok, HubSpot, Shopify and more: the ${n} platforms your product reaches through a single API.`,
-    ogImageAlt: "Reportei Connect: data from 50 platforms in one API",
+      `Meta Ads, Google Ads, Instagram, HubSpot, Shopify, WhatsApp, Slack and more: the ${n} platforms your product reaches through a single API.`,
+    ogImageAlt: (n) => `Reportei Connect: ${n} integrations in one API`,
   },
   language: {
     label: "Language",
@@ -30,7 +30,8 @@ export const en: Messages = {
     closeMenu: "Close menu",
   },
   footer: {
-    tagline: (n) => `${n} marketing, CRM and e-commerce integrations in one API for your system.`,
+    tagline: (n, toolkits) =>
+      `Metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${toolkits} more apps, in one API for your system.`,
     product: "Product",
     company: "Company",
     apis: "APIs",
@@ -54,9 +55,9 @@ export const en: Messages = {
     terms: "Terms of service",
   },
   hero: {
-    title: "Marketing data API for your product.",
-    copy: (n) =>
-      `Connect your customers' accounts on ${n} marketing, CRM and e-commerce platforms, such as Instagram, Meta Ads, Google Ads and RD Station. Access the metrics through a single API and build your own analyses, reports and dashboards.`,
+    title: (total) => `Integrate ${total} platforms into your system with a single API.`,
+    copy: (n, toolkits) =>
+      `Query metrics from ${n} marketing, CRM and e-commerce platforms, such as Meta Ads, Google Ads and RD Station, and run actions in ${toolkits} more of your customers' apps, such as WhatsApp, Slack and ClickUp.`,
     signup: "Start free trial",
     demo: "Book a demo",
     trial: "15-day trial. No credit card required.",
@@ -253,7 +254,7 @@ export const en: Messages = {
       {
         problem: "APIs that change all the time",
         solution:
-          "New versions, deprecated fields and rate limits are handled by the Reportei team, which has maintained these integrations for over 10 years.",
+          "New versions, deprecated fields and rate limits are handled by the Reportei team, which has maintained marketing integrations for over 10 years.",
       },
     ],
   },
@@ -283,7 +284,7 @@ export const en: Messages = {
   },
   networks: {
     title: "{n} integrations for your product",
-    copy: "Paid media, social networks, CRM and e-commerce. Find the platforms you need and access their data through the Reportei Connect API.",
+    copy: "Paid media, social networks, CRM and e-commerce to query metrics, and toolkits to run actions in apps such as WhatsApp, Slack and ClickUp. Find the platforms you need and use them all through the Reportei Connect API.",
     searchLabel: "Search integrations",
     searchPlaceholder: "E.g. Google Ads, HubSpot or Shopify",
     filterLabel: "Filter integrations by category",
@@ -292,14 +293,19 @@ export const en: Messages = {
     note: "An integration is a platform available in the catalog. A connection is an account on that platform linked to Connect, and it is the unit used for billing.",
     seePlan: "See how the plan works.",
     details: "Details of each integration.",
+    toolkitBadge: "Toolkit",
+    toolkitHint: "Runs actions, no metrics",
   },
   categories: {
     "Mídia paga": "Paid media",
     "Redes sociais": "Social networks",
     "Analytics e SEO": "Analytics and SEO",
     "Marketing e CRM": "Marketing and CRM",
-    Atendimento: "Customer service",
+    Atendimento: "Support and communication",
     "E-commerce e vendas": "E-commerce and sales",
+    Financeiro: "Finance",
+    Produtividade: "Productivity",
+    "Ferramentas de dev": "Developer tools",
   },
   integrationNames: {
     "Perfil da Empresa no Google": "Google Business Profile",
@@ -377,12 +383,15 @@ export const en: Messages = {
     product: [
       {
         q: () => "What can I do with Reportei Connect?",
-        a: (n): Rich[] => [
+        a: (n, toolkits): Rich[] => [
           [
             `Connect your customers' accounts on ${n} marketing, CRM and e-commerce platforms and query their metrics through a single API.`,
           ],
           [
             "You can also publish to your customers' Instagram and Facebook and, on Meta Ads, create and manage campaigns, ad sets and ads, all through the same connected accounts.",
+          ],
+          [
+            `With toolkits, your product runs actions in ${toolkits} more of your customers' apps, such as sending WhatsApp messages, creating tasks in ClickUp or posting to a Slack channel. Toolkits bring no metrics.`,
           ],
         ],
       },
@@ -502,7 +511,8 @@ export const en: Messages = {
   integrationsPage: {
     eyebrow: "Integrations",
     title: (n) => `${n} platforms in one API for your product`,
-    copy: "Your customers connect their paid media, social, CRM and e-commerce accounts. Your system queries the metrics of all of them through the same API, in the same format.",
+    copy: (n, toolkits) =>
+      `Your customers connect their paid media, social, CRM and e-commerce accounts. Your system queries the metrics of these ${n} platforms through the same API, in the same format, and runs actions in ${toolkits} more apps with toolkits.`,
     popular: "Most requested APIs",
     apiOf: (platform) => `${platform} API`,
     catalog: "Full catalog",

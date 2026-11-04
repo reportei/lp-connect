@@ -7,10 +7,10 @@ export const fr: Messages = {
       `Une API pour que votre logiciel interroge Instagram, Meta Ads, Google Ads, RD Station et ${n - 4} autres plateformes marketing, CRM et e-commerce de vos clients.`,
     softwareDescription: (n) =>
       `Une API pour intégrer à votre produit les métriques de ${n} plateformes marketing, CRM et e-commerce de vos clients.`,
-    integrationsTitle: (n) => `Intégrations Reportei Connect : ${n} API marketing, CRM et e-commerce`,
+    integrationsTitle: (n) => `Intégrations Reportei Connect : ${n} plateformes dans une API`,
     integrationsDescription: (n) =>
-      `Meta Ads, Google Ads, Instagram, TikTok, HubSpot, Shopify et plus : les ${n} plateformes auxquelles votre produit accède via une seule API.`,
-    ogImageAlt: "Reportei Connect : les données de 50 plateformes dans une API",
+      `Meta Ads, Google Ads, Instagram, HubSpot, Shopify, WhatsApp, Slack et plus : les ${n} plateformes auxquelles votre produit accède via une seule API.`,
+    ogImageAlt: (n) => `Reportei Connect : ${n} intégrations dans une API`,
   },
   language: {
     label: "Langue",
@@ -30,7 +30,8 @@ export const fr: Messages = {
     closeMenu: "Fermer le menu",
   },
   footer: {
-    tagline: (n) => `${n} intégrations marketing, CRM et e-commerce dans une API pour votre système.`,
+    tagline: (n, toolkits) =>
+      `Les métriques de ${n} plateformes marketing, CRM et e-commerce et des actions dans ${toolkits} autres apps, dans une API pour votre système.`,
     product: "Produit",
     company: "Entreprise",
     apis: "API",
@@ -54,9 +55,9 @@ export const fr: Messages = {
     terms: "Conditions d'utilisation",
   },
   hero: {
-    title: "L'API de données marketing pour votre produit.",
-    copy: (n) =>
-      `Connectez les comptes de vos clients sur ${n} plateformes marketing, CRM et e-commerce, comme Instagram, Meta Ads, Google Ads et RD Station. Accédez aux métriques via une seule API et créez vos propres analyses, rapports et tableaux de bord.`,
+    title: (total) => `Intégrez ${total} plateformes à votre système avec une seule API.`,
+    copy: (n, toolkits) =>
+      `Interrogez les métriques de ${n} plateformes marketing, CRM et e-commerce, comme Meta Ads, Google Ads et RD Station, et exécutez des actions dans ${toolkits} autres apps de vos clients, comme WhatsApp, Slack et ClickUp.`,
     signup: "Commencer l'essai gratuit",
     demo: "Réserver une démo",
     trial: "15 jours d'essai. Sans carte bancaire.",
@@ -255,7 +256,7 @@ export const fr: Messages = {
       {
         problem: "Des API qui changent sans arrêt",
         solution:
-          "Nouvelles versions, champs obsolètes et limites de requêtes sont gérés par l'équipe Reportei, qui maintient ces intégrations depuis plus de 10 ans.",
+          "Nouvelles versions, champs obsolètes et limites de requêtes sont gérés par l'équipe Reportei, qui maintient des intégrations marketing depuis plus de 10 ans.",
       },
     ],
   },
@@ -285,7 +286,7 @@ export const fr: Messages = {
   },
   networks: {
     title: "{n} intégrations pour votre produit",
-    copy: "Médias payants, réseaux sociaux, CRM et e-commerce. Trouvez les plateformes dont vous avez besoin et accédez à leurs données via l'API Reportei Connect.",
+    copy: "Médias payants, réseaux sociaux, CRM et e-commerce pour interroger les métriques, et des toolkits pour exécuter des actions dans des apps comme WhatsApp, Slack et ClickUp. Trouvez les plateformes dont vous avez besoin et utilisez-les toutes via l'API Reportei Connect.",
     searchLabel: "Rechercher une intégration",
     searchPlaceholder: "Ex. : Google Ads, HubSpot ou Shopify",
     filterLabel: "Filtrer les intégrations par catégorie",
@@ -294,14 +295,19 @@ export const fr: Messages = {
     note: "Une intégration est une plateforme disponible dans le catalogue. Une connexion est un compte de cette plateforme relié à Connect, et c'est l'unité utilisée pour la facturation.",
     seePlan: "Voir comment fonctionne l'offre.",
     details: "Détails de chaque intégration.",
+    toolkitBadge: "Toolkit",
+    toolkitHint: "Exécute des actions, sans métriques",
   },
   categories: {
     "Mídia paga": "Médias payants",
     "Redes sociais": "Réseaux sociaux",
     "Analytics e SEO": "Analytics et SEO",
     "Marketing e CRM": "Marketing et CRM",
-    Atendimento: "Service client",
+    Atendimento: "Support et communication",
     "E-commerce e vendas": "E-commerce et ventes",
+    Financeiro: "Finance",
+    Produtividade: "Productivité",
+    "Ferramentas de dev": "Outils pour développeurs",
   },
   integrationNames: {
     "Perfil da Empresa no Google": "Fiche d'établissement Google",
@@ -379,12 +385,15 @@ export const fr: Messages = {
     product: [
       {
         q: () => "Que peut-on faire avec Reportei Connect ?",
-        a: (n): Rich[] => [
+        a: (n, toolkits): Rich[] => [
           [
             `Connecter les comptes de vos clients sur ${n} plateformes marketing, CRM et e-commerce et interroger leurs métriques via une seule API.`,
           ],
           [
             "Vous pouvez aussi publier sur l'Instagram et le Facebook de vos clients et, sur Meta Ads, créer et gérer des campagnes, des ensembles de publicités et des annonces, toujours avec les mêmes comptes connectés.",
+          ],
+          [
+            `Avec les toolkits, votre produit exécute des actions dans ${toolkits} autres apps de vos clients, comme envoyer des messages WhatsApp, créer des tâches dans ClickUp ou prévenir un canal Slack. Les toolkits n'apportent pas de métriques.`,
           ],
         ],
       },
@@ -506,7 +515,8 @@ export const fr: Messages = {
   integrationsPage: {
     eyebrow: "Intégrations",
     title: (n) => `${n} plateformes dans une API pour votre produit`,
-    copy: "Vos clients connectent leurs comptes de médias payants, réseaux sociaux, CRM et e-commerce. Votre système interroge les métriques de tous ces comptes via la même API, dans le même format.",
+    copy: (n, toolkits) =>
+      `Vos clients connectent leurs comptes de médias payants, réseaux sociaux, CRM et e-commerce. Votre système interroge les métriques de ces ${n} plateformes via la même API, dans le même format, et exécute des actions dans ${toolkits} autres apps avec les toolkits.`,
     popular: "API les plus demandées",
     apiOf: (platform) => `API ${platform}`,
     catalog: "Catalogue complet",

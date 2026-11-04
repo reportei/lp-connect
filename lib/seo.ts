@@ -15,7 +15,7 @@ export const SITE_URL = "https://reportei.com/connect"
 export const SITE_NAME = "Reportei Connect"
 export const SIGNUP_URL = "https://app.connect.reportei.com/signup"
 const OG_IMAGE_BASE = { url: `${SITE_URL}/og.png`, width: 1200, height: 630 }
-export const OG_IMAGE = { ...OG_IMAGE_BASE, alt: "Reportei Connect: dados de 50 plataformas em uma API" }
+export const OG_IMAGE = { ...OG_IMAGE_BASE, alt: "Reportei Connect: métricas e ações nos apps dos seus clientes em uma API" }
 
 export function absoluteUrl(path: string) {
   return path === "/" ? SITE_URL : `${SITE_URL}${path}`

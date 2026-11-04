@@ -2,6 +2,7 @@
 // Every competitor cell comes from that company's own site; keep CHECKED_AT current when you re-check them.
 // No price comparison on purpose: the Connect price lives in the app embed, and a cheaper-than claim needs both prices side by side.
 
+import { INTEGRATIONS } from "@/lib/integrations"
 import type { PlatformFaq } from "@/lib/plataformas"
 
 export const CHECKED_AT = "27/10/2026"
@@ -40,10 +41,10 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
     competitorUrl: "https://zernio.com",
     title: "Alternativa à Zernio (antiga Late) em português | Reportei Connect",
     description:
-      "Compare o Reportei Connect e a Zernio: métricas de 50 plataformas, incluindo RD Station, Nuvemshop e Hotmart, com cobrança em reais e suporte em português.",
+      `Compare o Reportei Connect e a Zernio: métricas de ${INTEGRATIONS.length} plataformas, incluindo RD Station, Nuvemshop e Hotmart, com cobrança em reais e suporte em português.`,
     h1: "Alternativa à Zernio para quem precisa dos dados de marketing dos clientes no Brasil",
     intro:
-      "A Zernio, antiga Late, é uma API para publicar, agendar e analisar conteúdo em redes sociais. O Reportei Connect é uma API para levar ao seu produto as métricas das contas dos seus clientes em 50 plataformas de mídia, CRM e e-commerce, incluindo as brasileiras.",
+      `A Zernio, antiga Late, é uma API para publicar, agendar e analisar conteúdo em redes sociais. O Reportei Connect é uma API para levar ao seu produto as métricas das contas dos seus clientes em ${INTEGRATIONS.length} plataformas de mídia, CRM e e-commerce, incluindo as brasileiras.`,
     rows: [
       {
         label: "Foco",
@@ -84,7 +85,7 @@ export const ALTERNATIVE_PAGES: AlternativePage[] = [
       },
       {
         q: "O Reportei Connect também publica nas redes sociais?",
-        a: "Publica no Instagram e no Facebook dos seus clientes, além de criar e gerenciar campanhas de Meta Ads. O foco do Connect é a leitura de métricas de 50 plataformas.",
+        a: `Publica no Instagram e no Facebook dos seus clientes, além de criar e gerenciar campanhas de Meta Ads. O foco do Connect é a leitura de métricas de ${INTEGRATIONS.length} plataformas.`,
       },
     ],
   },

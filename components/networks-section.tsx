@@ -1,43 +1,42 @@
 "use client"
 
-import { withBase } from "@/lib/base-path"
 import { fill } from "@/lib/fill"
 import type { Messages } from "@/lib/messages"
 import { Plug, Search } from "lucide-react"
 import { useMemo, useState } from "react"
-import {
-  INTEGRATION_CATEGORIES,
-  INTEGRATIONS,
-  integrationLogoSrc,
-  type Integration,
-  type IntegrationCategory,
-} from "@/lib/integrations"
+import { INTEGRATION_CATEGORIES, type CatalogEntry, type IntegrationCategory } from "@/lib/integrations"
 
 function normalize(text: string) {
   return text
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
 }
 
-// Entries with their own landing page link to it; the rest stay plain cards.
-function IntegrationCard({ item, name, linkPage }: { item: Integration; name: string; linkPage: boolean }) {
+function IntegrationCard({ item, badge, hint }: { item: CatalogEntry; badge: string; hint: string }) {
   const body = (
     <>
       <div className="flex h-9 w-9 shrink-0 items-center justify-center">
         {item.logo ? (
-          <img src={integrationLogoSrc(item.logo)} alt="" loading="lazy" className="max-h-8 max-w-8 object-contain" />
+          <img src={item.logo} alt="" loading="lazy" className="max-h-8 max-w-8 object-contain" />
         ) : (
           <Plug className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
         )}
       </div>
-      <span className="text-sm font-medium leading-snug">{name}</span>
+      <span className="min-w-0">
+        <span className="block text-sm font-medium leading-snug">{item.name}</span>
+        {item.toolkit && (
+          <span title={hint} className="mt-1 inline-block rounded border px-1.5 text-xs font-medium text-muted-foreground">
+            {badge}
+          </span>
+        )}
+      </span>
     </>
   )
   const base = "flex h-full items-center gap-3 rounded-md border bg-white px-4 py-3"
 
-  return item.page && linkPage ? (
-    <a href={withBase(`/${item.page}`)} className={`${base} transition-colors hover:border-primary hover:text-primary`}>
+  return item.href ? (
+    <a href={item.href} className={`${base} transition-colors hover:border-primary hover:text-primary`}>
       {body}
     </a>
   ) : (
@@ -48,25 +47,22 @@ function IntegrationCard({ item, name, linkPage }: { item: Integration; name: st
 type NetworksSectionProps = {
   t: Messages["networks"]
   categories: Messages["categories"]
-  names: Messages["integrationNames"]
+  entries: CatalogEntry[]
   integrationsHref: string
-  // The integrations' own pages exist only in Portuguese.
-  linkPages: boolean
 }
 
-export function NetworksSection({ t, categories, names, integrationsHref, linkPages }: NetworksSectionProps) {
+export function NetworksSection({ t, categories, entries, integrationsHref }: NetworksSectionProps) {
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState<IntegrationCategory | null>(null)
 
   const filtered = useMemo(() => {
     const q = normalize(query.trim())
 
-    return INTEGRATIONS.filter(
+    return entries.filter(
       (item) =>
-        (!category || item.category === category) &&
-        (!q || normalize(`${item.name} ${names[item.name] ?? ""} ${item.aliases ?? ""}`).includes(q)),
+        (!category || item.category === category) && (!q || normalize(`${item.name} ${item.search}`).includes(q)),
     )
-  }, [query, category, names])
+  }, [query, category, entries])
 
   const chip = (selected: boolean) =>
     `rounded-md border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
@@ -78,7 +74,7 @@ export function NetworksSection({ t, categories, names, integrationsHref, linkPa
       <div className="lp-container">
         <div className="mb-10 max-w-3xl">
           <h2 id="integrations-title" className="lp-title mb-5">
-            {fill(t.title, { n: INTEGRATIONS.length })}
+            {fill(t.title, { n: entries.length })}
           </h2>
           <p className="text-lg leading-relaxed text-muted-foreground">{t.copy}</p>
         </div>
@@ -100,7 +96,7 @@ export function NetworksSection({ t, categories, names, integrationsHref, linkPa
 
         <div role="group" aria-label={t.filterLabel} className="mb-5 flex flex-wrap gap-2">
           <button type="button" aria-pressed={!category} onClick={() => setCategory(null)} className={chip(!category)}>
-            {fill(t.all, { n: INTEGRATIONS.length })}
+            {fill(t.all, { n: entries.length })}
           </button>
           {INTEGRATION_CATEGORIES.map((c) => (
             <button
@@ -121,8 +117,8 @@ export function NetworksSection({ t, categories, names, integrationsHref, linkPa
 
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {filtered.map((item) => (
-            <li key={item.name}>
-              <IntegrationCard item={item} name={names[item.name] ?? item.name} linkPage={linkPages} />
+            <li key={`${item.toolkit ? "toolkit" : "native"}-${item.name}`}>
+              <IntegrationCard item={item} badge={t.toolkitBadge} hint={t.toolkitHint} />
             </li>
           ))}
         </ul>

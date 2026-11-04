@@ -27,6 +27,15 @@ A home, a página de integrações e as páginas de toolkits existem em portugu�
 - **Seletor de idioma:** `components/language-switcher.tsx`, na navbar e no rodapé. Leva para a mesma página no outro idioma quando ela é traduzida, e para a home do idioma nas demais.
 - **Página nova traduzida:** acrescentar a entrada em `TRANSLATED_PAGES`, os textos nos quatro arquivos e um arquivo de rota em cada route group.
 
+## Catálogo e contagens
+
+O catálogo tem dois tipos de integração: as **nativas** (`INTEGRATIONS` em `lib/integrations.ts`), que trazem métricas, e os **toolkits** (`TOOLKITS` em `lib/toolkits`), que executam ações nos apps do cliente e não trazem métricas.
+
+- `lib/catalog.ts` junta as duas listas: `NATIVE_COUNT`, `TOOLKIT_COUNT`, `CATALOG_COUNT` (a soma) e `catalogEntries(locale)`, que alimenta o catálogo da home (`NetworksSection`) e o de `/integracoes`, com a etiqueta "Toolkit". Só no servidor, porque `lib/toolkits` lê arquivos.
+- **Qual contagem usar:** frase sobre métricas ("métricas de N plataformas", FAQ, JSON-LD, páginas de plataforma, comparativos) usa `NATIVE_COUNT`. Frase sobre integrações em geral (título do topo, catálogo, `/integracoes`) usa `CATALOG_COUNT`. Nunca escrever o número fixo no texto.
+- Nativa nova: entrada em `INTEGRATIONS` e logo em `public/images/integrations/{logo}.svg`. Toolkit novo: só o sync descrito abaixo. A categoria de cada toolkit no filtro vem de `TOOLKIT_GROUPS` em `lib/catalog.ts`.
+- A imagem `public/og.png` tem o número escrito nela. Ao mudar o catálogo, ela precisa de uma versão nova do design.
+
 ## Toolkits (pSEO)
 
 Uma página por toolkit e por tool do Connect, nos quatro idiomas, com o mesmo caminho em todos (só muda o prefixo do idioma):

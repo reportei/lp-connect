@@ -7,10 +7,10 @@ export const es: Messages = {
       `API para que tu software consulte Instagram, Meta Ads, Google Ads, RD Station y ${n - 4} plataformas más de marketing, CRM y e-commerce de tus clientes.`,
     softwareDescription: (n) =>
       `API para llevar a tu producto las métricas de ${n} plataformas de marketing, CRM y e-commerce de tus clientes.`,
-    integrationsTitle: (n) => `Integraciones de Reportei Connect: ${n} APIs de marketing, CRM y e-commerce`,
+    integrationsTitle: (n) => `Integraciones de Reportei Connect: ${n} plataformas en una API`,
     integrationsDescription: (n) =>
-      `Meta Ads, Google Ads, Instagram, TikTok, HubSpot, Shopify y más: las ${n} plataformas a las que tu producto accede con una única API.`,
-    ogImageAlt: "Reportei Connect: datos de 50 plataformas en una API",
+      `Meta Ads, Google Ads, Instagram, HubSpot, Shopify, WhatsApp, Slack y más: las ${n} plataformas a las que tu producto accede con una única API.`,
+    ogImageAlt: (n) => `Reportei Connect: ${n} integraciones en una API`,
   },
   language: {
     label: "Idioma",
@@ -30,7 +30,8 @@ export const es: Messages = {
     closeMenu: "Cerrar menú",
   },
   footer: {
-    tagline: (n) => `${n} integraciones de marketing, CRM y e-commerce en una API para tu sistema.`,
+    tagline: (n, toolkits) =>
+      `Métricas de ${n} plataformas de marketing, CRM y e-commerce y acciones en ${toolkits} apps más, en una API para tu sistema.`,
     product: "Producto",
     company: "Empresa",
     apis: "APIs",
@@ -54,9 +55,9 @@ export const es: Messages = {
     terms: "Términos de servicio",
   },
   hero: {
-    title: "API de datos de marketing para tu producto.",
-    copy: (n) =>
-      `Conecta las cuentas de tus clientes en ${n} plataformas de marketing, CRM y e-commerce, como Instagram, Meta Ads, Google Ads y RD Station. Accede a las métricas con una única API y crea tus propios análisis, informes y dashboards.`,
+    title: (total) => `Integra ${total} plataformas a tu sistema con una única API.`,
+    copy: (n, toolkits) =>
+      `Consulta métricas de ${n} plataformas de marketing, CRM y e-commerce, como Meta Ads, Google Ads y RD Station, y ejecuta acciones en ${toolkits} apps más de tus clientes, como WhatsApp, Slack y ClickUp.`,
     signup: "Empezar prueba gratis",
     demo: "Agendar una demo",
     trial: "15 días de prueba. Sin tarjeta de crédito.",
@@ -255,7 +256,7 @@ export const es: Messages = {
       {
         problem: "APIs que cambian todo el tiempo",
         solution:
-          "Versiones nuevas, campos obsoletos y límites de solicitudes quedan a cargo del equipo de Reportei, que mantiene estas integraciones desde hace más de 10 años.",
+          "Versiones nuevas, campos obsoletos y límites de solicitudes quedan a cargo del equipo de Reportei, que mantiene integraciones de marketing desde hace más de 10 años.",
       },
     ],
   },
@@ -285,7 +286,7 @@ export const es: Messages = {
   },
   networks: {
     title: "{n} integraciones para tu producto",
-    copy: "Medios pagados, redes sociales, CRM y e-commerce. Encuentra las plataformas que necesitas y accede a sus datos con la API de Reportei Connect.",
+    copy: "Medios pagados, redes sociales, CRM y e-commerce para consultar métricas, y toolkits para ejecutar acciones en apps como WhatsApp, Slack y ClickUp. Encuentra las plataformas que necesitas y úsalas todas con la API de Reportei Connect.",
     searchLabel: "Buscar integración",
     searchPlaceholder: "Ej.: Google Ads, HubSpot o Shopify",
     filterLabel: "Filtrar integraciones por categoría",
@@ -294,14 +295,19 @@ export const es: Messages = {
     note: "Una integración es una plataforma disponible en el catálogo. Una conexión es una cuenta de esa plataforma vinculada a Connect, y es la unidad que se usa para facturar.",
     seePlan: "Mira cómo funciona el plan.",
     details: "Detalles de cada integración.",
+    toolkitBadge: "Toolkit",
+    toolkitHint: "Ejecuta acciones, sin métricas",
   },
   categories: {
     "Mídia paga": "Medios pagados",
     "Redes sociais": "Redes sociales",
     "Analytics e SEO": "Analítica y SEO",
     "Marketing e CRM": "Marketing y CRM",
-    Atendimento: "Atención al cliente",
+    Atendimento: "Atención y comunicación",
     "E-commerce e vendas": "E-commerce y ventas",
+    Financeiro: "Finanzas",
+    Produtividade: "Productividad",
+    "Ferramentas de dev": "Herramientas para desarrolladores",
   },
   integrationNames: {
     "Perfil da Empresa no Google": "Perfil de Empresa de Google",
@@ -379,12 +385,15 @@ export const es: Messages = {
     product: [
       {
         q: () => "¿Qué puedo hacer con Reportei Connect?",
-        a: (n): Rich[] => [
+        a: (n, toolkits): Rich[] => [
           [
             `Conectar las cuentas de tus clientes en ${n} plataformas de marketing, CRM y e-commerce y consultar sus métricas con una única API.`,
           ],
           [
             "También puedes publicar en el Instagram y el Facebook de tus clientes y, en Meta Ads, crear y gestionar campañas, conjuntos y anuncios, todo con las mismas cuentas conectadas.",
+          ],
+          [
+            `Con los toolkits, tu producto ejecuta acciones en ${toolkits} apps más de tus clientes, como enviar mensajes por WhatsApp, crear tareas en ClickUp o avisar a un canal de Slack. Los toolkits no traen métricas.`,
           ],
         ],
       },
@@ -506,7 +515,8 @@ export const es: Messages = {
   integrationsPage: {
     eyebrow: "Integraciones",
     title: (n) => `${n} plataformas en una API para tu producto`,
-    copy: "Tus clientes conectan sus cuentas de medios pagados, redes sociales, CRM y e-commerce. Tu sistema consulta las métricas de todas ellas con la misma API, en el mismo formato.",
+    copy: (n, toolkits) =>
+      `Tus clientes conectan sus cuentas de medios pagados, redes sociales, CRM y e-commerce. Tu sistema consulta las métricas de esas ${n} plataformas con la misma API, en el mismo formato, y ejecuta acciones en ${toolkits} apps más con los toolkits.`,
     popular: "APIs más buscadas",
     apiOf: (platform) => `API de ${platform}`,
     catalog: "Catálogo completo",
