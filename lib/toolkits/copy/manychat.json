@@ -1,0 +1,274 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, tags, custom fields and automations in your customer's Manychat account from your product, through one Connect endpoint.",
+      "intro": "The Manychat toolkit covers contacts (look up, search, create, update), tags, custom user fields and automations (flows): list them, apply tags, set field values and start a flow for a contact. Connect stores each customer's API key and logs every execution, so your product or AI agent drives chat automations without a custom integration.",
+      "useCases": [
+        {
+          "title": "Sync your users into Manychat",
+          "body": "Create or update a contact from your product, set custom fields with Set custom fields and apply a tag so the account's automations start."
+        },
+        {
+          "title": "Trigger a flow after an event",
+          "body": "When a purchase or a ticket happens in your SaaS, find the contact by email or phone and start a flow with Send flow, within Meta's messaging rules."
+        },
+        {
+          "title": "Support agent that tags contacts",
+          "body": "An AI agent searches a contact by name, reads their fields and tags, and applies or removes a tag to route the conversation."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, tags, campos personalizados e automações na conta Manychat do seu cliente pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Manychat cobre contatos (consultar, buscar, criar, atualizar), tags, campos personalizados e automações (flows): listar, aplicar tags, definir valores de campos e iniciar um flow para um contato. O Connect guarda a chave de API de cada cliente e registra cada execução, para o seu produto ou agente de IA acionar automações de chat sem uma integração própria.",
+      "useCases": [
+        {
+          "title": "Sincronizar seus usuários no Manychat",
+          "body": "Crie ou atualize um contato a partir do seu produto, defina campos personalizados com Set custom fields e aplique uma tag para iniciar as automações da conta."
+        },
+        {
+          "title": "Disparar um flow após um evento",
+          "body": "Quando uma compra ou um ticket acontece no seu SaaS, encontre o contato por e-mail ou telefone e inicie um flow com Send flow, dentro das regras de mensagens da Meta."
+        },
+        {
+          "title": "Agente de suporte que etiqueta contatos",
+          "body": "Um agente de IA busca um contato pelo nome, lê seus campos e tags e aplica ou remove uma tag para encaminhar a conversa."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, tags, campos personalizados y automatizaciones en la cuenta Manychat de tu cliente desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de Manychat cubre contactos (consultar, buscar, crear, actualizar), tags, campos personalizados y automatizaciones (flows): listar, aplicar tags, definir valores de campos e iniciar un flow para un contacto. Connect guarda la clave de API de cada cliente y registra cada ejecución, para que tu producto o agente de IA active automatizaciones de chat sin una integración propia.",
+      "useCases": [
+        {
+          "title": "Sincronizar tus usuarios con Manychat",
+          "body": "Crea o actualiza un contacto desde tu producto, define campos personalizados con Set custom fields y aplica una tag para iniciar las automatizaciones de la cuenta."
+        },
+        {
+          "title": "Disparar un flow tras un evento",
+          "body": "Cuando ocurre una compra o un ticket en tu SaaS, encuentra el contacto por email o teléfono e inicia un flow con Send flow, dentro de las reglas de mensajería de Meta."
+        },
+        {
+          "title": "Agente de soporte que etiqueta contactos",
+          "body": "Un agente de IA busca un contacto por nombre, lee sus campos y tags, y aplica o quita una tag para encaminar la conversación."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, tags, champs personnalisés et automatisations dans le compte Manychat de votre client depuis votre produit, via un seul endpoint Connect.",
+      "intro": "Le toolkit Manychat couvre les contacts (consulter, rechercher, créer, mettre à jour), les tags, les champs personnalisés et les automatisations (flows) : les lister, appliquer des tags, définir des valeurs de champs et lancer un flow pour un contact. Connect stocke la clé d'API de chaque client et journalise chaque exécution, pour que votre produit ou agent IA pilote les automatisations de chat sans intégration sur mesure.",
+      "useCases": [
+        {
+          "title": "Synchroniser vos utilisateurs",
+          "body": "Créez ou mettez à jour un contact depuis votre produit, définissez des champs avec Set custom fields et appliquez un tag pour lancer les automatisations du compte."
+        },
+        {
+          "title": "Déclencher un flow après un événement",
+          "body": "Quand un achat ou un ticket survient dans votre SaaS, retrouvez le contact par e-mail ou téléphone et lancez un flow avec Send flow, dans le respect des règles de messagerie de Meta."
+        },
+        {
+          "title": "Agent de support qui étiquette",
+          "body": "Un agent IA recherche un contact par nom, lit ses champs et ses tags, puis applique ou retire un tag pour orienter la conversation."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "manychat_get_subscriber": {
+      "pt": {
+        "name": "Consultar contato",
+        "description": "Retorna um contato com nome, e-mail, telefone, WhatsApp, usuário do Instagram, opt-ins, última interação, campos personalizados e tags."
+      },
+      "es": {
+        "name": "Consultar contacto",
+        "description": "Devuelve un contacto con nombre, email, teléfono, WhatsApp, usuario de Instagram, opt-ins, última interacción, campos personalizados y tags."
+      },
+      "fr": {
+        "name": "Consulter un contact",
+        "description": "Renvoie un contact avec nom, e-mail, téléphone, WhatsApp, nom d'utilisateur Instagram, opt-ins, dernière interaction, champs personnalisés et tags."
+      }
+    },
+    "manychat_get_subscriber_by_email_or_phone": {
+      "pt": {
+        "name": "Consultar contato por e-mail ou telefone",
+        "description": "Retorna o contato com este e-mail ou telefone, com os mesmos campos de Get subscriber. Envie email ou phone, não os dois."
+      },
+      "es": {
+        "name": "Consultar contacto por email o teléfono",
+        "description": "Devuelve el contacto con este email o teléfono, con los mismos campos de Get subscriber. Envía email o phone, no ambos."
+      },
+      "fr": {
+        "name": "Consulter un contact par e-mail ou téléphone",
+        "description": "Renvoie le contact avec cette adresse e-mail ou ce numéro de téléphone, avec les mêmes champs que Get subscriber. Envoyez email ou phone, pas les deux."
+      }
+    },
+    "manychat_search_subscribers_by_name": {
+      "pt": {
+        "name": "Buscar contatos por nome",
+        "description": "Retorna até 100 contatos cujo nome completo corresponde, com os mesmos campos de Get subscriber."
+      },
+      "es": {
+        "name": "Buscar contactos por nombre",
+        "description": "Devuelve hasta 100 contactos cuyo nombre completo coincide, con los mismos campos de Get subscriber."
+      },
+      "fr": {
+        "name": "Rechercher des contacts par nom",
+        "description": "Renvoie jusqu'à 100 contacts dont le nom complet correspond, avec les mêmes champs que Get subscriber."
+      }
+    },
+    "manychat_create_subscriber": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato com um e-mail, um telefone de SMS ou um telefone de WhatsApp, ao menos um deles, e o retorna com seu id. Cada canal enviado exige seu opt-in: has_opt_in_email para e-mail, e has_opt_in_sms com consent_phrase para telefone."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto con un email, un teléfono de SMS o un teléfono de WhatsApp, al menos uno de ellos, y lo devuelve con su id. Cada canal enviado exige su opt-in: has_opt_in_email para email, y has_opt_in_sms con consent_phrase para teléfono."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact avec un e-mail, un téléphone SMS ou un téléphone WhatsApp, au moins l'un des trois, et le renvoie avec son id. Chaque canal envoyé exige son opt-in : has_opt_in_email pour l'e-mail, et has_opt_in_sms avec consent_phrase pour le téléphone."
+      }
+    },
+    "manychat_update_subscriber": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza nome, e-mail, telefone, gênero ou opt-ins de um contato. Mudar e-mail ou telefone exige o opt-in de novo: has_opt_in_email para e-mail, e has_opt_in_sms com consent_phrase para telefone."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza nombre, email, teléfono, género u opt-ins de un contacto. Cambiar el email o el teléfono exige de nuevo el opt-in: has_opt_in_email para email, y has_opt_in_sms con consent_phrase para teléfono."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour le nom, l'e-mail, le téléphone, le genre ou les opt-ins d'un contact. Changer l'e-mail ou le téléphone exige de nouveau l'opt-in : has_opt_in_email pour l'e-mail, et has_opt_in_sms avec consent_phrase pour le téléphone."
+      }
+    },
+    "manychat_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags da conta com id e nome."
+      },
+      "es": {
+        "name": "Listar tags",
+        "description": "Lista las tags de la cuenta con id y nombre."
+      },
+      "fr": {
+        "name": "Lister les tags",
+        "description": "Liste les tags du compte avec id et nom."
+      }
+    },
+    "manychat_create_tag": {
+      "pt": {
+        "name": "Criar tag",
+        "description": "Cria uma tag na conta e a retorna com seu id."
+      },
+      "es": {
+        "name": "Crear tag",
+        "description": "Crea una tag en la cuenta y la devuelve con su id."
+      },
+      "fr": {
+        "name": "Créer un tag",
+        "description": "Crée un tag dans le compte et le renvoie avec son id."
+      }
+    },
+    "manychat_apply_tag": {
+      "pt": {
+        "name": "Aplicar tag",
+        "description": "Aplica uma tag a um contato. As automações da conta que começam quando essa tag é aplicada rodam para o contato."
+      },
+      "es": {
+        "name": "Aplicar tag",
+        "description": "Aplica una tag a un contacto. Las automatizaciones de la cuenta que empiezan cuando se aplica esa tag se ejecutan para el contacto."
+      },
+      "fr": {
+        "name": "Appliquer un tag",
+        "description": "Applique un tag à un contact. Les automatisations du compte qui démarrent quand ce tag est appliqué s'exécutent pour le contact."
+      }
+    },
+    "manychat_remove_tag": {
+      "pt": {
+        "name": "Remover tag",
+        "description": "Remove uma tag de um contato. A tag continua na conta e nos outros contatos."
+      },
+      "es": {
+        "name": "Quitar tag",
+        "description": "Quita una tag de un contacto. La tag permanece en la cuenta y en los otros contactos."
+      },
+      "fr": {
+        "name": "Retirer un tag",
+        "description": "Retire un tag d'un contact. Le tag reste dans le compte et sur les autres contacts."
+      }
+    },
+    "manychat_list_custom_fields": {
+      "pt": {
+        "name": "Listar campos personalizados",
+        "description": "Lista os campos personalizados de usuário da conta com id, nome, tipo e descrição."
+      },
+      "es": {
+        "name": "Listar campos personalizados",
+        "description": "Lista los campos personalizados de usuario de la cuenta con id, nombre, tipo y descripción."
+      },
+      "fr": {
+        "name": "Lister les champs personnalisés",
+        "description": "Liste les champs utilisateur personnalisés du compte avec id, nom, type et description."
+      }
+    },
+    "manychat_create_custom_field": {
+      "pt": {
+        "name": "Criar campo personalizado",
+        "description": "Cria um campo personalizado de usuário na conta e o retorna com seu id."
+      },
+      "es": {
+        "name": "Crear campo personalizado",
+        "description": "Crea un campo personalizado de usuario en la cuenta y lo devuelve con su id."
+      },
+      "fr": {
+        "name": "Créer un champ personnalisé",
+        "description": "Crée un champ utilisateur personnalisé dans le compte et le renvoie avec son id."
+      }
+    },
+    "manychat_set_custom_fields": {
+      "pt": {
+        "name": "Definir campos personalizados",
+        "description": "Define os valores de até 20 campos personalizados de usuário de um contato, cada campo por field_id ou por field_name. As automações que começam quando um campo muda rodam para o contato."
+      },
+      "es": {
+        "name": "Definir campos personalizados",
+        "description": "Define los valores de hasta 20 campos personalizados de usuario de un contacto, cada campo por field_id o por field_name. Las automatizaciones que empiezan cuando un campo cambia se ejecutan para el contacto."
+      },
+      "fr": {
+        "name": "Définir des champs personnalisés",
+        "description": "Définit les valeurs de jusqu'à 20 champs utilisateur personnalisés d'un contact, chaque champ par field_id ou par field_name. Les automatisations qui démarrent quand un champ change s'exécutent pour le contact."
+      }
+    },
+    "manychat_list_flows": {
+      "pt": {
+        "name": "Listar flows",
+        "description": "Lista as automações da conta com ns, nome e pasta, além das pastas."
+      },
+      "es": {
+        "name": "Listar flows",
+        "description": "Lista las automatizaciones de la cuenta con ns, nombre y carpeta, además de las carpetas."
+      },
+      "fr": {
+        "name": "Lister les flows",
+        "description": "Liste les automatisations du compte avec ns, nom et dossier, ainsi que les dossiers."
+      }
+    },
+    "manychat_send_flow": {
+      "pt": {
+        "name": "Enviar flow",
+        "description": "Inicia uma automação para um contato, que envia suas mensagens nos canais do contato. As regras da Meta para Messenger, Instagram e WhatsApp continuam valendo, como a janela de 24 horas, e um contato pode receber até 100 envios por hora."
+      },
+      "es": {
+        "name": "Enviar flow",
+        "description": "Inicia una automatización para un contacto, que envía sus mensajes en los canales del contacto. Las reglas de Meta para Messenger, Instagram y WhatsApp siguen vigentes, como la ventana de 24 horas, y un contacto puede recibir hasta 100 envíos por hora."
+      },
+      "fr": {
+        "name": "Envoyer un flow",
+        "description": "Lance une automatisation pour un contact, qui envoie ses messages sur les canaux du contact. Les règles de Meta pour Messenger, Instagram et WhatsApp restent valables, comme la fenêtre de 24 heures, et un contact peut recevoir jusqu'à 100 envois par heure."
+      }
+    }
+  }
+}

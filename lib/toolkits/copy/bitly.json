@@ -1,0 +1,232 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update short links and read click metrics in your customer's Bitly account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Bitly toolkit covers the groups, Bitlinks and click metrics of a Bitly account: create and update links, and read clicks by time, country, referrer and device. Through Connect, your product or AI agent calls them with one endpoint, while Connect stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Shorten links in your product",
+          "body": "When your SaaS sends a campaign or a notification, create a Bitlink for each long URL in the customer's group and store the short link."
+        },
+        {
+          "title": "Click reports for clients",
+          "body": "An agency tool pulls clicks per day, country and referrer for each Bitlink and shows them in a client report."
+        },
+        {
+          "title": "Redirect without new links",
+          "body": "Update the long_url of an existing Bitlink to repoint a printed or shared short link, and let an AI agent check the clicks afterwards."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize links curtos e leia métricas de cliques na conta Bitly do seu cliente a partir do seu produto ou agente de IA, por um endpoint do Connect.",
+      "intro": "O toolkit do Bitly cobre grupos, Bitlinks e métricas de cliques de uma conta Bitly: criar e atualizar links e ler cliques por período, país, origem e dispositivo. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Encurtar links no seu produto",
+          "body": "Quando seu SaaS envia uma campanha ou notificação, crie um Bitlink para cada URL longa no grupo do cliente e guarde o link curto."
+        },
+        {
+          "title": "Relatórios de cliques para clientes",
+          "body": "Uma ferramenta de agência busca cliques por dia, país e origem de cada Bitlink e mostra tudo em um relatório do cliente."
+        },
+        {
+          "title": "Redirecionar sem criar links novos",
+          "body": "Atualize a long_url de um Bitlink existente para redirecionar um link curto já impresso ou compartilhado, e deixe um agente de IA conferir os cliques depois."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza enlaces cortos y lee métricas de clics en la cuenta Bitly de tu cliente desde tu producto o agente de IA, con un endpoint de Connect.",
+      "intro": "El toolkit de Bitly cubre los grupos, Bitlinks y métricas de clics de una cuenta Bitly: crear y actualizar enlaces, y leer clics por período, país, referente y dispositivo. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Acortar enlaces en tu producto",
+          "body": "Cuando tu SaaS envía una campaña o notificación, crea un Bitlink para cada URL larga en el grupo del cliente y guarda el enlace corto."
+        },
+        {
+          "title": "Informes de clics para clientes",
+          "body": "Una herramienta de agencia obtiene clics por día, país y referente de cada Bitlink y los muestra en un informe del cliente."
+        },
+        {
+          "title": "Redirigir sin crear enlaces nuevos",
+          "body": "Actualiza la long_url de un Bitlink existente para redirigir un enlace corto ya impreso o compartido, y deja que un agente de IA revise los clics después."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez des liens courts et lisez les clics dans le compte Bitly de votre client depuis votre produit ou agent IA, via un seul endpoint Connect.",
+      "intro": "Le toolkit Bitly couvre les groupes, les Bitlinks et les métriques de clics d'un compte Bitly : créer et modifier des liens, lire les clics par période, pays, référent et appareil. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Raccourcir les liens du produit",
+          "body": "Quand votre SaaS envoie une campagne ou une notification, créez un Bitlink pour chaque URL longue dans le groupe du client et conservez le lien court."
+        },
+        {
+          "title": "Rapports de clics pour clients",
+          "body": "Un outil d'agence récupère les clics par jour, pays et référent de chaque Bitlink et les affiche dans un rapport client."
+        },
+        {
+          "title": "Rediriger sans nouveaux liens",
+          "body": "Modifiez la long_url d'un Bitlink existant pour réorienter un lien court déjà imprimé ou partagé, puis laissez un agent IA vérifier les clics."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "bitly_list_groups": {
+      "pt": {
+        "name": "Listar grupos",
+        "description": "Lista os grupos a que a conta pertence. Cada grupo tem o guid que as outras tools pedem como group_guid e, em bsds, os domínios personalizados com que o grupo pode encurtar links."
+      },
+      "es": {
+        "name": "Listar grupos",
+        "description": "Lista los grupos a los que pertenece la cuenta. Cada grupo tiene el guid que las otras tools piden como group_guid y, en bsds, los dominios personalizados con los que el grupo puede acortar enlaces."
+      },
+      "fr": {
+        "name": "Lister les groupes",
+        "description": "Liste les groupes auxquels appartient le compte. Chaque groupe a le guid que les autres tools demandent comme group_guid et, dans bsds, les domaines personnalisés avec lesquels le groupe peut raccourcir des liens."
+      }
+    },
+    "bitly_list_bitlinks": {
+      "pt": {
+        "name": "Listar Bitlinks",
+        "description": "Lista os Bitlinks de um grupo, com id, link, long_url, título e tags. A resposta tem links e pagination: passe pagination.search_after como search_after, com os mesmos filtros, para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar Bitlinks",
+        "description": "Lista los Bitlinks de un grupo, con id, link, long_url, título y etiquetas. La respuesta tiene links y pagination: pasa pagination.search_after como search_after, con los mismos filtros, para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les Bitlinks",
+        "description": "Liste les Bitlinks d'un groupe, avec id, link, long_url, titre et tags. La réponse contient links et pagination : passez pagination.search_after comme search_after, avec les mêmes filtres, pour lire la page suivante."
+      }
+    },
+    "bitly_get_bitlink": {
+      "pt": {
+        "name": "Obter Bitlink",
+        "description": "Retorna um Bitlink: o link curto, long_url, título, tags, archived, created_at e os back-halves personalizados que ele teve."
+      },
+      "es": {
+        "name": "Obtener Bitlink",
+        "description": "Devuelve un Bitlink: el enlace corto, long_url, título, etiquetas, archived, created_at y los back-halves personalizados que tuvo."
+      },
+      "fr": {
+        "name": "Obtenir un Bitlink",
+        "description": "Renvoie un Bitlink : le lien court, long_url, titre, tags, archived, created_at et les back-halves personnalisés qu'il a eus."
+      }
+    },
+    "bitly_create_bitlink": {
+      "pt": {
+        "name": "Criar Bitlink",
+        "description": "Encurta uma URL longa em um novo Bitlink e o retorna, com o link curto em link e o id em id. Conta no limite mensal de links do plano, e recursos que o plano não tem, como back-half personalizado, respondem 402 UPGRADE_REQUIRED."
+      },
+      "es": {
+        "name": "Crear Bitlink",
+        "description": "Acorta una URL larga en un nuevo Bitlink y lo devuelve, con el enlace corto en link y el id en id. Cuenta para el límite mensual de enlaces del plan, y las funciones que el plan no tiene, como un back-half personalizado, responden 402 UPGRADE_REQUIRED."
+      },
+      "fr": {
+        "name": "Créer un Bitlink",
+        "description": "Raccourcit une URL longue en un nouveau Bitlink et le renvoie, avec le lien court dans link et l'id dans id. Compte dans la limite mensuelle de liens du forfait, et les fonctions que le forfait n'a pas, comme un back-half personnalisé, répondent 402 UPGRADE_REQUIRED."
+      }
+    },
+    "bitly_update_bitlink": {
+      "pt": {
+        "name": "Atualizar Bitlink",
+        "description": "Atualiza um Bitlink e o retorna. Campos omitidos mantêm o valor. Alterar long_url redireciona o link e sempre conta no limite mensal de links do plano; planos sem redirecionamento respondem 402 UPGRADE_REQUIRED."
+      },
+      "es": {
+        "name": "Actualizar Bitlink",
+        "description": "Actualiza un Bitlink y lo devuelve. Los campos omitidos conservan su valor. Cambiar long_url redirige el enlace y siempre cuenta para el límite mensual de enlaces del plan; los planes sin redirecciones responden 402 UPGRADE_REQUIRED."
+      },
+      "fr": {
+        "name": "Mettre à jour un Bitlink",
+        "description": "Met à jour un Bitlink et le renvoie. Les champs omis gardent leur valeur. Changer long_url redirige le lien et compte toujours dans la limite mensuelle de liens du forfait ; les forfaits sans redirections répondent 402 UPGRADE_REQUIRED."
+      }
+    },
+    "bitly_get_bitlink_clicks": {
+      "pt": {
+        "name": "Obter cliques do Bitlink",
+        "description": "Retorna os cliques de um Bitlink por unidade de tempo, em link_clicks com date e clicks. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference."
+      },
+      "es": {
+        "name": "Obtener clics del Bitlink",
+        "description": "Devuelve los clics de un Bitlink por unidad de tiempo, en link_clicks con date y clicks. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference."
+      },
+      "fr": {
+        "name": "Obtenir les clics d'un Bitlink",
+        "description": "Renvoie les clics d'un Bitlink par unité de temps, dans link_clicks avec date et clicks. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference."
+      }
+    },
+    "bitly_get_bitlink_clicks_summary": {
+      "pt": {
+        "name": "Obter resumo de cliques do Bitlink",
+        "description": "Retorna o total de cliques de um Bitlink em uma janela, em total_clicks. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference."
+      },
+      "es": {
+        "name": "Obtener resumen de clics del Bitlink",
+        "description": "Devuelve el total de clics de un Bitlink en una ventana, en total_clicks. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference."
+      },
+      "fr": {
+        "name": "Obtenir le résumé des clics d'un Bitlink",
+        "description": "Renvoie le total des clics d'un Bitlink sur une fenêtre, dans total_clicks. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference."
+      }
+    },
+    "bitly_get_bitlink_clicks_by_country": {
+      "pt": {
+        "name": "Obter cliques do Bitlink por país",
+        "description": "Retorna os cliques de um Bitlink por país em uma janela, em metrics com value (o código do país) e clicks. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference."
+      },
+      "es": {
+        "name": "Obtener clics del Bitlink por país",
+        "description": "Devuelve los clics de un Bitlink por país en una ventana, en metrics con value (el código del país) y clicks. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference."
+      },
+      "fr": {
+        "name": "Obtenir les clics d'un Bitlink par pays",
+        "description": "Renvoie les clics d'un Bitlink par pays sur une fenêtre, dans metrics avec value (le code du pays) et clicks. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference."
+      }
+    },
+    "bitly_get_bitlink_clicks_by_referrer": {
+      "pt": {
+        "name": "Obter cliques do Bitlink por origem",
+        "description": "Retorna os cliques de um Bitlink por origem (referrer) em uma janela, em metrics com value (a origem) e clicks. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference."
+      },
+      "es": {
+        "name": "Obtener clics del Bitlink por referente",
+        "description": "Devuelve los clics de un Bitlink por referente en una ventana, en metrics con value (el referente) y clicks. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference."
+      },
+      "fr": {
+        "name": "Obtenir les clics d'un Bitlink par référent",
+        "description": "Renvoie les clics d'un Bitlink par référent sur une fenêtre, dans metrics avec value (le référent) et clicks. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference."
+      }
+    },
+    "bitly_get_bitlink_clicks_by_device": {
+      "pt": {
+        "name": "Obter cliques do Bitlink por dispositivo",
+        "description": "Retorna os cliques de um Bitlink por tipo de dispositivo em uma janela. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference. Planos sem esse relatório respondem 402 UPGRADE_REQUIRED."
+      },
+      "es": {
+        "name": "Obtener clics del Bitlink por dispositivo",
+        "description": "Devuelve los clics de un Bitlink por tipo de dispositivo en una ventana. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference. Los planes sin este informe responden 402 UPGRADE_REQUIRED."
+      },
+      "fr": {
+        "name": "Obtenir les clics d'un Bitlink par appareil",
+        "description": "Renvoie les clics d'un Bitlink par type d'appareil sur une fenêtre. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference. Les forfaits sans ce rapport répondent 402 UPGRADE_REQUIRED."
+      }
+    },
+    "bitly_get_group_clicks": {
+      "pt": {
+        "name": "Obter cliques do grupo",
+        "description": "Retorna os cliques de todos os Bitlinks de um grupo por unidade de tempo, em data. unit e units definem a janela: unit day com units 30 são os 30 dias até unit_reference. Planos sem esse relatório respondem 402 UPGRADE_REQUIRED."
+      },
+      "es": {
+        "name": "Obtener clics del grupo",
+        "description": "Devuelve los clics de todos los Bitlinks de un grupo por unidad de tiempo, en data. unit y units definen la ventana: unit day con units 30 son los 30 días hasta unit_reference. Los planes sin este informe responden 402 UPGRADE_REQUIRED."
+      },
+      "fr": {
+        "name": "Obtenir les clics du groupe",
+        "description": "Renvoie les clics de tous les Bitlinks d'un groupe par unité de temps, dans data. unit et units définissent la fenêtre : unit day avec units 30 correspond aux 30 jours jusqu'à unit_reference. Les forfaits sans ce rapport répondent 402 UPGRADE_REQUIRED."
+      }
+    }
+  }
+}

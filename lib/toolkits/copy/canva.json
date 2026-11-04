@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, read and export designs, browse folders and upload images in your customer's Canva account from your product, through one Connect endpoint.",
+      "intro": "The Canva toolkit covers designs (list, read, create), exports to PDF, JPG, PNG, PPTX, GIF or MP4, folder contents, and assets, including uploads from a public URL. Customers connect Canva once with OAuth on your own app, and Connect keeps the tokens renewed and logs every execution.",
+      "useCases": [
+        {
+          "title": "Export designs to files",
+          "body": "Start a design export as PDF or PNG, poll Get design export until status is success, and deliver the files to your user inside your product."
+        },
+        {
+          "title": "Open the right design",
+          "body": "List a user's designs and show their titles, thumbnails and edit urls, or create a new design from a design_type or an existing asset_id."
+        },
+        {
+          "title": "Fill a brand asset library",
+          "body": "Upload logos and images from public URLs into the user's Uploads, then rename or re-tag them with Update asset, driven by your product or an AI agent."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, consulte e exporte designs, navegue por pastas e envie imagens na conta Canva do seu cliente pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Canva cobre designs (listar, consultar e criar), exportações para PDF, JPG, PNG, PPTX, GIF ou MP4, conteúdo de pastas e assets, incluindo envio a partir de uma URL pública. O cliente conecta o Canva uma vez por OAuth no seu próprio app, e o Connect mantém os tokens renovados e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Exportar designs para arquivos",
+          "body": "Inicie a exportação de um design como PDF ou PNG, consulte Get design export até o status ser success e entregue os arquivos ao usuário dentro do seu produto."
+        },
+        {
+          "title": "Abrir o design certo",
+          "body": "Liste os designs do usuário e mostre títulos, miniaturas e urls de edição, ou crie um design novo a partir de um design_type ou de um asset_id existente."
+        },
+        {
+          "title": "Alimentar a biblioteca de marca",
+          "body": "Envie logos e imagens de URLs públicas para os Uploads do usuário e renomeie ou re-etiquete com Update asset, pelo seu produto ou por um agente de IA."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, consulta y exporta diseños, recorre carpetas y sube imágenes en la cuenta Canva de tu cliente desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de Canva cubre diseños (listar, consultar y crear), exportaciones a PDF, JPG, PNG, PPTX, GIF o MP4, contenido de carpetas y assets, incluida la subida desde una URL pública. El cliente conecta Canva una vez por OAuth en tu propia app, y Connect mantiene los tokens renovados y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Exportar diseños a archivos",
+          "body": "Inicia la exportación de un diseño como PDF o PNG, consulta Get design export hasta que status sea success y entrega los archivos al usuario dentro de tu producto."
+        },
+        {
+          "title": "Abrir el diseño correcto",
+          "body": "Lista los diseños del usuario y muestra títulos, miniaturas y urls de edición, o crea un diseño nuevo a partir de un design_type o de un asset_id existente."
+        },
+        {
+          "title": "Poblar la biblioteca de marca",
+          "body": "Sube logos e imágenes desde URLs públicas a los Uploads del usuario y renómbralos o reetiquétalos con Update asset, desde tu producto o un agente de IA."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, lisez et exportez des designs, parcourez les dossiers et importez des images dans le compte Canva de votre client, via un seul endpoint Connect.",
+      "intro": "Le toolkit Canva couvre les designs (lister, lire, créer), les exports en PDF, JPG, PNG, PPTX, GIF ou MP4, le contenu des dossiers et les assets, y compris l'import depuis une URL publique. Le client connecte Canva une fois par OAuth sur votre propre app, et Connect garde les tokens à jour et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Exporter des designs en fichiers",
+          "body": "Lancez l'export d'un design en PDF ou PNG, interrogez Get design export jusqu'à status success et livrez les fichiers à l'utilisateur dans votre produit."
+        },
+        {
+          "title": "Ouvrir le bon design",
+          "body": "Listez les designs de l'utilisateur et affichez titres, miniatures et urls d'édition, ou créez un nouveau design à partir d'un design_type ou d'un asset_id existant."
+        },
+        {
+          "title": "Alimenter la bibliothèque de marque",
+          "body": "Importez logos et images depuis des URL publiques dans les Uploads de l'utilisateur, puis renommez-les ou re-étiquetez-les avec Update asset, depuis votre produit ou un agent IA."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "canva_list_designs": {
+      "pt": {
+        "name": "Listar designs",
+        "description": "Lista os designs dos projetos do usuário e os compartilhados com ele, com id, title, thumbnail, page_count e as urls de edição e visualização. Quando a resposta traz continuation, envie-o como continuation para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar diseños",
+        "description": "Lista los diseños de los proyectos del usuario y los compartidos con él, con id, title, thumbnail, page_count y las urls de edición y vista. Cuando la respuesta trae continuation, envíalo como continuation para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les designs",
+        "description": "Liste les designs des projets de l'utilisateur et ceux partagés avec lui, avec id, title, thumbnail, page_count et les urls d'édition et de consultation. Quand la réponse contient continuation, passez-le en continuation pour lire la page suivante."
+      }
+    },
+    "canva_get_design": {
+      "pt": {
+        "name": "Consultar design",
+        "description": "Retorna um design com título, proprietário, miniatura, page_count e as urls de edição e visualização. Essas urls são temporárias e abrem apenas para o usuário conectado."
+      },
+      "es": {
+        "name": "Consultar diseño",
+        "description": "Devuelve un diseño con título, propietario, miniatura, page_count y las urls de edición y vista. Esas urls son temporales y solo abren para el usuario conectado."
+      },
+      "fr": {
+        "name": "Consulter un design",
+        "description": "Renvoie un design avec son titre, son propriétaire, sa miniature, page_count et les urls d'édition et de consultation. Ces urls sont temporaires et ne s'ouvrent que pour l'utilisateur connecté."
+      }
+    },
+    "canva_create_design": {
+      "pt": {
+        "name": "Criar design",
+        "description": "Cria um design e o retorna com id e as urls de edição e visualização. Envie design_type, asset_id ou ambos. Um design em branco que ninguém edita em 7 dias é apagado definitivamente, sem ir para a lixeira."
+      },
+      "es": {
+        "name": "Crear diseño",
+        "description": "Crea un diseño y lo devuelve con id y las urls de edición y vista. Envía design_type, asset_id o ambos. Un diseño en blanco que nadie edita en 7 días se elimina definitivamente, sin pasar por la papelera."
+      },
+      "fr": {
+        "name": "Créer un design",
+        "description": "Crée un design et le renvoie avec son id et les urls d'édition et de consultation. Envoyez design_type, asset_id ou les deux. Un design vierge que personne ne modifie sous 7 jours est supprimé définitivement, sans passer par la corbeille."
+      }
+    },
+    "canva_list_design_export_formats": {
+      "pt": {
+        "name": "Listar formatos de exportação",
+        "description": "Lista os formatos para os quais um design pode ser exportado, que dependem do tipo e das páginas. Um formato com page_numbers vale apenas para essas páginas."
+      },
+      "es": {
+        "name": "Listar formatos de exportación",
+        "description": "Lista los formatos a los que se puede exportar un diseño, que dependen del tipo y de las páginas. Un formato con page_numbers vale solo para esas páginas."
+      },
+      "fr": {
+        "name": "Lister les formats d'export",
+        "description": "Liste les formats vers lesquels un design peut être exporté, selon son type et ses pages. Un format avec page_numbers ne vaut que pour ces pages."
+      }
+    },
+    "canva_create_design_export": {
+      "pt": {
+        "name": "Criar exportação de design",
+        "description": "Inicia a exportação de um design como PDF, JPG, PNG, PPTX ou GIF e retorna o job com seu id. Chame Get design export até o status ser success: as urls dos arquivos valem por 24 horas. Cada usuário pode exportar 75 vezes a cada 5 minutos e 500 vezes por dia."
+      },
+      "es": {
+        "name": "Crear exportación de diseño",
+        "description": "Inicia la exportación de un diseño como PDF, JPG, PNG, PPTX o GIF y devuelve el job con su id. Llama a Get design export hasta que status sea success: las urls de los archivos valen 24 horas. Cada usuario puede exportar 75 veces cada 5 minutos y 500 veces al día."
+      },
+      "fr": {
+        "name": "Créer un export de design",
+        "description": "Lance l'export d'un design en PDF, JPG, PNG, PPTX ou GIF et renvoie le job avec son id. Appelez Get design export jusqu'à ce que status vale success : les urls des fichiers sont valables 24 heures. Chaque utilisateur peut exporter 75 fois toutes les 5 minutes et 500 fois par jour."
+      }
+    },
+    "canva_create_design_video_export": {
+      "pt": {
+        "name": "Criar exportação de design em vídeo",
+        "description": "Inicia a exportação de um design como vídeo MP4 e retorna o job com seu id. Chame Get design export até o status ser success: as urls dos arquivos valem por 24 horas. Cada usuário pode exportar 75 vezes a cada 5 minutos e 500 vezes por dia."
+      },
+      "es": {
+        "name": "Crear exportación de diseño en vídeo",
+        "description": "Inicia la exportación de un diseño como vídeo MP4 y devuelve el job con su id. Llama a Get design export hasta que status sea success: las urls de los archivos valen 24 horas. Cada usuario puede exportar 75 veces cada 5 minutos y 500 veces al día."
+      },
+      "fr": {
+        "name": "Créer un export vidéo de design",
+        "description": "Lance l'export d'un design en vidéo MP4 et renvoie le job avec son id. Appelez Get design export jusqu'à ce que status vale success : les urls des fichiers sont valables 24 heures. Chaque utilisateur peut exporter 75 fois toutes les 5 minutes et 500 fois par jour."
+      }
+    },
+    "canva_get_design_export": {
+      "pt": {
+        "name": "Consultar exportação de design",
+        "description": "Retorna um job de exportação: status in_progress, success ou failed e, com success, as urls dos arquivos, uma por página conforme o formato, válidas por 24 horas. Chame de novo, com esperas crescentes, enquanto o status for in_progress."
+      },
+      "es": {
+        "name": "Consultar exportación de diseño",
+        "description": "Devuelve un job de exportación: status in_progress, success o failed y, con success, las urls de los archivos, una por página según el formato, válidas 24 horas. Vuelve a llamar, con esperas crecientes, mientras status sea in_progress."
+      },
+      "fr": {
+        "name": "Consulter un export de design",
+        "description": "Renvoie un job d'export : status in_progress, success ou failed et, avec success, les urls des fichiers, une par page selon le format, valables 24 heures. Rappelez-le, avec des attentes croissantes, tant que status vaut in_progress."
+      }
+    },
+    "canva_list_folder_items": {
+      "pt": {
+        "name": "Listar itens da pasta",
+        "description": "Lista as pastas, os designs e as imagens de uma pasta, cada um com seu tipo, o objeto de pasta, design ou imagem e seu id. Vídeos não são listados. Quando a resposta traz continuation, envie-o como continuation para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar elementos de la carpeta",
+        "description": "Lista las carpetas, los diseños y las imágenes de una carpeta, cada uno con su tipo, el objeto de carpeta, diseño o imagen y su id. Los vídeos no se listan. Cuando la respuesta trae continuation, envíalo como continuation para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister le contenu d'un dossier",
+        "description": "Liste les dossiers, designs et images d'un dossier, chacun avec son type, l'objet dossier, design ou image et son id. Les vidéos ne sont pas listées. Quand la réponse contient continuation, passez-le en continuation pour lire la page suivante."
+      }
+    },
+    "canva_get_asset": {
+      "pt": {
+        "name": "Consultar asset",
+        "description": "Retorna um asset com nome, tags, miniatura, proprietário e datas."
+      },
+      "es": {
+        "name": "Consultar asset",
+        "description": "Devuelve un asset con nombre, tags, miniatura, propietario y fechas."
+      },
+      "fr": {
+        "name": "Consulter un asset",
+        "description": "Renvoie un asset avec son nom, ses tags, sa miniature, son propriétaire et ses dates."
+      }
+    },
+    "canva_update_asset": {
+      "pt": {
+        "name": "Atualizar asset",
+        "description": "Atualiza o nome ou as tags de um asset e o retorna. As tags enviadas substituem todas as tags atuais."
+      },
+      "es": {
+        "name": "Actualizar asset",
+        "description": "Actualiza el nombre o las tags de un asset y lo devuelve. Las tags enviadas sustituyen todas las tags actuales."
+      },
+      "fr": {
+        "name": "Mettre à jour un asset",
+        "description": "Met à jour le nom ou les tags d'un asset et le renvoie. Les tags envoyés remplacent toutes les tags actuelles."
+      }
+    },
+    "canva_create_url_asset_upload": {
+      "pt": {
+        "name": "Enviar asset por URL",
+        "description": "Inicia o envio de um arquivo de uma URL pública para os Uploads do usuário e retorna o job com seu id. Chame Get URL asset upload até o status ser success, que traz o asset e seu id. Vídeos podem ter até 100 MB."
+      },
+      "es": {
+        "name": "Subir asset desde URL",
+        "description": "Inicia la subida de un archivo desde una URL pública a los Uploads del usuario y devuelve el job con su id. Llama a Get URL asset upload hasta que status sea success, que trae el asset y su id. Los vídeos pueden pesar hasta 100 MB."
+      },
+      "fr": {
+        "name": "Importer un asset depuis une URL",
+        "description": "Lance l'import d'un fichier depuis une URL publique vers les Uploads de l'utilisateur et renvoie le job avec son id. Appelez Get URL asset upload jusqu'à ce que status vale success, qui apporte l'asset et son id. Les vidéos peuvent aller jusqu'à 100 Mo."
+      }
+    },
+    "canva_get_url_asset_upload": {
+      "pt": {
+        "name": "Consultar envio de asset por URL",
+        "description": "Retorna um job de envio: status in_progress, success ou failed e, com success, o asset com seu id. Chame de novo, com esperas crescentes, enquanto o status for in_progress."
+      },
+      "es": {
+        "name": "Consultar subida de asset desde URL",
+        "description": "Devuelve un job de subida: status in_progress, success o failed y, con success, el asset con su id. Vuelve a llamar, con esperas crecientes, mientras status sea in_progress."
+      },
+      "fr": {
+        "name": "Consulter un import d'asset par URL",
+        "description": "Renvoie un job d'import : status in_progress, success ou failed et, avec success, l'asset avec son id. Rappelez-le, avec des attentes croissantes, tant que status vaut in_progress."
+      }
+    }
+  }
+}

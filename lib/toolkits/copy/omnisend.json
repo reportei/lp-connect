@@ -1,0 +1,112 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, tags, campaigns, events and reports in your customer's Omnisend brand from your product or AI agent through Connect.",
+      "intro": "The Omnisend toolkit covers contacts, tags, segments, email templates, campaigns, customer events, reports and products: create and update contacts, apply tags, build and send email or SMS campaigns, send events that start automations, and read aggregated metrics. The customer connects with an Omnisend API key, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Sync shoppers into Omnisend", "body": "Create or update a contact when a customer signs up or buys in your store, set its channel status and apply tags to feed segments." },
+        { "title": "Trigger automations from your app", "body": "Send a customer event, such as a placed order or a custom event, to start the automations that listen to that event name." },
+        { "title": "Campaigns and reports by an agent", "body": "Let an agent create a draft campaign from a template, send a test email, send it, and later read the report of sends, opens and clicks." }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, tags, campanhas, eventos e relatórios da marca do seu cliente no Omnisend a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do Omnisend cobre contatos, tags, segmentos, templates de email, campanhas, eventos de cliente, relatórios e produtos: criar e atualizar contatos, aplicar tags, montar e enviar campanhas de email ou SMS, enviar eventos que disparam automações e ler métricas agregadas. O cliente conecta com uma API key do Omnisend, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Compradores sincronizados no Omnisend", "body": "Crie ou atualize um contato quando um cliente se cadastra ou compra na sua loja, defina o status do canal e aplique tags para alimentar segmentos." },
+        { "title": "Automações disparadas pelo seu app", "body": "Envie um evento de cliente, como um pedido realizado ou um evento customizado, para iniciar as automações que escutam o nome desse evento." },
+        { "title": "Campanhas e relatórios por agente", "body": "Deixe um agente criar uma campanha em rascunho a partir de um template, enviar um email de teste, disparar a campanha e depois ler o relatório de envios, aberturas e cliques." }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, tags, campañas, eventos y reportes de la marca de tu cliente en Omnisend desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de Omnisend cubre contactos, tags, segmentos, plantillas de email, campañas, eventos de cliente, reportes y productos: crear y actualizar contactos, aplicar tags, armar y enviar campañas de email o SMS, enviar eventos que disparan automatizaciones y leer métricas agregadas. El cliente conecta con una API key de Omnisend, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Compradores sincronizados en Omnisend", "body": "Crea o actualiza un contacto cuando un cliente se registra o compra en tu tienda, define el estado del canal y aplica tags para alimentar segmentos." },
+        { "title": "Automatizaciones desde tu app", "body": "Envía un evento de cliente, como un pedido realizado o un evento personalizado, para iniciar las automatizaciones que escuchan el nombre de ese evento." },
+        { "title": "Campañas y reportes con un agente", "body": "Deja que un agente cree una campaña en borrador desde una plantilla, envíe un email de prueba, la despache y luego lea el reporte de envíos, aperturas y clics." }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, tags, campagnes, événements et rapports de la marque de votre client dans Omnisend depuis votre produit ou agent IA via Connect.",
+      "intro": "Le toolkit Omnisend couvre les contacts, les tags, les segments, les modèles d'email, les campagnes, les événements client, les rapports et les produits : créer et modifier des contacts, appliquer des tags, construire et envoyer des campagnes email ou SMS, envoyer des événements qui lancent des automatisations et lire des métriques agrégées. Le client se connecte avec une clé API Omnisend, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Acheteurs synchronisés dans Omnisend", "body": "Créez ou mettez à jour un contact quand un client s'inscrit ou achète dans votre boutique, définissez le statut du canal et appliquez des tags pour alimenter les segments." },
+        { "title": "Automatisations lancées par votre app", "body": "Envoyez un événement client, comme une commande passée ou un événement personnalisé, pour démarrer les automatisations qui écoutent ce nom d'événement." },
+        { "title": "Campagnes et rapports par un agent", "body": "Laissez un agent créer une campagne en brouillon depuis un modèle, envoyer un email de test, l'envoyer, puis lire le rapport des envois, ouvertures et clics." }
+      ]
+    }
+  },
+  "tools": {
+    "omnisend_list_contacts": {
+      "pt": { "name": "Listar contatos", "description": "Lista os contatos com id, email, phone, status, tags, segments e propriedades customizadas, do mais novo para o mais antigo por padrão. A resposta tem contacts e paging; enquanto paging.hasMore for true, passe paging.cursors.after como after e mantenha os filtros." },
+      "es": { "name": "Listar contactos", "description": "Lista los contactos con id, email, phone, status, tags, segments y propiedades personalizadas, del más nuevo al más antiguo por defecto. La respuesta tiene contacts y paging; mientras paging.hasMore sea true, pasa paging.cursors.after como after y mantén los filtros." },
+      "fr": { "name": "Lister les contacts", "description": "Liste les contacts avec id, email, phone, status, tags, segments et propriétés personnalisées, du plus récent au plus ancien par défaut. La réponse contient contacts et paging ; tant que paging.hasMore vaut true, passez paging.cursors.after comme after et gardez les filtres." }
+    },
+    "omnisend_create_contact": {
+      "pt": { "name": "Criar contato", "description": "Cria um contato, ou atualiza o contato que já tem o mesmo identificador de email. Definir um canal como subscribed envia a mensagem de boas-vindas da marca, quando essa automação está ativa, a menos que sendWelcomeMessage seja false." },
+      "es": { "name": "Crear contacto", "description": "Crea un contacto, o actualiza el contacto que ya tiene el mismo identificador de email. Poner un canal en subscribed envía el mensaje de bienvenida de la marca, cuando esa automatización está activa, salvo que sendWelcomeMessage sea false." },
+      "fr": { "name": "Créer un contact", "description": "Crée un contact, ou met à jour le contact qui a déjà le même identifiant email. Mettre un canal à subscribed envoie le message de bienvenue de la marque, quand cette automatisation est active, sauf si sendWelcomeMessage vaut false." }
+    },
+    "omnisend_update_contact": {
+      "pt": { "name": "Atualizar contato", "description": "Atualiza um contato. Só os campos enviados mudam, mas tags substitui a lista inteira de tags: para só adicionar tags, use Aplicar tags. Um status de canal em identifiers inscreve ou cancela a inscrição do contato." },
+      "es": { "name": "Actualizar contacto", "description": "Actualiza un contacto. Solo cambian los campos enviados, pero tags reemplaza la lista completa de tags: para solo agregar tags, usa Aplicar tags. Un estado de canal en identifiers suscribe o da de baja al contacto." },
+      "fr": { "name": "Modifier un contact", "description": "Met à jour un contact. Seuls les champs envoyés changent, mais tags remplace toute la liste de tags : pour seulement ajouter des tags, utilisez Appliquer des tags. Un statut de canal dans identifiers abonne ou désabonne le contact." }
+    },
+    "omnisend_apply_tags": {
+      "pt": { "name": "Aplicar tags", "description": "Adiciona tags a contatos, mantendo as tags que eles já têm. Escolha os contatos por contactIDs, emails, phones ou segmentID; as seleções se somam. Limitado a 60 chamadas por minuto." },
+      "es": { "name": "Aplicar tags", "description": "Agrega tags a contactos, manteniendo los tags que ya tienen. Elige los contactos por contactIDs, emails, phones o segmentID; las selecciones se suman. Limitado a 60 llamadas por minuto." },
+      "fr": { "name": "Appliquer des tags", "description": "Ajoute des tags à des contacts, en gardant les tags qu'ils ont déjà. Choisissez les contacts par contactIDs, emails, phones ou segmentID ; les sélections s'additionnent. Limité à 60 appels par minute." }
+    },
+    "omnisend_list_segments": {
+      "pt": { "name": "Listar segmentos", "description": "Lista os segmentos com segmentID, name e status. O segmentID direciona campanhas e filtra contatos. A resposta tem segments e paging; enquanto paging.hasMore for true, passe paging.cursors.after como after." },
+      "es": { "name": "Listar segmentos", "description": "Lista los segmentos con segmentID, name y status. El segmentID dirige campañas y filtra contactos. La respuesta tiene segments y paging; mientras paging.hasMore sea true, pasa paging.cursors.after como after." },
+      "fr": { "name": "Lister les segments", "description": "Liste les segments avec segmentID, name et status. Le segmentID cible les campagnes et filtre les contacts. La réponse contient segments et paging ; tant que paging.hasMore vaut true, passez paging.cursors.after comme after." }
+    },
+    "omnisend_list_email_templates": {
+      "pt": { "name": "Listar templates de email", "description": "Lista os templates de email com id e name, do mais novo para o mais antigo por padrão. O id é o corpo de uma campanha de email. A resposta tem templates e paging; enquanto paging.hasMore for true, passe paging.cursors.after como after." },
+      "es": { "name": "Listar plantillas de email", "description": "Lista las plantillas de email con id y name, de la más nueva a la más antigua por defecto. El id es el cuerpo de una campaña de email. La respuesta tiene templates y paging; mientras paging.hasMore sea true, pasa paging.cursors.after como after." },
+      "fr": { "name": "Lister les modèles d'email", "description": "Liste les modèles d'email avec id et name, du plus récent au plus ancien par défaut. L'id est le corps d'une campagne email. La réponse contient templates et paging ; tant que paging.hasMore vaut true, passez paging.cursors.after comme after." }
+    },
+    "omnisend_list_campaigns": {
+      "pt": { "name": "Listar campanhas", "description": "Lista as campanhas com id, name, status, channel, content, audience e configurações de envio, da mais nova para a mais antiga por padrão. A resposta tem campaigns e paging; enquanto paging.hasMore for true, passe paging.cursors.after como after e mantenha os filtros." },
+      "es": { "name": "Listar campañas", "description": "Lista las campañas con id, name, status, channel, content, audience y configuración de envío, de la más nueva a la más antigua por defecto. La respuesta tiene campaigns y paging; mientras paging.hasMore sea true, pasa paging.cursors.after como after y mantén los filtros." },
+      "fr": { "name": "Lister les campagnes", "description": "Liste les campagnes avec id, name, status, channel, content, audience et réglages d'envoi, de la plus récente à la plus ancienne par défaut. La réponse contient campaigns et paging ; tant que paging.hasMore vaut true, passez paging.cursors.after comme after et gardez les filtres." }
+    },
+    "omnisend_create_campaign": {
+      "pt": { "name": "Criar campanha", "description": "Cria uma campanha comum de email ou SMS como rascunho e a retorna com seu id. Uma campanha de email precisa de content.email.templateID, de Listar templates de email, e uma de SMS precisa de content.sms. Nada é enviado até Enviar campanha." },
+      "es": { "name": "Crear campaña", "description": "Crea una campaña regular de email o SMS como borrador y la devuelve con su id. Una campaña de email necesita content.email.templateID, de Listar plantillas de email, y una de SMS necesita content.sms. No se envía nada hasta Enviar campaña." },
+      "fr": { "name": "Créer une campagne", "description": "Crée une campagne email ou SMS classique en brouillon et la renvoie avec son id. Une campagne email a besoin de content.email.templateID, issu de Lister les modèles d'email, et une campagne SMS de content.sms. Rien n'est envoyé avant Envoyer une campagne." }
+    },
+    "omnisend_update_campaign": {
+      "pt": { "name": "Atualizar campanha", "description": "Atualiza uma campanha em status draft. Só os campos enviados mudam. O template de email continua o definido na criação. Para alterar uma campanha que não é mais rascunho, o app pede uma cópia." },
+      "es": { "name": "Actualizar campaña", "description": "Actualiza una campaña en estado draft. Solo cambian los campos enviados. La plantilla de email sigue siendo la definida al crear. Para cambiar una campaña que ya no es borrador, la app pide una copia." },
+      "fr": { "name": "Modifier une campagne", "description": "Met à jour une campagne au statut draft. Seuls les champs envoyés changent. Le modèle d'email reste celui défini à la création. Pour modifier une campagne qui n'est plus un brouillon, l'app demande une copie." }
+    },
+    "omnisend_send_campaign_test_email": {
+      "pt": { "name": "Enviar email de teste da campanha", "description": "Envia por email uma prévia de uma campanha de email em rascunho para até 5 endereços, com o assunto, o remetente e o conteúdo salvos. A campanha em si não muda." },
+      "es": { "name": "Enviar email de prueba de la campaña", "description": "Envía por email una vista previa de una campaña de email en borrador a hasta 5 direcciones, con el asunto, el remitente y el contenido guardados. La campaña en sí no cambia." },
+      "fr": { "name": "Envoyer un email de test de la campagne", "description": "Envoie par email un aperçu d'une campagne email en brouillon à 5 adresses au plus, avec l'objet, l'expéditeur et le contenu enregistrés. La campagne elle-même ne change pas." }
+    },
+    "omnisend_send_campaign": {
+      "pt": { "name": "Enviar campanha", "description": "Envia uma campanha em status draft ao seu público, na hora ou no horário das configurações de envio, e consome envios do plano. Uma campanha enviada não pode ser enviada de novo." },
+      "es": { "name": "Enviar campaña", "description": "Envía una campaña en estado draft a su audiencia, de inmediato o a la hora de su configuración de envío, y consume envíos del plan. Una campaña enviada no se puede enviar de nuevo." },
+      "fr": { "name": "Envoyer une campagne", "description": "Envoie une campagne au statut draft à son audience, tout de suite ou à l'heure de ses réglages d'envoi, et consomme des envois du plan. Une campagne envoyée ne peut pas être renvoyée." }
+    },
+    "omnisend_send_event": {
+      "pt": { "name": "Enviar evento", "description": "Envia um evento de cliente, criando ou atualizando o contato, e inicia as automações da marca que escutam o nome do evento. Eventos customizados aceitam qualquer nome e propriedades; eventos recomendados, como placed order, seguem o schema da sua página na documentação do Omnisend." },
+      "es": { "name": "Enviar evento", "description": "Envía un evento de cliente, creando o actualizando el contacto, e inicia las automatizaciones de la marca que escuchan el nombre del evento. Los eventos personalizados aceptan cualquier nombre y propiedades; los eventos recomendados, como placed order, siguen el schema de su página en la documentación de Omnisend." },
+      "fr": { "name": "Envoyer un événement", "description": "Envoie un événement client, en créant ou mettant à jour le contact, et lance les automatisations de la marque qui écoutent le nom de l'événement. Les événements personnalisés acceptent n'importe quel nom et propriétés ; les événements recommandés, comme placed order, suivent le schema de leur page dans la documentation Omnisend." }
+    },
+    "omnisend_get_report": {
+      "pt": { "name": "Obter relatório", "description": "Retorna métricas agregadas de campanhas e automações, agrupadas pela data de envio das mensagens: envios, aberturas, cliques, bounces, spam, cancelamentos de inscrição e pedidos e receita atribuídos, como totais ou detalhados por dimensões. Limitado a 10 chamadas por minuto e 55 por dia para a marca." },
+      "es": { "name": "Obtener reporte", "description": "Devuelve métricas agregadas de campañas y automatizaciones, agrupadas por la fecha de envío de los mensajes: envíos, aperturas, clics, bounces, spam, bajas y pedidos e ingresos atribuidos, como totales o desglosados por dimensiones. Limitado a 10 llamadas por minuto y 55 por día para la marca." },
+      "fr": { "name": "Obtenir un rapport", "description": "Renvoie des métriques agrégées de campagnes et d'automatisations, groupées par date d'envoi des messages : envois, ouvertures, clics, bounces, spam, désabonnements et commandes et revenus attribués, en totaux ou ventilés par dimensions. Limité à 10 appels par minute et 55 par jour pour la marque." }
+    },
+    "omnisend_list_products": {
+      "pt": { "name": "Listar produtos", "description": "Lista os produtos do catálogo da loja com id, title, status, URL, imagens e variantes com preços. A resposta tem products e paging; pagine com offset e limit enquanto paging.next estiver preenchido." },
+      "es": { "name": "Listar productos", "description": "Lista los productos del catálogo de la tienda con id, title, status, URL, imágenes y variantes con precios. La respuesta tiene products y paging; pagina con offset y limit mientras paging.next esté lleno." },
+      "fr": { "name": "Lister les produits", "description": "Liste les produits du catalogue de la boutique avec id, title, status, URL, images et variantes avec prix. La réponse contient products et paging ; paginez avec offset et limit tant que paging.next est renseigné." }
+    }
+  }
+}

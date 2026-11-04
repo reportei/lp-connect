@@ -1,0 +1,97 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update CMS items, publish sites and read form submissions in your customer's Webflow sites from your product or AI agent through Connect.",
+      "intro": "The Webflow toolkit covers sites, CMS collections and items, publishing, and form submissions: list sites and collections, read a collection's fields, create and update items, publish items or the whole site, and read the submissions of site forms. The customer connects with a Webflow API key or OAuth, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Publish content from your product", "body": "Create a CMS item with fieldData from your own editor or pipeline, then publish just that item to the live site." },
+        { "title": "Form leads into your CRM", "body": "List the forms of a site and read their submissions, with the answers in formResponse, to forward leads to your system." },
+        { "title": "AI agent for site updates", "body": "Let an agent read a collection's fields, update an item's content and publish the site or the changed items when the user approves." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize itens do CMS, publique sites e leia envios de formulários nos sites Webflow do seu cliente, do seu produto ou agente de IA, via Connect.",
+      "intro": "O toolkit do Webflow cobre sites, coleções e itens do CMS, publicação e envios de formulários: listar sites e coleções, ler os campos de uma coleção, criar e atualizar itens, publicar itens ou o site inteiro e ler os envios dos formulários do site. O cliente conecta com uma API key ou OAuth do Webflow, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Publicar conteúdo a partir do produto", "body": "Crie um item do CMS com fieldData a partir do seu próprio editor ou pipeline e publique só esse item no site no ar." },
+        { "title": "Leads de formulários no seu CRM", "body": "Liste os formulários de um site e leia os envios, com as respostas em formResponse, para encaminhar os leads ao seu sistema." },
+        { "title": "Agente de IA para atualizar o site", "body": "Deixe um agente ler os campos de uma coleção, atualizar o conteúdo de um item e publicar o site ou os itens alterados quando o usuário aprovar." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza ítems del CMS, publica sitios y lee envíos de formularios en los sitios Webflow de tu cliente desde tu producto o agente de IA.",
+      "intro": "El toolkit de Webflow cubre sitios, colecciones e ítems del CMS, publicación y envíos de formularios: listar sitios y colecciones, leer los campos de una colección, crear y actualizar ítems, publicar ítems o el sitio completo y leer los envíos de los formularios del sitio. El cliente conecta con una API key u OAuth de Webflow, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Publicar contenido desde tu producto", "body": "Crea un ítem del CMS con fieldData desde tu propio editor o pipeline y publica solo ese ítem en el sitio en vivo." },
+        { "title": "Leads de formularios a tu CRM", "body": "Lista los formularios de un sitio y lee sus envíos, con las respuestas en formResponse, para reenviar los leads a tu sistema." },
+        { "title": "Agente de IA para actualizar el sitio", "body": "Deja que un agente lea los campos de una colección, actualice el contenido de un ítem y publique el sitio o los ítems cambiados cuando el usuario lo apruebe." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez des éléments CMS, publiez des sites et lisez les soumissions de formulaires des sites Webflow de votre client via Connect.",
+      "intro": "Le toolkit Webflow couvre les sites, les collections et éléments du CMS, la publication et les soumissions de formulaires : lister les sites et collections, lire les champs d'une collection, créer et modifier des éléments, publier des éléments ou tout le site, et lire les soumissions des formulaires du site. Le client se connecte avec une clé API ou OAuth Webflow, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Publier du contenu depuis votre produit", "body": "Créez un élément CMS avec fieldData depuis votre propre éditeur ou pipeline, puis publiez uniquement cet élément sur le site en ligne." },
+        { "title": "Leads de formulaires vers votre CRM", "body": "Listez les formulaires d'un site et lisez leurs soumissions, avec les réponses dans formResponse, pour transmettre les leads à votre système." },
+        { "title": "Agent IA pour mettre à jour le site", "body": "Laissez un agent lire les champs d'une collection, modifier le contenu d'un élément et publier le site ou les éléments modifiés une fois que l'utilisateur approuve." }
+      ]
+    }
+  },
+  "tools": {
+    "webflow_list_sites": {
+      "pt": { "name": "Listar sites", "description": "Lista os sites que a conexão alcança, com o id que as outras ferramentas pedem como site_id e os customDomains de cada site com seus ids. Um token de site alcança só o próprio site." },
+      "es": { "name": "Listar sitios", "description": "Lista los sitios a los que llega la conexión, con el id que piden las demás herramientas como site_id y los customDomains de cada sitio con sus ids. Un token de sitio llega solo a su propio sitio." },
+      "fr": { "name": "Lister les sites", "description": "Liste les sites accessibles à la connexion, avec l'id que demandent les autres outils comme site_id et les customDomains de chaque site avec leurs ids. Un jeton de site n'atteint que son propre site." }
+    },
+    "webflow_publish_site": {
+      "pt": { "name": "Publicar site", "description": "Publica o site com todas as alterações pendentes nos domínios escolhidos. Envie customDomains, publishToWebflowSubdomain ou os dois. O Webflow permite uma publicação bem-sucedida por minuto." },
+      "es": { "name": "Publicar sitio", "description": "Publica el sitio con todos los cambios pendientes en los dominios elegidos. Envía customDomains, publishToWebflowSubdomain o ambos. Webflow permite una publicación exitosa por minuto." },
+      "fr": { "name": "Publier le site", "description": "Publie le site avec toutes ses modifications en attente sur les domaines choisis. Envoyez customDomains, publishToWebflowSubdomain ou les deux. Webflow autorise une publication réussie par minute." }
+    },
+    "webflow_list_collections": {
+      "pt": { "name": "Listar coleções", "description": "Lista as coleções do CMS de um site, com o id que as ferramentas de item pedem como collection_id." },
+      "es": { "name": "Listar colecciones", "description": "Lista las colecciones del CMS de un sitio, con el id que piden las herramientas de ítems como collection_id." },
+      "fr": { "name": "Lister les collections", "description": "Liste les collections CMS d'un site, avec l'id que demandent les outils d'éléments comme collection_id." }
+    },
+    "webflow_get_collection": {
+      "pt": { "name": "Obter coleção", "description": "Retorna uma coleção com seus campos: o slug, type e isRequired de cada um. Os slugs dos campos são as chaves de fieldData em Criar item da coleção e Atualizar item da coleção." },
+      "es": { "name": "Obtener colección", "description": "Devuelve una colección con sus campos: el slug, type e isRequired de cada uno. Los slugs de los campos son las claves de fieldData en Crear ítem de la colección y Actualizar ítem de la colección." },
+      "fr": { "name": "Obtenir une collection", "description": "Renvoie une collection avec ses champs : le slug, le type et isRequired de chacun. Les slugs des champs sont les clés de fieldData dans Créer un élément de collection et Modifier un élément de collection." }
+    },
+    "webflow_list_collection_items": {
+      "pt": { "name": "Listar itens da coleção", "description": "Lista os itens de uma coleção como estão antes de publicar, rascunhos incluídos, com fieldData indexado pelo slug do campo. A resposta tem pagination com limit, offset e total: a última página é quando offset mais limit alcança total." },
+      "es": { "name": "Listar ítems de la colección", "description": "Lista los ítems de una colección tal como están antes de publicar, borradores incluidos, con fieldData indexado por el slug del campo. La respuesta tiene pagination con limit, offset y total: la última página es cuando offset más limit alcanza total." },
+      "fr": { "name": "Lister les éléments d'une collection", "description": "Liste les éléments d'une collection tels qu'ils sont avant publication, brouillons compris, avec fieldData indexé par le slug du champ. La réponse contient pagination avec limit, offset et total : la dernière page est celle où offset plus limit atteint total." }
+    },
+    "webflow_get_collection_item": {
+      "pt": { "name": "Obter item da coleção", "description": "Retorna um item de uma coleção como está antes de publicar, com seu fieldData, isDraft e isArchived." },
+      "es": { "name": "Obtener ítem de la colección", "description": "Devuelve un ítem de una colección tal como está antes de publicar, con su fieldData, isDraft e isArchived." },
+      "fr": { "name": "Obtenir un élément de collection", "description": "Renvoie un élément d'une collection tel qu'il est avant publication, avec son fieldData, isDraft et isArchived." }
+    },
+    "webflow_create_collection_item": {
+      "pt": { "name": "Criar item da coleção", "description": "Cria um item em uma coleção e o retorna. O item é um rascunho, a menos que isDraft seja false, o que o coloca na fila da próxima publicação do site. Para colocá-lo no ar na hora, use Publicar itens da coleção." },
+      "es": { "name": "Crear ítem de la colección", "description": "Crea un ítem en una colección y lo devuelve. El ítem es un borrador salvo que isDraft sea false, lo que lo pone en cola para la próxima publicación del sitio. Para ponerlo en vivo de inmediato, usa Publicar ítems de la colección." },
+      "fr": { "name": "Créer un élément de collection", "description": "Crée un élément dans une collection et le renvoie. L'élément est un brouillon sauf si isDraft vaut false, ce qui le met en file pour la prochaine publication du site. Pour le mettre en ligne tout de suite, utilisez Publier des éléments de collection." }
+    },
+    "webflow_update_collection_item": {
+      "pt": { "name": "Atualizar item da coleção", "description": "Atualiza um item de uma coleção e o retorna. Só os campos enviados em fieldData mudam. Alterações em um item que já está no ar chegam ao site com Publicar itens da coleção ou Publicar site." },
+      "es": { "name": "Actualizar ítem de la colección", "description": "Actualiza un ítem de una colección y lo devuelve. Solo cambian los campos enviados en fieldData. Los cambios en un ítem que ya está en vivo llegan al sitio con Publicar ítems de la colección o Publicar sitio." },
+      "fr": { "name": "Modifier un élément de collection", "description": "Modifie un élément d'une collection et le renvoie. Seuls les champs envoyés dans fieldData changent. Les modifications d'un élément déjà en ligne atteignent le site avec Publier des éléments de collection ou Publier le site." }
+    },
+    "webflow_publish_collection_items": {
+      "pt": { "name": "Publicar itens da coleção", "description": "Publica itens de uma coleção no site no ar sem publicar o resto do site. Retorna publishedItemIds e errors." },
+      "es": { "name": "Publicar ítems de la colección", "description": "Publica ítems de una colección en el sitio en vivo sin publicar el resto del sitio. Devuelve publishedItemIds y errors." },
+      "fr": { "name": "Publier des éléments de collection", "description": "Publie des éléments d'une collection sur le site en ligne sans publier le reste du site. Renvoie publishedItemIds et errors." }
+    },
+    "webflow_list_forms": {
+      "pt": { "name": "Listar formulários", "description": "Lista os formulários de um site com seus campos, e o id que Listar envios de formulário pede como form_id. Um formulário dentro de um componente conta como um formulário por instância. A resposta tem pagination com limit, offset e total." },
+      "es": { "name": "Listar formularios", "description": "Lista los formularios de un sitio con sus campos, y el id que pide Listar envíos de formulario como form_id. Un formulario dentro de un componente cuenta como un formulario por instancia. La respuesta tiene pagination con limit, offset y total." },
+      "fr": { "name": "Lister les formulaires", "description": "Liste les formulaires d'un site avec leurs champs, et l'id que demande Lister les soumissions de formulaire comme form_id. Un formulaire dans un composant compte comme un formulaire par instance. La réponse contient pagination avec limit, offset et total." }
+    },
+    "webflow_list_form_submissions": {
+      "pt": { "name": "Listar envios de formulário", "description": "Lista os envios de um formulário, com as respostas em formResponse e a data em dateSubmitted. A resposta tem pagination com limit, offset e total: a última página é quando offset mais limit alcança total." },
+      "es": { "name": "Listar envíos de formulario", "description": "Lista los envíos de un formulario, con las respuestas en formResponse y la fecha en dateSubmitted. La respuesta tiene pagination con limit, offset y total: la última página es cuando offset más limit alcanza total." },
+      "fr": { "name": "Lister les soumissions de formulaire", "description": "Liste les soumissions d'un formulaire, avec les réponses dans formResponse et la date dans dateSubmitted. La réponse contient pagination avec limit, offset et total : la dernière page est celle où offset plus limit atteint total." }
+    }
+  }
+}

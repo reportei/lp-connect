@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List projects, create and update issues, comment, and open and merge merge requests in your customer's GitLab account through one Connect endpoint.",
+      "intro": "The GitLab toolkit covers projects and their members, issues with comments, and merge requests, including opening and merging them. Through Connect, a product or AI agent works on the customer's GitLab.com repositories without building the integration or renewing tokens.",
+      "useCases": [
+        {
+          "title": "Issues from your product",
+          "body": "Create a GitLab issue from a bug report or support ticket in your app, assign it with a member id and keep it in sync with later comments."
+        },
+        {
+          "title": "Coding agents opening merge requests",
+          "body": "Let an AI agent push a branch elsewhere, open a merge request from source_branch into target_branch and check detailed_merge_status before merging."
+        },
+        {
+          "title": "Project status for stakeholders",
+          "body": "Read open issues and merge requests per project and show progress to people who do not use GitLab."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste projetos, crie e atualize issues, comente e abra e faça merge de merge requests na conta GitLab do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do GitLab cobre projetos e seus membros, issues com comentários e merge requests, inclusive abrir e fazer o merge. Pelo Connect, um produto ou agente de IA trabalha nos repositórios do cliente no GitLab.com sem construir a integração nem renovar tokens.",
+      "useCases": [
+        {
+          "title": "Issues a partir do seu produto",
+          "body": "Crie uma issue no GitLab a partir de um relato de bug ou ticket de suporte do seu app, atribua com o id de um membro e mantenha sincronizada com os comentários seguintes."
+        },
+        {
+          "title": "Agentes de código abrindo merge requests",
+          "body": "Deixe um agente de IA abrir uma merge request de source_branch para target_branch e conferir detailed_merge_status antes de fazer o merge."
+        },
+        {
+          "title": "Status de projeto para quem não usa GitLab",
+          "body": "Leia as issues e merge requests abertas de cada projeto e mostre o andamento para pessoas que não usam o GitLab."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista proyectos, crea y actualiza issues, comenta y abre y fusiona merge requests en la cuenta de GitLab de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de GitLab cubre proyectos y sus miembros, issues con comentarios y merge requests, incluido abrirlas y fusionarlas. Con Connect, un producto o agente de IA trabaja en los repositorios del cliente en GitLab.com sin construir la integración ni renovar tokens.",
+      "useCases": [
+        {
+          "title": "Issues desde tu producto",
+          "body": "Crea una issue en GitLab a partir de un reporte de bug o ticket de soporte de tu app, asígnala con el id de un miembro y mantenla al día con los comentarios posteriores."
+        },
+        {
+          "title": "Agentes de código abriendo merge requests",
+          "body": "Deja que un agente de IA abra una merge request de source_branch a target_branch y revise detailed_merge_status antes de fusionar."
+        },
+        {
+          "title": "Estado del proyecto para otros equipos",
+          "body": "Lee las issues y merge requests abiertas de cada proyecto y muestra el avance a quienes no usan GitLab."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez les projets, créez et modifiez des issues, commentez, ouvrez et fusionnez des merge requests dans le compte GitLab de votre client via Connect.",
+      "intro": "Le toolkit GitLab couvre les projets et leurs membres, les issues avec leurs commentaires et les merge requests, y compris leur ouverture et leur fusion. Avec Connect, un produit ou un agent IA travaille sur les dépôts GitLab.com du client sans construire l'intégration ni renouveler les jetons.",
+      "useCases": [
+        {
+          "title": "Issues depuis votre produit",
+          "body": "Créez une issue GitLab à partir d'un rapport de bug ou d'un ticket de support de votre app, assignez-la avec l'id d'un membre et gardez-la à jour avec les commentaires suivants."
+        },
+        {
+          "title": "Agents de code ouvrant des merge requests",
+          "body": "Laissez un agent IA ouvrir une merge request de source_branch vers target_branch et vérifier detailed_merge_status avant de fusionner."
+        },
+        {
+          "title": "État du projet pour les parties prenantes",
+          "body": "Lisez les issues et merge requests ouvertes de chaque projet et montrez l'avancement à ceux qui n'utilisent pas GitLab."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "gitlab_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista projetos, do mais novo ao mais antigo. Envie membership true para obter só os projetos da conta: sem isso, o GitLab.com retorna todos os projetos públicos. Cada item tem id e path_with_namespace, que as outras ferramentas aceitam como project. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista proyectos, del más nuevo al más antiguo. Envía membership true para obtener solo los proyectos de la cuenta: sin eso, GitLab.com devuelve todos los proyectos públicos. Cada elemento tiene id y path_with_namespace, que las demás herramientas aceptan como project. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets, du plus récent au plus ancien. Envoyez membership true pour n'obtenir que les projets du compte : sans cela, GitLab.com renvoie tous les projets publics. Chaque élément a id et path_with_namespace, que les autres outils prennent comme project. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "gitlab_list_project_members": {
+      "pt": {
+        "name": "Listar membros do projeto",
+        "description": "Lista os membros de um projeto, inclusive os herdados dos grupos. Cada item tem id, username e name: o id é o que assignee_ids e reviewer_ids pedem. Pagine com page e per_page."
+      },
+      "es": {
+        "name": "Listar miembros del proyecto",
+        "description": "Lista los miembros de un proyecto, incluidos los heredados de sus grupos. Cada elemento tiene id, username y name: el id es lo que piden assignee_ids y reviewer_ids. Pagina con page y per_page."
+      },
+      "fr": {
+        "name": "Lister les membres du projet",
+        "description": "Liste les membres d'un projet, y compris ceux hérités de ses groupes. Chaque élément a id, username et name : l'id est ce que demandent assignee_ids et reviewer_ids. Paginez avec page et per_page."
+      }
+    },
+    "gitlab_list_issues": {
+      "pt": {
+        "name": "Listar issues",
+        "description": "Lista as issues de todos os projetos que a conta enxerga. Por padrão, só as issues que a conta criou: envie scope assigned_to_me ou all para as outras. Cada item tem project_id e iid, que as ferramentas de issue pedem. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar issues",
+        "description": "Lista las issues de todos los proyectos que la cuenta puede ver. Por defecto, solo las issues que creó la cuenta: envía scope assigned_to_me o all para las demás. Cada elemento tiene project_id e iid, que piden las herramientas de issues. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les issues",
+        "description": "Liste les issues de tous les projets que le compte peut voir. Par défaut, seulement les issues créées par le compte : envoyez scope assigned_to_me ou all pour les autres. Chaque élément a project_id et iid, que demandent les outils d'issues. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "gitlab_list_project_issues": {
+      "pt": {
+        "name": "Listar issues do projeto",
+        "description": "Lista as issues de um projeto, da mais nova à mais antiga. Cada item tem iid, o número da issue no projeto, que as ferramentas de issue pedem. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar issues del proyecto",
+        "description": "Lista las issues de un proyecto, de la más nueva a la más antigua. Cada elemento tiene iid, el número de la issue en el proyecto, que piden las herramientas de issues. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les issues du projet",
+        "description": "Liste les issues d'un projet, de la plus récente à la plus ancienne. Chaque élément a iid, le numéro de l'issue dans le projet, que demandent les outils d'issues. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "gitlab_get_issue": {
+      "pt": {
+        "name": "Obter issue",
+        "description": "Retorna uma issue de um projeto, com title, description, state, labels, assignees, milestone e due date."
+      },
+      "es": {
+        "name": "Obtener issue",
+        "description": "Devuelve una issue de un proyecto, con title, description, state, labels, assignees, milestone y due date."
+      },
+      "fr": {
+        "name": "Obtenir une issue",
+        "description": "Renvoie une issue d'un projet, avec title, description, state, labels, assignees, milestone et due date."
+      }
+    },
+    "gitlab_create_issue": {
+      "pt": {
+        "name": "Criar issue",
+        "description": "Cria uma issue em um projeto e a retorna, com seu iid. Notifica os participantes."
+      },
+      "es": {
+        "name": "Crear issue",
+        "description": "Crea una issue en un proyecto y la devuelve, con su iid. Notifica a los participantes."
+      },
+      "fr": {
+        "name": "Créer une issue",
+        "description": "Crée une issue dans un projet et la renvoie, avec son iid. Notifie les participants."
+      }
+    },
+    "gitlab_update_issue": {
+      "pt": {
+        "name": "Atualizar issue",
+        "description": "Altera uma issue e a retorna. Só os campos enviados mudam, e pelo menos um deve ser enviado. Para fechar ou reabrir, envie state_event. labels substitui todos os labels; add_labels e remove_labels mudam só os citados."
+      },
+      "es": {
+        "name": "Actualizar issue",
+        "description": "Modifica una issue y la devuelve. Solo cambian los campos enviados, y debe enviarse al menos uno. Para cerrarla o reabrirla, envía state_event. labels reemplaza todas las etiquetas; add_labels y remove_labels cambian solo las nombradas."
+      },
+      "fr": {
+        "name": "Mettre à jour une issue",
+        "description": "Modifie une issue et la renvoie. Seuls les champs envoyés changent, et au moins un doit être envoyé. Pour la fermer ou la rouvrir, envoyez state_event. labels remplace tous les labels ; add_labels et remove_labels ne changent que ceux nommés."
+      }
+    },
+    "gitlab_list_issue_notes": {
+      "pt": {
+        "name": "Listar notas da issue",
+        "description": "Lista os comentários (notes) de uma issue, do mais novo ao mais antigo por padrão, inclusive as notas que o GitLab escreve a cada mudança. Envie activity_filter only_comments para manter só o que as pessoas escreveram. Pagine com page e per_page."
+      },
+      "es": {
+        "name": "Listar notas de la issue",
+        "description": "Lista los comentarios (notes) de una issue, del más nuevo al más antiguo por defecto, incluidas las notas que GitLab escribe en cada cambio. Envía activity_filter only_comments para quedarte solo con lo que escribieron las personas. Pagina con page y per_page."
+      },
+      "fr": {
+        "name": "Lister les notes d'une issue",
+        "description": "Liste les commentaires (notes) d'une issue, du plus récent au plus ancien par défaut, y compris les notes que GitLab écrit à chaque changement. Envoyez activity_filter only_comments pour ne garder que ce que les gens ont écrit. Paginez avec page et per_page."
+      }
+    },
+    "gitlab_create_issue_note": {
+      "pt": {
+        "name": "Criar nota na issue",
+        "description": "Adiciona um comentário (note) a uma issue e o retorna. Notifica os participantes."
+      },
+      "es": {
+        "name": "Crear nota en la issue",
+        "description": "Agrega un comentario (note) a una issue y lo devuelve. Notifica a los participantes."
+      },
+      "fr": {
+        "name": "Créer une note sur une issue",
+        "description": "Ajoute un commentaire (note) à une issue et le renvoie. Notifie les participants."
+      }
+    },
+    "gitlab_list_merge_requests": {
+      "pt": {
+        "name": "Listar merge requests",
+        "description": "Lista as merge requests de um projeto, da mais nova à mais antiga. Cada item tem iid, que as ferramentas de merge request pedem. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar merge requests",
+        "description": "Lista las merge requests de un proyecto, de la más nueva a la más antigua. Cada elemento tiene iid, que piden las herramientas de merge requests. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les merge requests",
+        "description": "Liste les merge requests d'un projet, de la plus récente à la plus ancienne. Chaque élément a iid, que demandent les outils de merge requests. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "gitlab_get_merge_request": {
+      "pt": {
+        "name": "Obter merge request",
+        "description": "Retorna uma merge request, com seus branches, sha, detailed_merge_status (mergeable é o valor que permite o merge), has_conflicts e head_pipeline."
+      },
+      "es": {
+        "name": "Obtener merge request",
+        "description": "Devuelve una merge request, con sus ramas, sha, detailed_merge_status (mergeable es el valor que permite fusionar), has_conflicts y head_pipeline."
+      },
+      "fr": {
+        "name": "Obtenir une merge request",
+        "description": "Renvoie une merge request, avec ses branches, sha, detailed_merge_status (mergeable est la valeur qui permet de fusionner), has_conflicts et head_pipeline."
+      }
+    },
+    "gitlab_create_merge_request": {
+      "pt": {
+        "name": "Criar merge request",
+        "description": "Abre uma merge request de source_branch para target_branch e a retorna, com seu iid. Um título que começa com Draft: a abre como rascunho. Notifica os assignees e reviewers."
+      },
+      "es": {
+        "name": "Crear merge request",
+        "description": "Abre una merge request de source_branch a target_branch y la devuelve, con su iid. Un título que empieza con Draft: la abre como borrador. Notifica a los assignees y reviewers."
+      },
+      "fr": {
+        "name": "Créer une merge request",
+        "description": "Ouvre une merge request de source_branch vers target_branch et la renvoie, avec son iid. Un titre qui commence par Draft: l'ouvre comme brouillon. Notifie les assignees et reviewers."
+      }
+    },
+    "gitlab_merge_merge_request": {
+      "pt": {
+        "name": "Fazer merge de merge request",
+        "description": "Faz o merge de uma merge request e a retorna. Com auto_merge true, o merge acontece quando o pipeline e as verificações passarem. Responde 405 quando não pode ser mesclada, 409 quando sha não confere com o branch de origem e 422 quando o merge falha."
+      },
+      "es": {
+        "name": "Fusionar merge request",
+        "description": "Fusiona una merge request y la devuelve. Con auto_merge true, se fusiona cuando el pipeline y las comprobaciones pasen. Responde 405 cuando no se puede fusionar, 409 cuando sha no coincide con la rama de origen y 422 cuando la fusión falla."
+      },
+      "fr": {
+        "name": "Fusionner une merge request",
+        "description": "Fusionne une merge request et la renvoie. Avec auto_merge true, elle est fusionnée une fois le pipeline et les vérifications réussis. Répond 405 quand elle ne peut pas être fusionnée, 409 quand sha ne correspond pas à la branche source et 422 quand la fusion échoue."
+      }
+    }
+  }
+}

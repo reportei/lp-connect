@@ -1,0 +1,117 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Track time, manage clients, budgets and projects and create invoices in your customer's Everhour team through one Connect endpoint.",
+      "intro": "The Everhour toolkit covers clients and their budgets, projects, task search, time records, invoices and team members. A product or AI agent can log time and invoice it from the tracked records without building the Everhour integration or storing its credentials.",
+      "useCases": [
+        { "title": "Time logging from your product", "body": "Search the task by name and create a time record for a day when a user finishes work in your tool or tells an agent how long it took." },
+        { "title": "Invoicing from tracked time", "body": "For an agency tool, create an invoice for a client from the time tracked in a period, then mark it as sent or paid with an update." },
+        { "title": "Budget monitoring by an agent", "body": "Let an AI agent read clients and projects with their budget usage and warn the team before a client budget runs out." }
+      ]
+    },
+    "pt": {
+      "tagline": "Registre horas, gerencie clientes, orçamentos e projetos e crie faturas na equipe Everhour do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Everhour cobre clientes e seus orçamentos, projetos, busca de tarefas, registros de tempo, faturas e membros da equipe. Um produto ou agente de IA registra horas e fatura a partir dos registros sem construir a integração com o Everhour nem guardar as credenciais.",
+      "useCases": [
+        { "title": "Registro de horas pelo produto", "body": "Busque a tarefa pelo nome e crie um registro de tempo para um dia quando o usuário terminar o trabalho na sua ferramenta ou disser a um agente quanto levou." },
+        { "title": "Faturamento a partir das horas", "body": "Numa ferramenta de agência, crie uma fatura de um cliente com o tempo registrado em um período e marque como enviada ou paga com uma atualização." },
+        { "title": "Monitoramento de orçamento por agente", "body": "Deixe um agente de IA ler clientes e projetos com o uso do orçamento e avisar a equipe antes que o orçamento de um cliente acabe." }
+      ]
+    },
+    "es": {
+      "tagline": "Registra horas, gestiona clientes, presupuestos y proyectos y crea facturas en el equipo de Everhour de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Everhour cubre clientes y sus presupuestos, proyectos, búsqueda de tareas, registros de tiempo, facturas y miembros del equipo. Un producto o agente de IA registra horas y las factura a partir de los registros sin construir la integración con Everhour ni guardar sus credenciales.",
+      "useCases": [
+        { "title": "Registro de horas desde tu producto", "body": "Busca la tarea por nombre y crea un registro de tiempo para un día cuando el usuario termine el trabajo en tu herramienta o le diga a un agente cuánto tardó." },
+        { "title": "Facturar desde el tiempo registrado", "body": "En una herramienta de agencia, crea una factura de un cliente con el tiempo registrado en un período y márcala como enviada o pagada con una actualización." },
+        { "title": "Control de presupuesto por un agente", "body": "Deja que un agente de IA lea clientes y proyectos con el uso del presupuesto y avise al equipo antes de que se agote el presupuesto de un cliente." }
+      ]
+    },
+    "fr": {
+      "tagline": "Suivez le temps, gérez clients, budgets et projets et créez des factures dans l'équipe Everhour de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Everhour couvre les clients et leurs budgets, les projets, la recherche de tâches, les enregistrements de temps, les factures et les membres de l'équipe. Un produit ou un agent IA enregistre le temps et le facture à partir des enregistrements, sans construire l'intégration Everhour ni stocker ses identifiants.",
+      "useCases": [
+        { "title": "Saisie du temps depuis votre produit", "body": "Recherchez la tâche par son nom et créez un enregistrement de temps pour un jour quand l'utilisateur termine son travail dans votre outil ou indique à un agent combien de temps cela a pris." },
+        { "title": "Facturer le temps suivi", "body": "Dans un outil d'agence, créez une facture pour un client à partir du temps suivi sur une période, puis marquez-la comme envoyée ou payée par une mise à jour." },
+        { "title": "Suivi de budget par un agent", "body": "Laissez un agent IA lire les clients et projets avec la consommation du budget et prévenir l'équipe avant que le budget d'un client soit épuisé." }
+      ]
+    }
+  },
+  "tools": {
+    "everhour_list_clients": {
+      "pt": { "name": "Listar clientes", "description": "Lista os clientes da equipe em uma única resposta, com os ids dos projetos deles e o orçamento com o consumo em andamento. Dinheiro em centavos e tempo em segundos." },
+      "es": { "name": "Listar clientes", "description": "Lista los clientes del equipo en una sola respuesta, con los ids de sus proyectos y el presupuesto con su consumo en curso. El dinero va en centavos y el tiempo en segundos." },
+      "fr": { "name": "Lister les clients", "description": "Liste les clients de l'équipe en une seule réponse, avec les ids de leurs projets et le budget avec sa consommation en cours. L'argent est en centimes et le temps en secondes." }
+    },
+    "everhour_create_client": {
+      "pt": { "name": "Criar cliente", "description": "Cria um cliente. Os nomes não são deduplicados, então consulte List clients antes. Vincule a este cliente os projetos cujo tempo é faturado." },
+      "es": { "name": "Crear cliente", "description": "Crea un cliente. Los nombres no se deduplican, así que consulta List clients antes. Vincula a este cliente los proyectos cuyo tiempo se factura." },
+      "fr": { "name": "Créer un client", "description": "Crée un client. Les noms ne sont pas dédupliqués, consultez donc List clients d'abord. Liez à ce client les projets dont le temps est facturé." }
+    },
+    "everhour_update_client": {
+      "pt": { "name": "Atualizar cliente", "description": "Altera um cliente. Só os campos enviados mudam. Para vincular um novo projeto, envie a lista completa de projects, incluindo os ids já vinculados que List clients mostra." },
+      "es": { "name": "Actualizar cliente", "description": "Modifica un cliente. Solo cambian los campos enviados. Para vincular un proyecto nuevo, envía la lista completa de projects, incluidos los ids ya vinculados que muestra List clients." },
+      "fr": { "name": "Mettre à jour un client", "description": "Modifie un client. Seuls les champs envoyés changent. Pour lier un nouveau projet, envoyez la liste complète de projects, y compris les ids déjà liés que montre List clients." }
+    },
+    "everhour_update_client_budget": {
+      "pt": { "name": "Atualizar orçamento do cliente", "description": "Cria ou substitui o orçamento de um cliente. Envie o orçamento inteiro, porque atualizações parciais não são suportadas. Ao atingir o limite, os administradores da equipe recebem um e-mail." },
+      "es": { "name": "Actualizar presupuesto del cliente", "description": "Crea o reemplaza el presupuesto de un cliente. Envía el presupuesto completo, porque no se admiten actualizaciones parciales. Al alcanzar el umbral, los administradores del equipo reciben un correo." },
+      "fr": { "name": "Mettre à jour le budget d'un client", "description": "Crée ou remplace le budget d'un client. Envoyez le budget complet, car les mises à jour partielles ne sont pas prises en charge. Quand le seuil est atteint, les administrateurs de l'équipe reçoivent un e-mail." }
+    },
+    "everhour_list_projects": {
+      "pt": { "name": "Listar projetos", "description": "Lista os projetos a que o usuário tem acesso, com o id do cliente, tipo de cobrança, tarifas e orçamento com seu consumo. Os ids levam o prefixo da integração, como as:1234567890 para o Asana ou ev:1234567890 para projetos criados no Everhour. As páginas começam em 1, e uma página menor que limit é a última." },
+      "es": { "name": "Listar proyectos", "description": "Lista los proyectos a los que el usuario tiene acceso, con el id del cliente, tipo de facturación, tarifas y presupuesto con su consumo. Los ids llevan el prefijo de la integración, como as:1234567890 para Asana o ev:1234567890 para proyectos creados en Everhour. Las páginas empiezan en 1, y una página más corta que limit es la última." },
+      "fr": { "name": "Lister les projets", "description": "Liste les projets auxquels l'utilisateur a accès, avec l'id du client, le type de facturation, les tarifs et le budget avec sa consommation. Les ids portent le préfixe de l'intégration, comme as:1234567890 pour Asana ou ev:1234567890 pour les projets créés dans Everhour. Les pages commencent à 1, et une page plus courte que limit est la dernière." }
+    },
+    "everhour_search_tasks": {
+      "pt": { "name": "Buscar tarefas", "description": "Busca tarefas pelo nome em todos os projetos ou em um só. Retorna os ids das tarefas, como ev:3000010034, que as ferramentas de registro de tempo pedem, com os ids dos projetos, o status e os totais de tempo em segundos." },
+      "es": { "name": "Buscar tareas", "description": "Busca tareas por nombre en todos los proyectos o en uno solo. Devuelve los ids de las tareas, como ev:3000010034, que piden las herramientas de registros de tiempo, con los ids de los proyectos, el estado y los totales de tiempo en segundos." },
+      "fr": { "name": "Rechercher des tâches", "description": "Recherche des tâches par nom dans tous les projets ou dans un seul. Renvoie les ids des tâches, comme ev:3000010034, que demandent les outils d'enregistrement du temps, avec les ids des projets, le statut et les totaux de temps en secondes." }
+    },
+    "everhour_list_time_records": {
+      "pt": { "name": "Listar registros de tempo", "description": "Lista os registros de tempo de toda a equipe em um período, com os dois dias incluídos. Sem from e to, retorna só hoje. Cada registro tem o tempo em segundos, o id do usuário, cujo nome vem de List users, a data, a tarefa com os ids de seus projetos e isInvoiced. Uma página menor que limit é a última." },
+      "es": { "name": "Listar registros de tiempo", "description": "Lista los registros de tiempo de todo el equipo en un rango de fechas, con ambos días incluidos. Sin from y to, devuelve solo hoy. Cada registro tiene el tiempo en segundos, el id del usuario, cuyo nombre viene de List users, la fecha, la tarea con los ids de sus proyectos e isInvoiced. Una página más corta que limit es la última." },
+      "fr": { "name": "Lister les enregistrements de temps", "description": "Liste les enregistrements de temps de toute l'équipe sur une période, les deux jours inclus. Sans from et to, ne renvoie qu'aujourd'hui. Chaque enregistrement a le temps en secondes, l'id de l'utilisateur, dont le nom vient de List users, la date, la tâche avec les ids de ses projets et isInvoiced. Une page plus courte que limit est la dernière." }
+    },
+    "everhour_create_time_record": {
+      "pt": { "name": "Criar registro de tempo", "description": "Registra tempo em uma tarefa para um dia. Um usuário tem no máximo um registro por tarefa e dia: enviar o mesmo usuário, tarefa e data de novo atualiza a duração desse registro em vez de criar outro." },
+      "es": { "name": "Crear registro de tiempo", "description": "Registra tiempo en una tarea para un día. Un usuario tiene como máximo un registro por tarea y día: enviar el mismo usuario, tarea y fecha de nuevo actualiza la duración de ese registro en lugar de crear otro." },
+      "fr": { "name": "Créer un enregistrement de temps", "description": "Enregistre du temps sur une tâche pour un jour. Un utilisateur a au plus un enregistrement par tâche et par jour : renvoyer le même utilisateur, la même tâche et la même date met à jour la durée de cet enregistrement au lieu d'en créer un autre." }
+    },
+    "everhour_update_time_record": {
+      "pt": { "name": "Atualizar registro de tempo", "description": "Altera um registro de tempo pelo id. time é obrigatório em toda chamada, então envie a duração atual para mantê-la." },
+      "es": { "name": "Actualizar registro de tiempo", "description": "Modifica un registro de tiempo por su id. time es obligatorio en cada llamada, así que envía la duración actual para mantenerla." },
+      "fr": { "name": "Mettre à jour un enregistrement de temps", "description": "Modifie un enregistrement de temps par son id. time est obligatoire à chaque appel, envoyez donc la durée actuelle pour la conserver." }
+    },
+    "everhour_delete_time_record": {
+      "pt": { "name": "Excluir registro de tempo", "description": "Remove um registro de tempo ao definir sua duração como zero. O histórico do registro é mantido, e ele deixa de aparecer em List time records." },
+      "es": { "name": "Eliminar registro de tiempo", "description": "Elimina un registro de tiempo poniendo su duración en cero. El historial del registro se conserva, y deja de aparecer en List time records." },
+      "fr": { "name": "Supprimer un enregistrement de temps", "description": "Supprime un enregistrement de temps en mettant sa durée à zéro. L'historique de l'enregistrement est conservé, et il n'apparaît plus dans List time records." }
+    },
+    "everhour_list_invoices": {
+      "pt": { "name": "Listar faturas", "description": "Lista todas as faturas da equipe em uma única resposta, com o cliente, o período, o status (draft, sent ou paid), os itens e os valores em centavos." },
+      "es": { "name": "Listar facturas", "description": "Lista todas las facturas del equipo en una sola respuesta, con el cliente, el período, el estado (draft, sent o paid), las líneas y los importes en centavos." },
+      "fr": { "name": "Lister les factures", "description": "Liste toutes les factures de l'équipe en une seule réponse, avec le client, la période, le statut (draft, sent ou paid), les lignes et les montants en centimes." }
+    },
+    "everhour_create_invoice": {
+      "pt": { "name": "Criar fatura", "description": "Cria uma fatura para um cliente a partir do tempo registrado no período e, se pedido, das despesas. Os registros de tempo cobertos ficam marcados como faturados. Marque como enviada ou paga com Update invoice." },
+      "es": { "name": "Crear factura", "description": "Crea una factura para un cliente a partir del tiempo registrado en el período y, si se pide, de los gastos. Los registros de tiempo cubiertos quedan marcados como facturados. Márcala como enviada o pagada con Update invoice." },
+      "fr": { "name": "Créer une facture", "description": "Crée une facture pour un client à partir du temps suivi sur la période et, sur demande, des dépenses. Les enregistrements de temps couverts sont marqués comme facturés. Marquez-la comme envoyée ou payée avec Update invoice." }
+    },
+    "everhour_update_invoice": {
+      "pt": { "name": "Atualizar fatura", "description": "Altera o número, as datas, as notas, o imposto, o desconto ou o status de uma fatura. Defina manualStatus como sent ou paid para avançá-la." },
+      "es": { "name": "Actualizar factura", "description": "Modifica el número, las fechas, las notas, el impuesto, el descuento o el estado de una factura. Define manualStatus como sent o paid para avanzarla." },
+      "fr": { "name": "Mettre à jour une facture", "description": "Modifie le numéro, les dates, les notes, la taxe, la remise ou le statut d'une facture. Définissez manualStatus sur sent ou paid pour la faire avancer." }
+    },
+    "everhour_list_users": {
+      "pt": { "name": "Listar usuários", "description": "Lista os membros da equipe, inclusive os removidos, com id, nome, e-mail, função e status. O id é o usuário dos registros de tempo e o argumento user das ferramentas de registro de tempo." },
+      "es": { "name": "Listar usuarios", "description": "Lista los miembros del equipo, incluidos los eliminados, con id, nombre, correo, rol y estado. El id es el usuario de los registros de tiempo y el argumento user de las herramientas de registros de tiempo." },
+      "fr": { "name": "Lister les utilisateurs", "description": "Liste les membres de l'équipe, y compris ceux qui ont été retirés, avec id, nom, e-mail, rôle et statut. L'id est l'utilisateur des enregistrements de temps et l'argument user des outils d'enregistrement du temps." }
+    },
+    "everhour_get_current_user": {
+      "pt": { "name": "Obter usuário atual", "description": "Retorna o usuário conectado: id, nome, e-mail, função, configurações da equipe e os formatos de data e hora. O id é o usuário que Create time record e Update time record aceitam em user, e aquele a quem o tempo vai quando user é omitido. O campo apiKey da resposta vem mascarado." },
+      "es": { "name": "Obtener usuario actual", "description": "Devuelve el usuario conectado: id, nombre, correo, rol, configuración del equipo y los formatos de fecha y hora. El id es el usuario que Create time record y Update time record aceptan en user, y al que va el tiempo cuando se omite user. El campo apiKey de la respuesta viene enmascarado." },
+      "fr": { "name": "Obtenir l'utilisateur actuel", "description": "Renvoie l'utilisateur connecté : id, nom, e-mail, rôle, réglages de l'équipe et formats de date et d'heure. L'id est l'utilisateur que Create time record et Update time record acceptent dans user, et celui à qui va le temps quand user est omis. Le champ apiKey de la réponse est masqué." }
+    }
+  }
+}

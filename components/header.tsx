@@ -1,14 +1,16 @@
 import { HeaderBar } from "@/components/header-bar"
-import { appUrl, DEFAULT_LOCALE, languageLinks, pageHref, type Locale, type TranslatedPage } from "@/lib/i18n"
+import { appUrl, DEFAULT_LOCALE, languageLinks, pageHref, type AlternatePath, type Locale, type TranslatedPage } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 
 type HeaderProps = {
   locale?: Locale
   // The page being shown, when it exists in every language; the picker then links to its translations.
   page?: TranslatedPage
+  // For pages generated per slug, the same page in each language.
+  alternatePath?: AlternatePath
 }
 
-export function Header({ locale = DEFAULT_LOCALE, page }: HeaderProps) {
+export function Header({ locale = DEFAULT_LOCALE, page, alternatePath }: HeaderProps) {
   const m = getMessages(locale)
   const t = m.header
   const home = (hash: string) => pageHref(locale, "home", hash)
@@ -29,7 +31,7 @@ export function Header({ locale = DEFAULT_LOCALE, page }: HeaderProps) {
       signup={{ href: appUrl(locale, "/signup"), label: t.signup }}
       menuLabels={{ open: t.openMenu, close: t.closeMenu }}
       languageLabel={m.language.label}
-      languageLinks={languageLinks(page)}
+      languageLinks={languageLinks(page, alternatePath)}
     />
   )
 }

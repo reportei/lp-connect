@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, lists, email campaigns and transactional emails in your customer's Brevo account through one Connect endpoint.",
+      "intro": "The Brevo toolkit covers contacts, contact lists, email campaigns and transactional emails. Your customer connects their Brevo account once with an API key, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution, instead of building and maintaining the integration.",
+      "useCases": [
+        {
+          "title": "Sync CRM contacts to Brevo",
+          "body": "Create or update a contact, with updateEnabled, and add it to the right lists whenever a lead changes in your CRM."
+        },
+        {
+          "title": "Launch campaigns from your app",
+          "body": "Create a draft email campaign from HTML or a template, schedule it with scheduledAt and send it from inside your product."
+        },
+        {
+          "title": "Agent sends order emails",
+          "body": "An AI agent sends a transactional email with a template id and reads the messageId back to confirm delivery was accepted."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, listas, campanhas de email e emails transacionais na conta Brevo do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Brevo cobre contatos, listas de contatos, campanhas de email e emails transacionais. Seu cliente conecta a conta Brevo uma vez com uma chave de API, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução, sem você construir e manter a integração.",
+      "useCases": [
+        {
+          "title": "Sincronize contatos do CRM com o Brevo",
+          "body": "Crie ou atualize um contato, com updateEnabled, e inclua nas listas certas sempre que um lead mudar no seu CRM."
+        },
+        {
+          "title": "Dispare campanhas pelo seu app",
+          "body": "Crie um rascunho de campanha de email a partir de HTML ou de um template, agende com scheduledAt e envie sem sair do seu produto."
+        },
+        {
+          "title": "Agente envia emails de pedido",
+          "body": "Um agente de IA envia um email transacional com o id de um template e lê o messageId para confirmar que o envio foi aceito."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, listas, campañas de email y emails transaccionales en la cuenta de Brevo de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Brevo cubre contactos, listas de contactos, campañas de email y emails transaccionales. Tu cliente conecta su cuenta de Brevo una vez con una API key, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda las credenciales y registra cada ejecución, sin que construyas y mantengas la integración.",
+      "useCases": [
+        {
+          "title": "Sincroniza contactos del CRM con Brevo",
+          "body": "Crea o actualiza un contacto, con updateEnabled, y agrégalo a las listas correctas cuando un lead cambie en tu CRM."
+        },
+        {
+          "title": "Lanza campañas desde tu app",
+          "body": "Crea un borrador de campaña de email a partir de HTML o de una plantilla, prográmalo con scheduledAt y envíalo sin salir de tu producto."
+        },
+        {
+          "title": "Agente envía emails de pedido",
+          "body": "Un agente de IA envía un email transaccional con el id de una plantilla y lee el messageId para confirmar que el envío fue aceptado."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, listes, campagnes email et emails transactionnels dans le compte Brevo de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Brevo couvre les contacts, les listes de contacts, les campagnes email et les emails transactionnels. Votre client connecte son compte Brevo une fois avec une clé API, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution, sans que vous ayez à construire et maintenir l'intégration.",
+      "useCases": [
+        {
+          "title": "Synchroniser les contacts du CRM",
+          "body": "Créez ou mettez à jour un contact, avec updateEnabled, et ajoutez-le aux bonnes listes dès qu'un lead change dans votre CRM."
+        },
+        {
+          "title": "Lancer des campagnes depuis l'app",
+          "body": "Créez un brouillon de campagne email à partir de HTML ou d'un template, planifiez-le avec scheduledAt et envoyez-le sans quitter votre produit."
+        },
+        {
+          "title": "Un agent envoie les emails de commande",
+          "body": "Un agent IA envoie un email transactionnel avec l'id d'un template et lit le messageId pour confirmer que l'envoi a été accepté."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "brevo_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos, do mais recente ao mais antigo por padrão, podendo filtrar por lista, data ou atributo. A resposta traz contacts e count; pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos, del más reciente al más antiguo por defecto, con filtro opcional por lista, fecha o atributo. La respuesta trae contacts y count; pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts, du plus récent au plus ancien par défaut, avec filtre optionnel par liste, date ou attribut. La réponse contient contacts et count ; paginez avec limit et offset."
+      }
+    },
+    "brevo_get_contact": {
+      "pt": {
+        "name": "Obter contato",
+        "description": "Retorna um contato com seus atributos, listas e as estatísticas de campanhas dos últimos 90 dias."
+      },
+      "es": {
+        "name": "Obtener contacto",
+        "description": "Devuelve un contacto con sus atributos, listas y las estadísticas de campañas de los últimos 90 días."
+      },
+      "fr": {
+        "name": "Obtenir un contact",
+        "description": "Renvoie un contact avec ses attributs, ses listes et les statistiques de campagnes des 90 derniers jours."
+      }
+    },
+    "brevo_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato. Envie email, ou o atributo SMS, ou ext_id. Com updateEnabled true, um contato existente com o mesmo identificador é atualizado em vez de falhar."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto. Envía email, o el atributo SMS, o ext_id. Con updateEnabled en true, un contacto existente con el mismo identificador se actualiza en lugar de fallar."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact. Envoyez email, ou l'attribut SMS, ou ext_id. Avec updateEnabled à true, un contact existant ayant le même identifiant est mis à jour au lieu d'échouer."
+      }
+    },
+    "brevo_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato. Só os campos enviados mudam: listIds inclui o contato em listas e unlinkListIds o remove de listas."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto. Solo cambian los campos enviados: listIds agrega el contacto a listas y unlinkListIds lo quita de listas."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact. Seuls les champs envoyés changent : listIds ajoute le contact à des listes et unlinkListIds l'en retire."
+      }
+    },
+    "brevo_list_contact_lists": {
+      "pt": {
+        "name": "Listar listas de contatos",
+        "description": "Lista as listas de contatos com id, name, folderId e assinantes únicos. A resposta traz lists e count; pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar listas de contactos",
+        "description": "Lista las listas de contactos con id, name, folderId y suscriptores únicos. La respuesta trae lists y count; pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les listes de contacts",
+        "description": "Liste les listes de contacts avec id, name, folderId et abonnés uniques. La réponse contient lists et count ; paginez avec limit et offset."
+      }
+    },
+    "brevo_create_contact_list": {
+      "pt": {
+        "name": "Criar lista de contatos",
+        "description": "Cria uma lista de contatos vazia em uma pasta e retorna o id dela."
+      },
+      "es": {
+        "name": "Crear lista de contactos",
+        "description": "Crea una lista de contactos vacía en una carpeta y devuelve su id."
+      },
+      "fr": {
+        "name": "Créer une liste de contacts",
+        "description": "Crée une liste de contacts vide dans un dossier et renvoie son id."
+      }
+    },
+    "brevo_list_email_campaigns": {
+      "pt": {
+        "name": "Listar campanhas de email",
+        "description": "Lista as campanhas de email, da mais recente à mais antiga por padrão. A resposta traz campaigns e count; pagine com limit e offset. As estatísticas só vêm quando statistics é enviado."
+      },
+      "es": {
+        "name": "Listar campañas de email",
+        "description": "Lista las campañas de email, de la más reciente a la más antigua por defecto. La respuesta trae campaigns y count; pagina con limit y offset. Las estadísticas solo vienen cuando se envía statistics."
+      },
+      "fr": {
+        "name": "Lister les campagnes email",
+        "description": "Liste les campagnes email, de la plus récente à la plus ancienne par défaut. La réponse contient campaigns et count ; paginez avec limit et offset. Les statistiques ne reviennent que si statistics est envoyé."
+      }
+    },
+    "brevo_get_email_campaign": {
+      "pt": {
+        "name": "Obter campanha de email",
+        "description": "Retorna uma campanha de email com suas configurações, destinatários e estatísticas do relatório."
+      },
+      "es": {
+        "name": "Obtener campaña de email",
+        "description": "Devuelve una campaña de email con su configuración, destinatarios y estadísticas del informe."
+      },
+      "fr": {
+        "name": "Obtenir une campagne email",
+        "description": "Renvoie une campagne email avec ses réglages, ses destinataires et les statistiques de son rapport."
+      }
+    },
+    "brevo_create_email_campaign": {
+      "pt": {
+        "name": "Criar campanha de email",
+        "description": "Cria uma campanha de email como rascunho e retorna o id. Envie o conteúdo em exatamente um entre htmlContent, htmlUrl ou templateId. Definir scheduledAt agenda o envio, e então recipients é obrigatório."
+      },
+      "es": {
+        "name": "Crear campaña de email",
+        "description": "Crea una campaña de email como borrador y devuelve su id. Envía el contenido en exactamente uno de htmlContent, htmlUrl o templateId. Definir scheduledAt programa el envío, y entonces recipients es obligatorio."
+      },
+      "fr": {
+        "name": "Créer une campagne email",
+        "description": "Crée une campagne email en brouillon et renvoie son id. Envoyez le contenu dans exactement un champ parmi htmlContent, htmlUrl ou templateId. Définir scheduledAt planifie l'envoi, et recipients devient alors obligatoire."
+      }
+    },
+    "brevo_update_email_campaign": {
+      "pt": {
+        "name": "Atualizar campanha de email",
+        "description": "Atualiza uma campanha de email em rascunho ou agendada. Só os campos enviados mudam. Definir scheduledAt agenda o envio."
+      },
+      "es": {
+        "name": "Actualizar campaña de email",
+        "description": "Actualiza una campaña de email en borrador o programada. Solo cambian los campos enviados. Definir scheduledAt programa el envío."
+      },
+      "fr": {
+        "name": "Mettre à jour une campagne email",
+        "description": "Met à jour une campagne email en brouillon ou planifiée. Seuls les champs envoyés changent. Définir scheduledAt planifie l'envoi."
+      }
+    },
+    "brevo_send_email_campaign": {
+      "pt": {
+        "name": "Enviar campanha de email",
+        "description": "Envia uma campanha de email aos destinatários imediatamente. A campanha precisa de destinatários e conteúdo, e o envio consome créditos de email: sem créditos suficientes o app responde 402."
+      },
+      "es": {
+        "name": "Enviar campaña de email",
+        "description": "Envía una campaña de email a sus destinatarios de inmediato. La campaña necesita destinatarios y contenido, y el envío consume créditos de email: sin créditos suficientes la app responde 402."
+      },
+      "fr": {
+        "name": "Envoyer une campagne email",
+        "description": "Envoie immédiatement une campagne email à ses destinataires. La campagne doit avoir des destinataires et du contenu, et l'envoi consomme des crédits email : sans crédits suffisants, l'app répond 402."
+      }
+    },
+    "brevo_send_transactional_email": {
+      "pt": {
+        "name": "Enviar email transacional",
+        "description": "Envia um email transacional aos endereços em to, na hora ou em scheduledAt, e retorna o messageId. Envie sender, subject e htmlContent ou textContent, ou um templateId, cujo sender e subject valem a menos que sejam enviados."
+      },
+      "es": {
+        "name": "Enviar email transaccional",
+        "description": "Envía un email transaccional a las direcciones de to, de inmediato o en scheduledAt, y devuelve el messageId. Envía sender, subject y htmlContent o textContent, o un templateId, cuyo sender y subject aplican salvo que se envíen otros."
+      },
+      "fr": {
+        "name": "Envoyer un email transactionnel",
+        "description": "Envoie un email transactionnel aux adresses de to, immédiatement ou à scheduledAt, et renvoie son messageId. Envoyez sender, subject et htmlContent ou textContent, ou un templateId, dont le sender et le subject s'appliquent sauf s'ils sont envoyés."
+      }
+    }
+  }
+}

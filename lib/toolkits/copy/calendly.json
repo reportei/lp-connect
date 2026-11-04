@@ -1,0 +1,102 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Let your product or AI agent read event types, list meetings and invitees, and book meetings in your customer's Calendly account through Connect.",
+      "intro": "The Calendly toolkit covers event types, open times, scheduled events and their invitees: list and read them, create and update one-on-one event types, book a meeting, cancel one and generate single-use scheduling links. A customer connects Calendly once with OAuth, and your product or AI agent calls every operation through one Connect endpoint, without building the OAuth flow or storing tokens.",
+      "useCases": [
+        { "title": "Book meetings from your product", "body": "Read the open times of an event type and create the invitee from your own screen, so the customer books without leaving your app." },
+        { "title": "Sync meetings to a CRM", "body": "List scheduled events and their invitees, with answers and UTM tracking, and write them to your CRM or reporting tool." },
+        { "title": "Scheduling by an AI agent", "body": "Give an agent the available times and the scheduling link tools, so it can offer a slot, book it or send a single-use link to one lead." }
+      ]
+    },
+    "pt": {
+      "tagline": "Permita que seu produto ou agente de IA leia tipos de evento, liste reuniões e convidados e agende reuniões na conta Calendly do seu cliente via Connect.",
+      "intro": "O toolkit do Calendly cobre tipos de evento, horários livres, eventos agendados e seus convidados: listar e ler, criar e atualizar tipos de evento individuais, agendar uma reunião, cancelá-la e gerar links de agendamento de uso único. O cliente conecta o Calendly uma vez por OAuth, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect, sem montar o fluxo OAuth nem guardar tokens.",
+      "useCases": [
+        { "title": "Agendar reuniões no seu produto", "body": "Leia os horários livres de um tipo de evento e crie o convidado na sua própria tela, para o cliente agendar sem sair do seu app." },
+        { "title": "Sincronizar reuniões com o CRM", "body": "Liste os eventos agendados e os convidados, com respostas e rastreamento UTM, e grave no seu CRM ou ferramenta de relatórios." },
+        { "title": "Agendamento por agente de IA", "body": "Dê ao agente as ferramentas de horários livres e de link de agendamento, para ele oferecer um horário, agendar ou enviar um link de uso único a um lead." }
+      ]
+    },
+    "es": {
+      "tagline": "Deja que tu producto o agente de IA lea tipos de evento, liste reuniones e invitados y agende reuniones en la cuenta de Calendly de tu cliente con Connect.",
+      "intro": "El toolkit de Calendly cubre tipos de evento, horarios libres, eventos programados y sus invitados: listarlos y leerlos, crear y actualizar tipos de evento individuales, agendar una reunión, cancelarla y generar enlaces de agendamiento de un solo uso. El cliente conecta Calendly una vez con OAuth, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect, sin armar el flujo OAuth ni guardar tokens.",
+      "useCases": [
+        { "title": "Agendar reuniones desde tu producto", "body": "Lee los horarios libres de un tipo de evento y crea el invitado desde tu propia pantalla, para que el cliente agende sin salir de tu app." },
+        { "title": "Sincronizar reuniones con un CRM", "body": "Lista los eventos programados y sus invitados, con respuestas y seguimiento UTM, y guárdalos en tu CRM o herramienta de reportes." },
+        { "title": "Agendamiento con un agente de IA", "body": "Dale al agente las herramientas de horarios libres y de enlace de agendamiento, para que ofrezca un horario, lo agende o envíe un enlace de un solo uso a un lead." }
+      ]
+    },
+    "fr": {
+      "tagline": "Votre produit ou agent IA lit les types d'événement, liste réunions et invités et réserve des réunions dans le compte Calendly de votre client via Connect.",
+      "intro": "Le toolkit Calendly couvre les types d'événement, les créneaux libres, les événements planifiés et leurs invités : les lister et les lire, créer et modifier des types d'événement individuels, réserver une réunion, l'annuler et générer des liens de planification à usage unique. Le client connecte Calendly une fois par OAuth, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect, sans construire le flux OAuth ni stocker de jetons.",
+      "useCases": [
+        { "title": "Réserver depuis votre produit", "body": "Lisez les créneaux libres d'un type d'événement et créez l'invité depuis votre propre écran, pour que le client réserve sans quitter votre application." },
+        { "title": "Synchroniser les réunions au CRM", "body": "Listez les événements planifiés et leurs invités, avec réponses et suivi UTM, puis écrivez-les dans votre CRM ou outil de reporting." },
+        { "title": "Planification par un agent IA", "body": "Donnez à l'agent les outils de créneaux libres et de lien de planification, pour qu'il propose un créneau, le réserve ou envoie un lien à usage unique à un prospect." }
+      ]
+    }
+  },
+  "tools": {
+    "calendly_get_current_user": {
+      "pt": { "name": "Obter usuário atual", "description": "Retorna o usuário Calendly conectado: uri, a URI do usuário que Listar tipos de evento, Listar eventos agendados e Criar tipo de evento pedem, e current_organization, a URI da organização, com name, email, scheduling_url e timezone." },
+      "es": { "name": "Obtener usuario actual", "description": "Devuelve el usuario de Calendly conectado: uri, la URI del usuario que piden Listar tipos de evento, Listar eventos programados y Crear tipo de evento, y current_organization, la URI de la organización, con name, email, scheduling_url y timezone." },
+      "fr": { "name": "Obtenir l'utilisateur actuel", "description": "Renvoie l'utilisateur Calendly connecté : uri, l'URI de l'utilisateur que demandent Lister les types d'événement, Lister les événements planifiés et Créer un type d'événement, et current_organization, l'URI de l'organisation, avec name, email, scheduling_url et timezone." }
+    },
+    "calendly_list_event_types": {
+      "pt": { "name": "Listar tipos de evento", "description": "Lista os tipos de evento de um usuário ou de uma organização: envie user ou organization. Cada item tem uri, name, duration em minutos, scheduling_url e active. A resposta tem collection e pagination: passe pagination.next_page_token como page_token para ler a próxima página." },
+      "es": { "name": "Listar tipos de evento", "description": "Lista los tipos de evento de un usuario o de una organización: envía user u organization. Cada elemento tiene uri, name, duration en minutos, scheduling_url y active. La respuesta tiene collection y pagination: pasa pagination.next_page_token como page_token para leer la página siguiente." },
+      "fr": { "name": "Lister les types d'événement", "description": "Liste les types d'événement d'un utilisateur ou d'une organisation : envoyez user ou organization. Chaque élément a uri, name, duration en minutes, scheduling_url et active. La réponse contient collection et pagination : passez pagination.next_page_token comme page_token pour lire la page suivante." }
+    },
+    "calendly_get_event_type": {
+      "pt": { "name": "Obter tipo de evento", "description": "Retorna um tipo de evento, com name, duration em minutos, duration_options, locations, custom_questions (as perguntas de agendamento que Criar convidado do evento responde), scheduling_url e active." },
+      "es": { "name": "Obtener tipo de evento", "description": "Devuelve un tipo de evento, con name, duration en minutos, duration_options, locations, custom_questions (las preguntas de reserva que responde Crear invitado del evento), scheduling_url y active." },
+      "fr": { "name": "Obtenir un type d'événement", "description": "Renvoie un type d'événement, avec name, duration en minutes, duration_options, locations, custom_questions (les questions de réservation auxquelles répond Créer un invité d'événement), scheduling_url et active." }
+    },
+    "calendly_create_event_type": {
+      "pt": { "name": "Criar tipo de evento", "description": "Cria um tipo de evento individual (one-on-one) para um usuário e o retorna. Só esse tipo (solo) pode ser criado pela API, e ele nasce inativo, a menos que active seja true." },
+      "es": { "name": "Crear tipo de evento", "description": "Crea un tipo de evento individual (one-on-one) para un usuario y lo devuelve. Solo este tipo (solo) se puede crear por la API, y se crea inactivo salvo que active sea true." },
+      "fr": { "name": "Créer un type d'événement", "description": "Crée un type d'événement individuel (one-on-one) pour un utilisateur et le renvoie. Seul ce type (solo) peut être créé par l'API, et il est créé inactif sauf si active vaut true." }
+    },
+    "calendly_update_event_type": {
+      "pt": { "name": "Atualizar tipo de evento", "description": "Atualiza um tipo de evento individual e o retorna. Só os campos enviados mudam. Só tipos de evento do tipo solo podem ser atualizados pela API." },
+      "es": { "name": "Actualizar tipo de evento", "description": "Actualiza un tipo de evento individual y lo devuelve. Solo cambian los campos enviados. Solo los tipos de evento de tipo solo se pueden actualizar por la API." },
+      "fr": { "name": "Modifier un type d'événement", "description": "Modifie un type d'événement individuel et le renvoie. Seuls les champs envoyés changent. Seuls les types d'événement de type solo peuvent être modifiés par l'API." }
+    },
+    "calendly_list_event_type_available_times": {
+      "pt": { "name": "Listar horários livres do tipo de evento", "description": "Lista os horários de início livres de um tipo de evento em um intervalo de até 31 dias no futuro. Cada item tem start_time em UTC, invitees_remaining e scheduling_url. Não há paginação: peça um intervalo menor quando precisar." },
+      "es": { "name": "Listar horarios libres del tipo de evento", "description": "Lista los horarios de inicio libres de un tipo de evento en un rango de hasta 31 días a futuro. Cada elemento tiene start_time en UTC, invitees_remaining y scheduling_url. No hay paginación: pide un rango más corto cuando haga falta." },
+      "fr": { "name": "Lister les créneaux libres d'un type d'événement", "description": "Liste les heures de début libres d'un type d'événement sur une plage allant jusqu'à 31 jours dans le futur. Chaque élément a start_time en UTC, invitees_remaining et scheduling_url. Il n'y a pas de pagination : demandez une plage plus courte si besoin." }
+    },
+    "calendly_list_scheduled_events": {
+      "pt": { "name": "Listar eventos agendados", "description": "Lista as reuniões agendadas de um usuário ou de uma organização: envie user ou organization. Cada item tem uri, name, status, start_time e end_time em UTC, event_type e invitees_counter. A resposta tem collection e pagination: passe pagination.next_page_token como page_token para ler a próxima página." },
+      "es": { "name": "Listar eventos programados", "description": "Lista las reuniones programadas de un usuario o de una organización: envía user u organization. Cada elemento tiene uri, name, status, start_time y end_time en UTC, event_type e invitees_counter. La respuesta tiene collection y pagination: pasa pagination.next_page_token como page_token para leer la página siguiente." },
+      "fr": { "name": "Lister les événements planifiés", "description": "Liste les réunions planifiées d'un utilisateur ou d'une organisation : envoyez user ou organization. Chaque élément a uri, name, status, start_time et end_time en UTC, event_type et invitees_counter. La réponse contient collection et pagination : passez pagination.next_page_token comme page_token pour lire la page suivante." }
+    },
+    "calendly_get_scheduled_event": {
+      "pt": { "name": "Obter evento agendado", "description": "Retorna uma reunião agendada, com name, status, start_time e end_time em UTC, event_type, location, invitees_counter, event_memberships (os anfitriões) e, se foi cancelada, cancellation." },
+      "es": { "name": "Obtener evento programado", "description": "Devuelve una reunión programada, con name, status, start_time y end_time en UTC, event_type, location, invitees_counter, event_memberships (los anfitriones) y, si fue cancelada, cancellation." },
+      "fr": { "name": "Obtenir un événement planifié", "description": "Renvoie une réunion planifiée, avec name, status, start_time et end_time en UTC, event_type, location, invitees_counter, event_memberships (les hôtes) et, si elle a été annulée, cancellation." }
+    },
+    "calendly_cancel_scheduled_event": {
+      "pt": { "name": "Cancelar evento agendado", "description": "Cancela uma reunião agendada para todos os convidados e retorna o cancelamento. Um evento em grupo é cancelado por inteiro: não dá para cancelar um só convidado de um evento em grupo pela API." },
+      "es": { "name": "Cancelar evento programado", "description": "Cancela una reunión programada para todos sus invitados y devuelve la cancelación. Un evento grupal se cancela completo: no se puede cancelar un solo invitado de un evento grupal por la API." },
+      "fr": { "name": "Annuler un événement planifié", "description": "Annule une réunion planifiée pour tous ses invités et renvoie l'annulation. Un événement de groupe est annulé en entier : on ne peut pas annuler un seul invité d'un événement de groupe par l'API." }
+    },
+    "calendly_list_event_invitees": {
+      "pt": { "name": "Listar convidados do evento", "description": "Lista os convidados de uma reunião agendada, com name, email, status, questions_and_answers, tracking (os parâmetros UTM do agendamento), no_show, cancel_url e reschedule_url. A resposta tem collection e pagination: passe pagination.next_page_token como page_token para ler a próxima página." },
+      "es": { "name": "Listar invitados del evento", "description": "Lista los invitados de una reunión programada, con name, email, status, questions_and_answers, tracking (los parámetros UTM de la reserva), no_show, cancel_url y reschedule_url. La respuesta tiene collection y pagination: pasa pagination.next_page_token como page_token para leer la página siguiente." },
+      "fr": { "name": "Lister les invités d'un événement", "description": "Liste les invités d'une réunion planifiée, avec name, email, status, questions_and_answers, tracking (les paramètres UTM de la réservation), no_show, cancel_url et reschedule_url. La réponse contient collection et pagination : passez pagination.next_page_token comme page_token pour lire la page suivante." }
+    },
+    "calendly_create_event_invitee": {
+      "pt": { "name": "Criar convidado do evento", "description": "Agenda uma reunião em um horário livre de um tipo de evento e retorna o convidado, com event (a URI do evento agendado), cancel_url e reschedule_url. O Calendly envia as confirmações e convites de calendário como quando o convidado agenda na página de agendamento. Só usuários de plano pago podem agendar pela API: o plano Free recebe 403." },
+      "es": { "name": "Crear invitado del evento", "description": "Agenda una reunión en un horario libre de un tipo de evento y devuelve el invitado, con event (la URI del evento programado), cancel_url y reschedule_url. Calendly envía las confirmaciones e invitaciones de calendario como cuando el invitado reserva en la página de agendamiento. Solo los usuarios de plan de pago pueden agendar por la API: el plan Free recibe 403." },
+      "fr": { "name": "Créer un invité d'événement", "description": "Réserve une réunion sur un créneau libre d'un type d'événement et renvoie l'invité, avec event (l'URI de l'événement planifié), cancel_url et reschedule_url. Calendly envoie les confirmations et invitations de calendrier comme lorsque l'invité réserve sur la page de planification. Seuls les utilisateurs d'un plan payant peuvent réserver par l'API : le plan Free reçoit 403." }
+    },
+    "calendly_create_scheduling_link": {
+      "pt": { "name": "Criar link de agendamento", "description": "Cria um link de agendamento de uso único para um tipo de evento e retorna seu booking_url, para enviar a uma só pessoa. O link vale para um agendamento, e um link não usado expira em 90 dias." },
+      "es": { "name": "Crear enlace de agendamiento", "description": "Crea un enlace de agendamiento de un solo uso para un tipo de evento y devuelve su booking_url, para enviarlo a una sola persona. El enlace sirve para una reserva, y un enlace sin usar vence a los 90 días." },
+      "fr": { "name": "Créer un lien de planification", "description": "Crée un lien de planification à usage unique pour un type d'événement et renvoie son booking_url, à envoyer à une seule personne. Le lien vaut pour une réservation, et un lien non utilisé expire au bout de 90 jours." }
+    }
+  }
+}

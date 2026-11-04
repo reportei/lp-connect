@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, search, complete and comment on tasks and projects in your customer's Todoist account through one Connect endpoint.",
+      "intro": "The Todoist toolkit covers projects, project collaborators, tasks and comments: list, search, create, update, complete and delete tasks. Your product or AI agent calls them through Connect, which stores the API key or OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Send follow-ups to Todoist",
+          "body": "A SaaS creates a task in the customer's Todoist, with a due date, when a deal needs a follow-up or a ticket is assigned."
+        },
+        {
+          "title": "Assign work to collaborators",
+          "body": "An agency tool lists a project's collaborators and creates tasks assigned to them, notifying the right people."
+        },
+        {
+          "title": "Planner agent",
+          "body": "An AI agent searches tasks with a filter query, closes the ones that are done and comments on the rest."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, busque, conclua e comente tarefas e projetos no Todoist do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Todoist cobre projetos, colaboradores de projeto, tarefas e comentários: lista, busca, cria, atualiza, conclui e exclui tarefas. Seu produto ou agente de IA os chama pelo Connect, que guarda a API key ou as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Follow-ups direto no Todoist",
+          "body": "Um SaaS cria uma tarefa com prazo no Todoist do cliente quando um negócio precisa de follow-up ou um ticket é atribuído."
+        },
+        {
+          "title": "Atribua trabalho a colaboradores",
+          "body": "Uma ferramenta de agência lista os colaboradores de um projeto e cria tarefas atribuídas a eles, notificando as pessoas certas."
+        },
+        {
+          "title": "Agente planejador",
+          "body": "Um agente de IA busca tarefas com uma query de filtro, conclui as que estão prontas e comenta nas demais."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, busca, completa y comenta tareas y proyectos en el Todoist de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Todoist cubre proyectos, colaboradores de proyecto, tareas y comentarios: lista, busca, crea, actualiza, completa y elimina tareas. Tu producto o agente de IA los llama por Connect, que guarda la API key o las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Seguimientos directo en Todoist",
+          "body": "Un SaaS crea una tarea con fecha límite en el Todoist del cliente cuando un negocio necesita seguimiento o se asigna un ticket."
+        },
+        {
+          "title": "Asigna trabajo a colaboradores",
+          "body": "Una herramienta de agencia lista los colaboradores de un proyecto y crea tareas asignadas a ellos, avisando a las personas correctas."
+        },
+        {
+          "title": "Agente planificador",
+          "body": "Un agente de IA busca tareas con una query de filtro, cierra las que están listas y comenta en las demás."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, recherchez, terminez et commentez tâches et projets dans le Todoist de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Todoist couvre projets, collaborateurs de projet, tâches et commentaires : liste, recherche, création, mise à jour, achèvement et suppression de tâches. Votre produit ou agent IA les appelle via Connect, qui stocke la clé API ou les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Relances directement dans Todoist",
+          "body": "Un SaaS crée une tâche avec échéance dans le Todoist du client quand une affaire demande une relance ou qu'un ticket est assigné."
+        },
+        {
+          "title": "Assigner du travail aux collaborateurs",
+          "body": "Un outil d'agence liste les collaborateurs d'un projet et crée des tâches qui leur sont assignées, en prévenant les bonnes personnes."
+        },
+        {
+          "title": "Agent planificateur",
+          "body": "Un agent IA recherche des tâches avec une query de filtre, ferme celles qui sont faites et commente les autres."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "todoist_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos ativos que a conta pode acessar. A resposta tem results e next_cursor: passe next_cursor como cursor para a próxima página."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos activos a los que la cuenta puede acceder. La respuesta tiene results y next_cursor: pasa next_cursor como cursor para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets actifs auxquels le compte peut accéder. La réponse contient results et next_cursor : passez next_cursor comme cursor pour la page suivante."
+      }
+    },
+    "todoist_create_project": {
+      "pt": {
+        "name": "Criar projeto",
+        "description": "Cria um projeto e o devolve. Sem workspace_id é um projeto pessoal da conta."
+      },
+      "es": {
+        "name": "Crear proyecto",
+        "description": "Crea un proyecto y lo devuelve. Sin workspace_id es un proyecto personal de la cuenta."
+      },
+      "fr": {
+        "name": "Créer un projet",
+        "description": "Crée un projet et le renvoie. Sans workspace_id c'est un projet personnel du compte."
+      }
+    },
+    "todoist_update_project": {
+      "pt": {
+        "name": "Atualizar projeto",
+        "description": "Atualiza um projeto e o devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar proyecto",
+        "description": "Actualiza un proyecto y lo devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour un projet",
+        "description": "Met à jour un projet et le renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "todoist_list_project_collaborators": {
+      "pt": {
+        "name": "Listar colaboradores do projeto",
+        "description": "Lista as pessoas que compartilham um projeto, com id, name e email. O id é o que assignee_id e uids_to_notify aceitam."
+      },
+      "es": {
+        "name": "Listar colaboradores del proyecto",
+        "description": "Lista las personas que comparten un proyecto, con id, name y email. El id es lo que aceptan assignee_id y uids_to_notify."
+      },
+      "fr": {
+        "name": "Lister les collaborateurs d'un projet",
+        "description": "Liste les personnes qui partagent un projet, avec id, name et email. L'id est ce que prennent assignee_id et uids_to_notify."
+      }
+    },
+    "todoist_list_tasks": {
+      "pt": {
+        "name": "Listar tarefas",
+        "description": "Lista as tarefas ativas, opcionalmente restritas a um projeto, seção, tarefa pai ou label. Tarefas concluídas não entram."
+      },
+      "es": {
+        "name": "Listar tareas",
+        "description": "Lista las tareas activas, opcionalmente limitadas a un proyecto, sección, tarea padre o label. Las tareas completadas no se incluyen."
+      },
+      "fr": {
+        "name": "Lister les tâches",
+        "description": "Liste les tâches actives, éventuellement limitées à un projet, une section, une tâche parente ou un label. Les tâches terminées ne sont pas incluses."
+      }
+    },
+    "todoist_search_tasks": {
+      "pt": {
+        "name": "Buscar tarefas",
+        "description": "Devolve as tarefas ativas que casam com uma query de filtro, na mesma sintaxe dos filtros do app. Pagine com next_cursor."
+      },
+      "es": {
+        "name": "Buscar tareas",
+        "description": "Devuelve las tareas activas que coinciden con una query de filtro, con la misma sintaxis de los filtros de la app. Pagina con next_cursor."
+      },
+      "fr": {
+        "name": "Rechercher des tâches",
+        "description": "Renvoie les tâches actives qui correspondent à une query de filtre, avec la même syntaxe que les filtres de l'app. Paginez avec next_cursor."
+      }
+    },
+    "todoist_get_task": {
+      "pt": {
+        "name": "Obter tarefa",
+        "description": "Devolve uma tarefa ativa pelo id. Uma tarefa concluída não é devolvida."
+      },
+      "es": {
+        "name": "Obtener tarea",
+        "description": "Devuelve una tarea activa por su id. Una tarea completada no se devuelve."
+      },
+      "fr": {
+        "name": "Obtenir une tâche",
+        "description": "Renvoie une tâche active par son id. Une tâche terminée n'est pas renvoyée."
+      }
+    },
+    "todoist_create_task": {
+      "pt": {
+        "name": "Criar tarefa",
+        "description": "Cria uma tarefa e a devolve. Sem project_id a tarefa vai para a Inbox. Defina o prazo com due_string, due_date ou due_datetime."
+      },
+      "es": {
+        "name": "Crear tarea",
+        "description": "Crea una tarea y la devuelve. Sin project_id la tarea va a la Inbox. Define la fecha límite con due_string, due_date o due_datetime."
+      },
+      "fr": {
+        "name": "Créer une tâche",
+        "description": "Crée une tâche et la renvoie. Sans project_id la tâche va dans l'Inbox. Définissez l'échéance avec due_string, due_date ou due_datetime."
+      }
+    },
+    "todoist_update_task": {
+      "pt": {
+        "name": "Atualizar tarefa",
+        "description": "Atualiza uma tarefa e a devolve. Campos omitidos mantêm o valor. Não move a tarefa para outro projeto ou seção."
+      },
+      "es": {
+        "name": "Actualizar tarea",
+        "description": "Actualiza una tarea y la devuelve. Los campos omitidos conservan su valor. No mueve la tarea a otro proyecto o sección."
+      },
+      "fr": {
+        "name": "Mettre à jour une tâche",
+        "description": "Met à jour une tâche et la renvoie. Les champs omis gardent leur valeur. Ne déplace pas la tâche vers un autre projet ou une autre section."
+      }
+    },
+    "todoist_close_task": {
+      "pt": {
+        "name": "Concluir tarefa",
+        "description": "Conclui uma tarefa, como marcá-la no app. Uma tarefa comum vai para o histórico com suas subtarefas; uma recorrente vai para a próxima data."
+      },
+      "es": {
+        "name": "Completar tarea",
+        "description": "Completa una tarea, como marcarla en la app. Una tarea normal pasa al historial con sus subtareas; una recurrente pasa a su próxima fecha."
+      },
+      "fr": {
+        "name": "Terminer une tâche",
+        "description": "Termine une tâche, comme la cocher dans l'app. Une tâche ordinaire passe dans l'historique avec ses sous-tâches ; une tâche récurrente passe à sa prochaine date."
+      }
+    },
+    "todoist_delete_task": {
+      "pt": {
+        "name": "Excluir tarefa",
+        "description": "Exclui uma tarefa junto com todas as suas subtarefas. Para concluir uma tarefa, use Concluir tarefa."
+      },
+      "es": {
+        "name": "Eliminar tarea",
+        "description": "Elimina una tarea junto con todas sus subtareas. Para completar una tarea, usa Completar tarea."
+      },
+      "fr": {
+        "name": "Supprimer une tâche",
+        "description": "Supprime une tâche avec toutes ses sous-tâches. Pour terminer une tâche, utilisez Terminer une tâche."
+      }
+    },
+    "todoist_list_comments": {
+      "pt": {
+        "name": "Listar comentários",
+        "description": "Lista os comentários de uma tarefa ou de um projeto. Envie exatamente um entre task_id e project_id. Pagine com next_cursor."
+      },
+      "es": {
+        "name": "Listar comentarios",
+        "description": "Lista los comentarios de una tarea o de un proyecto. Envía exactamente uno entre task_id y project_id. Pagina con next_cursor."
+      },
+      "fr": {
+        "name": "Lister les commentaires",
+        "description": "Liste les commentaires d'une tâche ou d'un projet. Envoyez exactement l'un de task_id ou project_id. Paginez avec next_cursor."
+      }
+    },
+    "todoist_create_comment": {
+      "pt": {
+        "name": "Criar comentário",
+        "description": "Adiciona um comentário a uma tarefa ou a um projeto e o devolve. Envie exatamente um entre task_id e project_id. Os usuários em uids_to_notify são notificados."
+      },
+      "es": {
+        "name": "Crear comentario",
+        "description": "Agrega un comentario a una tarea o a un proyecto y lo devuelve. Envía exactamente uno entre task_id y project_id. Los usuarios en uids_to_notify reciben aviso."
+      },
+      "fr": {
+        "name": "Créer un commentaire",
+        "description": "Ajoute un commentaire à une tâche ou à un projet et le renvoie. Envoyez exactement l'un de task_id ou project_id. Les utilisateurs de uids_to_notify sont notifiés."
+      }
+    }
+  }
+}

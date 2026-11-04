@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage workspaces, projects, tasks and comments in your customer's Asana account through one Connect endpoint.",
+      "intro": "The Asana toolkit lists workspaces, teams and projects, and creates, reads, updates and deletes tasks and their comments. Your product or AI agent calls them through Connect, which stores the API key or OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Push work into Asana",
+          "body": "A SaaS turns an event, such as an approved proposal, into a task in the right project of the customer's Asana."
+        },
+        {
+          "title": "Mirror status both ways",
+          "body": "An agency tool lists the tasks of a project and completes or updates them from its own dashboard."
+        },
+        {
+          "title": "Task agent with comments",
+          "body": "An AI agent creates a task from a conversation, reads its stories and adds a comment with the next step."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie workspaces, projetos, tarefas e comentários no Asana do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Asana lista workspaces, times e projetos, e cria, lê, atualiza e exclui tarefas e seus comentários. Seu produto ou agente de IA os chama pelo Connect, que guarda a API key ou as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Leve trabalho para o Asana",
+          "body": "Um SaaS transforma um evento, como uma proposta aprovada, em uma tarefa no projeto certo do Asana do cliente."
+        },
+        {
+          "title": "Status nos dois sentidos",
+          "body": "Uma ferramenta de agência lista as tarefas de um projeto e as conclui ou atualiza pelo próprio painel."
+        },
+        {
+          "title": "Agente de tarefas com comentários",
+          "body": "Um agente de IA cria uma tarefa a partir de uma conversa, lê suas stories e adiciona um comentário com o próximo passo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona workspaces, proyectos, tareas y comentarios en el Asana de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Asana lista workspaces, equipos y proyectos, y crea, lee, actualiza y elimina tareas y sus comentarios. Tu producto o agente de IA los llama por Connect, que guarda la API key o las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Lleva trabajo a Asana",
+          "body": "Un SaaS convierte un evento, como una propuesta aprobada, en una tarea del proyecto correcto en el Asana del cliente."
+        },
+        {
+          "title": "Estado en ambos sentidos",
+          "body": "Una herramienta de agencia lista las tareas de un proyecto y las completa o actualiza desde su propio panel."
+        },
+        {
+          "title": "Agente de tareas con comentarios",
+          "body": "Un agente de IA crea una tarea a partir de una conversación, lee sus stories y agrega un comentario con el siguiente paso."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez espaces de travail, projets, tâches et commentaires dans l'Asana de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Asana liste les workspaces, équipes et projets, et crée, lit, met à jour et supprime les tâches et leurs commentaires. Votre produit ou agent IA les appelle via Connect, qui stocke la clé API ou les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Envoyer le travail dans Asana",
+          "body": "Un SaaS transforme un événement, comme une proposition approuvée, en tâche dans le bon projet de l'Asana du client."
+        },
+        {
+          "title": "Statut dans les deux sens",
+          "body": "Un outil d'agence liste les tâches d'un projet et les termine ou les met à jour depuis son propre tableau de bord."
+        },
+        {
+          "title": "Agent de tâches avec commentaires",
+          "body": "Un agent IA crée une tâche à partir d'une conversation, lit ses stories et ajoute un commentaire avec la prochaine étape."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "asana_list_workspaces": {
+      "pt": {
+        "name": "Listar workspaces",
+        "description": "Lista os workspaces e organizações que o usuário pode ver. Use o gid de um item como workspace nas outras tools."
+      },
+      "es": {
+        "name": "Listar workspaces",
+        "description": "Lista los workspaces y organizaciones que el usuario puede ver. Usa el gid de un elemento como workspace en las otras tools."
+      },
+      "fr": {
+        "name": "Lister les workspaces",
+        "description": "Liste les workspaces et organisations que l'utilisateur peut voir. Utilisez le gid d'un élément comme workspace dans les autres tools."
+      }
+    },
+    "asana_list_teams": {
+      "pt": {
+        "name": "Listar times",
+        "description": "Lista os times de uma organização que o usuário pode ver. Um projeto criado em uma organização precisa do gid de um deles como team."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos de una organización que el usuario puede ver. Un proyecto creado en una organización necesita el gid de uno de ellos como team."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes d'une organisation que l'utilisateur peut voir. Un projet créé dans une organisation a besoin du gid de l'une d'elles comme team."
+      }
+    },
+    "asana_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos de um workspace. Só gid e name voltam, a menos que opt_fields peça mais. Envie limit para paginar."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de un workspace. Solo vuelven gid y name, salvo que opt_fields pida más. Envía limit para paginar."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets d'un workspace. Seuls gid et name reviennent, sauf si opt_fields en demande plus. Envoyez limit pour paginer."
+      }
+    },
+    "asana_create_project": {
+      "pt": {
+        "name": "Criar projeto",
+        "description": "Cria um projeto e o devolve. Os campos vão dentro de data, que precisa de name e workspace, mais team quando o workspace é uma organização."
+      },
+      "es": {
+        "name": "Crear proyecto",
+        "description": "Crea un proyecto y lo devuelve. Los campos van dentro de data, que necesita name y workspace, más team cuando el workspace es una organización."
+      },
+      "fr": {
+        "name": "Créer un projet",
+        "description": "Crée un projet et le renvoie. Les champs vont dans data, qui exige name et workspace, plus team quand le workspace est une organisation."
+      }
+    },
+    "asana_update_project": {
+      "pt": {
+        "name": "Atualizar projeto",
+        "description": "Atualiza um projeto e o devolve. Só os campos enviados dentro de data mudam."
+      },
+      "es": {
+        "name": "Actualizar proyecto",
+        "description": "Actualiza un proyecto y lo devuelve. Solo cambian los campos enviados dentro de data."
+      },
+      "fr": {
+        "name": "Mettre à jour un projet",
+        "description": "Met à jour un projet et le renvoie. Seuls les champs envoyés dans data changent."
+      }
+    },
+    "asana_list_tasks": {
+      "pt": {
+        "name": "Listar tarefas",
+        "description": "Lista as tarefas de um projeto ou seção, ou as tarefas atribuídas a alguém em um workspace. Envie project, section, ou assignee junto com workspace."
+      },
+      "es": {
+        "name": "Listar tareas",
+        "description": "Lista las tareas de un proyecto o sección, o las tareas asignadas a alguien en un workspace. Envía project, section, o assignee junto con workspace."
+      },
+      "fr": {
+        "name": "Lister les tâches",
+        "description": "Liste les tâches d'un projet ou d'une section, ou les tâches assignées à quelqu'un dans un workspace. Envoyez project, section, ou assignee avec workspace."
+      }
+    },
+    "asana_get_task": {
+      "pt": {
+        "name": "Obter tarefa",
+        "description": "Devolve o registro completo de uma tarefa: nome, notas, responsável, datas, conclusão, projetos e campos personalizados."
+      },
+      "es": {
+        "name": "Obtener tarea",
+        "description": "Devuelve el registro completo de una tarea: nombre, notas, responsable, fechas, finalización, proyectos y campos personalizados."
+      },
+      "fr": {
+        "name": "Obtenir une tâche",
+        "description": "Renvoie la fiche complète d'une tâche : nom, notes, responsable, dates, achèvement, projets et champs personnalisés."
+      }
+    },
+    "asana_create_task": {
+      "pt": {
+        "name": "Criar tarefa",
+        "description": "Cria uma tarefa e a devolve. Os campos vão dentro de data, que precisa de workspace, projects ou parent; projects e parent já definem o workspace."
+      },
+      "es": {
+        "name": "Crear tarea",
+        "description": "Crea una tarea y la devuelve. Los campos van dentro de data, que necesita workspace, projects o parent; projects y parent ya definen el workspace."
+      },
+      "fr": {
+        "name": "Créer une tâche",
+        "description": "Crée une tâche et la renvoie. Les champs vont dans data, qui exige workspace, projects ou parent ; projects et parent définissent déjà le workspace."
+      }
+    },
+    "asana_update_task": {
+      "pt": {
+        "name": "Atualizar tarefa",
+        "description": "Atualiza uma tarefa e a devolve. Só os campos enviados dentro de data mudam; completed true conclui a tarefa. Projetos e seguidores não mudam aqui."
+      },
+      "es": {
+        "name": "Actualizar tarea",
+        "description": "Actualiza una tarea y la devuelve. Solo cambian los campos enviados dentro de data; completed en true completa la tarea. Proyectos y seguidores no cambian aquí."
+      },
+      "fr": {
+        "name": "Mettre à jour une tâche",
+        "description": "Met à jour une tâche et la renvoie. Seuls les champs envoyés dans data changent ; completed à true termine la tâche. Projets et abonnés ne changent pas ici."
+      }
+    },
+    "asana_delete_task": {
+      "pt": {
+        "name": "Excluir tarefa",
+        "description": "Exclui uma tarefa. Ela vai para a lixeira do usuário e pode ser restaurada lá em até 30 dias."
+      },
+      "es": {
+        "name": "Eliminar tarea",
+        "description": "Elimina una tarea. Va a la papelera del usuario y puede restaurarse allí dentro de 30 días."
+      },
+      "fr": {
+        "name": "Supprimer une tâche",
+        "description": "Supprime une tâche. Elle va dans la corbeille de l'utilisateur et peut y être restaurée dans les 30 jours."
+      }
+    },
+    "asana_list_task_stories": {
+      "pt": {
+        "name": "Listar stories da tarefa",
+        "description": "Lista as stories de uma tarefa, seus comentários e sua atividade, da mais antiga para a mais nova. Use resource_subtype comment_added só para os comentários."
+      },
+      "es": {
+        "name": "Listar stories de la tarea",
+        "description": "Lista las stories de una tarea, sus comentarios y su actividad, de la más antigua a la más reciente. Usa resource_subtype comment_added solo para los comentarios."
+      },
+      "fr": {
+        "name": "Lister les stories d'une tâche",
+        "description": "Liste les stories d'une tâche, ses commentaires et son activité, de la plus ancienne à la plus récente. Utilisez resource_subtype comment_added pour les commentaires seuls."
+      }
+    },
+    "asana_create_task_comment": {
+      "pt": {
+        "name": "Criar comentário na tarefa",
+        "description": "Adiciona um comentário a uma tarefa, com o usuário conectado como autor, e o devolve. O texto vai dentro de data."
+      },
+      "es": {
+        "name": "Crear comentario en la tarea",
+        "description": "Agrega un comentario a una tarea, con el usuario conectado como autor, y lo devuelve. El texto va dentro de data."
+      },
+      "fr": {
+        "name": "Créer un commentaire de tâche",
+        "description": "Ajoute un commentaire à une tâche, avec l'utilisateur connecté comme auteur, et le renvoie. Le texte va dans data."
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Query saved reports, event counts, retention, cohorts and profiles, and manage annotations in your customer's Mixpanel, through one Connect endpoint.",
+      "intro": "The Mixpanel toolkit covers projects, saved Insights and Funnels reports, event names and properties, event counts, retention, cohorts, user profiles and annotations, in US data residency. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the service account credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Embed product analytics",
+          "body": "A SaaS reads a saved report or event counts from the customer's Mixpanel project and shows them inside its own dashboard."
+        },
+        {
+          "title": "Answer questions about usage",
+          "body": "An AI agent lists event names, then gets event counts or a retention report for a date range to answer a question about usage."
+        },
+        {
+          "title": "Mark launches on the charts",
+          "body": "A release tool creates an annotation on the day of a campaign or release, and updates or deletes it later."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Consulte relatórios, contagens de eventos, retenção, coortes e perfis e gerencie anotações no Mixpanel do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit do Mixpanel cobre projetos, relatórios salvos de Insights e Funnels, nomes e propriedades de eventos, contagens de eventos, retenção, coortes, perfis de usuários e anotações, na residência de dados dos EUA. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda as credenciais da conta de serviço e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Embuta analytics de produto",
+          "body": "Um SaaS lê um relatório salvo ou contagens de eventos do projeto Mixpanel do cliente e os mostra dentro do próprio painel."
+        },
+        {
+          "title": "Responda perguntas sobre uso",
+          "body": "Um agente de IA lista os nomes de eventos e depois obtém contagens de eventos ou um relatório de retenção de um período para responder a uma pergunta sobre uso."
+        },
+        {
+          "title": "Marque lançamentos nos gráficos",
+          "body": "Uma ferramenta de releases cria uma anotação no dia de uma campanha ou lançamento e a atualiza ou exclui depois."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Consulta informes, conteos de eventos, retención, cohortes y perfiles y gestiona anotaciones en el Mixpanel de tu cliente, con un endpoint de Connect.",
+      "intro": "El toolkit de Mixpanel cubre proyectos, informes guardados de Insights y Funnels, nombres y propiedades de eventos, conteos de eventos, retención, cohortes, perfiles de usuarios y anotaciones, en residencia de datos de EE. UU. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda las credenciales de la cuenta de servicio y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Integra analítica de producto",
+          "body": "Un SaaS lee un informe guardado o conteos de eventos del proyecto de Mixpanel del cliente y los muestra en su propio panel."
+        },
+        {
+          "title": "Responde preguntas sobre uso",
+          "body": "Un agente de IA lista los nombres de eventos y luego obtiene conteos de eventos o un informe de retención de un periodo para responder una pregunta sobre uso."
+        },
+        {
+          "title": "Marca lanzamientos en los gráficos",
+          "body": "Una herramienta de releases crea una anotación el día de una campaña o lanzamiento y la actualiza o elimina después."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Interrogez rapports, décomptes d'événements, rétention, cohortes et profils et gérez les annotations du Mixpanel de votre client via Connect.",
+      "intro": "Le toolkit Mixpanel couvre les projets, les rapports Insights et Funnels enregistrés, les noms et propriétés d'événements, les décomptes d'événements, la rétention, les cohortes, les profils utilisateurs et les annotations, en résidence des données aux États-Unis. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke les identifiants du compte de service et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Intégrer l'analytics produit",
+          "body": "Un SaaS lit un rapport enregistré ou des décomptes d'événements du projet Mixpanel du client et les affiche dans son propre tableau de bord."
+        },
+        {
+          "title": "Répondre aux questions d'usage",
+          "body": "Un agent IA liste les noms d'événements, puis obtient des décomptes d'événements ou un rapport de rétention sur une période pour répondre à une question d'usage."
+        },
+        {
+          "title": "Marquer les lancements sur les graphiques",
+          "body": "Un outil de release crée une annotation le jour d'une campagne ou d'une mise en production, puis la met à jour ou la supprime."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "mixpanel_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Retorna, em results, a própria conta de serviço e as organizações, projetos e workspaces a que ela tem acesso, cada um indexado por id. As chaves de results.projects são o project_id que as outras ferramentas pedem, e results.workspaces traz o workspace_id dos projetos que usam data views."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Devuelve, en results, la propia cuenta de servicio y las organizaciones, proyectos y workspaces a los que tiene acceso, cada uno indexado por id. Las claves de results.projects son el project_id que piden las otras herramientas, y results.workspaces trae el workspace_id de los proyectos que usan data views."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Renvoie, dans results, le compte de service lui-même ainsi que les organisations, projets et workspaces auxquels il a accès, chacun indexé par id. Les clés de results.projects sont le project_id que demandent les autres outils, et results.workspaces contient le workspace_id des projets qui utilisent des data views."
+      }
+    },
+    "mixpanel_get_saved_report": {
+      "pt": {
+        "name": "Obter relatório salvo",
+        "description": "Retorna os dados de um relatório salvo de Insights ou Funnels, calculado com o período e os filtros salvos no relatório. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Obtener informe guardado",
+        "description": "Devuelve los datos de un informe guardado de Insights o Funnels, calculado con el rango de fechas y los filtros guardados en el informe. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Obtenir un rapport enregistré",
+        "description": "Renvoie les données d'un rapport Insights ou Funnels enregistré, calculées avec la plage de dates et les filtres enregistrés dans le rapport. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_list_event_names": {
+      "pt": {
+        "name": "Listar nomes de eventos",
+        "description": "Lista os nomes dos eventos mais comuns do projeto nos últimos 31 dias, para usar como argumentos event das outras ferramentas. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Listar nombres de eventos",
+        "description": "Lista los nombres de los eventos más comunes del proyecto en los últimos 31 días, para usarlos como argumentos event de las otras herramientas. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Lister les noms d'événements",
+        "description": "Liste les noms des événements les plus courants du projet sur les 31 derniers jours, à utiliser comme arguments event des autres outils. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_list_event_properties": {
+      "pt": {
+        "name": "Listar propriedades de evento",
+        "description": "Lista os nomes de propriedade mais comuns de um evento, para montar as expressões on e where de Obter relatório de retenção. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Listar propiedades de evento",
+        "description": "Lista los nombres de propiedad más comunes de un evento, para construir las expresiones on y where de Obtener informe de retención. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Lister les propriétés d'événement",
+        "description": "Liste les noms de propriété les plus courants d'un événement, pour construire les expressions on et where d'Obtenir un rapport de rétention. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_get_event_counts": {
+      "pt": {
+        "name": "Obter contagens de eventos",
+        "description": "Retorna, período a período, a contagem total, única ou média de um ou mais eventos entre duas datas. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Obtener conteos de eventos",
+        "description": "Devuelve, periodo a periodo, el conteo total, único o promedio de uno o más eventos entre dos fechas. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Obtenir les décomptes d'événements",
+        "description": "Renvoie, période par période, le décompte total, unique ou moyen d'un ou plusieurs événements entre deux dates. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_get_retention_report": {
+      "pt": {
+        "name": "Obter relatório de retenção",
+        "description": "Retorna, para cada data de coorte, quantos usuários entraram na coorte (first) e quantos voltaram em cada intervalo depois dela (counts). Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Obtener informe de retención",
+        "description": "Devuelve, para cada fecha de cohorte, cuántos usuarios entraron en la cohorte (first) y cuántos volvieron en cada intervalo posterior (counts). Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Obtenir le rapport de rétention",
+        "description": "Renvoie, pour chaque date de cohorte, combien d'utilisateurs sont entrés dans la cohorte (first) et combien sont revenus à chaque intervalle suivant (counts). Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_list_cohorts": {
+      "pt": {
+        "name": "Listar coortes",
+        "description": "Lista as coortes salvas do projeto com id, nome, número de usuários, descrição, data de criação e visibilidade. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Listar cohortes",
+        "description": "Lista las cohortes guardadas del proyecto con id, nombre, número de usuarios, descripción, fecha de creación y visibilidad. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Lister les cohortes",
+        "description": "Liste les cohortes enregistrées du projet avec id, nom, nombre d'utilisateurs, description, date de création et visibilité. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_search_profiles": {
+      "pt": {
+        "name": "Buscar perfis",
+        "description": "Retorna os perfis de usuário que correspondem a uma expressão where, a uma coorte ou a uma lista de distinct_ids, com suas propriedades. Uma página traz até page_size perfis: para a próxima, repita a chamada com os mesmos filtros, o session_id da resposta e page mais um. Conta no limite da Query API de 60 consultas por hora."
+      },
+      "es": {
+        "name": "Buscar perfiles",
+        "description": "Devuelve los perfiles de usuario que coinciden con una expresión where, una cohorte o una lista de distinct_ids, con sus propiedades. Una página trae hasta page_size perfiles: para la siguiente, repite la llamada con los mismos filtros, el session_id de la respuesta y page más uno. Cuenta para el límite de la Query API de 60 consultas por hora."
+      },
+      "fr": {
+        "name": "Rechercher des profils",
+        "description": "Renvoie les profils utilisateurs qui correspondent à une expression where, une cohorte ou une liste de distinct_ids, avec leurs propriétés. Une page contient jusqu'à page_size profils : pour la suivante, répétez l'appel avec les mêmes filtres, le session_id de la réponse et page plus un. Compte dans la limite de la Query API de 60 requêtes par heure."
+      }
+    },
+    "mixpanel_list_annotations": {
+      "pt": {
+        "name": "Listar anotações",
+        "description": "Lista as anotações do projeto, as notas fixadas em uma data nos gráficos, com id, data, descrição, autor e tags."
+      },
+      "es": {
+        "name": "Listar anotaciones",
+        "description": "Lista las anotaciones del proyecto, las notas fijadas en una fecha en los gráficos, con id, fecha, descripción, autor y tags."
+      },
+      "fr": {
+        "name": "Lister les annotations",
+        "description": "Liste les annotations du projet, les notes épinglées à une date sur ses graphiques, avec id, date, description, auteur et tags."
+      }
+    },
+    "mixpanel_create_annotation": {
+      "pt": {
+        "name": "Criar anotação",
+        "description": "Cria uma anotação, uma nota exibida em uma data nos gráficos do projeto, como o lançamento de uma campanha. A conta de serviço precisa do papel Analyst ou superior no projeto."
+      },
+      "es": {
+        "name": "Crear anotación",
+        "description": "Crea una anotación, una nota que se muestra en una fecha en los gráficos del proyecto, como el lanzamiento de una campaña. La cuenta de servicio necesita el rol Analyst o superior en el proyecto."
+      },
+      "fr": {
+        "name": "Créer une annotation",
+        "description": "Crée une annotation, une note affichée à une date sur les graphiques du projet, comme le lancement d'une campagne. Le compte de service doit avoir le rôle Analyst ou supérieur sur le projet."
+      }
+    },
+    "mixpanel_update_annotation": {
+      "pt": {
+        "name": "Atualizar anotação",
+        "description": "Altera o texto de uma anotação. A conta de serviço precisa do papel Analyst ou superior no projeto."
+      },
+      "es": {
+        "name": "Actualizar anotación",
+        "description": "Cambia el texto de una anotación. La cuenta de servicio necesita el rol Analyst o superior en el proyecto."
+      },
+      "fr": {
+        "name": "Mettre à jour une annotation",
+        "description": "Modifie le texte d'une annotation. Le compte de service doit avoir le rôle Analyst ou supérieur sur le projet."
+      }
+    },
+    "mixpanel_delete_annotation": {
+      "pt": {
+        "name": "Excluir anotação",
+        "description": "Exclui uma anotação. A conta de serviço precisa do papel Analyst ou superior no projeto."
+      },
+      "es": {
+        "name": "Eliminar anotación",
+        "description": "Elimina una anotación. La cuenta de servicio necesita el rol Analyst o superior en el proyecto."
+      },
+      "fr": {
+        "name": "Supprimer une annotation",
+        "description": "Supprime une annotation. Le compte de service doit avoir le rôle Analyst ou supérieur sur le projet."
+      }
+    }
+  }
+}

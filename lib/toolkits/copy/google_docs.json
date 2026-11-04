@@ -1,0 +1,120 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create Google Docs, read their content and edit their text in your customer's Google account from your product or AI agent, through Connect.",
+      "intro": "The Google Docs toolkit covers three operations on the documents of a Google account: create a blank document, read its title and content, and apply edits to its text, including replacing placeholders to fill a template. Through Connect, your product or AI agent calls them with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Generate documents from data",
+          "body": "Create a Doc for each proposal or report your product produces, then insert the text with Update document in the customer's Drive."
+        },
+        {
+          "title": "Fill templates",
+          "body": "Use replaceAllText to swap placeholders such as a client name or a date in a document, without computing positions."
+        },
+        {
+          "title": "Agent that reads and edits",
+          "body": "An AI agent reads a document with Get document, understands its text, and applies a batch of edits that succeeds or fails as a whole."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie Google Docs, leia o conteúdo e edite o texto na conta Google do seu cliente a partir do seu produto ou agente de IA, pelo Connect.",
+      "intro": "O toolkit do Google Docs cobre três operações nos documentos de uma conta Google: criar um documento em branco, ler seu título e conteúdo e aplicar edições ao texto, inclusive substituir marcadores para preencher um template. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Gerar documentos a partir de dados",
+          "body": "Crie um Doc para cada proposta ou relatório que seu produto gera e insira o texto com Update document no Drive do cliente."
+        },
+        {
+          "title": "Preencher templates",
+          "body": "Use replaceAllText para trocar marcadores, como o nome de um cliente ou uma data, em um documento, sem calcular posições."
+        },
+        {
+          "title": "Agente que lê e edita",
+          "body": "Um agente de IA lê um documento com Get document, entende o texto e aplica um lote de edições que dá certo ou falha por inteiro."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea Google Docs, lee su contenido y edita su texto en la cuenta Google de tu cliente desde tu producto o agente de IA, con Connect.",
+      "intro": "El toolkit de Google Docs cubre tres operaciones sobre los documentos de una cuenta Google: crear un documento en blanco, leer su título y contenido, y aplicar ediciones a su texto, incluido reemplazar marcadores para completar una plantilla. Con Connect, tu producto o agente de IA las llama por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Generar documentos desde datos",
+          "body": "Crea un Doc por cada propuesta o informe que genera tu producto e inserta el texto con Update document en el Drive del cliente."
+        },
+        {
+          "title": "Completar plantillas",
+          "body": "Usa replaceAllText para cambiar marcadores, como el nombre de un cliente o una fecha, en un documento, sin calcular posiciones."
+        },
+        {
+          "title": "Agente que lee y edita",
+          "body": "Un agente de IA lee un documento con Get document, entiende su texto y aplica un lote de ediciones que se aplica completo o falla completo."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des Google Docs, lisez leur contenu et modifiez leur texte dans le compte Google de votre client depuis votre produit ou agent IA, via Connect.",
+      "intro": "Le toolkit Google Docs couvre trois opérations sur les documents d'un compte Google : créer un document vierge, lire son titre et son contenu, et appliquer des modifications à son texte, y compris remplacer des marqueurs pour remplir un modèle. Avec Connect, votre produit ou agent IA les appelle par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Générer des documents depuis des données",
+          "body": "Créez un Doc pour chaque proposition ou rapport produit par votre application, puis insérez le texte avec Update document dans le Drive du client."
+        },
+        {
+          "title": "Remplir des modèles",
+          "body": "Utilisez replaceAllText pour remplacer des marqueurs, comme le nom d'un client ou une date, dans un document, sans calculer de positions."
+        },
+        {
+          "title": "Agent qui lit et modifie",
+          "body": "Un agent IA lit un document avec Get document, comprend son texte et applique un lot de modifications qui réussit ou échoue en entier."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "google_docs_create_document": {
+      "pt": {
+        "name": "Criar documento",
+        "description": "Cria um Google Doc em branco na pasta raiz do Meu Drive e o retorna com seu documentId. Adicione o conteúdo depois com Update document. Para partir de um template ou de uma pasta específica, copie ou crie o arquivo com o Google Drive."
+      },
+      "es": {
+        "name": "Crear documento",
+        "description": "Crea un Google Doc en blanco en la carpeta raíz de Mi unidad y lo devuelve con su documentId. Agrega el contenido después con Update document. Para partir de una plantilla o de una carpeta concreta, copia o crea el archivo con Google Drive."
+      },
+      "fr": {
+        "name": "Créer un document",
+        "description": "Crée un Google Doc vierge à la racine de Mon Drive et le renvoie avec son documentId. Ajoutez le contenu ensuite avec Update document. Pour partir d'un modèle ou d'un dossier précis, copiez ou créez le fichier avec Google Drive."
+      }
+    },
+    "google_docs_get_document": {
+      "pt": {
+        "name": "Obter documento",
+        "description": "Obtém um documento com título, revisionId e conteúdo. O texto está em body.content: cada parágrafo tem elements cujo textRun.content guarda o texto, com startIndex e endIndex que Update document usa como posições, contadas em unidades de código UTF-16."
+      },
+      "es": {
+        "name": "Obtener documento",
+        "description": "Obtiene un documento con título, revisionId y contenido. El texto está en body.content: cada párrafo tiene elements cuyo textRun.content guarda el texto, con startIndex y endIndex que Update document usa como posiciones, contadas en unidades de código UTF-16."
+      },
+      "fr": {
+        "name": "Obtenir un document",
+        "description": "Récupère un document avec titre, revisionId et contenu. Le texte est dans body.content : chaque paragraphe a des elements dont textRun.content contient le texte, avec startIndex et endIndex que Update document utilise comme positions, comptées en unités de code UTF-16."
+      }
+    },
+    "google_docs_update_document": {
+      "pt": {
+        "name": "Atualizar documento",
+        "description": "Aplica uma lista de edições a um documento, em ordem e tudo ou nada: se uma requisição for inválida, nenhuma é aplicada. Cada item de requests tem exatamente um tipo de edição. replaceAllText preenche um template sem posições; os outros tipos usam os índices de Get document. Envie as edições com índices do maior para o menor, para que uma não desloque a próxima."
+      },
+      "es": {
+        "name": "Actualizar documento",
+        "description": "Aplica una lista de ediciones a un documento, en orden y todo o nada: si una solicitud es inválida, no se aplica ninguna. Cada elemento de requests tiene exactamente un tipo de edición. replaceAllText completa una plantilla sin posiciones; los demás tipos usan los índices de Get document. Envía las ediciones con índices del mayor al menor, para que una no desplace a la siguiente."
+      },
+      "fr": {
+        "name": "Mettre à jour un document",
+        "description": "Applique une liste de modifications à un document, dans l'ordre et en tout ou rien : si une requête est invalide, aucune n'est appliquée. Chaque élément de requests a exactement un type de modification. replaceAllText remplit un modèle sans positions ; les autres types utilisent les index de Get document. Envoyez les modifications avec des index du plus grand au plus petit, pour que l'une ne décale pas la suivante."
+      }
+    }
+  }
+}

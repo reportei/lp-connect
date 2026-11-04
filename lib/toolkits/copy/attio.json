@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and write records, list entries and notes in your customer's Attio workspace from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Attio toolkit covers objects and attributes, records, lists and their entries, and notes. Through Connect your product or AI agent calls them with one endpoint, while Connect stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Sync leads into Attio",
+          "body": "A SaaS creates or updates a person or company record in its customer's Attio as soon as a signup happens."
+        },
+        {
+          "title": "Move deals between stages",
+          "body": "A sales tool updates the entry of a pipeline list to move a deal to another stage."
+        },
+        {
+          "title": "Agent that logs notes",
+          "body": "An AI agent reads records and writes call summaries as notes on the right record."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia e grave registros, entradas de listas e notas no Attio do seu cliente, a partir do seu produto ou agente de IA, por um único endpoint do Connect.",
+      "intro": "O toolkit do Attio cobre objetos e atributos, registros, listas e suas entradas, e notas. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Sincronize leads no Attio",
+          "body": "Um SaaS cria ou atualiza o registro de uma pessoa ou empresa no Attio do cliente assim que um cadastro acontece."
+        },
+        {
+          "title": "Mova negócios entre etapas",
+          "body": "Uma ferramenta de vendas atualiza a entrada de uma lista de pipeline para levar um negócio a outra etapa."
+        },
+        {
+          "title": "Agente que registra notas",
+          "body": "Um agente de IA lê registros e grava resumos de chamadas como notas no registro certo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee y escribe registros, entradas de listas y notas en el Attio de tu cliente desde tu producto o agente de IA, con un único endpoint de Connect.",
+      "intro": "El toolkit de Attio cubre objetos y atributos, registros, listas y sus entradas, y notas. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Sincroniza leads en Attio",
+          "body": "Un SaaS crea o actualiza el registro de una persona o empresa en el Attio del cliente en cuanto ocurre un registro."
+        },
+        {
+          "title": "Mueve negocios entre etapas",
+          "body": "Una herramienta de ventas actualiza la entrada de una lista de pipeline para pasar un negocio a otra etapa."
+        },
+        {
+          "title": "Agente que registra notas",
+          "body": "Un agente de IA lee registros y escribe resúmenes de llamadas como notas en el registro correcto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez et écrivez fiches, entrées de listes et notes dans l'Attio de votre client, depuis votre produit ou agent IA, via un seul endpoint Connect.",
+      "intro": "Le toolkit Attio couvre les objets et attributs, les fiches, les listes et leurs entrées, et les notes. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Synchroniser les leads dans Attio",
+          "body": "Un SaaS crée ou met à jour la fiche d'une personne ou d'une entreprise dans l'Attio du client dès qu'une inscription a lieu."
+        },
+        {
+          "title": "Déplacer les deals d'étape",
+          "body": "Un outil de vente met à jour l'entrée d'une liste de pipeline pour faire passer un deal à une autre étape."
+        },
+        {
+          "title": "Agent qui consigne des notes",
+          "body": "Un agent IA lit des fiches et écrit des résumés d'appels sous forme de notes sur la bonne fiche."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "attio_list_objects": {
+      "pt": {
+        "name": "Listar objetos",
+        "description": "Lista os objetos do workspace: os padrão, como people, companies e deals, e os personalizados. Use o api_slug de um item como object nas ferramentas de registros e como parent_object nas de entradas e notas."
+      },
+      "es": {
+        "name": "Listar objetos",
+        "description": "Lista los objetos del workspace: los estándar, como people, companies y deals, y los personalizados. Usa el api_slug de un elemento como object en las herramientas de registros y como parent_object en las de entradas y notas."
+      },
+      "fr": {
+        "name": "Lister les objets",
+        "description": "Liste les objets du workspace : les standard, comme people, companies et deals, et les personnalisés. Utilisez l'api_slug d'un élément comme object dans les outils de fiches et comme parent_object dans ceux des entrées et des notes."
+      }
+    },
+    "attio_list_attributes": {
+      "pt": {
+        "name": "Listar atributos",
+        "description": "Lista os atributos de um objeto ou de uma lista, na ordem do app, com o api_slug, o tipo e se cada um é obrigatório ou único. Os slugs são as chaves de values e entry_values nas outras ferramentas e em seus filtros."
+      },
+      "es": {
+        "name": "Listar atributos",
+        "description": "Lista los atributos de un objeto o de una lista, en el orden de la app, con el api_slug, el tipo y si cada uno es obligatorio o único. Los slugs son las claves de values y entry_values en las otras herramientas y en sus filtros."
+      },
+      "fr": {
+        "name": "Lister les attributs",
+        "description": "Liste les attributs d'un objet ou d'une liste, dans l'ordre de l'app, avec l'api_slug, le type et si chacun est obligatoire ou unique. Les slugs sont les clés de values et entry_values dans les autres outils et dans leurs filtres."
+      }
+    },
+    "attio_list_records": {
+      "pt": {
+        "name": "Listar registros",
+        "description": "Lista os registros de um objeto, com filtro e ordenação opcionais. Cada registro vem com id.record_id e seus valores indexados pelo slug do atributo. Pagine com limit, 500 por padrão, e offset."
+      },
+      "es": {
+        "name": "Listar registros",
+        "description": "Lista los registros de un objeto, con filtro y orden opcionales. Cada registro trae id.record_id y sus valores indexados por el slug del atributo. Pagina con limit, 500 por defecto, y offset."
+      },
+      "fr": {
+        "name": "Lister les fiches",
+        "description": "Liste les fiches d'un objet, avec filtre et tris facultatifs. Chaque fiche contient id.record_id et ses valeurs indexées par le slug de l'attribut. Paginez avec limit, 500 par défaut, et offset."
+      }
+    },
+    "attio_get_record": {
+      "pt": {
+        "name": "Obter registro",
+        "description": "Retorna um registro com todos os seus valores indexados pelo slug do atributo e seu web_url."
+      },
+      "es": {
+        "name": "Obtener registro",
+        "description": "Devuelve un registro con todos sus valores indexados por el slug del atributo y su web_url."
+      },
+      "fr": {
+        "name": "Obtenir une fiche",
+        "description": "Renvoie une fiche avec toutes ses valeurs indexées par le slug de l'attribut et son web_url."
+      }
+    },
+    "attio_create_record": {
+      "pt": {
+        "name": "Criar registro",
+        "description": "Cria um registro de um objeto, como uma pessoa, uma empresa ou um negócio. Falha quando um atributo único, como o domínio de uma empresa ou o e-mail de uma pessoa, já pertence a outro registro. Retorna o novo registro com id.record_id."
+      },
+      "es": {
+        "name": "Crear registro",
+        "description": "Crea un registro de un objeto, como una persona, una empresa o un negocio. Falla cuando un atributo único, como el dominio de una empresa o el correo de una persona, ya pertenece a otro registro. Devuelve el nuevo registro con id.record_id."
+      },
+      "fr": {
+        "name": "Créer une fiche",
+        "description": "Crée une fiche d'un objet, comme une personne, une entreprise ou un deal. Échoue lorsqu'un attribut unique, comme le domaine d'une entreprise ou l'e-mail d'une personne, appartient déjà à une autre fiche. Renvoie la nouvelle fiche avec id.record_id."
+      }
+    },
+    "attio_update_record": {
+      "pt": {
+        "name": "Atualizar registro",
+        "description": "Atualiza os atributos informados de um registro e mantém os demais. Os valores de um atributo multiselect são adicionados aos que ele já tem."
+      },
+      "es": {
+        "name": "Actualizar registro",
+        "description": "Actualiza los atributos indicados de un registro y deja los demás sin cambios. Los valores de un atributo multiselect se suman a los que ya tiene."
+      },
+      "fr": {
+        "name": "Mettre à jour une fiche",
+        "description": "Met à jour les attributs indiqués d'une fiche et laisse les autres inchangés. Les valeurs d'un attribut multiselect s'ajoutent à celles qu'il a déjà."
+      }
+    },
+    "attio_list_lists": {
+      "pt": {
+        "name": "Listar listas",
+        "description": "Lista as listas do workspace, como pipelines de vendas, na ordem da barra lateral. Use o api_slug de um item como list nas ferramentas de entradas; o parent_object diz de qual objeto vêm seus registros."
+      },
+      "es": {
+        "name": "Listar listas",
+        "description": "Lista las listas del workspace, como pipelines de ventas, en el orden de la barra lateral. Usa el api_slug de un elemento como list en las herramientas de entradas; su parent_object indica de qué objeto vienen sus registros."
+      },
+      "fr": {
+        "name": "Lister les listes",
+        "description": "Liste les listes du workspace, comme les pipelines de vente, dans l'ordre de la barre latérale. Utilisez l'api_slug d'un élément comme list dans les outils d'entrées ; son parent_object indique de quel objet viennent ses fiches."
+      }
+    },
+    "attio_list_entries": {
+      "pt": {
+        "name": "Listar entradas",
+        "description": "Lista as entradas de uma lista, com filtro e ordenação opcionais nos atributos da lista, como a etapa de um pipeline. Cada entrada tem id.entry_id, parent_record_id e parent_object. Pagine com limit, 500 por padrão, e offset."
+      },
+      "es": {
+        "name": "Listar entradas",
+        "description": "Lista las entradas de una lista, con filtro y orden opcionales sobre los atributos de la lista, como la etapa de un pipeline. Cada entrada tiene id.entry_id, parent_record_id y parent_object. Pagina con limit, 500 por defecto, y offset."
+      },
+      "fr": {
+        "name": "Lister les entrées",
+        "description": "Liste les entrées d'une liste, avec filtre et tris facultatifs sur les attributs de la liste, comme l'étape d'un pipeline. Chaque entrée a id.entry_id, parent_record_id et parent_object. Paginez avec limit, 500 par défaut, et offset."
+      }
+    },
+    "attio_create_list_entry": {
+      "pt": {
+        "name": "Criar entrada de lista",
+        "description": "Adiciona um registro a uma lista como nova entrada, com valores para os atributos da lista, como a etapa. O mesmo registro pode ser adicionado mais de uma vez. Retorna a entrada com id.entry_id."
+      },
+      "es": {
+        "name": "Crear entrada de lista",
+        "description": "Añade un registro a una lista como nueva entrada, con valores para los atributos de la lista, como la etapa. El mismo registro puede añadirse más de una vez. Devuelve la entrada con id.entry_id."
+      },
+      "fr": {
+        "name": "Créer une entrée de liste",
+        "description": "Ajoute une fiche à une liste comme nouvelle entrée, avec des valeurs pour les attributs de la liste, comme l'étape. La même fiche peut être ajoutée plusieurs fois. Renvoie l'entrée avec id.entry_id."
+      }
+    },
+    "attio_update_list_entry": {
+      "pt": {
+        "name": "Atualizar entrada de lista",
+        "description": "Atualiza os atributos de lista de uma entrada, como mover um negócio para outra etapa de um pipeline, e mantém os demais. Os valores de um atributo multiselect são adicionados aos que ele já tem."
+      },
+      "es": {
+        "name": "Actualizar entrada de lista",
+        "description": "Actualiza los atributos de lista de una entrada, como mover un negocio a otra etapa de un pipeline, y deja los demás sin cambios. Los valores de un atributo multiselect se suman a los que ya tiene."
+      },
+      "fr": {
+        "name": "Mettre à jour une entrée de liste",
+        "description": "Met à jour les attributs de liste d'une entrée, comme déplacer un deal vers une autre étape d'un pipeline, et laisse les autres inchangés. Les valeurs d'un attribut multiselect s'ajoutent à celles qu'il a déjà."
+      }
+    },
+    "attio_list_notes": {
+      "pt": {
+        "name": "Listar notas",
+        "description": "Lista notas, do workspace inteiro ou de um registro quando parent_object e parent_record_id são enviados juntos. Cada nota tem id.note_id, título e conteúdo em texto simples e Markdown. Pagine com limit, 10 por padrão e até 50, e offset."
+      },
+      "es": {
+        "name": "Listar notas",
+        "description": "Lista notas, de todo el workspace o de un registro cuando parent_object y parent_record_id se envían juntos. Cada nota tiene id.note_id, título y contenido en texto plano y Markdown. Pagina con limit, 10 por defecto y hasta 50, y offset."
+      },
+      "fr": {
+        "name": "Lister les notes",
+        "description": "Liste les notes, de tout le workspace ou d'une fiche lorsque parent_object et parent_record_id sont envoyés ensemble. Chaque note a id.note_id, un titre et un contenu en texte brut et en Markdown. Paginez avec limit, 10 par défaut et jusqu'à 50, et offset."
+      }
+    },
+    "attio_create_note": {
+      "pt": {
+        "name": "Criar nota",
+        "description": "Cria uma nota em um registro. Com format markdown, content aceita títulos, listas, negrito, itálico e links; com plaintext, uma quebra de linha é uma nova linha."
+      },
+      "es": {
+        "name": "Crear nota",
+        "description": "Crea una nota en un registro. Con format markdown, content admite títulos, listas, negrita, cursiva y enlaces; con plaintext, un salto de línea es una nueva línea."
+      },
+      "fr": {
+        "name": "Créer une note",
+        "description": "Crée une note sur une fiche. Avec format markdown, content accepte titres, listes, gras, italique et liens ; avec plaintext, un saut de ligne est une nouvelle ligne."
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, search, create, move and share files and folders in your customer's OneDrive from your product or AI agent through Connect.",
+      "intro": "The OneDrive toolkit covers files, folders and their sharing: list and search items, read metadata and a download link, create folders, rename, move, copy and delete items, create sharing links and manage who has access. The customer connects a personal or Microsoft 365 account once with OAuth, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Files in your customer's drive", "body": "Let users browse folders from your product, find a file by name or content, and get a download link for it." },
+        { "title": "Share a deliverable", "body": "After your product generates a report or asset, create a folder for it and a sharing link, or share it with specific people by email with read or write access." },
+        { "title": "AI agent for file organization", "body": "Let an agent search the drive, rename and move items into folders, copy a folder and list who can access a file." }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, busque, crie, mova e compartilhe arquivos e pastas no OneDrive do seu cliente a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do OneDrive cobre arquivos, pastas e o compartilhamento deles: listar e buscar itens, ler metadados e um link de download, criar pastas, renomear, mover, copiar e excluir itens, criar links de compartilhamento e gerenciar quem tem acesso. O cliente conecta uma conta pessoal ou Microsoft 365 uma vez por OAuth, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Arquivos no drive do cliente", "body": "Deixe os usuários navegarem pelas pastas a partir do seu produto, achar um arquivo pelo nome ou conteúdo e obter um link de download." },
+        { "title": "Compartilhar uma entrega", "body": "Depois que seu produto gerar um relatório ou arquivo, crie uma pasta para ele e um link de compartilhamento, ou compartilhe com pessoas específicas por email com acesso de leitura ou escrita." },
+        { "title": "Agente de IA que organiza arquivos", "body": "Deixe um agente buscar no drive, renomear e mover itens para pastas, copiar uma pasta e listar quem tem acesso a um arquivo." }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, busca, crea, mueve y comparte archivos y carpetas en el OneDrive de tu cliente desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de OneDrive cubre archivos, carpetas y su uso compartido: listar y buscar elementos, leer metadatos y un enlace de descarga, crear carpetas, renombrar, mover, copiar y eliminar elementos, crear enlaces para compartir y gestionar quién tiene acceso. El cliente conecta una cuenta personal o de Microsoft 365 una vez con OAuth, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Archivos en el drive del cliente", "body": "Deja que los usuarios exploren carpetas desde tu producto, encuentren un archivo por nombre o contenido y obtengan un enlace de descarga." },
+        { "title": "Compartir un entregable", "body": "Cuando tu producto genere un reporte o un archivo, crea una carpeta para él y un enlace para compartir, o compártelo con personas concretas por email con acceso de lectura o escritura." },
+        { "title": "Agente de IA que organiza archivos", "body": "Deja que un agente busque en el drive, renombre y mueva elementos a carpetas, copie una carpeta y liste quién tiene acceso a un archivo." }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, cherchez, créez, déplacez et partagez fichiers et dossiers dans le OneDrive de votre client depuis votre produit ou agent IA via Connect.",
+      "intro": "Le toolkit OneDrive couvre les fichiers, les dossiers et leur partage : lister et rechercher des éléments, lire les métadonnées et un lien de téléchargement, créer des dossiers, renommer, déplacer, copier et supprimer des éléments, créer des liens de partage et gérer qui a accès. Le client connecte un compte personnel ou Microsoft 365 une fois par OAuth, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Fichiers dans le drive du client", "body": "Laissez les utilisateurs parcourir les dossiers depuis votre produit, trouver un fichier par nom ou contenu et obtenir un lien de téléchargement." },
+        { "title": "Partager un livrable", "body": "Une fois qu'un rapport ou un fichier est généré par votre produit, créez un dossier pour lui et un lien de partage, ou partagez-le avec des personnes précises par email en lecture ou en écriture." },
+        { "title": "Agent IA qui range les fichiers", "body": "Laissez un agent chercher dans le drive, renommer et déplacer des éléments dans des dossiers, copier un dossier et lister qui a accès à un fichier." }
+      ]
+    }
+  },
+  "tools": {
+    "onedrive_list_items": {
+      "pt": { "name": "Listar itens", "description": "Lista os arquivos e pastas dentro de uma pasta, com id, name, size, lastModifiedDateTime, webUrl e uma faceta folder ou file. Só a primeira página volta." },
+      "es": { "name": "Listar elementos", "description": "Lista los archivos y carpetas dentro de una carpeta, con id, name, size, lastModifiedDateTime, webUrl y una faceta folder o file. Solo vuelve la primera página." },
+      "fr": { "name": "Lister les éléments", "description": "Liste les fichiers et dossiers d'un dossier, avec id, name, size, lastModifiedDateTime, webUrl et une facette folder ou file. Seule la première page revient." }
+    },
+    "onedrive_search_items": {
+      "pt": { "name": "Buscar itens", "description": "Busca no drive por nome de arquivo, metadados e conteúdo, e retorna os arquivos e pastas encontrados com id, name, webUrl e parentReference. Só a primeira página volta." },
+      "es": { "name": "Buscar elementos", "description": "Busca en el drive por nombre de archivo, metadatos y contenido, y devuelve los archivos y carpetas encontrados con id, name, webUrl y parentReference. Solo vuelve la primera página." },
+      "fr": { "name": "Rechercher des éléments", "description": "Recherche dans le drive par nom de fichier, métadonnées et contenu, et renvoie les fichiers et dossiers trouvés avec id, name, webUrl et parentReference. Seule la première page revient." }
+    },
+    "onedrive_get_item": {
+      "pt": { "name": "Obter item", "description": "Retorna os metadados de um arquivo ou pasta: name, size, datas, createdBy, webUrl, parentReference com o driveId e o id da pasta, e uma faceta folder ou file. Um arquivo também tem @microsoft.graph.downloadUrl, um link de download que não exige login e expira em cerca de uma hora." },
+      "es": { "name": "Obtener elemento", "description": "Devuelve los metadatos de un archivo o carpeta: name, size, fechas, createdBy, webUrl, parentReference con el driveId y el id de la carpeta, y una faceta folder o file. Un archivo también tiene @microsoft.graph.downloadUrl, un enlace de descarga que no requiere iniciar sesión y vence en aproximadamente una hora." },
+      "fr": { "name": "Obtenir un élément", "description": "Renvoie les métadonnées d'un fichier ou dossier : name, size, dates, createdBy, webUrl, parentReference avec le driveId et l'id du dossier, et une facette folder ou file. Un fichier a aussi @microsoft.graph.downloadUrl, un lien de téléchargement sans connexion qui expire au bout d'environ une heure." }
+    },
+    "onedrive_create_folder": {
+      "pt": { "name": "Criar pasta", "description": "Cria uma pasta dentro de outra pasta e a retorna com seu id." },
+      "es": { "name": "Crear carpeta", "description": "Crea una carpeta dentro de otra carpeta y la devuelve con su id." },
+      "fr": { "name": "Créer un dossier", "description": "Crée un dossier dans un autre dossier et le renvoie avec son id." }
+    },
+    "onedrive_update_item": {
+      "pt": { "name": "Atualizar item", "description": "Renomeia um arquivo ou pasta, ou o move para outra pasta do mesmo drive, e o retorna. Só os campos enviados mudam." },
+      "es": { "name": "Actualizar elemento", "description": "Renombra un archivo o carpeta, o lo mueve a otra carpeta del mismo drive, y lo devuelve. Solo cambian los campos enviados." },
+      "fr": { "name": "Modifier un élément", "description": "Renomme un fichier ou dossier, ou le déplace vers un autre dossier du même drive, et le renvoie. Seuls les champs envoyés changent." }
+    },
+    "onedrive_copy_item": {
+      "pt": { "name": "Copiar item", "description": "Copia um arquivo ou pasta, com o conteúdo, para uma pasta ou com um novo nome. A cópia roda em segundo plano: a resposta é 202 sem corpo, e o novo item aparece em Listar itens quando terminar. O compartilhamento não é copiado." },
+      "es": { "name": "Copiar elemento", "description": "Copia un archivo o carpeta, con su contenido, a una carpeta o con un nuevo nombre. La copia corre en segundo plano: la respuesta es 202 sin cuerpo, y el nuevo elemento aparece en Listar elementos cuando termine. El uso compartido no se copia." },
+      "fr": { "name": "Copier un élément", "description": "Copie un fichier ou dossier, avec son contenu, vers un dossier ou sous un nouveau nom. La copie s'exécute en arrière-plan : la réponse est 202 sans corps, et le nouvel élément apparaît dans Lister les éléments une fois terminée. Le partage n'est pas copié." }
+    },
+    "onedrive_delete_item": {
+      "pt": { "name": "Excluir item", "description": "Move um arquivo ou pasta para a lixeira do OneDrive, de onde o usuário pode restaurá-lo." },
+      "es": { "name": "Eliminar elemento", "description": "Mueve un archivo o carpeta a la papelera de OneDrive, de donde el usuario puede restaurarlo." },
+      "fr": { "name": "Supprimer un élément", "description": "Déplace un fichier ou dossier vers la corbeille de OneDrive, d'où l'utilisateur peut le restaurer." }
+    },
+    "onedrive_create_sharing_link": {
+      "pt": { "name": "Criar link de compartilhamento", "description": "Cria um link de compartilhamento para um arquivo ou pasta, ou retorna o link do mesmo tipo que já existe, como uma permission cujo link.webUrl é o link a enviar." },
+      "es": { "name": "Crear enlace para compartir", "description": "Crea un enlace para compartir un archivo o carpeta, o devuelve el enlace del mismo tipo que ya existe, como una permission cuyo link.webUrl es el enlace a enviar." },
+      "fr": { "name": "Créer un lien de partage", "description": "Crée un lien de partage pour un fichier ou dossier, ou renvoie le lien du même type qui existe déjà, sous forme de permission dont link.webUrl est le lien à envoyer." }
+    },
+    "onedrive_list_permissions": {
+      "pt": { "name": "Listar permissões", "description": "Lista quem tem acesso a um arquivo ou pasta: links, pessoas e grupos, cada um com id, roles e inheritedFrom quando vem de uma pasta superior. O dono vê todas as permissões; as demais pessoas veem só a própria." },
+      "es": { "name": "Listar permisos", "description": "Lista quién tiene acceso a un archivo o carpeta: enlaces, personas y grupos, cada uno con id, roles e inheritedFrom cuando viene de una carpeta superior. El dueño ve todos los permisos; las demás personas ven solo el suyo." },
+      "fr": { "name": "Lister les permissions", "description": "Liste qui a accès à un fichier ou dossier : liens, personnes et groupes, chacun avec id, roles et inheritedFrom quand il vient d'un dossier parent. Le propriétaire voit toutes les permissions ; les autres personnes ne voient que la leur." }
+    },
+    "onedrive_create_permission": {
+      "pt": { "name": "Criar permissão", "description": "Compartilha um arquivo ou pasta com pessoas por email, com acesso de leitura ou escrita, e retorna as novas permissões. Com sendInvitation true, o OneDrive envia um link por email. A pasta raiz de um drive pessoal não pode ser compartilhada." },
+      "es": { "name": "Crear permiso", "description": "Comparte un archivo o carpeta con personas por email, con acceso de lectura o escritura, y devuelve los nuevos permisos. Con sendInvitation true, OneDrive les envía un enlace por email. La carpeta raíz de un drive personal no se puede compartir." },
+      "fr": { "name": "Créer une permission", "description": "Partage un fichier ou dossier avec des personnes par email, en lecture ou en écriture, et renvoie les nouvelles permissions. Avec sendInvitation true, OneDrive leur envoie un lien par email. Le dossier racine d'un drive personnel ne peut pas être partagé." }
+    },
+    "onedrive_delete_permission": {
+      "pt": { "name": "Excluir permissão", "description": "Remove um link ou o acesso de uma pessoa a um arquivo ou pasta. Só permissões concedidas no próprio item podem ser removidas: uma com inheritedFrom vem de uma pasta superior e é removida lá." },
+      "es": { "name": "Eliminar permiso", "description": "Quita un enlace o el acceso de una persona a un archivo o carpeta. Solo se pueden quitar permisos concedidos en el propio elemento: uno con inheritedFrom viene de una carpeta superior y se quita allí." },
+      "fr": { "name": "Supprimer une permission", "description": "Retire un lien ou l'accès d'une personne à un fichier ou dossier. Seules les permissions accordées sur l'élément lui-même peuvent être retirées : une permission avec inheritedFrom vient d'un dossier parent et se retire là." }
+    }
+  }
+}

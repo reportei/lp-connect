@@ -1,0 +1,218 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, update and organize videos, folders and comments in your customer's Vimeo account, and read play counts, through Connect.",
+      "intro": "The Vimeo toolkit covers the videos of the connected account, their folders and their comments. Your product or AI agent can read video details and play counts, update titles and privacy, move videos between folders and reply to comments through Connect, which handles the OAuth connection and logs every execution.",
+      "useCases": [
+        {
+          "title": "Video library inside your product",
+          "body": "A SaaS lists the customer's Vimeo videos with name, link, embed code and stats.plays and shows them in its own interface."
+        },
+        {
+          "title": "Organize client videos",
+          "body": "An agency tool creates a folder per client, nests subfolders and moves each video to the right one."
+        },
+        {
+          "title": "Community reply agent",
+          "body": "An AI agent reads the comments of a video and posts a reply as the connected user."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, atualize e organize vídeos, pastas e comentários na conta Vimeo do seu cliente, e leia contagens de plays, pelo Connect.",
+      "intro": "O toolkit do Vimeo cobre os vídeos da conta conectada, suas pastas e seus comentários. Seu produto ou agente de IA lê detalhes e plays de vídeos, atualiza títulos e privacidade, move vídeos entre pastas e responde comentários pelo Connect, que cuida da conexão OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Biblioteca de vídeos no seu produto",
+          "body": "Um SaaS lista os vídeos Vimeo do cliente com name, link, embed e stats.plays e os exibe na própria interface."
+        },
+        {
+          "title": "Organize os vídeos dos clientes",
+          "body": "Uma ferramenta de agência cria uma pasta por cliente, aninha subpastas e move cada vídeo para a certa."
+        },
+        {
+          "title": "Agente de respostas",
+          "body": "Um agente de IA lê os comentários de um vídeo e publica uma resposta como o usuário conectado."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, actualiza y organiza videos, carpetas y comentarios en la cuenta de Vimeo de tu cliente, y lee reproducciones, con Connect.",
+      "intro": "El toolkit de Vimeo cubre los videos de la cuenta conectada, sus carpetas y sus comentarios. Tu producto o agente de IA lee detalles y reproducciones de videos, actualiza títulos y privacidad, mueve videos entre carpetas y responde comentarios por Connect, que maneja la conexión OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Biblioteca de videos en tu producto",
+          "body": "Un SaaS lista los videos de Vimeo del cliente con name, link, embed y stats.plays y los muestra en su propia interfaz."
+        },
+        {
+          "title": "Organiza los videos de los clientes",
+          "body": "Una herramienta de agencia crea una carpeta por cliente, anida subcarpetas y mueve cada video a la correcta."
+        },
+        {
+          "title": "Agente de respuestas",
+          "body": "Un agente de IA lee los comentarios de un video y publica una respuesta como el usuario conectado."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, mettez à jour et organisez vidéos, dossiers et commentaires dans le compte Vimeo de votre client, et lisez les lectures, via Connect.",
+      "intro": "Le toolkit Vimeo couvre les vidéos du compte connecté, leurs dossiers et leurs commentaires. Votre produit ou agent IA lit les détails et le nombre de lectures, met à jour titres et confidentialité, déplace des vidéos entre dossiers et répond aux commentaires via Connect, qui gère la connexion OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Une vidéothèque dans votre produit",
+          "body": "Un SaaS liste les vidéos Vimeo du client avec name, link, embed et stats.plays et les affiche dans sa propre interface."
+        },
+        {
+          "title": "Organiser les vidéos des clients",
+          "body": "Un outil d'agence crée un dossier par client, imbrique des sous-dossiers et déplace chaque vidéo au bon endroit."
+        },
+        {
+          "title": "Agent de réponses",
+          "body": "Un agent IA lit les commentaires d'une vidéo et publie une réponse en tant qu'utilisateur connecté."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "vimeo_list_videos": {
+      "pt": {
+        "name": "Listar vídeos",
+        "description": "Lista os vídeos enviados pelo usuário conectado, com uri, name, description, link, duration, privacy, parent_folder, tags, código de embed e stats.plays, a contagem de plays."
+      },
+      "es": {
+        "name": "Listar videos",
+        "description": "Lista los videos subidos por el usuario conectado, con uri, name, description, link, duration, privacy, parent_folder, tags, código de embed y stats.plays, el conteo de reproducciones."
+      },
+      "fr": {
+        "name": "Lister les vidéos",
+        "description": "Liste les vidéos téléversées par l'utilisateur connecté, avec uri, name, description, link, duration, privacy, parent_folder, tags, code d'embed et stats.plays, le nombre de lectures."
+      }
+    },
+    "vimeo_get_video": {
+      "pt": {
+        "name": "Obter vídeo",
+        "description": "Devolve um vídeo: name, description, link, duration, dimensões, privacy, status, parent_folder, tags, código de embed, miniaturas e stats.plays, a contagem de plays."
+      },
+      "es": {
+        "name": "Obtener video",
+        "description": "Devuelve un video: name, description, link, duration, dimensiones, privacy, status, parent_folder, tags, código de embed, miniaturas y stats.plays, el conteo de reproducciones."
+      },
+      "fr": {
+        "name": "Obtenir une vidéo",
+        "description": "Renvoie une vidéo : name, description, link, duration, dimensions, privacy, status, parent_folder, tags, code d'embed, miniatures et stats.plays, le nombre de lectures."
+      }
+    },
+    "vimeo_update_video": {
+      "pt": {
+        "name": "Atualizar vídeo",
+        "description": "Atualiza o título, a descrição, a privacidade ou a licença de um vídeo do usuário conectado e o devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar video",
+        "description": "Actualiza el título, la descripción, la privacidad o la licencia de un video del usuario conectado y lo devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une vidéo",
+        "description": "Met à jour le titre, la description, la confidentialité ou la licence d'une vidéo de l'utilisateur connecté et la renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "vimeo_list_folders": {
+      "pt": {
+        "name": "Listar pastas",
+        "description": "Lista as pastas do usuário conectado, com uri, name, link, datas e o número de vídeos em metadata.connections.videos.total."
+      },
+      "es": {
+        "name": "Listar carpetas",
+        "description": "Lista las carpetas del usuario conectado, con uri, name, link, fechas y el número de videos en metadata.connections.videos.total."
+      },
+      "fr": {
+        "name": "Lister les dossiers",
+        "description": "Liste les dossiers de l'utilisateur connecté, avec uri, name, link, dates et le nombre de vidéos dans metadata.connections.videos.total."
+      }
+    },
+    "vimeo_create_folder": {
+      "pt": {
+        "name": "Criar pasta",
+        "description": "Cria uma pasta para o usuário conectado e a devolve com seu uri. Sem parent_folder_uri é uma pasta de nível superior; as pastas aninham até 10 níveis."
+      },
+      "es": {
+        "name": "Crear carpeta",
+        "description": "Crea una carpeta para el usuario conectado y la devuelve con su uri. Sin parent_folder_uri es una carpeta de nivel superior; las carpetas se anidan hasta 10 niveles."
+      },
+      "fr": {
+        "name": "Créer un dossier",
+        "description": "Crée un dossier pour l'utilisateur connecté et le renvoie avec son uri. Sans parent_folder_uri c'est un dossier de premier niveau ; les dossiers s'imbriquent jusqu'à 10 niveaux."
+      }
+    },
+    "vimeo_update_folder": {
+      "pt": {
+        "name": "Atualizar pasta",
+        "description": "Renomeia uma pasta do usuário conectado e a devolve."
+      },
+      "es": {
+        "name": "Actualizar carpeta",
+        "description": "Renombra una carpeta del usuario conectado y la devuelve."
+      },
+      "fr": {
+        "name": "Mettre à jour un dossier",
+        "description": "Renomme un dossier de l'utilisateur connecté et le renvoie."
+      }
+    },
+    "vimeo_list_folder_videos": {
+      "pt": {
+        "name": "Listar vídeos da pasta",
+        "description": "Lista os vídeos de uma pasta, com uri, name, description, link, duration, privacy, tags e stats.plays, a contagem de plays. Paginação por página."
+      },
+      "es": {
+        "name": "Listar videos de la carpeta",
+        "description": "Lista los videos de una carpeta, con uri, name, description, link, duration, privacy, tags y stats.plays, el conteo de reproducciones. Paginación por página."
+      },
+      "fr": {
+        "name": "Lister les vidéos d'un dossier",
+        "description": "Liste les vidéos d'un dossier, avec uri, name, description, link, duration, privacy, tags et stats.plays, le nombre de lectures. Pagination par page."
+      }
+    },
+    "vimeo_move_video_to_folder": {
+      "pt": {
+        "name": "Mover vídeo para pasta",
+        "description": "Coloca um vídeo em uma pasta do usuário conectado, que deve ser o dono da pasta. Responde 204 sem corpo quando funciona."
+      },
+      "es": {
+        "name": "Mover video a carpeta",
+        "description": "Coloca un video en una carpeta del usuario conectado, que debe ser el dueño de la carpeta. Responde 204 sin cuerpo cuando funciona."
+      },
+      "fr": {
+        "name": "Déplacer une vidéo dans un dossier",
+        "description": "Place une vidéo dans un dossier de l'utilisateur connecté, qui doit en être le propriétaire. Répond 204 sans corps quand cela fonctionne."
+      }
+    },
+    "vimeo_list_video_comments": {
+      "pt": {
+        "name": "Listar comentários do vídeo",
+        "description": "Lista os comentários de um vídeo, com uri, text, author, data e o número de respostas em metadata.connections.replies.total."
+      },
+      "es": {
+        "name": "Listar comentarios del video",
+        "description": "Lista los comentarios de un video, con uri, text, author, fecha y el número de respuestas en metadata.connections.replies.total."
+      },
+      "fr": {
+        "name": "Lister les commentaires d'une vidéo",
+        "description": "Liste les commentaires d'une vidéo, avec uri, text, author, date et le nombre de réponses dans metadata.connections.replies.total."
+      }
+    },
+    "vimeo_create_comment_reply": {
+      "pt": {
+        "name": "Criar resposta a comentário",
+        "description": "Responde a um comentário de um vídeo como o usuário conectado e devolve a resposta, que é pública como qualquer comentário do vídeo."
+      },
+      "es": {
+        "name": "Crear respuesta a comentario",
+        "description": "Responde a un comentario de un video como el usuario conectado y devuelve la respuesta, que es pública como cualquier comentario del video."
+      },
+      "fr": {
+        "name": "Créer une réponse à un commentaire",
+        "description": "Répond à un commentaire d'une vidéo en tant qu'utilisateur connecté et renvoie la réponse, publique comme tout commentaire de la vidéo."
+      }
+    }
+  }
+}

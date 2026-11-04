@@ -1,0 +1,232 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read projects, issues and error events, and resolve, archive or assign issues in your customer's Sentry organization through one Reportei Connect endpoint.",
+      "intro": "The Sentry toolkit covers organizations, projects, issues and error events with stack traces, tags and context. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        {
+          "title": "Show errors inside your product",
+          "body": "List a customer's unresolved issues with event and user counts so your SaaS can surface what is breaking, next to the app it monitors."
+        },
+        {
+          "title": "Close the loop from your tracker",
+          "body": "Resolve, archive or assign a Sentry issue when the matching ticket changes state in your product."
+        },
+        {
+          "title": "Triage with an AI agent",
+          "body": "Let an agent read an issue, pull its latest event with the stack trace and the top tag values, and propose who should look at it."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia projetos, issues e eventos de erro, e resolva, arquive ou atribua issues na organização Sentry do seu cliente por um endpoint do Reportei Connect.",
+      "intro": "O toolkit do Sentry cobre organizações, projetos, issues e eventos de erro com stack trace, tags e contexto. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Mostrar erros dentro do seu produto",
+          "body": "Liste as issues não resolvidas de um cliente com contagem de eventos e usuários para seu SaaS mostrar o que está quebrando, ao lado do app monitorado."
+        },
+        {
+          "title": "Fechar o ciclo a partir do seu tracker",
+          "body": "Resolva, arquive ou atribua uma issue do Sentry quando o ticket correspondente mudar de estado no seu produto."
+        },
+        {
+          "title": "Triagem com agente de IA",
+          "body": "Deixe um agente ler uma issue, buscar o evento mais recente com o stack trace e os valores de tag mais frequentes e sugerir quem deve olhar."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee proyectos, issues y eventos de error, y resuelve, archiva o asigna issues en la organización de Sentry de tu cliente con Reportei Connect.",
+      "intro": "El toolkit de Sentry cubre organizaciones, proyectos, issues y eventos de error con stack trace, etiquetas y contexto. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Mostrar errores dentro de tu producto",
+          "body": "Lista las issues sin resolver de un cliente con conteo de eventos y usuarios para que tu SaaS muestre qué se está rompiendo, junto a la app monitoreada."
+        },
+        {
+          "title": "Cerrar el ciclo desde tu tracker",
+          "body": "Resuelve, archiva o asigna una issue de Sentry cuando el ticket correspondiente cambia de estado en tu producto."
+        },
+        {
+          "title": "Triaje con un agente de IA",
+          "body": "Deja que un agente lea una issue, traiga el evento más reciente con el stack trace y los valores de etiqueta más frecuentes y proponga quién debería revisarla."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez projets, issues et événements d'erreur, et résolvez, archivez ou assignez des issues dans le Sentry de votre client via un endpoint Reportei Connect.",
+      "intro": "Le toolkit Sentry couvre les organisations, projets, issues et événements d'erreur avec stack trace, tags et contexte. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Afficher les erreurs dans votre produit",
+          "body": "Listez les issues non résolues d'un client avec le nombre d'événements et d'utilisateurs pour que votre SaaS montre ce qui casse, à côté de l'app surveillée."
+        },
+        {
+          "title": "Boucler depuis votre outil de tickets",
+          "body": "Résolvez, archivez ou assignez une issue Sentry quand le ticket correspondant change d'état dans votre produit."
+        },
+        {
+          "title": "Tri avec un agent IA",
+          "body": "Laissez un agent lire une issue, récupérer l'événement le plus récent avec la stack trace et les valeurs de tag principales, et proposer qui doit s'en occuper."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "sentry_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista as organizações que o token alcança neste local de armazenamento de dados, cada uma com id, slug e name. O slug é o organization_id_or_slug que as outras ferramentas pedem. Retorna até 100."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista las organizaciones a las que llega el token en esta ubicación de almacenamiento de datos, cada una con id, slug y name. El slug es el organization_id_or_slug que piden las demás herramientas. Devuelve hasta 100."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste les organisations accessibles avec le jeton dans cet emplacement de stockage de données, chacune avec id, slug et name. Le slug est l'organization_id_or_slug que demandent les autres outils. Renvoie jusqu'à 100."
+      }
+    },
+    "sentry_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos de uma organização, cada um com id, slug, name e platform. O slug é o project_id_or_slug que as ferramentas de projeto pedem. Retorna até 100; refine com query."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de una organización, cada uno con id, slug, name y platform. El slug es el project_id_or_slug que piden las herramientas de proyecto. Devuelve hasta 100; afina con query."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets d'une organisation, chacun avec id, slug, name et platform. Le slug est le project_id_or_slug que demandent les outils de projet. Renvoie jusqu'à 100 ; affinez avec query."
+      }
+    },
+    "sentry_get_project": {
+      "pt": {
+        "name": "Obter projeto",
+        "description": "Retorna um projeto com name, platform, times, status e configurações."
+      },
+      "es": {
+        "name": "Obtener proyecto",
+        "description": "Devuelve un proyecto con name, platform, equipos, estado y ajustes."
+      },
+      "fr": {
+        "name": "Obtenir un projet",
+        "description": "Renvoie un projet avec name, platform, équipes, statut et paramètres."
+      }
+    },
+    "sentry_list_issues": {
+      "pt": {
+        "name": "Listar issues",
+        "description": "Lista as issues de uma organização, por padrão as não resolvidas ordenadas por última ocorrência. Cada issue traz id, shortId, title, status, level, contagem de eventos, contagem de usuários, primeira e última ocorrência e projeto. Retorna até 100; refine com query, project e statsPeriod."
+      },
+      "es": {
+        "name": "Listar issues",
+        "description": "Lista las issues de una organización, por defecto las no resueltas ordenadas por última aparición. Cada issue trae id, shortId, title, status, level, conteo de eventos, conteo de usuarios, primera y última aparición y proyecto. Devuelve hasta 100; afina con query, project y statsPeriod."
+      },
+      "fr": {
+        "name": "Lister les issues",
+        "description": "Liste les issues d'une organisation, par défaut les non résolues triées par dernière occurrence. Chaque issue contient id, shortId, title, status, level, nombre d'événements, nombre d'utilisateurs, première et dernière occurrence et projet. Renvoie jusqu'à 100 ; affinez avec query, project et statsPeriod."
+      }
+    },
+    "sentry_get_issue": {
+      "pt": {
+        "name": "Obter issue",
+        "description": "Retorna uma issue com title, culprit, status, level, responsável, contagens, primeira e última ocorrência, release e principais tags."
+      },
+      "es": {
+        "name": "Obtener issue",
+        "description": "Devuelve una issue con title, culprit, status, level, responsable, conteos, primera y última aparición, release y principales etiquetas."
+      },
+      "fr": {
+        "name": "Obtenir une issue",
+        "description": "Renvoie une issue avec title, culprit, status, level, assigné, compteurs, première et dernière occurrence, release et principaux tags."
+      }
+    },
+    "sentry_update_issue": {
+      "pt": {
+        "name": "Atualizar issue",
+        "description": "Resolve, arquiva, reabre, atribui ou altera a prioridade de uma issue. Só os campos enviados mudam. Para arquivar, envie status ignored com um substatus, e a condição em statusDetails quando for archived_until_condition_met."
+      },
+      "es": {
+        "name": "Actualizar issue",
+        "description": "Resuelve, archiva, reabre, asigna o cambia la prioridad de una issue. Solo cambian los campos enviados. Para archivar, envía status ignored con un substatus, y la condición en statusDetails cuando sea archived_until_condition_met."
+      },
+      "fr": {
+        "name": "Mettre à jour une issue",
+        "description": "Résout, archive, rouvre, assigne ou change la priorité d'une issue. Seuls les champs envoyés changent. Pour archiver, envoyez status ignored avec un substatus, et la condition dans statusDetails quand c'est archived_until_condition_met."
+      }
+    },
+    "sentry_list_issue_events": {
+      "pt": {
+        "name": "Listar eventos da issue",
+        "description": "Lista os eventos de uma issue, 100 por página. Com full true cada evento traz o stack trace, e a página cai para 10."
+      },
+      "es": {
+        "name": "Listar eventos de la issue",
+        "description": "Lista los eventos de una issue, 100 por página. Con full true cada evento trae el stack trace, y la página baja a 10."
+      },
+      "fr": {
+        "name": "Lister les événements d'une issue",
+        "description": "Liste les événements d'une issue, 100 par page. Avec full true chaque événement contient la stack trace, et la page tombe à 10."
+      }
+    },
+    "sentry_get_issue_event": {
+      "pt": {
+        "name": "Obter evento da issue",
+        "description": "Retorna um evento de uma issue com stack trace, tags, contexto, breadcrumbs e request. Use latest, oldest ou recommended como event_id quando não tiver um id de evento."
+      },
+      "es": {
+        "name": "Obtener evento de la issue",
+        "description": "Devuelve un evento de una issue con stack trace, etiquetas, contexto, breadcrumbs y request. Usa latest, oldest o recommended como event_id cuando no tengas un id de evento."
+      },
+      "fr": {
+        "name": "Obtenir un événement d'une issue",
+        "description": "Renvoie un événement d'une issue avec stack trace, tags, contexte, breadcrumbs et request. Utilisez latest, oldest ou recommended comme event_id quand vous n'avez pas d'id d'événement."
+      }
+    },
+    "sentry_get_issue_tag": {
+      "pt": {
+        "name": "Obter tag da issue",
+        "description": "Retorna os valores mais frequentes de uma tag nos eventos de uma issue, com a contagem de cada um, como os navegadores ou releases afetados."
+      },
+      "es": {
+        "name": "Obtener etiqueta de la issue",
+        "description": "Devuelve los valores más frecuentes de una etiqueta en los eventos de una issue, con el conteo de cada uno, como los navegadores o releases afectados."
+      },
+      "fr": {
+        "name": "Obtenir un tag d'une issue",
+        "description": "Renvoie les valeurs les plus fréquentes d'un tag parmi les événements d'une issue, avec le compte de chacune, comme les navigateurs ou releases concernés."
+      }
+    },
+    "sentry_list_project_events": {
+      "pt": {
+        "name": "Listar eventos do projeto",
+        "description": "Lista os eventos de erro de um projeto, 100 por página. Com full true cada evento traz o stack trace, e a página cai para 10."
+      },
+      "es": {
+        "name": "Listar eventos del proyecto",
+        "description": "Lista los eventos de error de un proyecto, 100 por página. Con full true cada evento trae el stack trace, y la página baja a 10."
+      },
+      "fr": {
+        "name": "Lister les événements d'un projet",
+        "description": "Liste les événements d'erreur d'un projet, 100 par page. Avec full true chaque événement contient la stack trace, et la page tombe à 10."
+      }
+    },
+    "sentry_get_project_event": {
+      "pt": {
+        "name": "Obter evento do projeto",
+        "description": "Retorna um evento de um projeto pelo seu id, com a issue a que pertence, o stack trace, tags e contexto."
+      },
+      "es": {
+        "name": "Obtener evento del proyecto",
+        "description": "Devuelve un evento de un proyecto por su id, con la issue a la que pertenece, el stack trace, etiquetas y contexto."
+      },
+      "fr": {
+        "name": "Obtenir un événement d'un projet",
+        "description": "Renvoie un événement d'un projet par son id, avec l'issue à laquelle il appartient, la stack trace, les tags et le contexte."
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update issues, comment, open and merge pull requests in the GitHub repositories your customer's account can reach, through Connect.",
+      "intro": "The GitHub toolkit covers repositories, issues, issue comments and pull requests: list and search, create and update issues, comment, open a pull request and merge it. A customer connects with an API key or OAuth, and your product or AI agent calls every operation through one Connect endpoint, with the audit log of each execution kept by Connect.",
+      "useCases": [
+        { "title": "Bug reports become issues", "body": "When a user reports a problem in your product, create an issue in the right repository with title, body, labels and assignees." },
+        { "title": "Release tooling for teams", "body": "List open pull requests, read mergeable and mergeable_state, and merge the ones that are ready from your own release dashboard." },
+        { "title": "AI agent for code review flow", "body": "Let an agent search issues, read a pull request, comment on it and open a new pull request from a branch." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize issues, comente, abra e faça merge de pull requests nos repositórios do GitHub que a conta do seu cliente alcança, via Connect.",
+      "intro": "O toolkit do GitHub cobre repositórios, issues, comentários e pull requests: listar e buscar, criar e atualizar issues, comentar, abrir um pull request e fazer o merge. O cliente conecta com uma API key ou OAuth, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect, que guarda o log de auditoria de cada execução.",
+      "useCases": [
+        { "title": "Relatos de bug viram issues", "body": "Quando um usuário relata um problema no seu produto, crie uma issue no repositório certo com título, corpo, labels e responsáveis." },
+        { "title": "Ferramenta de release para times", "body": "Liste os pull requests abertos, leia mergeable e mergeable_state e faça o merge dos que estão prontos a partir do seu painel de release." },
+        { "title": "Agente de IA no fluxo de revisão", "body": "Deixe um agente buscar issues, ler um pull request, comentar nele e abrir um novo pull request a partir de uma branch." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza issues, comenta, abre y fusiona pull requests en los repositorios de GitHub a los que llega la cuenta de tu cliente, con Connect.",
+      "intro": "El toolkit de GitHub cubre repositorios, issues, comentarios y pull requests: listar y buscar, crear y actualizar issues, comentar, abrir un pull request y fusionarlo. El cliente conecta con una API key u OAuth, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect, que guarda el log de auditoría de cada ejecución.",
+      "useCases": [
+        { "title": "Reportes de bug como issues", "body": "Cuando un usuario reporta un problema en tu producto, crea una issue en el repositorio correcto con título, cuerpo, labels y responsables." },
+        { "title": "Herramienta de release para equipos", "body": "Lista los pull requests abiertos, lee mergeable y mergeable_state y fusiona los que están listos desde tu panel de release." },
+        { "title": "Agente de IA en la revisión de código", "body": "Deja que un agente busque issues, lea un pull request, comente en él y abra un nuevo pull request desde una rama." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez des issues, commentez, ouvrez et fusionnez des pull requests dans les dépôts GitHub accessibles au compte de votre client, via Connect.",
+      "intro": "Le toolkit GitHub couvre les dépôts, les issues, les commentaires et les pull requests : lister et rechercher, créer et modifier des issues, commenter, ouvrir une pull request et la fusionner. Le client se connecte par clé API ou OAuth, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect, qui conserve le journal d'audit de chaque exécution.",
+      "useCases": [
+        { "title": "Des rapports de bug en issues", "body": "Quand un utilisateur signale un problème dans votre produit, créez une issue dans le bon dépôt avec titre, corps, labels et assignés." },
+        { "title": "Outil de release pour les équipes", "body": "Listez les pull requests ouvertes, lisez mergeable et mergeable_state, et fusionnez celles qui sont prêtes depuis votre tableau de release." },
+        { "title": "Agent IA dans la revue de code", "body": "Laissez un agent chercher des issues, lire une pull request, la commenter et ouvrir une nouvelle pull request depuis une branche." }
+      ]
+    }
+  },
+  "tools": {
+    "github_list_repositories": {
+      "pt": { "name": "Listar repositórios", "description": "Lista os repositórios que a conta alcança: os próprios, aqueles em que é colaboradora e os de suas organizações. Cada item tem owner.login e name, que são o owner e o repo que as outras ferramentas pedem. Pagine com page e per_page: uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar repositorios", "description": "Lista los repositorios a los que llega la cuenta: los propios, aquellos donde es colaboradora y los de sus organizaciones. Cada elemento tiene owner.login y name, que son el owner y el repo que piden las demás herramientas. Pagina con page y per_page: una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les dépôts", "description": "Liste les dépôts accessibles au compte : les siens, ceux où il est collaborateur et ceux de ses organisations. Chaque élément a owner.login et name, qui sont l'owner et le repo que demandent les autres outils. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "github_search_issues": {
+      "pt": { "name": "Buscar issues", "description": "Busca issues e pull requests em todos os repositórios que a conta enxerga, com a sintaxe de busca do GitHub em q. Retorna total_count e items, até 1.000 resultados por busca; pagine com page e per_page. Cada item tem number, e repository_url termina com o owner e o repo do item." },
+      "es": { "name": "Buscar issues", "description": "Busca issues y pull requests en todos los repositorios que ve la cuenta, con la sintaxis de búsqueda de GitHub en q. Devuelve total_count e items, hasta 1.000 resultados por búsqueda; pagina con page y per_page. Cada elemento tiene number, y repository_url termina con el owner y el repo del elemento." },
+      "fr": { "name": "Rechercher des issues", "description": "Recherche des issues et des pull requests dans tous les dépôts que voit le compte, avec la syntaxe de recherche de GitHub dans q. Renvoie total_count et items, jusqu'à 1 000 résultats par recherche ; paginez avec page et per_page. Chaque élément a number, et repository_url se termine par l'owner et le repo de l'élément." }
+    },
+    "github_list_issues": {
+      "pt": { "name": "Listar issues", "description": "Lista as issues de um repositório, da mais nova para a mais antiga. Pull requests também vêm na lista, marcados com a chave pull_request. Pagine com page e per_page: uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar issues", "description": "Lista las issues de un repositorio, de la más nueva a la más antigua. Los pull requests también vienen en la lista, marcados con la clave pull_request. Pagina con page y per_page: una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les issues", "description": "Liste les issues d'un dépôt, de la plus récente à la plus ancienne. Les pull requests figurent aussi dans la liste, marquées par la clé pull_request. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "github_get_issue": {
+      "pt": { "name": "Obter issue", "description": "Retorna uma issue, com title, body, state, labels, assignees e milestone. Uma issue movida para outro repositório responde 301 com o novo endereço." },
+      "es": { "name": "Obtener issue", "description": "Devuelve una issue, con title, body, state, labels, assignees y milestone. Una issue movida a otro repositorio responde 301 con su nueva ubicación." },
+      "fr": { "name": "Obtenir une issue", "description": "Renvoie une issue, avec title, body, state, labels, assignees et milestone. Une issue déplacée vers un autre dépôt répond 301 avec sa nouvelle adresse." }
+    },
+    "github_create_issue": {
+      "pt": { "name": "Criar issue", "description": "Cria uma issue em um repositório e a retorna, com seu number. Labels, assignees, milestone e type são descartados em silêncio quando a conta não tem acesso de push ao repositório. Notifica quem acompanha o repositório." },
+      "es": { "name": "Crear issue", "description": "Crea una issue en un repositorio y la devuelve, con su number. Labels, assignees, milestone y type se descartan en silencio cuando la cuenta no tiene acceso de push al repositorio. Notifica a quienes siguen el repositorio." },
+      "fr": { "name": "Créer une issue", "description": "Crée une issue dans un dépôt et la renvoie, avec son number. Labels, assignees, milestone et type sont ignorés sans erreur quand le compte n'a pas l'accès push au dépôt. Notifie les personnes qui suivent le dépôt." }
+    },
+    "github_update_issue": {
+      "pt": { "name": "Atualizar issue", "description": "Altera uma issue e a retorna. Só os campos enviados mudam. Para fechá-la, envie state closed com um state_reason. Labels e assignees substituem os atuais, e uma lista vazia os limpa." },
+      "es": { "name": "Actualizar issue", "description": "Modifica una issue y la devuelve. Solo cambian los campos enviados. Para cerrarla, envía state closed con un state_reason. Labels y assignees reemplazan los actuales, y una lista vacía los borra." },
+      "fr": { "name": "Modifier une issue", "description": "Modifie une issue et la renvoie. Seuls les champs envoyés changent. Pour la fermer, envoyez state closed avec un state_reason. Labels et assignees remplacent les valeurs actuelles, et une liste vide les efface." }
+    },
+    "github_list_issue_comments": {
+      "pt": { "name": "Listar comentários da issue", "description": "Lista os comentários de uma issue ou de um pull request, do mais antigo para o mais novo. Os comentários de revisão no código de um pull request não estão incluídos. Pagine com page e per_page: uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar comentarios de la issue", "description": "Lista los comentarios de una issue o de un pull request, del más antiguo al más nuevo. Los comentarios de revisión sobre el código de un pull request no están incluidos. Pagina con page y per_page: una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les commentaires d'une issue", "description": "Liste les commentaires d'une issue ou d'une pull request, du plus ancien au plus récent. Les commentaires de revue sur le code d'une pull request ne sont pas inclus. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "github_create_issue_comment": {
+      "pt": { "name": "Criar comentário na issue", "description": "Adiciona um comentário a uma issue ou a um pull request e o retorna. Notifica os participantes." },
+      "es": { "name": "Crear comentario en la issue", "description": "Agrega un comentario a una issue o a un pull request y lo devuelve. Notifica a los participantes." },
+      "fr": { "name": "Créer un commentaire d'issue", "description": "Ajoute un commentaire à une issue ou à une pull request et le renvoie. Notifie les participants." }
+    },
+    "github_list_pull_requests": {
+      "pt": { "name": "Listar pull requests", "description": "Lista os pull requests de um repositório, do mais novo para o mais antigo. Pagine com page e per_page: uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar pull requests", "description": "Lista los pull requests de un repositorio, del más nuevo al más antiguo. Pagina con page y per_page: una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les pull requests", "description": "Liste les pull requests d'un dépôt, de la plus récente à la plus ancienne. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "github_get_pull_request": {
+      "pt": { "name": "Obter pull request", "description": "Retorna um pull request, com suas branches, head.sha, mergeable e mergeable_state, o número de commits e de arquivos alterados e se já foi mesclado. mergeable pode vir null enquanto o GitHub calcula: chame de novo após alguns segundos." },
+      "es": { "name": "Obtener pull request", "description": "Devuelve un pull request, con sus ramas, head.sha, mergeable y mergeable_state, el número de commits y de archivos cambiados y si ya fue fusionado. mergeable puede venir null mientras GitHub lo calcula: llama de nuevo tras unos segundos." },
+      "fr": { "name": "Obtenir une pull request", "description": "Renvoie une pull request, avec ses branches, head.sha, mergeable et mergeable_state, le nombre de commits et de fichiers modifiés et si elle a été fusionnée. mergeable peut être null pendant que GitHub le calcule : rappelez après quelques secondes." }
+    },
+    "github_create_pull_request": {
+      "pt": { "name": "Criar pull request", "description": "Abre um pull request da branch head para a branch base e o retorna, com seu number. Envie title, ou issue para transformar uma issue existente em pull request. Notifica quem acompanha o repositório." },
+      "es": { "name": "Crear pull request", "description": "Abre un pull request desde la rama head hacia la rama base y lo devuelve, con su number. Envía title, o issue para convertir una issue existente en pull request. Notifica a quienes siguen el repositorio." },
+      "fr": { "name": "Créer une pull request", "description": "Ouvre une pull request de la branche head vers la branche base et la renvoie, avec son number. Envoyez title, ou issue pour transformer une issue existante en pull request. Notifie les personnes qui suivent le dépôt." }
+    },
+    "github_merge_pull_request": {
+      "pt": { "name": "Fazer merge de pull request", "description": "Faz o merge de um pull request na sua branch base e retorna merged e o sha do novo commit. Responde 405 quando o pull request não pode ser mesclado, e 409 quando o sha não bate mais com o head. Repositórios que fazem merge por merge queue não aceitam esta chamada." },
+      "es": { "name": "Fusionar pull request", "description": "Fusiona un pull request en su rama base y devuelve merged y el sha del nuevo commit. Responde 405 cuando el pull request no se puede fusionar, y 409 cuando el sha ya no coincide con su head. Los repositorios que fusionan con merge queue no lo aceptan." },
+      "fr": { "name": "Fusionner une pull request", "description": "Fusionne une pull request dans sa branche base et renvoie merged et le sha du nouveau commit. Répond 405 quand la pull request ne peut pas être fusionnée, et 409 quand le sha ne correspond plus à son head. Les dépôts qui fusionnent via une merge queue ne l'acceptent pas." }
+    }
+  }
+}

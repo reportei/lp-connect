@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read files, comments, version history and published components and styles from your customer's Figma account through one Connect endpoint.",
+      "intro": "The Figma toolkit covers file metadata and content, node rendering, version history, comments, and the components and styles published in libraries. Your customer connects Figma once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Design review inside your app",
+          "body": "List a file's comments and post replies or new comments as the connected user, so review feedback lives next to your own workflow."
+        },
+        {
+          "title": "Export frames as images",
+          "body": "Read a frame with Get file nodes and call Render images to get temporary image URLs for handoff, docs or previews."
+        },
+        {
+          "title": "Agent reads the design system",
+          "body": "An AI agent lists a team's published components and styles, then reads their nodes to answer questions about the design system."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia arquivos, comentários, histórico de versões e componentes e estilos publicados na conta Figma do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Figma cobre metadados e conteúdo de arquivos, renderização de nós, histórico de versões, comentários e os componentes e estilos publicados em bibliotecas. Seu cliente conecta o Figma uma vez por OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Revisão de design no seu app",
+          "body": "Liste os comentários de um arquivo e publique respostas ou novos comentários como o usuário conectado, deixando o feedback de revisão junto do seu fluxo."
+        },
+        {
+          "title": "Exporte frames como imagem",
+          "body": "Leia um frame com Obter nós do arquivo e chame Renderizar imagens para obter URLs temporárias de imagem para handoff, documentação ou prévias."
+        },
+        {
+          "title": "Agente lê o design system",
+          "body": "Um agente de IA lista os componentes e estilos publicados de um time e lê seus nós para responder perguntas sobre o design system."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee archivos, comentarios, historial de versiones y componentes y estilos publicados en la cuenta de Figma de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Figma cubre metadatos y contenido de archivos, renderizado de nodos, historial de versiones, comentarios y los componentes y estilos publicados en bibliotecas. Tu cliente conecta Figma una vez con OAuth, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Revisión de diseño en tu app",
+          "body": "Lista los comentarios de un archivo y publica respuestas o comentarios nuevos como el usuario conectado, para que el feedback de revisión viva junto a tu flujo."
+        },
+        {
+          "title": "Exporta frames como imagen",
+          "body": "Lee un frame con Obtener nodos del archivo y llama a Renderizar imágenes para obtener URLs temporales de imagen para handoff, documentación o vistas previas."
+        },
+        {
+          "title": "Agente lee el sistema de diseño",
+          "body": "Un agente de IA lista los componentes y estilos publicados de un equipo y lee sus nodos para responder preguntas sobre el sistema de diseño."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez fichiers, commentaires, historique des versions et composants et styles publiés dans le compte Figma de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Figma couvre les métadonnées et le contenu des fichiers, le rendu de nœuds, l'historique des versions, les commentaires et les composants et styles publiés dans les bibliothèques. Votre client connecte Figma une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Revue de design dans votre app",
+          "body": "Listez les commentaires d'un fichier et publiez des réponses ou de nouveaux commentaires en tant qu'utilisateur connecté, pour garder les retours de revue dans votre flux."
+        },
+        {
+          "title": "Exporter des frames en images",
+          "body": "Lisez un frame avec Obtenir des nœuds du fichier et appelez Générer des images pour obtenir des URL d'image temporaires pour le handoff, la documentation ou les aperçus."
+        },
+        {
+          "title": "Un agent lit le design system",
+          "body": "Un agent IA liste les composants et styles publiés d'une équipe, puis lit leurs nœuds pour répondre aux questions sur le design system."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "figma_get_file_metadata": {
+      "pt": {
+        "name": "Obter metadados do arquivo",
+        "description": "Retorna os metadados de um arquivo sem o conteúdo: nome, pasta, tipo de editor (Figma Design, FigJam, Slides e outros), criador, quem alterou por último e quando, miniatura, o papel do usuário e o acesso por link. Bem mais barato que Obter arquivo nos limites de taxa do Figma, então use primeiro quando a pergunta é sobre o arquivo e não sobre suas camadas."
+      },
+      "es": {
+        "name": "Obtener metadatos del archivo",
+        "description": "Devuelve los metadatos de un archivo sin su contenido: nombre, carpeta, tipo de editor (Figma Design, FigJam, Slides y otros), creador, quién lo cambió por última vez y cuándo, miniatura, el rol del usuario y el acceso por enlace. Mucho más barato que Obtener archivo en los límites de tasa de Figma, así que úsalo primero cuando la pregunta es sobre el archivo y no sobre sus capas."
+      },
+      "fr": {
+        "name": "Obtenir les métadonnées du fichier",
+        "description": "Renvoie les métadonnées d'un fichier sans son contenu : nom, dossier, type d'éditeur (Figma Design, FigJam, Slides et autres), créateur, dernier auteur de modification et date, miniature, rôle de l'utilisateur et accès par lien. Bien moins coûteux qu'Obtenir le fichier dans les limites de débit de Figma, à utiliser en premier quand la question porte sur le fichier et non sur ses calques."
+      }
+    },
+    "figma_get_file": {
+      "pt": {
+        "name": "Obter arquivo",
+        "description": "Retorna a árvore do documento de um arquivo: páginas, frames e camadas com suas propriedades e ids, além dos componentes e estilos que o arquivo usa. A árvore de um arquivo grande é enorme: passe depth 1 para só as páginas, ou 2 para os frames de nível superior de cada página, e depois leia um frame com Obter nós do arquivo. O Figma coloca esta chamada no menor nível de limite de taxa: arquivos em um plano Starter e usuários com assento View ou Collab têm só até 20 chamadas por mês."
+      },
+      "es": {
+        "name": "Obtener archivo",
+        "description": "Devuelve el árbol del documento de un archivo: páginas, frames y capas con sus propiedades e ids, además de los componentes y estilos que usa el archivo. El árbol de un archivo grande es enorme: pasa depth 1 para solo las páginas, o 2 para los frames de nivel superior de cada página, y luego lee un frame con Obtener nodos del archivo. Figma pone esta llamada en el nivel más bajo de límite de tasa: los archivos en un plan Starter y los usuarios con asiento View o Collab tienen solo hasta 20 llamadas al mes."
+      },
+      "fr": {
+        "name": "Obtenir le fichier",
+        "description": "Renvoie l'arbre du document d'un fichier : pages, frames et calques avec leurs propriétés et ids, ainsi que les composants et styles utilisés par le fichier. L'arbre d'un gros fichier est énorme : passez depth 1 pour les pages seules, ou 2 pour les frames de premier niveau de chaque page, puis lisez un frame avec Obtenir des nœuds du fichier. Figma place cet appel dans son niveau de limite de débit le plus bas : les fichiers d'un plan Starter et les utilisateurs avec un siège View ou Collab n'ont que 20 appels par mois."
+      }
+    },
+    "figma_get_file_nodes": {
+      "pt": {
+        "name": "Obter nós do arquivo",
+        "description": "Retorna os frames ou camadas indicados de um arquivo, cada um com toda a sua subárvore, em nodes, além do nome, versão e última alteração do arquivo. Um nó que não existe volta como null. É a forma leve de ler um frame de um arquivo grande. O Figma coloca esta chamada no menor nível de limite de taxa: arquivos em um plano Starter e usuários com assento View ou Collab têm só até 20 chamadas por mês."
+      },
+      "es": {
+        "name": "Obtener nodos del archivo",
+        "description": "Devuelve los frames o capas indicados de un archivo, cada uno con todo su subárbol, en nodes, además del nombre, versión y último cambio del archivo. Un nodo que no existe vuelve como null. Es la forma ligera de leer un frame de un archivo grande. Figma pone esta llamada en el nivel más bajo de límite de tasa: los archivos en un plan Starter y los usuarios con asiento View o Collab tienen solo hasta 20 llamadas al mes."
+      },
+      "fr": {
+        "name": "Obtenir des nœuds du fichier",
+        "description": "Renvoie les frames ou calques indiqués d'un fichier, chacun avec tout son sous-arbre, dans nodes, plus le nom, la version et la dernière modification du fichier. Un nœud inexistant revient à null. C'est la manière légère de lire un frame d'un gros fichier. Figma place cet appel dans son niveau de limite de débit le plus bas : les fichiers d'un plan Starter et les utilisateurs avec un siège View ou Collab n'ont que 20 appels par mois."
+      }
+    },
+    "figma_render_images": {
+      "pt": {
+        "name": "Renderizar imagens",
+        "description": "Renderiza frames ou camadas de um arquivo como imagens e retorna, em images, um mapa de cada id de nó para uma URL temporária da imagem, válida por 30 dias. Valor null significa que aquele nó não pôde ser renderizado. Imagens acima de 32 megapixels são reduzidas. O Figma coloca esta chamada no menor nível de limite de taxa: arquivos em um plano Starter e usuários com assento View ou Collab têm só até 20 chamadas por mês."
+      },
+      "es": {
+        "name": "Renderizar imágenes",
+        "description": "Renderiza frames o capas de un archivo como imágenes y devuelve, en images, un mapa de cada id de nodo a una URL temporal de la imagen, válida por 30 días. Un valor null significa que ese nodo no se pudo renderizar. Las imágenes de más de 32 megapíxeles se reducen. Figma pone esta llamada en el nivel más bajo de límite de tasa: los archivos en un plan Starter y los usuarios con asiento View o Collab tienen solo hasta 20 llamadas al mes."
+      },
+      "fr": {
+        "name": "Générer des images",
+        "description": "Génère des images à partir de frames ou calques d'un fichier et renvoie, dans images, une correspondance entre chaque id de nœud et une URL temporaire de l'image, valable 30 jours. Une valeur null signifie que ce nœud n'a pas pu être rendu. Les images de plus de 32 mégapixels sont réduites. Figma place cet appel dans son niveau de limite de débit le plus bas : les fichiers d'un plan Starter et les utilisateurs avec un siège View ou Collab n'ont que 20 appels par mois."
+      }
+    },
+    "figma_list_file_versions": {
+      "pt": {
+        "name": "Listar versões do arquivo",
+        "description": "Lista o histórico de versões de um arquivo, da mais recente à mais antiga: id, data de criação, autor, e o rótulo e a descrição das versões nomeadas. Para ler versões mais antigas, passe como before o valor before do link pagination.next_page; o histórico termina quando next_page não existe."
+      },
+      "es": {
+        "name": "Listar versiones del archivo",
+        "description": "Lista el historial de versiones de un archivo, de la más reciente a la más antigua: id, fecha de creación, autor, y la etiqueta y descripción de las versiones con nombre. Para leer versiones más antiguas, pasa como before el valor before del enlace pagination.next_page; el historial termina cuando falta next_page."
+      },
+      "fr": {
+        "name": "Lister les versions du fichier",
+        "description": "Liste l'historique des versions d'un fichier, de la plus récente à la plus ancienne : id, date de création, auteur, et le libellé et la description des versions nommées. Pour lire des versions plus anciennes, passez comme before la valeur before du lien pagination.next_page ; l'historique se termine quand next_page est absent."
+      }
+    },
+    "figma_list_comments": {
+      "pt": {
+        "name": "Listar comentários",
+        "description": "Lista todos os comentários de um arquivo, respostas incluídas. Cada comentário tem id, message, autor, created_at, resolved_at quando foi resolvido, sua posição em client_meta e as reações. Uma resposta traz o id do comentário raiz em parent_id."
+      },
+      "es": {
+        "name": "Listar comentarios",
+        "description": "Lista todos los comentarios de un archivo, respuestas incluidas. Cada comentario tiene id, message, autor, created_at, resolved_at cuando se resolvió, su posición en client_meta y las reacciones. Una respuesta trae el id de su comentario raíz en parent_id."
+      },
+      "fr": {
+        "name": "Lister les commentaires",
+        "description": "Liste tous les commentaires d'un fichier, réponses comprises. Chaque commentaire a id, message, auteur, created_at, resolved_at quand il a été résolu, sa position dans client_meta et les réactions. Une réponse porte l'id de son commentaire racine dans parent_id."
+      }
+    },
+    "figma_create_comment": {
+      "pt": {
+        "name": "Criar comentário",
+        "description": "Publica um comentário em um arquivo como o usuário conectado e o retorna, ou uma resposta quando comment_id é enviado. Sem client_meta o comentário não fica fixado em um ponto do canvas. Um comentário publicado não pode ser editado, só excluído com Excluir comentário."
+      },
+      "es": {
+        "name": "Crear comentario",
+        "description": "Publica un comentario en un archivo como el usuario conectado y lo devuelve, o una respuesta cuando se envía comment_id. Sin client_meta el comentario no queda fijado en un punto del canvas. Un comentario publicado no se puede editar, solo eliminar con Eliminar comentario."
+      },
+      "fr": {
+        "name": "Créer un commentaire",
+        "description": "Publie un commentaire sur un fichier en tant qu'utilisateur connecté et le renvoie, ou une réponse quand comment_id est envoyé. Sans client_meta, le commentaire n'est pas épinglé à un endroit du canvas. Un commentaire publié ne peut pas être modifié, seulement supprimé avec Supprimer un commentaire."
+      }
+    },
+    "figma_delete_comment": {
+      "pt": {
+        "name": "Excluir comentário",
+        "description": "Exclui um comentário de um arquivo. O Figma só permite que o autor exclua um comentário, então funciona nos comentários feitos pelo usuário conectado."
+      },
+      "es": {
+        "name": "Eliminar comentario",
+        "description": "Elimina un comentario de un archivo. Figma solo permite que el autor elimine un comentario, así que funciona con los comentarios hechos por el usuario conectado."
+      },
+      "fr": {
+        "name": "Supprimer un commentaire",
+        "description": "Supprime un commentaire d'un fichier. Figma ne permet qu'à l'auteur de supprimer un commentaire, donc cela fonctionne sur les commentaires faits par l'utilisateur connecté."
+      }
+    },
+    "figma_list_file_components": {
+      "pt": {
+        "name": "Listar componentes do arquivo",
+        "description": "Lista os componentes publicados de um arquivo de biblioteca: key, nome, descrição, node_id, miniatura, datas, autor e o frame e a página que contêm cada um. Componentes nunca publicados não aparecem."
+      },
+      "es": {
+        "name": "Listar componentes del archivo",
+        "description": "Lista los componentes publicados de un archivo de biblioteca: key, nombre, descripción, node_id, miniatura, fechas, autor y el frame y la página que contienen cada uno. Los componentes nunca publicados no aparecen."
+      },
+      "fr": {
+        "name": "Lister les composants du fichier",
+        "description": "Liste les composants publiés depuis un fichier de bibliothèque : key, nom, description, node_id, miniature, dates, auteur, et le frame et la page qui contiennent chacun. Les composants jamais publiés n'apparaissent pas."
+      }
+    },
+    "figma_list_team_components": {
+      "pt": {
+        "name": "Listar componentes do time",
+        "description": "Lista os componentes publicados nas bibliotecas de um time, com o file_key e o node_id de cada um, que Obter nós do arquivo e Renderizar imagens aceitam. A resposta traz meta.cursor: passe seu valor after como after para ler a próxima página; a lista termina quando after não existe."
+      },
+      "es": {
+        "name": "Listar componentes del equipo",
+        "description": "Lista los componentes publicados en las bibliotecas de un equipo, con el file_key y el node_id de cada uno, que Obtener nodos del archivo y Renderizar imágenes aceptan. La respuesta trae meta.cursor: pasa su valor after como after para leer la página siguiente; la lista termina cuando falta after."
+      },
+      "fr": {
+        "name": "Lister les composants de l'équipe",
+        "description": "Liste les composants publiés dans les bibliothèques d'une équipe, avec le file_key et le node_id de chacun, que Obtenir des nœuds du fichier et Générer des images acceptent. La réponse contient meta.cursor : passez sa valeur after comme after pour lire la page suivante ; la liste se termine quand after est absent."
+      }
+    },
+    "figma_list_file_styles": {
+      "pt": {
+        "name": "Listar estilos do arquivo",
+        "description": "Lista os estilos publicados de um arquivo de biblioteca: cores, texto, efeitos e grades, com key, nome, style_type, descrição e node_id. Os valores de um estilo estão no nó dele: leia com Obter nós do arquivo."
+      },
+      "es": {
+        "name": "Listar estilos del archivo",
+        "description": "Lista los estilos publicados de un archivo de biblioteca: colores, texto, efectos y cuadrículas, con key, nombre, style_type, descripción y node_id. Los valores de un estilo están en su nodo: léelos con Obtener nodos del archivo."
+      },
+      "fr": {
+        "name": "Lister les styles du fichier",
+        "description": "Liste les styles publiés depuis un fichier de bibliothèque : couleurs, texte, effets et grilles, avec key, nom, style_type, description et node_id. Les valeurs d'un style sont dans son nœud : lisez-les avec Obtenir des nœuds du fichier."
+      }
+    },
+    "figma_list_team_styles": {
+      "pt": {
+        "name": "Listar estilos do time",
+        "description": "Lista os estilos publicados nas bibliotecas de um time, com o file_key e o node_id de cada um; os valores estão no nó, lidos com Obter nós do arquivo. A resposta traz meta.cursor: passe seu valor after como after para ler a próxima página; a lista termina quando after não existe."
+      },
+      "es": {
+        "name": "Listar estilos del equipo",
+        "description": "Lista los estilos publicados en las bibliotecas de un equipo, con el file_key y el node_id de cada uno; los valores están en el nodo, léelos con Obtener nodos del archivo. La respuesta trae meta.cursor: pasa su valor after como after para leer la página siguiente; la lista termina cuando falta after."
+      },
+      "fr": {
+        "name": "Lister les styles de l'équipe",
+        "description": "Liste les styles publiés dans les bibliothèques d'une équipe, avec le file_key et le node_id de chacun ; les valeurs sont dans le nœud, lisez-les avec Obtenir des nœuds du fichier. La réponse contient meta.cursor : passez sa valeur after comme after pour lire la page suivante ; la liste se termine quand after est absent."
+      }
+    }
+  }
+}

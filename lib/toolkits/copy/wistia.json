@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, update and organize media and folders in your customer's Wistia account, and read viewing analytics, through one Connect endpoint.",
+      "intro": "The Wistia toolkit covers media, folders and subfolders, plus account-level and per-video analytics: plays, play rate, engagement and a timeseries. Your product or AI agent calls them through Connect, which stores the customer's API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "Video analytics in your dashboard",
+          "body": "A SaaS pulls plays, play_rate and engagement_rate for a date range and shows them next to its own metrics."
+        },
+        {
+          "title": "Content performance reports",
+          "body": "An agency tool ranks the media or folders of an account by a metric and reads one video's timeseries by day, week or month."
+        },
+        {
+          "title": "Agent that organizes the library",
+          "body": "An AI agent renames and tags media, creates folders and moves up to 100 media at once."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, atualize e organize mídias e pastas na conta Wistia do seu cliente, e leia analytics de visualização, por um único endpoint do Connect.",
+      "intro": "O toolkit do Wistia cobre mídias, pastas e subpastas, além de analytics da conta e de cada vídeo: plays, play rate, engajamento e série temporal. Seu produto ou agente de IA os chama pelo Connect, que guarda a API key do cliente e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Analytics de vídeo no seu painel",
+          "body": "Um SaaS busca plays, play_rate e engagement_rate de um período e os exibe ao lado das próprias métricas."
+        },
+        {
+          "title": "Relatórios de desempenho de conteúdo",
+          "body": "Uma ferramenta de agência ranqueia as mídias ou pastas de uma conta por uma métrica e lê a série temporal de um vídeo por dia, semana ou mês."
+        },
+        {
+          "title": "Agente que organiza a biblioteca",
+          "body": "Um agente de IA renomeia e marca mídias com tags, cria pastas e move até 100 mídias de uma vez."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, actualiza y organiza medios y carpetas en la cuenta de Wistia de tu cliente, y lee analíticas de visualización, con un solo endpoint de Connect.",
+      "intro": "El toolkit de Wistia cubre medios, carpetas y subcarpetas, además de analíticas de la cuenta y de cada video: reproducciones, play rate, engagement y serie temporal. Tu producto o agente de IA los llama por Connect, que guarda la API key del cliente y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Analíticas de video en tu panel",
+          "body": "Un SaaS obtiene plays, play_rate y engagement_rate de un período y los muestra junto a sus propias métricas."
+        },
+        {
+          "title": "Informes de rendimiento de contenido",
+          "body": "Una herramienta de agencia ordena los medios o carpetas de una cuenta por una métrica y lee la serie temporal de un video por día, semana o mes."
+        },
+        {
+          "title": "Agente que organiza la biblioteca",
+          "body": "Un agente de IA renombra y etiqueta medios, crea carpetas y mueve hasta 100 medios a la vez."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, mettez à jour et organisez médias et dossiers dans le compte Wistia de votre client, et lisez les analytics de visionnage, via un seul endpoint Connect.",
+      "intro": "Le toolkit Wistia couvre médias, dossiers et sous-dossiers, ainsi que les analytics du compte et de chaque vidéo : lectures, play rate, engagement et série temporelle. Votre produit ou agent IA les appelle via Connect, qui stocke la clé API du client et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Analytics vidéo dans votre tableau de bord",
+          "body": "Un SaaS récupère plays, play_rate et engagement_rate sur une période et les affiche à côté de ses propres métriques."
+        },
+        {
+          "title": "Rapports de performance de contenu",
+          "body": "Un outil d'agence classe les médias ou dossiers d'un compte selon une métrique et lit la série temporelle d'une vidéo par jour, semaine ou mois."
+        },
+        {
+          "title": "Agent qui organise la bibliothèque",
+          "body": "Un agent IA renomme et tague des médias, crée des dossiers et déplace jusqu'à 100 médias à la fois."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "wistia_list_medias": {
+      "pt": {
+        "name": "Listar mídias",
+        "description": "Lista as mídias da conta (vídeos, áudios, imagens e documentos) com hashed_id, name, type, status, duração em segundos, pasta, subpasta, miniatura e datas."
+      },
+      "es": {
+        "name": "Listar medios",
+        "description": "Lista los medios de la cuenta (videos, audios, imágenes y documentos) con hashed_id, name, type, status, duración en segundos, carpeta, subcarpeta, miniatura y fechas."
+      },
+      "fr": {
+        "name": "Lister les médias",
+        "description": "Liste les médias du compte (vidéos, audios, images et documents) avec hashed_id, name, type, status, durée en secondes, dossier, sous-dossier, miniature et dates."
+      }
+    },
+    "wistia_get_media": {
+      "pt": {
+        "name": "Obter mídia",
+        "description": "Devolve uma mídia: name, type, status, duração em segundos, description, pasta, subpasta, tags, miniatura, os arquivos em assets e datas."
+      },
+      "es": {
+        "name": "Obtener medio",
+        "description": "Devuelve un medio: name, type, status, duración en segundos, description, carpeta, subcarpeta, tags, miniatura, los archivos en assets y fechas."
+      },
+      "fr": {
+        "name": "Obtenir un média",
+        "description": "Renvoie un média : name, type, status, durée en secondes, description, dossier, sous-dossier, tags, miniature, les fichiers dans assets et dates."
+      }
+    },
+    "wistia_update_media": {
+      "pt": {
+        "name": "Atualizar mídia",
+        "description": "Atualiza o nome, a descrição ou as tags de uma mídia e a devolve. Campos omitidos mantêm o valor, mas tags substitui a lista inteira de tags da mídia."
+      },
+      "es": {
+        "name": "Actualizar medio",
+        "description": "Actualiza el nombre, la descripción o las tags de un medio y lo devuelve. Los campos omitidos conservan su valor, pero tags reemplaza toda la lista de tags del medio."
+      },
+      "fr": {
+        "name": "Mettre à jour un média",
+        "description": "Met à jour le nom, la description ou les tags d'un média et le renvoie. Les champs omis gardent leur valeur, mais tags remplace toute la liste de tags du média."
+      }
+    },
+    "wistia_move_medias": {
+      "pt": {
+        "name": "Mover mídias",
+        "description": "Move até 100 mídias para uma pasta, ou para uma subpasta dessa pasta. O Wistia executa a movimentação em segundo plano e responde com o status de um background job."
+      },
+      "es": {
+        "name": "Mover medios",
+        "description": "Mueve hasta 100 medios a una carpeta, o a una subcarpeta de esa carpeta. Wistia ejecuta el movimiento en segundo plano y responde con el estado de un background job."
+      },
+      "fr": {
+        "name": "Déplacer des médias",
+        "description": "Déplace jusqu'à 100 médias vers un dossier, ou vers un sous-dossier de ce dossier. Wistia exécute le déplacement en arrière-plan et répond avec le statut d'un background job."
+      }
+    },
+    "wistia_list_folders": {
+      "pt": {
+        "name": "Listar pastas",
+        "description": "Lista as pastas compartilhadas da conta com hashed_id, name, description, media_count, flag de público e datas. As pastas My Library de cada usuário não estão incluídas."
+      },
+      "es": {
+        "name": "Listar carpetas",
+        "description": "Lista las carpetas compartidas de la cuenta con hashed_id, name, description, media_count, indicador de público y fechas. Las carpetas My Library de cada usuario no están incluidas."
+      },
+      "fr": {
+        "name": "Lister les dossiers",
+        "description": "Liste les dossiers partagés du compte avec hashed_id, name, description, media_count, indicateur public et dates. Les dossiers My Library de chaque utilisateur ne sont pas inclus."
+      }
+    },
+    "wistia_create_folder": {
+      "pt": {
+        "name": "Criar pasta",
+        "description": "Cria uma pasta compartilhada na conta, de propriedade do Account Owner, e a devolve com seu hashed_id."
+      },
+      "es": {
+        "name": "Crear carpeta",
+        "description": "Crea una carpeta compartida en la cuenta, propiedad del Account Owner, y la devuelve con su hashed_id."
+      },
+      "fr": {
+        "name": "Créer un dossier",
+        "description": "Crée un dossier partagé dans le compte, appartenant à l'Account Owner, et le renvoie avec son hashed_id."
+      }
+    },
+    "wistia_update_folder": {
+      "pt": {
+        "name": "Atualizar pasta",
+        "description": "Atualiza o nome, a descrição ou o acesso de uma pasta e a devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar carpeta",
+        "description": "Actualiza el nombre, la descripción o el acceso de una carpeta y la devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour un dossier",
+        "description": "Met à jour le nom, la description ou l'accès d'un dossier et le renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "wistia_list_subfolders": {
+      "pt": {
+        "name": "Listar subpastas",
+        "description": "Lista as subpastas de uma pasta com hashed_id, name, description, position e datas. Paginação por página: a lista termina quando uma página traz menos itens que per_page."
+      },
+      "es": {
+        "name": "Listar subcarpetas",
+        "description": "Lista las subcarpetas de una carpeta con hashed_id, name, description, position y fechas. Paginación por página: la lista termina cuando una página trae menos elementos que per_page."
+      },
+      "fr": {
+        "name": "Lister les sous-dossiers",
+        "description": "Liste les sous-dossiers d'un dossier avec hashed_id, name, description, position et dates. Pagination par page : la liste se termine quand une page contient moins d'éléments que per_page."
+      }
+    },
+    "wistia_get_account_analytics": {
+      "pt": {
+        "name": "Obter analytics da conta",
+        "description": "Devolve os totais da conta inteira em um intervalo de datas: plays, unique plays, unique loads, play_rate e engagement_rate (de 0 a 1), played_time em segundos e mais."
+      },
+      "es": {
+        "name": "Obtener analíticas de la cuenta",
+        "description": "Devuelve los totales de toda la cuenta en un rango de fechas: plays, unique plays, unique loads, play_rate y engagement_rate (de 0 a 1), played_time en segundos y más."
+      },
+      "fr": {
+        "name": "Obtenir les analytics du compte",
+        "description": "Renvoie les totaux de tout le compte sur une plage de dates : plays, unique plays, unique loads, play_rate et engagement_rate (de 0 à 1), played_time en secondes et plus."
+      }
+    },
+    "wistia_list_top_content": {
+      "pt": {
+        "name": "Listar conteúdo mais visto",
+        "description": "Ranqueia as mídias, canais ou pastas da conta por uma métrica em um intervalo de datas, com plays, play_rate, engagement_rate, played_time em segundos e visitantes únicos."
+      },
+      "es": {
+        "name": "Listar contenido más visto",
+        "description": "Ordena los medios, canales o carpetas de la cuenta por una métrica en un rango de fechas, con plays, play_rate, engagement_rate, played_time en segundos y visitantes únicos."
+      },
+      "fr": {
+        "name": "Lister les contenus les plus vus",
+        "description": "Classe les médias, chaînes ou dossiers du compte selon une métrique sur une plage de dates, avec plays, play_rate, engagement_rate, played_time en secondes et visiteurs uniques."
+      }
+    },
+    "wistia_get_media_analytics": {
+      "pt": {
+        "name": "Obter analytics da mídia",
+        "description": "Devolve os totais de um vídeo em um intervalo de datas: plays, unique plays, unique loads, play_rate e engagement_rate (de 0 a 1), played_time em segundos e mais."
+      },
+      "es": {
+        "name": "Obtener analíticas del medio",
+        "description": "Devuelve los totales de un video en un rango de fechas: plays, unique plays, unique loads, play_rate y engagement_rate (de 0 a 1), played_time en segundos y más."
+      },
+      "fr": {
+        "name": "Obtenir les analytics d'un média",
+        "description": "Renvoie les totaux d'une vidéo sur une plage de dates : plays, unique plays, unique loads, play_rate et engagement_rate (de 0 à 1), played_time en secondes et plus."
+      }
+    },
+    "wistia_get_media_analytics_timeseries": {
+      "pt": {
+        "name": "Obter série temporal da mídia",
+        "description": "Devolve as métricas de um vídeo balde a balde em um intervalo de datas, por dia, semana ou mês: uma lista com timestamp, plays, unique plays e loads, play_rate, engagement e mais."
+      },
+      "es": {
+        "name": "Obtener serie temporal del medio",
+        "description": "Devuelve las métricas de un video por intervalo en un rango de fechas, por día, semana o mes: una lista con timestamp, plays, unique plays y loads, play_rate, engagement y más."
+      },
+      "fr": {
+        "name": "Obtenir la série temporelle d'un média",
+        "description": "Renvoie les métriques d'une vidéo intervalle par intervalle sur une plage de dates, par jour, semaine ou mois : une liste avec timestamp, plays, unique plays et loads, play_rate, engagement et plus."
+      }
+    }
+  }
+}

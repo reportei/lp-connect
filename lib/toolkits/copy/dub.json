@@ -1,0 +1,218 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and manage short links, tags and folders, and read click, lead and sale analytics, in your customer's Dub workspace through Connect.",
+      "intro": "The Dub toolkit lists, creates and updates short links, organizes them with tags and folders, and reads analytics and individual click, lead and sale events. Your product or AI agent calls them through Connect, which handles the customer's OAuth connection and logs every execution.",
+      "useCases": [
+        {
+          "title": "Short links inside your product",
+          "body": "A SaaS creates a short link with UTM parameters for each campaign or invite and stores the returned shortLink."
+        },
+        {
+          "title": "Campaign reports from click data",
+          "body": "An agency tool pulls clicks, leads and sales by link, tag or folder and charts them in its own dashboard."
+        },
+        {
+          "title": "Agent that tidies links",
+          "body": "An AI agent lists links, creates a tag for a client and updates or archives links that are out of date."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e gerencie links curtos, tags e pastas, e leia analytics de cliques, leads e vendas, no workspace Dub do seu cliente pelo Connect.",
+      "intro": "O toolkit do Dub lista, cria e atualiza links curtos, organiza com tags e pastas, e lê analytics e eventos individuais de clique, lead e venda. Seu produto ou agente de IA os chama pelo Connect, que cuida da conexão OAuth do cliente e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Links curtos no seu produto",
+          "body": "Um SaaS cria um link curto com parâmetros UTM para cada campanha ou convite e guarda o shortLink devolvido."
+        },
+        {
+          "title": "Relatórios de campanha com cliques",
+          "body": "Uma ferramenta de agência busca cliques, leads e vendas por link, tag ou pasta e os exibe no próprio painel."
+        },
+        {
+          "title": "Agente que organiza links",
+          "body": "Um agente de IA lista links, cria uma tag para um cliente e atualiza ou arquiva links desatualizados."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y gestiona enlaces cortos, etiquetas y carpetas, y lee analíticas de clics, leads y ventas, en el workspace de Dub de tu cliente con Connect.",
+      "intro": "El toolkit de Dub lista, crea y actualiza enlaces cortos, los organiza con etiquetas y carpetas, y lee analíticas y eventos individuales de clic, lead y venta. Tu producto o agente de IA los llama por Connect, que maneja la conexión OAuth del cliente y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Enlaces cortos en tu producto",
+          "body": "Un SaaS crea un enlace corto con parámetros UTM para cada campaña o invitación y guarda el shortLink devuelto."
+        },
+        {
+          "title": "Informes de campaña con clics",
+          "body": "Una herramienta de agencia obtiene clics, leads y ventas por enlace, etiqueta o carpeta y los muestra en su propio panel."
+        },
+        {
+          "title": "Agente que ordena enlaces",
+          "body": "Un agente de IA lista enlaces, crea una etiqueta para un cliente y actualiza o archiva enlaces desactualizados."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et gérez liens courts, tags et dossiers, et lisez les analytics de clics, leads et ventes, dans le workspace Dub de votre client via Connect.",
+      "intro": "Le toolkit Dub liste, crée et met à jour des liens courts, les organise avec tags et dossiers, et lit les analytics ainsi que les événements de clic, lead et vente un par un. Votre produit ou agent IA les appelle via Connect, qui gère la connexion OAuth du client et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Liens courts dans votre produit",
+          "body": "Un SaaS crée un lien court avec paramètres UTM pour chaque campagne ou invitation et conserve le shortLink renvoyé."
+        },
+        {
+          "title": "Rapports de campagne par clics",
+          "body": "Un outil d'agence récupère clics, leads et ventes par lien, tag ou dossier et les affiche dans son propre tableau de bord."
+        },
+        {
+          "title": "Agent qui range les liens",
+          "body": "Un agent IA liste les liens, crée un tag pour un client et met à jour ou archive les liens obsolètes."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "dub_list_links": {
+      "pt": {
+        "name": "Listar links",
+        "description": "Lista os links curtos do workspace com destino, tags, pasta, parâmetros UTM e as contagens de cliques, leads e vendas. Para a próxima página, envie o id do último link."
+      },
+      "es": {
+        "name": "Listar enlaces",
+        "description": "Lista los enlaces cortos del workspace con destino, etiquetas, carpeta, parámetros UTM y los conteos de clics, leads y ventas. Para la página siguiente, envía el id del último enlace."
+      },
+      "fr": {
+        "name": "Lister les liens",
+        "description": "Liste les liens courts du workspace avec destination, tags, dossier, paramètres UTM et les nombres de clics, leads et ventes. Pour la page suivante, envoyez l'id du dernier lien."
+      }
+    },
+    "dub_get_link": {
+      "pt": {
+        "name": "Obter link",
+        "description": "Devolve um link curto com as contagens de cliques, leads e vendas. Envie domain e key juntos, como dub.sh e abc123 para dub.sh/abc123, ou envie linkId."
+      },
+      "es": {
+        "name": "Obtener enlace",
+        "description": "Devuelve un enlace corto con los conteos de clics, leads y ventas. Envía domain y key juntos, como dub.sh y abc123 para dub.sh/abc123, o envía linkId."
+      },
+      "fr": {
+        "name": "Obtenir un lien",
+        "description": "Renvoie un lien court avec les nombres de clics, leads et ventes. Envoyez domain et key ensemble, comme dub.sh et abc123 pour dub.sh/abc123, ou envoyez linkId."
+      }
+    },
+    "dub_create_link": {
+      "pt": {
+        "name": "Criar link",
+        "description": "Encurta uma URL e devolve o link curto em shortLink, com seu id. Sem domain usa o domínio principal do workspace, ou dub.sh se não houver."
+      },
+      "es": {
+        "name": "Crear enlace",
+        "description": "Acorta una URL y devuelve el enlace corto en shortLink, con su id. Sin domain usa el dominio principal del workspace, o dub.sh si no hay."
+      },
+      "fr": {
+        "name": "Créer un lien",
+        "description": "Raccourcit une URL et renvoie le lien court dans shortLink, avec son id. Sans domain il utilise le domaine principal du workspace, ou dub.sh s'il n'y en a pas."
+      }
+    },
+    "dub_update_link": {
+      "pt": {
+        "name": "Atualizar link",
+        "description": "Altera um link curto; só os campos enviados mudam. Um novo domain ou key muda o próprio link curto, e archived true oculta o link de Listar links."
+      },
+      "es": {
+        "name": "Actualizar enlace",
+        "description": "Cambia un enlace corto; solo cambian los campos enviados. Un nuevo domain o key cambia el propio enlace corto, y archived en true oculta el enlace de Listar enlaces."
+      },
+      "fr": {
+        "name": "Mettre à jour un lien",
+        "description": "Modifie un lien court ; seuls les champs envoyés changent. Un nouveau domain ou key change le lien court lui-même, et archived à true masque le lien de Lister les liens."
+      }
+    },
+    "dub_get_analytics": {
+      "pt": {
+        "name": "Obter analytics",
+        "description": "Devolve cliques, leads ou vendas do workspace, de um domínio, link, tag ou pasta, como total, série temporal ou ranking escolhido por groupBy."
+      },
+      "es": {
+        "name": "Obtener analíticas",
+        "description": "Devuelve clics, leads o ventas del workspace, de un dominio, enlace, etiqueta o carpeta, como total, serie temporal o ranking elegido por groupBy."
+      },
+      "fr": {
+        "name": "Obtenir les analytics",
+        "description": "Renvoie clics, leads ou ventes du workspace, d'un domaine, lien, tag ou dossier, en total, série temporelle ou classement choisi par groupBy."
+      }
+    },
+    "dub_list_events": {
+      "pt": {
+        "name": "Listar eventos",
+        "description": "Lista eventos de clique, lead ou venda um a um, com horário, link e detalhes do clique e, para leads e vendas, o cliente. Exige o plano Business ou superior."
+      },
+      "es": {
+        "name": "Listar eventos",
+        "description": "Lista eventos de clic, lead o venta uno por uno, con hora, enlace y detalles del clic y, para leads y ventas, el cliente. Exige el plan Business o superior."
+      },
+      "fr": {
+        "name": "Lister les événements",
+        "description": "Liste les événements de clic, lead ou vente un par un, avec l'heure, le lien et les détails du clic et, pour les leads et ventes, le client. Exige le plan Business ou supérieur."
+      }
+    },
+    "dub_list_domains": {
+      "pt": {
+        "name": "Listar domínios",
+        "description": "Lista os domínios personalizados do workspace, cujo slug vai no argumento domain das tools de link. As páginas começam em 1, e uma página menor que pageSize é a última."
+      },
+      "es": {
+        "name": "Listar dominios",
+        "description": "Lista los dominios personalizados del workspace, cuyo slug va en el argumento domain de las tools de enlace. Las páginas empiezan en 1, y una página menor que pageSize es la última."
+      },
+      "fr": {
+        "name": "Lister les domaines",
+        "description": "Liste les domaines personnalisés du workspace, dont le slug va dans l'argument domain des tools de lien. Les pages commencent à 1, et une page plus courte que pageSize est la dernière."
+      }
+    },
+    "dub_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags do workspace com seus ids e cores. As páginas começam em 1, e uma página menor que pageSize é a última."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas del workspace con sus ids y colores. Las páginas empiezan en 1, y una página menor que pageSize es la última."
+      },
+      "fr": {
+        "name": "Lister les tags",
+        "description": "Liste les tags du workspace avec leurs ids et couleurs. Les pages commencent à 1, et une page plus courte que pageSize est la dernière."
+      }
+    },
+    "dub_create_tag": {
+      "pt": {
+        "name": "Criar tag",
+        "description": "Cria uma tag para organizar links, como uma campanha ou um cliente. A resposta traz o id que vai em tagIds."
+      },
+      "es": {
+        "name": "Crear etiqueta",
+        "description": "Crea una etiqueta para organizar enlaces, como una campaña o un cliente. La respuesta trae el id que va en tagIds."
+      },
+      "fr": {
+        "name": "Créer un tag",
+        "description": "Crée un tag pour organiser les liens, comme une campagne ou un client. La réponse contient l'id qui va dans tagIds."
+      }
+    },
+    "dub_list_folders": {
+      "pt": {
+        "name": "Listar pastas",
+        "description": "Lista as pastas de links do workspace com seus ids. As páginas começam em 1, e uma página menor que pageSize é a última."
+      },
+      "es": {
+        "name": "Listar carpetas",
+        "description": "Lista las carpetas de enlaces del workspace con sus ids. Las páginas empiezan en 1, y una página menor que pageSize es la última."
+      },
+      "fr": {
+        "name": "Lister les dossiers",
+        "description": "Liste les dossiers de liens du workspace avec leurs ids. Les pages commencent à 1, et une page plus courte que pageSize est la dernière."
+      }
+    }
+  }
+}

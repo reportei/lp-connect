@@ -1,0 +1,112 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read Spaces and Lists, and create, update and comment on tasks in your customer's ClickUp Workspace through one Reportei Connect endpoint.",
+      "intro": "The ClickUp toolkit covers Workspaces, Spaces, Folders, Lists, tasks and task comments. Your customer authorizes ClickUp once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        { "title": "Turn tickets into tasks", "body": "When a support request or a sales deal reaches a state in your product, create a task in the right List with assignees and a due date." },
+        { "title": "Sync task status back", "body": "Search tasks across a Workspace by date and update their status, so your product shows what is due this week and marks work as complete." },
+        { "title": "A project assistant agent", "body": "Let an AI agent browse Spaces and Lists, read a task with its checklists, and post comments, without you writing the ClickUp integration." }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia Spaces e Lists, crie, atualize e comente tarefas no Workspace do ClickUp do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do ClickUp cobre Workspaces, Spaces, Folders, Lists, tarefas e comentários de tarefas. Seu cliente autoriza o ClickUp uma vez com OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        { "title": "Transformar tickets em tarefas", "body": "Quando um pedido de suporte ou uma negociação chega a um estado no seu produto, crie uma tarefa na List certa com responsáveis e data de entrega." },
+        { "title": "Sincronizar o status das tarefas", "body": "Busque tarefas de todo o Workspace por data e atualize o status, para seu produto mostrar o que vence na semana e marcar o trabalho como concluído." },
+        { "title": "Assistente de projetos com IA", "body": "Deixe um agente de IA navegar por Spaces e Lists, ler uma tarefa com seus checklists e publicar comentários, sem você escrever a integração com o ClickUp." }
+      ]
+    },
+    "es": {
+      "tagline": "Lee Spaces y Lists, y crea, actualiza y comenta tareas en el Workspace de ClickUp de tu cliente con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de ClickUp cubre Workspaces, Spaces, Folders, Lists, tareas y comentarios de tareas. Tu cliente autoriza ClickUp una vez con OAuth, y tu producto o agente de IA llama cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        { "title": "Convertir tickets en tareas", "body": "Cuando una solicitud de soporte o una negociación llega a cierto estado en tu producto, crea una tarea en la List correcta con responsables y fecha de entrega." },
+        { "title": "Sincronizar el estado de las tareas", "body": "Busca tareas de todo el Workspace por fecha y actualiza su estado, para que tu producto muestre lo que vence esta semana y marque el trabajo como completado." },
+        { "title": "Asistente de proyectos con IA", "body": "Deja que un agente de IA navegue por Spaces y Lists, lea una tarea con sus checklists y publique comentarios, sin que escribas la integración con ClickUp." }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez Spaces et Lists, créez, mettez à jour et commentez des tâches dans le Workspace ClickUp de votre client via un seul endpoint Reportei Connect.",
+      "intro": "Le toolkit ClickUp couvre les Workspaces, Spaces, Folders, Lists, tâches et commentaires de tâches. Votre client autorise ClickUp une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        { "title": "Transformer les tickets en tâches", "body": "Quand une demande de support ou une affaire atteint un état dans votre produit, créez une tâche dans la bonne List avec des assignés et une échéance." },
+        { "title": "Synchroniser le statut des tâches", "body": "Recherchez les tâches d'un Workspace par date et mettez à jour leur statut, pour que votre produit affiche ce qui est dû cette semaine et marque le travail comme terminé." },
+        { "title": "Un assistant de projet IA", "body": "Laissez un agent IA parcourir Spaces et Lists, lire une tâche avec ses checklists et publier des commentaires, sans écrire l'intégration ClickUp." }
+      ]
+    }
+  },
+  "tools": {
+    "clickup_list_workspaces": {
+      "pt": { "name": "Listar workspaces", "description": "Lista os Workspaces (chamados de teams na API v2) que o usuário autorizou na conexão, cada um com seu id e seus membros. Os ids de usuário dos membros são os que os argumentos assignee aceitam." },
+      "es": { "name": "Listar workspaces", "description": "Lista los Workspaces (llamados teams en la API v2) que el usuario autorizó en la conexión, cada uno con su id y sus miembros. Los ids de usuario de los miembros son los que aceptan los argumentos assignee." },
+      "fr": { "name": "Lister les workspaces", "description": "Liste les Workspaces (appelés teams dans l'API v2) que l'utilisateur a autorisés pour la connexion, chacun avec son id et ses membres. Les ids utilisateur des membres sont ceux que prennent les arguments assignee." }
+    },
+    "clickup_list_spaces": {
+      "pt": { "name": "Listar spaces", "description": "Lista os Spaces de um Workspace, com os status de tarefa que cada Space define. Os nomes de status são os que os argumentos status das ferramentas de tarefa aceitam." },
+      "es": { "name": "Listar spaces", "description": "Lista los Spaces de un Workspace, con los estados de tarea que define cada Space. Los nombres de estado son los que aceptan los argumentos status de las herramientas de tarea." },
+      "fr": { "name": "Lister les spaces", "description": "Liste les Spaces d'un Workspace, avec les statuts de tâche que chaque Space définit. Les noms de statut sont ceux que prennent les arguments status des outils de tâche." }
+    },
+    "clickup_list_folders": {
+      "pt": { "name": "Listar folders", "description": "Lista os Folders de um Space. Os subfolders vêm na mesma lista plana, com parent_folder contendo o id do Folder onde estão." },
+      "es": { "name": "Listar folders", "description": "Lista los Folders de un Space. Los subfolders vienen en la misma lista plana, con parent_folder con el id del Folder donde están." },
+      "fr": { "name": "Lister les folders", "description": "Liste les Folders d'un Space. Les sous-folders arrivent dans la même liste à plat, avec parent_folder contenant l'id du Folder dans lequel ils se trouvent." }
+    },
+    "clickup_list_lists": {
+      "pt": { "name": "Listar lists", "description": "Lista as Lists de um Folder. As Lists que ficam direto em um Space, fora de qualquer Folder, vêm de List folderless lists." },
+      "es": { "name": "Listar lists", "description": "Lista las Lists de un Folder. Las Lists que están directamente en un Space, fuera de cualquier Folder, vienen de List folderless lists." },
+      "fr": { "name": "Lister les lists", "description": "Liste les Lists d'un Folder. Les Lists situées directement dans un Space, hors de tout Folder, viennent de List folderless lists." }
+    },
+    "clickup_list_folderless_lists": {
+      "pt": { "name": "Listar lists sem folder", "description": "Lista as Lists que ficam direto em um Space, fora de qualquer Folder." },
+      "es": { "name": "Listar lists sin folder", "description": "Lista las Lists que están directamente en un Space, fuera de cualquier Folder." },
+      "fr": { "name": "Lister les lists sans folder", "description": "Liste les Lists situées directement dans un Space, hors de tout Folder." }
+    },
+    "clickup_create_list": {
+      "pt": { "name": "Criar list", "description": "Cria uma List em um Folder. Exige name. A List usa os status de tarefa do seu Folder ou Space." },
+      "es": { "name": "Crear list", "description": "Crea una List en un Folder. Requiere name. La List usa los estados de tarea de su Folder o Space." },
+      "fr": { "name": "Créer une list", "description": "Crée une List dans un Folder. Exige name. La List reprend les statuts de tâche de son Folder ou Space." }
+    },
+    "clickup_list_tasks": {
+      "pt": { "name": "Listar tarefas", "description": "Lista as tarefas que têm como origem uma List, até 100 por página, sem tarefas fechadas e subtarefas, a menos que peçam. Percorra com page enquanto last_page na resposta for false. As datas são Unix time em milissegundos." },
+      "es": { "name": "Listar tareas", "description": "Lista las tareas cuyo origen es una List, hasta 100 por página, sin tareas cerradas ni subtareas salvo que se pidan. Recorre con page mientras last_page en la respuesta sea false. Las fechas son Unix time en milisegundos." },
+      "fr": { "name": "Lister les tâches", "description": "Liste les tâches dont l'origine est une List, jusqu'à 100 par page, sans les tâches fermées ni les sous-tâches sauf demande. Parcourez avec page tant que last_page dans la réponse est false. Les dates sont en Unix time en millisecondes." }
+    },
+    "clickup_search_tasks": {
+      "pt": { "name": "Buscar tarefas", "description": "Busca as tarefas de um Workspace inteiro por data, como as que vencem esta semana em todas as Lists, até 100 por página e sem tarefas fechadas, a menos que peçam. Percorra com page até uma resposta trazer menos de 100 tarefas. As datas são Unix time em milissegundos." },
+      "es": { "name": "Buscar tareas", "description": "Busca las tareas de todo un Workspace por fecha, como las que vencen esta semana en todas las Lists, hasta 100 por página y sin tareas cerradas salvo que se pidan. Recorre con page hasta que una respuesta traiga menos de 100 tareas. Las fechas son Unix time en milisegundos." },
+      "fr": { "name": "Rechercher des tâches", "description": "Recherche les tâches de tout un Workspace par date, comme celles dues cette semaine dans toutes les Lists, jusqu'à 100 par page et sans les tâches fermées sauf demande. Parcourez avec page jusqu'à ce qu'une réponse contienne moins de 100 tâches. Les dates sont en Unix time en millisecondes." }
+    },
+    "clickup_get_task": {
+      "pt": { "name": "Obter tarefa", "description": "Retorna uma tarefa com status, responsáveis, datas, tags, valores de campos personalizados, checklists e anexos." },
+      "es": { "name": "Obtener tarea", "description": "Devuelve una tarea con estado, responsables, fechas, etiquetas, valores de campos personalizados, checklists y adjuntos." },
+      "fr": { "name": "Obtenir une tâche", "description": "Renvoie une tâche avec son statut, ses assignés, ses dates, ses tags, les valeurs de champs personnalisés, ses checklists et ses pièces jointes." }
+    },
+    "clickup_create_task": {
+      "pt": { "name": "Criar tarefa", "description": "Cria uma tarefa em uma List. Exige name. O ClickUp notifica os responsáveis e observadores, e também o criador quando notify_all é true. As datas são Unix time em milissegundos." },
+      "es": { "name": "Crear tarea", "description": "Crea una tarea en una List. Requiere name. ClickUp notifica a los responsables y observadores, y también al creador cuando notify_all es true. Las fechas son Unix time en milisegundos." },
+      "fr": { "name": "Créer une tâche", "description": "Crée une tâche dans une List. Exige name. ClickUp notifie les assignés et les observateurs, et aussi le créateur quand notify_all vaut true. Les dates sont en Unix time en millisecondes." }
+    },
+    "clickup_update_task": {
+      "pt": { "name": "Atualizar tarefa", "description": "Atualiza os campos enviados e mantém os demais. Para concluir uma tarefa, defina status com um status fechado da List, como complete. Os valores de campos personalizados não mudam aqui. As datas são Unix time em milissegundos." },
+      "es": { "name": "Actualizar tarea", "description": "Actualiza los campos enviados y conserva los demás. Para completar una tarea, define status con un estado cerrado de su List, como complete. Los valores de campos personalizados no cambian aquí. Las fechas son Unix time en milisegundos." },
+      "fr": { "name": "Mettre à jour une tâche", "description": "Met à jour les champs envoyés et conserve les autres. Pour terminer une tâche, définissez status avec un statut fermé de sa List, comme complete. Les valeurs de champs personnalisés ne changent pas ici. Les dates sont en Unix time en millisecondes." }
+    },
+    "clickup_delete_task": {
+      "pt": { "name": "Excluir tarefa", "description": "Exclui uma tarefa do Workspace." },
+      "es": { "name": "Eliminar tarea", "description": "Elimina una tarea del Workspace." },
+      "fr": { "name": "Supprimer une tâche", "description": "Supprime une tâche du Workspace." }
+    },
+    "clickup_list_task_comments": {
+      "pt": { "name": "Listar comentários da tarefa", "description": "Lista os comentários de uma tarefa, do mais novo ao mais antigo, 25 por chamada. Para a próxima página, envie a data e o id do último comentário recebido em start e start_id." },
+      "es": { "name": "Listar comentarios de la tarea", "description": "Lista los comentarios de una tarea, del más nuevo al más antiguo, 25 por llamada. Para la página siguiente, envía la fecha y el id del último comentario recibido en start y start_id." },
+      "fr": { "name": "Lister les commentaires d'une tâche", "description": "Liste les commentaires d'une tâche, du plus récent au plus ancien, 25 par appel. Pour la page suivante, envoyez la date et l'id du dernier commentaire reçu dans start et start_id." }
+    },
+    "clickup_create_task_comment": {
+      "pt": { "name": "Criar comentário na tarefa", "description": "Adiciona um comentário a uma tarefa. Exige comment_text e notify_all. Os responsáveis e observadores da tarefa são sempre notificados." },
+      "es": { "name": "Crear comentario en la tarea", "description": "Añade un comentario a una tarea. Requiere comment_text y notify_all. Los responsables y observadores de la tarea siempre reciben notificación." },
+      "fr": { "name": "Créer un commentaire sur une tâche", "description": "Ajoute un commentaire à une tâche. Exige comment_text et notify_all. Les assignés et observateurs de la tâche sont toujours notifiés." }
+    }
+  }
+}

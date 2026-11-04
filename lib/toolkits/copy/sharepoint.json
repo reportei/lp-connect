@@ -1,0 +1,190 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search sites and read, create and delete list items in your customer's SharePoint through one Connect endpoint, ready for AI agents.",
+      "intro": "The SharePoint toolkit covers sites, lists and document libraries, list columns and list items in a Microsoft 365 organization. Your customer connects SharePoint once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Write records to a SharePoint list",
+          "body": "Read a list's columns, then create an item with the required fields so data from your product lands where the customer's team already works."
+        },
+        {
+          "title": "Browse a customer's sites",
+          "body": "Search sites by keyword, list their lists and libraries and read items with their column values."
+        },
+        {
+          "title": "Agent cleans up list items",
+          "body": "An AI agent finds items by their fields, reads them with Get item and deletes the ones the user confirms."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque sites e leia, crie e exclua itens de listas no SharePoint do seu cliente por um único endpoint do Connect, pronto para agentes de IA.",
+      "intro": "O toolkit do SharePoint cobre sites, listas e bibliotecas de documentos, colunas de listas e itens de listas em uma organização Microsoft 365. Seu cliente conecta o SharePoint uma vez por OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Grave registros em uma lista",
+          "body": "Leia as colunas de uma lista e crie um item com os campos obrigatórios para os dados do seu produto chegarem onde a equipe do cliente já trabalha."
+        },
+        {
+          "title": "Navegue pelos sites do cliente",
+          "body": "Busque sites por palavra-chave, liste suas listas e bibliotecas e leia itens com os valores das colunas."
+        },
+        {
+          "title": "Agente limpa itens de listas",
+          "body": "Um agente de IA encontra itens pelos seus campos, lê cada um com Obter item e exclui os que o usuário confirmar."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Busca sitios y lee, crea y elimina elementos de listas en el SharePoint de tu cliente con un único endpoint de Connect, listo para agentes de IA.",
+      "intro": "El toolkit de SharePoint cubre sitios, listas y bibliotecas de documentos, columnas de listas y elementos de listas en una organización de Microsoft 365. Tu cliente conecta SharePoint una vez con OAuth, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Escribe registros en una lista",
+          "body": "Lee las columnas de una lista y crea un elemento con los campos obligatorios para que los datos de tu producto lleguen donde ya trabaja el equipo del cliente."
+        },
+        {
+          "title": "Explora los sitios del cliente",
+          "body": "Busca sitios por palabra clave, lista sus listas y bibliotecas y lee elementos con los valores de sus columnas."
+        },
+        {
+          "title": "Agente limpia elementos de listas",
+          "body": "Un agente de IA encuentra elementos por sus campos, lee cada uno con Obtener elemento y elimina los que el usuario confirme."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez des sites et lisez, créez et supprimez des éléments de listes dans le SharePoint de votre client via un seul endpoint Connect, prêt pour l'IA.",
+      "intro": "Le toolkit SharePoint couvre les sites, les listes et bibliothèques de documents, les colonnes de listes et les éléments de listes d'une organisation Microsoft 365. Votre client connecte SharePoint une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Écrire des enregistrements dans une liste",
+          "body": "Lisez les colonnes d'une liste puis créez un élément avec les champs obligatoires pour que les données de votre produit arrivent là où l'équipe du client travaille déjà."
+        },
+        {
+          "title": "Parcourir les sites du client",
+          "body": "Recherchez des sites par mot-clé, listez leurs listes et bibliothèques et lisez les éléments avec les valeurs de leurs colonnes."
+        },
+        {
+          "title": "Un agent nettoie des éléments de listes",
+          "body": "Un agent IA retrouve des éléments par leurs champs, lit chacun avec Obtenir un élément et supprime ceux que l'utilisateur confirme."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "sharepoint_search_sites": {
+      "pt": {
+        "name": "Buscar sites",
+        "description": "Busca os sites do SharePoint da organização por palavra-chave e retorna id, displayName, name, webUrl e descrição. Use o id como site_id. Só a primeira página é retornada."
+      },
+      "es": {
+        "name": "Buscar sitios",
+        "description": "Busca los sitios de SharePoint de la organización por palabra clave y devuelve id, displayName, name, webUrl y descripción. Usa el id como site_id. Solo se devuelve la primera página."
+      },
+      "fr": {
+        "name": "Rechercher des sites",
+        "description": "Recherche les sites SharePoint de l'organisation par mot-clé et renvoie id, displayName, name, webUrl et description. Utilisez l'id comme site_id. Seule la première page est renvoyée."
+      }
+    },
+    "sharepoint_get_site": {
+      "pt": {
+        "name": "Obter site",
+        "description": "Retorna um site com id, displayName, name, descrição, webUrl e createdDateTime."
+      },
+      "es": {
+        "name": "Obtener sitio",
+        "description": "Devuelve un sitio con id, displayName, name, descripción, webUrl y createdDateTime."
+      },
+      "fr": {
+        "name": "Obtenir un site",
+        "description": "Renvoie un site avec id, displayName, name, description, webUrl et createdDateTime."
+      }
+    },
+    "sharepoint_list_lists": {
+      "pt": {
+        "name": "Listar listas",
+        "description": "Lista as listas e bibliotecas de documentos de um site, com id, name, displayName, webUrl e list.template, que é genericList para uma lista e documentLibrary para uma biblioteca. Listas ocultas do sistema ficam de fora. Só a primeira página é retornada."
+      },
+      "es": {
+        "name": "Listar listas",
+        "description": "Lista las listas y bibliotecas de documentos de un sitio, con id, name, displayName, webUrl y list.template, que es genericList para una lista y documentLibrary para una biblioteca. Las listas ocultas del sistema quedan fuera. Solo se devuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les listes",
+        "description": "Liste les listes et bibliothèques de documents d'un site, avec id, name, displayName, webUrl et list.template, qui vaut genericList pour une liste et documentLibrary pour une bibliothèque. Les listes système masquées sont exclues. Seule la première page est renvoyée."
+      }
+    },
+    "sharepoint_list_columns": {
+      "pt": {
+        "name": "Listar colunas",
+        "description": "Lista as colunas de uma lista com name, displayName, required, readOnly e a faceta do seu tipo, como text, number, dateTime, boolean ou choice com as opções permitidas. O name, não o displayName, é a chave de uma coluna em fields."
+      },
+      "es": {
+        "name": "Listar columnas",
+        "description": "Lista las columnas de una lista con name, displayName, required, readOnly y la faceta de su tipo, como text, number, dateTime, boolean o choice con las opciones permitidas. El name, no el displayName, es la clave de una columna en fields."
+      },
+      "fr": {
+        "name": "Lister les colonnes",
+        "description": "Liste les colonnes d'une liste avec name, displayName, required, readOnly et la facette de leur type, comme text, number, dateTime, boolean ou choice avec les choix autorisés. Le name, et non le displayName, est la clé d'une colonne dans fields."
+      }
+    },
+    "sharepoint_list_items": {
+      "pt": {
+        "name": "Listar itens",
+        "description": "Lista os itens de uma lista com id, webUrl, createdBy e lastModifiedDateTime, além dos valores das colunas em fields quando expand é fields. Em uma biblioteca de documentos, cada item é um arquivo ou pasta. Só a primeira página é retornada."
+      },
+      "es": {
+        "name": "Listar elementos",
+        "description": "Lista los elementos de una lista con id, webUrl, createdBy y lastModifiedDateTime, además de los valores de las columnas en fields cuando expand es fields. En una biblioteca de documentos, cada elemento es un archivo o carpeta. Solo se devuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les éléments",
+        "description": "Liste les éléments d'une liste avec id, webUrl, createdBy et lastModifiedDateTime, plus les valeurs des colonnes dans fields quand expand vaut fields. Dans une bibliothèque de documents, chaque élément est un fichier ou un dossier. Seule la première page est renvoyée."
+      }
+    },
+    "sharepoint_get_item": {
+      "pt": {
+        "name": "Obter item",
+        "description": "Retorna um item de uma lista com id, webUrl, createdBy e lastModifiedDateTime, além dos valores das colunas em fields quando expand é fields."
+      },
+      "es": {
+        "name": "Obtener elemento",
+        "description": "Devuelve un elemento de una lista con id, webUrl, createdBy y lastModifiedDateTime, además de los valores de las columnas en fields cuando expand es fields."
+      },
+      "fr": {
+        "name": "Obtenir un élément",
+        "description": "Renvoie un élément d'une liste avec id, webUrl, createdBy et lastModifiedDateTime, plus les valeurs des colonnes dans fields quand expand vaut fields."
+      }
+    },
+    "sharepoint_create_item": {
+      "pt": {
+        "name": "Criar item",
+        "description": "Cria um item em uma lista e o retorna com seu id e os valores salvos. Toda coluna obrigatória de Listar colunas deve estar em fields."
+      },
+      "es": {
+        "name": "Crear elemento",
+        "description": "Crea un elemento en una lista y lo devuelve con su id y los valores guardados. Toda columna obligatoria de Listar columnas debe estar en fields."
+      },
+      "fr": {
+        "name": "Créer un élément",
+        "description": "Crée un élément dans une liste et le renvoie avec son id et les valeurs enregistrées. Chaque colonne obligatoire de Lister les colonnes doit figurer dans fields."
+      }
+    },
+    "sharepoint_delete_item": {
+      "pt": {
+        "name": "Excluir item",
+        "description": "Exclui um item de uma lista."
+      },
+      "es": {
+        "name": "Eliminar elemento",
+        "description": "Elimina un elemento de una lista."
+      },
+      "fr": {
+        "name": "Supprimer un élément",
+        "description": "Supprime un élément d'une liste."
+      }
+    }
+  }
+}

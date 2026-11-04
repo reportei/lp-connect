@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and run cold email campaigns, add leads and read analytics in your customer's Instantly workspace from your product or AI agent, through Connect.",
+      "intro": "The Instantly toolkit covers the campaigns, leads, lead lists and sending accounts of an Instantly workspace: create, update, activate and pause campaigns, add and update leads, and read campaign analytics. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores the API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "Push leads into campaigns",
+          "body": "When your CRM or prospecting tool qualifies a lead, create it in an Instantly campaign or lead list so it enters the sequence on schedule."
+        },
+        {
+          "title": "Agent-built outreach",
+          "body": "An AI agent creates a campaign as a draft with its email steps and sending accounts, and your product activates it after review."
+        },
+        {
+          "title": "Sync replies to your CRM",
+          "body": "Update a lead's interest status, such as interested or meeting booked, and read campaign analytics like sent, replies and opportunities for reporting."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie campanhas de cold email, adicione leads e leia métricas no workspace Instantly do seu cliente, a partir do seu produto ou agente de IA.",
+      "intro": "O toolkit da Instantly cobre campanhas, leads, listas de leads e contas de envio de um workspace Instantly: criar, atualizar, ativar e pausar campanhas, adicionar e atualizar leads e ler as métricas das campanhas. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda a chave de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Enviar leads para campanhas",
+          "body": "Quando seu CRM ou ferramenta de prospecção qualifica um lead, crie-o em uma campanha ou lista de leads da Instantly para que ele entre na sequência no horário."
+        },
+        {
+          "title": "Outreach montado por agente",
+          "body": "Um agente de IA cria uma campanha como rascunho, com os passos de email e as contas de envio, e seu produto a ativa depois da revisão."
+        },
+        {
+          "title": "Respostas de volta ao CRM",
+          "body": "Atualize o status de interesse de um lead, como interessado ou reunião marcada, e leia métricas como enviados, respostas e oportunidades para relatórios."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y ejecuta campañas de cold email, agrega leads y lee analíticas en el workspace Instantly de tu cliente desde tu producto o agente de IA, con Connect.",
+      "intro": "El toolkit de Instantly cubre las campañas, leads, listas de leads y cuentas de envío de un workspace Instantly: crear, actualizar, activar y pausar campañas, agregar y actualizar leads, y leer las analíticas de las campañas. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda la clave de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Enviar leads a campañas",
+          "body": "Cuando tu CRM o herramienta de prospección califica a un lead, créalo en una campaña o lista de leads de Instantly para que entre en la secuencia en su horario."
+        },
+        {
+          "title": "Outreach armado por un agente",
+          "body": "Un agente de IA crea una campaña como borrador, con sus pasos de email y cuentas de envío, y tu producto la activa tras la revisión."
+        },
+        {
+          "title": "Respuestas de vuelta al CRM",
+          "body": "Actualiza el estado de interés de un lead, como interesado o reunión agendada, y lee analíticas como enviados, respuestas y oportunidades para tus informes."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et lancez des campagnes de cold email, ajoutez des leads et lisez les statistiques du workspace Instantly de votre client, via Connect.",
+      "intro": "Le toolkit Instantly couvre les campagnes, leads, listes de leads et comptes d'envoi d'un workspace Instantly : créer, modifier, activer et mettre en pause des campagnes, ajouter et mettre à jour des leads, lire les statistiques des campagnes. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke la clé d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Envoyer des leads en campagne",
+          "body": "Quand votre CRM ou outil de prospection qualifie un lead, créez-le dans une campagne ou une liste de leads Instantly pour qu'il entre dans la séquence selon le calendrier."
+        },
+        {
+          "title": "Prospection montée par un agent",
+          "body": "Un agent IA crée une campagne en brouillon avec ses étapes d'email et ses comptes d'envoi, et votre produit l'active après relecture."
+        },
+        {
+          "title": "Réponses renvoyées au CRM",
+          "body": "Mettez à jour le statut d'intérêt d'un lead, comme intéressé ou rendez-vous pris, et lisez des statistiques comme envois, réponses et opportunités pour vos rapports."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "instantly_list_campaigns": {
+      "pt": {
+        "name": "Listar campanhas",
+        "description": "Lista as campanhas do workspace com id, nome e status, até limit por página. Para a próxima página, passe next_starting_after como starting_after, até que ele deixe de voltar."
+      },
+      "es": {
+        "name": "Listar campañas",
+        "description": "Lista las campañas del workspace con id, nombre y estado, hasta limit por página. Para la página siguiente, pasa next_starting_after como starting_after, hasta que deje de volver."
+      },
+      "fr": {
+        "name": "Lister les campagnes",
+        "description": "Liste les campagnes du workspace avec id, nom et statut, jusqu'à limit par page. Pour la page suivante, passez next_starting_after comme starting_after, jusqu'à ce qu'il ne revienne plus."
+      }
+    },
+    "instantly_get_campaign": {
+      "pt": {
+        "name": "Obter campanha",
+        "description": "Retorna uma campanha com status, agenda, sequences (os passos de email e suas variantes), contas de envio em email_list e opções de envio."
+      },
+      "es": {
+        "name": "Obtener campaña",
+        "description": "Devuelve una campaña con estado, horario, sequences (los pasos de email y sus variantes), cuentas de envío en email_list y opciones de envío."
+      },
+      "fr": {
+        "name": "Obtenir une campagne",
+        "description": "Renvoie une campagne avec statut, planning, sequences (les étapes d'email et leurs variantes), comptes d'envoi dans email_list et options d'envoi."
+      }
+    },
+    "instantly_create_campaign": {
+      "pt": {
+        "name": "Criar campanha",
+        "description": "Cria uma campanha como rascunho, com agenda, passos de email e contas de envio. Adicione leads com Create lead e inicie com Activate campaign."
+      },
+      "es": {
+        "name": "Crear campaña",
+        "description": "Crea una campaña como borrador, con su horario, pasos de email y cuentas de envío. Agrega leads con Create lead y ponla en marcha con Activate campaign."
+      },
+      "fr": {
+        "name": "Créer une campagne",
+        "description": "Crée une campagne en brouillon, avec son planning, ses étapes d'email et ses comptes d'envoi. Ajoutez des leads avec Create lead et lancez-la avec Activate campaign."
+      }
+    },
+    "instantly_update_campaign": {
+      "pt": {
+        "name": "Atualizar campanha",
+        "description": "Altera uma campanha. Envie só os campos a mudar; sequences e campaign_schedule substituem os atuais por inteiro."
+      },
+      "es": {
+        "name": "Actualizar campaña",
+        "description": "Cambia una campaña. Envía solo los campos a cambiar; sequences y campaign_schedule reemplazan por completo los actuales."
+      },
+      "fr": {
+        "name": "Mettre à jour une campagne",
+        "description": "Modifie une campagne. Envoyez uniquement les champs à changer ; sequences et campaign_schedule remplacent entièrement les actuels."
+      }
+    },
+    "instantly_activate_campaign": {
+      "pt": {
+        "name": "Ativar campanha",
+        "description": "Inicia uma campanha em rascunho ou retoma uma pausada. A Instantly passa então a enviar os passos aos leads da campanha, das contas em email_list, dentro da agenda."
+      },
+      "es": {
+        "name": "Activar campaña",
+        "description": "Inicia una campaña en borrador o reanuda una pausada. Instantly pasa entonces a enviar los pasos a los leads de la campaña, desde las cuentas de email_list, dentro del horario."
+      },
+      "fr": {
+        "name": "Activer une campagne",
+        "description": "Démarre une campagne en brouillon ou reprend une campagne en pause. Instantly envoie alors les étapes aux leads de la campagne, depuis les comptes de email_list, dans le planning."
+      }
+    },
+    "instantly_pause_campaign": {
+      "pt": {
+        "name": "Pausar campanha",
+        "description": "Pausa uma campanha, e nenhum email sai até que Activate campaign a retome."
+      },
+      "es": {
+        "name": "Pausar campaña",
+        "description": "Pausa una campaña, y no sale ningún email hasta que Activate campaign la reanude."
+      },
+      "fr": {
+        "name": "Mettre une campagne en pause",
+        "description": "Met une campagne en pause : plus aucun email ne part tant qu'Activate campaign ne la reprend pas."
+      }
+    },
+    "instantly_get_campaign_analytics": {
+      "pt": {
+        "name": "Obter métricas da campanha",
+        "description": "Retorna, por campanha, leads, contatados, emails enviados, aberturas, respostas, cliques em links, bounces, descadastros, leads concluídos e oportunidades, de uma campanha ou de todas."
+      },
+      "es": {
+        "name": "Obtener analíticas de la campaña",
+        "description": "Devuelve, por campaña, leads, contactados, emails enviados, aperturas, respuestas, clics en enlaces, rebotes, bajas, leads completados y oportunidades, de una campaña o de todas."
+      },
+      "fr": {
+        "name": "Obtenir les statistiques d'une campagne",
+        "description": "Renvoie, par campagne, leads, contactés, emails envoyés, ouvertures, réponses, clics sur les liens, rebonds, désinscriptions, leads terminés et opportunités, pour une campagne ou pour toutes."
+      }
+    },
+    "instantly_list_leads": {
+      "pt": {
+        "name": "Listar leads",
+        "description": "Lista leads com email, nomes, empresa, status e status de interesse, até limit por página. Para a próxima página, passe next_starting_after como starting_after, até que ele deixe de voltar."
+      },
+      "es": {
+        "name": "Listar leads",
+        "description": "Lista leads con email, nombres, empresa, estado y estado de interés, hasta limit por página. Para la página siguiente, pasa next_starting_after como starting_after, hasta que deje de volver."
+      },
+      "fr": {
+        "name": "Lister les leads",
+        "description": "Liste les leads avec email, noms, entreprise, statut et statut d'intérêt, jusqu'à limit par page. Pour la page suivante, passez next_starting_after comme starting_after, jusqu'à ce qu'il ne revienne plus."
+      }
+    },
+    "instantly_create_lead": {
+      "pt": {
+        "name": "Criar lead",
+        "description": "Adiciona um lead a uma campanha ou a uma lista de leads. Um lead adicionado a uma campanha ativa entra na sequência e recebe emails conforme a agenda."
+      },
+      "es": {
+        "name": "Crear lead",
+        "description": "Agrega un lead a una campaña o a una lista de leads. Un lead agregado a una campaña activa entra en la secuencia y recibe emails según el horario."
+      },
+      "fr": {
+        "name": "Créer un lead",
+        "description": "Ajoute un lead à une campagne ou à une liste de leads. Un lead ajouté à une campagne active entre dans la séquence et reçoit des emails selon le planning."
+      }
+    },
+    "instantly_update_lead": {
+      "pt": {
+        "name": "Atualizar lead",
+        "description": "Altera um lead: seus dados, variáveis personalizadas ou status de interesse, como marcar como interessado ou reunião marcada."
+      },
+      "es": {
+        "name": "Actualizar lead",
+        "description": "Cambia un lead: sus datos, variables personalizadas o estado de interés, como marcarlo como interesado o reunión agendada."
+      },
+      "fr": {
+        "name": "Mettre à jour un lead",
+        "description": "Modifie un lead : ses informations, variables personnalisées ou statut d'intérêt, par exemple le marquer comme intéressé ou rendez-vous pris."
+      }
+    },
+    "instantly_list_accounts": {
+      "pt": {
+        "name": "Listar contas de envio",
+        "description": "Lista as contas de envio (caixas de email) do workspace com email, status e dados de warmup, até limit por página. Para a próxima página, passe next_starting_after como starting_after, até que ele deixe de voltar."
+      },
+      "es": {
+        "name": "Listar cuentas de envío",
+        "description": "Lista las cuentas de envío (buzones) del workspace con email, estado y datos de warmup, hasta limit por página. Para la página siguiente, pasa next_starting_after como starting_after, hasta que deje de volver."
+      },
+      "fr": {
+        "name": "Lister les comptes d'envoi",
+        "description": "Liste les comptes d'envoi (boîtes mail) du workspace avec email, statut et données de warmup, jusqu'à limit par page. Pour la page suivante, passez next_starting_after comme starting_after, jusqu'à ce qu'il ne revienne plus."
+      }
+    },
+    "instantly_list_lead_lists": {
+      "pt": {
+        "name": "Listar listas de leads",
+        "description": "Lista as listas de leads do workspace com id e nome, até limit por página. Para a próxima página, passe next_starting_after como starting_after, até que ele deixe de voltar."
+      },
+      "es": {
+        "name": "Listar listas de leads",
+        "description": "Lista las listas de leads del workspace con id y nombre, hasta limit por página. Para la página siguiente, pasa next_starting_after como starting_after, hasta que deje de volver."
+      },
+      "fr": {
+        "name": "Lister les listes de leads",
+        "description": "Liste les listes de leads du workspace avec id et nom, jusqu'à limit par page. Pour la page suivante, passez next_starting_after comme starting_after, jusqu'à ce qu'il ne revienne plus."
+      }
+    }
+  }
+}

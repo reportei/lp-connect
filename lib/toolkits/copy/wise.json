@@ -1,0 +1,176 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read profiles, balances, transfers, account activity and exchange rates from your customer's Wise account through one Connect endpoint.",
+      "intro": "The Wise toolkit is read only: profiles (personal and business), currency balances, total funds, transfers, account activity and exchange rates. Your customer connects Wise once with an API key, and your product or AI agent reads this data through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Show balances in your product",
+          "body": "List a profile's currency balances and its total funds converted to one currency inside your own finance screen."
+        },
+        {
+          "title": "Reconcile transfers",
+          "body": "List transfers with status, amounts, rate and reference, and read one by id to match payouts against your records."
+        },
+        {
+          "title": "Agent answers money questions",
+          "body": "An AI agent reads recent activity and exchange rates to answer where money went and what a rate was, without any write access."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia perfis, saldos, transferências, atividade da conta e taxas de câmbio da conta Wise do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit da Wise é somente leitura: perfis (pessoal e empresarial), saldos por moeda, fundos totais, transferências, atividade da conta e taxas de câmbio. Seu cliente conecta a Wise uma vez com uma chave de API, e seu produto ou agente de IA lê esses dados pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Mostre saldos no seu produto",
+          "body": "Liste os saldos por moeda de um perfil e seus fundos totais convertidos para uma moeda dentro da sua própria tela financeira."
+        },
+        {
+          "title": "Concilie transferências",
+          "body": "Liste transferências com status, valores, taxa e referência, e leia uma pelo id para conferir repasses com os seus registros."
+        },
+        {
+          "title": "Agente responde perguntas sobre dinheiro",
+          "body": "Um agente de IA lê a atividade recente e as taxas de câmbio para responder para onde o dinheiro foi e qual era a taxa, sem nenhum acesso de escrita."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee perfiles, saldos, transferencias, actividad de la cuenta y tipos de cambio de la cuenta de Wise de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Wise es de solo lectura: perfiles (personal y empresarial), saldos por moneda, fondos totales, transferencias, actividad de la cuenta y tipos de cambio. Tu cliente conecta Wise una vez con una API key, y tu producto o agente de IA lee estos datos a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Muestra saldos en tu producto",
+          "body": "Lista los saldos por moneda de un perfil y sus fondos totales convertidos a una moneda dentro de tu propia pantalla financiera."
+        },
+        {
+          "title": "Concilia transferencias",
+          "body": "Lista transferencias con estado, montos, tipo de cambio y referencia, y lee una por id para cotejar pagos con tus registros."
+        },
+        {
+          "title": "Agente responde preguntas sobre dinero",
+          "body": "Un agente de IA lee la actividad reciente y los tipos de cambio para responder adónde fue el dinero y cuál era el tipo, sin ningún acceso de escritura."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez profils, soldes, virements, activité du compte et taux de change du compte Wise de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Wise est en lecture seule : profils (personnel et professionnel), soldes par devise, fonds totaux, virements, activité du compte et taux de change. Votre client connecte Wise une fois avec une clé API, et votre produit ou agent IA lit ces données via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Afficher les soldes dans votre produit",
+          "body": "Listez les soldes par devise d'un profil et ses fonds totaux convertis dans une seule devise dans votre propre écran financier."
+        },
+        {
+          "title": "Rapprocher les virements",
+          "body": "Listez les virements avec statut, montants, taux et référence, et lisez-en un par id pour rapprocher les paiements de vos enregistrements."
+        },
+        {
+          "title": "Un agent répond aux questions d'argent",
+          "body": "Un agent IA lit l'activité récente et les taux de change pour répondre où l'argent est parti et quel était le taux, sans aucun accès en écriture."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "wise_list_profiles": {
+      "pt": {
+        "name": "Listar perfis",
+        "description": "Lista os perfis da conta, pessoal e empresarial. O id de cada um é o profile_id que as outras ferramentas pedem, e type indica PERSONAL ou BUSINESS."
+      },
+      "es": {
+        "name": "Listar perfiles",
+        "description": "Lista los perfiles de la cuenta, personal y empresarial. El id de cada uno es el profile_id que piden las demás herramientas, y type indica PERSONAL o BUSINESS."
+      },
+      "fr": {
+        "name": "Lister les profils",
+        "description": "Liste les profils du compte, personnel et professionnel. L'id de chacun est le profile_id que demandent les autres outils, et type indique PERSONAL ou BUSINESS."
+      }
+    },
+    "wise_list_balances": {
+      "pt": {
+        "name": "Listar saldos",
+        "description": "Lista os saldos por moeda de um perfil, cada um com id, currency, amount (disponível), reservedAmount, cashAmount e totalWorth."
+      },
+      "es": {
+        "name": "Listar saldos",
+        "description": "Lista los saldos por moneda de un perfil, cada uno con id, currency, amount (disponible), reservedAmount, cashAmount y totalWorth."
+      },
+      "fr": {
+        "name": "Lister les soldes",
+        "description": "Liste les soldes par devise d'un profil, chacun avec id, currency, amount (disponible), reservedAmount, cashAmount et totalWorth."
+      }
+    },
+    "wise_get_total_funds": {
+      "pt": {
+        "name": "Obter fundos totais",
+        "description": "Retorna o total de um perfil em todos os seus saldos, convertido para uma moeda: totalWorth, totalAvailable (com o cheque especial incluído), totalCash e overdraft."
+      },
+      "es": {
+        "name": "Obtener fondos totales",
+        "description": "Devuelve el total de un perfil en todos sus saldos, convertido a una moneda: totalWorth, totalAvailable (con el sobregiro incluido), totalCash y overdraft."
+      },
+      "fr": {
+        "name": "Obtenir les fonds totaux",
+        "description": "Renvoie le total d'un profil sur tous ses soldes, converti dans une devise : totalWorth, totalAvailable (découvert inclus), totalCash et overdraft."
+      }
+    },
+    "wise_list_transfers": {
+      "pt": {
+        "name": "Listar transferências",
+        "description": "Lista as transferências de um perfil, com status, valores e moedas de origem e destino, taxa, referência e datas. Pagine com limit e offset: uma página menor que limit é a última."
+      },
+      "es": {
+        "name": "Listar transferencias",
+        "description": "Lista las transferencias de un perfil, con estado, montos y monedas de origen y destino, tipo de cambio, referencia y fechas. Pagina con limit y offset: una página menor que limit es la última."
+      },
+      "fr": {
+        "name": "Lister les virements",
+        "description": "Liste les virements d'un profil, avec statut, montants et devises source et cible, taux, référence et dates. Paginez avec limit et offset : une page plus courte que limit est la dernière."
+      }
+    },
+    "wise_get_transfer": {
+      "pt": {
+        "name": "Obter transferência",
+        "description": "Retorna uma transferência: status, valores e moedas de origem e destino, taxa, referência, o id da conta do destinatário em targetAccount e datas."
+      },
+      "es": {
+        "name": "Obtener transferencia",
+        "description": "Devuelve una transferencia: estado, montos y monedas de origen y destino, tipo de cambio, referencia, el id de la cuenta del destinatario en targetAccount y fechas."
+      },
+      "fr": {
+        "name": "Obtenir un virement",
+        "description": "Renvoie un virement : statut, montants et devises source et cible, taux, référence, l'id du compte du destinataire dans targetAccount et dates."
+      }
+    },
+    "wise_list_activities": {
+      "pt": {
+        "name": "Listar atividades",
+        "description": "Lista a atividade de um perfil: transferências, pagamentos no cartão, dinheiro recebido, conversões, tarifas e mais, cada uma com title, description, primaryAmount, status, datas e o recurso a que se refere. Dez por página por padrão: passe o cursor da resposta como nextCursor para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar actividades",
+        "description": "Lista la actividad de un perfil: transferencias, pagos con tarjeta, dinero recibido, conversiones, comisiones y más, cada una con title, description, primaryAmount, status, fechas y el recurso al que se refiere. Diez por página por defecto: pasa el cursor de la respuesta como nextCursor para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les activités",
+        "description": "Liste l'activité d'un profil : virements, paiements par carte, argent reçu, conversions, frais et plus, chacune avec title, description, primaryAmount, status, dates et la ressource concernée. Dix par page par défaut : passez le cursor de la réponse comme nextCursor pour lire la page suivante."
+      }
+    },
+    "wise_list_exchange_rates": {
+      "pt": {
+        "name": "Listar taxas de câmbio",
+        "description": "Retorna as taxas de câmbio da Wise: a taxa atual de todos os pares sem argumentos, de um par com source e target, uma taxa passada com time, ou o histórico de um par entre from e to, agrupado por group."
+      },
+      "es": {
+        "name": "Listar tipos de cambio",
+        "description": "Devuelve los tipos de cambio de Wise: el tipo actual de todos los pares sin argumentos, de un par con source y target, un tipo pasado con time, o el historial de un par entre from y to, agrupado por group."
+      },
+      "fr": {
+        "name": "Lister les taux de change",
+        "description": "Renvoie les taux de change de Wise : le taux actuel de toutes les paires sans argument, d'une paire avec source et target, un taux passé avec time, ou l'historique d'une paire entre from et to, regroupé par group."
+      }
+    }
+  }
+}

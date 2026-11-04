@@ -1,0 +1,87 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, update, move and complete tasks and task lists in your customer's Google Tasks account from your product or AI agent through Connect.",
+      "intro": "The Google Tasks toolkit covers task lists and tasks: list, create, rename and read lists, and create, update, move, complete and delete tasks, including subtasks. The customer connects their Google account once with OAuth, and your product or AI agent calls every operation through one Connect endpoint, without handling Google tokens.",
+      "useCases": [
+        { "title": "To-dos from your product", "body": "When something needs follow-up in your app, create a task with title, notes and due date in the customer's own Google Tasks list." },
+        { "title": "Two-way task status", "body": "List the tasks of a list and read their status, so your product can show what is done and mark a task completed or needsAction again." },
+        { "title": "AI agent as a personal assistant", "body": "Let an agent add tasks, break one into subtasks with parent and move tasks between lists when the user asks." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, atualize, mova e conclua tarefas e listas na conta Google Tasks do seu cliente a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do Google Tasks cobre listas de tarefas e tarefas: listar, criar, renomear e ler listas, e criar, atualizar, mover, concluir e excluir tarefas, inclusive subtarefas. O cliente conecta a conta Google uma vez por OAuth, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect, sem lidar com tokens do Google.",
+      "useCases": [
+        { "title": "Pendências a partir do produto", "body": "Quando algo precisa de acompanhamento no seu app, crie uma tarefa com título, notas e data de vencimento na lista do Google Tasks do próprio cliente." },
+        { "title": "Status de tarefa nos dois sentidos", "body": "Liste as tarefas de uma lista e leia o status, para seu produto mostrar o que foi feito e marcar uma tarefa como completed ou needsAction de novo." },
+        { "title": "Agente de IA como assistente pessoal", "body": "Deixe um agente adicionar tarefas, dividir uma em subtarefas com parent e mover tarefas entre listas quando o usuário pedir." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, actualiza, mueve y completa tareas y listas en la cuenta de Google Tasks de tu cliente desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de Google Tasks cubre listas de tareas y tareas: listar, crear, renombrar y leer listas, y crear, actualizar, mover, completar y eliminar tareas, incluidas las subtareas. El cliente conecta su cuenta de Google una vez con OAuth, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect, sin manejar tokens de Google.",
+      "useCases": [
+        { "title": "Pendientes desde tu producto", "body": "Cuando algo necesita seguimiento en tu app, crea una tarea con título, notas y fecha de vencimiento en la lista de Google Tasks del propio cliente." },
+        { "title": "Estado de tareas en ambos sentidos", "body": "Lista las tareas de una lista y lee su estado, para que tu producto muestre lo hecho y vuelva a marcar una tarea como completed o needsAction." },
+        { "title": "Agente de IA como asistente personal", "body": "Deja que un agente agregue tareas, divida una en subtareas con parent y mueva tareas entre listas cuando el usuario lo pida." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, modifiez, déplacez et terminez des tâches et listes dans le compte Google Tasks de votre client depuis votre produit ou agent IA via Connect.",
+      "intro": "Le toolkit Google Tasks couvre les listes de tâches et les tâches : lister, créer, renommer et lire des listes, et créer, modifier, déplacer, terminer et supprimer des tâches, sous-tâches comprises. Le client connecte son compte Google une fois par OAuth, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect, sans gérer de jetons Google.",
+      "useCases": [
+        { "title": "Des tâches depuis votre produit", "body": "Quand quelque chose demande un suivi dans votre app, créez une tâche avec titre, notes et échéance dans la liste Google Tasks du client lui-même." },
+        { "title": "Statut des tâches dans les deux sens", "body": "Listez les tâches d'une liste et lisez leur statut, pour que votre produit montre ce qui est fait et remette une tâche en completed ou needsAction." },
+        { "title": "Agent IA comme assistant personnel", "body": "Laissez un agent ajouter des tâches, en découper une en sous-tâches avec parent et déplacer des tâches entre listes sur demande de l'utilisateur." }
+      ]
+    }
+  },
+  "tools": {
+    "google_tasks_list_tasklists": {
+      "pt": { "name": "Listar listas de tarefas", "description": "Lista as listas de tarefas da conta, com id e title. Use o id de um item como tasklist nas outras ferramentas. Passe nextPageToken como pageToken para ler a próxima página." },
+      "es": { "name": "Listar listas de tareas", "description": "Lista las listas de tareas de la cuenta, con id y title. Usa el id de un elemento como tasklist en las demás herramientas. Pasa nextPageToken como pageToken para leer la página siguiente." },
+      "fr": { "name": "Lister les listes de tâches", "description": "Liste les listes de tâches du compte, avec id et title. Utilisez l'id d'un élément comme tasklist dans les autres outils. Passez nextPageToken comme pageToken pour lire la page suivante." }
+    },
+    "google_tasks_create_tasklist": {
+      "pt": { "name": "Criar lista de tarefas", "description": "Cria uma lista de tarefas e a retorna com seu id. Uma conta pode ter até 2000 listas de tarefas." },
+      "es": { "name": "Crear lista de tareas", "description": "Crea una lista de tareas y la devuelve con su id. Una cuenta puede tener hasta 2000 listas de tareas." },
+      "fr": { "name": "Créer une liste de tâches", "description": "Crée une liste de tâches et la renvoie avec son id. Un compte peut avoir jusqu'à 2000 listes de tâches." }
+    },
+    "google_tasks_update_tasklist": {
+      "pt": { "name": "Atualizar lista de tarefas", "description": "Renomeia uma lista de tarefas." },
+      "es": { "name": "Actualizar lista de tareas", "description": "Cambia el nombre de una lista de tareas." },
+      "fr": { "name": "Modifier une liste de tâches", "description": "Renomme une liste de tâches." }
+    },
+    "google_tasks_list_tasks": {
+      "pt": { "name": "Listar tarefas", "description": "Lista as tarefas de uma lista de tarefas, subtarefas incluídas, com id, title, notes, status, due, completed e parent, o id da tarefa-mãe de uma subtarefa. Tarefas concluídas nos apps do Google ficam ocultas: defina showHidden como true para vê-las. Passe nextPageToken como pageToken para ler a próxima página." },
+      "es": { "name": "Listar tareas", "description": "Lista las tareas de una lista de tareas, subtareas incluidas, con id, title, notes, status, due, completed y parent, el id de la tarea madre de una subtarea. Las tareas completadas en las apps de Google quedan ocultas: pon showHidden en true para verlas. Pasa nextPageToken como pageToken para leer la página siguiente." },
+      "fr": { "name": "Lister les tâches", "description": "Liste les tâches d'une liste, sous-tâches comprises, avec id, title, notes, status, due, completed et parent, l'id de la tâche parente d'une sous-tâche. Les tâches terminées dans les apps Google sont masquées : mettez showHidden à true pour les voir. Passez nextPageToken comme pageToken pour lire la page suivante." }
+    },
+    "google_tasks_get_task": {
+      "pt": { "name": "Obter tarefa", "description": "Retorna uma tarefa com title, notes, status, data de vencimento, horário de conclusão, parent e webViewLink, o link da tarefa no app web do Google Tasks." },
+      "es": { "name": "Obtener tarea", "description": "Devuelve una tarea con title, notes, status, fecha de vencimiento, hora de finalización, parent y webViewLink, el enlace a la tarea en la app web de Google Tasks." },
+      "fr": { "name": "Obtenir une tâche", "description": "Renvoie une tâche avec title, notes, status, échéance, heure de fin, parent et webViewLink, le lien vers la tâche dans l'app web Google Tasks." }
+    },
+    "google_tasks_create_task": {
+      "pt": { "name": "Criar tarefa", "description": "Cria uma tarefa em uma lista, na primeira posição, a menos que previous diga outra. Passe parent para criá-la como subtarefa. Tarefas atribuídas a partir do Google Docs ou de espaços do Chat não podem ser criadas aqui." },
+      "es": { "name": "Crear tarea", "description": "Crea una tarea en una lista, en la primera posición salvo que previous indique otra. Pasa parent para crearla como subtarea. Las tareas asignadas desde Google Docs o espacios de Chat no se pueden crear aquí." },
+      "fr": { "name": "Créer une tâche", "description": "Crée une tâche dans une liste, en première position sauf indication contraire de previous. Passez parent pour la créer comme sous-tâche. Les tâches assignées depuis Google Docs ou des espaces Chat ne peuvent pas être créées ici." }
+    },
+    "google_tasks_update_task": {
+      "pt": { "name": "Atualizar tarefa", "description": "Altera o título, as notas, a data de vencimento ou o status de uma tarefa; só os campos enviados mudam. Defina status como completed para concluir a tarefa, ou como needsAction para reabri-la. Para mudar sua lista, parent ou posição, use Mover tarefa." },
+      "es": { "name": "Actualizar tarea", "description": "Cambia el título, las notas, la fecha de vencimiento o el estado de una tarea; solo cambian los campos enviados. Pon status en completed para completar la tarea, o en needsAction para reabrirla. Para cambiar su lista, parent o posición, usa Mover tarea." },
+      "fr": { "name": "Modifier une tâche", "description": "Modifie le titre, les notes, l'échéance ou le statut d'une tâche ; seuls les champs envoyés changent. Mettez status à completed pour terminer la tâche, ou à needsAction pour la rouvrir. Pour changer sa liste, son parent ou sa position, utilisez Déplacer une tâche." }
+    },
+    "google_tasks_move_task": {
+      "pt": { "name": "Mover tarefa", "description": "Move uma tarefa para outra posição, sob outra tarefa-mãe ou para outra lista de tarefas. Sem parent a tarefa vai para o nível principal, e sem previous vai para a primeira posição. Tarefas recorrentes não podem ir para outra lista." },
+      "es": { "name": "Mover tarea", "description": "Mueve una tarea a otra posición, bajo otra tarea madre o a otra lista de tareas. Sin parent la tarea va al nivel principal, y sin previous va a la primera posición. Las tareas recurrentes no pueden pasar a otra lista." },
+      "fr": { "name": "Déplacer une tâche", "description": "Déplace une tâche vers une autre position, sous une autre tâche parente ou vers une autre liste. Sans parent la tâche passe au premier niveau, et sans previous elle passe en première position. Les tâches récurrentes ne peuvent pas changer de liste." }
+    },
+    "google_tasks_delete_task": {
+      "pt": { "name": "Excluir tarefa", "description": "Exclui uma tarefa. Uma tarefa atribuída a partir do Google Docs ou de espaços do Chat também é excluída lá." },
+      "es": { "name": "Eliminar tarea", "description": "Elimina una tarea. Una tarea asignada desde Google Docs o espacios de Chat se elimina también allí." },
+      "fr": { "name": "Supprimer une tâche", "description": "Supprime une tâche. Une tâche assignée depuis Google Docs ou des espaces Chat y est également supprimée." }
+    }
+  }
+}

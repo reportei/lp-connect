@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and edit posts, moderate comments and read stats on your customer's WordPress.com site from your product or AI agent, through one Connect endpoint.",
+      "intro": "The WordPress.com toolkit covers sites, posts and pages, categories, comments and their replies, and stats such as views, top posts and referrers, for WordPress.com sites and self-hosted sites connected with Jetpack. Through Connect your product or AI agent calls them with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Publish content from your app",
+          "body": "A content tool creates a post as a draft or publishes it right away, then updates it when the text changes."
+        },
+        {
+          "title": "Moderate the comment queue",
+          "body": "An AI agent lists unapproved comments and approves them, marks spam or replies as the connected user."
+        },
+        {
+          "title": "Report on site traffic",
+          "body": "An agency dashboard reads views, visitors, top posts and referrers of a site over a number of periods."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e edite posts, modere comentários e leia estatísticas no site WordPress.com do seu cliente, pelo seu produto ou agente de IA, via Connect.",
+      "intro": "O toolkit do WordPress.com cobre sites, posts e páginas, categorias, comentários e respostas, e estatísticas como visualizações, posts mais vistos e origens de tráfego, em sites WordPress.com e sites auto-hospedados conectados com o Jetpack. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Publique conteúdo pelo seu app",
+          "body": "Uma ferramenta de conteúdo cria um post como rascunho ou o publica na hora e o atualiza quando o texto muda."
+        },
+        {
+          "title": "Modere a fila de comentários",
+          "body": "Um agente de IA lista os comentários não aprovados e os aprova, marca como spam ou responde como o usuário conectado."
+        },
+        {
+          "title": "Relate o tráfego do site",
+          "body": "Um painel de agência lê visualizações, visitantes, posts mais vistos e origens de um site ao longo de vários períodos."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y edita entradas, modera comentarios y lee estadísticas del sitio WordPress.com de tu cliente desde tu producto o agente de IA, vía Connect.",
+      "intro": "El toolkit de WordPress.com cubre sitios, entradas y páginas, categorías, comentarios y sus respuestas, y estadísticas como visitas, entradas más vistas y referentes, en sitios de WordPress.com y sitios autoalojados conectados con Jetpack. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Publica contenido desde tu app",
+          "body": "Una herramienta de contenido crea una entrada como borrador o la publica de inmediato, y la actualiza cuando cambia el texto."
+        },
+        {
+          "title": "Modera la cola de comentarios",
+          "body": "Un agente de IA lista los comentarios sin aprobar y los aprueba, los marca como spam o responde como el usuario conectado."
+        },
+        {
+          "title": "Informa del tráfico del sitio",
+          "body": "Un panel de agencia lee visitas, visitantes, entradas más vistas y referentes de un sitio a lo largo de varios periodos."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des articles, modérez les commentaires et lisez les stats du site WordPress.com de votre client depuis votre produit ou agent IA via Connect.",
+      "intro": "Le toolkit WordPress.com couvre les sites, articles et pages, catégories, commentaires et leurs réponses, et des stats comme les vues, les articles les plus vus et les sources de trafic, pour les sites WordPress.com et les sites auto-hébergés connectés avec Jetpack. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Publier du contenu depuis votre app",
+          "body": "Un outil de contenu crée un article en brouillon ou le publie immédiatement, puis le met à jour quand le texte change."
+        },
+        {
+          "title": "Modérer la file de commentaires",
+          "body": "Un agent IA liste les commentaires non approuvés et les approuve, les marque comme spam ou répond en tant qu'utilisateur connecté."
+        },
+        {
+          "title": "Rendre compte du trafic du site",
+          "body": "Un tableau de bord d'agence lit les vues, visiteurs, articles les plus vus et sources de trafic d'un site sur plusieurs périodes."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "wordpress_com_list_sites": {
+      "pt": {
+        "name": "Listar sites",
+        "description": "Lista os sites da conta, com o ID que as outras ferramentas pedem como site, o nome e a URL. A conexão alcança apenas o site que o cliente escolheu ao autorizá-la."
+      },
+      "es": {
+        "name": "Listar sitios",
+        "description": "Lista los sitios de la cuenta, con el ID que piden las otras herramientas como site, el nombre y la URL. La conexión alcanza solo el sitio que el cliente eligió al autorizarla."
+      },
+      "fr": {
+        "name": "Lister les sites",
+        "description": "Liste les sites du compte, avec l'ID que demandent les autres outils comme site, le nom et l'URL. La connexion n'atteint que le site que le client a choisi en l'autorisant."
+      }
+    },
+    "wordpress_com_list_posts": {
+      "pt": {
+        "name": "Listar posts",
+        "description": "Lista os posts ou páginas de um site, do mais novo ao mais antigo, com found como total. Só os publicados por padrão; status lista os outros. Para ler a próxima página, passe o meta.next_page da resposta como page_handle."
+      },
+      "es": {
+        "name": "Listar entradas",
+        "description": "Lista las entradas o páginas de un sitio, de la más nueva a la más antigua, con found como total. Solo las publicadas por defecto; status lista las demás. Para leer la página siguiente, pasa el meta.next_page de la respuesta como page_handle."
+      },
+      "fr": {
+        "name": "Lister les articles",
+        "description": "Liste les articles ou pages d'un site, du plus récent au plus ancien, avec found comme total. Seuls les publiés par défaut ; status liste les autres. Pour lire la page suivante, passez le meta.next_page de la réponse comme page_handle."
+      }
+    },
+    "wordpress_com_get_post": {
+      "pt": {
+        "name": "Obter post",
+        "description": "Retorna um post ou página com título, conteúdo, resumo, status, URL, categorias e tags."
+      },
+      "es": {
+        "name": "Obtener entrada",
+        "description": "Devuelve una entrada o página con título, contenido, extracto, estado, URL, categorías y etiquetas."
+      },
+      "fr": {
+        "name": "Obtenir un article",
+        "description": "Renvoie un article ou une page avec titre, contenu, extrait, statut, URL, catégories et étiquettes."
+      }
+    },
+    "wordpress_com_create_post": {
+      "pt": {
+        "name": "Criar post",
+        "description": "Cria um post ou página e o retorna. O status padrão é publish, que o coloca no ar na hora: envie draft para salvá-lo sem publicar. Depois de publicado, ele também é compartilhado nas contas sociais conectadas ao site, a menos que publicize seja false."
+      },
+      "es": {
+        "name": "Crear entrada",
+        "description": "Crea una entrada o página y la devuelve. El estado por defecto es publish, que la publica de inmediato: envía draft para guardarla sin publicar. Una vez publicada, también se comparte en las cuentas sociales conectadas al sitio, salvo que publicize sea false."
+      },
+      "fr": {
+        "name": "Créer un article",
+        "description": "Crée un article ou une page et le renvoie. Le statut par défaut est publish, qui le met en ligne immédiatement : envoyez draft pour l'enregistrer sans le publier. Une fois publié, il est aussi partagé sur les comptes sociaux connectés au site, sauf si publicize vaut false."
+      }
+    },
+    "wordpress_com_update_post": {
+      "pt": {
+        "name": "Atualizar post",
+        "description": "Atualiza um post ou página e o retorna. Só os campos enviados mudam. Ao editar um rascunho, envie também status draft, para que a alteração nunca o publique. status trash envia o post para a lixeira."
+      },
+      "es": {
+        "name": "Actualizar entrada",
+        "description": "Actualiza una entrada o página y la devuelve. Solo cambian los campos enviados. Al editar un borrador, envía también status draft, para que el cambio nunca lo publique. status trash envía la entrada a la papelera."
+      },
+      "fr": {
+        "name": "Mettre à jour un article",
+        "description": "Met à jour un article ou une page et le renvoie. Seuls les champs envoyés changent. Lors de la modification d'un brouillon, envoyez aussi status draft, pour que le changement ne le publie jamais. status trash envoie l'article à la corbeille."
+      }
+    },
+    "wordpress_com_list_categories": {
+      "pt": {
+        "name": "Listar categorias",
+        "description": "Lista as categorias de um site com ID, nome, slug e post_count, ordenadas por nome. Criar post e Atualizar post aceitam nomes ou IDs de categoria."
+      },
+      "es": {
+        "name": "Listar categorías",
+        "description": "Lista las categorías de un sitio con ID, nombre, slug y post_count, ordenadas por nombre. Crear entrada y Actualizar entrada aceptan nombres o IDs de categoría."
+      },
+      "fr": {
+        "name": "Lister les catégories",
+        "description": "Liste les catégories d'un site avec ID, nom, slug et post_count, triées par nom. Créer un article et Mettre à jour un article acceptent des noms ou des IDs de catégorie."
+      }
+    },
+    "wordpress_com_list_comments": {
+      "pt": {
+        "name": "Listar comentários",
+        "description": "Lista os comentários de um site, do mais novo ao mais antigo, com found como total e o post de cada comentário em post. Só os aprovados por padrão; status unapproved lista a fila de moderação. A última página é quando page vezes number alcança found."
+      },
+      "es": {
+        "name": "Listar comentarios",
+        "description": "Lista los comentarios de un sitio, del más nuevo al más antiguo, con found como total y la entrada de cada comentario en post. Solo los aprobados por defecto; status unapproved lista la cola de moderación. La última página es cuando page por number alcanza found."
+      },
+      "fr": {
+        "name": "Lister les commentaires",
+        "description": "Liste les commentaires d'un site, du plus récent au plus ancien, avec found comme total et l'article de chaque commentaire dans post. Seuls les approuvés par défaut ; status unapproved liste la file de modération. La dernière page est celle où page fois number atteint found."
+      }
+    },
+    "wordpress_com_update_comment": {
+      "pt": {
+        "name": "Atualizar comentário",
+        "description": "Modera ou edita um comentário e o retorna. status approved o publica, unapproved o devolve à fila de moderação, spam o marca como spam e trash o envia para a lixeira."
+      },
+      "es": {
+        "name": "Actualizar comentario",
+        "description": "Modera o edita un comentario y lo devuelve. status approved lo publica, unapproved lo devuelve a la cola de moderación, spam lo marca como spam y trash lo envía a la papelera."
+      },
+      "fr": {
+        "name": "Mettre à jour un commentaire",
+        "description": "Modère ou modifie un commentaire et le renvoie. status approved le publie, unapproved le remet dans la file de modération, spam le marque comme spam et trash l'envoie à la corbeille."
+      }
+    },
+    "wordpress_com_create_comment_reply": {
+      "pt": {
+        "name": "Criar resposta a comentário",
+        "description": "Responde a um comentário como o usuário conectado e retorna a resposta, que fica pública no site."
+      },
+      "es": {
+        "name": "Crear respuesta a comentario",
+        "description": "Responde a un comentario como el usuario conectado y devuelve la respuesta, que queda pública en el sitio."
+      },
+      "fr": {
+        "name": "Créer une réponse à un commentaire",
+        "description": "Répond à un commentaire en tant qu'utilisateur connecté et renvoie la réponse, qui est publique sur le site."
+      }
+    },
+    "wordpress_com_get_stats_summary": {
+      "pt": {
+        "name": "Obter resumo de estatísticas",
+        "description": "Retorna as visualizações, visitantes, curtidas e comentários de um site nos últimos num períodos até date, e o total de seguidores."
+      },
+      "es": {
+        "name": "Obtener resumen de estadísticas",
+        "description": "Devuelve las visitas, visitantes, me gusta y comentarios de un sitio en los últimos num periodos hasta date, y el total de seguidores."
+      },
+      "fr": {
+        "name": "Obtenir le résumé des stats",
+        "description": "Renvoie les vues, visiteurs, mentions « j'aime » et commentaires d'un site sur les num dernières périodes jusqu'à date, et le total des abonnés."
+      }
+    },
+    "wordpress_com_get_top_posts": {
+      "pt": {
+        "name": "Obter posts mais vistos",
+        "description": "Retorna os posts e páginas mais vistos de um site nos últimos num períodos até date: por dia em days, ou somados em summary quando summarize é true."
+      },
+      "es": {
+        "name": "Obtener entradas más vistas",
+        "description": "Devuelve las entradas y páginas más vistas de un sitio en los últimos num periodos hasta date: por día en days, o sumadas en summary cuando summarize es true."
+      },
+      "fr": {
+        "name": "Obtenir les articles les plus vus",
+        "description": "Renvoie les articles et pages les plus vus d'un site sur les num dernières périodes jusqu'à date : par jour dans days, ou additionnés dans summary quand summarize vaut true."
+      }
+    },
+    "wordpress_com_get_referrers": {
+      "pt": {
+        "name": "Obter origens de tráfego",
+        "description": "Retorna os sites e mecanismos de busca que enviaram visitas a um site nos últimos num períodos até date: por dia em days, ou somados em summary quando summarize é true."
+      },
+      "es": {
+        "name": "Obtener referentes",
+        "description": "Devuelve los sitios y buscadores que enviaron visitas a un sitio en los últimos num periodos hasta date: por día en days, o sumados en summary cuando summarize es true."
+      },
+      "fr": {
+        "name": "Obtenir les sources de trafic",
+        "description": "Renvoie les sites et moteurs de recherche qui ont envoyé des visites vers un site sur les num dernières périodes jusqu'à date : par jour dans days, ou additionnées dans summary quand summarize vaut true."
+      }
+    }
+  }
+}

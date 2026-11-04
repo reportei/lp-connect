@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Book, move and cancel appointments, check open times and manage clients in your customer's Acuity Scheduling account through one Connect endpoint.",
+      "intro": "The Acuity Scheduling toolkit covers appointments, appointment types, calendars, availability, clients and intake forms. A product or AI agent can book, reschedule and cancel on behalf of the customer without building the Acuity integration or storing its credentials.",
+      "useCases": [
+        {
+          "title": "Booking inside your product",
+          "body": "List available dates and times for an appointment type, then create the appointment from your own interface or from an agent conversation."
+        },
+        {
+          "title": "Rescheduling and cancellations",
+          "body": "Let an AI assistant move or cancel an appointment when a client asks, with the client notified by Acuity's own email and SMS."
+        },
+        {
+          "title": "Syncing clients to a CRM",
+          "body": "Read clients and appointments with their intake answers and push them into a CRM, or add new clients from your product to the Acuity client list."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Agende, remarque e cancele atendimentos, veja horários livres e gerencie clientes na conta Acuity Scheduling do seu cliente por um endpoint do Connect.",
+      "intro": "O toolkit do Acuity Scheduling cobre agendamentos, tipos de atendimento, calendários, disponibilidade, clientes e formulários de entrada. Um produto ou agente de IA agenda, remarca e cancela em nome do cliente, sem construir a integração com o Acuity nem guardar as credenciais.",
+      "useCases": [
+        {
+          "title": "Agendamento dentro do produto",
+          "body": "Liste as datas e os horários livres de um tipo de atendimento e crie o agendamento na sua interface ou numa conversa com um agente."
+        },
+        {
+          "title": "Remarcação e cancelamento",
+          "body": "Deixe um assistente de IA remarcar ou cancelar um atendimento quando o cliente pedir, com o aviso por e-mail e SMS enviado pelo próprio Acuity."
+        },
+        {
+          "title": "Clientes sincronizados com o CRM",
+          "body": "Leia clientes e agendamentos com as respostas do formulário de entrada e envie ao CRM, ou adicione novos clientes do seu produto à lista do Acuity."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Reserva, mueve y cancela citas, consulta horarios libres y gestiona clientes en la cuenta de Acuity Scheduling de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Acuity Scheduling cubre citas, tipos de cita, calendarios, disponibilidad, clientes y formularios de ingreso. Un producto o agente de IA reserva, reprograma y cancela en nombre del cliente, sin construir la integración con Acuity ni guardar sus credenciales.",
+      "useCases": [
+        {
+          "title": "Reservas dentro de tu producto",
+          "body": "Lista las fechas y horas disponibles de un tipo de cita y crea la cita desde tu interfaz o desde una conversación con un agente."
+        },
+        {
+          "title": "Reprogramar y cancelar citas",
+          "body": "Deja que un asistente de IA mueva o cancele una cita cuando el cliente lo pida, con el aviso por correo y SMS enviado por el propio Acuity."
+        },
+        {
+          "title": "Clientes sincronizados con el CRM",
+          "body": "Lee clientes y citas con las respuestas del formulario de ingreso y envíalos al CRM, o agrega clientes nuevos de tu producto a la lista de Acuity."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Réservez, reportez et annulez des rendez-vous, consultez les créneaux libres et gérez les clients du compte Acuity Scheduling de votre client via Connect.",
+      "intro": "Le toolkit Acuity Scheduling couvre les rendez-vous, les types de rendez-vous, les agendas, les disponibilités, les clients et les formulaires d'accueil. Un produit ou un agent IA réserve, reporte et annule au nom du client, sans construire l'intégration Acuity ni stocker ses identifiants.",
+      "useCases": [
+        {
+          "title": "Réservation dans votre produit",
+          "body": "Listez les dates et heures disponibles d'un type de rendez-vous, puis créez le rendez-vous depuis votre interface ou une conversation avec un agent."
+        },
+        {
+          "title": "Report et annulation",
+          "body": "Laissez un assistant IA déplacer ou annuler un rendez-vous à la demande du client, avec la notification par e-mail et SMS envoyée par Acuity."
+        },
+        {
+          "title": "Clients synchronisés avec le CRM",
+          "body": "Lisez les clients et les rendez-vous avec les réponses du formulaire d'accueil pour les envoyer au CRM, ou ajoutez à Acuity les nouveaux clients de votre produit."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "acuity_list_appointments": {
+      "pt": {
+        "name": "Listar agendamentos",
+        "description": "Lista os agendamentos da conta, do mais recente ao mais antigo por padrão, até max por chamada. Não há token de página: quando uma chamada retorna max agendamentos, restrinja minDate e maxDate. Agendamentos cancelados só vêm com canceled ou showall."
+      },
+      "es": {
+        "name": "Listar citas",
+        "description": "Lista las citas de la cuenta, de la más reciente a la más antigua por defecto, hasta max por llamada. No hay token de página: cuando una llamada devuelve max citas, acota minDate y maxDate. Las citas canceladas solo vienen con canceled o showall."
+      },
+      "fr": {
+        "name": "Lister les rendez-vous",
+        "description": "Liste les rendez-vous du compte, du plus récent au plus ancien par défaut, jusqu'à max par appel. Il n'y a pas de jeton de page : quand un appel renvoie max rendez-vous, restreignez minDate et maxDate. Les rendez-vous annulés ne viennent qu'avec canceled ou showall."
+      }
+    },
+    "acuity_get_appointment": {
+      "pt": {
+        "name": "Obter agendamento",
+        "description": "Retorna um agendamento, com nome, e-mail e telefone do cliente, datetime, endTime, type, calendar, price, paid, notes, as respostas do formulário de entrada em forms, labels e confirmationPage. Um agendamento cancelado também tem noShow."
+      },
+      "es": {
+        "name": "Obtener cita",
+        "description": "Devuelve una cita, con nombre, correo y teléfono del cliente, datetime, endTime, type, calendar, price, paid, notes, las respuestas del formulario de ingreso en forms, labels y confirmationPage. Una cita cancelada también tiene noShow."
+      },
+      "fr": {
+        "name": "Obtenir un rendez-vous",
+        "description": "Renvoie un rendez-vous, avec le nom, l'e-mail et le téléphone du client, datetime, endTime, type, calendar, price, paid, notes, les réponses du formulaire d'accueil dans forms, labels et confirmationPage. Un rendez-vous annulé a aussi noShow."
+      }
+    },
+    "acuity_create_appointment": {
+      "pt": {
+        "name": "Criar agendamento",
+        "description": "Agenda um atendimento e o retorna. Por padrão ele é agendado como um cliente faria: o horário precisa estar livre e os campos obrigatórios do formulário respondidos. Com admin true essas verificações são ignoradas e calendarID é obrigatório. O cliente recebe o e-mail e o SMS de confirmação, a menos que noEmail seja true."
+      },
+      "es": {
+        "name": "Crear cita",
+        "description": "Reserva una cita y la devuelve. Por defecto se reserva como lo haría un cliente: la hora debe estar libre y los campos obligatorios del formulario respondidos. Con admin true se omiten esas comprobaciones y calendarID es obligatorio. El cliente recibe el correo y el SMS de confirmación, salvo que noEmail sea true."
+      },
+      "fr": {
+        "name": "Créer un rendez-vous",
+        "description": "Réserve un rendez-vous et le renvoie. Par défaut, il est réservé comme le ferait un client : le créneau doit être libre et les champs obligatoires du formulaire remplis. Avec admin true, ces vérifications sont ignorées et calendarID est obligatoire. Le client reçoit l'e-mail et le SMS de confirmation, sauf si noEmail est true."
+      }
+    },
+    "acuity_update_appointment": {
+      "pt": {
+        "name": "Atualizar agendamento",
+        "description": "Atualiza os dados do cliente, as respostas do formulário ou as notas de um agendamento e o retorna. Só os campos enviados mudam, e firstName e lastName não podem ser apagados. Data, horário e calendário mudam com Reschedule appointment."
+      },
+      "es": {
+        "name": "Actualizar cita",
+        "description": "Actualiza los datos del cliente, las respuestas del formulario o las notas de una cita y la devuelve. Solo cambian los campos enviados, y firstName y lastName no se pueden borrar. La fecha, la hora y el calendario cambian con Reschedule appointment."
+      },
+      "fr": {
+        "name": "Mettre à jour un rendez-vous",
+        "description": "Met à jour les informations du client, les réponses du formulaire ou les notes d'un rendez-vous et le renvoie. Seuls les champs envoyés changent, et firstName et lastName ne peuvent pas être effacés. La date, l'heure et l'agenda changent avec Reschedule appointment."
+      }
+    },
+    "acuity_cancel_appointment": {
+      "pt": {
+        "name": "Cancelar agendamento",
+        "description": "Cancela um agendamento e o retorna. Um agendamento cancelado não pode ser restaurado. Por padrão valem as regras de cancelamento dos clientes; com admin true elas são ignoradas e noShow pode ser definido. O cliente recebe o e-mail e o SMS de cancelamento, a menos que noEmail seja true."
+      },
+      "es": {
+        "name": "Cancelar cita",
+        "description": "Cancela una cita y la devuelve. Una cita cancelada no se puede restaurar. Por defecto rigen las reglas de cancelación de los clientes; con admin true se omiten y se puede definir noShow. El cliente recibe el correo y el SMS de cancelación, salvo que noEmail sea true."
+      },
+      "fr": {
+        "name": "Annuler un rendez-vous",
+        "description": "Annule un rendez-vous et le renvoie. Un rendez-vous annulé ne peut pas être rétabli. Par défaut, les règles d'annulation des clients s'appliquent ; avec admin true, elles sont ignorées et noShow peut être défini. Le client reçoit l'e-mail et le SMS d'annulation, sauf si noEmail est true."
+      }
+    },
+    "acuity_reschedule_appointment": {
+      "pt": {
+        "name": "Remarcar agendamento",
+        "description": "Move um agendamento para outra data e horário, outro calendário ou ambos, e o retorna. O novo horário precisa estar livre, a menos que admin seja true. Agendamentos cancelados e séries de aulas não podem ser remarcados. O cliente recebe o e-mail e o SMS de remarcação, a menos que noEmail seja true."
+      },
+      "es": {
+        "name": "Reprogramar cita",
+        "description": "Mueve una cita a otra fecha y hora, a otro calendario o a ambos, y la devuelve. La nueva hora debe estar libre, salvo que admin sea true. Las citas canceladas y las series de clases no se pueden reprogramar. El cliente recibe el correo y el SMS de reprogramación, salvo que noEmail sea true."
+      },
+      "fr": {
+        "name": "Reporter un rendez-vous",
+        "description": "Déplace un rendez-vous vers une autre date et heure, un autre agenda ou les deux, et le renvoie. Le nouveau créneau doit être libre, sauf si admin est true. Les rendez-vous annulés et les séries de cours ne peuvent pas être reportés. Le client reçoit l'e-mail et le SMS de report, sauf si noEmail est true."
+      }
+    },
+    "acuity_list_appointment_types": {
+      "pt": {
+        "name": "Listar tipos de atendimento",
+        "description": "Lista os tipos de atendimento, os serviços e as aulas que os clientes agendam, com id, name, duração em minutos, price, type (service, class ou series), private e calendarIDs, os calendários que oferecem cada um."
+      },
+      "es": {
+        "name": "Listar tipos de cita",
+        "description": "Lista los tipos de cita, los servicios y las clases que reservan los clientes, con id, name, duración en minutos, price, type (service, class o series), private y calendarIDs, los calendarios que ofrecen cada uno."
+      },
+      "fr": {
+        "name": "Lister les types de rendez-vous",
+        "description": "Liste les types de rendez-vous, les services et les cours que réservent les clients, avec id, name, durée en minutes, price, type (service, class ou series), private et calendarIDs, les agendas qui proposent chacun."
+      }
+    },
+    "acuity_list_calendars": {
+      "pt": {
+        "name": "Listar calendários",
+        "description": "Lista os calendários que a conta pode acessar, em geral um por membro da equipe, com id, name, email, location e timezone."
+      },
+      "es": {
+        "name": "Listar calendarios",
+        "description": "Lista los calendarios a los que la cuenta puede acceder, normalmente uno por miembro del equipo, con id, name, email, location y timezone."
+      },
+      "fr": {
+        "name": "Lister les agendas",
+        "description": "Liste les agendas auxquels le compte a accès, généralement un par membre de l'équipe, avec id, name, email, location et timezone."
+      }
+    },
+    "acuity_list_available_dates": {
+      "pt": {
+        "name": "Listar datas disponíveis",
+        "description": "Lista as datas de um mês que têm horários livres para um tipo de atendimento, as mesmas datas que a página de agendamento do cliente mostra. Cada item tem date."
+      },
+      "es": {
+        "name": "Listar fechas disponibles",
+        "description": "Lista las fechas de un mes que tienen horas libres para un tipo de cita, las mismas fechas que muestra la página de reservas del cliente. Cada elemento tiene date."
+      },
+      "fr": {
+        "name": "Lister les dates disponibles",
+        "description": "Liste les dates d'un mois qui ont des créneaux libres pour un type de rendez-vous, les mêmes dates que la page de réservation du client. Chaque élément a date."
+      }
+    },
+    "acuity_list_available_times": {
+      "pt": {
+        "name": "Listar horários disponíveis",
+        "description": "Lista os horários de início livres de um tipo de atendimento em uma data, os mesmos horários que a página de agendamento do cliente mostra. Cada item tem time, que vai como datetime para Create appointment ou Reschedule appointment."
+      },
+      "es": {
+        "name": "Listar horas disponibles",
+        "description": "Lista las horas de inicio libres de un tipo de cita en una fecha, las mismas horas que muestra la página de reservas del cliente. Cada elemento tiene time, que va como datetime a Create appointment o Reschedule appointment."
+      },
+      "fr": {
+        "name": "Lister les heures disponibles",
+        "description": "Liste les heures de début libres d'un type de rendez-vous à une date, les mêmes heures que la page de réservation du client. Chaque élément a time, qui va comme datetime à Create appointment ou Reschedule appointment."
+      }
+    },
+    "acuity_list_clients": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes da conta, com firstName, lastName, email, phone e notes."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes de la cuenta, con firstName, lastName, email, phone y notes."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients du compte, avec firstName, lastName, email, phone et notes."
+      }
+    },
+    "acuity_create_client": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Adiciona um cliente à lista de clientes e o retorna. Um cliente que já existe recebe 400 com a mensagem That client already exists."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Agrega un cliente a la lista de clientes y lo devuelve. Un cliente que ya existe recibe 400 con el mensaje That client already exists."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Ajoute un client à la liste des clients et le renvoie. Un client qui existe déjà reçoit 400 avec le message That client already exists."
+      }
+    },
+    "acuity_list_forms": {
+      "pt": {
+        "name": "Listar formulários",
+        "description": "Lista os formulários de entrada, com appointmentTypeIDs, os tipos de atendimento em que cada formulário aparece, e fields: cada campo tem o id que Create appointment e Update appointment aceitam, name, type, required e options."
+      },
+      "es": {
+        "name": "Listar formularios",
+        "description": "Lista los formularios de ingreso, con appointmentTypeIDs, los tipos de cita en los que aparece cada formulario, y fields: cada campo tiene el id que aceptan Create appointment y Update appointment, name, type, required y options."
+      },
+      "fr": {
+        "name": "Lister les formulaires",
+        "description": "Liste les formulaires d'accueil, avec appointmentTypeIDs, les types de rendez-vous où chaque formulaire apparaît, et fields : chaque champ a l'id que Create appointment et Update appointment acceptent, name, type, required et options."
+      }
+    }
+  }
+}

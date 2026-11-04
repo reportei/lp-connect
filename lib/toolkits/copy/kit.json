@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage subscribers, tags, broadcasts and growth stats in your customer's Kit (ConvertKit) account from your product, through one Connect endpoint.",
+      "intro": "The Kit toolkit covers subscribers, tags, forms, segments, broadcasts with their stats, and growth stats: list, create, update and apply. Customers connect Kit once with OAuth on your own app, and Connect renews the tokens and logs every execution, so your product or AI agent runs email marketing without a custom integration.",
+      "useCases": [
+        {
+          "title": "Add signups to the list",
+          "body": "When someone signs up in your product, create the subscriber and apply a tag, which also starts the automations of the account that begin with that tag."
+        },
+        {
+          "title": "Draft and schedule broadcasts",
+          "body": "Create a broadcast as a draft, target segments and tags with subscriber_filter, and schedule it with send_at once the user approves."
+        },
+        {
+          "title": "Reports on audience growth",
+          "body": "Pull List broadcast stats and Get growth stats into a dashboard for your agency clients: opens, clicks, new subscribers and cancellations."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie inscritos, tags, broadcasts e estatísticas de crescimento na conta Kit (ConvertKit) do seu cliente pelo seu produto, com um único endpoint.",
+      "intro": "O toolkit do Kit cobre inscritos, tags, formulários, segmentos, broadcasts com suas estatísticas e estatísticas de crescimento: listar, criar, atualizar e aplicar. O cliente conecta o Kit uma vez por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução, para o seu produto ou agente de IA fazer e-mail marketing sem uma integração própria.",
+      "useCases": [
+        {
+          "title": "Adicionar cadastros à lista",
+          "body": "Quando alguém se cadastra no seu produto, crie o inscrito e aplique uma tag, o que também dispara as automações da conta que começam com essa tag."
+        },
+        {
+          "title": "Rascunhar e agendar broadcasts",
+          "body": "Crie um broadcast como rascunho, segmente por segmentos e tags com subscriber_filter e agende com send_at quando o usuário aprovar."
+        },
+        {
+          "title": "Relatórios de crescimento da audiência",
+          "body": "Leve List broadcast stats e Get growth stats para um painel dos clientes da sua agência: aberturas, cliques, novos inscritos e cancelamentos."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona suscriptores, tags, broadcasts y estadísticas de crecimiento en la cuenta Kit (ConvertKit) de tu cliente desde tu producto, con un único endpoint.",
+      "intro": "El toolkit de Kit cubre suscriptores, tags, formularios, segmentos, broadcasts con sus estadísticas y estadísticas de crecimiento: listar, crear, actualizar y aplicar. El cliente conecta Kit una vez por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución, para que tu producto o agente de IA haga email marketing sin una integración propia.",
+      "useCases": [
+        {
+          "title": "Añadir registros a la lista",
+          "body": "Cuando alguien se registra en tu producto, crea el suscriptor y aplica una tag, lo que también dispara las automatizaciones de la cuenta que empiezan con esa tag."
+        },
+        {
+          "title": "Redactar y programar broadcasts",
+          "body": "Crea un broadcast como borrador, segmenta por segmentos y tags con subscriber_filter y prográmalo con send_at cuando el usuario apruebe."
+        },
+        {
+          "title": "Informes de crecimiento de audiencia",
+          "body": "Lleva List broadcast stats y Get growth stats a un panel para los clientes de tu agencia: aperturas, clics, nuevos suscriptores y bajas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez abonnés, tags, broadcasts et statistiques de croissance dans le compte Kit (ConvertKit) de votre client depuis votre produit, via un seul endpoint.",
+      "intro": "Le toolkit Kit couvre les abonnés, les tags, les formulaires, les segments, les broadcasts avec leurs statistiques et les statistiques de croissance : lister, créer, mettre à jour et appliquer. Le client connecte Kit une fois par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution, pour que votre produit ou agent IA fasse de l'e-mail marketing sans intégration sur mesure.",
+      "useCases": [
+        {
+          "title": "Ajouter les inscrits à la liste",
+          "body": "Quand quelqu'un s'inscrit dans votre produit, créez l'abonné et appliquez un tag, ce qui lance aussi les automatisations du compte qui démarrent avec ce tag."
+        },
+        {
+          "title": "Rédiger et programmer des broadcasts",
+          "body": "Créez un broadcast en brouillon, ciblez segments et tags avec subscriber_filter et programmez-le avec send_at une fois validé par l'utilisateur."
+        },
+        {
+          "title": "Rapports de croissance d'audience",
+          "body": "Alimentez un tableau de bord pour les clients de votre agence avec List broadcast stats et Get growth stats : ouvertures, clics, nouveaux abonnés et désabonnements."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "kit_list_subscribers": {
+      "pt": {
+        "name": "Listar inscritos",
+        "description": "Lista os inscritos com id, e-mail, nome, estado e campos personalizados, apenas os ativos por padrão. Busque um por email_address. A resposta traz subscribers e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar suscriptores",
+        "description": "Lista los suscriptores con id, email, nombre, estado y campos personalizados, solo los activos por defecto. Busca uno por email_address. La respuesta trae subscribers y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les abonnés",
+        "description": "Liste les abonnés avec id, e-mail, prénom, état et champs personnalisés, seulement les actifs par défaut. Recherchez-en un par email_address. La réponse contient subscribers et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_create_subscriber": {
+      "pt": {
+        "name": "Criar inscrito",
+        "description": "Cria um inscrito ativo. Quando o e-mail já pertence a um inscrito, atualiza o nome desse inscrito em vez disso. Não adiciona tag: use Apply tag em seguida."
+      },
+      "es": {
+        "name": "Crear suscriptor",
+        "description": "Crea un suscriptor activo. Cuando el email ya pertenece a un suscriptor, actualiza el nombre de ese suscriptor en su lugar. No añade ninguna tag: usa Apply tag a continuación."
+      },
+      "fr": {
+        "name": "Créer un abonné",
+        "description": "Crée un abonné actif. Quand l'adresse e-mail appartient déjà à un abonné, met à jour le prénom de cet abonné à la place. N'ajoute aucun tag : utilisez ensuite Apply tag."
+      }
+    },
+    "kit_update_subscriber": {
+      "pt": {
+        "name": "Atualizar inscrito",
+        "description": "Atualiza o e-mail, o nome ou os campos personalizados de um inscrito. Uma chave de campo personalizado que não existe na conta faz a requisição falhar."
+      },
+      "es": {
+        "name": "Actualizar suscriptor",
+        "description": "Actualiza el email, el nombre o los campos personalizados de un suscriptor. Una clave de campo personalizado que no existe en la cuenta hace fallar la solicitud."
+      },
+      "fr": {
+        "name": "Mettre à jour un abonné",
+        "description": "Met à jour l'adresse e-mail, le prénom ou les champs personnalisés d'un abonné. Une clé de champ personnalisé qui n'existe pas dans le compte fait échouer la requête."
+      }
+    },
+    "kit_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags com id, nome e data de criação. A resposta traz tags e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar tags",
+        "description": "Lista las tags con id, nombre y fecha de creación. La respuesta trae tags y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les tags",
+        "description": "Liste les tags avec id, nom et date de création. La réponse contient tags et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_create_tag": {
+      "pt": {
+        "name": "Criar tag",
+        "description": "Cria uma tag e a retorna com seu id. Quando já existe uma tag com o mesmo nome, sem diferenciar maiúsculas, retorna essa tag em vez de uma duplicada."
+      },
+      "es": {
+        "name": "Crear tag",
+        "description": "Crea una tag y la devuelve con su id. Cuando ya existe una tag con el mismo nombre, sin distinguir mayúsculas, devuelve esa tag en lugar de una duplicada."
+      },
+      "fr": {
+        "name": "Créer un tag",
+        "description": "Crée un tag et le renvoie avec son id. Quand un tag du même nom existe, sans tenir compte de la casse, renvoie ce tag au lieu d'un doublon."
+      }
+    },
+    "kit_apply_tag": {
+      "pt": {
+        "name": "Aplicar tag",
+        "description": "Aplica uma tag a um inscrito existente, encontrado pelo e-mail. As automações da conta que começam com essa tag rodam para o inscrito. Crie o inscrito antes com Create subscriber."
+      },
+      "es": {
+        "name": "Aplicar tag",
+        "description": "Aplica una tag a un suscriptor existente, encontrado por email. Las automatizaciones de la cuenta que empiezan con esa tag se ejecutan para el suscriptor. Crea antes el suscriptor con Create subscriber."
+      },
+      "fr": {
+        "name": "Appliquer un tag",
+        "description": "Applique un tag à un abonné existant, retrouvé par son adresse e-mail. Les automatisations du compte qui démarrent avec ce tag s'exécutent pour l'abonné. Créez d'abord l'abonné avec Create subscriber."
+      }
+    },
+    "kit_list_forms": {
+      "pt": {
+        "name": "Listar formulários",
+        "description": "Lista os formulários e landing pages com id, nome, tipo e URL de incorporação, apenas os ativos por padrão. A resposta traz forms e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar formularios",
+        "description": "Lista los formularios y landing pages con id, nombre, tipo y URL de inserción, solo los activos por defecto. La respuesta trae forms y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les formulaires",
+        "description": "Liste les formulaires et landing pages avec id, nom, type et URL d'intégration, seulement les actifs par défaut. La réponse contient forms et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_list_segments": {
+      "pt": {
+        "name": "Listar segmentos",
+        "description": "Lista os segmentos com id e nome. Os segmentos são criados no app do Kit, e seus ids definem o público de um broadcast em subscriber_filter. A resposta traz segments e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar segmentos",
+        "description": "Lista los segmentos con id y nombre. Los segmentos se crean en la app de Kit, y sus ids definen el público de un broadcast en subscriber_filter. La respuesta trae segments y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les segments",
+        "description": "Liste les segments avec id et nom. Les segments se construisent dans l'app Kit, et leurs ids ciblent un broadcast dans subscriber_filter. La réponse contient segments et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_list_broadcasts": {
+      "pt": {
+        "name": "Listar broadcasts",
+        "description": "Lista os broadcasts com id, assunto, conteúdo, status, send_at, segmentação e template de e-mail. A resposta traz broadcasts e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar broadcasts",
+        "description": "Lista los broadcasts con id, asunto, contenido, estado, send_at, segmentación y plantilla de email. La respuesta trae broadcasts y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les broadcasts",
+        "description": "Liste les broadcasts avec id, objet, contenu, statut, send_at, ciblage et modèle d'e-mail. La réponse contient broadcasts et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_create_broadcast": {
+      "pt": {
+        "name": "Criar broadcast",
+        "description": "Cria um e-mail broadcast como rascunho, ou o agenda quando send_at está definido. Vai para todos os inscritos, ou apenas para os segmentos e tags de subscriber_filter. Retorna o broadcast com seu id."
+      },
+      "es": {
+        "name": "Crear broadcast",
+        "description": "Crea un email broadcast como borrador, o lo programa cuando send_at está definido. Va a todos los suscriptores, o solo a los segmentos y tags de subscriber_filter. Devuelve el broadcast con su id."
+      },
+      "fr": {
+        "name": "Créer un broadcast",
+        "description": "Crée un e-mail broadcast en brouillon, ou le programme quand send_at est défini. Il part à tous les abonnés, ou seulement aux segments et tags de subscriber_filter. Renvoie le broadcast avec son id."
+      }
+    },
+    "kit_update_broadcast": {
+      "pt": {
+        "name": "Atualizar broadcast",
+        "description": "Atualiza um broadcast em rascunho ou agendado. Envie subject e content em toda atualização, copiados de List broadcasts quando não mudam. Definir send_at agenda o envio, e null devolve o broadcast a rascunho."
+      },
+      "es": {
+        "name": "Actualizar broadcast",
+        "description": "Actualiza un broadcast en borrador o programado. Envía subject y content en cada actualización, copiados de List broadcasts cuando no cambian. Definir send_at programa el envío, y null devuelve el broadcast a borrador."
+      },
+      "fr": {
+        "name": "Mettre à jour un broadcast",
+        "description": "Met à jour un broadcast en brouillon ou programmé. Envoyez subject et content à chaque mise à jour, copiés de List broadcasts quand ils ne changent pas. Définir send_at programme l'envoi, et null remet le broadcast en brouillon."
+      }
+    },
+    "kit_list_broadcast_stats": {
+      "pt": {
+        "name": "Listar estatísticas de broadcasts",
+        "description": "Retorna, para cada broadcast com id, assunto e send_at, os destinatários, aberturas, taxa de abertura, cliques, taxa de cliques, descadastros e status de envio. A resposta traz broadcasts e pagination; enquanto has_next_page for true, envie pagination.end_cursor como after."
+      },
+      "es": {
+        "name": "Listar estadísticas de broadcasts",
+        "description": "Devuelve, para cada broadcast con id, asunto y send_at, los destinatarios, aperturas, tasa de apertura, clics, tasa de clics, bajas y estado de envío. La respuesta trae broadcasts y pagination; mientras has_next_page sea true, envía pagination.end_cursor como after."
+      },
+      "fr": {
+        "name": "Lister les statistiques des broadcasts",
+        "description": "Renvoie, pour chaque broadcast avec id, objet et send_at, les destinataires, ouvertures, taux d'ouverture, clics, taux de clic, désabonnements et statut d'envoi. La réponse contient broadcasts et pagination ; tant que has_next_page vaut true, passez pagination.end_cursor en after."
+      }
+    },
+    "kit_get_growth_stats": {
+      "pt": {
+        "name": "Obter estatísticas de crescimento",
+        "description": "Retorna os inscritos no fim do período, os novos inscritos, os cancelamentos e o saldo de novos inscritos entre starting e ending, contados no fuso horário de envio da conta. O período padrão são os últimos 90 dias."
+      },
+      "es": {
+        "name": "Obtener estadísticas de crecimiento",
+        "description": "Devuelve los suscriptores al final del período, los nuevos suscriptores, las bajas y el neto de nuevos suscriptores entre starting y ending, contados en la zona horaria de envío de la cuenta. El período por defecto son los últimos 90 días."
+      },
+      "fr": {
+        "name": "Obtenir les statistiques de croissance",
+        "description": "Renvoie les abonnés à la fin de la période, les nouveaux abonnés, les désabonnements et le solde net de nouveaux abonnés entre starting et ending, comptés dans le fuseau horaire d'envoi du compte. La période par défaut est les 90 derniers jours."
+      }
+    }
+  }
+}

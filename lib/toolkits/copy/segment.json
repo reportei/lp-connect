@@ -1,0 +1,232 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read sources, destinations, warehouses, delivery metrics and event volume from your customer's Segment workspace through one Connect endpoint.",
+      "intro": "The Segment toolkit reads the sources, destinations and warehouses of a workspace in the US region through the Public API, along with delivery metrics, warehouse syncs and the volume of events received. Through Connect, a product or AI agent inspects the customer's data pipeline without building the integration.",
+      "useCases": [
+        {
+          "title": "Pipeline health in your product",
+          "body": "Show which destinations receive data from each source and read delivery metrics for a period to spot failing deliveries."
+        },
+        {
+          "title": "Warehouse sync checks",
+          "body": "List the latest syncs of a warehouse with status and duration to check whether the data is arriving."
+        },
+        {
+          "title": "Event volume for an agent",
+          "body": "Let an AI agent read how many events the workspace received per bucket, grouped by source or event name, and explain a drop or spike."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia fontes, destinos, data warehouses, métricas de entrega e volume de eventos do workspace Segment do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Segment lê as fontes, os destinos e os data warehouses de um workspace na região US pela Public API, além de métricas de entrega, sincronizações de warehouse e o volume de eventos recebidos. Pelo Connect, um produto ou agente de IA inspeciona o pipeline de dados do cliente sem construir a integração.",
+      "useCases": [
+        {
+          "title": "Saúde do pipeline no seu produto",
+          "body": "Mostre quais destinos recebem dados de cada fonte e leia as métricas de entrega de um período para achar entregas com falha."
+        },
+        {
+          "title": "Verificação de sincronização do warehouse",
+          "body": "Liste as últimas sincronizações de um warehouse com status e duração para conferir se os dados estão chegando."
+        },
+        {
+          "title": "Volume de eventos para um agente",
+          "body": "Deixe um agente de IA ler quantos eventos o workspace recebeu por intervalo, agrupados por fonte ou nome de evento, e explicar uma queda ou um pico."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee fuentes, destinos, data warehouses, métricas de entrega y volumen de eventos del workspace de Segment de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Segment lee las fuentes, los destinos y los data warehouses de un workspace en la región US mediante la Public API, además de métricas de entrega, sincronizaciones de warehouse y el volumen de eventos recibidos. Con Connect, un producto o agente de IA inspecciona el pipeline de datos del cliente sin construir la integración.",
+      "useCases": [
+        {
+          "title": "Salud del pipeline en tu producto",
+          "body": "Muestra qué destinos reciben datos de cada fuente y lee las métricas de entrega de un período para detectar entregas fallidas."
+        },
+        {
+          "title": "Revisión de sincronizaciones del warehouse",
+          "body": "Lista las últimas sincronizaciones de un warehouse con estado y duración para comprobar si los datos están llegando."
+        },
+        {
+          "title": "Volumen de eventos para un agente",
+          "body": "Deja que un agente de IA lea cuántos eventos recibió el workspace por intervalo, agrupados por fuente o nombre de evento, y explique una caída o un pico."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez sources, destinations, entrepôts, métriques de livraison et volume d'événements du workspace Segment de votre client via un endpoint Connect.",
+      "intro": "Le toolkit Segment lit les sources, destinations et entrepôts de données d'un workspace de la région US via la Public API, ainsi que les métriques de livraison, les synchronisations d'entrepôt et le volume d'événements reçus. Avec Connect, un produit ou un agent IA inspecte le pipeline de données du client sans construire l'intégration.",
+      "useCases": [
+        {
+          "title": "Santé du pipeline dans votre produit",
+          "body": "Affichez quelles destinations reçoivent les données de chaque source et lisez les métriques de livraison d'une période pour repérer les livraisons en échec."
+        },
+        {
+          "title": "Contrôle des synchronisations d'entrepôt",
+          "body": "Listez les dernières synchronisations d'un entrepôt avec statut et durée pour vérifier que les données arrivent."
+        },
+        {
+          "title": "Volume d'événements pour un agent",
+          "body": "Laissez un agent IA lire combien d'événements le workspace a reçus par intervalle, regroupés par source ou nom d'événement, et expliquer une baisse ou un pic."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "segment_list_sources": {
+      "pt": {
+        "name": "Listar fontes",
+        "description": "Lista as fontes do workspace com id, name, slug, enabled, metadata e labels. Retorna as primeiras 200, porque a conexão não envia paginação; pagination.totalEntries diz se há mais."
+      },
+      "es": {
+        "name": "Listar fuentes",
+        "description": "Lista las fuentes del workspace con id, name, slug, enabled, metadata y labels. Devuelve las primeras 200, porque la conexión no envía paginación; pagination.totalEntries indica si hay más."
+      },
+      "fr": {
+        "name": "Lister les sources",
+        "description": "Liste les sources du workspace avec id, name, slug, enabled, metadata et labels. Renvoie les 200 premières, car la connexion n'envoie pas de pagination ; pagination.totalEntries indique s'il y en a plus."
+      }
+    },
+    "segment_get_source": {
+      "pt": {
+        "name": "Obter fonte",
+        "description": "Retorna uma fonte com suas configurações, write keys, metadata e labels."
+      },
+      "es": {
+        "name": "Obtener fuente",
+        "description": "Devuelve una fuente con su configuración, write keys, metadata y labels."
+      },
+      "fr": {
+        "name": "Obtenir une source",
+        "description": "Renvoie une source avec ses réglages, write keys, metadata et labels."
+      }
+    },
+    "segment_list_connected_destinations": {
+      "pt": {
+        "name": "Listar destinos conectados",
+        "description": "Lista os destinos que recebem dados de uma fonte, com id, name, enabled e metadata. Retorna os primeiros 200, porque a conexão não envia paginação."
+      },
+      "es": {
+        "name": "Listar destinos conectados",
+        "description": "Lista los destinos que reciben datos de una fuente, con id, name, enabled y metadata. Devuelve los primeros 200, porque la conexión no envía paginación."
+      },
+      "fr": {
+        "name": "Lister les destinations connectées",
+        "description": "Liste les destinations qui reçoivent des données d'une source, avec id, name, enabled et metadata. Renvoie les 200 premières, car la connexion n'envoie pas de pagination."
+      }
+    },
+    "segment_list_connected_warehouses": {
+      "pt": {
+        "name": "Listar warehouses conectados",
+        "description": "Lista os warehouses que recebem dados de uma fonte. Retorna os primeiros 200, porque a conexão não envia paginação."
+      },
+      "es": {
+        "name": "Listar warehouses conectados",
+        "description": "Lista los warehouses que reciben datos de una fuente. Devuelve los primeros 200, porque la conexión no envía paginación."
+      },
+      "fr": {
+        "name": "Lister les entrepôts connectés",
+        "description": "Liste les entrepôts qui reçoivent des données d'une source. Renvoie les 200 premiers, car la connexion n'envoie pas de pagination."
+      }
+    },
+    "segment_list_destinations": {
+      "pt": {
+        "name": "Listar destinos",
+        "description": "Lista os destinos do workspace com id, name, enabled, metadata e o sourceId a que cada um pertence. Retorna os primeiros 200, porque a conexão não envia paginação; pagination.totalEntries diz se há mais."
+      },
+      "es": {
+        "name": "Listar destinos",
+        "description": "Lista los destinos del workspace con id, name, enabled, metadata y el sourceId al que pertenece cada uno. Devuelve los primeros 200, porque la conexión no envía paginación; pagination.totalEntries indica si hay más."
+      },
+      "fr": {
+        "name": "Lister les destinations",
+        "description": "Liste les destinations du workspace avec id, name, enabled, metadata et le sourceId auquel chacune appartient. Renvoie les 200 premières, car la connexion n'envoie pas de pagination ; pagination.totalEntries indique s'il y en a plus."
+      }
+    },
+    "segment_get_destination": {
+      "pt": {
+        "name": "Obter destino",
+        "description": "Retorna um destino com suas configurações, metadata e o sourceId a que pertence."
+      },
+      "es": {
+        "name": "Obtener destino",
+        "description": "Devuelve un destino con su configuración, metadata y el sourceId al que pertenece."
+      },
+      "fr": {
+        "name": "Obtenir une destination",
+        "description": "Renvoie une destination avec ses réglages, metadata et le sourceId auquel elle appartient."
+      }
+    },
+    "segment_get_delivery_metrics": {
+      "pt": {
+        "name": "Obter métricas de entrega",
+        "description": "Retorna as métricas de entrega de um destino para os eventos de uma fonte em um período, cada métrica com seu total e detalhamento. Sem datas, cobre a última hora por minuto."
+      },
+      "es": {
+        "name": "Obtener métricas de entrega",
+        "description": "Devuelve las métricas de entrega de un destino para los eventos de una fuente en un período, cada métrica con su total y desglose. Sin fechas, cubre la última hora por minuto."
+      },
+      "fr": {
+        "name": "Obtenir les métriques de livraison",
+        "description": "Renvoie les métriques de livraison d'une destination pour les événements d'une source sur une période, chaque métrique avec son total et sa ventilation. Sans dates, couvre la dernière heure minute par minute."
+      }
+    },
+    "segment_list_warehouses": {
+      "pt": {
+        "name": "Listar warehouses",
+        "description": "Lista os warehouses do workspace com id, enabled, metadata e settings. Retorna os primeiros 200, porque a conexão não envia paginação; pagination.totalEntries diz se há mais."
+      },
+      "es": {
+        "name": "Listar warehouses",
+        "description": "Lista los warehouses del workspace con id, enabled, metadata y settings. Devuelve los primeros 200, porque la conexión no envía paginación; pagination.totalEntries indica si hay más."
+      },
+      "fr": {
+        "name": "Lister les entrepôts",
+        "description": "Liste les entrepôts du workspace avec id, enabled, metadata et settings. Renvoie les 200 premiers, car la connexion n'envoie pas de pagination ; pagination.totalEntries indique s'il y en a plus."
+      }
+    },
+    "segment_get_warehouse": {
+      "pt": {
+        "name": "Obter warehouse",
+        "description": "Retorna um warehouse com suas configurações e metadata."
+      },
+      "es": {
+        "name": "Obtener warehouse",
+        "description": "Devuelve un warehouse con su configuración y metadata."
+      },
+      "fr": {
+        "name": "Obtenir un entrepôt",
+        "description": "Renvoie un entrepôt avec ses réglages et metadata."
+      }
+    },
+    "segment_list_warehouse_syncs": {
+      "pt": {
+        "name": "Listar sincronizações do warehouse",
+        "description": "Lista as últimas sincronizações de um warehouse, com status e duração, para conferir se os dados estão chegando. Retorna as primeiras 200, porque a conexão não envia paginação."
+      },
+      "es": {
+        "name": "Listar sincronizaciones del warehouse",
+        "description": "Lista las últimas sincronizaciones de un warehouse, con estado y duración, para comprobar si los datos están llegando. Devuelve las primeras 200, porque la conexión no envía paginación."
+      },
+      "fr": {
+        "name": "Lister les synchronisations d'un entrepôt",
+        "description": "Liste les dernières synchronisations d'un entrepôt, avec statut et durée, pour vérifier que les données arrivent. Renvoie les 200 premières, car la connexion n'envoie pas de pagination."
+      }
+    },
+    "segment_get_events_volume": {
+      "pt": {
+        "name": "Obter volume de eventos",
+        "description": "Retorna quantos eventos o workspace recebeu por intervalo em um período, opcionalmente agrupados e filtrados por fonte, nome do evento e tipo de evento."
+      },
+      "es": {
+        "name": "Obtener volumen de eventos",
+        "description": "Devuelve cuántos eventos recibió el workspace por intervalo en un período, opcionalmente agrupados y filtrados por fuente, nombre de evento y tipo de evento."
+      },
+      "fr": {
+        "name": "Obtenir le volume d'événements",
+        "description": "Renvoie combien d'événements le workspace a reçus par intervalle sur une période, éventuellement regroupés et filtrés par source, nom d'événement et type d'événement."
+      }
+    }
+  }
+}

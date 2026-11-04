@@ -1,0 +1,102 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, confirm and track print-on-demand orders, quote shipping and read the catalog in your customer's Printful store through Connect.",
+      "intro": "The Printful toolkit covers orders, shipping rates, the blank product catalog, the store's own products and sales statistics: create a draft order, update it, confirm it for fulfillment or cancel it, and read tracking numbers. The merchant connects with a Printful API key, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Fulfill orders from your storefront", "body": "Create a draft order with recipient, items and print files, quote shipping, then confirm it so Printful starts fulfillment." },
+        { "title": "Order status in your dashboard", "body": "List orders and read the shipments with carrier and tracking number to show customers where their package is." },
+        { "title": "AI agent for merch stores", "body": "Let an agent browse the catalog and its variants, check store products, calculate shipping rates and cancel an order that is still draft or pending." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, confirme e acompanhe pedidos de impressão sob demanda, cote frete e leia o catálogo na loja Printful do seu cliente via Connect.",
+      "intro": "O toolkit do Printful cobre pedidos, taxas de frete, o catálogo de produtos em branco, os produtos da própria loja e estatísticas de vendas: criar um pedido em rascunho, atualizá-lo, confirmá-lo para produção ou cancelá-lo e ler os códigos de rastreio. O lojista conecta com uma API key do Printful, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Atender pedidos da sua loja", "body": "Crie um pedido em rascunho com destinatário, itens e arquivos de impressão, cote o frete e confirme para o Printful iniciar a produção." },
+        { "title": "Status do pedido no seu painel", "body": "Liste os pedidos e leia os envios com transportadora e código de rastreio para mostrar aos clientes onde está o pacote." },
+        { "title": "Agente de IA para lojas de merch", "body": "Deixe um agente navegar pelo catálogo e suas variantes, consultar produtos da loja, calcular taxas de frete e cancelar um pedido ainda em rascunho ou pendente." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, confirma y sigue pedidos de impresión bajo demanda, cotiza envíos y lee el catálogo en la tienda Printful de tu cliente con Connect.",
+      "intro": "El toolkit de Printful cubre pedidos, tarifas de envío, el catálogo de productos en blanco, los productos de la propia tienda y estadísticas de ventas: crear un pedido en borrador, actualizarlo, confirmarlo para producción o cancelarlo y leer los números de seguimiento. El comerciante conecta con una API key de Printful, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Cumplir pedidos de tu tienda", "body": "Crea un pedido en borrador con destinatario, ítems y archivos de impresión, cotiza el envío y confírmalo para que Printful inicie la producción." },
+        { "title": "Estado del pedido en tu panel", "body": "Lista los pedidos y lee los envíos con transportista y número de seguimiento para mostrar a los clientes dónde está su paquete." },
+        { "title": "Agente de IA para tiendas de merch", "body": "Deja que un agente explore el catálogo y sus variantes, consulte productos de la tienda, calcule tarifas de envío y cancele un pedido que sigue en borrador o pendiente." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, confirmez et suivez des commandes d'impression à la demande, chiffrez la livraison et lisez le catalogue de la boutique Printful de votre client.",
+      "intro": "Le toolkit Printful couvre les commandes, les tarifs de livraison, le catalogue de produits vierges, les produits de la boutique elle-même et les statistiques de ventes : créer une commande en brouillon, la modifier, la confirmer pour production ou l'annuler, et lire les numéros de suivi. Le marchand se connecte avec une clé API Printful, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Traiter les commandes de votre boutique", "body": "Créez une commande en brouillon avec destinataire, articles et fichiers d'impression, chiffrez la livraison, puis confirmez-la pour que Printful lance la production." },
+        { "title": "Statut des commandes dans votre tableau", "body": "Listez les commandes et lisez les expéditions avec transporteur et numéro de suivi pour montrer aux clients où est leur colis." },
+        { "title": "Agent IA pour boutiques de merch", "body": "Laissez un agent parcourir le catalogue et ses variantes, consulter les produits de la boutique, calculer les tarifs de livraison et annuler une commande encore en brouillon ou en attente." }
+      ]
+    }
+  },
+  "tools": {
+    "printful_list_orders": {
+      "pt": { "name": "Listar pedidos", "description": "Lista os pedidos da loja com status, destinatário, itens, custos e envios. Pagine com offset e limit; paging.total na resposta é o número de pedidos." },
+      "es": { "name": "Listar pedidos", "description": "Lista los pedidos de la tienda con estado, destinatario, ítems, costos y envíos. Pagina con offset y limit; paging.total en la respuesta es el número de pedidos." },
+      "fr": { "name": "Lister les commandes", "description": "Liste les commandes de la boutique avec statut, destinataire, articles, coûts et expéditions. Paginez avec offset et limit ; paging.total dans la réponse est le nombre de commandes." }
+    },
+    "printful_get_order": {
+      "pt": { "name": "Obter pedido", "description": "Retorna um pedido com status, destinatário, itens, custos e os envios com transportadora e código de rastreio." },
+      "es": { "name": "Obtener pedido", "description": "Devuelve un pedido con estado, destinatario, ítems, costos y los envíos con transportista y número de seguimiento." },
+      "fr": { "name": "Obtenir une commande", "description": "Renvoie une commande avec statut, destinataire, articles, coûts et les expéditions avec transporteur et numéro de suivi." }
+    },
+    "printful_create_order": {
+      "pt": { "name": "Criar pedido", "description": "Cria um pedido como rascunho e o retorna com os custos que o Printful calculou. Nada é cobrado até Confirmar pedido. recipient e items são obrigatórios, e os arquivos de impressão são baixados de URLs públicas." },
+      "es": { "name": "Crear pedido", "description": "Crea un pedido como borrador y lo devuelve con los costos que calculó Printful. No se cobra nada hasta Confirmar pedido. recipient e items son obligatorios, y los archivos de impresión se descargan de URLs públicas." },
+      "fr": { "name": "Créer une commande", "description": "Crée une commande en brouillon et la renvoie avec les coûts calculés par Printful. Rien n'est facturé avant Confirmer la commande. recipient et items sont obligatoires, et les fichiers d'impression sont téléchargés depuis des URL publiques." }
+    },
+    "printful_update_order": {
+      "pt": { "name": "Atualizar pedido", "description": "Altera um pedido que ainda não foi enviado para produção e o retorna. Envie só os campos que mudam; enviar items substitui a lista de itens. Nada é cobrado até Confirmar pedido." },
+      "es": { "name": "Actualizar pedido", "description": "Modifica un pedido que aún no se envió a producción y lo devuelve. Envía solo los campos que cambian; enviar items reemplaza la lista de ítems. No se cobra nada hasta Confirmar pedido." },
+      "fr": { "name": "Modifier une commande", "description": "Modifie une commande qui n'a pas encore été soumise à la production et la renvoie. N'envoyez que les champs qui changent ; envoyer items remplace la liste d'articles. Rien n'est facturé avant Confirmer la commande." }
+    },
+    "printful_confirm_order": {
+      "pt": { "name": "Confirmar pedido", "description": "Envia um pedido em rascunho para produção e o retorna. O Printful cobra a forma de pagamento do dono da loja neste momento; um pedido pendente ainda pode ser cancelado com Cancelar pedido." },
+      "es": { "name": "Confirmar pedido", "description": "Envía un pedido en borrador a producción y lo devuelve. Printful cobra el método de pago del dueño de la tienda en este momento; un pedido pendiente aún se puede cancelar con Cancelar pedido." },
+      "fr": { "name": "Confirmer une commande", "description": "Soumet une commande en brouillon à la production et la renvoie. Printful débite le moyen de paiement du propriétaire de la boutique à ce moment ; une commande en attente peut encore être annulée avec Annuler la commande." }
+    },
+    "printful_cancel_order": {
+      "pt": { "name": "Cancelar pedido", "description": "Cancela um pedido em rascunho ou pendente e o retorna. Um valor cobrado volta para o cartão do dono da loja. Pedidos em revisão, em processo ou já enviados não podem ser cancelados." },
+      "es": { "name": "Cancelar pedido", "description": "Cancela un pedido en borrador o pendiente y lo devuelve. Un monto cobrado vuelve a la tarjeta del dueño de la tienda. Los pedidos en revisión, en proceso o ya enviados no se pueden cancelar." },
+      "fr": { "name": "Annuler une commande", "description": "Annule une commande en brouillon ou en attente et la renvoie. Un montant débité retourne sur la carte du propriétaire de la boutique. Les commandes en revue, en cours ou déjà expédiées ne peuvent pas être annulées." }
+    },
+    "printful_calculate_shipping_rates": {
+      "pt": { "name": "Calcular taxas de frete", "description": "Retorna os métodos de envio para uma lista de itens e um destino, com taxa, moeda e estimativa de entrega. O id de um método vai em shipping de Criar pedido e Atualizar pedido. Chame logo antes de fazer o pedido, pois as taxas mudam." },
+      "es": { "name": "Calcular tarifas de envío", "description": "Devuelve los métodos de envío para una lista de ítems y un destino, con tarifa, moneda y estimación de entrega. El id de un método va en shipping de Crear pedido y Actualizar pedido. Llama justo antes de hacer el pedido, porque las tarifas cambian." },
+      "fr": { "name": "Calculer les tarifs de livraison", "description": "Renvoie les modes de livraison pour une liste d'articles et une destination, avec tarif, devise et estimation de livraison. L'id d'un mode va dans shipping de Créer une commande et Modifier une commande. Appelez juste avant de commander, car les tarifs changent." }
+    },
+    "printful_list_catalog_products": {
+      "pt": { "name": "Listar produtos do catálogo", "description": "Lista os produtos em branco do catálogo do Printful, como camisetas, canecas e pôsteres, com id, title, type, brand e main_category_id. Obter produto do catálogo retorna as variantes de um deles." },
+      "es": { "name": "Listar productos del catálogo", "description": "Lista los productos en blanco del catálogo de Printful, como camisetas, tazas y pósteres, con id, title, type, brand y main_category_id. Obtener producto del catálogo devuelve las variantes de uno de ellos." },
+      "fr": { "name": "Lister les produits du catalogue", "description": "Liste les produits vierges du catalogue Printful, comme t-shirts, mugs et posters, avec id, title, type, brand et main_category_id. Obtenir un produit du catalogue renvoie les variantes de l'un d'eux." }
+    },
+    "printful_get_catalog_product": {
+      "pt": { "name": "Obter produto do catálogo", "description": "Retorna um produto do catálogo e suas variantes. Cada variante tem o id que pedidos e taxas de frete recebem como variant_id, com tamanho, cor, preço e estoque; o produto lista as posições de arquivo de impressão (files) e as opções que aceita." },
+      "es": { "name": "Obtener producto del catálogo", "description": "Devuelve un producto del catálogo y sus variantes. Cada variante tiene el id que reciben los pedidos y las tarifas de envío como variant_id, con talla, color, precio y stock; el producto lista las posiciones de archivo de impresión (files) y las opciones que acepta." },
+      "fr": { "name": "Obtenir un produit du catalogue", "description": "Renvoie un produit du catalogue et ses variantes. Chaque variante a l'id que prennent les commandes et les tarifs de livraison comme variant_id, avec taille, couleur, prix et stock ; le produit liste les emplacements de fichiers d'impression (files) et les options qu'il accepte." }
+    },
+    "printful_list_store_products": {
+      "pt": { "name": "Listar produtos da loja", "description": "Lista os produtos de uma loja criados no Printful para pedidos manuais e para a API, com id, external_id, name e quantas variantes cada um tem. Obter produto da loja retorna as variantes." },
+      "es": { "name": "Listar productos de la tienda", "description": "Lista los productos de una tienda creados en Printful para pedidos manuales y para la API, con id, external_id, name y cuántas variantes tiene cada uno. Obtener producto de la tienda devuelve las variantes." },
+      "fr": { "name": "Lister les produits de la boutique", "description": "Liste les produits d'une boutique créés dans Printful pour les commandes manuelles et l'API, avec id, external_id, name et le nombre de variantes de chacun. Obtenir un produit de la boutique renvoie les variantes." }
+    },
+    "printful_get_store_product": {
+      "pt": { "name": "Obter produto da loja", "description": "Retorna um produto da loja e suas variantes. O id de cada variante é o sync_variant_id de Criar pedido, e seu variant_id é a variante do catálogo por trás dela." },
+      "es": { "name": "Obtener producto de la tienda", "description": "Devuelve un producto de la tienda y sus variantes. El id de cada variante es el sync_variant_id de Crear pedido, y su variant_id es la variante del catálogo detrás de ella." },
+      "fr": { "name": "Obtenir un produit de la boutique", "description": "Renvoie un produit de la boutique et ses variantes. L'id de chaque variante est le sync_variant_id de Créer une commande, et son variant_id est la variante du catalogue qui la sous-tend." }
+    },
+    "printful_get_statistics": {
+      "pt": { "name": "Obter estatísticas", "description": "Retorna estatísticas de vendas, custos e lucro da loja para um período de até 6 meses, uma entrada por tipo de relatório em result.store_statistics." },
+      "es": { "name": "Obtener estadísticas", "description": "Devuelve estadísticas de ventas, costos y ganancias de la tienda para un período de hasta 6 meses, una entrada por tipo de reporte en result.store_statistics." },
+      "fr": { "name": "Obtenir les statistiques", "description": "Renvoie les statistiques de ventes, coûts et profit de la boutique pour une période allant jusqu'à 6 mois, une entrée par type de rapport dans result.store_statistics." }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Send messages, create channels and threads, and schedule events in the Discord servers your customer's bot can reach, through one Connect endpoint.",
+      "intro": "The Discord toolkit covers the servers, channels, messages, threads and scheduled events that a customer's Discord bot can reach: list and create channels, read, search, send, edit and delete messages, and manage events. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores the bot credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Notify a community channel",
+          "body": "When something happens in your product, post a message with embeds in the channel your customer picked, and edit it when the status changes."
+        },
+        {
+          "title": "Agent that reads and answers",
+          "body": "An AI agent lists or searches messages of a server, replies in a thread it creates, and deletes its own outdated messages."
+        },
+        {
+          "title": "Events from your calendar",
+          "body": "Create a scheduled event for a webinar or launch in the customer's server, then start, end or cancel it as plans change."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Envie mensagens, crie canais e threads e agende eventos nos servidores do Discord que o bot do seu cliente alcança, por um endpoint do Connect.",
+      "intro": "O toolkit do Discord cobre servidores, canais, mensagens, threads e eventos agendados que o bot de um cliente alcança: listar e criar canais, ler, buscar, enviar, editar e excluir mensagens e gerenciar eventos. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda as credenciais do bot e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Avisar um canal da comunidade",
+          "body": "Quando algo acontece no seu produto, poste uma mensagem com embeds no canal escolhido pelo cliente e edite-a quando o status mudar."
+        },
+        {
+          "title": "Agente que lê e responde",
+          "body": "Um agente de IA lista ou busca mensagens de um servidor, responde em uma thread que ele cria e apaga as próprias mensagens desatualizadas."
+        },
+        {
+          "title": "Eventos a partir da sua agenda",
+          "body": "Crie um evento agendado para um webinar ou lançamento no servidor do cliente e inicie, encerre ou cancele conforme os planos mudam."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Envía mensajes, crea canales e hilos y programa eventos en los servidores de Discord a los que llega el bot de tu cliente, con un endpoint de Connect.",
+      "intro": "El toolkit de Discord cubre los servidores, canales, mensajes, hilos y eventos programados a los que llega el bot de un cliente: listar y crear canales, leer, buscar, enviar, editar y eliminar mensajes, y gestionar eventos. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda las credenciales del bot y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Avisar a un canal de la comunidad",
+          "body": "Cuando algo ocurre en tu producto, publica un mensaje con embeds en el canal que eligió el cliente y edítalo cuando cambie el estado."
+        },
+        {
+          "title": "Agente que lee y responde",
+          "body": "Un agente de IA lista o busca mensajes de un servidor, responde en un hilo que él crea y borra sus propios mensajes desactualizados."
+        },
+        {
+          "title": "Eventos desde tu calendario",
+          "body": "Crea un evento programado para un webinar o lanzamiento en el servidor del cliente, y inícialo, termínalo o cancélalo según cambien los planes."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Envoyez des messages, créez des salons et fils et planifiez des événements sur les serveurs Discord que le bot de votre client atteint, via Connect.",
+      "intro": "Le toolkit Discord couvre les serveurs, salons, messages, fils et événements planifiés qu'atteint le bot d'un client : lister et créer des salons, lire, rechercher, envoyer, modifier et supprimer des messages, gérer des événements. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke les identifiants du bot et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Notifier un salon de la communauté",
+          "body": "Quand quelque chose se passe dans votre produit, publiez un message avec embeds dans le salon choisi par le client et modifiez-le quand le statut change."
+        },
+        {
+          "title": "Agent qui lit et répond",
+          "body": "Un agent IA liste ou recherche les messages d'un serveur, répond dans un fil qu'il crée et supprime ses propres messages obsolètes."
+        },
+        {
+          "title": "Événements depuis votre agenda",
+          "body": "Créez un événement planifié pour un webinaire ou un lancement sur le serveur du client, puis démarrez-le, terminez-le ou annulez-le selon l'évolution des plans."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "discord_list_guilds": {
+      "pt": {
+        "name": "Listar servidores",
+        "description": "Lista os servidores em que o bot está. O id de um servidor é o guild_id das outras tools. with_counts adiciona approximate_member_count e approximate_presence_count a cada servidor."
+      },
+      "es": {
+        "name": "Listar servidores",
+        "description": "Lista los servidores en los que está el bot. El id de un servidor es el guild_id de las otras tools. with_counts agrega approximate_member_count y approximate_presence_count a cada servidor."
+      },
+      "fr": {
+        "name": "Lister les serveurs",
+        "description": "Liste les serveurs où se trouve le bot. L'id d'un serveur est le guild_id des autres tools. with_counts ajoute approximate_member_count et approximate_presence_count à chaque serveur."
+      }
+    },
+    "discord_list_channels": {
+      "pt": {
+        "name": "Listar canais",
+        "description": "Lista os canais e categorias de um servidor, sem threads. type indica o tipo: 0 texto, 2 voz, 4 categoria, 5 anúncios, 13 palco, 15 fórum e 16 mídia. Um canal de fórum ou mídia lista suas tags em available_tags."
+      },
+      "es": {
+        "name": "Listar canales",
+        "description": "Lista los canales y categorías de un servidor, sin hilos. type indica el tipo: 0 texto, 2 voz, 4 categoría, 5 anuncios, 13 escenario, 15 foro y 16 medios. Un canal de foro o medios lista sus etiquetas en available_tags."
+      },
+      "fr": {
+        "name": "Lister les salons",
+        "description": "Liste les salons et catégories d'un serveur, sans les fils. type indique le genre : 0 texte, 2 vocal, 4 catégorie, 5 annonces, 13 scène, 15 forum et 16 média. Un salon forum ou média liste ses tags dans available_tags."
+      }
+    },
+    "discord_create_channel": {
+      "pt": {
+        "name": "Criar canal",
+        "description": "Cria um canal ou uma categoria em um servidor e o retorna com seu id. O bot precisa da permissão Manage Channels."
+      },
+      "es": {
+        "name": "Crear canal",
+        "description": "Crea un canal o una categoría en un servidor y lo devuelve con su id. El bot necesita el permiso Manage Channels."
+      },
+      "fr": {
+        "name": "Créer un salon",
+        "description": "Crée un salon ou une catégorie dans un serveur et le renvoie avec son id. Le bot a besoin de la permission Manage Channels."
+      }
+    },
+    "discord_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Lista as mensagens de um canal ou thread, da mais nova para a mais antiga, até 100 por chamada. Para a próxima página, envie before com o id da mensagem mais antiga retornada. Sem Message Content Intent no bot, content, embeds e attachments voltam vazios, exceto em mensagens que mencionam o bot. O bot precisa de View Channel e Read Message History."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Lista los mensajes de un canal o hilo, del más nuevo al más antiguo, hasta 100 por llamada. Para la página siguiente, envía before con el id del mensaje más antiguo devuelto. Sin Message Content Intent en el bot, content, embeds y attachments vuelven vacíos, salvo en mensajes que mencionan al bot. El bot necesita View Channel y Read Message History."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Liste les messages d'un salon ou d'un fil, du plus récent au plus ancien, jusqu'à 100 par appel. Pour la page suivante, envoyez before avec l'id du plus ancien message renvoyé. Sans Message Content Intent sur le bot, content, embeds et attachments reviennent vides, sauf pour les messages qui mentionnent le bot. Le bot a besoin de View Channel et Read Message History."
+      }
+    },
+    "discord_search_messages": {
+      "pt": {
+        "name": "Buscar mensagens",
+        "description": "Busca as mensagens de um servidor, até 25 por página, da mais nova para a mais antiga por padrão; pagine com offset. A resposta tem total_results e messages, uma lista de listas de uma mensagem. Se o servidor ainda não foi indexado, o Discord responde 202 com retry_after: chame de novo após esses segundos. Exige Message Content Intent no bot."
+      },
+      "es": {
+        "name": "Buscar mensajes",
+        "description": "Busca los mensajes de un servidor, hasta 25 por página, del más nuevo al más antiguo por defecto; pagina con offset. La respuesta tiene total_results y messages, una lista de listas de un mensaje. Si el servidor aún no está indexado, Discord responde 202 con retry_after: vuelve a llamar tras esos segundos. Requiere Message Content Intent en el bot."
+      },
+      "fr": {
+        "name": "Rechercher des messages",
+        "description": "Recherche les messages d'un serveur, jusqu'à 25 par page, du plus récent au plus ancien par défaut ; paginez avec offset. La réponse contient total_results et messages, une liste de listes d'un message. Si le serveur n'est pas encore indexé, Discord répond 202 avec retry_after : rappelez après ce délai en secondes. Nécessite Message Content Intent sur le bot."
+      }
+    },
+    "discord_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Posta uma mensagem do bot em um canal ou thread e a retorna com seu id. Envie pelo menos content, embeds ou poll. O bot precisa de Send Messages no canal, ou Send Messages in Threads em uma thread."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Publica un mensaje del bot en un canal o hilo y lo devuelve con su id. Envía al menos content, embeds o poll. El bot necesita Send Messages en el canal, o Send Messages in Threads en un hilo."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Publie un message du bot dans un salon ou un fil et le renvoie avec son id. Envoyez au moins content, embeds ou poll. Le bot a besoin de Send Messages dans le salon, ou de Send Messages in Threads dans un fil."
+      }
+    },
+    "discord_update_message": {
+      "pt": {
+        "name": "Editar mensagem",
+        "description": "Edita uma mensagem que o bot enviou e a retorna. Campos omitidos mantêm o valor, e embeds substitui todos os cards da mensagem."
+      },
+      "es": {
+        "name": "Editar mensaje",
+        "description": "Edita un mensaje que envió el bot y lo devuelve. Los campos omitidos conservan su valor, y embeds reemplaza todas las tarjetas del mensaje."
+      },
+      "fr": {
+        "name": "Modifier un message",
+        "description": "Modifie un message envoyé par le bot et le renvoie. Les champs omis gardent leur valeur, et embeds remplace toutes les cartes du message."
+      }
+    },
+    "discord_delete_message": {
+      "pt": {
+        "name": "Excluir mensagem",
+        "description": "Exclui uma mensagem e responde 204 sem corpo. Excluir a mensagem de outra pessoa exige a permissão Manage Messages."
+      },
+      "es": {
+        "name": "Eliminar mensaje",
+        "description": "Elimina un mensaje y responde 204 sin cuerpo. Eliminar el mensaje de otra persona requiere el permiso Manage Messages."
+      },
+      "fr": {
+        "name": "Supprimer un message",
+        "description": "Supprime un message et répond 204 sans corps. Supprimer le message d'une autre personne nécessite la permission Manage Messages."
+      }
+    },
+    "discord_create_thread": {
+      "pt": {
+        "name": "Criar thread",
+        "description": "Cria uma thread em um canal de texto ou de anúncios, ou um post em um canal de fórum ou mídia, e a retorna com seu id, que as tools de mensagem usam como channel_id. Em fórum ou mídia envie message, o primeiro post; nos demais envie type, porque o padrão é uma thread privada. O bot precisa de Create Public Threads, ou Send Messages em um fórum."
+      },
+      "es": {
+        "name": "Crear hilo",
+        "description": "Crea un hilo en un canal de texto o de anuncios, o una publicación en un canal de foro o medios, y lo devuelve con su id, que las tools de mensajes usan como channel_id. En foro o medios envía message, la primera publicación; en los demás envía type, porque por defecto es un hilo privado. El bot necesita Create Public Threads, o Send Messages en un foro."
+      },
+      "fr": {
+        "name": "Créer un fil",
+        "description": "Crée un fil dans un salon texte ou d'annonces, ou un post dans un salon forum ou média, et le renvoie avec son id, que les tools de messages utilisent comme channel_id. Dans un forum ou média, envoyez message, le premier post ; ailleurs envoyez type, car le défaut est un fil privé. Le bot a besoin de Create Public Threads, ou de Send Messages dans un forum."
+      }
+    },
+    "discord_list_scheduled_events": {
+      "pt": {
+        "name": "Listar eventos agendados",
+        "description": "Lista os eventos de um servidor com id, status (1 agendado, 2 ativo, 3 concluído, 4 cancelado) e horários."
+      },
+      "es": {
+        "name": "Listar eventos programados",
+        "description": "Lista los eventos de un servidor con id, estado (1 programado, 2 activo, 3 completado, 4 cancelado) y horarios."
+      },
+      "fr": {
+        "name": "Lister les événements planifiés",
+        "description": "Liste les événements d'un serveur avec id, statut (1 planifié, 2 actif, 3 terminé, 4 annulé) et horaires."
+      }
+    },
+    "discord_create_scheduled_event": {
+      "pt": {
+        "name": "Criar evento agendado",
+        "description": "Cria um evento em um servidor e o retorna com seu id. Um evento fora do Discord usa entity_type 3 com entity_metadata.location e scheduled_end_time; um evento em canal de voz ou palco usa entity_type 2 ou 1 com channel_id. O bot precisa de Create Events, e um servidor comporta até 100 eventos agendados ou ativos."
+      },
+      "es": {
+        "name": "Crear evento programado",
+        "description": "Crea un evento en un servidor y lo devuelve con su id. Un evento fuera de Discord usa entity_type 3 con entity_metadata.location y scheduled_end_time; un evento en un canal de voz o escenario usa entity_type 2 o 1 con channel_id. El bot necesita Create Events, y un servidor admite hasta 100 eventos programados o activos."
+      },
+      "fr": {
+        "name": "Créer un événement planifié",
+        "description": "Crée un événement dans un serveur et le renvoie avec son id. Un événement hors de Discord utilise entity_type 3 avec entity_metadata.location et scheduled_end_time ; un événement dans un salon vocal ou une scène utilise entity_type 2 ou 1 avec channel_id. Le bot a besoin de Create Events, et un serveur accepte jusqu'à 100 événements planifiés ou actifs."
+      }
+    },
+    "discord_update_scheduled_event": {
+      "pt": {
+        "name": "Atualizar evento agendado",
+        "description": "Atualiza um evento e o retorna. Campos omitidos mantêm o valor. status 2 inicia o evento, 3 encerra um evento ativo e 4 cancela um agendado; depois de 3 ou 4 o evento não pode mais mudar."
+      },
+      "es": {
+        "name": "Actualizar evento programado",
+        "description": "Actualiza un evento y lo devuelve. Los campos omitidos conservan su valor. status 2 inicia el evento, 3 termina uno activo y 4 cancela uno programado; después de 3 o 4 el evento ya no puede cambiar."
+      },
+      "fr": {
+        "name": "Mettre à jour un événement planifié",
+        "description": "Met à jour un événement et le renvoie. Les champs omis gardent leur valeur. status 2 démarre l'événement, 3 termine un événement actif et 4 annule un événement planifié ; après 3 ou 4, l'événement ne peut plus changer."
+      }
+    }
+  }
+}

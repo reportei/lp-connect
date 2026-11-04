@@ -51,7 +51,16 @@ export function formatNumber(locale: Locale, value: number) {
   return new Intl.NumberFormat(LOCALE_INFO[locale].hreflang).format(value)
 }
 
+// The path of one page in each locale, without the locale prefix. Used by the toolkit pages, which are
+// generated per slug and keep the same path in every language.
+export type AlternatePath = (locale: Locale) => string
+
 // Where the language picker sends each locale: the same page when it is translated, else that language's home.
-export function languageLinks(page?: TranslatedPage): Record<Locale, string> {
-  return Object.fromEntries(LOCALES.map((locale) => [locale, pageHref(locale, page ?? "home")])) as Record<Locale, string>
+export function languageLinks(page?: TranslatedPage, alternatePath?: AlternatePath): Record<Locale, string> {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [
+      locale,
+      alternatePath ? withBase(localePath(locale, alternatePath(locale))) : pageHref(locale, page ?? "home"),
+    ]),
+  ) as Record<Locale, string>
 }

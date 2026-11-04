@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create boards, sticky notes and cards and manage board items in your customer's Miro team through one Connect endpoint.",
+      "intro": "The Miro toolkit covers boards, board members and items: list and read boards, create and update sticky notes and cards, and delete items. Your product or AI agent calls them through Connect, which handles the customer's OAuth connection and logs every execution.",
+      "useCases": [
+        {
+          "title": "Boards created by your product",
+          "body": "A SaaS creates a Miro board for each new project and returns the viewLink to the user."
+        },
+        {
+          "title": "Turn data into sticky notes",
+          "body": "An agency or research tool adds sticky notes with feedback or ideas to a board, inside a frame when needed."
+        },
+        {
+          "title": "Agent that triages a board",
+          "body": "An AI agent lists the items of a board, creates cards assigned to members and updates their due dates."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie boards, sticky notes e cards e gerencie itens de board no time Miro do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Miro cobre boards, membros e itens: lista e lê boards, cria e atualiza sticky notes e cards, e exclui itens. Seu produto ou agente de IA os chama pelo Connect, que cuida da conexão OAuth do cliente e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Boards criados pelo seu produto",
+          "body": "Um SaaS cria um board no Miro para cada novo projeto e devolve o viewLink ao usuário."
+        },
+        {
+          "title": "Dados viram sticky notes",
+          "body": "Uma ferramenta de agência ou pesquisa adiciona sticky notes com feedbacks ou ideias a um board, dentro de um frame quando preciso."
+        },
+        {
+          "title": "Agente que organiza um board",
+          "body": "Um agente de IA lista os itens de um board, cria cards atribuídos a membros e atualiza seus prazos."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea boards, sticky notes y cards y gestiona elementos de board en el equipo de Miro de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Miro cubre boards, miembros y elementos: lista y lee boards, crea y actualiza sticky notes y cards, y elimina elementos. Tu producto o agente de IA los llama por Connect, que maneja la conexión OAuth del cliente y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Boards creados por tu producto",
+          "body": "Un SaaS crea un board en Miro para cada proyecto nuevo y devuelve el viewLink al usuario."
+        },
+        {
+          "title": "Datos convertidos en sticky notes",
+          "body": "Una herramienta de agencia o investigación agrega sticky notes con comentarios o ideas a un board, dentro de un frame cuando hace falta."
+        },
+        {
+          "title": "Agente que ordena un board",
+          "body": "Un agente de IA lista los elementos de un board, crea cards asignadas a miembros y actualiza sus fechas límite."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez boards, sticky notes et cards et gérez les éléments d'un board dans l'équipe Miro de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Miro couvre boards, membres et éléments : liste et lecture de boards, création et mise à jour de sticky notes et cards, suppression d'éléments. Votre produit ou agent IA les appelle via Connect, qui gère la connexion OAuth du client et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Boards créés par votre produit",
+          "body": "Un SaaS crée un board Miro pour chaque nouveau projet et renvoie le viewLink à l'utilisateur."
+        },
+        {
+          "title": "Des données en sticky notes",
+          "body": "Un outil d'agence ou de recherche ajoute des sticky notes de retours ou d'idées à un board, dans un frame si besoin."
+        },
+        {
+          "title": "Agent qui trie un board",
+          "body": "Un agent IA liste les éléments d'un board, crée des cards assignées à des membres et met à jour leurs échéances."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "miro_list_boards": {
+      "pt": {
+        "name": "Listar boards",
+        "description": "Lista os boards que o usuário conectado pode abrir, com id, name, description, viewLink, owner, team e datas. Paginação por offset."
+      },
+      "es": {
+        "name": "Listar boards",
+        "description": "Lista los boards que el usuario conectado puede abrir, con id, name, description, viewLink, owner, team y fechas. Paginación por offset."
+      },
+      "fr": {
+        "name": "Lister les boards",
+        "description": "Liste les boards que l'utilisateur connecté peut ouvrir, avec id, name, description, viewLink, owner, team et dates. Pagination par offset."
+      }
+    },
+    "miro_get_board": {
+      "pt": {
+        "name": "Obter board",
+        "description": "Devolve um board: name, description, viewLink, owner, team, política de compartilhamento e datas."
+      },
+      "es": {
+        "name": "Obtener board",
+        "description": "Devuelve un board: name, description, viewLink, owner, team, política de uso compartido y fechas."
+      },
+      "fr": {
+        "name": "Obtenir un board",
+        "description": "Renvoie un board : name, description, viewLink, owner, team, politique de partage et dates."
+      }
+    },
+    "miro_create_board": {
+      "pt": {
+        "name": "Criar board",
+        "description": "Cria um board no time da conexão e o devolve com id e viewLink. No plano gratuito um time pode ter só 3 boards editáveis."
+      },
+      "es": {
+        "name": "Crear board",
+        "description": "Crea un board en el equipo de la conexión y lo devuelve con id y viewLink. En el plan gratuito un equipo puede tener solo 3 boards editables."
+      },
+      "fr": {
+        "name": "Créer un board",
+        "description": "Crée un board dans l'équipe de la connexion et le renvoie avec id et viewLink. Sur l'offre gratuite une équipe ne peut avoir que 3 boards modifiables."
+      }
+    },
+    "miro_update_board": {
+      "pt": {
+        "name": "Atualizar board",
+        "description": "Atualiza o nome, a descrição ou o compartilhamento de um board e o devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar board",
+        "description": "Actualiza el nombre, la descripción o el uso compartido de un board y lo devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour un board",
+        "description": "Met à jour le nom, la description ou le partage d'un board et le renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "miro_list_board_members": {
+      "pt": {
+        "name": "Listar membros do board",
+        "description": "Lista os membros de um board com id, name e role. O id é o assigneeId que Criar card e Atualizar card pedem. Paginação por offset."
+      },
+      "es": {
+        "name": "Listar miembros del board",
+        "description": "Lista los miembros de un board con id, name y role. El id es el assigneeId que piden Crear card y Actualizar card. Paginación por offset."
+      },
+      "fr": {
+        "name": "Lister les membres d'un board",
+        "description": "Liste les membres d'un board avec id, name et role. L'id est l'assigneeId que demandent Créer une card et Mettre à jour une card. Pagination par offset."
+      }
+    },
+    "miro_list_items": {
+      "pt": {
+        "name": "Listar itens",
+        "description": "Lista os itens de um board, como sticky notes, cards, textos, formas e frames, com id, type, data, position, geometry e parent."
+      },
+      "es": {
+        "name": "Listar elementos",
+        "description": "Lista los elementos de un board, como sticky notes, cards, textos, formas y frames, con id, type, data, position, geometry y parent."
+      },
+      "fr": {
+        "name": "Lister les éléments",
+        "description": "Liste les éléments d'un board, comme sticky notes, cards, textes, formes et frames, avec id, type, data, position, geometry et parent."
+      }
+    },
+    "miro_get_item": {
+      "pt": {
+        "name": "Obter item",
+        "description": "Devolve um item de um board, de qualquer tipo, com data, style, position, geometry e parent."
+      },
+      "es": {
+        "name": "Obtener elemento",
+        "description": "Devuelve un elemento de un board, de cualquier tipo, con data, style, position, geometry y parent."
+      },
+      "fr": {
+        "name": "Obtenir un élément",
+        "description": "Renvoie un élément d'un board, de n'importe quel type, avec data, style, position, geometry et parent."
+      }
+    },
+    "miro_create_sticky_note": {
+      "pt": {
+        "name": "Criar sticky note",
+        "description": "Adiciona uma sticky note a um board e a devolve com seu id. Sem position ela vai para o centro do board; dentro de um frame (parent.id), a posição conta a partir do frame."
+      },
+      "es": {
+        "name": "Crear sticky note",
+        "description": "Agrega una sticky note a un board y la devuelve con su id. Sin position va al centro del board; dentro de un frame (parent.id), la posición cuenta desde el frame."
+      },
+      "fr": {
+        "name": "Créer une sticky note",
+        "description": "Ajoute une sticky note à un board et la renvoie avec son id. Sans position elle va au centre du board ; dans un frame (parent.id), la position se compte depuis le frame."
+      }
+    },
+    "miro_update_sticky_note": {
+      "pt": {
+        "name": "Atualizar sticky note",
+        "description": "Atualiza o texto, formato, cor, posição, tamanho ou frame de uma sticky note e a devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar sticky note",
+        "description": "Actualiza el texto, forma, color, posición, tamaño o frame de una sticky note y la devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une sticky note",
+        "description": "Met à jour le texte, la forme, la couleur, la position, la taille ou le frame d'une sticky note et la renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "miro_create_card": {
+      "pt": {
+        "name": "Criar card",
+        "description": "Adiciona um card, o item de tarefa do Miro, a um board e o devolve com seu id. Sem position ele vai para o centro do board; dentro de um frame (parent.id), a posição conta a partir do frame."
+      },
+      "es": {
+        "name": "Crear card",
+        "description": "Agrega una card, el elemento de tarea de Miro, a un board y la devuelve con su id. Sin position va al centro del board; dentro de un frame (parent.id), la posición cuenta desde el frame."
+      },
+      "fr": {
+        "name": "Créer une card",
+        "description": "Ajoute une card, l'élément de tâche de Miro, à un board et la renvoie avec son id. Sans position elle va au centre du board ; dans un frame (parent.id), la position se compte depuis le frame."
+      }
+    },
+    "miro_update_card": {
+      "pt": {
+        "name": "Atualizar card",
+        "description": "Atualiza o título, descrição, prazo, responsável, cor, posição, tamanho ou frame de um card e o devolve. Campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar card",
+        "description": "Actualiza el título, descripción, fecha límite, responsable, color, posición, tamaño o frame de una card y la devuelve. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une card",
+        "description": "Met à jour le titre, la description, l'échéance, le responsable, la couleur, la position, la taille ou le frame d'une card et la renvoie. Les champs omis gardent leur valeur."
+      }
+    },
+    "miro_delete_item": {
+      "pt": {
+        "name": "Excluir item",
+        "description": "Exclui um item de qualquer tipo de um board, como sticky note, card ou frame."
+      },
+      "es": {
+        "name": "Eliminar elemento",
+        "description": "Elimina un elemento de cualquier tipo de un board, como sticky note, card o frame."
+      },
+      "fr": {
+        "name": "Supprimer un élément",
+        "description": "Supprime un élément de n'importe quel type d'un board, comme une sticky note, une card ou un frame."
+      }
+    }
+  }
+}

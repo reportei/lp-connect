@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read stores, products, orders and subscriptions, manage customers and discounts, and create checkout links in your customer's Lemon Squeezy account.",
+      "intro": "The Lemon Squeezy toolkit lists stores, products, variants, orders, customers, subscriptions and discounts, and creates customers, discount codes and checkout links. Through Connect, a product or AI agent sells and monitors sales in the customer's account without building the integration or storing its API key.",
+      "useCases": [
+        {
+          "title": "Checkout links from your product",
+          "body": "Create a checkout for a variant with prefilled buyer data and an optional discount code, and send the link from your app or an agent."
+        },
+        {
+          "title": "Sales monitoring for an agent",
+          "body": "Let an AI agent list recent orders and subscriptions by status, such as past_due or cancelled, and summarize what needs attention."
+        },
+        {
+          "title": "Promo codes for campaigns",
+          "body": "Create a discount code for a store, limited to chosen variants, when a campaign launches in your marketing tool."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia lojas, produtos, pedidos e assinaturas, gerencie clientes e descontos e crie links de checkout na conta Lemon Squeezy do seu cliente pelo Connect.",
+      "intro": "O toolkit do Lemon Squeezy lista lojas, produtos, variantes, pedidos, clientes, assinaturas e descontos, e cria clientes, códigos de desconto e links de checkout. Pelo Connect, um produto ou agente de IA vende e acompanha vendas na conta do cliente sem construir a integração nem guardar a chave de API.",
+      "useCases": [
+        {
+          "title": "Links de checkout pelo produto",
+          "body": "Crie um checkout para uma variante com os dados do comprador preenchidos e um código de desconto opcional, e envie o link pelo seu app ou por um agente."
+        },
+        {
+          "title": "Monitoramento de vendas por agente",
+          "body": "Deixe um agente de IA listar pedidos e assinaturas recentes por status, como past_due ou cancelled, e resumir o que precisa de atenção."
+        },
+        {
+          "title": "Códigos promocionais de campanha",
+          "body": "Crie um código de desconto para uma loja, limitado a variantes escolhidas, quando uma campanha for lançada na sua ferramenta de marketing."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee tiendas, productos, pedidos y suscripciones, gestiona clientes y descuentos y crea enlaces de checkout en la cuenta de Lemon Squeezy de tu cliente.",
+      "intro": "El toolkit de Lemon Squeezy lista tiendas, productos, variantes, pedidos, clientes, suscripciones y descuentos, y crea clientes, códigos de descuento y enlaces de checkout. Con Connect, un producto o agente de IA vende y supervisa las ventas en la cuenta del cliente sin construir la integración ni guardar su clave de API.",
+      "useCases": [
+        {
+          "title": "Enlaces de checkout desde tu producto",
+          "body": "Crea un checkout para una variante con los datos del comprador rellenados y un código de descuento opcional, y envía el enlace desde tu app o un agente."
+        },
+        {
+          "title": "Seguimiento de ventas por un agente",
+          "body": "Deja que un agente de IA liste pedidos y suscripciones recientes por estado, como past_due o cancelled, y resuma lo que necesita atención."
+        },
+        {
+          "title": "Códigos promocionales de campaña",
+          "body": "Crea un código de descuento para una tienda, limitado a variantes elegidas, cuando se lance una campaña en tu herramienta de marketing."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez boutiques, produits, commandes et abonnements, gérez clients et remises et créez des liens de checkout dans le compte Lemon Squeezy de votre client.",
+      "intro": "Le toolkit Lemon Squeezy liste les boutiques, produits, variantes, commandes, clients, abonnements et remises, et crée des clients, des codes de remise et des liens de checkout. Avec Connect, un produit ou un agent IA vend et suit les ventes dans le compte du client sans construire l'intégration ni stocker sa clé d'API.",
+      "useCases": [
+        {
+          "title": "Liens de checkout depuis votre produit",
+          "body": "Créez un checkout pour une variante avec les données de l'acheteur préremplies et un code de remise optionnel, puis envoyez le lien depuis votre app ou un agent."
+        },
+        {
+          "title": "Suivi des ventes par un agent",
+          "body": "Laissez un agent IA lister les commandes et abonnements récents par statut, comme past_due ou cancelled, et résumer ce qui demande de l'attention."
+        },
+        {
+          "title": "Codes promo de campagne",
+          "body": "Créez un code de remise pour une boutique, limité à certaines variantes, quand une campagne démarre dans votre outil marketing."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "lemon_squeezy_list_stores": {
+      "pt": {
+        "name": "Listar lojas",
+        "description": "Lista as lojas do usuário por nome, com domínio, moeda, vendas totais e receita em centavos. O id de uma loja vai na relationship store de Create customer, Create discount e Create checkout. Só as 10 primeiras voltam."
+      },
+      "es": {
+        "name": "Listar tiendas",
+        "description": "Lista las tiendas del usuario por nombre, con dominio, moneda, ventas totales e ingresos en centavos. El id de una tienda va en la relationship store de Create customer, Create discount y Create checkout. Solo vuelven las 10 primeras."
+      },
+      "fr": {
+        "name": "Lister les boutiques",
+        "description": "Liste les boutiques de l'utilisateur par nom, avec domaine, devise, ventes totales et revenus en centimes. L'id d'une boutique va dans la relationship store de Create customer, Create discount et Create checkout. Seules les 10 premières reviennent."
+      }
+    },
+    "lemon_squeezy_list_products": {
+      "pt": {
+        "name": "Listar produtos",
+        "description": "Lista os produtos de todas as lojas do usuário por nome, com status, faixa de preço, buy_now_url e store_id. Só os 10 primeiros voltam; meta.page.total tem a contagem. List product variants retorna as variantes que checkouts e descontos usam."
+      },
+      "es": {
+        "name": "Listar productos",
+        "description": "Lista los productos de todas las tiendas del usuario por nombre, con estado, rango de precios, buy_now_url y store_id. Solo vuelven los 10 primeros; meta.page.total tiene el conteo. List product variants devuelve las variantes que usan los checkouts y descuentos."
+      },
+      "fr": {
+        "name": "Lister les produits",
+        "description": "Liste les produits de toutes les boutiques de l'utilisateur par nom, avec statut, fourchette de prix, buy_now_url et store_id. Seuls les 10 premiers reviennent ; meta.page.total contient le nombre total. List product variants renvoie les variantes qu'utilisent les checkouts et remises."
+      }
+    },
+    "lemon_squeezy_list_product_variants": {
+      "pt": {
+        "name": "Listar variantes do produto",
+        "description": "Lista as variantes de um produto com preço em centavos, intervalo da assinatura, teste grátis e status. O id de uma variante vai em Create checkout e nas variants de Create discount. Só as 10 primeiras voltam."
+      },
+      "es": {
+        "name": "Listar variantes del producto",
+        "description": "Lista las variantes de un producto con precio en centavos, intervalo de suscripción, prueba gratuita y estado. El id de una variante va en Create checkout y en las variants de Create discount. Solo vuelven las 10 primeras."
+      },
+      "fr": {
+        "name": "Lister les variantes du produit",
+        "description": "Liste les variantes d'un produit avec prix en centimes, intervalle d'abonnement, essai gratuit et statut. L'id d'une variante va dans Create checkout et dans les variants de Create discount. Seules les 10 premières reviennent."
+      }
+    },
+    "lemon_squeezy_list_orders": {
+      "pt": {
+        "name": "Listar pedidos",
+        "description": "Lista os 10 pedidos mais novos de todas as lojas do usuário, com order_number, nome e e-mail do comprador, status, totais em centavos, reembolsos e URL do recibo. Pedidos mais antigos só são acessíveis pelo id em Get order; meta.page.total tem a contagem."
+      },
+      "es": {
+        "name": "Listar pedidos",
+        "description": "Lista los 10 pedidos más nuevos de todas las tiendas del usuario, con order_number, nombre y correo del comprador, estado, totales en centavos, reembolsos y URL del recibo. Los pedidos más antiguos solo se alcanzan por id en Get order; meta.page.total tiene el conteo."
+      },
+      "fr": {
+        "name": "Lister les commandes",
+        "description": "Liste les 10 commandes les plus récentes de toutes les boutiques de l'utilisateur, avec order_number, nom et e-mail de l'acheteur, statut, totaux en centimes, remboursements et URL du reçu. Les commandes plus anciennes ne sont accessibles que par id dans Get order ; meta.page.total contient le nombre total."
+      }
+    },
+    "lemon_squeezy_get_order": {
+      "pt": {
+        "name": "Obter pedido",
+        "description": "Retorna um pedido: order_number, comprador, status, moeda, subtotal, desconto, imposto, total e valor reembolsado em centavos, o primeiro item do pedido e a URL do recibo."
+      },
+      "es": {
+        "name": "Obtener pedido",
+        "description": "Devuelve un pedido: order_number, comprador, estado, moneda, subtotal, descuento, impuesto, total e importe reembolsado en centavos, el primer artículo del pedido y la URL del recibo."
+      },
+      "fr": {
+        "name": "Obtenir une commande",
+        "description": "Renvoie une commande : order_number, acheteur, statut, devise, sous-total, remise, taxe, total et montant remboursé en centimes, le premier article de la commande et l'URL du reçu."
+      }
+    },
+    "lemon_squeezy_list_customers": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os 10 clientes mais novos de todas as lojas do usuário, com nome, e-mail, status de marketing (subscribed, unsubscribed, archived, requires_verification, invalid_email ou bounced), MRR e receita total em centavos. meta.page.total tem a contagem."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los 10 clientes más nuevos de todas las tiendas del usuario, con nombre, correo, estado de marketing (subscribed, unsubscribed, archived, requires_verification, invalid_email o bounced), MRR e ingresos totales en centavos. meta.page.total tiene el conteo."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les 10 clients les plus récents de toutes les boutiques de l'utilisateur, avec nom, e-mail, statut marketing (subscribed, unsubscribed, archived, requires_verification, invalid_email ou bounced), MRR et revenu total en centimes. meta.page.total contient le nombre total."
+      }
+    },
+    "lemon_squeezy_create_customer": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente em uma loja e o retorna. Os campos vão dentro de data, em JSON:API: type, attributes com name e email, e a loja em relationships."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente en una tienda y lo devuelve. Los campos van dentro de data, en JSON:API: type, attributes con name y email, y la tienda en relationships."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client dans une boutique et le renvoie. Les champs vont dans data, en JSON:API : type, attributes avec name et email, et la boutique dans relationships."
+      }
+    },
+    "lemon_squeezy_update_customer": {
+      "pt": {
+        "name": "Atualizar cliente",
+        "description": "Altera um cliente e o retorna. Os campos vão dentro de data, em JSON:API, com o mesmo id de customer_id. Só os attributes enviados mudam; status archived interrompe os e-mails de marketing."
+      },
+      "es": {
+        "name": "Actualizar cliente",
+        "description": "Modifica un cliente y lo devuelve. Los campos van dentro de data, en JSON:API, con el mismo id que customer_id. Solo cambian los attributes enviados; status archived detiene los correos de marketing."
+      },
+      "fr": {
+        "name": "Mettre à jour un client",
+        "description": "Modifie un client et le renvoie. Les champs vont dans data, en JSON:API, avec le même id que customer_id. Seuls les attributes envoyés changent ; status archived arrête les e-mails marketing."
+      }
+    },
+    "lemon_squeezy_list_subscriptions": {
+      "pt": {
+        "name": "Listar assinaturas",
+        "description": "Lista as 10 assinaturas mais novas de todas as lojas do usuário, com produto, variante, e-mail do cliente, status (on_trial, active, paused, past_due, unpaid, cancelled ou expired), renews_at, ends_at e order_id. meta.page.total tem a contagem."
+      },
+      "es": {
+        "name": "Listar suscripciones",
+        "description": "Lista las 10 suscripciones más nuevas de todas las tiendas del usuario, con producto, variante, correo del cliente, estado (on_trial, active, paused, past_due, unpaid, cancelled o expired), renews_at, ends_at y order_id. meta.page.total tiene el conteo."
+      },
+      "fr": {
+        "name": "Lister les abonnements",
+        "description": "Liste les 10 abonnements les plus récents de toutes les boutiques de l'utilisateur, avec produit, variante, e-mail du client, statut (on_trial, active, paused, past_due, unpaid, cancelled ou expired), renews_at, ends_at et order_id. meta.page.total contient le nombre total."
+      }
+    },
+    "lemon_squeezy_list_discounts": {
+      "pt": {
+        "name": "Listar descontos",
+        "description": "Lista os códigos de desconto de todas as lojas do usuário, do mais antigo ao mais novo, com code, amount, amount_type, limite de resgates, datas e status. Só os 10 primeiros voltam; meta.page.total tem a contagem."
+      },
+      "es": {
+        "name": "Listar descuentos",
+        "description": "Lista los códigos de descuento de todas las tiendas del usuario, del más antiguo al más nuevo, con code, amount, amount_type, límite de canjes, fechas y estado. Solo vuelven los 10 primeros; meta.page.total tiene el conteo."
+      },
+      "fr": {
+        "name": "Lister les remises",
+        "description": "Liste les codes de remise de toutes les boutiques de l'utilisateur, du plus ancien au plus récent, avec code, amount, amount_type, limite d'utilisations, dates et statut. Seuls les 10 premiers reviennent ; meta.page.total contient le nombre total."
+      }
+    },
+    "lemon_squeezy_create_discount": {
+      "pt": {
+        "name": "Criar desconto",
+        "description": "Cria um código de desconto para uma loja e o retorna. Os campos vão dentro de data, em JSON:API: type, attributes e a loja em relationships, mais as variants quando is_limited_to_products é true."
+      },
+      "es": {
+        "name": "Crear descuento",
+        "description": "Crea un código de descuento para una tienda y lo devuelve. Los campos van dentro de data, en JSON:API: type, attributes y la tienda en relationships, más las variants cuando is_limited_to_products es true."
+      },
+      "fr": {
+        "name": "Créer une remise",
+        "description": "Crée un code de remise pour une boutique et le renvoie. Les champs vont dans data, en JSON:API : type, attributes et la boutique dans relationships, plus les variants quand is_limited_to_products est true."
+      }
+    },
+    "lemon_squeezy_create_checkout": {
+      "pt": {
+        "name": "Criar checkout",
+        "description": "Cria um link de checkout para uma variante, opcionalmente com preço personalizado, dados do comprador preenchidos, código de desconto e expiração, e o retorna com o link em data.attributes.url. Os campos vão dentro de data, em JSON:API: type, attributes, e a loja e a variante em relationships."
+      },
+      "es": {
+        "name": "Crear checkout",
+        "description": "Crea un enlace de checkout para una variante, opcionalmente con precio personalizado, datos del comprador rellenados, código de descuento y caducidad, y lo devuelve con el enlace en data.attributes.url. Los campos van dentro de data, en JSON:API: type, attributes, y la tienda y la variante en relationships."
+      },
+      "fr": {
+        "name": "Créer un checkout",
+        "description": "Crée un lien de checkout pour une variante, avec en option un prix personnalisé, des données d'acheteur préremplies, un code de remise et une expiration, et le renvoie avec le lien dans data.attributes.url. Les champs vont dans data, en JSON:API : type, attributes, et la boutique et la variante dans relationships."
+      }
+    }
+  }
+}

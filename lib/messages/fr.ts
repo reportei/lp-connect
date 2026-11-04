@@ -45,6 +45,7 @@ export const fr: Messages = {
     comparisons: "Comparatifs",
     contact: "Contact",
     allIntegrations: "Toutes les intégrations",
+    toolkits: "Toolkits",
     guides: "Guides des API",
     docs: "Documentation",
     ai: "Implémenter avec l'IA",
@@ -511,5 +512,135 @@ export const fr: Messages = {
     catalog: "Catalogue complet",
     comparisons: "Comparatifs",
     versus: (competitor) => `Connect ou ${competitor}`,
+  },
+  toolkits: {
+    breadcrumb: "Toolkits",
+    hub: {
+      metaTitle: (n, tools) => `Toolkits Reportei Connect : ${n} apps et ${tools} tools via une API`,
+      metaDescription: (n, tools) =>
+        `WhatsApp, Notion, Jira, Stripe, Google Calendar et ${n - 5} autres apps : ${tools} tools que votre produit et vos agents IA exécutent sur les comptes de vos clients via une API.`,
+      eyebrow: "Toolkits",
+      h1: (n) => `${n} apps que votre produit et vos agents IA pilotent via une API`,
+      copy: "Votre client connecte son compte une seule fois. Votre système envoie des messages, crée des tâches, lit des contacts et planifie des réunions en appelant les tools par le même endpoint, sans intégrer l'API de chaque app.",
+      toolCount: (n) => (n === 1 ? "1 tool" : `${n} tools`),
+      stats: (n, tools) => `${n} toolkits · ${tools} tools`,
+    },
+    categories: {
+      communication: "Communication",
+      crm: "CRM et ventes",
+      marketing: "Marketing",
+      email_marketing: "Emailing",
+      ecommerce: "E-commerce",
+      finance: "Finance et paiements",
+      support: "Support client",
+      project_management: "Gestion de projet",
+      productivity: "Productivité",
+      scheduling: "Prise de rendez-vous",
+      analytics: "Analytics",
+      file_storage: "Fichiers",
+      developer_tools: "Outils pour développeurs",
+    },
+    auth: {
+      api_key: {
+        label: "Clé d'API",
+        body: "Votre client colle la clé de l'app sur un écran de Connect, ou votre système envoie la clé avec POST /api/customer-toolkits, sans écran.",
+      },
+      basic: {
+        label: "Identifiant et mot de passe",
+        body: "Votre client saisit les identifiants de l'app sur un écran de Connect, ou votre système les envoie avec POST /api/customer-toolkits, sans écran.",
+      },
+      oauth2: {
+        label: "OAuth avec l'app de votre produit",
+        body: (slug) =>
+          `Vous enregistrez une fois l'app OAuth de votre produit, avec POST /api/merchants/credentials/${slug}, et votre client autorise le compte sur un écran de consentement. Connect renouvelle le token avant son expiration.`,
+      },
+    },
+    hostParams: (params) => `À la connexion, votre client indique aussi ${params} : l'adresse de son compte sur l'API de l'app.`,
+    toolkit: {
+      metaTitle: (name) => `API ${name} pour SaaS et agents IA | Reportei Connect`,
+      h1: (name) => `${name} dans votre produit et vos agents IA, via une API`,
+      signup: "Essai gratuit",
+      docs: "Voir la documentation",
+      trial: "15 jours d'essai. Sans carte bancaire.",
+      sampleCaption: (tool) => `Exemple : la tool « ${tool} » sur un compte connecté par votre client.`,
+      howEyebrow: "Fonctionnement",
+      howTitle: (name) => `Du client connecté au premier appel à ${name}.`,
+      steps: (name) => [
+        {
+          title: "Votre client connecte son compte",
+          body: `Votre système ouvre une session Connect pour le toolkit et votre client connecte son compte ${name}. Vous recevez l'id de la connexion.`,
+        },
+        {
+          title: "Votre produit appelle la tool",
+          body: "Un POST sur /api/tools/{tool}/execute avec l'id de la connexion et les arguments. La réponse est celle de l'app, avec le même statut et le même corps.",
+        },
+        {
+          title: "Connect s'occupe du reste",
+          body: "Il stocke l'identifiant chiffré, renouvelle les tokens OAuth et enregistre chaque exécution dans un journal d'audit consultable via l'API.",
+        },
+      ],
+      useCasesEyebrow: "Cas d'usage",
+      useCasesTitle: (name) => `Ce que votre produit fait avec ${name}.`,
+      connectEyebrow: "Connexion",
+      connectTitle: "Comment votre client connecte son compte",
+      toolsEyebrow: "Tools",
+      toolsTitle: (name, n) => `${n} tools ${name}`,
+      seeAllTools: (n) => `Voir les ${n} tools`,
+      faqTitle: (name) => `Questions sur le toolkit ${name}`,
+      faq: (name, tools, modes) => [
+        {
+          q: `Dois-je intégrer l'API ${name} moi-même ?`,
+          a: `Non. Connect fournit ${tools} tools ${name} décrites et prêtes. Votre client connecte son compte et votre système appelle chaque tool par le même endpoint, avec le même format de requête.`,
+        },
+        {
+          q: `Comment mon client connecte-t-il son compte ${name} ?`,
+          a: `Avec le mode accepté par le toolkit : ${modes}. Connect stocke l'identifiant chiffré et ne le renvoie jamais à votre système.`,
+        },
+        {
+          q: "Est-ce compatible avec les agents IA ?",
+          a: "Oui. L'input de chaque tool est décrit en JSON Schema, que votre agent utilise directement comme définition de tool. L'agent choisit la tool et les arguments, et votre système fait l'appel à Connect.",
+        },
+        {
+          q: "Mon client doit-il avoir un compte Reportei ?",
+          a: "Non. Votre client connecte son compte sur un écran de Connect, ou votre système envoie l'identifiant via l'API, et il continue d'utiliser uniquement votre produit.",
+        },
+      ],
+      relatedTitle: "Toolkits de la même catégorie",
+      allToolkits: (n) => `Voir les ${n} toolkits`,
+      officialDocs: (name) => `Documentation officielle de ${name}`,
+    },
+    toolsPage: {
+      metaTitle: (name, n) => `${name} : les ${n} tools de l'API | Reportei Connect`,
+      metaDescription: (name, n, examples) =>
+        `Les ${n} tools du toolkit ${name} sur Reportei Connect : ${examples} et plus. Chacune avec ses paramètres et un exemple d'appel.`,
+      h1: (name) => `Tools ${name}`,
+      copy: (name, n) =>
+        `Les ${n} opérations ${name} que votre produit exécute sur le compte de votre client via Connect. Elles utilisent toutes le même endpoint, POST /api/tools/{tool}/execute.`,
+    },
+    tool: {
+      metaTitle: (tool, name) => `${name} : ${tool} via l'API | Reportei Connect`,
+      h1: (tool, name) => `${tool} avec l'API ${name}`,
+      requestTitle: "L'appel",
+      requestCopy:
+        "Votre système envoie l'id de la connexion de votre client et les arguments de la tool. Les headers sont les mêmes que pour toute l'API Connect : le token de votre produit et celui de votre client.",
+      responseTitle: "La réponse",
+      responseCopy:
+        "Connect renvoie le statut et le corps de la réponse de l'app tels quels, avec le header X-Toolkit-Execution-Id. Chaque exécution est enregistrée et consultable avec GET /api/tools/executions/{uuid}.",
+      paramsTitle: "Paramètres",
+      paramsNote: "Les descriptions des paramètres suivent la documentation officielle de l'app, en anglais.",
+      columns: { name: "Paramètre", type: "Type", required: "Obligatoire", description: "Description" },
+      yes: "Oui",
+      no: "Non",
+      values: "Valeurs :",
+      noParams: "Cette tool ne prend aucun argument.",
+      connectionsTitle: "Connexions possibles",
+      connectionsCopy: (name) =>
+        `Votre client connecte son compte ${name} une seule fois, avec l'un des modes ci-dessous. La même connexion sert à toutes les tools du toolkit.`,
+      aiTitle: "Prête pour les agents IA",
+      aiCopy: (slug) =>
+        `L'input de cette tool est un JSON Schema, disponible via GET /api/tools/${slug}. Il devient la définition de tool de votre agent sans conversion.`,
+      identifier: "Identifiant",
+      otherTools: (name) => `Autres tools ${name}`,
+    },
   },
 }

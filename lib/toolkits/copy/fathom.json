@@ -1,0 +1,97 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read traffic reports, current visitors, events and milestones from your customer's Fathom Analytics account, and manage sites, through Connect.",
+      "intro": "The Fathom Analytics toolkit manages sites, lists tracked events, builds custom aggregation reports on pageviews or events, shows current visitors and handles milestones. Through Connect, a product or AI agent reads the customer's privacy-friendly analytics without building the Fathom integration.",
+      "useCases": [
+        { "title": "Traffic reports in your app", "body": "Build custom reports grouped by period, pathname, referrer_source or utm_campaign and show them in your own dashboard." },
+        { "title": "Live visitors widget", "body": "Show how many people are on the customer's site right now, with the top pages and referrers when you ask for the detailed view." },
+        { "title": "Marking campaign dates", "body": "Create a milestone when a campaign launches so the date shows on the Fathom reports, and update or delete it later." }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia relatórios de tráfego, visitantes atuais, eventos e marcos da conta Fathom Analytics do seu cliente e gerencie sites pelo Connect.",
+      "intro": "O toolkit do Fathom Analytics gerencia sites, lista os eventos rastreados, monta relatórios de agregação personalizados sobre pageviews ou eventos, mostra os visitantes atuais e cuida dos marcos. Pelo Connect, um produto ou agente de IA lê as métricas do cliente sem construir a integração com o Fathom.",
+      "useCases": [
+        { "title": "Relatórios de tráfego no seu app", "body": "Monte relatórios personalizados agrupados por período, pathname, referrer_source ou utm_campaign e mostre no seu próprio dashboard." },
+        { "title": "Widget de visitantes ao vivo", "body": "Mostre quantas pessoas estão no site do cliente agora, com as páginas e origens principais quando pedir a visão detalhada." },
+        { "title": "Marcar datas de campanhas", "body": "Crie um marco quando uma campanha for lançada para a data aparecer nos relatórios do Fathom, e atualize ou exclua depois." }
+      ]
+    },
+    "es": {
+      "tagline": "Lee informes de tráfico, visitantes actuales, eventos e hitos de la cuenta de Fathom Analytics de tu cliente, y gestiona sitios, con Connect.",
+      "intro": "El toolkit de Fathom Analytics gestiona sitios, lista los eventos rastreados, arma informes de agregación personalizados sobre pageviews o eventos, muestra los visitantes actuales y maneja hitos. Con Connect, un producto o agente de IA lee las métricas del cliente sin construir la integración con Fathom.",
+      "useCases": [
+        { "title": "Informes de tráfico en tu app", "body": "Arma informes personalizados agrupados por período, pathname, referrer_source o utm_campaign y muéstralos en tu propio dashboard." },
+        { "title": "Widget de visitantes en vivo", "body": "Muestra cuántas personas están ahora en el sitio del cliente, con las páginas y referidos principales cuando pidas la vista detallada." },
+        { "title": "Marcar fechas de campañas", "body": "Crea un hito cuando se lance una campaña para que la fecha aparezca en los informes de Fathom, y actualízalo o elimínalo después." }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez les rapports de trafic, les visiteurs actuels, les événements et les jalons du compte Fathom Analytics de votre client, et gérez les sites, via Connect.",
+      "intro": "Le toolkit Fathom Analytics gère les sites, liste les événements suivis, construit des rapports d'agrégation personnalisés sur les pages vues ou les événements, affiche les visiteurs actuels et gère les jalons. Avec Connect, un produit ou un agent IA lit les statistiques du client sans construire l'intégration Fathom.",
+      "useCases": [
+        { "title": "Rapports de trafic dans votre app", "body": "Construisez des rapports personnalisés regroupés par période, pathname, referrer_source ou utm_campaign et affichez-les dans votre propre dashboard." },
+        { "title": "Widget de visiteurs en direct", "body": "Affichez combien de personnes sont sur le site du client en ce moment, avec les pages et les sources principales quand vous demandez la vue détaillée." },
+        { "title": "Marquer les dates de campagne", "body": "Créez un jalon au lancement d'une campagne pour que la date apparaisse dans les rapports Fathom, puis mettez-le à jour ou supprimez-le." }
+      ]
+    }
+  },
+  "tools": {
+    "fathom_list_sites": {
+      "pt": { "name": "Listar sites", "description": "Lista os sites da conta com id, name, sharing e timezone, do mais antigo ao mais novo. O id é o código do script de rastreamento que as outras ferramentas pedem. Enquanto has_more for true, envie o id do último site como starting_after." },
+      "es": { "name": "Listar sitios", "description": "Lista los sitios de la cuenta con id, name, sharing y timezone, del más antiguo al más nuevo. El id es el código del script de seguimiento que piden las demás herramientas. Mientras has_more sea true, envía el id del último sitio como starting_after." },
+      "fr": { "name": "Lister les sites", "description": "Liste les sites du compte avec id, name, sharing et timezone, du plus ancien au plus récent. L'id est le code du script de suivi que demandent les autres outils. Tant que has_more est true, envoyez l'id du dernier site comme starting_after." }
+    },
+    "fathom_get_site": {
+      "pt": { "name": "Obter site", "description": "Retorna um site com nome, sharing, fuso horário e data de criação." },
+      "es": { "name": "Obtener sitio", "description": "Devuelve un sitio con su nombre, sharing, zona horaria y fecha de creación." },
+      "fr": { "name": "Obtenir un site", "description": "Renvoie un site avec son nom, sharing, fuseau horaire et date de création." }
+    },
+    "fathom_create_site": {
+      "pt": { "name": "Criar site", "description": "Cria um site e o retorna com o id para colocar no script de rastreamento. Precisa de um token com a permissão Admin." },
+      "es": { "name": "Crear sitio", "description": "Crea un sitio y lo devuelve con el id para poner en el script de seguimiento. Necesita un token con el permiso Admin." },
+      "fr": { "name": "Créer un site", "description": "Crée un site et le renvoie avec l'id à mettre dans le script de suivi. Nécessite un jeton avec la permission Admin." }
+    },
+    "fathom_update_site": {
+      "pt": { "name": "Atualizar site", "description": "Altera um site. Só os campos enviados mudam." },
+      "es": { "name": "Actualizar sitio", "description": "Modifica un sitio. Solo cambian los campos enviados." },
+      "fr": { "name": "Mettre à jour un site", "description": "Modifie un site. Seuls les champs envoyés changent." }
+    },
+    "fathom_list_events": {
+      "pt": { "name": "Listar eventos", "description": "Lista todos os nomes de evento que o site rastreou, com a moeda de cada um, ordenados por nome. Os relatórios de um evento usam o nome; o id só funciona como cursor de página. Enquanto has_more for true, envie o id do último evento como starting_after." },
+      "es": { "name": "Listar eventos", "description": "Lista todos los nombres de evento que el sitio ha rastreado, con su moneda, ordenados por nombre. Los informes de un evento usan el nombre; el id solo sirve como cursor de página. Mientras has_more sea true, envía el id del último evento como starting_after." },
+      "fr": { "name": "Lister les événements", "description": "Liste tous les noms d'événements que le site a suivis, avec leur devise, triés par nom. Les rapports sur un événement utilisent son nom ; l'id ne sert que de curseur de page. Tant que has_more est true, envoyez l'id du dernier événement comme starting_after." }
+    },
+    "fathom_get_aggregation": {
+      "pt": { "name": "Obter agregação", "description": "Monta um relatório personalizado sobre os pageviews de um site ou sobre um evento: totais, ou agrupados por período e por campos como pathname, referrer_source ou utm_campaign. Os números voltam como texto e não há paginação: relatórios agrupados retornam até 500 linhas, a menos que limit diga outro valor." },
+      "es": { "name": "Obtener agregación", "description": "Arma un informe personalizado sobre los pageviews de un sitio o sobre un evento: totales, o agrupados por período y por campos como pathname, referrer_source o utm_campaign. Los números vuelven como texto y no hay paginación: los informes agrupados devuelven hasta 500 filas, salvo que limit indique otro valor." },
+      "fr": { "name": "Obtenir une agrégation", "description": "Construit un rapport personnalisé sur les pages vues d'un site ou sur un événement : totaux, ou regroupés par période et par champs comme pathname, referrer_source ou utm_campaign. Les nombres reviennent sous forme de texte et il n'y a pas de pagination : les rapports regroupés renvoient jusqu'à 500 lignes, sauf si limit indique autre chose." }
+    },
+    "fathom_get_current_visitors": {
+      "pt": { "name": "Obter visitantes atuais", "description": "Retorna quantas pessoas estão no site agora. Com detailed, também as 150 páginas e as 150 origens principais." },
+      "es": { "name": "Obtener visitantes actuales", "description": "Devuelve cuántas personas están en el sitio ahora mismo. Con detailed, también las 150 páginas y los 150 referidos principales." },
+      "fr": { "name": "Obtenir les visiteurs actuels", "description": "Renvoie combien de personnes sont sur le site en ce moment. Avec detailed, aussi les 150 pages et les 150 sources principales." }
+    },
+    "fathom_list_milestones": {
+      "pt": { "name": "Listar marcos", "description": "Lista os marcos do site, as datas marcadas nos relatórios, do mais antigo ao mais novo. Enquanto has_more for true, envie o id do último marco como starting_after." },
+      "es": { "name": "Listar hitos", "description": "Lista los hitos del sitio, las fechas marcadas en sus informes, del más antiguo al más nuevo. Mientras has_more sea true, envía el id del último hito como starting_after." },
+      "fr": { "name": "Lister les jalons", "description": "Liste les jalons du site, les dates marquées sur ses rapports, du plus ancien au plus récent. Tant que has_more est true, envoyez l'id du dernier jalon comme starting_after." }
+    },
+    "fathom_create_milestone": {
+      "pt": { "name": "Criar marco", "description": "Marca uma data nos relatórios do site, como o lançamento de uma campanha." },
+      "es": { "name": "Crear hito", "description": "Marca una fecha en los informes del sitio, como el lanzamiento de una campaña." },
+      "fr": { "name": "Créer un jalon", "description": "Marque une date sur les rapports du site, comme le lancement d'une campagne." }
+    },
+    "fathom_update_milestone": {
+      "pt": { "name": "Atualizar marco", "description": "Altera um marco. Envie name e milestone_date, mesmo o que não muda." },
+      "es": { "name": "Actualizar hito", "description": "Modifica un hito. Envía name y milestone_date, incluso el que no cambia." },
+      "fr": { "name": "Mettre à jour un jalon", "description": "Modifie un jalon. Envoyez name et milestone_date, même celui qui ne change pas." }
+    },
+    "fathom_delete_milestone": {
+      "pt": { "name": "Excluir marco", "description": "Exclui um marco definitivamente." },
+      "es": { "name": "Eliminar hito", "description": "Elimina un hito de forma definitiva." },
+      "fr": { "name": "Supprimer un jalon", "description": "Supprime définitivement un jalon." }
+    }
+  }
+}

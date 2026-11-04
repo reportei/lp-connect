@@ -1,0 +1,102 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage subscriptions, tags and posts in your customer's beehiiv account, and read post stats, through one Reportei Connect endpoint.",
+      "intro": "The beehiiv toolkit covers publications, subscriptions, subscription tags, posts and aggregate post statistics. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        { "title": "Sync signups to a newsletter", "body": "When a user signs up in your SaaS, create a subscription in the customer's publication and tag it with the plan or source." },
+        { "title": "Publish content from your product", "body": "Create a post from HTML as a draft or schedule it, so a content tool can push newsletters to beehiiv without its own integration." },
+        { "title": "Newsletter reports for agents", "body": "Let an AI agent list posts and read aggregate stats such as opens, clicks and most clicked links to summarize how a publication is doing." }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie assinaturas, tags e posts na conta beehiiv do seu cliente e leia as estatísticas dos posts por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do beehiiv cobre publicações, assinaturas, tags de assinatura, posts e estatísticas agregadas de posts. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        { "title": "Sincronizar cadastros com a newsletter", "body": "Quando um usuário se cadastra no seu SaaS, crie a assinatura na publicação do cliente e aplique uma tag com o plano ou a origem." },
+        { "title": "Publicar conteúdo pelo seu produto", "body": "Crie um post a partir de HTML como rascunho ou agendado, para que uma ferramenta de conteúdo envie newsletters ao beehiiv sem integração própria." },
+        { "title": "Relatórios de newsletter para agentes", "body": "Deixe um agente de IA listar posts e ler estatísticas agregadas, como aberturas, cliques e links mais clicados, para resumir o desempenho da publicação." }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona suscripciones, etiquetas y posts en la cuenta beehiiv de tu cliente y lee las estadísticas de los posts con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de beehiiv cubre publicaciones, suscripciones, etiquetas de suscripción, posts y estadísticas agregadas de posts. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        { "title": "Sincronizar registros con la newsletter", "body": "Cuando un usuario se registra en tu SaaS, crea la suscripción en la publicación del cliente y aplica una etiqueta con el plan o el origen." },
+        { "title": "Publicar contenido desde tu producto", "body": "Crea un post a partir de HTML como borrador o programado, para que una herramienta de contenido envíe newsletters a beehiiv sin integración propia." },
+        { "title": "Informes de newsletter para agentes", "body": "Deja que un agente de IA liste posts y lea estadísticas agregadas, como aperturas, clics y enlaces más clicados, para resumir el rendimiento de la publicación." }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez abonnements, tags et posts dans le compte beehiiv de votre client et lisez les statistiques des posts via un seul endpoint Reportei Connect.",
+      "intro": "Le toolkit beehiiv couvre les publications, les abonnements, les tags d'abonnement, les posts et les statistiques agrégées des posts. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        { "title": "Synchroniser les inscriptions", "body": "Quand un utilisateur s'inscrit dans votre SaaS, créez l'abonnement dans la publication du client et ajoutez un tag avec le plan ou la source." },
+        { "title": "Publier depuis votre produit", "body": "Créez un post à partir de HTML en brouillon ou planifié, pour qu'un outil de contenu envoie des newsletters vers beehiiv sans intégration dédiée." },
+        { "title": "Rapports de newsletter pour agents", "body": "Laissez un agent IA lister les posts et lire des statistiques agrégées, comme les ouvertures, les clics et les liens les plus cliqués, pour résumer la performance d'une publication." }
+      ]
+    }
+  },
+  "tools": {
+    "beehiiv_list_publications": {
+      "pt": { "name": "Listar publicações", "description": "Lista as publicações que a API key alcança, com id, name e organization_name. expand stats adiciona assinaturas ativas, taxas médias de abertura e clique e totais enviados. Pagine com page e limit, até 100; a resposta traz total_pages." },
+      "es": { "name": "Listar publicaciones", "description": "Lista las publicaciones a las que llega la API key, con id, name y organization_name. expand stats añade suscripciones activas, tasas medias de apertura y clic y totales enviados. Pagina con page y limit, hasta 100; la respuesta trae total_pages." },
+      "fr": { "name": "Lister les publications", "description": "Liste les publications accessibles avec la API key, avec id, name et organization_name. expand stats ajoute les abonnements actifs, les taux moyens d'ouverture et de clic et les totaux envoyés. Paginez avec page et limit, jusqu'à 100 ; la réponse contient total_pages." }
+    },
+    "beehiiv_list_subscriptions": {
+      "pt": { "name": "Listar assinaturas", "description": "Lista as assinaturas (inscritos) de uma publicação, opcionalmente só de um email, status ou tier. Pagine com limit, até 100, e cursor: a resposta traz has_more e next_cursor." },
+      "es": { "name": "Listar suscripciones", "description": "Lista las suscripciones (suscriptores) de una publicación, opcionalmente solo de un email, estado o tier. Pagina con limit, hasta 100, y cursor: la respuesta trae has_more y next_cursor." },
+      "fr": { "name": "Lister les abonnements", "description": "Liste les abonnements (abonnés) d'une publication, éventuellement pour un seul email, statut ou tier. Paginez avec limit, jusqu'à 100, et cursor : la réponse contient has_more et next_cursor." }
+    },
+    "beehiiv_get_subscription": {
+      "pt": { "name": "Obter assinatura", "description": "Retorna uma assinatura com email, status, created, subscription_tier, os campos utm e referral_code." },
+      "es": { "name": "Obtener suscripción", "description": "Devuelve una suscripción con email, status, created, subscription_tier, los campos utm y referral_code." },
+      "fr": { "name": "Obtenir un abonnement", "description": "Renvoie un abonnement avec email, status, created, subscription_tier, les champs utm et referral_code." }
+    },
+    "beehiiv_create_subscription": {
+      "pt": { "name": "Criar assinatura", "description": "Inscreve um email em uma publicação e retorna a assinatura com seu id. Com double opt-in na publicação, ou double_opt_override ativado, a pessoa confirma por email antes de ficar ativa." },
+      "es": { "name": "Crear suscripción", "description": "Suscribe un email a una publicación y devuelve la suscripción con su id. Con double opt-in en la publicación, o double_opt_override activado, la persona confirma por email antes de quedar activa." },
+      "fr": { "name": "Créer un abonnement", "description": "Abonne un email à une publication et renvoie l'abonnement avec son id. Avec le double opt-in sur la publication, ou double_opt_override activé, la personne confirme par email avant de devenir active." }
+    },
+    "beehiiv_update_subscription": {
+      "pt": { "name": "Atualizar assinatura", "description": "Atualiza uma assinatura. Só os campos enviados mudam. unsubscribe true cancela a inscrição da pessoa na publicação." },
+      "es": { "name": "Actualizar suscripción", "description": "Actualiza una suscripción. Solo cambian los campos enviados. unsubscribe true da de baja a la persona de la publicación." },
+      "fr": { "name": "Mettre à jour un abonnement", "description": "Met à jour un abonnement. Seuls les champs envoyés changent. unsubscribe true désabonne la personne de la publication." }
+    },
+    "beehiiv_create_subscription_tag": {
+      "pt": { "name": "Criar tag de assinatura", "description": "Adiciona tags a uma assinatura. Uma tag que ainda não existe na publicação é criada." },
+      "es": { "name": "Crear etiqueta de suscripción", "description": "Añade etiquetas a una suscripción. Una etiqueta que aún no existe en la publicación se crea." },
+      "fr": { "name": "Créer un tag d'abonnement", "description": "Ajoute des tags à un abonnement. Un tag qui n'existe pas encore dans la publication est créé." }
+    },
+    "beehiiv_list_posts": {
+      "pt": { "name": "Listar posts", "description": "Lista os posts de uma publicação com id, title, subtitle, status, publish_date e web_url. expand stats adiciona as estatísticas de email e web de cada post. Pagine com page e limit, até 100; a resposta traz total_pages." },
+      "es": { "name": "Listar posts", "description": "Lista los posts de una publicación con id, title, subtitle, status, publish_date y web_url. expand stats añade las estadísticas de email y web de cada post. Pagina con page y limit, hasta 100; la respuesta trae total_pages." },
+      "fr": { "name": "Lister les posts", "description": "Liste les posts d'une publication avec id, title, subtitle, status, publish_date et web_url. expand stats ajoute les statistiques email et web de chaque post. Paginez avec page et limit, jusqu'à 100 ; la réponse contient total_pages." }
+    },
+    "beehiiv_get_post": {
+      "pt": { "name": "Obter post", "description": "Retorna um post; expand stats adiciona suas estatísticas de email e web. Um post criado há pouco pode responder 202 enquanto o beehiiv o monta, e 404 com POST_CREATION_FAILED quando a criação falhou." },
+      "es": { "name": "Obtener post", "description": "Devuelve un post; expand stats añade sus estadísticas de email y web. Un post creado hace un momento puede responder 202 mientras beehiiv lo construye, y 404 con POST_CREATION_FAILED cuando la creación falló." },
+      "fr": { "name": "Obtenir un post", "description": "Renvoie un post ; expand stats ajoute ses statistiques email et web. Un post créé à l'instant peut répondre 202 pendant que beehiiv le construit, et 404 avec POST_CREATION_FAILED quand la création a échoué." }
+    },
+    "beehiiv_create_post": {
+      "pt": { "name": "Criar post", "description": "Cria um post a partir de HTML e retorna seu id; só nos planos Pro e Enterprise. status draft, o padrão, apenas salva; confirmed envia e publica na hora ou em scheduled_at. O beehiiv monta o post em segundo plano, então Get post pode responder 202 por um instante." },
+      "es": { "name": "Crear post", "description": "Crea un post a partir de HTML y devuelve su id; solo en los planes Pro y Enterprise. status draft, el valor por defecto, solo lo guarda; confirmed lo envía y publica de inmediato o en scheduled_at. beehiiv construye el post en segundo plano, así que Get post puede responder 202 por un momento." },
+      "fr": { "name": "Créer un post", "description": "Crée un post à partir de HTML et renvoie son id ; uniquement sur les plans Pro et Enterprise. status draft, la valeur par défaut, l'enregistre seulement ; confirmed l'envoie et le publie tout de suite ou à scheduled_at. beehiiv construit le post en arrière-plan, donc Get post peut répondre 202 un instant." }
+    },
+    "beehiiv_update_post": {
+      "pt": { "name": "Atualizar post", "description": "Atualiza um post; só nos planos Pro e Enterprise. Só os campos enviados mudam, e body_content substitui todo o conteúdo. scheduled_at não pode mudar depois que o post foi enviado." },
+      "es": { "name": "Actualizar post", "description": "Actualiza un post; solo en los planes Pro y Enterprise. Solo cambian los campos enviados, y body_content reemplaza todo el contenido. scheduled_at no puede cambiar después de enviado el post." },
+      "fr": { "name": "Mettre à jour un post", "description": "Met à jour un post ; uniquement sur les plans Pro et Enterprise. Seuls les champs envoyés changent, et body_content remplace tout le contenu. scheduled_at ne peut plus changer une fois le post envoyé." }
+    },
+    "beehiiv_delete_post": {
+      "pt": { "name": "Excluir post", "description": "Exclui um rascunho de forma definitiva, ou arquiva um post confirmado." },
+      "es": { "name": "Eliminar post", "description": "Elimina un borrador de forma definitiva, o archiva un post confirmado." },
+      "fr": { "name": "Supprimer un post", "description": "Supprime définitivement un brouillon, ou archive un post confirmé." }
+    },
+    "beehiiv_get_post_aggregate_stats": {
+      "pt": { "name": "Obter estatísticas agregadas de posts", "description": "Retorna as estatísticas somadas dos posts de uma publicação que correspondem aos filtros: destinatários de email, entregas, aberturas, cliques, taxas, cancelamentos e denúncias de spam, visualizações e cliques na web e os links mais clicados. Em publicações grandes os números atualizam cerca de uma vez por hora, como mostra computed_at." },
+      "es": { "name": "Obtener estadísticas agregadas de posts", "description": "Devuelve las estadísticas sumadas de los posts de una publicación que coinciden con los filtros: destinatarios de email, entregas, aperturas, clics, tasas, bajas y denuncias de spam, vistas y clics en la web y los enlaces más clicados. En publicaciones grandes los números se actualizan aproximadamente cada hora, como indica computed_at." },
+      "fr": { "name": "Obtenir les statistiques agrégées des posts", "description": "Renvoie les statistiques cumulées des posts d'une publication qui correspondent aux filtres : destinataires d'email, livraisons, ouvertures, clics, taux, désabonnements et signalements de spam, vues et clics web et les liens les plus cliqués. Pour les grandes publications, les chiffres se rafraîchissent environ toutes les heures, comme l'indique computed_at." }
+    }
+  }
+}

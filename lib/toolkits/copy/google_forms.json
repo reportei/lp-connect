@@ -1,0 +1,72 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and edit forms, publish or close them and read responses in your customer's Google Forms account through one Connect endpoint.",
+      "intro": "The Google Forms toolkit creates forms, reads their structure, edits questions, sections and settings, publishes or closes a form for responses and reads the responses. Through Connect, a product or AI agent builds and collects survey data in the customer's account without building the Google integration.",
+      "useCases": [
+        { "title": "Surveys created from your product", "body": "Create a form, add its questions with one update, publish it and send the responderUri to the customer's audience." },
+        { "title": "Pulling responses into a CRM", "body": "List the responses of a form and use the questionIds from the form to map each answer to a field in your CRM or database." },
+        { "title": "Agents that run feedback forms", "body": "Let an AI agent open a form for responses, read the answers later and close the form when the collection period ends." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e edite formulários, publique ou encerre e leia respostas na conta Google Forms do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Google Forms cria formulários, lê a estrutura, edita perguntas, seções e configurações, publica ou encerra um formulário para respostas e lê as respostas. Pelo Connect, um produto ou agente de IA monta e coleta dados de pesquisa na conta do cliente sem construir a integração com o Google.",
+      "useCases": [
+        { "title": "Pesquisas criadas pelo produto", "body": "Crie um formulário, adicione as perguntas com uma única atualização, publique e envie o responderUri ao público do cliente." },
+        { "title": "Respostas direto para o CRM", "body": "Liste as respostas de um formulário e use os questionIds do formulário para mapear cada resposta a um campo do seu CRM ou banco de dados." },
+        { "title": "Agentes que conduzem formulários", "body": "Deixe um agente de IA abrir um formulário para respostas, ler as respostas depois e encerrar o formulário quando o período de coleta acabar." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y edita formularios, publícalos o ciérralos y lee respuestas en la cuenta de Google Forms de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Google Forms crea formularios, lee su estructura, edita preguntas, secciones y ajustes, publica o cierra un formulario para respuestas y lee las respuestas. Con Connect, un producto o agente de IA arma y recoge datos de encuestas en la cuenta del cliente sin construir la integración con Google.",
+      "useCases": [
+        { "title": "Encuestas creadas desde tu producto", "body": "Crea un formulario, agrega sus preguntas con una sola actualización, publícalo y envía el responderUri a la audiencia del cliente." },
+        { "title": "Respuestas directo al CRM", "body": "Lista las respuestas de un formulario y usa los questionIds del formulario para asignar cada respuesta a un campo de tu CRM o base de datos." },
+        { "title": "Agentes que gestionan formularios", "body": "Deja que un agente de IA abra un formulario para respuestas, lea las respuestas después y cierre el formulario cuando termine el período de recogida." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez des formulaires, publiez-les ou fermez-les et lisez les réponses du compte Google Forms de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Google Forms crée des formulaires, lit leur structure, modifie questions, sections et réglages, publie ou ferme un formulaire aux réponses et lit les réponses. Avec Connect, un produit ou un agent IA construit et collecte des données d'enquête dans le compte du client sans construire l'intégration Google.",
+      "useCases": [
+        { "title": "Enquêtes créées depuis votre produit", "body": "Créez un formulaire, ajoutez ses questions en une seule mise à jour, publiez-le et envoyez le responderUri à l'audience du client." },
+        { "title": "Réponses directement dans le CRM", "body": "Listez les réponses d'un formulaire et utilisez les questionIds du formulaire pour associer chaque réponse à un champ de votre CRM ou de votre base." },
+        { "title": "Agents qui pilotent des formulaires", "body": "Laissez un agent IA ouvrir un formulaire aux réponses, lire les réponses plus tard et fermer le formulaire à la fin de la période de collecte." }
+      ]
+    }
+  },
+  "tools": {
+    "google_forms_create_form": {
+      "pt": { "name": "Criar formulário", "description": "Cria um formulário vazio com um título e retorna seu formId e responderUri, o link para quem responde. Adicione as perguntas com Update form. Desde julho de 2026, um formulário criado pela API começa não publicado e não aceita respostas até que Update publish settings o publique." },
+      "es": { "name": "Crear formulario", "description": "Crea un formulario vacío con un título y devuelve su formId y responderUri, el enlace para quienes responden. Agrega las preguntas con Update form. Desde julio de 2026, un formulario creado por la API empieza sin publicar y no recibe respuestas hasta que Update publish settings lo publique." },
+      "fr": { "name": "Créer un formulaire", "description": "Crée un formulaire vide avec un titre et renvoie son formId et responderUri, le lien pour les répondants. Ajoutez les questions avec Update form. Depuis juillet 2026, un formulaire créé par l'API démarre non publié et n'accepte pas de réponses tant que Update publish settings ne l'a pas publié." }
+    },
+    "google_forms_get_form": {
+      "pt": { "name": "Obter formulário", "description": "Retorna um formulário: info, settings, publishSettings, responderUri (o link para quem responde), revisionId e os itens em ordem, cada um com seu itemId e, em uma pergunta, seu questionId. As respostas de List responses são indexadas pelo questionId." },
+      "es": { "name": "Obtener formulario", "description": "Devuelve un formulario: info, settings, publishSettings, responderUri (el enlace para quienes responden), revisionId y los elementos en orden, cada uno con su itemId y, en una pregunta, su questionId. Las respuestas de List responses se indexan por questionId." },
+      "fr": { "name": "Obtenir un formulaire", "description": "Renvoie un formulaire : info, settings, publishSettings, responderUri (le lien pour les répondants), revisionId et les éléments dans l'ordre, chacun avec son itemId et, pour une question, son questionId. Les réponses de List responses sont indexées par questionId." }
+    },
+    "google_forms_update_form": {
+      "pt": { "name": "Atualizar formulário", "description": "Edita um formulário: cria, altera, move e exclui perguntas, blocos de texto e seções, e muda o título, a descrição e a coleta de e-mail. As edições se aplicam em ordem e valem todas ou nenhuma. As respostas de createItem trazem o novo itemId e questionId." },
+      "es": { "name": "Actualizar formulario", "description": "Edita un formulario: crea, cambia, mueve y elimina preguntas, bloques de texto y secciones, y cambia el título, la descripción y la recogida de correo. Las ediciones se aplican en orden y valen todas o ninguna. Las respuestas de createItem traen el nuevo itemId y questionId." },
+      "fr": { "name": "Mettre à jour un formulaire", "description": "Modifie un formulaire : crée, change, déplace et supprime des questions, blocs de texte et sections, et change le titre, la description et la collecte d'e-mails. Les modifications s'appliquent dans l'ordre et en tout ou rien. Les réponses de createItem apportent le nouvel itemId et questionId." }
+    },
+    "google_forms_update_publish_settings": {
+      "pt": { "name": "Atualizar configurações de publicação", "description": "Publica, encerra ou despublica um formulário. isPublished e isAcceptingResponses ambos true o abrem para respostas, isPublished true com isAcceptingResponses false o encerra, e ambos false o despublicam. Quem pode responder segue o compartilhamento do formulário no Google Drive. Formulários legados, cujo Get form não tem publishSettings, não são suportados." },
+      "es": { "name": "Actualizar ajustes de publicación", "description": "Publica, cierra o despublica un formulario. isPublished e isAcceptingResponses ambos true lo abren a respuestas, isPublished true con isAcceptingResponses false lo cierra, y ambos false lo despublican. Quién puede responder sigue el uso compartido del formulario en Google Drive. Los formularios heredados, cuyo Get form no tiene publishSettings, no están soportados." },
+      "fr": { "name": "Mettre à jour les réglages de publication", "description": "Publie, ferme ou dépublie un formulaire. isPublished et isAcceptingResponses tous deux true l'ouvrent aux réponses, isPublished true avec isAcceptingResponses false le ferme, et les deux false le dépublient. Qui peut répondre suit le partage du formulaire dans Google Drive. Les formulaires hérités, dont Get form n'a pas publishSettings, ne sont pas pris en charge." }
+    },
+    "google_forms_list_responses": {
+      "pt": { "name": "Listar respostas", "description": "Lista as respostas de um formulário, cada uma com responseId, createTime, lastSubmittedTime, respondentEmail quando o formulário coleta e answers indexadas por questionId: Get form diz qual pergunta é cada questionId. Envie nextPageToken como pageToken para ler a próxima página." },
+      "es": { "name": "Listar respuestas", "description": "Lista las respuestas de un formulario, cada una con responseId, createTime, lastSubmittedTime, respondentEmail cuando el formulario lo recoge y answers indexadas por questionId: Get form indica qué pregunta es cada questionId. Pasa nextPageToken como pageToken para leer la página siguiente." },
+      "fr": { "name": "Lister les réponses", "description": "Liste les réponses d'un formulaire, chacune avec responseId, createTime, lastSubmittedTime, respondentEmail quand le formulaire le collecte et answers indexées par questionId : Get form indique quelle question correspond à chaque questionId. Passez nextPageToken comme pageToken pour lire la page suivante." }
+    },
+    "google_forms_get_response": {
+      "pt": { "name": "Obter resposta", "description": "Retorna uma resposta de um formulário, com as respostas indexadas por questionId." },
+      "es": { "name": "Obtener respuesta", "description": "Devuelve una respuesta de un formulario, con las respuestas indexadas por questionId." },
+      "fr": { "name": "Obtenir une réponse", "description": "Renvoie une réponse d'un formulaire, avec les réponses indexées par questionId." }
+    }
+  }
+}

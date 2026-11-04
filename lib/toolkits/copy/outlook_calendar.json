@@ -1,0 +1,218 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read calendars, create and change events, answer invitations and check availability in your customer's Outlook account, through one Connect endpoint.",
+      "intro": "The Outlook Calendar toolkit covers calendars, events (list, read, create, update, delete), responses to meeting invitations (accept, decline, tentatively accept) and free/busy schedules, for Outlook.com and Microsoft 365 accounts. Customers connect with OAuth on your own app, and Connect renews the tokens and logs every execution.",
+      "useCases": [
+        {
+          "title": "Book meetings from your product",
+          "body": "Create an event with attendees and Outlook sends the invitations, with the online meeting join link returned by Get event."
+        },
+        {
+          "title": "Find a time that works",
+          "body": "Call Get schedule for several people or rooms, read availabilityView and the busy blocks, then create the event in a free slot."
+        },
+        {
+          "title": "Assistant that handles invitations",
+          "body": "An AI agent lists upcoming events and accepts, declines or tentatively accepts invitations, optionally proposing another time."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia calendários, crie e altere eventos, responda convites e consulte a disponibilidade na conta Outlook do seu cliente, com um único endpoint do Connect.",
+      "intro": "O toolkit do Outlook Calendar cobre calendários, eventos (listar, ler, criar, atualizar, excluir), respostas a convites de reunião (aceitar, recusar, aceitar provisoriamente) e agendas de livre/ocupado, em contas Outlook.com e Microsoft 365. O cliente conecta por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Agendar reuniões pelo seu produto",
+          "body": "Crie um evento com participantes e o Outlook envia os convites, com o link de entrada da reunião online retornado por Get event."
+        },
+        {
+          "title": "Achar um horário que funcione",
+          "body": "Chame Get schedule para várias pessoas ou salas, leia availabilityView e os blocos ocupados e crie o evento em um horário livre."
+        },
+        {
+          "title": "Assistente que cuida de convites",
+          "body": "Um agente de IA lista os próximos eventos e aceita, recusa ou aceita provisoriamente convites, propondo outro horário se quiser."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee calendarios, crea y cambia eventos, responde invitaciones y consulta la disponibilidad en la cuenta Outlook de tu cliente, con un endpoint.",
+      "intro": "El toolkit de Outlook Calendar cubre calendarios, eventos (listar, leer, crear, actualizar, eliminar), respuestas a invitaciones de reunión (aceptar, rechazar, aceptar provisionalmente) y agendas de libre/ocupado, en cuentas Outlook.com y Microsoft 365. El cliente conecta por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Agendar reuniones desde tu producto",
+          "body": "Crea un evento con asistentes y Outlook envía las invitaciones, con el enlace de acceso a la reunión en línea que devuelve Get event."
+        },
+        {
+          "title": "Encontrar un horario que funcione",
+          "body": "Llama a Get schedule para varias personas o salas, lee availabilityView y los bloques ocupados, y crea el evento en un hueco libre."
+        },
+        {
+          "title": "Asistente que gestiona invitaciones",
+          "body": "Un agente de IA lista los próximos eventos y acepta, rechaza o acepta provisionalmente invitaciones, proponiendo otro horario si hace falta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez les calendriers, gérez les événements, répondez aux invitations et consultez les disponibilités du compte Outlook de votre client, via Connect.",
+      "intro": "Le toolkit Outlook Calendar couvre les calendriers, les événements (lister, lire, créer, mettre à jour, supprimer), les réponses aux invitations de réunion (accepter, refuser, accepter provisoirement) et les agendas libre/occupé, pour les comptes Outlook.com et Microsoft 365. Le client se connecte par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Planifier des réunions depuis votre produit",
+          "body": "Créez un événement avec des participants et Outlook envoie les invitations, avec le lien de connexion à la réunion en ligne renvoyé par Get event."
+        },
+        {
+          "title": "Trouver un créneau qui convient",
+          "body": "Appelez Get schedule pour plusieurs personnes ou salles, lisez availabilityView et les blocs occupés, puis créez l'événement sur un créneau libre."
+        },
+        {
+          "title": "Assistant qui gère les invitations",
+          "body": "Un agent IA liste les prochains événements et accepte, refuse ou accepte provisoirement les invitations, en proposant éventuellement un autre horaire."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "outlook_calendar_list_calendars": {
+      "pt": {
+        "name": "Listar calendários",
+        "description": "Lista os calendários do usuário, com id, name, isDefaultCalendar, canEdit e owner. Use o id como calendar_id. Só a primeira página volta."
+      },
+      "es": {
+        "name": "Listar calendarios",
+        "description": "Lista los calendarios del usuario, con id, name, isDefaultCalendar, canEdit y owner. Usa el id como calendar_id. Solo vuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les calendriers",
+        "description": "Liste les calendriers de l'utilisateur, avec id, name, isDefaultCalendar, canEdit et owner. Utilisez l'id comme calendar_id. Seule la première page est renvoyée."
+      }
+    },
+    "outlook_calendar_list_events": {
+      "pt": {
+        "name": "Listar eventos",
+        "description": "Lista os eventos de um calendário entre dois horários, com eventos recorrentes expandidos em ocorrências que têm seu próprio id. start e end vêm em UTC. Só a primeira página volta: quando a resposta traz @odata.nextLink, consulte de novo com uma janela menor."
+      },
+      "es": {
+        "name": "Listar eventos",
+        "description": "Lista los eventos de un calendario entre dos horas, con los eventos recurrentes expandidos en ocurrencias que tienen su propio id. start y end vienen en UTC. Solo vuelve la primera página: cuando la respuesta trae @odata.nextLink, consulta de nuevo con una ventana más corta."
+      },
+      "fr": {
+        "name": "Lister les événements",
+        "description": "Liste les événements d'un calendrier entre deux instants, avec les événements récurrents développés en occurrences qui ont leur propre id. start et end sont en UTC. Seule la première page est renvoyée : quand la réponse contient @odata.nextLink, réinterrogez avec une fenêtre plus courte."
+      }
+    },
+    "outlook_calendar_get_event": {
+      "pt": {
+        "name": "Consultar evento",
+        "description": "Retorna um evento com o corpo em texto simples, start e end em UTC, local, participantes com suas respostas, organizador, onlineMeeting com o link de entrada, recorrência e webLink."
+      },
+      "es": {
+        "name": "Consultar evento",
+        "description": "Devuelve un evento con el cuerpo en texto plano, start y end en UTC, ubicación, asistentes con sus respuestas, organizador, onlineMeeting con el enlace de acceso, recurrencia y webLink."
+      },
+      "fr": {
+        "name": "Consulter un événement",
+        "description": "Renvoie un événement avec son corps en texte brut, start et end en UTC, le lieu, les participants avec leurs réponses, l'organisateur, onlineMeeting avec le lien de connexion, la récurrence et webLink."
+      }
+    },
+    "outlook_calendar_create_event": {
+      "pt": {
+        "name": "Criar evento",
+        "description": "Cria um evento em um calendário e o retorna com id e webLink. Com attendees, o Outlook envia os convites por e-mail na hora, e isso não pode ser desativado."
+      },
+      "es": {
+        "name": "Crear evento",
+        "description": "Crea un evento en un calendario y lo devuelve con id y webLink. Con attendees, Outlook envía las invitaciones por email de inmediato, y esto no se puede desactivar."
+      },
+      "fr": {
+        "name": "Créer un événement",
+        "description": "Crée un événement dans un calendrier et le renvoie avec id et webLink. Avec attendees, Outlook envoie aussitôt les invitations par e-mail, et cela ne peut pas être désactivé."
+      }
+    },
+    "outlook_calendar_update_event": {
+      "pt": {
+        "name": "Atualizar evento",
+        "description": "Altera um evento e o retorna. Só os campos enviados mudam. Em uma reunião organizada pelo usuário, o Outlook envia a alteração por e-mail aos participantes. Não envie um novo body para uma reunião online: os dados de entrada ficam no corpo e seriam perdidos."
+      },
+      "es": {
+        "name": "Actualizar evento",
+        "description": "Cambia un evento y lo devuelve. Solo cambian los campos enviados. En una reunión que organiza el usuario, Outlook envía el cambio por email a los asistentes. No envíes un body nuevo para una reunión en línea: los datos de acceso viven en el cuerpo y se perderían."
+      },
+      "fr": {
+        "name": "Mettre à jour un événement",
+        "description": "Modifie un événement et le renvoie. Seuls les champs envoyés changent. Sur une réunion organisée par l'utilisateur, Outlook envoie la modification par e-mail aux participants. N'envoyez pas de nouveau body pour une réunion en ligne : les informations de connexion sont dans le corps et seraient perdues."
+      }
+    },
+    "outlook_calendar_delete_event": {
+      "pt": {
+        "name": "Excluir evento",
+        "description": "Exclui um evento do calendário. Quando o usuário organiza a reunião, o Outlook envia um cancelamento por e-mail aos participantes."
+      },
+      "es": {
+        "name": "Eliminar evento",
+        "description": "Elimina un evento del calendario. Cuando el usuario organiza la reunión, Outlook envía una cancelación por email a los asistentes."
+      },
+      "fr": {
+        "name": "Supprimer un événement",
+        "description": "Supprime un événement du calendrier. Quand l'utilisateur organise la réunion, Outlook envoie une annulation par e-mail aux participants."
+      }
+    },
+    "outlook_calendar_accept_event": {
+      "pt": {
+        "name": "Aceitar evento",
+        "description": "Aceita um convite de reunião e, a menos que sendResponse seja false, envia a resposta por e-mail ao organizador. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Aceptar evento",
+        "description": "Acepta una invitación de reunión y, salvo que sendResponse sea false, envía la respuesta por email al organizador. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Accepter un événement",
+        "description": "Accepte une invitation à une réunion et, sauf si sendResponse vaut false, envoie la réponse par e-mail à l'organisateur. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_calendar_decline_event": {
+      "pt": {
+        "name": "Recusar evento",
+        "description": "Recusa um convite de reunião, opcionalmente propondo outro horário, e, a menos que sendResponse seja false, envia a resposta por e-mail ao organizador. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Rechazar evento",
+        "description": "Rechaza una invitación de reunión, opcionalmente proponiendo otra hora, y, salvo que sendResponse sea false, envía la respuesta por email al organizador. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Refuser un événement",
+        "description": "Refuse une invitation à une réunion, en proposant éventuellement un autre horaire, et, sauf si sendResponse vaut false, envoie la réponse par e-mail à l'organisateur. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_calendar_tentatively_accept_event": {
+      "pt": {
+        "name": "Aceitar evento provisoriamente",
+        "description": "Aceita provisoriamente um convite de reunião, opcionalmente propondo outro horário, e, a menos que sendResponse seja false, envia a resposta por e-mail ao organizador. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Aceptar evento provisionalmente",
+        "description": "Acepta provisionalmente una invitación de reunión, opcionalmente proponiendo otra hora, y, salvo que sendResponse sea false, envía la respuesta por email al organizador. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Accepter un événement provisoirement",
+        "description": "Accepte provisoirement une invitation à une réunion, en proposant éventuellement un autre horaire, et, sauf si sendResponse vaut false, envoie la réponse par e-mail à l'organisateur. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_calendar_get_schedule": {
+      "pt": {
+        "name": "Consultar agenda",
+        "description": "Retorna os horários livres e ocupados de pessoas, listas de distribuição ou salas entre dois horários. Em availabilityView, cada dígito é um intervalo: 0 livre ou trabalhando em outro lugar, 1 provisório, 2 ocupado, 3 fora do escritório. scheduleItems lista os blocos ocupados e workingHours o horário de trabalho. Só contas corporativas ou escolares podem chamá-la."
+      },
+      "es": {
+        "name": "Consultar agenda",
+        "description": "Devuelve los horarios libres y ocupados de personas, listas de distribución o salas entre dos horas. En availabilityView cada dígito es un intervalo: 0 libre o trabajando en otro lugar, 1 provisional, 2 ocupado, 3 fuera de la oficina. scheduleItems lista los bloques ocupados y workingHours el horario laboral. Solo las cuentas laborales o educativas pueden llamarla."
+      },
+      "fr": {
+        "name": "Consulter les disponibilités",
+        "description": "Renvoie les plages libres et occupées de personnes, listes de distribution ou salles entre deux instants. Dans availabilityView, chaque chiffre est un créneau : 0 libre ou travaille ailleurs, 1 provisoire, 2 occupé, 3 absent du bureau. scheduleItems liste les blocs occupés et workingHours les horaires de travail. Seuls les comptes professionnels ou scolaires peuvent l'appeler."
+      }
+    }
+  }
+}

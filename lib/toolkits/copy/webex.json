@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create spaces, send messages, schedule meetings and find recordings in your customer's Webex account from your product, through one Connect endpoint.",
+      "intro": "The Webex toolkit covers spaces and memberships, messages (list, send, edit, delete), meetings (list, create, update, delete) and recordings, as the connected user. Customers connect with OAuth on your own app, and Connect renews the tokens and logs every execution.",
+      "useCases": [
+        {
+          "title": "Open a space for a project",
+          "body": "Create a group space with Create room, add people by email with Create membership and post a first message with Send message."
+        },
+        {
+          "title": "Schedule meetings from your product",
+          "body": "Create a Webex meeting with Create meeting, return its webLink to your user, and update or delete it when plans change."
+        },
+        {
+          "title": "Meeting recap agent",
+          "body": "An AI agent searches recordings of a meeting, reads the playbackUrl and downloadUrl, and posts a follow-up message in the space."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie espaços, envie mensagens, agende reuniões e encontre gravações na conta Webex do seu cliente pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Webex cobre espaços e participações, mensagens (listar, enviar, editar, excluir), reuniões (listar, criar, atualizar, excluir) e gravações, como o usuário conectado. O cliente conecta por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Abrir um espaço para um projeto",
+          "body": "Crie um espaço em grupo com Create room, adicione pessoas por e-mail com Create membership e publique uma primeira mensagem com Send message."
+        },
+        {
+          "title": "Agendar reuniões pelo seu produto",
+          "body": "Crie uma reunião Webex com Create meeting, devolva o webLink ao usuário e atualize ou exclua quando os planos mudarem."
+        },
+        {
+          "title": "Agente de resumo de reuniões",
+          "body": "Um agente de IA busca as gravações de uma reunião, lê o playbackUrl e o downloadUrl e publica uma mensagem de acompanhamento no espaço."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea espacios, envía mensajes, programa reuniones y encuentra grabaciones en la cuenta Webex de tu cliente desde tu producto, con un endpoint.",
+      "intro": "El toolkit de Webex cubre espacios y membresías, mensajes (listar, enviar, editar, eliminar), reuniones (listar, crear, actualizar, eliminar) y grabaciones, como el usuario conectado. El cliente conecta por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Abrir un espacio para un proyecto",
+          "body": "Crea un espacio grupal con Create room, añade personas por email con Create membership y publica un primer mensaje con Send message."
+        },
+        {
+          "title": "Programar reuniones desde tu producto",
+          "body": "Crea una reunión de Webex con Create meeting, devuelve el webLink al usuario y actualízala o elimínala cuando cambien los planes."
+        },
+        {
+          "title": "Agente de resumen de reuniones",
+          "body": "Un agente de IA busca las grabaciones de una reunión, lee el playbackUrl y el downloadUrl y publica un mensaje de seguimiento en el espacio."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des espaces, envoyez des messages, planifiez des réunions et retrouvez les enregistrements du compte Webex de votre client, via Connect.",
+      "intro": "Le toolkit Webex couvre les espaces et leurs membres, les messages (lister, envoyer, modifier, supprimer), les réunions (lister, créer, mettre à jour, supprimer) et les enregistrements, au nom de l'utilisateur connecté. Le client se connecte par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Ouvrir un espace pour un projet",
+          "body": "Créez un espace de groupe avec Create room, ajoutez des personnes par e-mail avec Create membership et publiez un premier message avec Send message."
+        },
+        {
+          "title": "Planifier des réunions depuis votre produit",
+          "body": "Créez une réunion Webex avec Create meeting, renvoyez le webLink à votre utilisateur et mettez-la à jour ou supprimez-la quand les plans changent."
+        },
+        {
+          "title": "Agent de compte rendu de réunion",
+          "body": "Un agent IA recherche les enregistrements d'une réunion, lit le playbackUrl et le downloadUrl et publie un message de suivi dans l'espace."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "webex_list_rooms": {
+      "pt": {
+        "name": "Listar espaços",
+        "description": "Lista os espaços de que o usuário participa, com id e title; em um espaço 1:1 o título é a outra pessoa. O Webex pagina com um header Link que esta conexão não retorna, então peça até 1000 espaços de uma vez com max."
+      },
+      "es": {
+        "name": "Listar espacios",
+        "description": "Lista los espacios en los que está el usuario, con id y title; en un espacio 1:1 el título es la otra persona. Webex pagina con un header Link que esta conexión no devuelve, así que pide hasta 1000 espacios de una vez con max."
+      },
+      "fr": {
+        "name": "Lister les espaces",
+        "description": "Liste les espaces dont l'utilisateur fait partie, avec id et title ; dans un espace 1:1 le titre est l'autre personne. Webex pagine avec un header Link que cette connexion ne renvoie pas : demandez jusqu'à 1000 espaces d'un coup avec max."
+      }
+    },
+    "webex_create_room": {
+      "pt": {
+        "name": "Criar espaço",
+        "description": "Cria um espaço em grupo com o usuário como primeiro membro e o retorna com seu id. Adicione pessoas com Create membership."
+      },
+      "es": {
+        "name": "Crear espacio",
+        "description": "Crea un espacio grupal con el usuario como primer miembro y lo devuelve con su id. Añade personas con Create membership."
+      },
+      "fr": {
+        "name": "Créer un espace",
+        "description": "Crée un espace de groupe avec l'utilisateur comme premier membre et le renvoie avec son id. Ajoutez des personnes avec Create membership."
+      }
+    },
+    "webex_create_membership": {
+      "pt": {
+        "name": "Adicionar participante",
+        "description": "Adiciona uma pessoa a um espaço por e-mail, opcionalmente como moderadora, e retorna a participação. O usuário precisa poder adicionar pessoas a esse espaço."
+      },
+      "es": {
+        "name": "Añadir miembro",
+        "description": "Añade a una persona a un espacio por email, opcionalmente como moderadora, y devuelve la membresía. El usuario debe poder añadir personas a ese espacio."
+      },
+      "fr": {
+        "name": "Ajouter un membre",
+        "description": "Ajoute une personne à un espace par e-mail, éventuellement comme modérateur, et renvoie l'appartenance. L'utilisateur doit pouvoir ajouter des personnes à cet espace."
+      }
+    },
+    "webex_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Lista as mensagens de um espaço, da mais nova para a mais antiga. O Webex pagina com um header Link que esta conexão não retorna: para mensagens mais antigas, chame de novo com before definido como o created da mensagem mais antiga recebida."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Lista los mensajes de un espacio, del más nuevo al más antiguo. Webex pagina con un header Link que esta conexión no devuelve: para mensajes más antiguos, llama de nuevo con before definido como el created del mensaje más antiguo recibido."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Liste les messages d'un espace, du plus récent au plus ancien. Webex pagine avec un header Link que cette connexion ne renvoie pas : pour des messages plus anciens, rappelez avec before défini sur le created du plus ancien message reçu."
+      }
+    },
+    "webex_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Publica uma mensagem como o usuário em um espaço, ou em um espaço 1:1 com a pessoa de toPersonEmail, e a retorna com seu id. Envie roomId ou toPersonEmail, e text ou markdown."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Publica un mensaje como el usuario en un espacio, o en un espacio 1:1 con la persona de toPersonEmail, y lo devuelve con su id. Envía roomId o toPersonEmail, y text o markdown."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Publie un message au nom de l'utilisateur dans un espace, ou dans un espace 1:1 avec la personne de toPersonEmail, et le renvoie avec son id. Envoyez roomId ou toPersonEmail, et text ou markdown."
+      }
+    },
+    "webex_update_message": {
+      "pt": {
+        "name": "Editar mensagem",
+        "description": "Edita uma mensagem que o usuário publicou e a retorna. Uma mensagem aceita até 10 edições, e uma com arquivo ou cartão não pode ser editada."
+      },
+      "es": {
+        "name": "Editar mensaje",
+        "description": "Edita un mensaje que el usuario publicó y lo devuelve. Un mensaje admite hasta 10 ediciones, y uno con archivo o tarjeta no se puede editar."
+      },
+      "fr": {
+        "name": "Modifier un message",
+        "description": "Modifie un message publié par l'utilisateur et le renvoie. Un message accepte jusqu'à 10 modifications, et un message avec fichier ou carte ne peut pas être modifié."
+      }
+    },
+    "webex_delete_message": {
+      "pt": {
+        "name": "Excluir mensagem",
+        "description": "Exclui uma mensagem que o usuário publicou e responde 204 sem corpo."
+      },
+      "es": {
+        "name": "Eliminar mensaje",
+        "description": "Elimina un mensaje que el usuario publicó y responde 204 sin cuerpo."
+      },
+      "fr": {
+        "name": "Supprimer un message",
+        "description": "Supprime un message publié par l'utilisateur et répond 204 sans corps."
+      }
+    },
+    "webex_list_meetings": {
+      "pt": {
+        "name": "Listar reuniões",
+        "description": "Lista as reuniões do usuário em uma janela de datas de até 7 dias por padrão, com id, title, start, end, webLink e state. Sem meetingType retorna séries de reuniões. O Webex pagina com um header Link que esta conexão não retorna: reduza from e to."
+      },
+      "es": {
+        "name": "Listar reuniones",
+        "description": "Lista las reuniones del usuario en una ventana de fechas de hasta 7 días por defecto, con id, title, start, end, webLink y state. Sin meetingType devuelve series de reuniones. Webex pagina con un header Link que esta conexión no devuelve: acota from y to."
+      },
+      "fr": {
+        "name": "Lister les réunions",
+        "description": "Liste les réunions de l'utilisateur dans une fenêtre de dates de 7 jours maximum par défaut, avec id, title, start, end, webLink et state. Sans meetingType, renvoie des séries de réunions. Webex pagine avec un header Link que cette connexion ne renvoie pas : réduisez plutôt from et to."
+      }
+    },
+    "webex_create_meeting": {
+      "pt": {
+        "name": "Criar reunião",
+        "description": "Agenda uma reunião com o usuário como anfitrião e a retorna com id e webLink. Por padrão o Webex envia e-mail ao anfitrião e aos convidados."
+      },
+      "es": {
+        "name": "Crear reunión",
+        "description": "Programa una reunión con el usuario como anfitrión y la devuelve con id y webLink. Por defecto Webex envía un email al anfitrión y a los invitados."
+      },
+      "fr": {
+        "name": "Créer une réunion",
+        "description": "Planifie une réunion dont l'utilisateur est l'hôte et la renvoie avec id et webLink. Par défaut, Webex envoie un e-mail à l'hôte et aux invités."
+      }
+    },
+    "webex_update_meeting": {
+      "pt": {
+        "name": "Atualizar reunião",
+        "description": "Altera uma série de reuniões ou uma ocorrência agendada e a retorna. Os campos omitidos mantêm o valor. Mudar start, end ou recurrence de uma série cancela as ocorrências modificadas dela. Uma reunião em andamento ou encerrada não pode mudar."
+      },
+      "es": {
+        "name": "Actualizar reunión",
+        "description": "Cambia una serie de reuniones o una ocurrencia programada y la devuelve. Los campos omitidos conservan su valor. Cambiar start, end o recurrence de una serie cancela sus ocurrencias modificadas. Una reunión en curso o terminada no puede cambiar."
+      },
+      "fr": {
+        "name": "Mettre à jour une réunion",
+        "description": "Modifie une série de réunions ou une occurrence planifiée et la renvoie. Les champs omis gardent leur valeur. Changer start, end ou recurrence d'une série annule ses occurrences modifiées. Une réunion en cours ou terminée ne peut pas changer."
+      }
+    },
+    "webex_delete_meeting": {
+      "pt": {
+        "name": "Excluir reunião",
+        "description": "Exclui uma série de reuniões ou uma ocorrência agendada, definitivamente, e responde 204 sem corpo. Por padrão o Webex envia e-mail ao anfitrião e aos convidados. Uma reunião em andamento ou encerrada não pode ser excluída."
+      },
+      "es": {
+        "name": "Eliminar reunión",
+        "description": "Elimina una serie de reuniones o una ocurrencia programada, de forma definitiva, y responde 204 sin cuerpo. Por defecto Webex envía un email al anfitrión y a los invitados. Una reunión en curso o terminada no se puede eliminar."
+      },
+      "fr": {
+        "name": "Supprimer une réunion",
+        "description": "Supprime définitivement une série de réunions ou une occurrence planifiée et répond 204 sans corps. Par défaut, Webex envoie un e-mail à l'hôte et aux invités. Une réunion en cours ou terminée ne peut pas être supprimée."
+      }
+    },
+    "webex_search_recordings": {
+      "pt": {
+        "name": "Buscar gravações",
+        "description": "Lista as gravações de reuniões hospedadas pelo usuário ou compartilhadas com ele, da mais nova para a mais antiga, com topic, playbackUrl e downloadUrl. Restrinja por meetingId ou por uma janela from e to; o Webex pagina com um header Link que esta conexão não retorna."
+      },
+      "es": {
+        "name": "Buscar grabaciones",
+        "description": "Lista las grabaciones de reuniones organizadas por el usuario o compartidas con él, de la más nueva a la más antigua, con topic, playbackUrl y downloadUrl. Acota por meetingId o por una ventana from y to; Webex pagina con un header Link que esta conexión no devuelve."
+      },
+      "fr": {
+        "name": "Rechercher des enregistrements",
+        "description": "Liste les enregistrements des réunions organisées par l'utilisateur ou partagées avec lui, du plus récent au plus ancien, avec topic, playbackUrl et downloadUrl. Restreignez par meetingId ou par une fenêtre from et to ; Webex pagine avec un header Link que cette connexion ne renvoie pas."
+      }
+    }
+  }
+}

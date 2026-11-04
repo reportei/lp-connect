@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Post and schedule messages, read channels and invite members in your customer's Slack workspace through the bot of your app, via one Connect endpoint.",
+      "intro": "The Slack toolkit covers the channels, messages, threads and members of a Slack workspace, through the bot of the app installed in it: list, create and join channels, read messages and thread replies, post, schedule, edit and delete the bot's messages, and look up members. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Alerts in the customer's channel",
+          "body": "When something happens in your product, post a message as the app's bot in the channel the customer chose, and edit it when the status changes."
+        },
+        {
+          "title": "Scheduled reminders",
+          "body": "Schedule a message up to 120 days ahead, and look up a member by email to mention them."
+        },
+        {
+          "title": "Agent that reads and replies",
+          "body": "An AI agent lists the messages of a channel, reads a thread, and replies in it, after joining the channel if needed."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Poste e agende mensagens, leia canais e convide membros no workspace Slack do seu cliente pelo bot do seu app, com um único endpoint do Connect.",
+      "intro": "O toolkit do Slack cobre canais, mensagens, threads e membros de um workspace Slack, pelo bot do app instalado nele: listar, criar e entrar em canais, ler mensagens e respostas de thread, postar, agendar, editar e excluir mensagens do bot e buscar membros. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Alertas no canal do cliente",
+          "body": "Quando algo acontece no seu produto, poste uma mensagem como bot do app no canal escolhido pelo cliente e edite-a quando o status mudar."
+        },
+        {
+          "title": "Lembretes agendados",
+          "body": "Agende uma mensagem com até 120 dias de antecedência e busque um membro pelo email para mencioná-lo."
+        },
+        {
+          "title": "Agente que lê e responde",
+          "body": "Um agente de IA lista as mensagens de um canal, lê uma thread e responde nela, entrando antes no canal se for preciso."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Publica y programa mensajes, lee canales e invita miembros en el workspace de Slack de tu cliente con el bot de tu app, con un único endpoint de Connect.",
+      "intro": "El toolkit de Slack cubre los canales, mensajes, hilos y miembros de un workspace de Slack, a través del bot de la app instalada en él: listar, crear y unirse a canales, leer mensajes y respuestas de hilos, publicar, programar, editar y eliminar mensajes del bot, y buscar miembros. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Alertas en el canal del cliente",
+          "body": "Cuando algo ocurre en tu producto, publica un mensaje como bot de la app en el canal que eligió el cliente y edítalo cuando cambie el estado."
+        },
+        {
+          "title": "Recordatorios programados",
+          "body": "Programa un mensaje con hasta 120 días de antelación y busca a un miembro por email para mencionarlo."
+        },
+        {
+          "title": "Agente que lee y responde",
+          "body": "Un agente de IA lista los mensajes de un canal, lee un hilo y responde en él, uniéndose antes al canal si hace falta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Publiez et planifiez des messages, lisez des canaux et invitez des membres dans le workspace Slack de votre client via le bot de votre app, avec Connect.",
+      "intro": "Le toolkit Slack couvre les canaux, messages, fils et membres d'un workspace Slack, via le bot de l'app qui y est installée : lister, créer et rejoindre des canaux, lire les messages et réponses de fil, publier, planifier, modifier et supprimer les messages du bot, rechercher des membres. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Alertes dans le canal du client",
+          "body": "Quand quelque chose se passe dans votre produit, publiez un message comme bot de l'app dans le canal choisi par le client et modifiez-le quand le statut change."
+        },
+        {
+          "title": "Rappels planifiés",
+          "body": "Planifiez un message jusqu'à 120 jours à l'avance et retrouvez un membre par email pour le mentionner."
+        },
+        {
+          "title": "Agent qui lit et répond",
+          "body": "Un agent IA liste les messages d'un canal, lit un fil et y répond, en rejoignant d'abord le canal si nécessaire."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "slack_list_conversations": {
+      "pt": {
+        "name": "Listar conversas",
+        "description": "Lista os canais do workspace: todos os canais públicos e os privados a que o app foi adicionado. O id de um canal é o argumento channel das outras tools, e is_member diz se o app está nele. A resposta tem channels e response_metadata.next_cursor: passe-o como cursor para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar conversaciones",
+        "description": "Lista los canales del workspace: todos los canales públicos y los privados a los que se añadió la app. El id de un canal es el argumento channel de las otras tools, e is_member indica si la app está en él. La respuesta tiene channels y response_metadata.next_cursor: pásalo como cursor para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les conversations",
+        "description": "Liste les canaux du workspace : tous les canaux publics et les canaux privés auxquels l'app a été ajoutée. L'id d'un canal est l'argument channel des autres tools, et is_member indique si l'app en fait partie. La réponse contient channels et response_metadata.next_cursor : passez-le comme cursor pour lire la page suivante."
+      }
+    },
+    "slack_create_conversation": {
+      "pt": {
+        "name": "Criar conversa",
+        "description": "Cria um canal público ou privado com o app como membro e o retorna com seu id. Adicione pessoas a ele com Invite members to conversation."
+      },
+      "es": {
+        "name": "Crear conversación",
+        "description": "Crea un canal público o privado con la app como miembro y lo devuelve con su id. Agrega personas con Invite members to conversation."
+      },
+      "fr": {
+        "name": "Créer une conversation",
+        "description": "Crée un canal public ou privé avec l'app comme membre et le renvoie avec son id. Ajoutez-y des personnes avec Invite members to conversation."
+      }
+    },
+    "slack_join_conversation": {
+      "pt": {
+        "name": "Entrar em conversa",
+        "description": "Adiciona o app a um canal público e retorna o canal. O app precisa ser membro para ler as mensagens de um canal ou postar nele. Um canal privado não pode ser acessado assim: um membro adiciona o app a ele no Slack."
+      },
+      "es": {
+        "name": "Unirse a una conversación",
+        "description": "Agrega la app a un canal público y devuelve el canal. La app debe ser miembro para leer los mensajes de un canal o publicar en él. A un canal privado no se puede unir así: un miembro agrega la app desde Slack."
+      },
+      "fr": {
+        "name": "Rejoindre une conversation",
+        "description": "Ajoute l'app à un canal public et renvoie le canal. L'app doit en être membre pour lire les messages d'un canal ou y publier. Un canal privé ne peut pas être rejoint ainsi : un membre y ajoute l'app dans Slack."
+      }
+    },
+    "slack_invite_conversation_members": {
+      "pt": {
+        "name": "Convidar membros para a conversa",
+        "description": "Convida membros do workspace para um canal em que o app está. Se um dos ids falhar, ninguém é convidado, a menos que force seja true."
+      },
+      "es": {
+        "name": "Invitar miembros a la conversación",
+        "description": "Invita a miembros del workspace a un canal en el que está la app. Si uno de los ids falla, no se invita a nadie salvo que force sea true."
+      },
+      "fr": {
+        "name": "Inviter des membres dans la conversation",
+        "description": "Invite des membres du workspace dans un canal où l'app se trouve. Si l'un des ids échoue, personne n'est invité, sauf si force vaut true."
+      }
+    },
+    "slack_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Lista as mensagens de um canal de que o app é membro, da mais nova para a mais antiga. Respostas de thread não são incluídas: leia-as com List thread replies. A resposta tem messages, has_more e response_metadata.next_cursor: passe-o como cursor para ler a próxima página. Um app instalado fora do Slack Marketplace pode ficar limitado a 15 mensagens por chamada e uma chamada por minuto."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Lista los mensajes de un canal del que la app es miembro, del más nuevo al más antiguo. Las respuestas de hilos no se incluyen: léelas con List thread replies. La respuesta tiene messages, has_more y response_metadata.next_cursor: pásalo como cursor para leer la página siguiente. Una app instalada fuera de Slack Marketplace puede quedar limitada a 15 mensajes por llamada y una llamada por minuto."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Liste les messages d'un canal dont l'app est membre, du plus récent au plus ancien. Les réponses de fil ne sont pas incluses : lisez-les avec List thread replies. La réponse contient messages, has_more et response_metadata.next_cursor : passez-le comme cursor pour lire la page suivante. Une app installée hors du Slack Marketplace peut être limitée à 15 messages par appel et un appel par minute."
+      }
+    },
+    "slack_list_thread_replies": {
+      "pt": {
+        "name": "Listar respostas de thread",
+        "description": "Lista uma thread de um canal de que o app é membro: a mensagem principal seguida de suas respostas. A resposta tem messages, has_more e response_metadata.next_cursor: passe-o como cursor para ler a próxima página. Um app instalado fora do Slack Marketplace pode ficar limitado a 15 mensagens por chamada e uma chamada por minuto."
+      },
+      "es": {
+        "name": "Listar respuestas de un hilo",
+        "description": "Lista un hilo de un canal del que la app es miembro: el mensaje principal seguido de sus respuestas. La respuesta tiene messages, has_more y response_metadata.next_cursor: pásalo como cursor para leer la página siguiente. Una app instalada fuera de Slack Marketplace puede quedar limitada a 15 mensajes por llamada y una llamada por minuto."
+      },
+      "fr": {
+        "name": "Lister les réponses d'un fil",
+        "description": "Liste un fil d'un canal dont l'app est membre : le message parent suivi de ses réponses. La réponse contient messages, has_more et response_metadata.next_cursor : passez-le comme cursor pour lire la page suivante. Une app installée hors du Slack Marketplace peut être limitée à 15 messages par appel et un appel par minute."
+      }
+    },
+    "slack_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Posta uma mensagem como o bot do app e a retorna com channel e ts, o par que Update message e Delete message pedem. Envie text, markdown_text ou blocks. O app precisa ser membro do canal: chame Join conversation antes em um canal público."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Publica un mensaje como el bot de la app y lo devuelve con channel y ts, el par que piden Update message y Delete message. Envía text, markdown_text o blocks. La app debe ser miembro del canal: llama antes a Join conversation en un canal público."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Publie un message comme le bot de l'app et le renvoie avec channel et ts, le couple que demandent Update message et Delete message. Envoyez text, markdown_text ou blocks. L'app doit être membre du canal : appelez d'abord Join conversation pour un canal public."
+      }
+    },
+    "slack_schedule_message": {
+      "pt": {
+        "name": "Agendar mensagem",
+        "description": "Agenda uma mensagem do bot do app para um momento até 120 dias à frente e retorna seu scheduled_message_id. Envie text, markdown_text ou blocks. O app precisa ser membro do canal, e um canal aceita no máximo 30 mensagens agendadas dentro dos mesmos 5 minutos."
+      },
+      "es": {
+        "name": "Programar mensaje",
+        "description": "Programa un mensaje del bot de la app para un momento de hasta 120 días adelante y devuelve su scheduled_message_id. Envía text, markdown_text o blocks. La app debe ser miembro del canal, y un canal admite como máximo 30 mensajes programados dentro de los mismos 5 minutos."
+      },
+      "fr": {
+        "name": "Planifier un message",
+        "description": "Planifie un message du bot de l'app pour un moment jusqu'à 120 jours à l'avance et renvoie son scheduled_message_id. Envoyez text, markdown_text ou blocks. L'app doit être membre du canal, et un canal accepte au plus 30 messages planifiés dans les mêmes 5 minutes."
+      }
+    },
+    "slack_update_message": {
+      "pt": {
+        "name": "Editar mensagem",
+        "description": "Edita uma mensagem que o bot do app postou e a retorna. Enviar text sem blocks substitui os blocks da mensagem por esse texto; omitir text mantém os blocks."
+      },
+      "es": {
+        "name": "Editar mensaje",
+        "description": "Edita un mensaje que publicó el bot de la app y lo devuelve. Enviar text sin blocks reemplaza los blocks del mensaje por ese texto; omitir text los conserva."
+      },
+      "fr": {
+        "name": "Modifier un message",
+        "description": "Modifie un message publié par le bot de l'app et le renvoie. Envoyer text sans blocks remplace les blocks du message par ce texte ; omettre text les conserve."
+      }
+    },
+    "slack_delete_message": {
+      "pt": {
+        "name": "Excluir mensagem",
+        "description": "Exclui uma mensagem que o bot do app postou. Mensagens de pessoas não podem ser excluídas com esta conexão."
+      },
+      "es": {
+        "name": "Eliminar mensaje",
+        "description": "Elimina un mensaje que publicó el bot de la app. Los mensajes de personas no se pueden eliminar con esta conexión."
+      },
+      "fr": {
+        "name": "Supprimer un message",
+        "description": "Supprime un message publié par le bot de l'app. Les messages de personnes ne peuvent pas être supprimés avec cette connexion."
+      }
+    },
+    "slack_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os membros do workspace com id, name, real_name e profile.email, incluindo bots (is_bot) e membros desativados (deleted). A resposta tem members e response_metadata.next_cursor: passe-o como cursor para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los miembros del workspace con id, name, real_name y profile.email, incluidos bots (is_bot) y miembros desactivados (deleted). La respuesta tiene members y response_metadata.next_cursor: pásalo como cursor para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les membres du workspace avec id, name, real_name et profile.email, y compris les bots (is_bot) et les membres désactivés (deleted). La réponse contient members et response_metadata.next_cursor : passez-le comme cursor pour lire la page suivante."
+      }
+    },
+    "slack_get_user_by_email": {
+      "pt": {
+        "name": "Obter usuário por email",
+        "description": "Retorna o membro do workspace que tem este endereço de email, com seu id, para mencioná-lo, convidá-lo ou enviar-lhe mensagem."
+      },
+      "es": {
+        "name": "Obtener usuario por email",
+        "description": "Devuelve el miembro del workspace que tiene esta dirección de email, con su id, para mencionarlo, invitarlo o enviarle un mensaje."
+      },
+      "fr": {
+        "name": "Obtenir un utilisateur par email",
+        "description": "Renvoie le membre du workspace qui a cette adresse email, avec son id, pour le mentionner, l'inviter ou lui écrire."
+      }
+    }
+  }
+}

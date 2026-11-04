@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Schedule Zoom meetings, register attendees and read participants and cloud recordings of your customer's Zoom user, through one Connect endpoint.",
+      "intro": "The Zoom toolkit covers the meetings, registrants, attendance and cloud recordings of a Zoom user: create, update and delete meetings, get invitations, register people, and read past meetings, participants and recordings. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Schedule meetings from your product",
+          "body": "When a booking is confirmed in your SaaS, create the meeting for the host and send the join_url or the invitation text to the invitees."
+        },
+        {
+          "title": "Webinar registration",
+          "body": "Register each person in a meeting with registration turned on, and keep their personal join_url and registrant_id."
+        },
+        {
+          "title": "Attendance and recordings",
+          "body": "After a meeting ends, list who joined and for how long, and fetch the cloud recordings to feed a CRM or an AI agent."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Agende reuniões no Zoom, registre participantes e leia presença e gravações na nuvem do usuário Zoom do seu cliente, por um único endpoint do Connect.",
+      "intro": "O toolkit do Zoom cobre reuniões, inscritos, presença e gravações na nuvem de um usuário Zoom: criar, atualizar e excluir reuniões, obter convites, inscrever pessoas e ler reuniões passadas, participantes e gravações. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Agendar reuniões a partir do produto",
+          "body": "Quando um agendamento é confirmado no seu SaaS, crie a reunião para o anfitrião e envie o join_url ou o texto do convite aos convidados."
+        },
+        {
+          "title": "Inscrição em webinars",
+          "body": "Inscreva cada pessoa em uma reunião com inscrição ativada e guarde o join_url pessoal e o registrant_id dela."
+        },
+        {
+          "title": "Presença e gravações",
+          "body": "Depois que a reunião termina, liste quem entrou e por quanto tempo e busque as gravações na nuvem para alimentar um CRM ou um agente de IA."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Programa reuniones de Zoom, registra asistentes y lee asistencia y grabaciones en la nube del usuario Zoom de tu cliente, con un único endpoint de Connect.",
+      "intro": "El toolkit de Zoom cubre las reuniones, inscritos, asistencia y grabaciones en la nube de un usuario Zoom: crear, actualizar y eliminar reuniones, obtener invitaciones, inscribir personas y leer reuniones pasadas, participantes y grabaciones. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Programar reuniones desde tu producto",
+          "body": "Cuando se confirma una reserva en tu SaaS, crea la reunión para el anfitrión y envía el join_url o el texto de la invitación a los invitados."
+        },
+        {
+          "title": "Inscripción a webinars",
+          "body": "Inscribe a cada persona en una reunión con registro activado y guarda su join_url personal y su registrant_id."
+        },
+        {
+          "title": "Asistencia y grabaciones",
+          "body": "Cuando termina la reunión, lista quién entró y por cuánto tiempo, y obtén las grabaciones en la nube para alimentar un CRM o un agente de IA."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Planifiez des réunions Zoom, inscrivez des participants et lisez présence et enregistrements cloud de l'utilisateur Zoom de votre client, via Connect.",
+      "intro": "Le toolkit Zoom couvre les réunions, inscrits, présence et enregistrements cloud d'un utilisateur Zoom : créer, modifier et supprimer des réunions, obtenir les invitations, inscrire des personnes, lire les réunions passées, participants et enregistrements. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Planifier des réunions depuis le produit",
+          "body": "Quand une réservation est confirmée dans votre SaaS, créez la réunion pour l'hôte et envoyez le join_url ou le texte d'invitation aux invités."
+        },
+        {
+          "title": "Inscription à des webinaires",
+          "body": "Inscrivez chaque personne à une réunion dont l'inscription est activée et conservez son join_url personnel et son registrant_id."
+        },
+        {
+          "title": "Présence et enregistrements",
+          "body": "Une fois la réunion terminée, listez qui a rejoint et pendant combien de temps, et récupérez les enregistrements cloud pour alimenter un CRM ou un agent IA."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "zoom_get_user": {
+      "pt": {
+        "name": "Obter usuário",
+        "description": "Retorna o perfil de um usuário: nome, email, fuso horário, ID da reunião pessoal e tipo de plano."
+      },
+      "es": {
+        "name": "Obtener usuario",
+        "description": "Devuelve el perfil de un usuario: nombre, email, zona horaria, ID de reunión personal y tipo de plan."
+      },
+      "fr": {
+        "name": "Obtenir un utilisateur",
+        "description": "Renvoie le profil d'un utilisateur : nom, email, fuseau horaire, ID de réunion personnelle et type de forfait."
+      }
+    },
+    "zoom_list_meetings": {
+      "pt": {
+        "name": "Listar reuniões",
+        "description": "Lista as reuniões agendadas de um usuário; reuniões instantâneas não são incluídas. A resposta tem meetings e next_page_token: passe next_page_token para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar reuniones",
+        "description": "Lista las reuniones programadas de un usuario; las reuniones instantáneas no se incluyen. La respuesta tiene meetings y next_page_token: pasa next_page_token para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les réunions",
+        "description": "Liste les réunions planifiées d'un utilisateur ; les réunions instantanées ne sont pas incluses. La réponse contient meetings et next_page_token : passez next_page_token pour lire la page suivante."
+      }
+    },
+    "zoom_get_meeting": {
+      "pt": {
+        "name": "Obter reunião",
+        "description": "Retorna uma reunião com join_url, start_url, configurações e, para uma reunião recorrente, suas ocorrências. O start_url expira em duas horas, então leia-o de novo aqui quando precisar."
+      },
+      "es": {
+        "name": "Obtener reunión",
+        "description": "Devuelve una reunión con join_url, start_url, ajustes y, para una reunión recurrente, sus ocurrencias. El start_url caduca en dos horas, así que léelo de nuevo aquí cuando lo necesites."
+      },
+      "fr": {
+        "name": "Obtenir une réunion",
+        "description": "Renvoie une réunion avec join_url, start_url, paramètres et, pour une réunion récurrente, ses occurrences. Le start_url expire au bout de deux heures : relisez-le ici quand nécessaire."
+      }
+    },
+    "zoom_create_meeting": {
+      "pt": {
+        "name": "Criar reunião",
+        "description": "Agenda uma reunião para um usuário e a retorna com join_url e start_url. O Zoom aceita até 100 dessas chamadas por dia por anfitrião."
+      },
+      "es": {
+        "name": "Crear reunión",
+        "description": "Programa una reunión para un usuario y la devuelve con join_url y start_url. Zoom acepta hasta 100 de estas llamadas por día por anfitrión."
+      },
+      "fr": {
+        "name": "Créer une réunion",
+        "description": "Planifie une réunion pour un utilisateur et la renvoie avec join_url et start_url. Zoom accepte jusqu'à 100 de ces appels par jour et par hôte."
+      }
+    },
+    "zoom_update_meeting": {
+      "pt": {
+        "name": "Atualizar reunião",
+        "description": "Atualiza uma reunião; só os campos enviados mudam. Com occurrence_id, altera uma ocorrência de uma reunião recorrente. O Zoom aceita até 100 atualizações por dia por reunião."
+      },
+      "es": {
+        "name": "Actualizar reunión",
+        "description": "Actualiza una reunión; solo cambian los campos enviados. Con occurrence_id, cambia una ocurrencia de una reunión recurrente. Zoom acepta hasta 100 actualizaciones por día por reunión."
+      },
+      "fr": {
+        "name": "Mettre à jour une réunion",
+        "description": "Met à jour une réunion ; seuls les champs envoyés changent. Avec occurrence_id, modifie une occurrence d'une réunion récurrente. Zoom accepte jusqu'à 100 mises à jour par jour et par réunion."
+      }
+    },
+    "zoom_delete_meeting": {
+      "pt": {
+        "name": "Excluir reunião",
+        "description": "Exclui uma reunião. Sem occurrence_id, uma reunião recorrente é excluída com todas as suas ocorrências."
+      },
+      "es": {
+        "name": "Eliminar reunión",
+        "description": "Elimina una reunión. Sin occurrence_id, una reunión recurrente se elimina con todas sus ocurrencias."
+      },
+      "fr": {
+        "name": "Supprimer une réunion",
+        "description": "Supprime une réunion. Sans occurrence_id, une réunion récurrente est supprimée avec toutes ses occurrences."
+      }
+    },
+    "zoom_get_meeting_invitation": {
+      "pt": {
+        "name": "Obter convite da reunião",
+        "description": "Retorna o texto do convite de uma reunião, com o link e os dados de discagem, pronto para enviar aos convidados."
+      },
+      "es": {
+        "name": "Obtener invitación de la reunión",
+        "description": "Devuelve el texto de la invitación de una reunión, con el enlace y los datos de marcación, listo para enviar a los invitados."
+      },
+      "fr": {
+        "name": "Obtenir l'invitation d'une réunion",
+        "description": "Renvoie le texte d'invitation d'une réunion, avec le lien et les informations d'appel, prêt à envoyer aux invités."
+      }
+    },
+    "zoom_list_meeting_registrants": {
+      "pt": {
+        "name": "Listar inscritos na reunião",
+        "description": "Lista os inscritos de uma reunião com inscrição ativada. Só os inscritos aprovados voltam, a menos que status diga outra coisa. Exige plano Pro ou superior. Passe next_page_token para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar inscritos en la reunión",
+        "description": "Lista los inscritos de una reunión con registro activado. Solo vuelven los inscritos aprobados salvo que status indique otra cosa. Requiere plan Pro o superior. Pasa next_page_token para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les inscrits d'une réunion",
+        "description": "Liste les inscrits d'une réunion dont l'inscription est activée. Seuls les inscrits approuvés reviennent, sauf indication contraire de status. Nécessite un forfait Pro ou supérieur. Passez next_page_token pour lire la page suivante."
+      }
+    },
+    "zoom_create_meeting_registrant": {
+      "pt": {
+        "name": "Inscrever participante na reunião",
+        "description": "Inscreve uma pessoa em uma reunião com inscrição ativada e retorna o registrant_id e o join_url pessoal. O Zoom pode enviar email ao inscrito, conforme as configurações da reunião."
+      },
+      "es": {
+        "name": "Inscribir participante en la reunión",
+        "description": "Inscribe a una persona en una reunión con registro activado y devuelve el registrant_id y el join_url personal. Zoom puede enviar un email al inscrito, según los ajustes de la reunión."
+      },
+      "fr": {
+        "name": "Inscrire un participant à la réunion",
+        "description": "Inscrit une personne à une réunion dont l'inscription est activée et renvoie le registrant_id et le join_url personnel. Zoom peut envoyer un email à l'inscrit, selon les paramètres de la réunion."
+      }
+    },
+    "zoom_get_past_meeting": {
+      "pt": {
+        "name": "Obter reunião passada",
+        "description": "Retorna os detalhes de uma reunião que já terminou: horário de início e fim, duração e número de participantes. Só reuniões do último ano."
+      },
+      "es": {
+        "name": "Obtener reunión pasada",
+        "description": "Devuelve los detalles de una reunión que ya terminó: hora de inicio y fin, duración y número de participantes. Solo reuniones del último año."
+      },
+      "fr": {
+        "name": "Obtenir une réunion passée",
+        "description": "Renvoie les détails d'une réunion déjà terminée : heure de début et de fin, durée et nombre de participants. Uniquement les réunions de la dernière année."
+      }
+    },
+    "zoom_list_past_meeting_participants": {
+      "pt": {
+        "name": "Listar participantes de reunião passada",
+        "description": "Lista quem entrou em uma reunião que já terminou, com horário de entrada, de saída e duração. Exige plano Pro ou superior e cobre os últimos 15 meses; reuniões com um único participante ficam de fora por padrão. Passe next_page_token para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar participantes de una reunión pasada",
+        "description": "Lista quién se unió a una reunión que ya terminó, con hora de entrada, de salida y duración. Requiere plan Pro o superior y cubre los últimos 15 meses; las reuniones con un solo participante se omiten por defecto. Pasa next_page_token para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les participants d'une réunion passée",
+        "description": "Liste qui a rejoint une réunion déjà terminée, avec heure d'arrivée, de départ et durée. Nécessite un forfait Pro ou supérieur et couvre les 15 derniers mois ; les réunions à un seul participant sont exclues par défaut. Passez next_page_token pour lire la page suivante."
+      }
+    },
+    "zoom_list_recordings": {
+      "pt": {
+        "name": "Listar gravações",
+        "description": "Lista as gravações na nuvem de um usuário em um intervalo de datas de até um mês, cada uma com seus arquivos e links de reprodução e download. Sem from e to, cobre só o dia atual. Exige plano Pro com gravação na nuvem ativada. Passe next_page_token para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar grabaciones",
+        "description": "Lista las grabaciones en la nube de un usuario en un rango de fechas de hasta un mes, cada una con sus archivos y enlaces de reproducción y descarga. Sin from y to, cubre solo el día actual. Requiere plan Pro con grabación en la nube activada. Pasa next_page_token para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les enregistrements",
+        "description": "Liste les enregistrements cloud d'un utilisateur sur une plage de dates d'un mois maximum, chacun avec ses fichiers et liens de lecture et de téléchargement. Sans from et to, ne couvre que le jour en cours. Nécessite un forfait Pro avec enregistrement cloud activé. Passez next_page_token pour lire la page suivante."
+      }
+    }
+  }
+}

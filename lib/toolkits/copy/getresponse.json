@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, lists and newsletters in your customer's GetResponse account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The GetResponse toolkit covers the contacts, campaigns (contact lists) and newsletters of a GetResponse account: search, create and update contacts, create lists, and create, send and measure newsletters. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores the API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "Add contacts from your product",
+          "body": "When a lead signs up in your SaaS, create the contact in the right campaign, or move it to another list when its stage changes."
+        },
+        {
+          "title": "Newsletter from an agent",
+          "body": "An AI agent creates a newsletter as a draft with the right sender and time zone, and your product sends it after a person approves."
+        },
+        {
+          "title": "Newsletter performance report",
+          "body": "List the newsletters of an account and pull the statistics of each one, such as opens, clicks and bounces, into a client dashboard."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, listas e newsletters na conta GetResponse do seu cliente a partir do seu produto ou agente de IA, por um único endpoint do Connect.",
+      "intro": "O toolkit da GetResponse cobre contatos, campanhas (listas de contatos) e newsletters de uma conta GetResponse: buscar, criar e atualizar contatos, criar listas e criar, enviar e medir newsletters. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda a chave de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Adicionar contatos do seu produto",
+          "body": "Quando um lead se cadastra no seu SaaS, crie o contato na campanha certa ou mova-o para outra lista quando a etapa dele mudar."
+        },
+        {
+          "title": "Newsletter criada por agente",
+          "body": "Um agente de IA cria uma newsletter como rascunho, com o remetente e o fuso corretos, e seu produto a envia depois que uma pessoa aprova."
+        },
+        {
+          "title": "Relatório de desempenho",
+          "body": "Liste as newsletters da conta e busque as estatísticas de cada uma, como aberturas, cliques e bounces, para um painel do cliente."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, listas y newsletters en la cuenta GetResponse de tu cliente desde tu producto o agente de IA, con un único endpoint de Connect.",
+      "intro": "El toolkit de GetResponse cubre los contactos, campañas (listas de contactos) y newsletters de una cuenta GetResponse: buscar, crear y actualizar contactos, crear listas, y crear, enviar y medir newsletters. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda la clave de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Agregar contactos desde tu producto",
+          "body": "Cuando un lead se registra en tu SaaS, crea el contacto en la campaña correcta o muévelo a otra lista cuando cambie su etapa."
+        },
+        {
+          "title": "Newsletter creada por un agente",
+          "body": "Un agente de IA crea una newsletter como borrador, con el remitente y la zona horaria correctos, y tu producto la envía cuando una persona la aprueba."
+        },
+        {
+          "title": "Informe de rendimiento",
+          "body": "Lista las newsletters de la cuenta y obtén las estadísticas de cada una, como aperturas, clics y rebotes, para un panel del cliente."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, listes et newsletters dans le compte GetResponse de votre client depuis votre produit ou agent IA, via un seul endpoint Connect.",
+      "intro": "Le toolkit GetResponse couvre les contacts, campagnes (listes de contacts) et newsletters d'un compte GetResponse : rechercher, créer et mettre à jour des contacts, créer des listes, créer, envoyer et mesurer des newsletters. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke la clé d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Ajouter des contacts depuis le produit",
+          "body": "Quand un lead s'inscrit dans votre SaaS, créez le contact dans la bonne campagne ou déplacez-le vers une autre liste quand son étape change."
+        },
+        {
+          "title": "Newsletter créée par un agent",
+          "body": "Un agent IA crée une newsletter en brouillon, avec le bon expéditeur et le bon fuseau horaire, et votre produit l'envoie après validation par une personne."
+        },
+        {
+          "title": "Rapport de performance",
+          "body": "Listez les newsletters du compte et récupérez les statistiques de chacune, comme ouvertures, clics et rebonds, pour un tableau de bord client."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "getresponse_search_contacts": {
+      "pt": {
+        "name": "Buscar contatos",
+        "description": "Busca os contatos de uma ou mais campanhas (listas de contatos) por status de inscrição e, opcionalmente, por email ou nome. Contatos de double opt-in não confirmados aparecem só aqui. Pagine com page e perPage, até 1000; uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Buscar contactos",
+        "description": "Busca los contactos de una o más campañas (listas de contactos) por estado de suscripción y, opcionalmente, por email o nombre. Los contactos de double opt-in sin confirmar aparecen solo aquí. Pagina con page y perPage, hasta 1000; una página menor que perPage es la última."
+      },
+      "fr": {
+        "name": "Rechercher des contacts",
+        "description": "Recherche les contacts d'une ou plusieurs campagnes (listes de contacts) par statut d'abonnement et, en option, par email ou nom. Les contacts en double opt-in non confirmés n'apparaissent qu'ici. Paginez avec page et perPage, jusqu'à 1000 ; une page plus courte que perPage est la dernière."
+      }
+    },
+    "getresponse_get_contact": {
+      "pt": {
+        "name": "Obter contato",
+        "description": "Retorna um contato ativo com email, nome, campanha, dayOfCycle, tags e customFieldValues. Um contato removido responde 404."
+      },
+      "es": {
+        "name": "Obtener contacto",
+        "description": "Devuelve un contacto activo con email, nombre, campaña, dayOfCycle, etiquetas y customFieldValues. Un contacto eliminado responde 404."
+      },
+      "fr": {
+        "name": "Obtenir un contact",
+        "description": "Renvoie un contact actif avec email, nom, campagne, dayOfCycle, tags et customFieldValues. Un contact supprimé répond 404."
+      }
+    },
+    "getresponse_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Adiciona um contato a uma campanha (lista de contatos). A GetResponse responde 202 sem corpo e processa em uma fila que pode levar alguns minutos, então encontre o contactId depois com Search contacts. Em uma lista de double opt-in, a pessoa recebe antes um email de confirmação. Um email já presente na lista responde 409."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Agrega un contacto a una campaña (lista de contactos). GetResponse responde 202 sin cuerpo y lo procesa en una cola que puede tardar unos minutos, así que encuentra el contactId después con Search contacts. En una lista de double opt-in, la persona recibe primero un email de confirmación. Un email que ya está en la lista responde 409."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Ajoute un contact à une campagne (liste de contacts). GetResponse répond 202 sans corps et traite la demande dans une file qui peut prendre quelques minutes : retrouvez le contactId plus tard avec Search contacts. Dans une liste en double opt-in, la personne reçoit d'abord un email de confirmation. Un email déjà dans la liste répond 409."
+      }
+    },
+    "getresponse_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato. Só os campos enviados mudam. Uma campanha diferente move o contato, com seu histórico e estatísticas, para essa lista."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto. Solo cambian los campos enviados. Una campaña distinta mueve el contacto, con su historial y estadísticas, a esa lista."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact. Seuls les champs envoyés changent. Une campagne différente déplace le contact, avec son historique et ses statistiques, vers cette liste."
+      }
+    },
+    "getresponse_list_campaigns": {
+      "pt": {
+        "name": "Listar campanhas",
+        "description": "Lista as campanhas, que são as listas de contatos da GetResponse, com campaignId, nome, languageCode e isDefault. Pagine com page e perPage, até 1000; uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Listar campañas",
+        "description": "Lista las campañas, que son las listas de contactos de GetResponse, con campaignId, nombre, languageCode e isDefault. Pagina con page y perPage, hasta 1000; una página menor que perPage es la última."
+      },
+      "fr": {
+        "name": "Lister les campagnes",
+        "description": "Liste les campagnes, qui sont les listes de contacts de GetResponse, avec campaignId, nom, languageCode et isDefault. Paginez avec page et perPage, jusqu'à 1000 ; une page plus courte que perPage est la dernière."
+      }
+    },
+    "getresponse_create_campaign": {
+      "pt": {
+        "name": "Criar campanha",
+        "description": "Cria uma campanha, que é uma lista de contatos na GetResponse, e a retorna com seu campaignId. Uma conta tem até 1000 listas, e um nome já em uso responde 409."
+      },
+      "es": {
+        "name": "Crear campaña",
+        "description": "Crea una campaña, que es una lista de contactos en GetResponse, y la devuelve con su campaignId. Una cuenta tiene hasta 1000 listas, y un nombre ya en uso responde 409."
+      },
+      "fr": {
+        "name": "Créer une campagne",
+        "description": "Crée une campagne, qui est une liste de contacts dans GetResponse, et la renvoie avec son campaignId. Un compte a jusqu'à 1000 listes, et un nom déjà utilisé répond 409."
+      }
+    },
+    "getresponse_list_newsletters": {
+      "pt": {
+        "name": "Listar newsletters",
+        "description": "Lista as newsletters, rascunhos incluídos, com newsletterId, assunto, type, campanha, sendOn e sendMetrics, que traz delivered, openRate e clickRate. Pagine com page e perPage, até 1000; uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Listar newsletters",
+        "description": "Lista las newsletters, borradores incluidos, con newsletterId, asunto, type, campaña, sendOn y sendMetrics, que trae delivered, openRate y clickRate. Pagina con page y perPage, hasta 1000; una página menor que perPage es la última."
+      },
+      "fr": {
+        "name": "Lister les newsletters",
+        "description": "Liste les newsletters, brouillons inclus, avec newsletterId, objet, type, campagne, sendOn et sendMetrics, qui contient delivered, openRate et clickRate. Paginez avec page et perPage, jusqu'à 1000 ; une page plus courte que perPage est la dernière."
+      }
+    },
+    "getresponse_get_newsletter": {
+      "pt": {
+        "name": "Obter newsletter",
+        "description": "Retorna uma newsletter com seu conteúdo, fromField, campanha, sendSettings, sendOn e sendMetrics."
+      },
+      "es": {
+        "name": "Obtener newsletter",
+        "description": "Devuelve una newsletter con su contenido, fromField, campaña, sendSettings, sendOn y sendMetrics."
+      },
+      "fr": {
+        "name": "Obtenir une newsletter",
+        "description": "Renvoie une newsletter avec son contenu, fromField, campagne, sendSettings, sendOn et sendMetrics."
+      }
+    },
+    "getresponse_create_newsletter": {
+      "pt": {
+        "name": "Criar newsletter",
+        "description": "Cria uma newsletter. Com type broadcast, o padrão, ela entra na fila de envio na hora, ou em sendSettings.sendOn; com type draft é apenas salva, para enviar depois com Send newsletter draft. A GetResponse aceita 256 dessas chamadas por dia."
+      },
+      "es": {
+        "name": "Crear newsletter",
+        "description": "Crea una newsletter. Con type broadcast, el valor por defecto, entra en la cola de envío de inmediato, o en sendSettings.sendOn; con type draft solo se guarda, para enviarla después con Send newsletter draft. GetResponse acepta 256 de estas llamadas por día."
+      },
+      "fr": {
+        "name": "Créer une newsletter",
+        "description": "Crée une newsletter. Avec type broadcast, la valeur par défaut, elle entre aussitôt dans la file d'envoi, ou à sendSettings.sendOn ; avec type draft elle est seulement enregistrée, à envoyer plus tard avec Send newsletter draft. GetResponse accepte 256 de ces appels par jour."
+      }
+    },
+    "getresponse_send_newsletter_draft": {
+      "pt": {
+        "name": "Enviar rascunho de newsletter",
+        "description": "Envia um rascunho de newsletter aos destinatários de sendSettings, na hora ou em sendOn. O rascunho deixa de ser rascunho e entra na fila de envio."
+      },
+      "es": {
+        "name": "Enviar borrador de newsletter",
+        "description": "Envía un borrador de newsletter a los destinatarios de sendSettings, de inmediato o en sendOn. El borrador deja de serlo y entra en la cola de envío."
+      },
+      "fr": {
+        "name": "Envoyer un brouillon de newsletter",
+        "description": "Envoie un brouillon de newsletter aux destinataires de sendSettings, aussitôt ou à sendOn. Le brouillon cesse d'être un brouillon et entre dans la file d'envoi."
+      }
+    },
+    "getresponse_get_newsletter_statistics": {
+      "pt": {
+        "name": "Obter estatísticas da newsletter",
+        "description": "Retorna as estatísticas de uma newsletter como lista de intervalos de tempo, cada um com sent, opens, clicks, forwarded, unsubscribed, bounced e complaints, em contagens totais e únicas. Some os intervalos para os totais; pagine com page e perPage, e uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Obtener estadísticas de la newsletter",
+        "description": "Devuelve las estadísticas de una newsletter como lista de intervalos de tiempo, cada uno con sent, opens, clicks, forwarded, unsubscribed, bounced y complaints, en conteos totales y únicos. Suma los intervalos para los totales; pagina con page y perPage, y una página menor que perPage es la última."
+      },
+      "fr": {
+        "name": "Obtenir les statistiques d'une newsletter",
+        "description": "Renvoie les statistiques d'une newsletter sous forme de liste d'intervalles de temps, chacun avec sent, opens, clicks, forwarded, unsubscribed, bounced et complaints, en totaux et en uniques. Additionnez les intervalles pour les totaux ; paginez avec page et perPage, et une page plus courte que perPage est la dernière."
+      }
+    },
+    "getresponse_list_from_fields": {
+      "pt": {
+        "name": "Listar remetentes",
+        "description": "Lista os endereços de remetente da conta com fromFieldId, email, nome, isActive e isDefault. O fromFieldId vai em fromField e replyTo de Create newsletter. Pagine com page e perPage."
+      },
+      "es": {
+        "name": "Listar remitentes",
+        "description": "Lista las direcciones de remitente de la cuenta con fromFieldId, email, nombre, isActive e isDefault. El fromFieldId va en fromField y replyTo de Create newsletter. Pagina con page y perPage."
+      },
+      "fr": {
+        "name": "Lister les expéditeurs",
+        "description": "Liste les adresses d'expéditeur du compte avec fromFieldId, email, nom, isActive et isDefault. Le fromFieldId va dans fromField et replyTo de Create newsletter. Paginez avec page et perPage."
+      }
+    },
+    "getresponse_list_timezones": {
+      "pt": {
+        "name": "Listar fusos horários",
+        "description": "Lista os fusos horários com timezoneId, nome, como America/Sao_Paulo, offset e país. O timezoneId vai em sendSettings.sendOn.timeZone.timeZoneId de Create newsletter e Send newsletter draft."
+      },
+      "es": {
+        "name": "Listar zonas horarias",
+        "description": "Lista las zonas horarias con timezoneId, nombre, como America/Sao_Paulo, offset y país. El timezoneId va en sendSettings.sendOn.timeZone.timeZoneId de Create newsletter y Send newsletter draft."
+      },
+      "fr": {
+        "name": "Lister les fuseaux horaires",
+        "description": "Liste les fuseaux horaires avec timezoneId, nom, comme America/Sao_Paulo, offset et pays. Le timezoneId va dans sendSettings.sendOn.timeZone.timeZoneId de Create newsletter et Send newsletter draft."
+      }
+    }
+  }
+}

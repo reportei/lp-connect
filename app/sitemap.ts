@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next"
 import { ALTERNATIVE_PAGES } from "@/lib/alternativas"
 import { GUIDES } from "@/lib/guias"
-import { LOCALES, TRANSLATED_PAGES, pagePath, type TranslatedPage } from "@/lib/i18n"
+import { LOCALES, TRANSLATED_PAGES, localePath, pagePath, type TranslatedPage } from "@/lib/i18n"
 import { PLATFORM_PAGES } from "@/lib/plataformas"
 import { absoluteUrl, languageAlternates } from "@/lib/seo"
+import { TOOLKITS, toolkitPath, toolkitsHubPath, toolkitToolsPath, toolPath } from "@/lib/toolkits"
 
 export const dynamic = "force-static"
 
@@ -26,5 +27,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...GUIDES.map((guide) => `/guias/${guide.slug}`),
   ].map((path) => ({ url: absoluteUrl(path), changeFrequency: "monthly" as const, priority: 0.7 }))
 
-  return [...translated, ...portugueseOnly]
+  // Toolkit pages keep the same path in every language, so each path yields one entry per locale.
+  const toolkitPaths = [
+    toolkitsHubPath(),
+    ...TOOLKITS.flatMap((toolkit) => [
+      toolkitPath(toolkit),
+      toolkitToolsPath(toolkit),
+      ...toolkit.tools.map((tool) => toolPath(toolkit, tool)),
+    ]),
+  ]
+  const toolkits = toolkitPaths.flatMap((path) =>
+    LOCALES.map((locale) => ({
+      url: absoluteUrl(localePath(locale, path)),
+      changeFrequency: "monthly" as const,
+      priority: path.includes("/tool/") ? 0.5 : 0.6,
+      alternates: { languages: languageAlternates(() => path) },
+    })),
+  )
+
+  return [...translated, ...portugueseOnly, ...toolkits]
 }

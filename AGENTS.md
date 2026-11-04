@@ -17,7 +17,7 @@ Landing page do Reportei Connect, com página de documentação e formulário de
 
 ## Idiomas
 
-A home e a página de integrações existem em português (raiz), inglês (`/connect/en`), espanhol (`/connect/es`) e francês (`/connect/fr`). As demais páginas (APIs por plataforma, comparativos, guias, case da Leadster, documentação, teste gratuito) são só em português.
+A home, a página de integrações e as páginas de toolkits existem em português (raiz), inglês (`/connect/en`), espanhol (`/connect/es`) e francês (`/connect/fr`). As demais páginas (APIs por plataforma, comparativos, guias, case da Leadster, documentação, teste gratuito) são só em português.
 
 - **Rotas:** cada idioma é um route group com layout raiz próprio (`app/(pt)`, `app/(en)/en`, `app/(es)/es`, `app/(fr)/fr`), o que permite o `<html lang>` certo. Os arquivos de rota são finos; o conteúdo fica em `components/home-page.tsx` e `components/integrations-page.tsx`. O caminho de cada página por idioma está em `TRANSLATED_PAGES` (`lib/i18n.ts`): por exemplo, `/integracoes`, `/en/integrations`, `/es/integraciones`.
 - **Textos:** em `lib/messages/{pt,en,es,fr}.ts`. O `pt.ts` define o tipo `Messages`; os outros são tipados por ele, então chave faltando aparece no `npx tsc --noEmit` (o build ignora erros de tipo). Textos que vão para client components usam `{placeholders}` preenchidos por `fill()`, porque função não atravessa a fronteira servidor/cliente.
@@ -26,6 +26,25 @@ A home e a página de integrações existem em português (raiz), inglês (`/con
 - **Links para o app:** `appUrl(locale, path)` acrescenta `?lang=en|es|fr` fora do português (login, signup, termos, `/prices` e o embed `/prices/embed`). O português segue sem parâmetro.
 - **Seletor de idioma:** `components/language-switcher.tsx`, na navbar e no rodapé. Leva para a mesma página no outro idioma quando ela é traduzida, e para a home do idioma nas demais.
 - **Página nova traduzida:** acrescentar a entrada em `TRANSLATED_PAGES`, os textos nos quatro arquivos e um arquivo de rota em cada route group.
+
+## Toolkits (pSEO)
+
+Uma página por toolkit e por tool do Connect, nos quatro idiomas, com o mesmo caminho em todos (só muda o prefixo do idioma):
+
+| Página | Caminho |
+|---|---|
+| Lista de toolkits | `/toolkits` |
+| Toolkit | `/toolkit/{toolkit}` (ex.: `/toolkit/whatsapp`) |
+| Tools do toolkit | `/toolkit/{toolkit}/tools` |
+| Tool | `/toolkit/{toolkit}/tool/{tool}` (ex.: `/toolkit/whatsapp/tool/send-message`) |
+
+O slug da URL troca `_` por `-` e a tool perde o prefixo do toolkit (`whatsapp_send_message` vira `send-message`).
+
+- **Dados:** `lib/toolkits/catalog.json` e `public/logos/toolkits/` vêm das specs do Connect (`connect/database/data/toolkits/`). Não editar à mão: rodar `node scripts/sync-toolkits.mjs ../connect` depois de um toolkit novo ou alterado.
+- **Textos:** `lib/toolkits/copy/{slug}.json` tem a tagline, a introdução e os 3 casos de uso do toolkit nos quatro idiomas, e o nome e a descrição de cada tool em pt, es e fr (o inglês é o da spec). `node scripts/check-toolkit-copy.mjs` confere que nada falta e que não há travessão. Toolkit sem arquivo de textos ainda ganha as páginas, com o texto em inglês da spec.
+- **Interface:** os rótulos ficam em `toolkits` nos `lib/messages/*.ts`, as páginas em `components/toolkit-pages.tsx` e as rotas em `app/(pt)/toolkit*` e no equivalente de cada idioma. Como o caminho é calculado por slug, essas páginas passam `alternatePath` (não `page`) ao `pageMetadata`, ao `Header` e ao `Footer`.
+- As descrições dos parâmetros ficam em inglês em todos os idiomas, como na spec, e a página avisa isso.
+- O sitemap lista cada página nos quatro idiomas com os `hreflang`. Um toolkit novo entra no sitemap sozinho depois do sync.
 
 ---
 

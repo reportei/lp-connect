@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search conversations, reply, draft and tag in your customer's Front inbox from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Front toolkit covers conversations and their messages, tags, internal comments, drafts, replies, new messages, and the channels, inboxes and teammates they refer to. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the API token and logs every execution.",
+      "useCases": [
+        {
+          "title": "Draft replies for review",
+          "body": "An AI agent reads a conversation and creates a draft reply, so a teammate reviews and sends it in Front. Nothing goes out on its own."
+        },
+        {
+          "title": "Triage and route conversations",
+          "body": "A support tool searches conversations, applies tags and updates the assignee or inbox."
+        },
+        {
+          "title": "Notify customers from your app",
+          "body": "A product sends a new message from a channel or replies in an existing conversation when something happens in the app."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque conversas, responda, crie rascunhos e aplique tags no Front do seu cliente, pelo seu produto ou agente de IA, com um endpoint do Connect.",
+      "intro": "O toolkit do Front cobre conversas e suas mensagens, tags, comentários internos, rascunhos, respostas, novas mensagens e os canais, caixas de entrada e colegas a que se referem. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda o token de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Rascunhe respostas para revisão",
+          "body": "Um agente de IA lê uma conversa e cria um rascunho de resposta, para um colega revisar e enviar no Front. Nada sai sozinho."
+        },
+        {
+          "title": "Triagem e roteamento de conversas",
+          "body": "Uma ferramenta de suporte busca conversas, aplica tags e atualiza o responsável ou a caixa de entrada."
+        },
+        {
+          "title": "Avise clientes a partir do app",
+          "body": "Um produto envia uma nova mensagem de um canal ou responde em uma conversa existente quando algo acontece no app."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Busca conversaciones, responde, crea borradores y etiqueta en la bandeja Front de tu cliente desde tu producto o agente de IA, con un endpoint de Connect.",
+      "intro": "El toolkit de Front cubre conversaciones y sus mensajes, etiquetas, comentarios internos, borradores, respuestas, mensajes nuevos y los canales, bandejas y compañeros a los que se refieren. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda el token de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Borradores para revisar",
+          "body": "Un agente de IA lee una conversación y crea un borrador de respuesta, para que un compañero lo revise y lo envíe en Front. Nada sale solo."
+        },
+        {
+          "title": "Triaje y enrutado de conversaciones",
+          "body": "Una herramienta de soporte busca conversaciones, aplica etiquetas y actualiza el responsable o la bandeja."
+        },
+        {
+          "title": "Avisa a clientes desde tu app",
+          "body": "Un producto envía un mensaje nuevo desde un canal o responde en una conversación existente cuando ocurre algo en la app."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez, répondez, rédigez des brouillons et taguez les conversations du Front de votre client depuis votre produit ou agent IA, via Connect.",
+      "intro": "Le toolkit Front couvre les conversations et leurs messages, les tags, les commentaires internes, les brouillons, les réponses, les nouveaux messages et les canaux, boîtes et coéquipiers auxquels ils renvoient. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke le jeton d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Brouillons de réponse à relire",
+          "body": "Un agent IA lit une conversation et crée un brouillon de réponse, qu'un coéquipier relit et envoie dans Front. Rien ne part seul."
+        },
+        {
+          "title": "Tri et routage des conversations",
+          "body": "Un outil de support recherche des conversations, applique des tags et met à jour l'assigné ou la boîte."
+        },
+        {
+          "title": "Prévenir les clients depuis l'app",
+          "body": "Un produit envoie un nouveau message depuis un canal ou répond dans une conversation existante quand un événement survient dans l'app."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "front_search_conversations": {
+      "pt": {
+        "name": "Buscar conversas",
+        "description": "Busca as conversas que o token de API alcança, da atividade mais recente para a mais antiga, e retorna _total com as correspondências. Conversas na lixeira ficam de fora, a menos que a consulta peça is:trashed. A próxima página vem do page_token dentro de _pagination.next, que é null na última página."
+      },
+      "es": {
+        "name": "Buscar conversaciones",
+        "description": "Busca las conversaciones a las que llega el token de API, de la actividad más reciente a la más antigua, y devuelve _total con las coincidencias. Las conversaciones en la papelera quedan fuera, salvo que la consulta pida is:trashed. La página siguiente viene del page_token dentro de _pagination.next, que es null en la última página."
+      },
+      "fr": {
+        "name": "Rechercher des conversations",
+        "description": "Recherche les conversations accessibles au jeton d'API, de l'activité la plus récente à la plus ancienne, et renvoie _total avec les correspondances. Les conversations à la corbeille sont exclues sauf si la requête demande is:trashed. La page suivante vient du page_token dans _pagination.next, qui vaut null sur la dernière page."
+      }
+    },
+    "front_get_conversation": {
+      "pt": {
+        "name": "Obter conversa",
+        "description": "Retorna uma conversa com assunto, status, responsável, destinatário principal, tags, campos personalizados e links. As mensagens vêm de Listar mensagens da conversa."
+      },
+      "es": {
+        "name": "Obtener conversación",
+        "description": "Devuelve una conversación con asunto, estado, responsable, destinatario principal, etiquetas, campos personalizados y enlaces. Los mensajes vienen de Listar mensajes de la conversación."
+      },
+      "fr": {
+        "name": "Obtenir une conversation",
+        "description": "Renvoie une conversation avec son objet, son statut, son assigné, son destinataire principal, ses tags, ses champs personnalisés et ses liens. Les messages viennent de Lister les messages d'une conversation."
+      }
+    },
+    "front_list_conversation_messages": {
+      "pt": {
+        "name": "Listar mensagens da conversa",
+        "description": "Lista as mensagens de uma conversa, as mais novas primeiro, a menos que sort_order seja asc, com autor, destinatários, assunto, corpo e detalhes dos anexos. A próxima página vem do page_token dentro de _pagination.next, que é null na última página."
+      },
+      "es": {
+        "name": "Listar mensajes de la conversación",
+        "description": "Lista los mensajes de una conversación, los más nuevos primero salvo que sort_order sea asc, con autor, destinatarios, asunto, cuerpo y detalles de los adjuntos. La página siguiente viene del page_token dentro de _pagination.next, que es null en la última página."
+      },
+      "fr": {
+        "name": "Lister les messages d'une conversation",
+        "description": "Liste les messages d'une conversation, les plus récents d'abord sauf si sort_order vaut asc, avec auteur, destinataires, objet, corps et détails des pièces jointes. La page suivante vient du page_token dans _pagination.next, qui vaut null sur la dernière page."
+      }
+    },
+    "front_update_conversation": {
+      "pt": {
+        "name": "Atualizar conversa",
+        "description": "Atualiza o responsável, a caixa de entrada, o status, as tags ou os campos personalizados de uma conversa. Envie só os campos a mudar. tag_ids substitui todas as tags da conversa; para adicionar tags sem remover as outras, use Aplicar tags."
+      },
+      "es": {
+        "name": "Actualizar conversación",
+        "description": "Actualiza el responsable, la bandeja, el estado, las etiquetas o los campos personalizados de una conversación. Envía solo los campos a cambiar. tag_ids reemplaza todas las etiquetas de la conversación; para añadir etiquetas sin quitar las demás, usa Aplicar etiquetas."
+      },
+      "fr": {
+        "name": "Mettre à jour une conversation",
+        "description": "Met à jour l'assigné, la boîte, le statut, les tags ou les champs personnalisés d'une conversation. N'envoyez que les champs à modifier. tag_ids remplace tous les tags de la conversation ; pour ajouter des tags sans retirer les autres, utilisez Appliquer des tags."
+      }
+    },
+    "front_apply_tags": {
+      "pt": {
+        "name": "Aplicar tags",
+        "description": "Adiciona uma ou mais tags a uma conversa e mantém as que ela já tem."
+      },
+      "es": {
+        "name": "Aplicar etiquetas",
+        "description": "Añade una o más etiquetas a una conversación y conserva las que ya tiene."
+      },
+      "fr": {
+        "name": "Appliquer des tags",
+        "description": "Ajoute un ou plusieurs tags à une conversation et conserve ceux qu'elle a déjà."
+      }
+    },
+    "front_create_comment": {
+      "pt": {
+        "name": "Criar comentário",
+        "description": "Adiciona um comentário interno a uma conversa. Os comentários só são vistos pelos colegas, nunca pelo contato. O corpo aceita Markdown."
+      },
+      "es": {
+        "name": "Crear comentario",
+        "description": "Añade un comentario interno a una conversación. Los comentarios solo los ven los compañeros, nunca el contacto. El cuerpo admite Markdown."
+      },
+      "fr": {
+        "name": "Créer un commentaire",
+        "description": "Ajoute un commentaire interne à une conversation. Les commentaires ne sont vus que par les coéquipiers, jamais par le contact. Le corps accepte le Markdown."
+      }
+    },
+    "front_create_draft": {
+      "pt": {
+        "name": "Criar rascunho",
+        "description": "Cria um rascunho de resposta à última mensagem de uma conversa, para um colega revisar e enviar no Front. Nada é enviado. Um rascunho privado só é visível ao autor, então defina author_id como o colega que vai revisar, ou use o modo shared."
+      },
+      "es": {
+        "name": "Crear borrador",
+        "description": "Crea un borrador de respuesta al último mensaje de una conversación, para que un compañero lo revise y lo envíe en Front. No se envía nada. Un borrador privado solo lo ve su autor, así que define author_id con el compañero que lo revisará, o usa el modo shared."
+      },
+      "fr": {
+        "name": "Créer un brouillon",
+        "description": "Crée un brouillon de réponse au dernier message d'une conversation, qu'un coéquipier relit et envoie dans Front. Rien n'est envoyé. Un brouillon privé n'est visible que par son auteur : définissez author_id sur le coéquipier qui le relira, ou utilisez le mode shared."
+      }
+    },
+    "front_reply_to_conversation": {
+      "pt": {
+        "name": "Responder à conversa",
+        "description": "Envia uma resposta em uma conversa na hora e responde 202 com um message_uid. O Front arquiva a conversa quando a resposta sai, a menos que options.archive seja false. Exige a permissão de envio no token de API. Uma conversa mesclada responde com um redirecionamento para a conversa em que foi mesclada."
+      },
+      "es": {
+        "name": "Responder a la conversación",
+        "description": "Envía una respuesta en una conversación de inmediato y responde 202 con un message_uid. Front archiva la conversación cuando sale la respuesta, salvo que options.archive sea false. Requiere el permiso de envío en el token de API. Una conversación fusionada responde con una redirección a la conversación en la que se fusionó."
+      },
+      "fr": {
+        "name": "Répondre à une conversation",
+        "description": "Envoie immédiatement une réponse dans une conversation et répond 202 avec un message_uid. Front archive la conversation quand la réponse part, sauf si options.archive vaut false. Nécessite la permission d'envoi sur le jeton d'API. Une conversation fusionnée répond par une redirection vers la conversation dans laquelle elle a été fusionnée."
+      }
+    },
+    "front_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Envia uma nova mensagem a partir de um canal, o que inicia uma nova conversa, e responde 202 com um message_uid. Sai na hora, e o Front arquiva a nova conversa, a menos que options.archive seja false. Exige a permissão de envio no token de API."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Envía un mensaje nuevo desde un canal, lo que inicia una conversación nueva, y responde 202 con un message_uid. Sale de inmediato, y Front archiva la conversación nueva salvo que options.archive sea false. Requiere el permiso de envío en el token de API."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Envoie un nouveau message depuis un canal, ce qui démarre une nouvelle conversation, et répond 202 avec un message_uid. Il part immédiatement, et Front archive la nouvelle conversation sauf si options.archive vaut false. Nécessite la permission d'envoi sur le jeton d'API."
+      }
+    },
+    "front_list_channels": {
+      "pt": {
+        "name": "Listar canais",
+        "description": "Lista os canais da empresa, como endereços de e-mail, números de SMS e chat, com id, name, address, type e o link para a caixa de entrada. O id é o channel_id de Enviar mensagem e Criar rascunho."
+      },
+      "es": {
+        "name": "Listar canales",
+        "description": "Lista los canales de la empresa, como direcciones de email, números de SMS y chat, con id, name, address, type y el enlace a su bandeja. El id es el channel_id de Enviar mensaje y Crear borrador."
+      },
+      "fr": {
+        "name": "Lister les canaux",
+        "description": "Liste les canaux de l'entreprise, comme les adresses e-mail, numéros SMS et chat, avec id, name, address, type et le lien vers leur boîte. L'id est le channel_id d'Envoyer un message et de Créer un brouillon."
+      }
+    },
+    "front_list_inboxes": {
+      "pt": {
+        "name": "Listar caixas de entrada",
+        "description": "Lista as caixas de entrada da empresa com id e name. O id é o inbox_id de Atualizar conversa e do filtro inbox: de Buscar conversas."
+      },
+      "es": {
+        "name": "Listar bandejas",
+        "description": "Lista las bandejas de la empresa con id y name. El id es el inbox_id de Actualizar conversación y del filtro inbox: de Buscar conversaciones."
+      },
+      "fr": {
+        "name": "Lister les boîtes",
+        "description": "Liste les boîtes de l'entreprise avec id et name. L'id est l'inbox_id de Mettre à jour une conversation et du filtre inbox: de Rechercher des conversations."
+      }
+    },
+    "front_list_teammates": {
+      "pt": {
+        "name": "Listar colegas",
+        "description": "Lista os colegas da empresa com id, email, username, name e availability. O id é o assignee_id e o author_id das outras ferramentas e do filtro assignee: de Buscar conversas."
+      },
+      "es": {
+        "name": "Listar compañeros",
+        "description": "Lista los compañeros de la empresa con id, email, username, name y availability. El id es el assignee_id y el author_id de las otras herramientas y del filtro assignee: de Buscar conversaciones."
+      },
+      "fr": {
+        "name": "Lister les coéquipiers",
+        "description": "Liste les coéquipiers de l'entreprise avec id, email, username, name et availability. L'id est l'assignee_id et l'author_id des autres outils et du filtre assignee: de Rechercher des conversations."
+      }
+    },
+    "front_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags da empresa, da equipe e pessoais que o token de API alcança, com id, name e description. O id vai em tag_ids e no filtro tag: de Buscar conversas."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas de la empresa, del equipo y personales a las que llega el token de API, con id, name y description. El id va en tag_ids y en el filtro tag: de Buscar conversaciones."
+      },
+      "fr": {
+        "name": "Lister les tags",
+        "description": "Liste les tags d'entreprise, d'équipe et personnels accessibles au jeton d'API, avec id, name et description. L'id va dans tag_ids et dans le filtre tag: de Rechercher des conversations."
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage parties, opportunities and tasks in your customer's Capsule CRM account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Capsule CRM toolkit covers people and organisations, opportunities with their pipelines and milestones, users and tasks. Through Connect your product or AI agent calls them with one endpoint, while Connect stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Create contacts from signups",
+          "body": "A SaaS searches Capsule for a party and, if none exists, creates the person and links the organisation."
+        },
+        {
+          "title": "Open deals in a pipeline",
+          "body": "A quoting tool creates an opportunity at the right milestone and moves it to Won or Lost when the outcome is known."
+        },
+        {
+          "title": "Agent that schedules follow-ups",
+          "body": "An AI agent lists open tasks and creates a task due on a given date, linked to a party or an opportunity."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie parties, oportunidades e tarefas na conta Capsule CRM do seu cliente, a partir do seu produto ou agente de IA, por um único endpoint do Connect.",
+      "intro": "O toolkit do Capsule CRM cobre pessoas e organizações, oportunidades com seus pipelines e marcos, usuários e tarefas. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Crie contatos a partir de cadastros",
+          "body": "Um SaaS busca uma party no Capsule e, se não existir, cria a pessoa e vincula a organização."
+        },
+        {
+          "title": "Abra negócios em um pipeline",
+          "body": "Uma ferramenta de orçamentos cria uma oportunidade no marco certo e a move para Won ou Lost quando o resultado é conhecido."
+        },
+        {
+          "title": "Agente que agenda acompanhamentos",
+          "body": "Um agente de IA lista as tarefas abertas e cria uma tarefa com prazo em uma data, vinculada a uma party ou a uma oportunidade."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona parties, oportunidades y tareas en la cuenta de Capsule CRM de tu cliente desde tu producto o agente de IA, con un único endpoint de Connect.",
+      "intro": "El toolkit de Capsule CRM cubre personas y organizaciones, oportunidades con sus pipelines e hitos, usuarios y tareas. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Crea contactos desde registros",
+          "body": "Un SaaS busca una party en Capsule y, si no existe, crea la persona y vincula la organización."
+        },
+        {
+          "title": "Abre negocios en un pipeline",
+          "body": "Una herramienta de presupuestos crea una oportunidad en el hito correcto y la mueve a Won o Lost cuando se conoce el resultado."
+        },
+        {
+          "title": "Agente que programa seguimientos",
+          "body": "Un agente de IA lista las tareas abiertas y crea una tarea con vencimiento en una fecha, vinculada a una party o a una oportunidad."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez parties, opportunités et tâches dans le compte Capsule CRM de votre client, depuis votre produit ou agent IA, via un seul endpoint Connect.",
+      "intro": "Le toolkit Capsule CRM couvre les personnes et organisations, les opportunités avec leurs pipelines et étapes, les utilisateurs et les tâches. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Créer des contacts depuis les inscriptions",
+          "body": "Un SaaS recherche une party dans Capsule et, si elle n'existe pas, crée la personne et rattache l'organisation."
+        },
+        {
+          "title": "Ouvrir des deals dans un pipeline",
+          "body": "Un outil de devis crée une opportunité à la bonne étape et la passe à Won ou Lost quand le résultat est connu."
+        },
+        {
+          "title": "Agent qui planifie des relances",
+          "body": "Un agent IA liste les tâches ouvertes et crée une tâche à échéance à une date, liée à une party ou à une opportunité."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "capsule_list_parties": {
+      "pt": {
+        "name": "Listar parties",
+        "description": "Lista as pessoas e organizações da conta, 50 por página por padrão. Pagine com page, começando em 1, e perPage, até 100; uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Listar parties",
+        "description": "Lista las personas y organizaciones de la cuenta, 50 por página por defecto. Pagina con page, empezando en 1, y perPage, hasta 100; una página más corta que perPage es la última."
+      },
+      "fr": {
+        "name": "Lister les parties",
+        "description": "Liste les personnes et organisations du compte, 50 par page par défaut. Paginez avec page, à partir de 1, et perPage, jusqu'à 100 ; une page plus courte que perPage est la dernière."
+      }
+    },
+    "capsule_search_parties": {
+      "pt": {
+        "name": "Buscar parties",
+        "description": "Busca pessoas e organizações com os mesmos resultados da busca global do Capsule, por nome, CEP ou telefone, por exemplo. Pagine com page, começando em 1, e perPage, até 100."
+      },
+      "es": {
+        "name": "Buscar parties",
+        "description": "Busca personas y organizaciones con los mismos resultados de la búsqueda global de Capsule, por nombre, código postal o teléfono, por ejemplo. Pagina con page, empezando en 1, y perPage, hasta 100."
+      },
+      "fr": {
+        "name": "Rechercher des parties",
+        "description": "Recherche des personnes et organisations avec les mêmes résultats que la recherche globale de Capsule, par nom, code postal ou numéro de téléphone, par exemple. Paginez avec page, à partir de 1, et perPage, jusqu'à 100."
+      }
+    },
+    "capsule_get_party": {
+      "pt": {
+        "name": "Obter party",
+        "description": "Retorna uma pessoa ou organização, com seus e-mails, telefones, endereços e sites e o id de cada um."
+      },
+      "es": {
+        "name": "Obtener party",
+        "description": "Devuelve una persona u organización, con sus correos, teléfonos, direcciones y sitios web y el id de cada uno."
+      },
+      "fr": {
+        "name": "Obtenir une party",
+        "description": "Renvoie une personne ou une organisation, avec ses adresses e-mail, numéros de téléphone, adresses postales et sites web et l'id de chacun."
+      }
+    },
+    "capsule_create_party": {
+      "pt": {
+        "name": "Criar party",
+        "description": "Cria uma pessoa ou uma organização. Envie firstName e lastName para uma pessoa e name para uma organização. organisation vincula uma pessoa por id, ou por nome, o que cria a organização se ela ainda não existir. Sem owner, a party vai para o usuário conectado."
+      },
+      "es": {
+        "name": "Crear party",
+        "description": "Crea una persona o una organización. Envía firstName y lastName para una persona y name para una organización. organisation vincula una persona por id, o por nombre, lo que crea la organización si aún no existe. Sin owner, la party va al usuario conectado."
+      },
+      "fr": {
+        "name": "Créer une party",
+        "description": "Crée une personne ou une organisation. Envoyez firstName et lastName pour une personne et name pour une organisation. organisation rattache une personne par id, ou par nom, ce qui crée l'organisation si elle n'existe pas encore. Sans owner, la party est attribuée à l'utilisateur connecté."
+      }
+    },
+    "capsule_update_party": {
+      "pt": {
+        "name": "Atualizar party",
+        "description": "Atualiza uma pessoa ou organização; os campos omitidos não mudam. Nos arrays, um item sem id é adicionado, um item com id é alterado e um item com id e _delete true é removido. Os ids vêm de Obter party."
+      },
+      "es": {
+        "name": "Actualizar party",
+        "description": "Actualiza una persona u organización; los campos omitidos no cambian. En los arrays, un elemento sin id se añade, un elemento con id se modifica y un elemento con id y _delete true se elimina. Los ids vienen de Obtener party."
+      },
+      "fr": {
+        "name": "Mettre à jour une party",
+        "description": "Met à jour une personne ou une organisation ; les champs omis ne changent pas. Dans les tableaux, un élément sans id est ajouté, un élément avec id est modifié et un élément avec id et _delete à true est supprimé. Les ids viennent d'Obtenir une party."
+      }
+    },
+    "capsule_list_opportunities": {
+      "pt": {
+        "name": "Listar oportunidades",
+        "description": "Lista as oportunidades da conta, com party, milestone, value e expectedCloseOn, 50 por página por padrão. Pagine com page, começando em 1, e perPage, até 100; uma página menor que perPage é a última."
+      },
+      "es": {
+        "name": "Listar oportunidades",
+        "description": "Lista las oportunidades de la cuenta, con party, milestone, value y expectedCloseOn, 50 por página por defecto. Pagina con page, empezando en 1, y perPage, hasta 100; una página más corta que perPage es la última."
+      },
+      "fr": {
+        "name": "Lister les opportunités",
+        "description": "Liste les opportunités du compte, avec party, milestone, value et expectedCloseOn, 50 par page par défaut. Paginez avec page, à partir de 1, et perPage, jusqu'à 100 ; une page plus courte que perPage est la dernière."
+      }
+    },
+    "capsule_create_opportunity": {
+      "pt": {
+        "name": "Criar oportunidade",
+        "description": "Cria uma oportunidade para uma party, em um milestone de um pipeline. name, party e milestone são obrigatórios."
+      },
+      "es": {
+        "name": "Crear oportunidad",
+        "description": "Crea una oportunidad para una party, en un milestone de un pipeline. name, party y milestone son obligatorios."
+      },
+      "fr": {
+        "name": "Créer une opportunité",
+        "description": "Crée une opportunité pour une party, à un milestone d'un pipeline. name, party et milestone sont obligatoires."
+      }
+    },
+    "capsule_update_opportunity": {
+      "pt": {
+        "name": "Atualizar oportunidade",
+        "description": "Atualiza uma oportunidade; os campos omitidos não mudam. Movê-la para outro milestone, como Won ou Lost, é uma mudança de milestone."
+      },
+      "es": {
+        "name": "Actualizar oportunidad",
+        "description": "Actualiza una oportunidad; los campos omitidos no cambian. Moverla a otro milestone, como Won o Lost, es un cambio de milestone."
+      },
+      "fr": {
+        "name": "Mettre à jour une opportunité",
+        "description": "Met à jour une opportunité ; les champs omis ne changent pas. La passer à un autre milestone, comme Won ou Lost, est un changement de milestone."
+      }
+    },
+    "capsule_list_pipelines": {
+      "pt": {
+        "name": "Listar pipelines",
+        "description": "Lista os pipelines de vendas da conta. Use o id de um pipeline em Listar milestones do pipeline."
+      },
+      "es": {
+        "name": "Listar pipelines",
+        "description": "Lista los pipelines de ventas de la cuenta. Usa el id de un pipeline en Listar milestones del pipeline."
+      },
+      "fr": {
+        "name": "Lister les pipelines",
+        "description": "Liste les pipelines de vente du compte. Utilisez l'id d'un pipeline dans Lister les milestones du pipeline."
+      }
+    },
+    "capsule_list_pipeline_milestones": {
+      "pt": {
+        "name": "Listar milestones do pipeline",
+        "description": "Lista os milestones de um pipeline, com a probabilidade de cada um; complete é true nos que encerram a oportunidade, como Won e Lost. Use o id de um milestone como milestone nas ferramentas de oportunidades."
+      },
+      "es": {
+        "name": "Listar milestones del pipeline",
+        "description": "Lista los milestones de un pipeline, con la probabilidad de cada uno; complete es true en los que cierran la oportunidad, como Won y Lost. Usa el id de un milestone como milestone en las herramientas de oportunidades."
+      },
+      "fr": {
+        "name": "Lister les milestones du pipeline",
+        "description": "Liste les milestones d'un pipeline, avec la probabilité de chacun ; complete vaut true pour ceux qui clôturent l'opportunité, comme Won et Lost. Utilisez l'id d'un milestone comme milestone dans les outils d'opportunités."
+      }
+    },
+    "capsule_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários da conta, com name e username. Use o id de um usuário como owner nas ferramentas de parties, oportunidades e tarefas."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de la cuenta, con name y username. Usa el id de un usuario como owner en las herramientas de parties, oportunidades y tareas."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs du compte, avec name et username. Utilisez l'id d'un utilisateur comme owner dans les outils de parties, d'opportunités et de tâches."
+      }
+    },
+    "capsule_list_tasks": {
+      "pt": {
+        "name": "Listar tarefas",
+        "description": "Lista as tarefas da conta, apenas as abertas, a menos que status diga outra coisa. Cada tarefa tem dueOn, owner e a party ou oportunidade a que está vinculada. Pagine com page, começando em 1, e perPage, até 100."
+      },
+      "es": {
+        "name": "Listar tareas",
+        "description": "Lista las tareas de la cuenta, solo las abiertas salvo que status indique otra cosa. Cada tarea tiene dueOn, owner y la party u oportunidad a la que está vinculada. Pagina con page, empezando en 1, y perPage, hasta 100."
+      },
+      "fr": {
+        "name": "Lister les tâches",
+        "description": "Liste les tâches du compte, uniquement les ouvertes sauf indication contraire de status. Chaque tâche a dueOn, owner et la party ou l'opportunité à laquelle elle est liée. Paginez avec page, à partir de 1, et perPage, jusqu'à 100."
+      }
+    },
+    "capsule_create_task": {
+      "pt": {
+        "name": "Criar tarefa",
+        "description": "Cria uma tarefa com prazo em dueOn, opcionalmente às dueTime, vinculada a uma party ou a uma oportunidade, nunca às duas. description e dueOn são obrigatórios."
+      },
+      "es": {
+        "name": "Crear tarea",
+        "description": "Crea una tarea con vencimiento en dueOn, opcionalmente a las dueTime, vinculada a una party o a una oportunidad, nunca a ambas. description y dueOn son obligatorios."
+      },
+      "fr": {
+        "name": "Créer une tâche",
+        "description": "Crée une tâche à échéance dueOn, éventuellement à dueTime, liée à une party ou à une opportunité, jamais aux deux. description et dueOn sont obligatoires."
+      }
+    },
+    "capsule_update_task": {
+      "pt": {
+        "name": "Atualizar tarefa",
+        "description": "Atualiza uma tarefa; os campos omitidos não mudam. Defina status como COMPLETED para concluí-la."
+      },
+      "es": {
+        "name": "Actualizar tarea",
+        "description": "Actualiza una tarea; los campos omitidos no cambian. Define status como COMPLETED para completarla."
+      },
+      "fr": {
+        "name": "Mettre à jour une tâche",
+        "description": "Met à jour une tâche ; les champs omis ne changent pas. Définissez status sur COMPLETED pour la terminer."
+      }
+    },
+    "capsule_delete_task": {
+      "pt": {
+        "name": "Excluir tarefa",
+        "description": "Exclui uma tarefa em definitivo. Para encerrar uma tarefa que foi feita, use Atualizar tarefa com status COMPLETED."
+      },
+      "es": {
+        "name": "Eliminar tarea",
+        "description": "Elimina una tarea de forma definitiva. Para cerrar una tarea que se hizo, usa Actualizar tarea con status COMPLETED."
+      },
+      "fr": {
+        "name": "Supprimer une tâche",
+        "description": "Supprime définitivement une tâche. Pour clôturer une tâche qui a été faite, utilisez Mettre à jour une tâche avec status COMPLETED."
+      }
+    }
+  }
+}

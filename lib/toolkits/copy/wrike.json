@@ -1,0 +1,107 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update folders, projects, tasks and comments, and search tasks across your customer's Wrike account through one Connect endpoint.",
+      "intro": "The Wrike toolkit covers spaces, folders and projects, tasks with comments, contacts and workflows with their custom statuses. Through Connect, a product or AI agent creates and moves work in the customer's Wrike without building the integration or storing its credentials.",
+      "useCases": [
+        { "title": "Tasks from your product", "body": "Create a task in a folder or project when a client approves something or a lead converts, assigned to the right contact." },
+        { "title": "Workload questions for an agent", "body": "Let an AI agent search the tasks assigned to someone or due this week and answer what is on a person's plate." },
+        { "title": "Status updates with comments", "body": "Update a task to a custom status of the Completed group and add a comment explaining what was delivered." }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize pastas, projetos, tarefas e comentários e busque tarefas na conta Wrike do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Wrike cobre espaços, pastas e projetos, tarefas com comentários, contatos e workflows com seus status personalizados. Pelo Connect, um produto ou agente de IA cria e movimenta trabalho no Wrike do cliente sem construir a integração nem guardar as credenciais.",
+      "useCases": [
+        { "title": "Tarefas criadas pelo produto", "body": "Crie uma tarefa em uma pasta ou projeto quando um cliente aprovar algo ou um lead converter, atribuída ao contato certo." },
+        { "title": "Perguntas de carga de trabalho por agente", "body": "Deixe um agente de IA buscar as tarefas atribuídas a alguém ou com prazo nesta semana e responder o que está na mesa de cada pessoa." },
+        { "title": "Atualização de status com comentário", "body": "Atualize uma tarefa para um status personalizado do grupo Completed e adicione um comentário explicando o que foi entregue." }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza carpetas, proyectos, tareas y comentarios, y busca tareas en la cuenta de Wrike de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Wrike cubre espacios, carpetas y proyectos, tareas con comentarios, contactos y workflows con sus estados personalizados. Con Connect, un producto o agente de IA crea y mueve trabajo en el Wrike del cliente sin construir la integración ni guardar sus credenciales.",
+      "useCases": [
+        { "title": "Tareas desde tu producto", "body": "Crea una tarea en una carpeta o proyecto cuando un cliente apruebe algo o un lead se convierta, asignada al contacto correcto." },
+        { "title": "Preguntas de carga de trabajo para un agente", "body": "Deja que un agente de IA busque las tareas asignadas a alguien o con fecha límite esta semana y responda qué tiene pendiente cada persona." },
+        { "title": "Actualizar estado con comentarios", "body": "Actualiza una tarea a un estado personalizado del grupo Completed y agrega un comentario que explique qué se entregó." }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et mettez à jour dossiers, projets, tâches et commentaires, et recherchez des tâches dans le compte Wrike de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Wrike couvre les espaces, dossiers et projets, les tâches avec commentaires, les contacts et les workflows avec leurs statuts personnalisés. Avec Connect, un produit ou un agent IA crée et fait avancer le travail dans le Wrike du client sans construire l'intégration ni stocker ses identifiants.",
+      "useCases": [
+        { "title": "Tâches depuis votre produit", "body": "Créez une tâche dans un dossier ou projet quand un client valide quelque chose ou qu'un lead se convertit, assignée au bon contact." },
+        { "title": "Questions de charge pour un agent", "body": "Laissez un agent IA rechercher les tâches assignées à quelqu'un ou dues cette semaine et répondre à ce qu'une personne a sur son bureau." },
+        { "title": "Mise à jour de statut avec commentaire", "body": "Mettez une tâche à jour vers un statut personnalisé du groupe Completed et ajoutez un commentaire expliquant ce qui a été livré." }
+      ]
+    }
+  },
+  "tools": {
+    "wrike_list_folders": {
+      "pt": { "name": "Listar pastas", "description": "Lista os espaços, pastas e projetos da conta. Sem filtros, retorna a árvore de pastas inteira, com id, title, childIds e scope de cada item, inclusive a pasta raiz da conta (scope WsRoot). Qualquer filtro retorna uma lista plana com os campos completos, incluindo status e datas dos projetos, até 1000 por página." },
+      "es": { "name": "Listar carpetas", "description": "Lista los espacios, carpetas y proyectos de la cuenta. Sin filtros, devuelve todo el árbol de carpetas, con id, title, childIds y scope de cada elemento, incluida la carpeta raíz de la cuenta (scope WsRoot). Cualquier filtro devuelve una lista plana con los campos completos, incluidos el estado y las fechas de los proyectos, hasta 1000 por página." },
+      "fr": { "name": "Lister les dossiers", "description": "Liste les espaces, dossiers et projets du compte. Sans filtres, renvoie toute l'arborescence des dossiers, avec id, title, childIds et scope de chaque élément, y compris le dossier racine du compte (scope WsRoot). Tout filtre renvoie une liste plate avec les champs complets, y compris le statut et les dates des projets, jusqu'à 1000 par page." }
+    },
+    "wrike_create_folder": {
+      "pt": { "name": "Criar pasta", "description": "Cria uma pasta dentro de um espaço, pasta ou projeto, ou um projeto quando project é enviado. Exige title. Listas e objetos vão como texto JSON." },
+      "es": { "name": "Crear carpeta", "description": "Crea una carpeta dentro de un espacio, carpeta o proyecto, o un proyecto cuando se envía project. Requiere title. Las listas y los objetos van como texto JSON." },
+      "fr": { "name": "Créer un dossier", "description": "Crée un dossier dans un espace, un dossier ou un projet, ou un projet quand project est envoyé. Nécessite title. Les listes et objets vont sous forme de texte JSON." }
+    },
+    "wrike_update_folder": {
+      "pt": { "name": "Atualizar pasta", "description": "Atualiza os campos enviados de uma pasta ou projeto e mantém os outros, como o título, o status do projeto, as datas e os responsáveis, ou as pastas que o contêm. Listas e objetos vão como texto JSON." },
+      "es": { "name": "Actualizar carpeta", "description": "Actualiza los campos enviados de una carpeta o proyecto y conserva los demás, como el título, el estado del proyecto, las fechas y los propietarios, o las carpetas que lo contienen. Las listas y los objetos van como texto JSON." },
+      "fr": { "name": "Mettre à jour un dossier", "description": "Met à jour les champs envoyés d'un dossier ou projet et conserve les autres, comme le titre, le statut du projet, les dates et les propriétaires, ou les dossiers qui le contiennent. Les listes et objets vont sous forme de texte JSON." }
+    },
+    "wrike_list_tasks": {
+      "pt": { "name": "Listar tarefas", "description": "Lista as tarefas de um espaço, pasta ou projeto, até 1000 por página. Quando a resposta traz nextPageToken, envie-o para buscar a próxima página." },
+      "es": { "name": "Listar tareas", "description": "Lista las tareas de un espacio, carpeta o proyecto, hasta 1000 por página. Cuando la respuesta trae nextPageToken, envíalo para obtener la página siguiente." },
+      "fr": { "name": "Lister les tâches", "description": "Liste les tâches d'un espace, dossier ou projet, jusqu'à 1000 par page. Quand la réponse apporte nextPageToken, envoyez-le pour récupérer la page suivante." }
+    },
+    "wrike_search_tasks": {
+      "pt": { "name": "Buscar tarefas", "description": "Busca as tarefas da conta inteira, como as atribuídas a alguém ou com prazo nesta semana, até 1000 por página. Quando a resposta traz nextPageToken, envie-o para buscar a próxima página." },
+      "es": { "name": "Buscar tareas", "description": "Busca las tareas de toda la cuenta, como las asignadas a alguien o con fecha límite esta semana, hasta 1000 por página. Cuando la respuesta trae nextPageToken, envíalo para obtener la página siguiente." },
+      "fr": { "name": "Rechercher des tâches", "description": "Recherche les tâches de tout le compte, comme celles assignées à quelqu'un ou dues cette semaine, jusqu'à 1000 par page. Quand la réponse apporte nextPageToken, envoyez-le pour récupérer la page suivante." }
+    },
+    "wrike_get_task": {
+      "pt": { "name": "Obter tarefa", "description": "Retorna uma ou mais tarefas com descrição, responsáveis, datas, status, status personalizado, as pastas que as contêm, campos personalizados e subtarefas." },
+      "es": { "name": "Obtener tarea", "description": "Devuelve una o más tareas con descripción, asignados, fechas, estado, estado personalizado, las carpetas que las contienen, campos personalizados y subtareas." },
+      "fr": { "name": "Obtenir une tâche", "description": "Renvoie une ou plusieurs tâches avec description, assignés, dates, statut, statut personnalisé, les dossiers qui les contiennent, champs personnalisés et sous-tâches." }
+    },
+    "wrike_create_task": {
+      "pt": { "name": "Criar tarefa", "description": "Cria uma tarefa em um espaço, pasta ou projeto. Exige title. Sem datas, a tarefa vai para o backlog. Listas e objetos vão como texto JSON." },
+      "es": { "name": "Crear tarea", "description": "Crea una tarea en un espacio, carpeta o proyecto. Requiere title. Sin fechas, la tarea va al backlog. Las listas y los objetos van como texto JSON." },
+      "fr": { "name": "Créer une tâche", "description": "Crée une tâche dans un espace, dossier ou projet. Nécessite title. Sans dates, la tâche va dans le backlog. Les listes et objets vont sous forme de texte JSON." }
+    },
+    "wrike_update_task": {
+      "pt": { "name": "Atualizar tarefa", "description": "Atualiza os campos enviados de uma tarefa e mantém os outros. Para concluí-la, envie status Completed ou um status personalizado do grupo Completed. Listas e objetos vão como texto JSON." },
+      "es": { "name": "Actualizar tarea", "description": "Actualiza los campos enviados de una tarea y conserva los demás. Para completarla, envía status Completed o un estado personalizado del grupo Completed. Las listas y los objetos van como texto JSON." },
+      "fr": { "name": "Mettre à jour une tâche", "description": "Met à jour les champs envoyés d'une tâche et conserve les autres. Pour la terminer, envoyez status Completed ou un statut personnalisé du groupe Completed. Les listes et objets vont sous forme de texte JSON." }
+    },
+    "wrike_delete_task": {
+      "pt": { "name": "Excluir tarefa", "description": "Move uma tarefa para a Lixeira. Update task com restore true a traz de volta." },
+      "es": { "name": "Eliminar tarea", "description": "Mueve una tarea a la Papelera. Update task con restore true la recupera." },
+      "fr": { "name": "Supprimer une tâche", "description": "Déplace une tâche vers la Corbeille. Update task avec restore true la restaure." }
+    },
+    "wrike_list_task_comments": {
+      "pt": { "name": "Listar comentários da tarefa", "description": "Lista os comentários de uma tarefa, em HTML, a menos que plainText seja true." },
+      "es": { "name": "Listar comentarios de la tarea", "description": "Lista los comentarios de una tarea, en HTML, salvo que plainText sea true." },
+      "fr": { "name": "Lister les commentaires d'une tâche", "description": "Liste les commentaires d'une tâche, en HTML, sauf si plainText est true." }
+    },
+    "wrike_create_task_comment": {
+      "pt": { "name": "Criar comentário na tarefa", "description": "Adiciona um comentário a uma tarefa. Exige text, que o Wrike lê como HTML, a menos que plainText seja true." },
+      "es": { "name": "Crear comentario en la tarea", "description": "Agrega un comentario a una tarea. Requiere text, que Wrike lee como HTML, salvo que plainText sea true." },
+      "fr": { "name": "Créer un commentaire sur une tâche", "description": "Ajoute un commentaire à une tâche. Nécessite text, que Wrike lit comme du HTML, sauf si plainText est true." }
+    },
+    "wrike_list_contacts": {
+      "pt": { "name": "Listar contatos", "description": "Lista os usuários e grupos de usuários da conta com seus ids, que os argumentos responsibles, owners e shareds aceitam, e o e-mail de cada usuário em profiles. Com me true, retorna só o usuário conectado." },
+      "es": { "name": "Listar contactos", "description": "Lista los usuarios y grupos de usuarios de la cuenta con sus ids, que aceptan los argumentos responsibles, owners y shareds, y el correo de cada usuario en profiles. Con me true, devuelve solo el usuario conectado." },
+      "fr": { "name": "Lister les contacts", "description": "Liste les utilisateurs et groupes d'utilisateurs du compte avec leurs ids, que prennent les arguments responsibles, owners et shareds, et l'e-mail de chaque utilisateur dans profiles. Avec me true, ne renvoie que l'utilisateur connecté." }
+    },
+    "wrike_list_workflows": {
+      "pt": { "name": "Listar workflows", "description": "Lista os workflows de toda a conta com seus status personalizados, cujos ids os argumentos customStatus e customStatuses aceitam. Cada status personalizado pertence a um grupo: Active, Completed, Deferred ou Cancelled." },
+      "es": { "name": "Listar workflows", "description": "Lista los workflows de toda la cuenta con sus estados personalizados, cuyos ids aceptan los argumentos customStatus y customStatuses. Cada estado personalizado pertenece a un grupo: Active, Completed, Deferred o Cancelled." },
+      "fr": { "name": "Lister les workflows", "description": "Liste les workflows de tout le compte avec leurs statuts personnalisés, dont les ids sont pris par les arguments customStatus et customStatuses. Chaque statut personnalisé appartient à un groupe : Active, Completed, Deferred ou Cancelled." }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Send, search and manage messages, spaces, reactions and members in your customer's Google Chat through one Reportei Connect endpoint.",
+      "intro": "The Google Chat toolkit covers spaces, direct messages, messages, reactions and members, all acting as the user who connected. Your customer authorizes Google once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        { "title": "Notify teams in their chat", "body": "Send a message from your product to a space or a direct message, or reply inside an existing thread when an alert gets an update." },
+        { "title": "Spin up a space per project", "body": "Create a space, invite the right people and add members later when a new person joins the account or project." },
+        { "title": "A chat-aware agent", "body": "Let an AI agent search messages across the user's spaces, read a conversation and reply or react on the user's behalf." }
+      ]
+    },
+    "pt": {
+      "tagline": "Envie, busque e gerencie mensagens, espaços, reações e membros no Google Chat do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do Google Chat cobre espaços, mensagens diretas, mensagens, reações e membros, sempre agindo como o usuário que conectou. Seu cliente autoriza o Google uma vez com OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        { "title": "Avisar equipes no chat", "body": "Envie uma mensagem do seu produto para um espaço ou mensagem direta, ou responda dentro de uma conversa existente quando um alerta ganha atualização." },
+        { "title": "Criar um espaço por projeto", "body": "Crie um espaço, convide as pessoas certas e adicione membros depois, quando alguém novo entra na conta ou no projeto." },
+        { "title": "Agente que entende o chat", "body": "Deixe um agente de IA buscar mensagens nos espaços do usuário, ler uma conversa e responder ou reagir em nome dele." }
+      ]
+    },
+    "es": {
+      "tagline": "Envía, busca y gestiona mensajes, espacios, reacciones y miembros en el Google Chat de tu cliente con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de Google Chat cubre espacios, mensajes directos, mensajes, reacciones y miembros, siempre actuando como el usuario que conectó. Tu cliente autoriza Google una vez con OAuth, y tu producto o agente de IA llama cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        { "title": "Avisar a equipos en su chat", "body": "Envía un mensaje desde tu producto a un espacio o mensaje directo, o responde dentro de un hilo existente cuando una alerta recibe una actualización." },
+        { "title": "Crear un espacio por proyecto", "body": "Crea un espacio, invita a las personas adecuadas y añade miembros después, cuando alguien nuevo se une a la cuenta o al proyecto." },
+        { "title": "Un agente que entiende el chat", "body": "Deja que un agente de IA busque mensajes en los espacios del usuario, lea una conversación y responda o reaccione en su nombre." }
+      ]
+    },
+    "fr": {
+      "tagline": "Envoyez, recherchez et gérez messages, espaces, réactions et membres dans le Google Chat de votre client via un seul endpoint Reportei Connect.",
+      "intro": "Le toolkit Google Chat couvre les espaces, messages directs, messages, réactions et membres, en agissant toujours comme l'utilisateur qui s'est connecté. Votre client autorise Google une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        { "title": "Notifier les équipes dans leur chat", "body": "Envoyez un message depuis votre produit vers un espace ou un message direct, ou répondez dans un fil existant quand une alerte est mise à jour." },
+        { "title": "Créer un espace par projet", "body": "Créez un espace, invitez les bonnes personnes et ajoutez des membres plus tard, quand quelqu'un rejoint le compte ou le projet." },
+        { "title": "Un agent qui comprend le chat", "body": "Laissez un agent IA rechercher des messages dans les espaces de l'utilisateur, lire une conversation et répondre ou réagir en son nom." }
+      ]
+    }
+  },
+  "tools": {
+    "google_chat_list_spaces": {
+      "pt": { "name": "Listar espaços", "description": "Lista os espaços, chats em grupo e mensagens diretas de que o usuário participa, com name, displayName e spaceType. A parte do name depois de spaces/ é o spaceId das outras ferramentas, e chats em grupo e mensagens diretas só aparecem depois da primeira mensagem." },
+      "es": { "name": "Listar espacios", "description": "Lista los espacios, chats grupales y mensajes directos en los que participa el usuario, con name, displayName y spaceType. La parte del name después de spaces/ es el spaceId de las demás herramientas, y los chats grupales y mensajes directos solo aparecen tras el primer mensaje." },
+      "fr": { "name": "Lister les espaces", "description": "Liste les espaces, discussions de groupe et messages directs dont l'utilisateur est membre, avec name, displayName et spaceType. La partie du name après spaces/ est le spaceId des autres outils, et les discussions de groupe et messages directs n'apparaissent qu'après le premier message." }
+    },
+    "google_chat_get_direct_message": {
+      "pt": { "name": "Obter mensagem direta", "description": "Retorna o espaço de mensagem direta entre o usuário e outra pessoa; a parte do name depois de spaces/ é o spaceId de Send message. Responde 404 quando os dois ainda não têm mensagem direta, que Create space inicia." },
+      "es": { "name": "Obtener mensaje directo", "description": "Devuelve el espacio de mensaje directo entre el usuario y otra persona; la parte del name después de spaces/ es el spaceId de Send message. Responde 404 cuando ambos aún no tienen mensaje directo, que Create space inicia." },
+      "fr": { "name": "Obtenir un message direct", "description": "Renvoie l'espace de message direct entre l'utilisateur et une autre personne ; la partie du name après spaces/ est le spaceId de Send message. Répond 404 quand les deux n'ont pas encore de message direct, que Create space démarre." }
+    },
+    "google_chat_create_space": {
+      "pt": { "name": "Criar espaço", "description": "Cria um espaço com o usuário e convida outras pessoas. SPACE exige displayName e aceita até 49 pessoas; GROUP_CHAT exige ao menos duas pessoas e nenhum nome; DIRECT_MESSAGE exige exatamente uma pessoa e retorna a mensagem direta existente quando há uma." },
+      "es": { "name": "Crear espacio", "description": "Crea un espacio con el usuario e invita a otras personas. SPACE requiere displayName y admite hasta 49 personas; GROUP_CHAT requiere al menos dos personas y ningún nombre; DIRECT_MESSAGE requiere exactamente una persona y devuelve el mensaje directo existente si lo hay." },
+      "fr": { "name": "Créer un espace", "description": "Crée un espace avec l'utilisateur et invite d'autres personnes. SPACE exige displayName et accepte jusqu'à 49 personnes ; GROUP_CHAT exige au moins deux personnes et aucun nom ; DIRECT_MESSAGE exige exactement une personne et renvoie le message direct existant s'il y en a un." }
+    },
+    "google_chat_list_messages": {
+      "pt": { "name": "Listar mensagens", "description": "Lista as mensagens de um espaço, das mais antigas às mais novas por padrão, com name, sender, createTime, text e thread. Os remetentes vêm como users/ seguido de um id, sem o nome de exibição; envie nextPageToken como pageToken para a próxima página." },
+      "es": { "name": "Listar mensajes", "description": "Lista los mensajes de un espacio, de más antiguos a más nuevos por defecto, con name, sender, createTime, text y thread. Los remitentes vienen como users/ seguido de un id, sin el nombre visible; envía nextPageToken como pageToken para la página siguiente." },
+      "fr": { "name": "Lister les messages", "description": "Liste les messages d'un espace, du plus ancien au plus récent par défaut, avec name, sender, createTime, text et thread. Les expéditeurs arrivent sous la forme users/ suivi d'un id, sans le nom affiché ; envoyez nextPageToken comme pageToken pour la page suivante." }
+    },
+    "google_chat_search_messages": {
+      "pt": { "name": "Buscar mensagens", "description": "Busca mensagens por palavras-chave em todos os espaços e mensagens diretas do usuário, das mais recentes às mais antigas. Cada resultado traz a mensagem, cujo name leva os ids do espaço e da mensagem; mensagens de apps do Chat, mensagens privadas e espaços silenciados ficam de fora." },
+      "es": { "name": "Buscar mensajes", "description": "Busca mensajes por palabras clave en todos los espacios y mensajes directos del usuario, de más recientes a más antiguos. Cada resultado trae el mensaje, cuyo name lleva los ids del espacio y del mensaje; los mensajes de apps de Chat, los mensajes privados y los espacios silenciados quedan fuera." },
+      "fr": { "name": "Rechercher des messages", "description": "Recherche des messages par mots-clés dans tous les espaces et messages directs de l'utilisateur, du plus récent au plus ancien. Chaque résultat contient le message, dont le name porte les ids de l'espace et du message ; les messages d'applications Chat, les messages privés et les espaces en sourdine sont exclus." }
+    },
+    "google_chat_send_message": {
+      "pt": { "name": "Enviar mensagem", "description": "Envia uma mensagem de texto do usuário para um espaço ou mensagem direta. Para responder em uma conversa, envie thread com o nome da conversa de List messages e messageReplyOption; sem messageReplyOption a mensagem inicia uma nova conversa." },
+      "es": { "name": "Enviar mensaje", "description": "Envía un mensaje de texto del usuario a un espacio o mensaje directo. Para responder en un hilo, envía thread con el nombre del hilo de List messages y messageReplyOption; sin messageReplyOption el mensaje inicia un hilo nuevo." },
+      "fr": { "name": "Envoyer un message", "description": "Envoie un message texte de l'utilisateur à un espace ou un message direct. Pour répondre dans un fil, envoyez thread avec le nom du fil issu de List messages et messageReplyOption ; sans messageReplyOption le message ouvre un nouveau fil." }
+    },
+    "google_chat_update_message": {
+      "pt": { "name": "Atualizar mensagem", "description": "Altera o texto de uma mensagem, com updateMask definido como text." },
+      "es": { "name": "Actualizar mensaje", "description": "Cambia el texto de un mensaje, con updateMask definido como text." },
+      "fr": { "name": "Mettre à jour un message", "description": "Modifie le texte d'un message, avec updateMask défini sur text." }
+    },
+    "google_chat_delete_message": {
+      "pt": { "name": "Excluir mensagem", "description": "Exclui uma mensagem. Uma mensagem com respostas em uma conversa só é excluída com force true, que exclui as respostas também." },
+      "es": { "name": "Eliminar mensaje", "description": "Elimina un mensaje. Un mensaje con respuestas en un hilo solo se elimina con force true, que elimina también las respuestas." },
+      "fr": { "name": "Supprimer un message", "description": "Supprime un message. Un message avec des réponses dans un fil n'est supprimé qu'avec force true, ce qui supprime aussi les réponses." }
+    },
+    "google_chat_create_reaction": {
+      "pt": { "name": "Criar reação", "description": "Adiciona uma reação com emoji do usuário a uma mensagem." },
+      "es": { "name": "Crear reacción", "description": "Añade una reacción con emoji del usuario a un mensaje." },
+      "fr": { "name": "Créer une réaction", "description": "Ajoute une réaction emoji de l'utilisateur à un message." }
+    },
+    "google_chat_list_members": {
+      "pt": { "name": "Listar membros", "description": "Lista os membros de um espaço com role e state. Os membros vêm como users/ seguido de um id, sem o nome de exibição; envie nextPageToken como pageToken para a próxima página." },
+      "es": { "name": "Listar miembros", "description": "Lista los miembros de un espacio con role y state. Los miembros vienen como users/ seguido de un id, sin el nombre visible; envía nextPageToken como pageToken para la página siguiente." },
+      "fr": { "name": "Lister les membres", "description": "Liste les membres d'un espace avec role et state. Les membres arrivent sous la forme users/ suivi d'un id, sans le nom affiché ; envoyez nextPageToken comme pageToken pour la page suivante." }
+    },
+    "google_chat_create_member": {
+      "pt": { "name": "Adicionar membro", "description": "Adiciona uma pessoa a um espaço, ou a convida quando as configurações dela pedem aceitação. Exige um usuário com permissão para adicionar membros ao espaço." },
+      "es": { "name": "Añadir miembro", "description": "Añade a una persona a un espacio, o la invita cuando sus ajustes piden aceptación. Requiere un usuario con permiso para añadir miembros al espacio." },
+      "fr": { "name": "Ajouter un membre", "description": "Ajoute une personne à un espace, ou l'invite quand ses paramètres demandent une acceptation. Exige un utilisateur autorisé à ajouter des membres à l'espace." }
+    }
+  }
+}

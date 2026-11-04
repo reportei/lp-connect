@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Run queries and read insights, dashboards, persons, cohorts and annotations in your customer's PostHog project through one Connect endpoint.",
+      "intro": "The PostHog toolkit covers organizations and projects, event definitions, ad hoc queries, insights, dashboards, persons, cohorts and annotations. Your customer connects PostHog once with a personal API key, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Analytics inside your product",
+          "body": "Run a query and read insights and dashboard tiles with their cached results to show product analytics in your own screens."
+        },
+        {
+          "title": "Agent answers data questions",
+          "body": "An AI agent lists event definitions and runs a query to answer questions about what users did, with each call kept in the audit log."
+        },
+        {
+          "title": "Mark launches on the charts",
+          "body": "Create an annotation when a campaign or release ships, so the moment shows up on every chart of the project."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Rode queries e leia insights, dashboards, pessoas, coortes e anotações no projeto PostHog do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do PostHog cobre organizações e projetos, definições de eventos, queries ad hoc, insights, dashboards, pessoas, coortes e anotações. Seu cliente conecta o PostHog uma vez com uma chave de API pessoal, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Analytics dentro do seu produto",
+          "body": "Rode uma query e leia insights e tiles de dashboards com seus resultados em cache para mostrar analytics de produto nas suas próprias telas."
+        },
+        {
+          "title": "Agente responde perguntas sobre dados",
+          "body": "Um agente de IA lista as definições de eventos e roda uma query para responder o que os usuários fizeram, com cada chamada guardada no log de auditoria."
+        },
+        {
+          "title": "Marque lançamentos nos gráficos",
+          "body": "Crie uma anotação quando uma campanha ou release for ao ar, para o momento aparecer em todos os gráficos do projeto."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Ejecuta queries y lee insights, dashboards, personas, cohortes y anotaciones en el proyecto de PostHog de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de PostHog cubre organizaciones y proyectos, definiciones de eventos, queries ad hoc, insights, dashboards, personas, cohortes y anotaciones. Tu cliente conecta PostHog una vez con una API key personal, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Analítica dentro de tu producto",
+          "body": "Ejecuta una query y lee insights y tiles de dashboards con sus resultados en caché para mostrar analítica de producto en tus propias pantallas."
+        },
+        {
+          "title": "Agente responde preguntas de datos",
+          "body": "Un agente de IA lista las definiciones de eventos y ejecuta una query para responder qué hicieron los usuarios, con cada llamada guardada en el log de auditoría."
+        },
+        {
+          "title": "Marca lanzamientos en los gráficos",
+          "body": "Crea una anotación cuando salga una campaña o release, para que el momento aparezca en todos los gráficos del proyecto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Exécutez des requêtes et lisez insights, dashboards, personnes, cohortes et annotations du projet PostHog de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit PostHog couvre les organisations et projets, les définitions d'événements, les requêtes ad hoc, les insights, les dashboards, les personnes, les cohortes et les annotations. Votre client connecte PostHog une fois avec une clé API personnelle, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Analytics dans votre produit",
+          "body": "Exécutez une requête et lisez les insights et les tuiles de dashboards avec leurs résultats en cache pour afficher des analytics produit dans vos propres écrans."
+        },
+        {
+          "title": "Un agent répond aux questions de données",
+          "body": "Un agent IA liste les définitions d'événements et exécute une requête pour répondre à ce qu'ont fait les utilisateurs, chaque appel restant dans le journal d'audit."
+        },
+        {
+          "title": "Marquer les lancements sur les graphiques",
+          "body": "Créez une annotation quand une campagne ou une release sort, pour que ce moment apparaisse sur tous les graphiques du projet."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "posthog_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista as organizações que a chave alcança, cada uma com seus projetos em teams. O project_id de cada team é o que as outras ferramentas pedem. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista las organizaciones a las que llega la key, cada una con sus proyectos en teams. El project_id de cada team es lo que piden las demás herramientas. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste les organisations accessibles avec la clé, chacune avec ses projets dans teams. Le project_id de chaque team est ce que demandent les autres outils. Paginez avec limit et offset."
+      }
+    },
+    "posthog_list_event_definitions": {
+      "pt": {
+        "name": "Listar definições de eventos",
+        "description": "Lista os eventos rastreados no projeto com nome, descrição, tags e last_seen_at, para usar em queries e anotações. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar definiciones de eventos",
+        "description": "Lista los eventos rastreados en el proyecto con nombre, descripción, tags y last_seen_at, para usar en queries y anotaciones. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les définitions d'événements",
+        "description": "Liste les événements suivis dans le projet avec nom, description, tags et last_seen_at, à utiliser dans les requêtes et annotations. Paginez avec limit et offset."
+      }
+    },
+    "posthog_run_query": {
+      "pt": {
+        "name": "Executar query",
+        "description": "Executa uma query de analytics ad hoc e retorna seus resultados, até 100 linhas a menos que o SQL defina um LIMIT. Não é uma exportação: o PostHog recusa OFFSET, limita cada projeto a 3 queries ao mesmo tempo e debita cada query de um orçamento de leitura por hora."
+      },
+      "es": {
+        "name": "Ejecutar query",
+        "description": "Ejecuta una query de analítica ad hoc y devuelve sus resultados, hasta 100 filas salvo que el SQL defina un LIMIT. No es una exportación: PostHog rechaza OFFSET, limita cada proyecto a 3 queries a la vez y descuenta cada query de un presupuesto de lectura por hora."
+      },
+      "fr": {
+        "name": "Exécuter une requête",
+        "description": "Exécute une requête d'analytics ad hoc et renvoie ses résultats, jusqu'à 100 lignes sauf si le SQL définit un LIMIT. Ce n'est pas un export : PostHog refuse OFFSET, limite chaque projet à 3 requêtes simultanées et débite chaque requête d'un budget de lecture horaire."
+      }
+    },
+    "posthog_list_insights": {
+      "pt": {
+        "name": "Listar insights",
+        "description": "Lista os insights do projeto com id, short_id, nome, descrição e query. A menos que basic seja true, cada um também traz seu resultado em cache. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar insights",
+        "description": "Lista los insights del proyecto con id, short_id, nombre, descripción y query. Salvo que basic sea true, cada uno también trae su resultado en caché. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les insights",
+        "description": "Liste les insights du projet avec id, short_id, nom, description et query. Sauf si basic est true, chacun porte aussi son résultat en cache. Paginez avec limit et offset."
+      }
+    },
+    "posthog_get_insight": {
+      "pt": {
+        "name": "Obter insight",
+        "description": "Retorna um insight com sua query e resultado. Por padrão o resultado vem do cache, e refresh com blocking o calcula de novo quando está desatualizado."
+      },
+      "es": {
+        "name": "Obtener insight",
+        "description": "Devuelve un insight con su query y resultado. Por defecto el resultado viene de la caché, y refresh en blocking lo calcula de nuevo cuando está desactualizado."
+      },
+      "fr": {
+        "name": "Obtenir un insight",
+        "description": "Renvoie un insight avec sa requête et son résultat. Par défaut, le résultat vient du cache, et refresh à blocking le recalcule quand il est périmé."
+      }
+    },
+    "posthog_list_dashboards": {
+      "pt": {
+        "name": "Listar dashboards",
+        "description": "Lista os dashboards do projeto com id, nome, descrição, pinned e tags. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar dashboards",
+        "description": "Lista los dashboards del proyecto con id, nombre, descripción, pinned y tags. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les dashboards",
+        "description": "Liste les dashboards du projet avec id, nom, description, pinned et tags. Paginez avec limit et offset."
+      }
+    },
+    "posthog_get_dashboard": {
+      "pt": {
+        "name": "Obter dashboard",
+        "description": "Retorna um dashboard com seus filtros e tiles, cada tile com seu insight e o resultado em cache."
+      },
+      "es": {
+        "name": "Obtener dashboard",
+        "description": "Devuelve un dashboard con sus filtros y tiles, cada tile con su insight y el resultado en caché."
+      },
+      "fr": {
+        "name": "Obtenir un dashboard",
+        "description": "Renvoie un dashboard avec ses filtres et ses tuiles, chaque tuile avec son insight et le résultat en cache."
+      }
+    },
+    "posthog_list_persons": {
+      "pt": {
+        "name": "Listar pessoas",
+        "description": "Lista as pessoas do projeto com seus distinct_ids e propriedades. search as encontra por email, nome, id da pessoa ou distinct id. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar personas",
+        "description": "Lista las personas del proyecto con sus distinct_ids y propiedades. search las encuentra por email, nombre, id de la persona o distinct id. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les personnes",
+        "description": "Liste les personnes du projet avec leurs distinct_ids et propriétés. search les trouve par email, nom, id de la personne ou distinct id. Paginez avec limit et offset."
+      }
+    },
+    "posthog_list_cohorts": {
+      "pt": {
+        "name": "Listar coortes",
+        "description": "Lista as coortes do projeto com id, nome, descrição, quantidade de pessoas e se são estáticas. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar cohortes",
+        "description": "Lista las cohortes del proyecto con id, nombre, descripción, cantidad de personas y si son estáticas. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les cohortes",
+        "description": "Liste les cohortes du projet avec id, nom, description, nombre de personnes et si elles sont statiques. Paginez avec limit et offset."
+      }
+    },
+    "posthog_list_annotations": {
+      "pt": {
+        "name": "Listar anotações",
+        "description": "Lista as anotações do projeto, as notas fixadas em um momento dos gráficos, com id, content, date_marker e scope. Pagine com limit e offset."
+      },
+      "es": {
+        "name": "Listar anotaciones",
+        "description": "Lista las anotaciones del proyecto, las notas fijadas en un momento de los gráficos, con id, content, date_marker y scope. Pagina con limit y offset."
+      },
+      "fr": {
+        "name": "Lister les annotations",
+        "description": "Liste les annotations du projet, les notes épinglées à un moment des graphiques, avec id, content, date_marker et scope. Paginez avec limit et offset."
+      }
+    },
+    "posthog_create_annotation": {
+      "pt": {
+        "name": "Criar anotação",
+        "description": "Cria uma anotação, uma nota exibida nos gráficos em um momento, como o lançamento de uma campanha. Por padrão aparece em todos os gráficos do projeto."
+      },
+      "es": {
+        "name": "Crear anotación",
+        "description": "Crea una anotación, una nota que se muestra en los gráficos en un momento, como el lanzamiento de una campaña. Por defecto aparece en todos los gráficos del proyecto."
+      },
+      "fr": {
+        "name": "Créer une annotation",
+        "description": "Crée une annotation, une note affichée sur les graphiques à un moment donné, comme le lancement d'une campagne. Par défaut, elle apparaît sur tous les graphiques du projet."
+      }
+    },
+    "posthog_update_annotation": {
+      "pt": {
+        "name": "Atualizar anotação",
+        "description": "Altera uma anotação. Só os campos enviados mudam. O PostHog não exclui anotações: defina deleted como true para ocultar uma, ou false para restaurá-la."
+      },
+      "es": {
+        "name": "Actualizar anotación",
+        "description": "Cambia una anotación. Solo cambian los campos enviados. PostHog no elimina anotaciones: define deleted en true para ocultar una, o en false para restaurarla."
+      },
+      "fr": {
+        "name": "Mettre à jour une annotation",
+        "description": "Modifie une annotation. Seuls les champs envoyés changent. PostHog ne supprime pas les annotations : définissez deleted à true pour en masquer une, ou à false pour la restaurer."
+      }
+    }
+  }
+}

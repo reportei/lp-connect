@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and manage subscriptions, customers and charges in your customer's Recharge store from your product, through one Connect endpoint.",
+      "intro": "The Recharge toolkit covers subscriptions (list, read, create, update, cancel, reactivate, move the next charge date), customers and charges (list, read, skip). Connect stores each store's API key and logs every execution, so your product or AI agent manages recurring orders without building the integration.",
+      "useCases": [
+        {
+          "title": "Self-service subscription portal",
+          "body": "Show a customer's subscriptions, let them change frequency or quantity, skip the next charge or cancel, all from your own interface."
+        },
+        {
+          "title": "Win back cancelled subscribers",
+          "body": "List cancelled subscriptions and reactivate one with Activate subscription, or set a new next charge date with Set subscription next charge date."
+        },
+        {
+          "title": "Support agent for subscription stores",
+          "body": "An AI agent finds the customer by email, reads their charges and subscriptions and skips a queued charge when the customer asks."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Consulte e gerencie assinaturas, clientes e cobranças na loja Recharge do seu cliente pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Recharge cobre assinaturas (listar, consultar, criar, atualizar, cancelar, reativar, mover a data da próxima cobrança), clientes e cobranças (listar, consultar, pular). O Connect guarda a chave de API de cada loja e registra cada execução, para o seu produto ou agente de IA gerenciar pedidos recorrentes sem construir a integração.",
+      "useCases": [
+        {
+          "title": "Portal de assinaturas self-service",
+          "body": "Mostre as assinaturas de um cliente e deixe-o mudar frequência ou quantidade, pular a próxima cobrança ou cancelar, tudo na sua própria interface."
+        },
+        {
+          "title": "Recuperar assinantes cancelados",
+          "body": "Liste as assinaturas canceladas e reative uma com Activate subscription, ou defina uma nova data de cobrança com Set subscription next charge date."
+        },
+        {
+          "title": "Agente de suporte para lojas de assinatura",
+          "body": "Um agente de IA encontra o cliente pelo e-mail, lê suas cobranças e assinaturas e pula uma cobrança na fila quando o cliente pede."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Consulta y gestiona suscripciones, clientes y cargos en la tienda Recharge de tu cliente desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de Recharge cubre suscripciones (listar, consultar, crear, actualizar, cancelar, reactivar, mover la fecha del próximo cargo), clientes y cargos (listar, consultar, omitir). Connect guarda la clave de API de cada tienda y registra cada ejecución, para que tu producto o agente de IA gestione pedidos recurrentes sin construir la integración.",
+      "useCases": [
+        {
+          "title": "Portal de suscripciones de autoservicio",
+          "body": "Muestra las suscripciones de un cliente y deja que cambie la frecuencia o la cantidad, omita el próximo cargo o cancele, todo desde tu propia interfaz."
+        },
+        {
+          "title": "Recuperar suscriptores cancelados",
+          "body": "Lista las suscripciones canceladas y reactiva una con Activate subscription, o define una nueva fecha de cargo con Set subscription next charge date."
+        },
+        {
+          "title": "Agente de soporte para tiendas de suscripción",
+          "body": "Un agente de IA encuentra al cliente por email, lee sus cargos y suscripciones y omite un cargo en cola cuando el cliente lo pide."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Consultez et gérez abonnements, clients et prélèvements de la boutique Recharge de votre client depuis votre produit, via un seul endpoint Connect.",
+      "intro": "Le toolkit Recharge couvre les abonnements (lister, lire, créer, mettre à jour, annuler, réactiver, déplacer la date du prochain prélèvement), les clients et les prélèvements (lister, lire, sauter). Connect stocke la clé d'API de chaque boutique et journalise chaque exécution, pour que votre produit ou agent IA gère les commandes récurrentes sans construire l'intégration.",
+      "useCases": [
+        {
+          "title": "Portail d'abonnements en libre-service",
+          "body": "Affichez les abonnements d'un client et laissez-le changer la fréquence ou la quantité, sauter le prochain prélèvement ou résilier, depuis votre propre interface."
+        },
+        {
+          "title": "Reconquérir les abonnés résiliés",
+          "body": "Listez les abonnements annulés et réactivez-en un avec Activate subscription, ou définissez une nouvelle date de prélèvement avec Set subscription next charge date."
+        },
+        {
+          "title": "Agent de support pour boutiques d'abonnement",
+          "body": "Un agent IA retrouve le client par e-mail, lit ses prélèvements et abonnements et saute un prélèvement en file quand le client le demande."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "recharge_list_subscriptions": {
+      "pt": {
+        "name": "Listar assinaturas",
+        "description": "Lista as assinaturas da loja com cliente, endereço, produto, quantidade, preço, frequência, status e next_charge_scheduled_at. Até 250 por página: envie o next_cursor da resposta como cursor para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar suscripciones",
+        "description": "Lista las suscripciones de la tienda con cliente, dirección, producto, cantidad, precio, frecuencia, estado y next_charge_scheduled_at. Hasta 250 por página: envía el next_cursor de la respuesta como cursor para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les abonnements",
+        "description": "Liste les abonnements de la boutique avec client, adresse, produit, quantité, prix, fréquence, statut et next_charge_scheduled_at. Jusqu'à 250 par page : passez le next_cursor de la réponse en cursor pour lire la page suivante."
+      }
+    },
+    "recharge_get_subscription": {
+      "pt": {
+        "name": "Consultar assinatura",
+        "description": "Retorna uma assinatura com produto, quantidade, preço, frequência, status, motivo do cancelamento e next_charge_scheduled_at."
+      },
+      "es": {
+        "name": "Consultar suscripción",
+        "description": "Devuelve una suscripción con producto, cantidad, precio, frecuencia, estado, motivo de cancelación y next_charge_scheduled_at."
+      },
+      "fr": {
+        "name": "Consulter un abonnement",
+        "description": "Renvoie un abonnement avec produit, quantité, prix, fréquence, statut, motif d'annulation et next_charge_scheduled_at."
+      }
+    },
+    "recharge_create_subscription": {
+      "pt": {
+        "name": "Criar assinatura",
+        "description": "Cria uma assinatura em um endereço de um cliente e a retorna. O produto precisa de ao menos um plano no Recharge. Os campos de frequência, a data da primeira cobrança, a variante, a quantidade e o endereço são obrigatórios."
+      },
+      "es": {
+        "name": "Crear suscripción",
+        "description": "Crea una suscripción en una dirección de un cliente y la devuelve. El producto necesita al menos un plan en Recharge. Los campos de frecuencia, la fecha del primer cargo, la variante, la cantidad y la dirección son obligatorios."
+      },
+      "fr": {
+        "name": "Créer un abonnement",
+        "description": "Crée un abonnement sur une adresse d'un client et le renvoie. Le produit doit avoir au moins un plan dans Recharge. Les champs de fréquence, la date du premier prélèvement, la variante, la quantité et l'adresse sont obligatoires."
+      }
+    },
+    "recharge_update_subscription": {
+      "pt": {
+        "name": "Atualizar assinatura",
+        "description": "Altera uma assinatura ativa e a retorna. Mudar order_interval_unit, order_interval_frequency ou charge_interval_frequency exige os três, recalcula a data da próxima cobrança e remove cobranças puladas e alteradas manualmente. Para mover só a próxima cobrança, use Set subscription next charge date."
+      },
+      "es": {
+        "name": "Actualizar suscripción",
+        "description": "Cambia una suscripción activa y la devuelve. Cambiar order_interval_unit, order_interval_frequency o charge_interval_frequency exige los tres, recalcula la fecha del próximo cargo y elimina los cargos omitidos y los cambiados manualmente. Para mover solo el próximo cargo, usa Set subscription next charge date."
+      },
+      "fr": {
+        "name": "Mettre à jour un abonnement",
+        "description": "Modifie un abonnement actif et le renvoie. Changer order_interval_unit, order_interval_frequency ou charge_interval_frequency exige les trois, recalcule la date du prochain prélèvement et supprime les prélèvements sautés et modifiés manuellement. Pour ne déplacer que le prochain prélèvement, utilisez Set subscription next charge date."
+      }
+    },
+    "recharge_cancel_subscription": {
+      "pt": {
+        "name": "Cancelar assinatura",
+        "description": "Cancela uma assinatura ativa e a retorna. O Recharge pode enviar e-mail ao cliente e ao dono da loja sobre isso, a menos que send_email seja false."
+      },
+      "es": {
+        "name": "Cancelar suscripción",
+        "description": "Cancela una suscripción activa y la devuelve. Recharge puede enviar un email al cliente y al dueño de la tienda al respecto, salvo que send_email sea false."
+      },
+      "fr": {
+        "name": "Annuler un abonnement",
+        "description": "Annule un abonnement actif et le renvoie. Recharge peut envoyer un e-mail au client et au propriétaire de la boutique à ce sujet, sauf si send_email vaut false."
+      }
+    },
+    "recharge_activate_subscription": {
+      "pt": {
+        "name": "Reativar assinatura",
+        "description": "Reativa uma assinatura cancelada e a retorna, limpando a data e o motivo do cancelamento."
+      },
+      "es": {
+        "name": "Reactivar suscripción",
+        "description": "Reactiva una suscripción cancelada y la devuelve, borrando la fecha y el motivo de la cancelación."
+      },
+      "fr": {
+        "name": "Réactiver un abonnement",
+        "description": "Réactive un abonnement annulé et le renvoie, en effaçant la date et le motif d'annulation."
+      }
+    },
+    "recharge_set_subscription_next_charge_date": {
+      "pt": {
+        "name": "Definir data da próxima cobrança",
+        "description": "Move a próxima cobrança de uma assinatura para outra data e retorna a assinatura. Quando duas assinaturas ativas do mesmo endereço ficam na mesma data, suas cobranças são unidas em uma nova cobrança com um novo id."
+      },
+      "es": {
+        "name": "Definir fecha del próximo cargo",
+        "description": "Mueve el próximo cargo de una suscripción a otra fecha y devuelve la suscripción. Cuando dos suscripciones activas de la misma dirección quedan en la misma fecha, sus cargos se fusionan en un nuevo cargo con un nuevo id."
+      },
+      "fr": {
+        "name": "Définir la date du prochain prélèvement",
+        "description": "Déplace le prochain prélèvement d'un abonnement à une autre date et renvoie l'abonnement. Quand deux abonnements actifs de la même adresse se retrouvent à la même date, leurs prélèvements sont fusionnés en un nouveau prélèvement avec un nouvel id."
+      }
+    },
+    "recharge_list_customers": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes da loja com e-mail, nome, a quantidade de assinaturas ativas e se o meio de pagamento é válido ou está em cobrança de recuperação (dunning). Filtre por e-mail para achar um cliente. Até 250 por página: envie o next_cursor da resposta como cursor."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes de la tienda con email, nombre, la cantidad de suscripciones activas y si el método de pago es válido o está en cobro de recuperación (dunning). Filtra por email para encontrar un cliente. Hasta 250 por página: envía el next_cursor de la respuesta como cursor."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients de la boutique avec e-mail, nom, le nombre d'abonnements actifs et si le moyen de paiement est valide ou en relance (dunning). Filtrez par e-mail pour retrouver un client. Jusqu'à 250 par page : passez le next_cursor de la réponse en cursor."
+      }
+    },
+    "recharge_get_customer": {
+      "pt": {
+        "name": "Consultar cliente",
+        "description": "Retorna um cliente. Com include, a resposta também traz os endereços, assinaturas ou meios de pagamento do cliente; o id de cada endereço é o address_id que Create subscription recebe."
+      },
+      "es": {
+        "name": "Consultar cliente",
+        "description": "Devuelve un cliente. Con include, la respuesta también trae las direcciones, suscripciones o métodos de pago del cliente; el id de cada dirección es el address_id que recibe Create subscription."
+      },
+      "fr": {
+        "name": "Consulter un client",
+        "description": "Renvoie un client. Avec include, la réponse contient aussi les adresses, abonnements ou moyens de paiement du client ; l'id de chaque adresse est l'address_id que prend Create subscription."
+      }
+    },
+    "recharge_list_charges": {
+      "pt": {
+        "name": "Listar cobranças",
+        "description": "Lista as cobranças da loja, passadas e futuras, com status, scheduled_at, processed_at, totais, cliente e itens. Cobranças processadas há mais de 90 dias não são retornadas. Ordenadas por id crescente por padrão; até 250 por página: envie o next_cursor da resposta como cursor para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar cargos",
+        "description": "Lista los cargos de la tienda, pasados y futuros, con estado, scheduled_at, processed_at, totales, cliente y artículos. Los cargos procesados hace más de 90 días no se devuelven. Ordenados por id ascendente por defecto; hasta 250 por página: envía el next_cursor de la respuesta como cursor para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les prélèvements",
+        "description": "Liste les prélèvements de la boutique, passés et à venir, avec statut, scheduled_at, processed_at, totaux, client et lignes. Les prélèvements traités depuis plus de 90 jours ne sont pas renvoyés. Triés par id croissant par défaut ; jusqu'à 250 par page : passez le next_cursor de la réponse en cursor pour lire la page suivante."
+      }
+    },
+    "recharge_get_charge": {
+      "pt": {
+        "name": "Consultar cobrança",
+        "description": "Retorna uma cobrança com status, datas, totais, descontos, frete e os itens, cujo purchase_item_id é a assinatura. Uma cobrança processada há mais de 90 dias retorna erro."
+      },
+      "es": {
+        "name": "Consultar cargo",
+        "description": "Devuelve un cargo con estado, fechas, totales, descuentos, envío y los artículos, cuyo purchase_item_id es la suscripción. Un cargo procesado hace más de 90 días devuelve un error."
+      },
+      "fr": {
+        "name": "Consulter un prélèvement",
+        "description": "Renvoie un prélèvement avec statut, dates, totaux, remises, livraison et les lignes, dont le purchase_item_id est l'abonnement. Un prélèvement traité depuis plus de 90 jours renvoie une erreur."
+      }
+    },
+    "recharge_skip_charge": {
+      "pt": {
+        "name": "Pular cobrança",
+        "description": "Pula uma cobrança na fila para as assinaturas informadas e retorna a cobrança."
+      },
+      "es": {
+        "name": "Omitir cargo",
+        "description": "Omite un cargo en cola para las suscripciones indicadas y devuelve el cargo."
+      },
+      "fr": {
+        "name": "Sauter un prélèvement",
+        "description": "Saute un prélèvement en file pour les abonnements indiqués et renvoie le prélèvement."
+      }
+    }
+  }
+}

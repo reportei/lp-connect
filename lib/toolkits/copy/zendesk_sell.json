@@ -1,0 +1,274 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update leads, contacts, deals, notes and tasks in your customer's Zendesk Sell account from your product, through one Connect endpoint.",
+      "intro": "The Zendesk Sell toolkit covers leads (list, create, update, convert), contacts, deals, notes, tasks, pipeline stages and account users. Customers connect with OAuth on your own app, and Connect renews the tokens and logs every execution, so your product or AI agent works the CRM without a custom integration.",
+      "useCases": [
+        {
+          "title": "Capture leads from your product",
+          "body": "Create a lead when someone asks for a demo, add a note with the context and a task for the owner found with List users."
+        },
+        {
+          "title": "Convert a lead into a deal",
+          "body": "Convert a lead into a contact and, by default, a deal, then move the deal along the pipeline by changing its stage_id from List stages."
+        },
+        {
+          "title": "CRM assistant for sales teams",
+          "body": "An AI agent lists a rep's deals, adds a note after each call and creates a follow-up task on the right lead, contact or deal."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize leads, contatos, negócios, notas e tarefas na conta Zendesk Sell do seu cliente pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Zendesk Sell cobre leads (listar, criar, atualizar, converter), contatos, negócios, notas, tarefas, etapas do funil e usuários da conta. O cliente conecta por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução, para o seu produto ou agente de IA trabalhar o CRM sem uma integração própria.",
+      "useCases": [
+        {
+          "title": "Captar leads pelo seu produto",
+          "body": "Crie um lead quando alguém pedir uma demo, adicione uma nota com o contexto e uma tarefa para o responsável encontrado com List users."
+        },
+        {
+          "title": "Converter um lead em negócio",
+          "body": "Converta um lead em contato e, por padrão, em um negócio, e depois mova o negócio no funil alterando seu stage_id obtido em List stages."
+        },
+        {
+          "title": "Assistente de CRM para vendas",
+          "body": "Um agente de IA lista os negócios de um vendedor, adiciona uma nota após cada ligação e cria uma tarefa de acompanhamento no lead, contato ou negócio certo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza leads, contactos, negocios, notas y tareas en la cuenta Zendesk Sell de tu cliente desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de Zendesk Sell cubre leads (listar, crear, actualizar, convertir), contactos, negocios, notas, tareas, etapas del embudo y usuarios de la cuenta. El cliente conecta por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución, para que tu producto o agente de IA trabaje el CRM sin una integración propia.",
+      "useCases": [
+        {
+          "title": "Captar leads desde tu producto",
+          "body": "Crea un lead cuando alguien pida una demo, añade una nota con el contexto y una tarea para el responsable que encuentres con List users."
+        },
+        {
+          "title": "Convertir un lead en negocio",
+          "body": "Convierte un lead en contacto y, por defecto, en un negocio, y luego mueve el negocio en el embudo cambiando su stage_id obtenido de List stages."
+        },
+        {
+          "title": "Asistente de CRM para ventas",
+          "body": "Un agente de IA lista los negocios de un vendedor, añade una nota tras cada llamada y crea una tarea de seguimiento en el lead, contacto o negocio correcto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et mettez à jour leads, contacts, deals, notes et tâches dans le compte Zendesk Sell de votre client depuis votre produit, via un endpoint.",
+      "intro": "Le toolkit Zendesk Sell couvre les leads (lister, créer, mettre à jour, convertir), les contacts, les deals, les notes, les tâches, les étapes du pipeline et les utilisateurs du compte. Le client se connecte par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution, pour que votre produit ou agent IA travaille le CRM sans intégration sur mesure.",
+      "useCases": [
+        {
+          "title": "Capter des leads depuis votre produit",
+          "body": "Créez un lead quand quelqu'un demande une démo, ajoutez une note avec le contexte et une tâche pour le responsable retrouvé avec List users."
+        },
+        {
+          "title": "Convertir un lead en deal",
+          "body": "Convertissez un lead en contact et, par défaut, en deal, puis faites avancer le deal dans le pipeline en changeant son stage_id issu de List stages."
+        },
+        {
+          "title": "Assistant CRM pour les ventes",
+          "body": "Un agent IA liste les deals d'un commercial, ajoute une note après chaque appel et crée une tâche de relance sur le bon lead, contact ou deal."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "zendesk_sell_list_leads": {
+      "pt": {
+        "name": "Listar leads",
+        "description": "Lista os leads que o usuário pode ver, filtrados pelos argumentos informados, 25 por página por padrão. Cada item traz o registro em data, e meta.count diz quantos vieram na página. Pagine com page e per_page."
+      },
+      "es": {
+        "name": "Listar leads",
+        "description": "Lista los leads que el usuario puede ver, filtrados por los argumentos indicados, 25 por página por defecto. Cada elemento trae el registro en data, y meta.count indica cuántos vinieron en la página. Pagina con page y per_page."
+      },
+      "fr": {
+        "name": "Lister les leads",
+        "description": "Liste les leads que l'utilisateur peut voir, filtrés selon les arguments donnés, 25 par page par défaut. Chaque élément contient l'enregistrement dans data, et meta.count indique combien sont arrivés dans la page. Paginez avec page et per_page."
+      }
+    },
+    "zendesk_sell_create_lead": {
+      "pt": {
+        "name": "Criar lead",
+        "description": "Cria um lead, uma pessoa ou empresa interessada no negócio, e o retorna em data. Envie last_name, organization_name ou ambos."
+      },
+      "es": {
+        "name": "Crear lead",
+        "description": "Crea un lead, una persona o empresa interesada en el negocio, y lo devuelve en data. Envía last_name, organization_name o ambos."
+      },
+      "fr": {
+        "name": "Créer un lead",
+        "description": "Crée un lead, une personne ou une entreprise intéressée par l'activité, et le renvoie dans data. Envoyez last_name, organization_name ou les deux."
+      }
+    },
+    "zendesk_sell_update_lead": {
+      "pt": {
+        "name": "Atualizar lead",
+        "description": "Atualiza os campos enviados em data e retorna o lead. Os campos omitidos mantêm seus valores."
+      },
+      "es": {
+        "name": "Actualizar lead",
+        "description": "Actualiza los campos enviados en data y devuelve el lead. Los campos omitidos conservan sus valores."
+      },
+      "fr": {
+        "name": "Mettre à jour un lead",
+        "description": "Met à jour les champs envoyés dans data et renvoie le lead. Les champs omis gardent leurs valeurs."
+      }
+    },
+    "zendesk_sell_convert_lead": {
+      "pt": {
+        "name": "Converter lead",
+        "description": "Converte um lead em contato, como pessoa, organização ou ambos conforme o lead, e por padrão também cria um negócio para ele. Retorna individual_id, organization_id e deal_id dos novos registros em data. As atividades do lead passam para eles em segundo plano."
+      },
+      "es": {
+        "name": "Convertir lead",
+        "description": "Convierte un lead en contacto, como persona, organización o ambos según el lead, y por defecto también crea un negocio para él. Devuelve individual_id, organization_id y deal_id de los nuevos registros en data. Las actividades del lead pasan a ellos en segundo plano."
+      },
+      "fr": {
+        "name": "Convertir un lead",
+        "description": "Convertit un lead en contact, comme personne, organisation ou les deux selon le lead, et crée par défaut aussi un deal pour lui. Renvoie individual_id, organization_id et deal_id des nouveaux enregistrements dans data. Les activités du lead leur sont transférées en arrière-plan."
+      }
+    },
+    "zendesk_sell_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos que o usuário pode ver, pessoas e organizações, filtrados pelos argumentos informados, 25 por página por padrão. Cada item traz o registro em data, e meta.count diz quantos vieram na página. Pagine com page e per_page."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos que el usuario puede ver, personas y organizaciones, filtrados por los argumentos indicados, 25 por página por defecto. Cada elemento trae el registro en data, y meta.count indica cuántos vinieron en la página. Pagina con page y per_page."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts que l'utilisateur peut voir, personnes et organisations, filtrés selon les arguments donnés, 25 par page par défaut. Chaque élément contient l'enregistrement dans data, et meta.count indique combien sont arrivés dans la page. Paginez avec page et per_page."
+      }
+    },
+    "zendesk_sell_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato, uma pessoa ou uma organização, e o retorna em data. Uma pessoa precisa de last_name e uma organização precisa de is_organization true e name."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto, una persona o una organización, y lo devuelve en data. Una persona necesita last_name y una organización necesita is_organization true y name."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact, une personne ou une organisation, et le renvoie dans data. Une personne a besoin de last_name et une organisation de is_organization true et name."
+      }
+    },
+    "zendesk_sell_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza os campos enviados em data e retorna o contato. Os campos omitidos mantêm seus valores. Uma pessoa não pode virar organização, nem o contrário."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza los campos enviados en data y devuelve el contacto. Los campos omitidos conservan sus valores. Una persona no puede convertirse en organización, ni al revés."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour les champs envoyés dans data et renvoie le contact. Les champs omis gardent leurs valeurs. Une personne ne peut pas devenir une organisation, ni l'inverse."
+      }
+    },
+    "zendesk_sell_list_deals": {
+      "pt": {
+        "name": "Listar negócios",
+        "description": "Lista os negócios que o usuário pode ver, filtrados pelos argumentos informados, 25 por página por padrão. Cada item traz o registro em data, e meta.count diz quantos vieram na página. Pagine com page e per_page."
+      },
+      "es": {
+        "name": "Listar negocios",
+        "description": "Lista los negocios que el usuario puede ver, filtrados por los argumentos indicados, 25 por página por defecto. Cada elemento trae el registro en data, y meta.count indica cuántos vinieron en la página. Pagina con page y per_page."
+      },
+      "fr": {
+        "name": "Lister les deals",
+        "description": "Liste les deals que l'utilisateur peut voir, filtrés selon les arguments donnés, 25 par page par défaut. Chaque élément contient l'enregistrement dans data, et meta.count indique combien sont arrivés dans la page. Paginez avec page et per_page."
+      }
+    },
+    "zendesk_sell_create_deal": {
+      "pt": {
+        "name": "Criar negócio",
+        "description": "Cria um negócio para um contato e o retorna em data. name e contact_id são obrigatórios. Sem stage_id, o negócio começa na primeira etapa do funil padrão."
+      },
+      "es": {
+        "name": "Crear negocio",
+        "description": "Crea un negocio para un contacto y lo devuelve en data. name y contact_id son obligatorios. Sin stage_id, el negocio empieza en la primera etapa del embudo por defecto."
+      },
+      "fr": {
+        "name": "Créer un deal",
+        "description": "Crée un deal pour un contact et le renvoie dans data. name et contact_id sont obligatoires. Sans stage_id, le deal démarre à la première étape du pipeline par défaut."
+      }
+    },
+    "zendesk_sell_update_deal": {
+      "pt": {
+        "name": "Atualizar negócio",
+        "description": "Atualiza os campos enviados em data e retorna o negócio. Os campos omitidos mantêm seus valores. Mover o negócio para outra etapa é uma mudança de stage_id."
+      },
+      "es": {
+        "name": "Actualizar negocio",
+        "description": "Actualiza los campos enviados en data y devuelve el negocio. Los campos omitidos conservan sus valores. Mover el negocio a otra etapa es un cambio de stage_id."
+      },
+      "fr": {
+        "name": "Mettre à jour un deal",
+        "description": "Met à jour les champs envoyés dans data et renvoie le deal. Les champs omis gardent leurs valeurs. Déplacer le deal vers une autre étape revient à changer stage_id."
+      }
+    },
+    "zendesk_sell_create_note": {
+      "pt": {
+        "name": "Criar nota",
+        "description": "Adiciona uma nota a um lead, um contato ou um negócio e a retorna em data. resource_type, resource_id e content são obrigatórios."
+      },
+      "es": {
+        "name": "Crear nota",
+        "description": "Añade una nota a un lead, un contacto o un negocio y la devuelve en data. resource_type, resource_id y content son obligatorios."
+      },
+      "fr": {
+        "name": "Créer une note",
+        "description": "Ajoute une note à un lead, un contact ou un deal et la renvoie dans data. resource_type, resource_id et content sont obligatoires."
+      }
+    },
+    "zendesk_sell_create_task": {
+      "pt": {
+        "name": "Criar tarefa",
+        "description": "Cria uma tarefa, avulsa ou em um lead, um contato ou um negócio, e a retorna em data. content é obrigatório."
+      },
+      "es": {
+        "name": "Crear tarea",
+        "description": "Crea una tarea, suelta o en un lead, un contacto o un negocio, y la devuelve en data. content es obligatorio."
+      },
+      "fr": {
+        "name": "Créer une tâche",
+        "description": "Crée une tâche, seule ou sur un lead, un contact ou un deal, et la renvoie dans data. content est obligatoire."
+      }
+    },
+    "zendesk_sell_list_stages": {
+      "pt": {
+        "name": "Listar etapas",
+        "description": "Lista as etapas dos funis de vendas, com id, name, category (incoming, in_progress, won, lost ou unqualified), position, likelihood e pipeline_id, 25 por página por padrão."
+      },
+      "es": {
+        "name": "Listar etapas",
+        "description": "Lista las etapas de los embudos de ventas, con id, name, category (incoming, in_progress, won, lost o unqualified), position, likelihood y pipeline_id, 25 por página por defecto."
+      },
+      "fr": {
+        "name": "Lister les étapes",
+        "description": "Liste les étapes des pipelines de vente, avec id, name, category (incoming, in_progress, won, lost ou unqualified), position, likelihood et pipeline_id, 25 par page par défaut."
+      }
+    },
+    "zendesk_sell_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários da conta do Sell, com id, name, email, role e status, 25 por página por padrão. Os ids são o owner_id que as outras tools recebem."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de la cuenta de Sell, con id, name, email, role y status, 25 por página por defecto. Los ids son el owner_id que reciben las otras tools."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs du compte Sell, avec id, name, email, role et status, 25 par page par défaut. Les ids sont l'owner_id que prennent les autres outils."
+      }
+    }
+  }
+}
