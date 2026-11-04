@@ -45,6 +45,7 @@ export const es: Messages = {
     comparisons: "Comparativas",
     contact: "Contacto",
     allIntegrations: "Todas las integraciones",
+    toolkits: "Toolkits",
     guides: "Guías de APIs",
     docs: "Documentación",
     ai: "Implementar con IA",
@@ -511,5 +512,144 @@ export const es: Messages = {
     catalog: "Catálogo completo",
     comparisons: "Comparativas",
     versus: (competitor) => `Connect o ${competitor}`,
+  },
+  toolkits: {
+    breadcrumb: "Toolkits",
+    breadcrumbLabel: "Ruta de navegación",
+    home: {
+      eyebrow: "Toolkits",
+      title: (n) => `Más allá de los datos: ${n} apps que tu producto opera`,
+      copy: (tools) =>
+        `Envía mensajes por WhatsApp, crea tareas en Jira, agenda en Google Calendar. Son ${tools} tools que tu producto y tus agentes de IA ejecutan en la cuenta de tu cliente, con la misma API.`,
+      cta: (n) => `Ver los ${n} toolkits`,
+    },
+    hub: {
+      metaTitle: (n, tools) => `Toolkits de Reportei Connect: ${n} apps y ${tools} tools en una API`,
+      metaDescription: (n, tools) =>
+        `WhatsApp, Notion, Jira, Stripe y ${n - 4} apps más: ${tools} tools que tu producto y tus agentes de IA ejecutan en las cuentas de tus clientes.`,
+      eyebrow: "Toolkits",
+      h1: (n) => `${n} apps que tu producto y tus agentes de IA operan con una API`,
+      copy: "Tu cliente conecta la cuenta de la app una sola vez. Tu sistema envía mensajes, crea tareas, lee contactos y agenda reuniones llamando a las tools por el mismo endpoint, sin implementar la API de cada app.",
+      toolCount: (n) => (n === 1 ? "1 tool" : `${n} tools`),
+      stats: (n, tools) => `${n} toolkits · ${tools} tools`,
+    },
+    categories: {
+      communication: "Comunicación",
+      crm: "CRM y ventas",
+      marketing: "Marketing",
+      email_marketing: "Email marketing",
+      ecommerce: "E-commerce",
+      finance: "Finanzas y pagos",
+      support: "Atención al cliente",
+      project_management: "Gestión de proyectos",
+      productivity: "Productividad",
+      scheduling: "Agendamiento",
+      analytics: "Analítica",
+      file_storage: "Archivos",
+      developer_tools: "Herramientas para desarrolladores",
+    },
+    auth: {
+      api_key: {
+        label: "Clave de API",
+        body: "Tu cliente pega la clave de la app en una pantalla de Connect, o tu sistema envía la clave con POST /api/customer-toolkits, sin pantalla.",
+      },
+      basic: {
+        label: "Usuario y contraseña",
+        body: "Tu cliente ingresa las credenciales de la app en una pantalla de Connect, o tu sistema las envía con POST /api/customer-toolkits, sin pantalla.",
+      },
+      oauth2: {
+        label: "OAuth con la app de tu producto",
+        body: (slug) =>
+          `Registras la app OAuth de tu producto una sola vez, con POST /api/merchants/credentials/${slug}, y tu cliente autoriza la cuenta en una pantalla de consentimiento. Connect renueva el token cuando está por vencer.`,
+      },
+    },
+    hostParams: (params) => `Al conectar, tu cliente también indica ${params}: la dirección de su cuenta en la API de la app.`,
+    toolkit: {
+      metaTitle: (name) => `API de ${name} para SaaS y agentes de IA`,
+      h1: (name) => `${name} en tu producto y en tus agentes de IA, con una API`,
+      signup: "Empezar prueba gratis",
+      docs: "Ver documentación",
+      trial: "15 días de prueba. Sin tarjeta de crédito.",
+      sampleCaption: (tool) => `Ejemplo: la tool "${tool}" en una cuenta conectada por tu cliente.`,
+      howEyebrow: "Cómo funciona",
+      howTitle: (name) => `Del cliente conectado a la primera llamada a ${name}.`,
+      steps: (name) => [
+        {
+          title: "Tu cliente conecta la cuenta",
+          body: `Tu sistema abre una sesión de Connect para el toolkit y tu cliente conecta su cuenta de ${name}. Recibes el id de la conexión.`,
+        },
+        {
+          title: "Tu producto llama a la tool",
+          body: "Un POST a /api/tools/{tool}/execute con el id de la conexión y los argumentos. La respuesta es la de la propia app, con el mismo status y cuerpo.",
+        },
+        {
+          title: "Connect se encarga del resto",
+          body: "Guarda la credencial cifrada, renueva los tokens OAuth y registra cada ejecución en un historial de auditoría que consultas por la API.",
+        },
+      ],
+      useCasesEyebrow: "Casos de uso",
+      useCasesTitle: (name) => `Qué hace tu producto con ${name}.`,
+      connectEyebrow: "Conexión",
+      connectTitle: "Cómo tu cliente conecta la cuenta",
+      toolsEyebrow: "Tools",
+      toolsTitle: (name, n) => `${n} tools de ${name}`,
+      seeAllTools: (n) => `Ver las ${n} tools`,
+      faqTitle: (name) => `Preguntas sobre el toolkit de ${name}`,
+      faq: (name, tools, modes) => [
+        {
+          q: `¿Necesito implementar la API de ${name}?`,
+          a: `No. Connect ya trae ${tools} tools de ${name} descritas y listas. Tu cliente conecta la cuenta y tu sistema llama a cada tool por el mismo endpoint, con el mismo formato de solicitud.`,
+        },
+        {
+          q: `¿Cómo conecta mi cliente su cuenta de ${name}?`,
+          a: `Con el modo que acepta el toolkit: ${modes}. Connect guarda la credencial cifrada y nunca la devuelve a tu sistema.`,
+        },
+        {
+          q: "¿Funciona con agentes de IA?",
+          a: "Sí. El input de cada tool está descrito en JSON Schema, que tu agente usa directamente como definición de tool. El agente elige la tool y los argumentos, y tu sistema hace la llamada a Connect.",
+        },
+        {
+          q: "¿Mi cliente necesita una cuenta en Reportei?",
+          a: "No. Tu cliente conecta la cuenta en una pantalla de Connect, o tu sistema envía la credencial por la API, y sigue usando solo tu producto.",
+        },
+      ],
+      relatedTitle: "Toolkits de la misma categoría",
+      allToolkits: (n) => `Ver los ${n} toolkits`,
+      officialDocs: (name) => `Documentación oficial de ${name}`,
+    },
+    toolsPage: {
+      metaTitle: (name, n) => `${name}: las ${n} tools de la API`,
+      metaDescription: (name, n, examples) =>
+        `Las ${n} tools del toolkit de ${name} en Reportei Connect: ${examples} y más. Cada una con sus parámetros y un ejemplo de llamada.`,
+      h1: (name) => `Tools de ${name}`,
+      copy: (name, n) =>
+        `Las ${n} operaciones de ${name} que tu producto ejecuta en la cuenta de tu cliente con Connect. Todas usan el mismo endpoint, POST /api/tools/{tool}/execute.`,
+    },
+    tool: {
+      metaTitle: (tool, name) => `API de ${name}: ${tool}`,
+      metaSuffix: (name) => `Ejecútala en la cuenta de ${name} de tu cliente con Reportei Connect.`,
+      h1: (tool, name) => `${tool} en ${name}, con una API`,
+      requestTitle: "La llamada",
+      requestCopy:
+        "Tu sistema envía el id de la conexión de tu cliente y los argumentos de la tool. Los headers son los mismos de toda la API de Connect: el token de tu producto y el token de tu cliente.",
+      responseTitle: "La respuesta",
+      responseCopy:
+        "Connect devuelve el status y el cuerpo de la respuesta de la app tal como llegaron, con el header X-Toolkit-Execution-Id. Cada ejecución queda registrada y se consulta con GET /api/tools/executions/{uuid}.",
+      paramsTitle: "Parámetros",
+      paramsNote: "Las descripciones de los parámetros siguen la documentación oficial de la app, en inglés.",
+      columns: { name: "Parámetro", type: "Tipo", required: "Obligatorio", description: "Descripción" },
+      yes: "Sí",
+      no: "No",
+      values: "Valores:",
+      noParams: "Esta tool no recibe argumentos.",
+      connectionsTitle: "Conexiones posibles",
+      connectionsCopy: (name) =>
+        `Tu cliente conecta su cuenta de ${name} una sola vez, con uno de los modos de abajo. La misma conexión sirve para todas las tools del toolkit.`,
+      aiTitle: "Lista para agentes de IA",
+      aiCopy: (slug) =>
+        `El input de esta tool es un JSON Schema, disponible en GET /api/tools/${slug}. Se convierte en la definición de tool de tu agente sin conversión.`,
+      identifier: "Identificador",
+      otherTools: (name) => `Otras tools de ${name}`,
+    },
   },
 }

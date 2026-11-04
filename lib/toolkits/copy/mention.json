@@ -1,0 +1,218 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create social listening alerts, read collected mentions and curate them with tags in your customer's Mention account, through one Connect endpoint.",
+      "intro": "The Mention toolkit covers the account and its reference lists, alerts, the mentions they collect, and tags. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the API token and logs every execution.",
+      "useCases": [
+        {
+          "title": "Set up brand monitoring",
+          "body": "A reputation tool creates an alert with a query, languages and sources for a new customer, then refines the query later."
+        },
+        {
+          "title": "Feed mentions into a dashboard",
+          "body": "A SaaS lists the mentions an alert collected, with source, language and tone, and pages back to older ones."
+        },
+        {
+          "title": "Agent that curates mentions",
+          "body": "An AI agent marks mentions as read or favorite, sets the tone, moves them to a folder and tags them."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie alertas de social listening, leia as menções coletadas e organize com tags na conta Mention do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit do Mention cobre a conta e suas listas de referência, alertas, as menções que eles coletam e tags. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda o token de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Configure o monitoramento de marca",
+          "body": "Uma ferramenta de reputação cria um alerta com consulta, idiomas e fontes para um novo cliente e refina a consulta depois."
+        },
+        {
+          "title": "Leve menções a um painel",
+          "body": "Um SaaS lista as menções que um alerta coletou, com fonte, idioma e tom, e pagina até as mais antigas."
+        },
+        {
+          "title": "Agente que organiza menções",
+          "body": "Um agente de IA marca menções como lidas ou favoritas, define o tom, move para uma pasta e aplica tags."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea alertas de social listening, lee las menciones recogidas y organízalas con etiquetas en la cuenta de Mention de tu cliente, con un endpoint.",
+      "intro": "El toolkit de Mention cubre la cuenta y sus listas de referencia, alertas, las menciones que recogen y etiquetas. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda el token de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Configura el monitoreo de marca",
+          "body": "Una herramienta de reputación crea una alerta con consulta, idiomas y fuentes para un cliente nuevo y refina la consulta después."
+        },
+        {
+          "title": "Lleva menciones a un panel",
+          "body": "Un SaaS lista las menciones que recogió una alerta, con fuente, idioma y tono, y pagina hasta las más antiguas."
+        },
+        {
+          "title": "Agente que organiza menciones",
+          "body": "Un agente de IA marca menciones como leídas o favoritas, define el tono, las mueve a una carpeta y las etiqueta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des alertes de social listening, lisez les mentions collectées et taguez-les dans le compte Mention de votre client, via un endpoint Connect.",
+      "intro": "Le toolkit Mention couvre le compte et ses listes de référence, les alertes, les mentions qu'elles collectent et les tags. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke le jeton d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Configurer la veille de marque",
+          "body": "Un outil de réputation crée une alerte avec requête, langues et sources pour un nouveau client, puis affine la requête plus tard."
+        },
+        {
+          "title": "Alimenter un tableau de bord",
+          "body": "Un SaaS liste les mentions collectées par une alerte, avec source, langue et tonalité, et remonte vers les plus anciennes."
+        },
+        {
+          "title": "Agent qui trie les mentions",
+          "body": "Un agent IA marque des mentions comme lues ou favorites, définit la tonalité, les range dans un dossier et les tague."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "mention_get_account": {
+      "pt": {
+        "name": "Obter conta",
+        "description": "Retorna a conta Mention da conexão com id, nome, e-mail e idioma. O id é o account_id que as outras ferramentas pedem."
+      },
+      "es": {
+        "name": "Obtener cuenta",
+        "description": "Devuelve la cuenta de Mention de la conexión con id, nombre, email e idioma. El id es el account_id que piden las otras herramientas."
+      },
+      "fr": {
+        "name": "Obtenir le compte",
+        "description": "Renvoie le compte Mention de la connexion avec id, nom, e-mail et langue. L'id est l'account_id que demandent les autres outils."
+      }
+    },
+    "mention_get_app_data": {
+      "pt": {
+        "name": "Obter dados do app",
+        "description": "Retorna as listas de referência do Mention: alert_languages, alert_countries e alert_sources, cujas chaves são os códigos que alertas e filtros de menções aceitam, além de alert_tones e mention_folders."
+      },
+      "es": {
+        "name": "Obtener datos de la app",
+        "description": "Devuelve las listas de referencia de Mention: alert_languages, alert_countries y alert_sources, cuyas claves son los códigos que aceptan alertas y filtros de menciones, además de alert_tones y mention_folders."
+      },
+      "fr": {
+        "name": "Obtenir les données de l'app",
+        "description": "Renvoie les listes de référence de Mention : alert_languages, alert_countries et alert_sources, dont les clés sont les codes que prennent les alertes et les filtres de mentions, ainsi que alert_tones et mention_folders."
+      }
+    },
+    "mention_list_alerts": {
+      "pt": {
+        "name": "Listar alertas",
+        "description": "Lista os alertas da conta com id, nome, consulta, idiomas, fontes e contagem de menções por pasta. Quando há mais alertas, a resposta traz _links.more com o cursor da próxima página."
+      },
+      "es": {
+        "name": "Listar alertas",
+        "description": "Lista las alertas de la cuenta con id, nombre, consulta, idiomas, fuentes y conteo de menciones por carpeta. Cuando hay más alertas, la respuesta trae _links.more con el cursor de la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les alertes",
+        "description": "Liste les alertes du compte avec id, nom, requête, langues, sources et nombre de mentions par dossier. Quand il y a plus d'alertes, la réponse contient _links.more avec le curseur de la page suivante."
+      }
+    },
+    "mention_create_alert": {
+      "pt": {
+        "name": "Criar alerta",
+        "description": "Cria um alerta, que começa a coletar as menções que correspondem à sua consulta, e o retorna com seu id. As menções coletadas contam na cota do plano do Mention."
+      },
+      "es": {
+        "name": "Crear alerta",
+        "description": "Crea una alerta, que empieza a recoger las menciones que coinciden con su consulta, y la devuelve con su id. Las menciones recogidas cuentan en la cuota del plan de Mention."
+      },
+      "fr": {
+        "name": "Créer une alerte",
+        "description": "Crée une alerte, qui commence à collecter les mentions correspondant à sa requête, et la renvoie avec son id. Les mentions collectées comptent dans le quota du forfait Mention."
+      }
+    },
+    "mention_update_alert": {
+      "pt": {
+        "name": "Atualizar alerta",
+        "description": "Atualiza um alerta, em geral para refinar sua consulta, e o retorna. Só os campos enviados mudam. Uma consulta enviada substitui a atual e exige seu type."
+      },
+      "es": {
+        "name": "Actualizar alerta",
+        "description": "Actualiza una alerta, normalmente para refinar su consulta, y la devuelve. Solo cambian los campos enviados. Una consulta enviada reemplaza la actual y requiere su type."
+      },
+      "fr": {
+        "name": "Mettre à jour une alerte",
+        "description": "Met à jour une alerte, généralement pour affiner sa requête, et la renvoie. Seuls les champs envoyés changent. Une requête envoyée remplace l'actuelle et exige son type."
+      }
+    },
+    "mention_list_mentions": {
+      "pt": {
+        "name": "Listar menções",
+        "description": "Lista as menções que um alerta coletou, com título, texto, URL, fonte, idioma, tom e pasta. A resposta traz _links.more, cujo href leva o cursor das menções mais antigas. Alguns filtros não podem ser combinados, como cada um indica."
+      },
+      "es": {
+        "name": "Listar menciones",
+        "description": "Lista las menciones que recogió una alerta, con título, texto, URL, fuente, idioma, tono y carpeta. La respuesta trae _links.more, cuyo href lleva el cursor de las menciones más antiguas. Algunos filtros no se pueden combinar, como indica cada uno."
+      },
+      "fr": {
+        "name": "Lister les mentions",
+        "description": "Liste les mentions collectées par une alerte, avec titre, texte, URL, source, langue, tonalité et dossier. La réponse contient _links.more, dont le href porte le curseur des mentions plus anciennes. Certains filtres ne peuvent pas être combinés, comme chacun l'indique."
+      }
+    },
+    "mention_get_mention": {
+      "pt": {
+        "name": "Obter menção",
+        "description": "Retorna uma menção com título, texto, URLs, fonte, idioma, tom, pasta, as flags de lida e favorita, suas tarefas e a primeira página de suas menções filhas."
+      },
+      "es": {
+        "name": "Obtener mención",
+        "description": "Devuelve una mención con título, texto, URLs, fuente, idioma, tono, carpeta, las marcas de leída y favorita, sus tareas y la primera página de sus menciones hijas."
+      },
+      "fr": {
+        "name": "Obtenir une mention",
+        "description": "Renvoie une mention avec titre, texte, URLs, source, langue, tonalité, dossier, les indicateurs lue et favorite, ses tâches et la première page de ses mentions enfants."
+      }
+    },
+    "mention_update_mention": {
+      "pt": {
+        "name": "Atualizar menção",
+        "description": "Organiza uma menção: marca como lida ou favorita, move para uma pasta, define o tom ou aplica tags, e a retorna. Só os campos enviados mudam. O conteúdo de uma menção nunca muda."
+      },
+      "es": {
+        "name": "Actualizar mención",
+        "description": "Organiza una mención: la marca como leída o favorita, la mueve a una carpeta, define el tono o la etiqueta, y la devuelve. Solo cambian los campos enviados. El contenido de una mención nunca cambia."
+      },
+      "fr": {
+        "name": "Mettre à jour une mention",
+        "description": "Classe une mention : la marque comme lue ou favorite, la déplace dans un dossier, définit sa tonalité ou la tague, et la renvoie. Seuls les champs envoyés changent. Le contenu d'une mention ne change jamais."
+      }
+    },
+    "mention_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags de um alerta com id, nome, contagem de menções e palavras-chave de marcação automática. O id é o que as tags de Atualizar menção aceitam."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas de una alerta con id, nombre, conteo de menciones y palabras clave de etiquetado automático. El id es lo que aceptan las tags de Actualizar mención."
+      },
+      "fr": {
+        "name": "Lister les tags",
+        "description": "Liste les tags d'une alerte avec id, nom, nombre de mentions et mots-clés d'étiquetage automatique. L'id est ce que prennent les tags de Mettre à jour une mention."
+      }
+    },
+    "mention_create_tag": {
+      "pt": {
+        "name": "Criar tag",
+        "description": "Cria uma tag em um alerta e a retorna com seu id. Um alerta comporta até 100 tags, e novas menções que contêm uma das palavras-chave são marcadas automaticamente."
+      },
+      "es": {
+        "name": "Crear etiqueta",
+        "description": "Crea una etiqueta en una alerta y la devuelve con su id. Una alerta admite hasta 100 etiquetas, y las menciones nuevas que contienen una de las palabras clave se etiquetan automáticamente."
+      },
+      "fr": {
+        "name": "Créer un tag",
+        "description": "Crée un tag dans une alerte et le renvoie avec son id. Une alerte peut contenir jusqu'à 100 tags, et les nouvelles mentions contenant l'un des mots-clés sont taguées automatiquement."
+      }
+    }
+  }
+}

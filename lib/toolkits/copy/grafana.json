@@ -1,0 +1,77 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, create and update dashboards and folders in your customer's Grafana Cloud stack through one Reportei Connect endpoint.",
+      "intro": "The Grafana Cloud toolkit covers the dashboards and folders of a stack: read them, create them from JSON and update them. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        { "title": "Provision dashboards for customers", "body": "When a customer is onboarded, create a folder and a dashboard from a JSON template in their stack, so monitoring is ready on day one." },
+        { "title": "Keep dashboards in sync", "body": "Read a dashboard, change its spec and send it back with the resourceVersion, so your product can push panel or variable updates safely." },
+        { "title": "Dashboard discovery for agents", "body": "Let an AI agent list folders and dashboards, read a dashboard's panels and time range, and describe what a stack already monitors." }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, crie e atualize dashboards e pastas na stack do Grafana Cloud do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do Grafana Cloud cobre os dashboards e as pastas de uma stack: ler, criar a partir de JSON e atualizar. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        { "title": "Provisionar dashboards para clientes", "body": "No onboarding de um cliente, crie uma pasta e um dashboard a partir de um template JSON na stack dele, para o monitoramento já nascer pronto." },
+        { "title": "Manter dashboards sincronizados", "body": "Leia um dashboard, altere o spec e envie de volta com o resourceVersion, para seu produto aplicar mudanças de painéis ou variáveis com segurança." },
+        { "title": "Descoberta de dashboards por agente", "body": "Deixe um agente de IA listar pastas e dashboards, ler os painéis e o intervalo de tempo de um dashboard e descrever o que a stack já monitora." }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, crea y actualiza dashboards y carpetas en el stack de Grafana Cloud de tu cliente con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de Grafana Cloud cubre los dashboards y las carpetas de un stack: leerlos, crearlos a partir de JSON y actualizarlos. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        { "title": "Aprovisionar dashboards para clientes", "body": "Al dar de alta a un cliente, crea una carpeta y un dashboard desde una plantilla JSON en su stack, para que el monitoreo esté listo desde el primer día." },
+        { "title": "Mantener dashboards sincronizados", "body": "Lee un dashboard, cambia su spec y envíalo de vuelta con el resourceVersion, para que tu producto aplique cambios de paneles o variables con seguridad." },
+        { "title": "Descubrimiento de dashboards con agentes", "body": "Deja que un agente de IA liste carpetas y dashboards, lea los paneles y el rango de tiempo de un dashboard y describa qué monitorea ya el stack." }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, créez et mettez à jour dashboards et dossiers dans la stack Grafana Cloud de votre client via un seul endpoint Reportei Connect.",
+      "intro": "Le toolkit Grafana Cloud couvre les dashboards et les dossiers d'une stack : les lire, les créer à partir de JSON et les mettre à jour. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        { "title": "Provisionner les dashboards des clients", "body": "À l'intégration d'un client, créez un dossier et un dashboard à partir d'un modèle JSON dans sa stack, pour que la supervision soit prête dès le premier jour." },
+        { "title": "Garder les dashboards synchronisés", "body": "Lisez un dashboard, modifiez son spec et renvoyez-le avec le resourceVersion, pour que votre produit applique en sécurité des changements de panneaux ou de variables." },
+        { "title": "Découverte de dashboards par un agent", "body": "Laissez un agent IA lister dossiers et dashboards, lire les panneaux et la plage de temps d'un dashboard et décrire ce que la stack surveille déjà." }
+      ]
+    }
+  },
+  "tools": {
+    "grafana_list_dashboards": {
+      "pt": { "name": "Listar dashboards", "description": "Lista os dashboards da stack. Cada item traz metadata.name, o uid que as outras ferramentas pedem, o uid da pasta na anotação grafana.app/folder do metadata e o JSON inteiro do dashboard em spec, com seu title. Mantenha limit pequeno; quando metadata.continue vier, envie-o como continue para a próxima página." },
+      "es": { "name": "Listar dashboards", "description": "Lista los dashboards del stack. Cada elemento trae metadata.name, el uid que piden las demás herramientas, el uid de la carpeta en la anotación grafana.app/folder del metadata y el JSON completo del dashboard en spec, con su title. Mantén limit pequeño; cuando llegue metadata.continue, envíalo como continue para la página siguiente." },
+      "fr": { "name": "Lister les dashboards", "description": "Liste les dashboards de la stack. Chaque élément contient metadata.name, l'uid que demandent les autres outils, l'uid du dossier dans l'annotation grafana.app/folder du metadata et tout le JSON du dashboard dans spec, avec son title. Gardez limit petit ; quand metadata.continue arrive, envoyez-le comme continue pour la page suivante." }
+    },
+    "grafana_get_dashboard": {
+      "pt": { "name": "Obter dashboard", "description": "Retorna um dashboard: metadata, com o uid em name, o resourceVersion e a anotação de pasta, e o JSON do dashboard em spec, com title, panels, variáveis e intervalo de tempo." },
+      "es": { "name": "Obtener dashboard", "description": "Devuelve un dashboard: metadata, con el uid en name, el resourceVersion y la anotación de carpeta, y el JSON del dashboard en spec, con title, panels, variables y rango de tiempo." },
+      "fr": { "name": "Obtenir un dashboard", "description": "Renvoie un dashboard : metadata, avec l'uid dans name, le resourceVersion et l'annotation de dossier, et le JSON du dashboard dans spec, avec title, panels, variables et plage de temps." }
+    },
+    "grafana_create_dashboard": {
+      "pt": { "name": "Criar dashboard", "description": "Cria um dashboard a partir do seu JSON em spec, na raiz ou em uma pasta. Envie metadata.name com o uid desejado, ou metadata.generateName com um prefixo para um uid aleatório. Um uid já em uso responde 409." },
+      "es": { "name": "Crear dashboard", "description": "Crea un dashboard a partir de su JSON en spec, en la raíz o en una carpeta. Envía metadata.name con el uid que quieras, o metadata.generateName con un prefijo para un uid aleatorio. Un uid ya en uso responde 409." },
+      "fr": { "name": "Créer un dashboard", "description": "Crée un dashboard à partir de son JSON dans spec, à la racine ou dans un dossier. Envoyez metadata.name avec l'uid voulu, ou metadata.generateName avec un préfixe pour un uid aléatoire. Un uid déjà utilisé répond 409." }
+    },
+    "grafana_update_dashboard": {
+      "pt": { "name": "Atualizar dashboard", "description": "Substitui um dashboard por uma nova versão do seu JSON. Leia-o antes com Get dashboard, altere spec e envie o spec inteiro, pois campos omitidos são removidos. Envie o resourceVersion que você leu para não sobrescrever uma mudança mais nova; um desatualizado responde 409." },
+      "es": { "name": "Actualizar dashboard", "description": "Reemplaza un dashboard por una nueva versión de su JSON. Léelo antes con Get dashboard, cambia spec y envía el spec completo, porque los campos omitidos se eliminan. Envía el resourceVersion que leíste para no sobrescribir un cambio más reciente; uno desactualizado responde 409." },
+      "fr": { "name": "Mettre à jour un dashboard", "description": "Remplace un dashboard par une nouvelle version de son JSON. Lisez-le d'abord avec Get dashboard, modifiez spec et renvoyez le spec entier, car les champs omis sont supprimés. Envoyez le resourceVersion lu pour ne pas écraser un changement plus récent ; un resourceVersion périmé répond 409." }
+    },
+    "grafana_list_folders": {
+      "pt": { "name": "Listar pastas", "description": "Lista as pastas da stack que o token enxerga, cada uma com metadata.name, o uid que os campos de pasta das outras ferramentas pedem, a pasta pai na anotação grafana.app/folder do metadata e o título em spec. Quando metadata.continue vier, envie-o como continue para a próxima página." },
+      "es": { "name": "Listar carpetas", "description": "Lista las carpetas del stack que ve el token, cada una con metadata.name, el uid que piden los campos de carpeta de las demás herramientas, la carpeta padre en la anotación grafana.app/folder del metadata y el título en spec. Cuando llegue metadata.continue, envíalo como continue para la página siguiente." },
+      "fr": { "name": "Lister les dossiers", "description": "Liste les dossiers de la stack que le jeton peut voir, chacun avec metadata.name, l'uid que demandent les champs de dossier des autres outils, le dossier parent dans l'annotation grafana.app/folder du metadata et le titre dans spec. Quand metadata.continue arrive, envoyez-le comme continue pour la page suivante." }
+    },
+    "grafana_create_folder": {
+      "pt": { "name": "Criar pasta", "description": "Cria uma pasta na raiz ou dentro de outra pasta. Envie metadata.name com o uid desejado, ou metadata.generateName com um prefixo para um uid aleatório." },
+      "es": { "name": "Crear carpeta", "description": "Crea una carpeta en la raíz o dentro de otra carpeta. Envía metadata.name con el uid que quieras, o metadata.generateName con un prefijo para un uid aleatorio." },
+      "fr": { "name": "Créer un dossier", "description": "Crée un dossier à la racine ou dans un autre dossier. Envoyez metadata.name avec l'uid voulu, ou metadata.generateName avec un préfixe pour un uid aléatoire." }
+    },
+    "grafana_update_folder": {
+      "pt": { "name": "Atualizar pasta", "description": "Renomeia uma pasta ou a move para dentro de outra. Envie o título e, quando houver, o pai na anotação grafana.app/folder, pois a chamada substitui a pasta." },
+      "es": { "name": "Actualizar carpeta", "description": "Renombra una carpeta o la mueve dentro de otra. Envía el título y, cuando lo tenga, el padre en la anotación grafana.app/folder, porque la llamada reemplaza la carpeta." },
+      "fr": { "name": "Mettre à jour un dossier", "description": "Renomme un dossier ou le déplace sous un autre. Envoyez le titre et, s'il y en a un, le parent dans l'annotation grafana.app/folder, car l'appel remplace le dossier." }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, acknowledge and resolve incidents, add notes, and see who is on call in your customer's PagerDuty account through one Connect endpoint.",
+      "intro": "The PagerDuty toolkit covers incidents, their notes and log entries, services, on-call shifts, users, escalation policies and priorities. Through Connect, a product or AI agent triggers and handles incidents in the customer's account, with the permissions of the user who created the token, without building the integration.",
+      "useCases": [
+        {
+          "title": "Incidents from your monitoring",
+          "body": "Create an incident on a service when your product detects a failure, which notifies the escalation policy of that service."
+        },
+        {
+          "title": "On-call lookup for an agent",
+          "body": "Let an AI agent list who is on call right now, read the incident timeline from its log entries and post a note with what it found."
+        },
+        {
+          "title": "Incident triage",
+          "body": "List recent incidents, then acknowledge, reassign, escalate or resolve them from your own interface or from a chat with an agent."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, reconheça e resolva incidentes, adicione notas e veja quem está de plantão na conta PagerDuty do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do PagerDuty cobre incidentes, suas notas e entradas de log, serviços, escalas de plantão, usuários, políticas de escalonamento e prioridades. Pelo Connect, um produto ou agente de IA aciona e trata incidentes na conta do cliente, com as permissões de quem criou o token, sem construir a integração.",
+      "useCases": [
+        {
+          "title": "Incidentes a partir do monitoramento",
+          "body": "Crie um incidente em um serviço quando seu produto detectar uma falha, o que notifica a política de escalonamento do serviço."
+        },
+        {
+          "title": "Consulta de plantão por agente",
+          "body": "Deixe um agente de IA listar quem está de plantão agora, ler a linha do tempo do incidente pelas entradas de log e postar uma nota com o que encontrou."
+        },
+        {
+          "title": "Triagem de incidentes",
+          "body": "Liste os incidentes recentes e reconheça, reatribua, escale ou resolva pela sua interface ou numa conversa com um agente."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, reconoce y resuelve incidentes, agrega notas y consulta quién está de guardia en la cuenta de PagerDuty de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de PagerDuty cubre incidentes, sus notas y entradas de registro, servicios, turnos de guardia, usuarios, políticas de escalado y prioridades. Con Connect, un producto o agente de IA activa y gestiona incidentes en la cuenta del cliente, con los permisos de quien creó el token, sin construir la integración.",
+      "useCases": [
+        {
+          "title": "Incidentes desde tu monitoreo",
+          "body": "Crea un incidente en un servicio cuando tu producto detecte un fallo, lo que notifica a la política de escalado de ese servicio."
+        },
+        {
+          "title": "Consulta de guardia para un agente",
+          "body": "Deja que un agente de IA liste quién está de guardia ahora, lea la línea de tiempo del incidente por sus entradas de registro y publique una nota con lo que encontró."
+        },
+        {
+          "title": "Triaje de incidentes",
+          "body": "Lista los incidentes recientes y reconócelos, reasígnalos, escálalos o resuélvelos desde tu interfaz o desde un chat con un agente."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, prenez en compte et résolvez des incidents, ajoutez des notes et voyez qui est d'astreinte dans le compte PagerDuty de votre client via Connect.",
+      "intro": "Le toolkit PagerDuty couvre les incidents, leurs notes et entrées de journal, les services, les astreintes, les utilisateurs, les politiques d'escalade et les priorités. Avec Connect, un produit ou un agent IA déclenche et traite des incidents dans le compte du client, avec les permissions de l'utilisateur qui a créé le jeton, sans construire l'intégration.",
+      "useCases": [
+        {
+          "title": "Incidents depuis votre supervision",
+          "body": "Créez un incident sur un service quand votre produit détecte une panne, ce qui notifie la politique d'escalade de ce service."
+        },
+        {
+          "title": "Consultation des astreintes par un agent",
+          "body": "Laissez un agent IA lister qui est d'astreinte en ce moment, lire la chronologie de l'incident via ses entrées de journal et poster une note avec ce qu'il a trouvé."
+        },
+        {
+          "title": "Tri des incidents",
+          "body": "Listez les incidents récents, puis prenez-les en compte, réassignez-les, escaladez-les ou résolvez-les depuis votre interface ou une conversation avec un agent."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "pagerduty_list_incidents": {
+      "pt": {
+        "name": "Listar incidentes",
+        "description": "Lista os incidentes da conta criados no último mês, ou no intervalo de since e until. Não há filtro por status, serviço ou responsável aqui, então leia status, service e assignments em cada item. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar incidentes",
+        "description": "Lista los incidentes de la cuenta creados en el último mes, o en el rango de since y until. Aquí no hay filtro por estado, servicio o asignado, así que lee status, service y assignments en cada elemento. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les incidents",
+        "description": "Liste les incidents du compte créés le mois dernier, ou dans la plage de since et until. Il n'y a pas de filtre par statut, service ou assigné ici, lisez donc status, service et assignments dans chaque élément. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_get_incident": {
+      "pt": {
+        "name": "Obter incidente",
+        "description": "Retorna um incidente com status, urgência, prioridade, serviço, atribuições, reconhecimentos e política de escalonamento."
+      },
+      "es": {
+        "name": "Obtener incidente",
+        "description": "Devuelve un incidente con su estado, urgencia, prioridad, servicio, asignaciones, reconocimientos y política de escalado."
+      },
+      "fr": {
+        "name": "Obtenir un incident",
+        "description": "Renvoie un incident avec son statut, son urgence, sa priorité, son service, ses assignations, ses prises en compte et sa politique d'escalade."
+      }
+    },
+    "pagerduty_create_incident": {
+      "pt": {
+        "name": "Criar incidente",
+        "description": "Cria um incidente em um serviço, o que notifica a política de escalonamento do serviço ou os usuários em assignments. Precisa de type, title e service. Envie assignments ou escalation_policy, nunca os dois. Um incidente que o usuário atribui a si mesmo começa reconhecido, sem notificá-lo."
+      },
+      "es": {
+        "name": "Crear incidente",
+        "description": "Crea un incidente en un servicio, lo que notifica a la política de escalado del servicio o a los usuarios en assignments. Necesita type, title y service. Envía assignments o escalation_policy, nunca ambos. Un incidente que el usuario se asigna a sí mismo empieza reconocido, sin notificarlo."
+      },
+      "fr": {
+        "name": "Créer un incident",
+        "description": "Crée un incident sur un service, ce qui notifie la politique d'escalade du service, ou les utilisateurs dans assignments. Nécessite type, title et service. Envoyez assignments ou escalation_policy, jamais les deux. Un incident que l'utilisateur s'assigne à lui-même démarre pris en compte, sans le notifier."
+      }
+    },
+    "pagerduty_update_incident": {
+      "pt": {
+        "name": "Atualizar incidente",
+        "description": "Reconhece, resolve, reatribui ou escala um incidente, ou muda seu título, urgência, prioridade ou serviço. Envie type e só os campos a mudar. Reatribuir ou escalar notifica os novos responsáveis, e definir status em um incidente resolvido o reabre."
+      },
+      "es": {
+        "name": "Actualizar incidente",
+        "description": "Reconoce, resuelve, reasigna o escala un incidente, o cambia su título, urgencia, prioridad o servicio. Envía type y solo los campos a cambiar. Reasignar o escalar notifica a los nuevos responsables, y definir status en un incidente resuelto lo reabre."
+      },
+      "fr": {
+        "name": "Mettre à jour un incident",
+        "description": "Prend en compte, résout, réassigne ou escalade un incident, ou change son titre, son urgence, sa priorité ou son service. Envoyez type et seulement les champs à modifier. Réassigner ou escalader notifie les nouveaux responsables, et définir status sur un incident résolu le rouvre."
+      }
+    },
+    "pagerduty_list_incident_notes": {
+      "pt": {
+        "name": "Listar notas do incidente",
+        "description": "Lista as notas de um incidente, cada uma com seu conteúdo, autor e hora de criação."
+      },
+      "es": {
+        "name": "Listar notas del incidente",
+        "description": "Lista las notas de un incidente, cada una con su contenido, autor y hora de creación."
+      },
+      "fr": {
+        "name": "Lister les notes d'un incident",
+        "description": "Liste les notes d'un incident, chacune avec son contenu, son auteur et son heure de création."
+      }
+    },
+    "pagerduty_create_incident_note": {
+      "pt": {
+        "name": "Criar nota no incidente",
+        "description": "Adiciona uma nota a um incidente, assinada pelo usuário da conexão. Um incidente comporta até 2000 notas."
+      },
+      "es": {
+        "name": "Crear nota en el incidente",
+        "description": "Agrega una nota a un incidente, firmada por el usuario de la conexión. Un incidente admite hasta 2000 notas."
+      },
+      "fr": {
+        "name": "Créer une note sur un incident",
+        "description": "Ajoute une note à un incident, signée par l'utilisateur de la connexion. Un incident peut contenir jusqu'à 2000 notes."
+      }
+    },
+    "pagerduty_list_incident_log_entries": {
+      "pt": {
+        "name": "Listar entradas de log do incidente",
+        "description": "Lista a linha do tempo de um incidente: acionamentos, notificações, reconhecimentos, atribuições, escalonamentos, notas e resolução, cada um com o agente e a hora. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar entradas de registro del incidente",
+        "description": "Lista la línea de tiempo de un incidente: activaciones, notificaciones, reconocimientos, asignaciones, escalados, notas y resolución, cada uno con el agente y la hora. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les entrées de journal d'un incident",
+        "description": "Liste la chronologie d'un incident : déclenchements, notifications, prises en compte, assignations, escalades, notes et résolution, chacun avec l'agent et l'heure. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_list_services": {
+      "pt": {
+        "name": "Listar serviços",
+        "description": "Lista os serviços da conta, cada um com id, nome, status e política de escalonamento. O id é o que Create incident e Update incident pedem. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar servicios",
+        "description": "Lista los servicios de la cuenta, cada uno con id, nombre, estado y política de escalado. El id es lo que piden Create incident y Update incident. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les services",
+        "description": "Liste les services du compte, chacun avec id, nom, statut et politique d'escalade. L'id est ce que demandent Create incident et Update incident. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_list_oncalls": {
+      "pt": {
+        "name": "Listar plantões",
+        "description": "Lista quem está de plantão, uma entrada por usuário, política de escalonamento e nível, com a escala quando o turno vem de uma. Sem since e until, retorna os plantões de agora. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar guardias",
+        "description": "Lista quién está de guardia, una entrada por usuario, política de escalado y nivel, con el horario cuando el turno viene de uno. Sin since y until, devuelve las guardias de este momento. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les astreintes",
+        "description": "Liste qui est d'astreinte, une entrée par utilisateur, politique d'escalade et niveau, avec le planning quand la garde en vient d'un. Sans since et until, renvoie les astreintes du moment. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários da conta, com id, nome, e-mail e função. O id vai no assignee de Create incident e Update incident. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de la cuenta, con id, nombre, correo y rol. El id va en el assignee de Create incident y Update incident. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs du compte, avec id, nom, e-mail et rôle. L'id va dans l'assignee de Create incident et Update incident. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_list_escalation_policies": {
+      "pt": {
+        "name": "Listar políticas de escalonamento",
+        "description": "Lista as políticas de escalonamento da conta, cada uma com id, nome e regras de escalonamento. O id vai no escalation_policy de Create incident e Update incident. Pagine com limit e offset enquanto more for true."
+      },
+      "es": {
+        "name": "Listar políticas de escalado",
+        "description": "Lista las políticas de escalado de la cuenta, cada una con id, nombre y reglas de escalado. El id va en el escalation_policy de Create incident y Update incident. Pagina con limit y offset mientras more sea true."
+      },
+      "fr": {
+        "name": "Lister les politiques d'escalade",
+        "description": "Liste les politiques d'escalade du compte, chacune avec id, nom et règles d'escalade. L'id va dans l'escalation_policy de Create incident et Update incident. Paginez avec limit et offset tant que more est true."
+      }
+    },
+    "pagerduty_list_priorities": {
+      "pt": {
+        "name": "Listar prioridades",
+        "description": "Lista as prioridades de incidente da conta, da mais à menos grave, como P1 a P5. O id vai no priority de Create incident e Update incident. Uma conta que não configurou prioridades não tem nenhuma."
+      },
+      "es": {
+        "name": "Listar prioridades",
+        "description": "Lista las prioridades de incidente de la cuenta, de la más a la menos grave, como P1 a P5. El id va en el priority de Create incident y Update incident. Una cuenta que no ha configurado prioridades no tiene ninguna."
+      },
+      "fr": {
+        "name": "Lister les priorités",
+        "description": "Liste les priorités d'incident du compte, de la plus à la moins grave, comme P1 à P5. L'id va dans le priority de Create incident et Update incident. Un compte qui n'a pas configuré de priorités n'en a aucune."
+      }
+    }
+  }
+}

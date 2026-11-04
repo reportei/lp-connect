@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, search and update tickets, replies, notes and contacts in your customer's Freshdesk helpdesk through one Connect endpoint.",
+      "intro": "The Freshdesk toolkit covers tickets and their conversations, ticket fields, contacts and company search. Your product or AI agent calls them through Connect, which stores the customer's credentials and logs every execution, so you skip building the integration.",
+      "useCases": [
+        {
+          "title": "Open tickets from your product",
+          "body": "A SaaS creates a Freshdesk ticket when a user reports a problem, identifying the requester by email so a new contact is created if needed."
+        },
+        {
+          "title": "Support copilot for agents",
+          "body": "An AI agent searches tickets by status or priority, reads the conversation and posts a private note or a reply to the requester."
+        },
+        {
+          "title": "Keep contacts in sync",
+          "body": "A CRM or billing tool creates and updates Freshdesk contacts and links them to companies found by name."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, busque e atualize tickets, respostas, notas e contatos no Freshdesk do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Freshdesk cobre tickets e suas conversas, campos de ticket, contatos e busca de empresas. Seu produto ou agente de IA os chama pelo Connect, que guarda as credenciais do cliente e registra cada execução, sem você construir a integração.",
+      "useCases": [
+        {
+          "title": "Abra tickets pelo seu produto",
+          "body": "Um SaaS cria um ticket no Freshdesk quando um usuário relata um problema, identificando o solicitante pelo e-mail para que um novo contato seja criado se preciso."
+        },
+        {
+          "title": "Copiloto de suporte para agentes",
+          "body": "Um agente de IA busca tickets por status ou prioridade, lê a conversa e publica uma nota privada ou uma resposta ao solicitante."
+        },
+        {
+          "title": "Contatos sempre em sincronia",
+          "body": "Um CRM ou ferramenta de cobrança cria e atualiza contatos no Freshdesk e os vincula a empresas encontradas pelo nome."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, busca y actualiza tickets, respuestas, notas y contactos en el Freshdesk de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Freshdesk cubre tickets y sus conversaciones, campos de ticket, contactos y búsqueda de empresas. Tu producto o agente de IA los llama por Connect, que guarda las credenciales del cliente y registra cada ejecución, sin que construyas la integración.",
+      "useCases": [
+        {
+          "title": "Abre tickets desde tu producto",
+          "body": "Un SaaS crea un ticket en Freshdesk cuando un usuario reporta un problema, identificando al solicitante por correo para que se cree un contacto nuevo si hace falta."
+        },
+        {
+          "title": "Copiloto de soporte para agentes",
+          "body": "Un agente de IA busca tickets por estado o prioridad, lee la conversación y publica una nota privada o una respuesta al solicitante."
+        },
+        {
+          "title": "Contactos siempre sincronizados",
+          "body": "Un CRM o herramienta de facturación crea y actualiza contactos en Freshdesk y los vincula a empresas encontradas por nombre."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, recherchez et mettez à jour tickets, réponses, notes et contacts dans le Freshdesk de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Freshdesk couvre les tickets et leurs conversations, les champs de ticket, les contacts et la recherche d'entreprises. Votre produit ou agent IA les appelle via Connect, qui stocke les identifiants du client et journalise chaque exécution, sans que vous construisiez l'intégration.",
+      "useCases": [
+        {
+          "title": "Ouvrir des tickets depuis votre produit",
+          "body": "Un SaaS crée un ticket Freshdesk quand un utilisateur signale un problème, en identifiant le demandeur par e-mail pour créer un contact si besoin."
+        },
+        {
+          "title": "Copilote de support pour agents",
+          "body": "Un agent IA recherche des tickets par statut ou priorité, lit la conversation et publie une note privée ou une réponse au demandeur."
+        },
+        {
+          "title": "Contacts toujours synchronisés",
+          "body": "Un CRM ou outil de facturation crée et met à jour des contacts Freshdesk et les rattache à des entreprises trouvées par nom."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "freshdesk_list_tickets": {
+      "pt": {
+        "name": "Listar tickets",
+        "description": "Lista tickets, os mais recentes primeiro por padrão. Sem updated_since voltam só os tickets criados nos últimos 30 dias, e spam ou excluídos só vêm com filtro."
+      },
+      "es": {
+        "name": "Listar tickets",
+        "description": "Lista tickets, los más recientes primero por defecto. Sin updated_since solo vuelven los tickets creados en los últimos 30 días, y spam o eliminados solo vienen con filtro."
+      },
+      "fr": {
+        "name": "Lister les tickets",
+        "description": "Liste les tickets, les plus récents d'abord par défaut. Sans updated_since seuls les tickets créés dans les 30 derniers jours reviennent, et spam ou supprimés ne viennent qu'avec un filtre."
+      }
+    },
+    "freshdesk_search_tickets": {
+      "pt": {
+        "name": "Buscar tickets",
+        "description": "Busca tickets com uma query de filtro, por exemplo por status, prioridade, agente, grupo, tag ou campo personalizado. Devolve total e results, 30 tickets por página."
+      },
+      "es": {
+        "name": "Buscar tickets",
+        "description": "Busca tickets con una query de filtro, por ejemplo por estado, prioridad, agente, grupo, etiqueta o campo personalizado. Devuelve total y results, 30 tickets por página."
+      },
+      "fr": {
+        "name": "Rechercher des tickets",
+        "description": "Recherche des tickets avec une query de filtre, par exemple par statut, priorité, agent, groupe, tag ou champ personnalisé. Renvoie total et results, 30 tickets par page."
+      }
+    },
+    "freshdesk_get_ticket": {
+      "pt": {
+        "name": "Obter ticket",
+        "description": "Devolve um ticket com status, priority, requester_id, responder_id, group_id, tags, custom_fields e description."
+      },
+      "es": {
+        "name": "Obtener ticket",
+        "description": "Devuelve un ticket con status, priority, requester_id, responder_id, group_id, tags, custom_fields y description."
+      },
+      "fr": {
+        "name": "Obtenir un ticket",
+        "description": "Renvoie un ticket avec status, priority, requester_id, responder_id, group_id, tags, custom_fields et description."
+      }
+    },
+    "freshdesk_create_ticket": {
+      "pt": {
+        "name": "Criar ticket",
+        "description": "Cria um ticket. Identifique o solicitante com requester_id, email, phone ou unique_external_id; um email ou phone ainda não existente no Freshdesk cria o contato."
+      },
+      "es": {
+        "name": "Crear ticket",
+        "description": "Crea un ticket. Identifica al solicitante con requester_id, email, phone o unique_external_id; un email o phone que aún no existe en Freshdesk crea el contacto."
+      },
+      "fr": {
+        "name": "Créer un ticket",
+        "description": "Crée un ticket. Identifiez le demandeur avec requester_id, email, phone ou unique_external_id ; un email ou phone absent de Freshdesk crée le contact."
+      }
+    },
+    "freshdesk_update_ticket": {
+      "pt": {
+        "name": "Atualizar ticket",
+        "description": "Atualiza um ticket: envie só os campos a mudar, e tags como a lista completa que o ticket deve manter. Status 4 resolve e 5 fecha o ticket."
+      },
+      "es": {
+        "name": "Actualizar ticket",
+        "description": "Actualiza un ticket: envía solo los campos a cambiar, y tags como la lista completa que el ticket debe conservar. Status 4 lo resuelve y 5 lo cierra."
+      },
+      "fr": {
+        "name": "Mettre à jour un ticket",
+        "description": "Met à jour un ticket : envoyez uniquement les champs à changer, et tags comme la liste complète que le ticket doit garder. Status 4 le résout et 5 le ferme."
+      }
+    },
+    "freshdesk_list_ticket_conversations": {
+      "pt": {
+        "name": "Listar conversas do ticket",
+        "description": "Lista as respostas e notas de um ticket, com body (HTML), body_text, private, incoming, user_id e source (0 resposta, 2 nota). As páginas são numeradas a partir de 1."
+      },
+      "es": {
+        "name": "Listar conversaciones del ticket",
+        "description": "Lista las respuestas y notas de un ticket, con body (HTML), body_text, private, incoming, user_id y source (0 respuesta, 2 nota). Las páginas se numeran desde 1."
+      },
+      "fr": {
+        "name": "Lister les conversations d'un ticket",
+        "description": "Liste les réponses et notes d'un ticket, avec body (HTML), body_text, private, incoming, user_id et source (0 réponse, 2 note). Les pages sont numérotées à partir de 1."
+      }
+    },
+    "freshdesk_create_ticket_reply": {
+      "pt": {
+        "name": "Criar resposta no ticket",
+        "description": "Responde ao solicitante de um ticket. O Freshdesk envia a resposta por e-mail ao solicitante, então ela fica visível ao cliente."
+      },
+      "es": {
+        "name": "Crear respuesta en el ticket",
+        "description": "Responde al solicitante de un ticket. Freshdesk envía la respuesta por correo al solicitante, así que es visible para el cliente."
+      },
+      "fr": {
+        "name": "Créer une réponse de ticket",
+        "description": "Répond au demandeur d'un ticket. Freshdesk envoie la réponse par e-mail au demandeur, elle est donc visible du client."
+      }
+    },
+    "freshdesk_create_ticket_note": {
+      "pt": {
+        "name": "Criar nota no ticket",
+        "description": "Adiciona uma nota a um ticket. As notas são privadas por padrão, visíveis só aos agentes; com private false o solicitante também a vê."
+      },
+      "es": {
+        "name": "Crear nota en el ticket",
+        "description": "Agrega una nota a un ticket. Las notas son privadas por defecto, visibles solo para los agentes; con private en false el solicitante también la ve."
+      },
+      "fr": {
+        "name": "Créer une note de ticket",
+        "description": "Ajoute une note à un ticket. Les notes sont privées par défaut, visibles des agents seulement ; avec private à false le demandeur la voit aussi."
+      }
+    },
+    "freshdesk_list_ticket_fields": {
+      "pt": {
+        "name": "Listar campos de ticket",
+        "description": "Lista os campos de ticket do helpdesk com suas opções: ids de agentes no campo de agente, ids de grupos no campo de grupo, ids de produtos e valores de status."
+      },
+      "es": {
+        "name": "Listar campos de ticket",
+        "description": "Lista los campos de ticket del helpdesk con sus opciones: ids de agentes en el campo de agente, ids de grupos en el campo de grupo, ids de productos y valores de estado."
+      },
+      "fr": {
+        "name": "Lister les champs de ticket",
+        "description": "Liste les champs de ticket du helpdesk avec leurs choix : ids d'agents dans le champ agent, ids de groupes dans le champ groupe, ids de produits et valeurs de statut."
+      }
+    },
+    "freshdesk_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista contatos, os clientes que abrem tickets, com id, name, email, phone, mobile, company_id, tags e custom_fields. Os filtros se combinam."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista contactos, los clientes que abren tickets, con id, name, email, phone, mobile, company_id, tags y custom_fields. Los filtros se combinan."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts, les clients qui ouvrent des tickets, avec id, name, email, phone, mobile, company_id, tags et custom_fields. Les filtres se combinent."
+      }
+    },
+    "freshdesk_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato. name é obrigatório, mais ao menos um entre email, phone, mobile ou unique_external_id."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto. name es obligatorio, más al menos uno entre email, phone, mobile o unique_external_id."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact. name est obligatoire, plus au moins un parmi email, phone, mobile ou unique_external_id."
+      }
+    },
+    "freshdesk_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato: envie só os campos a mudar, e tags e other_emails como as listas completas que o contato deve manter. Contatos bloqueados ou excluídos retornam 405."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto: envía solo los campos a cambiar, y tags y other_emails como las listas completas que el contacto debe conservar. Los contactos bloqueados o eliminados devuelven 405."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact : envoyez uniquement les champs à changer, et tags et other_emails comme les listes complètes que le contact doit garder. Les contacts bloqués ou supprimés renvoient 405."
+      }
+    },
+    "freshdesk_search_companies": {
+      "pt": {
+        "name": "Buscar empresas",
+        "description": "Encontra empresas pelo nome e devolve o id e o name de cada uma, o company_id que tickets e contatos usam."
+      },
+      "es": {
+        "name": "Buscar empresas",
+        "description": "Encuentra empresas por nombre y devuelve el id y el name de cada una, el company_id que usan tickets y contactos."
+      },
+      "fr": {
+        "name": "Rechercher des entreprises",
+        "description": "Trouve des entreprises par nom et renvoie l'id et le name de chacune, le company_id que prennent tickets et contacts."
+      }
+    }
+  }
+}

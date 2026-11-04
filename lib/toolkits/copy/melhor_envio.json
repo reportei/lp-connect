@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Quote shipping, buy and print labels and track them in your customer's Melhor Envio account through one Connect endpoint.",
+      "intro": "The Melhor Envio toolkit covers shipping quotes between CEPs, the label cart, paying and generating labels, printing, label search and cancellation, and the wallet balance. Your customer connects Melhor Envio once with OAuth, and your store, marketplace tool or AI agent runs each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Shipping quotes at checkout",
+          "body": "Call Calculate shipping with the products and the two CEPs to show each carrier's price and delivery time before the buyer pays."
+        },
+        {
+          "title": "Fulfil an order end to end",
+          "body": "Create a cart item, purchase it with the wallet, generate the label and print it, all from your own order screen."
+        },
+        {
+          "title": "Agent answers where is my order",
+          "body": "An AI agent finds a label by tracking code or CPF and reads its status and posting and delivery dates."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Cote fretes, compre e imprima etiquetas e acompanhe envios na conta Melhor Envio do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Melhor Envio cobre cotação de frete entre CEPs, o carrinho de etiquetas, pagamento e geração de etiquetas, impressão, busca e cancelamento de etiquetas e o saldo da carteira. Seu cliente conecta o Melhor Envio uma vez por OAuth, e sua loja, ferramenta de marketplace ou agente de IA executa cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Cotação de frete no checkout",
+          "body": "Chame Calcular frete com os produtos e os dois CEPs para mostrar preço e prazo de cada transportadora antes de o comprador pagar."
+        },
+        {
+          "title": "Despache um pedido de ponta a ponta",
+          "body": "Crie um item no carrinho, compre com a carteira, gere a etiqueta e imprima, tudo na sua própria tela de pedidos."
+        },
+        {
+          "title": "Agente responde onde está meu pedido",
+          "body": "Um agente de IA encontra uma etiqueta pelo código de rastreio ou CPF e lê o status e as datas de postagem e entrega."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Cotiza envíos, compra e imprime etiquetas y haz seguimiento en la cuenta de Melhor Envio de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Melhor Envio cubre cotización de envíos entre CEPs, el carrito de etiquetas, pago y generación de etiquetas, impresión, búsqueda y cancelación de etiquetas y el saldo de la billetera. Tu cliente conecta Melhor Envio una vez con OAuth, y tu tienda, herramienta de marketplace o agente de IA ejecuta cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Cotización de envío en el checkout",
+          "body": "Llama a Calcular envío con los productos y los dos CEPs para mostrar precio y plazo de cada transportista antes de que el comprador pague."
+        },
+        {
+          "title": "Despacha un pedido de punta a punta",
+          "body": "Crea un ítem en el carrito, cómpralo con la billetera, genera la etiqueta e imprímela, todo desde tu propia pantalla de pedidos."
+        },
+        {
+          "title": "Agente responde dónde está mi pedido",
+          "body": "Un agente de IA encuentra una etiqueta por código de seguimiento o CPF y lee su estado y las fechas de postaje y entrega."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Devisez l'expédition, achetez et imprimez des étiquettes et suivez-les dans le compte Melhor Envio de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Melhor Envio couvre les devis d'expédition entre CEP, le panier d'étiquettes, le paiement et la génération d'étiquettes, l'impression, la recherche et l'annulation d'étiquettes, et le solde du portefeuille. Votre client connecte Melhor Envio une fois via OAuth, et votre boutique, outil de marketplace ou agent IA exécute chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Devis d'expédition au paiement",
+          "body": "Appelez Calculer l'expédition avec les produits et les deux CEP pour afficher le prix et le délai de chaque transporteur avant que l'acheteur paie."
+        },
+        {
+          "title": "Expédier une commande de bout en bout",
+          "body": "Créez un article du panier, achetez-le avec le portefeuille, générez l'étiquette et imprimez-la, depuis votre propre écran de commandes."
+        },
+        {
+          "title": "Un agent répond où est ma commande",
+          "body": "Un agent IA retrouve une étiquette par code de suivi ou CPF et lit son statut ainsi que les dates de dépôt et de livraison."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "melhor_envio_calculate_shipping": {
+      "pt": {
+        "name": "Calcular frete",
+        "description": "Cota o frete de produtos entre dois CEPs e retorna uma entrada por serviço, com id, transportadora, preço, prazo de entrega, os pacotes e um error quando o serviço não atende a rota. custom_price e custom_delivery_time incluem as taxas e descontos da conta. Só os serviços habilitados para a integração no painel do Melhor Envio são cotados."
+      },
+      "es": {
+        "name": "Calcular envío",
+        "description": "Cotiza el envío de productos entre dos CEPs y devuelve una entrada por servicio, con id, transportista, precio, plazo de entrega, los paquetes y un error cuando el servicio no cubre la ruta. custom_price y custom_delivery_time incluyen las tarifas y descuentos de la cuenta. Solo se cotizan los servicios habilitados para la integración en el panel de Melhor Envio."
+      },
+      "fr": {
+        "name": "Calculer l'expédition",
+        "description": "Établit un devis d'expédition de produits entre deux CEP et renvoie une entrée par service, avec id, transporteur, prix, délai de livraison, les colis et un error quand le service ne dessert pas le trajet. custom_price et custom_delivery_time incluent les frais et remises du compte. Seuls les services activés pour l'intégration dans le panneau Melhor Envio sont cotés."
+      }
+    },
+    "melhor_envio_create_cart_item": {
+      "pt": {
+        "name": "Criar item no carrinho",
+        "description": "Adiciona uma etiqueta ao carrinho da conta e a retorna. O id dela é o id da etiqueta nas outras ferramentas. Nada é pago até Comprar etiquetas. Correios, J&T e Loggi aceitam um volume por chamada: para mais pacotes, adicione um item por pacote."
+      },
+      "es": {
+        "name": "Crear ítem en el carrito",
+        "description": "Agrega una etiqueta al carrito de la cuenta y la devuelve. Su id es el id de la etiqueta en las demás herramientas. No se paga nada hasta Comprar etiquetas. Correios, J&T y Loggi aceptan un volumen por llamada: para más paquetes, agrega un ítem por paquete."
+      },
+      "fr": {
+        "name": "Créer un article du panier",
+        "description": "Ajoute une étiquette au panier du compte et la renvoie. Son id est l'id de l'étiquette dans les autres outils. Rien n'est payé avant Acheter des étiquettes. Correios, J&T et Loggi acceptent un colis par appel : pour plusieurs colis, ajoutez un article par colis."
+      }
+    },
+    "melhor_envio_list_cart_items": {
+      "pt": {
+        "name": "Listar itens do carrinho",
+        "description": "Lista as etiquetas do carrinho que ainda não foram pagas, com id, serviço, preço, remetente, destinatário e volumes. As etiquetas ficam 20 dias no carrinho. 10 por página: passe page para as próximas, até last_page."
+      },
+      "es": {
+        "name": "Listar ítems del carrito",
+        "description": "Lista las etiquetas del carrito que aún no se pagaron, con id, servicio, precio, remitente, destinatario y volúmenes. Las etiquetas permanecen 20 días en el carrito. 10 por página: pasa page para las siguientes, hasta last_page."
+      },
+      "fr": {
+        "name": "Lister les articles du panier",
+        "description": "Liste les étiquettes du panier qui n'ont pas encore été payées, avec id, service, prix, expéditeur, destinataire et colis. Les étiquettes restent 20 jours dans le panier. 10 par page : passez page pour les suivantes, jusqu'à last_page."
+      }
+    },
+    "melhor_envio_delete_cart_item": {
+      "pt": {
+        "name": "Excluir item do carrinho",
+        "description": "Remove do carrinho uma etiqueta que ainda não foi paga."
+      },
+      "es": {
+        "name": "Eliminar ítem del carrito",
+        "description": "Quita del carrito una etiqueta que aún no se pagó."
+      },
+      "fr": {
+        "name": "Supprimer un article du panier",
+        "description": "Retire du panier une étiquette qui n'a pas encore été payée."
+      }
+    },
+    "melhor_envio_purchase_labels": {
+      "pt": {
+        "name": "Comprar etiquetas",
+        "description": "Paga etiquetas do carrinho com o saldo da carteira do Melhor Envio e retorna a compra, com o total e as etiquetas, já liberadas. A carteira precisa ter saldo suficiente: confira com Obter saldo. Etiquetas pagas ainda precisam de Gerar etiquetas."
+      },
+      "es": {
+        "name": "Comprar etiquetas",
+        "description": "Paga etiquetas del carrito con el saldo de la billetera de Melhor Envio y devuelve la compra, con el total y las etiquetas, ya liberadas. La billetera necesita saldo suficiente: compruébalo con Obtener saldo. Las etiquetas pagadas aún necesitan Generar etiquetas."
+      },
+      "fr": {
+        "name": "Acheter des étiquettes",
+        "description": "Paie des étiquettes du panier avec le solde du portefeuille Melhor Envio et renvoie l'achat, avec le total et les étiquettes, désormais débloquées. Le portefeuille doit avoir un solde suffisant : vérifiez avec Obtenir le solde. Les étiquettes payées doivent encore passer par Générer des étiquettes."
+      }
+    },
+    "melhor_envio_generate_labels": {
+      "pt": {
+        "name": "Gerar etiquetas",
+        "description": "Gera etiquetas pagas, o que é necessário antes de Imprimir etiquetas, e retorna o resultado de cada id. Uma etiqueta gerada deve ser postada em até 20 dias, ou 7 dias com os Correios."
+      },
+      "es": {
+        "name": "Generar etiquetas",
+        "description": "Genera etiquetas pagadas, lo que es necesario antes de Imprimir etiquetas, y devuelve el resultado de cada id. Una etiqueta generada debe postarse en un plazo de 20 días, o 7 días con Correios."
+      },
+      "fr": {
+        "name": "Générer des étiquettes",
+        "description": "Génère des étiquettes payées, ce qui est requis avant Imprimer des étiquettes, et renvoie le résultat pour chaque id. Une étiquette générée doit être déposée sous 20 jours, ou 7 jours avec Correios."
+      }
+    },
+    "melhor_envio_print_labels": {
+      "pt": {
+        "name": "Imprimir etiquetas",
+        "description": "Retorna um link para imprimir etiquetas geradas. Um link privado abre só para quem está logado na conta do Melhor Envio; um link público abre para qualquer pessoa que o tenha."
+      },
+      "es": {
+        "name": "Imprimir etiquetas",
+        "description": "Devuelve un enlace para imprimir etiquetas generadas. Un enlace privado se abre solo para quien inició sesión en la cuenta de Melhor Envio; un enlace público se abre para cualquiera que lo tenga."
+      },
+      "fr": {
+        "name": "Imprimer des étiquettes",
+        "description": "Renvoie un lien pour imprimer des étiquettes générées. Un lien privé ne s'ouvre que pour quelqu'un connecté au compte Melhor Envio ; un lien public s'ouvre pour toute personne qui l'a."
+      }
+    },
+    "melhor_envio_list_labels": {
+      "pt": {
+        "name": "Listar etiquetas",
+        "description": "Lista as etiquetas da conta com id, protocolo, status, serviço, preço, código de rastreio e as datas de pagamento, geração, postagem e entrega. 10 por página: passe page para as próximas, até last_page."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas de la cuenta con id, protocolo, estado, servicio, precio, código de seguimiento y las fechas de pago, generación, postaje y entrega. 10 por página: pasa page para las siguientes, hasta last_page."
+      },
+      "fr": {
+        "name": "Lister les étiquettes",
+        "description": "Liste les étiquettes du compte avec id, protocole, statut, service, prix, code de suivi et les dates de paiement, de génération, de dépôt et de livraison. 10 par page : passez page pour les suivantes, jusqu'à last_page."
+      }
+    },
+    "melhor_envio_get_label": {
+      "pt": {
+        "name": "Obter etiqueta",
+        "description": "Retorna uma etiqueta com status, serviço, preço, remetente, destinatário, volumes, código de rastreio e as datas de pagamento, geração, postagem e entrega."
+      },
+      "es": {
+        "name": "Obtener etiqueta",
+        "description": "Devuelve una etiqueta con estado, servicio, precio, remitente, destinatario, volúmenes, código de seguimiento y las fechas de pago, generación, postaje y entrega."
+      },
+      "fr": {
+        "name": "Obtenir une étiquette",
+        "description": "Renvoie une étiquette avec statut, service, prix, expéditeur, destinataire, colis, code de suivi et les dates de paiement, de génération, de dépôt et de livraison."
+      }
+    },
+    "melhor_envio_search_labels": {
+      "pt": {
+        "name": "Buscar etiquetas",
+        "description": "Encontra etiquetas por um valor exato: o id, o protocolo, o código de rastreio, o código de autorização, ou o CPF ou CNPJ do remetente ou do destinatário."
+      },
+      "es": {
+        "name": "Buscar etiquetas",
+        "description": "Encuentra etiquetas por un valor exacto: el id, el protocolo, el código de seguimiento, el código de autorización, o el CPF o CNPJ del remitente o del destinatario."
+      },
+      "fr": {
+        "name": "Rechercher des étiquettes",
+        "description": "Trouve des étiquettes par une valeur exacte : l'id, le protocole, le code de suivi, le code d'autorisation, ou le CPF ou CNPJ de l'expéditeur ou du destinataire."
+      }
+    },
+    "melhor_envio_cancel_label": {
+      "pt": {
+        "name": "Cancelar etiqueta",
+        "description": "Cancela uma etiqueta. Uma etiqueta gerada só pode ser cancelada antes de ser postada e antes de a transportadora ser avisada de uma coleta; o reembolso de uma etiqueta gerada chega 12 horas após a aprovação."
+      },
+      "es": {
+        "name": "Cancelar etiqueta",
+        "description": "Cancela una etiqueta. Una etiqueta generada solo puede cancelarse antes de ser postada y antes de que se avise a la transportista de una recolección; el reembolso de una etiqueta generada llega 12 horas después de la aprobación."
+      },
+      "fr": {
+        "name": "Annuler une étiquette",
+        "description": "Annule une étiquette. Une étiquette générée ne peut être annulée qu'avant son dépôt et avant que le transporteur soit prévenu d'un enlèvement ; le remboursement d'une étiquette générée arrive 12 heures après l'approbation."
+      }
+    },
+    "melhor_envio_get_balance": {
+      "pt": {
+        "name": "Obter saldo",
+        "description": "Retorna o saldo da carteira do Melhor Envio em BRL, com o valor reservado e as dívidas. Comprar etiquetas gasta esse saldo."
+      },
+      "es": {
+        "name": "Obtener saldo",
+        "description": "Devuelve el saldo de la billetera de Melhor Envio en BRL, con el monto reservado y las deudas. Comprar etiquetas gasta este saldo."
+      },
+      "fr": {
+        "name": "Obtenir le solde",
+        "description": "Renvoie le solde du portefeuille Melhor Envio en BRL, avec le montant réservé et les dettes. Acheter des étiquettes dépense ce solde."
+      }
+    }
+  }
+}

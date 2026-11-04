@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read, search, send, reply to and draft email in your customer's Outlook.com or Microsoft 365 mailbox from your product or AI agent, through Connect.",
+      "intro": "The Outlook Mail toolkit covers the folders and messages of an Outlook.com or Microsoft 365 mailbox: list and search messages, read them, send, reply, reply to all and forward, create and send drafts, update and move messages. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Send email from the user's mailbox",
+          "body": "Send a message through the customer's own Outlook account, so it goes out from their address and is saved in Sent Items."
+        },
+        {
+          "title": "Drafts for human review",
+          "body": "An AI agent writes a reply with Create draft, the user reviews it in Outlook, and your product sends it with Send draft once approved."
+        },
+        {
+          "title": "Inbox triage",
+          "body": "List the messages of a folder, read the ones that matter, mark them as read or flag them, and move them to another folder."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia, busque, envie, responda e rascunhe emails na caixa Outlook.com ou Microsoft 365 do seu cliente a partir do seu produto ou agente de IA, pelo Connect.",
+      "intro": "O toolkit do Outlook Mail cobre pastas e mensagens de uma caixa Outlook.com ou Microsoft 365: listar e buscar mensagens, lê-las, enviar, responder, responder a todos e encaminhar, criar e enviar rascunhos, atualizar e mover mensagens. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Enviar email da caixa do usuário",
+          "body": "Envie uma mensagem pela conta Outlook do próprio cliente, para que ela saia do endereço dele e fique salva em Itens Enviados."
+        },
+        {
+          "title": "Rascunhos para revisão humana",
+          "body": "Um agente de IA escreve uma resposta com Create draft, o usuário revisa no Outlook e seu produto a envia com Send draft depois da aprovação."
+        },
+        {
+          "title": "Triagem da caixa de entrada",
+          "body": "Liste as mensagens de uma pasta, leia as que importam, marque como lidas ou sinalize e mova para outra pasta."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee, busca, envía, responde y redacta correos en el buzón Outlook.com o Microsoft 365 de tu cliente desde tu producto o agente de IA, con Connect.",
+      "intro": "El toolkit de Outlook Mail cubre las carpetas y mensajes de un buzón Outlook.com o Microsoft 365: listar y buscar mensajes, leerlos, enviar, responder, responder a todos y reenviar, crear y enviar borradores, actualizar y mover mensajes. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Enviar correo desde el buzón del usuario",
+          "body": "Envía un mensaje desde la cuenta Outlook del propio cliente, para que salga desde su dirección y se guarde en Elementos enviados."
+        },
+        {
+          "title": "Borradores para revisión humana",
+          "body": "Un agente de IA redacta una respuesta con Create draft, el usuario la revisa en Outlook y tu producto la envía con Send draft una vez aprobada."
+        },
+        {
+          "title": "Triaje de la bandeja de entrada",
+          "body": "Lista los mensajes de una carpeta, lee los que importan, márcalos como leídos o márcalos con una marca y muévelos a otra carpeta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez, recherchez, envoyez, répondez et rédigez des emails dans la boîte Outlook.com ou Microsoft 365 de votre client depuis votre produit ou agent IA.",
+      "intro": "Le toolkit Outlook Mail couvre les dossiers et messages d'une boîte Outlook.com ou Microsoft 365 : lister et rechercher des messages, les lire, envoyer, répondre, répondre à tous et transférer, créer et envoyer des brouillons, mettre à jour et déplacer des messages. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Envoyer depuis la boîte de l'utilisateur",
+          "body": "Envoyez un message via le compte Outlook du client lui-même, pour qu'il parte de son adresse et soit enregistré dans Éléments envoyés."
+        },
+        {
+          "title": "Brouillons à relire",
+          "body": "Un agent IA rédige une réponse avec Create draft, l'utilisateur la relit dans Outlook et votre produit l'envoie avec Send draft une fois validée."
+        },
+        {
+          "title": "Tri de la boîte de réception",
+          "body": "Listez les messages d'un dossier, lisez ceux qui comptent, marquez-les comme lus ou signalez-les, puis déplacez-les vers un autre dossier."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "outlook_list_mail_folders": {
+      "pt": {
+        "name": "Listar pastas de email",
+        "description": "Lista as pastas de email diretamente sob a raiz da caixa, com id, displayName, unreadItemCount e totalItemCount. Subpastas não são incluídas, e só a primeira página volta. Os nomes inbox, sentitems, drafts, deleteditems, archive e junkemail funcionam como ids de pasta nas outras tools sem esta chamada."
+      },
+      "es": {
+        "name": "Listar carpetas de correo",
+        "description": "Lista las carpetas de correo directamente bajo la raíz del buzón, con id, displayName, unreadItemCount y totalItemCount. No incluye subcarpetas, y solo vuelve la primera página. Los nombres inbox, sentitems, drafts, deleteditems, archive y junkemail funcionan como ids de carpeta en las otras tools sin esta llamada."
+      },
+      "fr": {
+        "name": "Lister les dossiers de messagerie",
+        "description": "Liste les dossiers de messagerie directement sous la racine de la boîte, avec id, displayName, unreadItemCount et totalItemCount. Les sous-dossiers ne sont pas inclus, et seule la première page revient. Les noms inbox, sentitems, drafts, deleteditems, archive et junkemail fonctionnent comme ids de dossier dans les autres tools sans cet appel."
+      }
+    },
+    "outlook_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Lista as mensagens de uma pasta, 10 por página, com subject, from, receivedDateTime, isRead e bodyPreview, os primeiros 255 caracteres do corpo. Só a primeira página volta: para mensagens mais antigas, use Search messages, que pagina com from. Leia o texto completo de uma mensagem com Get message."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Lista los mensajes de una carpeta, 10 por página, con subject, from, receivedDateTime, isRead y bodyPreview, los primeros 255 caracteres del cuerpo. Solo vuelve la primera página: para mensajes más antiguos, usa Search messages, que pagina con from. Lee el texto completo de un mensaje con Get message."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Liste les messages d'un dossier, 10 par page, avec subject, from, receivedDateTime, isRead et bodyPreview, les 255 premiers caractères du corps. Seule la première page revient : pour des messages plus anciens, utilisez Search messages, qui pagine avec from. Lisez le texte complet d'un message avec Get message."
+      }
+    },
+    "outlook_search_messages": {
+      "pt": {
+        "name": "Buscar mensagens",
+        "description": "Busca na caixa de email, anexos incluídos, e retorna os resultados do mais novo ao mais antigo, até 25 por página. Cada resultado tem hitId, o id da mensagem para as outras tools, um resumo e os campos principais em resource. moreResultsAvailable diz se há próxima página, pedida com from. Só contas corporativas ou escolares podem buscar; contas pessoais do Outlook.com recebem um erro."
+      },
+      "es": {
+        "name": "Buscar mensajes",
+        "description": "Busca en el buzón, adjuntos incluidos, y devuelve los resultados del más nuevo al más antiguo, hasta 25 por página. Cada resultado tiene hitId, el id del mensaje para las otras tools, un resumen y los campos principales en resource. moreResultsAvailable indica si hay página siguiente, que se pide con from. Solo las cuentas de trabajo o escuela pueden buscar; las cuentas personales de Outlook.com reciben un error."
+      },
+      "fr": {
+        "name": "Rechercher des messages",
+        "description": "Recherche dans la boîte, pièces jointes comprises, et renvoie les résultats du plus récent au plus ancien, jusqu'à 25 par page. Chaque résultat a hitId, l'id du message pour les autres tools, un résumé et les champs principaux dans resource. moreResultsAvailable indique s'il y a une page suivante, demandée avec from. Seuls les comptes professionnels ou scolaires peuvent rechercher ; les comptes personnels Outlook.com reçoivent une erreur."
+      }
+    },
+    "outlook_get_message": {
+      "pt": {
+        "name": "Obter mensagem",
+        "description": "Retorna uma mensagem com o corpo em texto simples, from, toRecipients, ccRecipients, receivedDateTime, conversationId, hasAttachments e webLink. Anexos não são incluídos."
+      },
+      "es": {
+        "name": "Obtener mensaje",
+        "description": "Devuelve un mensaje con el cuerpo en texto plano, from, toRecipients, ccRecipients, receivedDateTime, conversationId, hasAttachments y webLink. Los adjuntos no se incluyen."
+      },
+      "fr": {
+        "name": "Obtenir un message",
+        "description": "Renvoie un message avec le corps en texte brut, from, toRecipients, ccRecipients, receivedDateTime, conversationId, hasAttachments et webLink. Les pièces jointes ne sont pas incluses."
+      }
+    },
+    "outlook_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Envia um novo email da caixa do usuário na hora e salva uma cópia em Itens Enviados. A resposta é 202 sem corpo, então nenhum id de mensagem volta. Para que alguém revise o email antes, use Create draft."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Envía un nuevo correo desde el buzón del usuario de inmediato y guarda una copia en Elementos enviados. La respuesta es 202 sin cuerpo, así que no vuelve ningún id de mensaje. Para que alguien revise el correo antes, usa Create draft."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Envoie aussitôt un nouvel email depuis la boîte de l'utilisateur et enregistre une copie dans Éléments envoyés. La réponse est 202 sans corps, donc aucun id de message ne revient. Pour faire relire l'email avant, utilisez Create draft."
+      }
+    },
+    "outlook_reply_to_message": {
+      "pt": {
+        "name": "Responder a mensagem",
+        "description": "Responde na hora ao remetente de uma mensagem, ou aos endereços de replyTo quando ela os tem, com o comentário acima do original citado, e salva a resposta em Itens Enviados. A resposta é 202 sem corpo. Para responder a todos, use Reply all to message."
+      },
+      "es": {
+        "name": "Responder a un mensaje",
+        "description": "Responde de inmediato al remitente de un mensaje, o a sus direcciones replyTo cuando las tiene, con el comentario sobre el original citado, y guarda la respuesta en Elementos enviados. La respuesta es 202 sin cuerpo. Para responder a todos, usa Reply all to message."
+      },
+      "fr": {
+        "name": "Répondre à un message",
+        "description": "Répond aussitôt à l'expéditeur d'un message, ou à ses adresses replyTo quand il en a, avec le commentaire au-dessus de l'original cité, et enregistre la réponse dans Éléments envoyés. La réponse est 202 sans corps. Pour répondre à tous, utilisez Reply all to message."
+      }
+    },
+    "outlook_reply_all_to_message": {
+      "pt": {
+        "name": "Responder a todos",
+        "description": "Responde na hora ao remetente e a todos os destinatários de uma mensagem, com o comentário acima do original citado, e salva a resposta em Itens Enviados. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Responder a todos",
+        "description": "Responde de inmediato al remitente y a todos los destinatarios de un mensaje, con el comentario sobre el original citado, y guarda la respuesta en Elementos enviados. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Répondre à tous",
+        "description": "Répond aussitôt à l'expéditeur et à tous les destinataires d'un message, avec le commentaire au-dessus de l'original cité, et enregistre la réponse dans Éléments envoyés. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_forward_message": {
+      "pt": {
+        "name": "Encaminhar mensagem",
+        "description": "Encaminha na hora uma mensagem a novos destinatários, com o comentário acima do original, e salva em Itens Enviados. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Reenviar mensaje",
+        "description": "Reenvía de inmediato un mensaje a nuevos destinatarios, con el comentario sobre el original, y lo guarda en Elementos enviados. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Transférer un message",
+        "description": "Transfère aussitôt un message à de nouveaux destinataires, avec le commentaire au-dessus de l'original, et l'enregistre dans Éléments envoyés. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_create_draft": {
+      "pt": {
+        "name": "Criar rascunho",
+        "description": "Salva um novo email em Rascunhos sem enviá-lo e o retorna com seu id. Altere-o com Update message e envie com Send draft, ou deixe o usuário revisar e enviar pelo Outlook."
+      },
+      "es": {
+        "name": "Crear borrador",
+        "description": "Guarda un nuevo correo en Borradores sin enviarlo y lo devuelve con su id. Cámbialo con Update message y envíalo con Send draft, o deja que el usuario lo revise y envíe desde Outlook."
+      },
+      "fr": {
+        "name": "Créer un brouillon",
+        "description": "Enregistre un nouvel email dans Brouillons sans l'envoyer et le renvoie avec son id. Modifiez-le avec Update message et envoyez-le avec Send draft, ou laissez l'utilisateur le relire et l'envoyer depuis Outlook."
+      }
+    },
+    "outlook_update_message": {
+      "pt": {
+        "name": "Atualizar mensagem",
+        "description": "Altera uma mensagem e a retorna: marca como lida ou não lida, sinaliza, define categorias ou importância, ou a move entre Prioritárias e Outras. Em um rascunho, também altera assunto, corpo e destinatários. Só os campos enviados mudam."
+      },
+      "es": {
+        "name": "Actualizar mensaje",
+        "description": "Cambia un mensaje y lo devuelve: lo marca como leído o no leído, lo marca con una marca, define categorías o importancia, o lo mueve entre Prioritarios y Otros. En un borrador, también cambia asunto, cuerpo y destinatarios. Solo cambian los campos enviados."
+      },
+      "fr": {
+        "name": "Mettre à jour un message",
+        "description": "Modifie un message et le renvoie : le marque lu ou non lu, le signale, définit ses catégories ou son importance, ou le déplace entre Prioritaire et Autre. Sur un brouillon, modifie aussi l'objet, le corps et les destinataires. Seuls les champs envoyés changent."
+      }
+    },
+    "outlook_send_draft": {
+      "pt": {
+        "name": "Enviar rascunho",
+        "description": "Envia um rascunho e o salva em Itens Enviados. A resposta é 202 sem corpo."
+      },
+      "es": {
+        "name": "Enviar borrador",
+        "description": "Envía un borrador y lo guarda en Elementos enviados. La respuesta es 202 sin cuerpo."
+      },
+      "fr": {
+        "name": "Envoyer un brouillon",
+        "description": "Envoie un brouillon et l'enregistre dans Éléments envoyés. La réponse est 202 sans corps."
+      }
+    },
+    "outlook_move_message": {
+      "pt": {
+        "name": "Mover mensagem",
+        "description": "Move uma mensagem para outra pasta e a retorna com um novo id, porque a movimentação cria uma cópia no destino e remove a original. Mover para deleteditems é a forma de excluir uma mensagem: ela continua recuperável em Itens Excluídos."
+      },
+      "es": {
+        "name": "Mover mensaje",
+        "description": "Mueve un mensaje a otra carpeta y lo devuelve con un nuevo id, porque el movimiento crea una copia en el destino y elimina la original. Mover a deleteditems es la forma de eliminar un mensaje: sigue siendo recuperable en Elementos eliminados."
+      },
+      "fr": {
+        "name": "Déplacer un message",
+        "description": "Déplace un message vers un autre dossier et le renvoie avec un nouvel id, car le déplacement crée une copie dans la destination et supprime l'original. Déplacer vers deleteditems est la façon de supprimer un message : il reste récupérable dans Éléments supprimés."
+      }
+    }
+  }
+}

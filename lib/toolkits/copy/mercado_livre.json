@@ -1,0 +1,274 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Publish listings, read orders and answer buyer questions in your customer's Mercado Livre seller account through one Connect endpoint.",
+      "intro": "The Mercado Livre toolkit covers the seller account, listing search and details, category prediction and attributes, creating and updating listings and their descriptions, orders, and buyer questions. Your customer connects their seller account once with OAuth, and your product or AI agent runs each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Publish listings from your catalog",
+          "body": "Predict the category from a title, read its required attributes and create the item and its description from your own product data."
+        },
+        {
+          "title": "Order and stock sync",
+          "body": "Search the seller's orders and read each sale with items, payments and shipping id to feed your ERP or fulfilment flow."
+        },
+        {
+          "title": "Agent answers buyer questions",
+          "body": "An AI agent lists unanswered questions on the seller's listings and publishes the answer through Answer question."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Publique anúncios, leia pedidos e responda perguntas de compradores na conta de vendedor Mercado Livre do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Mercado Livre cobre a conta do vendedor, busca e detalhes de anúncios, previsão de categoria e atributos, criação e atualização de anúncios e descrições, pedidos e perguntas de compradores. Seu cliente conecta a conta de vendedor uma vez por OAuth, e seu produto ou agente de IA executa cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Publique anúncios do seu catálogo",
+          "body": "Preveja a categoria a partir de um título, leia os atributos obrigatórios e crie o item e sua descrição com os dados do seu próprio produto."
+        },
+        {
+          "title": "Sincronize pedidos e estoque",
+          "body": "Busque os pedidos do vendedor e leia cada venda com itens, pagamentos e id de envio para alimentar seu ERP ou fluxo de expedição."
+        },
+        {
+          "title": "Agente responde perguntas de compradores",
+          "body": "Um agente de IA lista as perguntas sem resposta nos anúncios do vendedor e publica a resposta com Responder pergunta."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Publica anuncios, lee pedidos y responde preguntas de compradores en la cuenta de vendedor de Mercado Livre de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Mercado Livre cubre la cuenta del vendedor, búsqueda y detalles de anuncios, predicción de categoría y atributos, creación y actualización de anuncios y descripciones, pedidos y preguntas de compradores. Tu cliente conecta su cuenta de vendedor una vez con OAuth, y tu producto o agente de IA ejecuta cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Publica anuncios desde tu catálogo",
+          "body": "Predice la categoría a partir de un título, lee los atributos obligatorios y crea el ítem y su descripción con los datos de tu propio producto."
+        },
+        {
+          "title": "Sincroniza pedidos y stock",
+          "body": "Busca los pedidos del vendedor y lee cada venta con ítems, pagos e id de envío para alimentar tu ERP o flujo de despacho."
+        },
+        {
+          "title": "Agente responde preguntas de compradores",
+          "body": "Un agente de IA lista las preguntas sin responder en los anuncios del vendedor y publica la respuesta con Responder pregunta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Publiez des annonces, lisez les commandes et répondez aux acheteurs dans le compte vendeur Mercado Livre de votre client via un endpoint Connect.",
+      "intro": "Le toolkit Mercado Livre couvre le compte vendeur, la recherche et le détail des annonces, la prédiction de catégorie et les attributs, la création et la mise à jour d'annonces et de descriptions, les commandes et les questions des acheteurs. Votre client connecte son compte vendeur une fois via OAuth, et votre produit ou agent IA exécute chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Publier des annonces depuis votre catalogue",
+          "body": "Prédisez la catégorie à partir d'un titre, lisez ses attributs obligatoires et créez l'article et sa description avec les données de votre propre produit."
+        },
+        {
+          "title": "Synchroniser commandes et stock",
+          "body": "Recherchez les commandes du vendeur et lisez chaque vente avec articles, paiements et id d'expédition pour alimenter votre ERP ou votre flux logistique."
+        },
+        {
+          "title": "Un agent répond aux questions des acheteurs",
+          "body": "Un agent IA liste les questions sans réponse sur les annonces du vendeur et publie la réponse avec Répondre à une question."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "mercado_livre_get_current_user": {
+      "pt": {
+        "name": "Obter usuário atual",
+        "description": "Retorna a conta de vendedor conectada: id, nickname, email, site_id e reputação do vendedor. O id é o user_id, seller e seller_id das outras ferramentas, e o site_id (MLB no Brasil) vai em Buscar categorias."
+      },
+      "es": {
+        "name": "Obtener usuario actual",
+        "description": "Devuelve la cuenta de vendedor conectada: id, nickname, email, site_id y reputación del vendedor. El id es el user_id, seller y seller_id de las demás herramientas, y el site_id (MLB en Brasil) va en Buscar categorías."
+      },
+      "fr": {
+        "name": "Obtenir l'utilisateur actuel",
+        "description": "Renvoie le compte vendeur connecté : id, nickname, email, site_id et réputation du vendeur. L'id est le user_id, seller et seller_id des autres outils, et le site_id (MLB au Brésil) va dans Rechercher des catégories."
+      }
+    },
+    "mercado_livre_search_items": {
+      "pt": {
+        "name": "Buscar anúncios",
+        "description": "Lista os ids dos anúncios do vendedor, 50 por página por padrão. results tem só ids de anúncios: Listar anúncios retorna seus detalhes. Pagine com offset e limit; acima de 1000 resultados use search_type scan e o scroll_id de cada resposta."
+      },
+      "es": {
+        "name": "Buscar anuncios",
+        "description": "Lista los ids de los anuncios del vendedor, 50 por página por defecto. results tiene solo ids de anuncios: Listar anuncios devuelve sus detalles. Pagina con offset y limit; pasados 1000 resultados usa search_type scan y el scroll_id de cada respuesta."
+      },
+      "fr": {
+        "name": "Rechercher des annonces",
+        "description": "Liste les ids des annonces du vendeur, 50 par page par défaut. results ne contient que des ids d'annonces : Lister les annonces renvoie leurs détails. Paginez avec offset et limit ; au-delà de 1000 résultats, utilisez search_type scan et le scroll_id de chaque réponse."
+      }
+    },
+    "mercado_livre_list_items": {
+      "pt": {
+        "name": "Listar anúncios",
+        "description": "Retorna até 20 anúncios por id em uma chamada: título, preço, available_quantity, sold_quantity, status, permalink, imagens e atributos. Cada elemento tem status_code, id e o anúncio em body."
+      },
+      "es": {
+        "name": "Listar anuncios",
+        "description": "Devuelve hasta 20 anuncios por id en una llamada: título, precio, available_quantity, sold_quantity, status, permalink, imágenes y atributos. Cada elemento tiene status_code, id y el anuncio en body."
+      },
+      "fr": {
+        "name": "Lister les annonces",
+        "description": "Renvoie jusqu'à 20 annonces par id en un appel : titre, prix, available_quantity, sold_quantity, status, permalink, images et attributs. Chaque élément contient status_code, id et l'annonce dans body."
+      }
+    },
+    "mercado_livre_search_categories": {
+      "pt": {
+        "name": "Buscar categorias",
+        "description": "Prevê a categoria de um produto a partir do título, com o domínio e os atributos reconhecidos no texto. O primeiro resultado é o mais provável. O category_id dele vai em Criar anúncio e em Listar atributos da categoria."
+      },
+      "es": {
+        "name": "Buscar categorías",
+        "description": "Predice la categoría de un producto a partir del título, con el dominio y los atributos reconocidos en el texto. El primer resultado es el más probable. Su category_id va en Crear anuncio y en Listar atributos de la categoría."
+      },
+      "fr": {
+        "name": "Rechercher des catégories",
+        "description": "Prédit la catégorie d'un produit à partir de son titre, avec le domaine et les attributs reconnus dans le texte. Le premier résultat est le plus probable. Son category_id va dans Créer une annonce et dans Lister les attributs de la catégorie."
+      }
+    },
+    "mercado_livre_list_category_attributes": {
+      "pt": {
+        "name": "Listar atributos da categoria",
+        "description": "Lista os atributos de uma categoria com id, value_type, valores aceitos e tags. Atributos com a tag required devem ser enviados em Criar anúncio, e os new_required quando o item é novo."
+      },
+      "es": {
+        "name": "Listar atributos de la categoría",
+        "description": "Lista los atributos de una categoría con id, value_type, valores aceptados y tags. Los atributos con la tag required deben enviarse en Crear anuncio, y los new_required cuando el ítem es nuevo."
+      },
+      "fr": {
+        "name": "Lister les attributs de la catégorie",
+        "description": "Liste les attributs d'une catégorie avec id, value_type, valeurs acceptées et tags. Les attributs avec la tag required doivent être envoyés dans Créer une annonce, et ceux en new_required quand l'article est neuf."
+      }
+    },
+    "mercado_livre_create_item": {
+      "pt": {
+        "name": "Criar anúncio",
+        "description": "Publica um anúncio e o retorna com seu id. No modelo User Products, ativo para todos os vendedores, envie family_name e nenhum title: o Mercado Livre monta o título. A descrição é adicionada depois com Criar descrição do anúncio."
+      },
+      "es": {
+        "name": "Crear anuncio",
+        "description": "Publica un anuncio y lo devuelve con su id. En el modelo User Products, activo para todos los vendedores, envía family_name y ningún title: Mercado Livre arma el título. La descripción se agrega después con Crear descripción del anuncio."
+      },
+      "fr": {
+        "name": "Créer une annonce",
+        "description": "Publie une annonce et la renvoie avec son id. Dans le modèle User Products, actif pour tous les vendeurs, envoyez family_name et aucun title : Mercado Livre construit le titre. La description s'ajoute ensuite avec Créer la description de l'annonce."
+      }
+    },
+    "mercado_livre_update_item": {
+      "pt": {
+        "name": "Atualizar anúncio",
+        "description": "Altera um anúncio e o retorna. Só os campos enviados mudam. status paused o oculta, active o reativa e closed o encerra de vez. title e family_name só mudam enquanto o anúncio não tem vendas."
+      },
+      "es": {
+        "name": "Actualizar anuncio",
+        "description": "Cambia un anuncio y lo devuelve. Solo cambian los campos enviados. status paused lo oculta, active lo reactiva y closed lo termina para siempre. title y family_name solo cambian mientras el anuncio no tiene ventas."
+      },
+      "fr": {
+        "name": "Mettre à jour une annonce",
+        "description": "Modifie une annonce et la renvoie. Seuls les champs envoyés changent. status paused la masque, active la réactive et closed la termine définitivement. title et family_name ne changent que tant que l'annonce n'a aucune vente."
+      }
+    },
+    "mercado_livre_get_item_description": {
+      "pt": {
+        "name": "Obter descrição do anúncio",
+        "description": "Retorna a descrição de um anúncio em plain_text, com date_created e last_updated."
+      },
+      "es": {
+        "name": "Obtener descripción del anuncio",
+        "description": "Devuelve la descripción de un anuncio en plain_text, con date_created y last_updated."
+      },
+      "fr": {
+        "name": "Obtenir la description de l'annonce",
+        "description": "Renvoie la description d'une annonce en plain_text, avec date_created et last_updated."
+      }
+    },
+    "mercado_livre_create_item_description": {
+      "pt": {
+        "name": "Criar descrição do anúncio",
+        "description": "Adiciona a descrição a um anúncio que não tem uma, como um recém-criado com Criar anúncio. Falha com 400 quando já existe uma descrição: use Atualizar descrição do anúncio."
+      },
+      "es": {
+        "name": "Crear descripción del anuncio",
+        "description": "Agrega la descripción a un anuncio que no tiene una, como uno recién creado con Crear anuncio. Falla con 400 cuando ya existe una descripción: usa Actualizar descripción del anuncio."
+      },
+      "fr": {
+        "name": "Créer la description de l'annonce",
+        "description": "Ajoute la description à une annonce qui n'en a pas, comme une annonce tout juste créée avec Créer une annonce. Échoue avec 400 quand une description existe déjà : utilisez Mettre à jour la description de l'annonce."
+      }
+    },
+    "mercado_livre_update_item_description": {
+      "pt": {
+        "name": "Atualizar descrição do anúncio",
+        "description": "Substitui a descrição de um anúncio que já tem uma."
+      },
+      "es": {
+        "name": "Actualizar descripción del anuncio",
+        "description": "Reemplaza la descripción de un anuncio que ya tiene una."
+      },
+      "fr": {
+        "name": "Mettre à jour la description de l'annonce",
+        "description": "Remplace la description d'une annonce qui en a déjà une."
+      }
+    },
+    "mercado_livre_search_orders": {
+      "pt": {
+        "name": "Buscar pedidos",
+        "description": "Lista as vendas do vendedor dos últimos 12 meses, com comprador, itens, pagamentos e id de envio. sort date_desc traz as mais recentes primeiro. Pagine com offset e limit; paging.total tem a contagem."
+      },
+      "es": {
+        "name": "Buscar pedidos",
+        "description": "Lista las ventas del vendedor de los últimos 12 meses, con comprador, ítems, pagos e id de envío. sort date_desc trae las más recientes primero. Pagina con offset y limit; paging.total tiene el conteo."
+      },
+      "fr": {
+        "name": "Rechercher des commandes",
+        "description": "Liste les ventes du vendeur des 12 derniers mois, avec acheteur, articles, paiements et id d'expédition. sort date_desc place les plus récentes en premier. Paginez avec offset et limit ; paging.total contient le compte."
+      }
+    },
+    "mercado_livre_get_order": {
+      "pt": {
+        "name": "Obter pedido",
+        "description": "Retorna uma venda: status, itens, quantidades, preços, pagamentos, comprador, tags e o id de envio."
+      },
+      "es": {
+        "name": "Obtener pedido",
+        "description": "Devuelve una venta: status, ítems, cantidades, precios, pagos, comprador, tags y el id de envío."
+      },
+      "fr": {
+        "name": "Obtenir une commande",
+        "description": "Renvoie une vente : status, articles, quantités, prix, paiements, acheteur, tags et l'id d'expédition."
+      }
+    },
+    "mercado_livre_search_questions": {
+      "pt": {
+        "name": "Buscar perguntas",
+        "description": "Lista as perguntas que compradores fizeram nos anúncios do vendedor, ou em um anúncio, com a resposta quando há. Perguntas sem resposta com mais de 7 meses são apagadas. Pagine com offset e limit."
+      },
+      "es": {
+        "name": "Buscar preguntas",
+        "description": "Lista las preguntas que los compradores hicieron en los anuncios del vendedor, o en un anuncio, con la respuesta cuando la hay. Las preguntas sin responder de más de 7 meses se eliminan. Pagina con offset y limit."
+      },
+      "fr": {
+        "name": "Rechercher des questions",
+        "description": "Liste les questions posées par les acheteurs sur les annonces du vendeur, ou sur une annonce, avec la réponse quand elle existe. Les questions sans réponse de plus de 7 mois sont supprimées. Paginez avec offset et limit."
+      }
+    },
+    "mercado_livre_answer_question": {
+      "pt": {
+        "name": "Responder pergunta",
+        "description": "Publica a resposta do vendedor a uma pergunta de comprador e retorna a pergunta com a resposta. A resposta é pública no anúncio."
+      },
+      "es": {
+        "name": "Responder pregunta",
+        "description": "Publica la respuesta del vendedor a una pregunta de comprador y devuelve la pregunta con la respuesta. La respuesta es pública en el anuncio."
+      },
+      "fr": {
+        "name": "Répondre à une question",
+        "description": "Publie la réponse du vendeur à une question d'acheteur et renvoie la question avec la réponse. La réponse est publique sur l'annonce."
+      }
+    }
+  }
+}

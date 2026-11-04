@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, search, move, copy and share files and folders in your customer's Dropbox account, and get temporary download links, through one Connect endpoint.",
+      "intro": "The Dropbox toolkit covers browsing and searching files and folders, creating folders, moving, copying and deleting items, temporary download links and shared links. Through Connect, a product or AI agent works in the customer's Dropbox without building the integration or handling OAuth tokens.",
+      "useCases": [
+        {
+          "title": "Client deliverables in Dropbox",
+          "body": "Create a folder per client, copy a template folder into it and create a shared link to send to the client from your product."
+        },
+        {
+          "title": "File lookup for an AI agent",
+          "body": "Let an agent search files by query, read their metadata and fetch a temporary link to the content when the user asks for a document."
+        },
+        {
+          "title": "Organizing and cleaning up",
+          "body": "Move or rename files into the right folders and delete outdated items as part of a workflow in your product."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, busque, mova, copie e compartilhe arquivos e pastas na conta Dropbox do seu cliente e gere links temporários de download pelo Connect.",
+      "intro": "O toolkit do Dropbox cobre a navegação e a busca de arquivos e pastas, a criação de pastas, mover, copiar e excluir itens, links temporários de download e links compartilhados. Pelo Connect, um produto ou agente de IA trabalha no Dropbox do cliente sem construir a integração nem lidar com tokens OAuth.",
+      "useCases": [
+        {
+          "title": "Entregas de clientes no Dropbox",
+          "body": "Crie uma pasta por cliente, copie uma pasta modelo para dentro dela e gere um link compartilhado para enviar ao cliente a partir do seu produto."
+        },
+        {
+          "title": "Busca de arquivos por um agente de IA",
+          "body": "Deixe um agente buscar arquivos por texto, ler os metadados e obter um link temporário para o conteúdo quando o usuário pedir um documento."
+        },
+        {
+          "title": "Organização e limpeza",
+          "body": "Mova ou renomeie arquivos para as pastas certas e exclua itens antigos como parte de um fluxo do seu produto."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, busca, mueve, copia y comparte archivos y carpetas en la cuenta de Dropbox de tu cliente y obtén enlaces temporales de descarga con Connect.",
+      "intro": "El toolkit de Dropbox cubre la navegación y búsqueda de archivos y carpetas, la creación de carpetas, mover, copiar y eliminar elementos, enlaces temporales de descarga y enlaces compartidos. Con Connect, un producto o agente de IA trabaja en el Dropbox del cliente sin construir la integración ni manejar tokens OAuth.",
+      "useCases": [
+        {
+          "title": "Entregables de clientes en Dropbox",
+          "body": "Crea una carpeta por cliente, copia dentro una carpeta plantilla y genera un enlace compartido para enviarlo al cliente desde tu producto."
+        },
+        {
+          "title": "Búsqueda de archivos para un agente",
+          "body": "Deja que un agente busque archivos por texto, lea sus metadatos y obtenga un enlace temporal al contenido cuando el usuario pida un documento."
+        },
+        {
+          "title": "Organizar y limpiar",
+          "body": "Mueve o renombra archivos a las carpetas correctas y elimina elementos antiguos como parte de un flujo de tu producto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, recherchez, déplacez, copiez et partagez les fichiers et dossiers du compte Dropbox de votre client, avec des liens de téléchargement temporaires.",
+      "intro": "Le toolkit Dropbox couvre la navigation et la recherche de fichiers et dossiers, la création de dossiers, le déplacement, la copie et la suppression d'éléments, les liens de téléchargement temporaires et les liens partagés. Avec Connect, un produit ou un agent IA travaille dans le Dropbox du client sans construire l'intégration ni gérer les jetons OAuth.",
+      "useCases": [
+        {
+          "title": "Livrables clients dans Dropbox",
+          "body": "Créez un dossier par client, copiez-y un dossier modèle et générez un lien partagé à envoyer au client depuis votre produit."
+        },
+        {
+          "title": "Recherche de fichiers par un agent",
+          "body": "Laissez un agent chercher des fichiers par requête, lire leurs métadonnées et obtenir un lien temporaire vers le contenu quand l'utilisateur demande un document."
+        },
+        {
+          "title": "Organiser et nettoyer",
+          "body": "Déplacez ou renommez des fichiers vers les bons dossiers et supprimez les éléments obsolètes dans un workflow de votre produit."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "dropbox_list_files": {
+      "pt": {
+        "name": "Listar arquivos e pastas",
+        "description": "Lista os arquivos e pastas dentro de uma pasta, cada um com .tag (file, folder ou deleted), name, path_display e id. Quando has_more é true, envie o cursor para List more files para ver o resto."
+      },
+      "es": {
+        "name": "Listar archivos y carpetas",
+        "description": "Lista los archivos y carpetas dentro de una carpeta, cada uno con .tag (file, folder o deleted), name, path_display e id. Cuando has_more es true, pasa el cursor a List more files para ver el resto."
+      },
+      "fr": {
+        "name": "Lister les fichiers et dossiers",
+        "description": "Liste les fichiers et dossiers d'un dossier, chacun avec .tag (file, folder ou deleted), name, path_display et id. Quand has_more est true, passez le cursor à List more files pour la suite."
+      }
+    },
+    "dropbox_list_more_files": {
+      "pt": {
+        "name": "Listar mais arquivos",
+        "description": "Retorna a próxima página de uma listagem iniciada por List files and folders, com as mesmas opções. Chame de novo com o novo cursor enquanto has_more for true."
+      },
+      "es": {
+        "name": "Listar más archivos",
+        "description": "Devuelve la página siguiente de un listado iniciado con List files and folders, con las mismas opciones. Llama de nuevo con el nuevo cursor mientras has_more sea true."
+      },
+      "fr": {
+        "name": "Lister plus de fichiers",
+        "description": "Renvoie la page suivante d'une liste commencée avec List files and folders, avec les mêmes options. Rappelez avec le nouveau cursor tant que has_more est true."
+      }
+    },
+    "dropbox_search_files": {
+      "pt": {
+        "name": "Buscar arquivos",
+        "description": "Busca arquivos e pastas e retorna até max_results resultados, cada um com o item em metadata.metadata. Quando has_more é true, restrinja a consulta ou a pasta. Mudanças dos últimos instantes podem não aparecer ainda."
+      },
+      "es": {
+        "name": "Buscar archivos",
+        "description": "Busca archivos y carpetas y devuelve hasta max_results coincidencias, cada una con el elemento en metadata.metadata. Cuando has_more es true, acota la consulta o la carpeta. Los cambios de los últimos instantes pueden no aparecer todavía."
+      },
+      "fr": {
+        "name": "Rechercher des fichiers",
+        "description": "Recherche des fichiers et dossiers et renvoie jusqu'à max_results résultats, chacun avec l'élément dans metadata.metadata. Quand has_more est true, restreignez la requête ou le dossier. Les changements des derniers instants peuvent ne pas encore apparaître."
+      }
+    },
+    "dropbox_get_file": {
+      "pt": {
+        "name": "Obter arquivo ou pasta",
+        "description": "Retorna os metadados de um arquivo ou pasta: .tag (file ou folder), name, path_display, id e, para arquivos, size, rev e as datas de modificação. A pasta raiz não tem metadados."
+      },
+      "es": {
+        "name": "Obtener archivo o carpeta",
+        "description": "Devuelve los metadatos de un archivo o carpeta: .tag (file o folder), name, path_display, id y, para archivos, size, rev y las fechas de modificación. La carpeta raíz no tiene metadatos."
+      },
+      "fr": {
+        "name": "Obtenir un fichier ou dossier",
+        "description": "Renvoie les métadonnées d'un fichier ou dossier : .tag (file ou folder), name, path_display, id et, pour les fichiers, size, rev et les dates de modification. Le dossier racine n'a pas de métadonnées."
+      }
+    },
+    "dropbox_create_folder": {
+      "pt": {
+        "name": "Criar pasta",
+        "description": "Cria uma pasta e retorna seus metadados em metadata."
+      },
+      "es": {
+        "name": "Crear carpeta",
+        "description": "Crea una carpeta y devuelve sus metadatos en metadata."
+      },
+      "fr": {
+        "name": "Créer un dossier",
+        "description": "Crée un dossier et renvoie ses métadonnées dans metadata."
+      }
+    },
+    "dropbox_move_file": {
+      "pt": {
+        "name": "Mover ou renomear arquivo",
+        "description": "Move ou renomeia um arquivo ou pasta; uma pasta é movida com tudo o que há dentro. Retorna os novos metadados em metadata. Mudar apenas a caixa alta ou baixa de um nome não é suportado."
+      },
+      "es": {
+        "name": "Mover o renombrar archivo",
+        "description": "Mueve o renombra un archivo o carpeta; una carpeta se mueve con todo su contenido. Devuelve los nuevos metadatos en metadata. Cambiar solo las mayúsculas o minúsculas de un nombre no está soportado."
+      },
+      "fr": {
+        "name": "Déplacer ou renommer un fichier",
+        "description": "Déplace ou renomme un fichier ou dossier ; un dossier est déplacé avec tout son contenu. Renvoie les nouvelles métadonnées dans metadata. Changer uniquement la casse d'un nom n'est pas pris en charge."
+      }
+    },
+    "dropbox_copy_file": {
+      "pt": {
+        "name": "Copiar arquivo ou pasta",
+        "description": "Copia um arquivo ou pasta; uma pasta é copiada com tudo o que há dentro. Retorna os metadados da cópia em metadata."
+      },
+      "es": {
+        "name": "Copiar archivo o carpeta",
+        "description": "Copia un archivo o carpeta; una carpeta se copia con todo su contenido. Devuelve los metadatos de la copia en metadata."
+      },
+      "fr": {
+        "name": "Copier un fichier ou dossier",
+        "description": "Copie un fichier ou dossier ; un dossier est copié avec tout son contenu. Renvoie les métadonnées de la copie dans metadata."
+      }
+    },
+    "dropbox_delete_file": {
+      "pt": {
+        "name": "Excluir arquivo ou pasta",
+        "description": "Exclui um arquivo ou pasta; uma pasta é excluída com tudo o que há dentro. Retorna em metadata os metadados que o item tinha. O Dropbox mantém os itens excluídos restauráveis por um período que depende do plano."
+      },
+      "es": {
+        "name": "Eliminar archivo o carpeta",
+        "description": "Elimina un archivo o carpeta; una carpeta se elimina con todo su contenido. Devuelve en metadata los metadatos que tenía el elemento. Dropbox mantiene los elementos eliminados restaurables durante un período que depende del plan."
+      },
+      "fr": {
+        "name": "Supprimer un fichier ou dossier",
+        "description": "Supprime un fichier ou dossier ; un dossier est supprimé avec tout son contenu. Renvoie dans metadata les métadonnées qu'avait l'élément. Dropbox garde les éléments supprimés restaurables pendant une durée qui dépend du forfait."
+      }
+    },
+    "dropbox_get_temporary_link": {
+      "pt": {
+        "name": "Obter link temporário",
+        "description": "Retorna um link direto para o conteúdo de um arquivo, válido por quatro horas, além dos metadados do arquivo. Qualquer pessoa com o link pode baixar o arquivo até ele expirar; para um link duradouro, use Create shared link."
+      },
+      "es": {
+        "name": "Obtener enlace temporal",
+        "description": "Devuelve un enlace directo al contenido de un archivo, válido durante cuatro horas, además de los metadatos del archivo. Cualquiera con el enlace puede descargar el archivo hasta que expire; para un enlace duradero, usa Create shared link."
+      },
+      "fr": {
+        "name": "Obtenir un lien temporaire",
+        "description": "Renvoie un lien direct vers le contenu d'un fichier, valable quatre heures, plus les métadonnées du fichier. Toute personne ayant le lien peut télécharger le fichier jusqu'à son expiration ; pour un lien durable, utilisez Create shared link."
+      }
+    },
+    "dropbox_list_shared_links": {
+      "pt": {
+        "name": "Listar links compartilhados",
+        "description": "Lista links compartilhados com url, path_lower, expires e link_permissions. Sem path, lista todos os links da conta, e quando has_more é true a próxima página vem com o cursor."
+      },
+      "es": {
+        "name": "Listar enlaces compartidos",
+        "description": "Lista enlaces compartidos con url, path_lower, expires y link_permissions. Sin path, lista todos los enlaces de la cuenta, y cuando has_more es true la página siguiente viene con el cursor."
+      },
+      "fr": {
+        "name": "Lister les liens partagés",
+        "description": "Liste les liens partagés avec url, path_lower, expires et link_permissions. Sans path, liste tous les liens du compte, et quand has_more est true la page suivante vient avec le cursor."
+      }
+    },
+    "dropbox_create_shared_link": {
+      "pt": {
+        "name": "Criar link compartilhado",
+        "description": "Cria um link compartilhado para um arquivo ou pasta e o retorna com sua url. Se o item já tem um link, o Dropbox responde shared_link_already_exists, às vezes com esse link; List shared links o encontra e Update shared link muda suas configurações."
+      },
+      "es": {
+        "name": "Crear enlace compartido",
+        "description": "Crea un enlace compartido a un archivo o carpeta y lo devuelve con su url. Si el elemento ya tiene un enlace, Dropbox responde shared_link_already_exists, a veces con ese enlace; List shared links lo encuentra y Update shared link cambia su configuración."
+      },
+      "fr": {
+        "name": "Créer un lien partagé",
+        "description": "Crée un lien partagé vers un fichier ou dossier et le renvoie avec son url. Si l'élément a déjà un lien, Dropbox répond shared_link_already_exists, parfois avec ce lien ; List shared links le retrouve et Update shared link modifie ses réglages."
+      }
+    },
+    "dropbox_update_shared_link": {
+      "pt": {
+        "name": "Atualizar link compartilhado",
+        "description": "Muda as configurações de um link compartilhado existente e retorna o link com as configurações que valeram. O nível de acesso de um link existente não pode mudar."
+      },
+      "es": {
+        "name": "Actualizar enlace compartido",
+        "description": "Cambia la configuración de un enlace compartido existente y devuelve el enlace con la configuración que se aplicó. El nivel de acceso de un enlace existente no se puede cambiar."
+      },
+      "fr": {
+        "name": "Mettre à jour un lien partagé",
+        "description": "Modifie les réglages d'un lien partagé existant et renvoie le lien avec les réglages appliqués. Le niveau d'accès d'un lien existant ne peut pas changer."
+      }
+    }
+  }
+}

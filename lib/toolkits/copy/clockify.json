@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create time entries, start and stop timers, and manage clients and projects in your customer's Clockify workspace through one Reportei Connect endpoint.",
+      "intro": "The Clockify toolkit covers the connected user, workspaces, users, clients, projects, tasks and time entries, including running timers. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        {
+          "title": "Track time from your product",
+          "body": "Add a start and stop timer button to your SaaS that creates and ends time entries in the customer's Clockify, tied to a project and task."
+        },
+        {
+          "title": "Set up projects for new clients",
+          "body": "When an agency tool onboards a client, create the client and its project in Clockify so the team can log time right away."
+        },
+        {
+          "title": "Timesheet answers from an agent",
+          "body": "Let an AI agent list a user's time entries with project and task details and answer questions about where the hours went."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie lançamentos de tempo, inicie e pare timers e gerencie clientes e projetos no Clockify do seu cliente por um endpoint do Reportei Connect.",
+      "intro": "O toolkit do Clockify cobre o usuário conectado, workspaces, usuários, clientes, projetos, tarefas e lançamentos de tempo, incluindo timers em andamento. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Registrar tempo pelo seu produto",
+          "body": "Adicione ao seu SaaS um botão de iniciar e parar timer que cria e encerra lançamentos no Clockify do cliente, ligados a um projeto e uma tarefa."
+        },
+        {
+          "title": "Preparar projetos de novos clientes",
+          "body": "Quando uma ferramenta de agência cadastra um cliente, crie o cliente e o projeto no Clockify para a equipe já poder lançar horas."
+        },
+        {
+          "title": "Respostas de timesheet por agente",
+          "body": "Deixe um agente de IA listar os lançamentos de um usuário com projeto e tarefa e responder para onde foram as horas."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea registros de tiempo, inicia y detén temporizadores y gestiona clientes y proyectos en el Clockify de tu cliente con un endpoint de Reportei Connect.",
+      "intro": "El toolkit de Clockify cubre el usuario conectado, workspaces, usuarios, clientes, proyectos, tareas y registros de tiempo, incluidos los temporizadores en curso. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Registrar tiempo desde tu producto",
+          "body": "Añade a tu SaaS un botón de iniciar y detener temporizador que crea y cierra registros en el Clockify del cliente, ligados a un proyecto y una tarea."
+        },
+        {
+          "title": "Preparar proyectos de nuevos clientes",
+          "body": "Cuando una herramienta de agencia da de alta a un cliente, crea el cliente y su proyecto en Clockify para que el equipo pueda registrar horas de inmediato."
+        },
+        {
+          "title": "Respuestas de timesheet con un agente",
+          "body": "Deja que un agente de IA liste los registros de tiempo de un usuario con proyecto y tarea y responda en qué se fueron las horas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des entrées de temps, lancez des chronomètres et gérez clients et projets dans le Clockify de votre client via un endpoint Reportei Connect.",
+      "intro": "Le toolkit Clockify couvre l'utilisateur connecté, les workspaces, utilisateurs, clients, projets, tâches et entrées de temps, y compris les chronomètres en cours. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Suivre le temps depuis votre produit",
+          "body": "Ajoutez à votre SaaS un bouton de démarrage et d'arrêt de chronomètre qui crée et clôt des entrées dans le Clockify du client, liées à un projet et une tâche."
+        },
+        {
+          "title": "Préparer les projets des nouveaux clients",
+          "body": "Quand un outil d'agence intègre un client, créez le client et son projet dans Clockify pour que l'équipe puisse saisir ses heures tout de suite."
+        },
+        {
+          "title": "Réponses de feuille de temps par agent",
+          "body": "Laissez un agent IA lister les entrées de temps d'un utilisateur avec projet et tâche et répondre à la question de savoir où sont passées les heures."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "clockify_get_current_user": {
+      "pt": {
+        "name": "Obter usuário atual",
+        "description": "Retorna o usuário conectado com seu id, que os argumentos userId aceitam, os ids dos workspaces ativo e padrão, o email e configurações como o fuso horário."
+      },
+      "es": {
+        "name": "Obtener usuario actual",
+        "description": "Devuelve el usuario conectado con su id, que aceptan los argumentos userId, los ids de los workspaces activo y por defecto, el email y ajustes como la zona horaria."
+      },
+      "fr": {
+        "name": "Obtenir l'utilisateur actuel",
+        "description": "Renvoie l'utilisateur connecté avec son id, que prennent les arguments userId, les ids des workspaces actif et par défaut, l'email et des paramètres comme le fuseau horaire."
+      }
+    },
+    "clockify_list_workspaces": {
+      "pt": {
+        "name": "Listar workspaces",
+        "description": "Lista os workspaces do usuário conectado, com ids, nomes, moedas e valores por hora."
+      },
+      "es": {
+        "name": "Listar workspaces",
+        "description": "Lista los workspaces del usuario conectado, con ids, nombres, monedas y tarifas."
+      },
+      "fr": {
+        "name": "Lister les workspaces",
+        "description": "Liste les workspaces de l'utilisateur connecté, avec ids, noms, devises et tarifs."
+      }
+    },
+    "clockify_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários de um workspace com ids, nomes e emails, 50 por página. Uma página com menos de 50 usuários é a última."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de un workspace con ids, nombres y emails, 50 por página. Una página con menos de 50 usuarios es la última."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs d'un workspace avec ids, noms et emails, 50 par page. Une page de moins de 50 utilisateurs est la dernière."
+      }
+    },
+    "clockify_list_clients": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes de um workspace, 50 por página. Uma página com menos de 50 clientes é a última."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes de un workspace, 50 por página. Una página con menos de 50 clientes es la última."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients d'un workspace, 50 par page. Une page de moins de 50 clients est la dernière."
+      }
+    },
+    "clockify_create_client": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente em um workspace. Exige name."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente en un workspace. Requiere name."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client dans un workspace. Exige name."
+      }
+    },
+    "clockify_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos de um workspace, arquivados ou não, 50 por página. Uma página com menos de 50 projetos é a última."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de un workspace, archivados o no, 50 por página. Una página con menos de 50 proyectos es la última."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets d'un workspace, archivés ou non, 50 par page. Une page de moins de 50 projets est la dernière."
+      }
+    },
+    "clockify_create_project": {
+      "pt": {
+        "name": "Criar projeto",
+        "description": "Cria um projeto em um workspace, opcionalmente para um cliente. Exige name."
+      },
+      "es": {
+        "name": "Crear proyecto",
+        "description": "Crea un proyecto en un workspace, opcionalmente para un cliente. Requiere name."
+      },
+      "fr": {
+        "name": "Créer un projet",
+        "description": "Crée un projet dans un workspace, éventuellement pour un client. Exige name."
+      }
+    },
+    "clockify_list_tasks": {
+      "pt": {
+        "name": "Listar tarefas",
+        "description": "Lista as tarefas de um projeto, 50 por página. Uma página com menos de 50 tarefas é a última."
+      },
+      "es": {
+        "name": "Listar tareas",
+        "description": "Lista las tareas de un proyecto, 50 por página. Una página con menos de 50 tareas es la última."
+      },
+      "fr": {
+        "name": "Lister les tâches",
+        "description": "Liste les tâches d'un projet, 50 par page. Une page de moins de 50 tâches est la dernière."
+      }
+    },
+    "clockify_list_time_entries": {
+      "pt": {
+        "name": "Listar lançamentos de tempo",
+        "description": "Lista os lançamentos de tempo de um usuário em um workspace, 50 por página. Uma página com menos de 50 lançamentos é a última. Com hydrated true, cada lançamento traz projeto, tarefa e tags em vez de só seus ids."
+      },
+      "es": {
+        "name": "Listar registros de tiempo",
+        "description": "Lista los registros de tiempo de un usuario en un workspace, 50 por página. Una página con menos de 50 registros es la última. Con hydrated true, cada registro trae proyecto, tarea y etiquetas en lugar de solo sus ids."
+      },
+      "fr": {
+        "name": "Lister les entrées de temps",
+        "description": "Liste les entrées de temps d'un utilisateur dans un workspace, 50 par page. Une page de moins de 50 entrées est la dernière. Avec hydrated true, chaque entrée contient son projet, sa tâche et ses tags au lieu de leurs seuls ids."
+      }
+    },
+    "clockify_create_time_entry": {
+      "pt": {
+        "name": "Criar lançamento de tempo",
+        "description": "Cria um lançamento de tempo para o usuário conectado. Exige start. Sem end, inicia um timer em andamento, que Stop timer encerra. Se o workspace tiver campos personalizados obrigatórios para lançamentos, o Clockify recusa o lançamento."
+      },
+      "es": {
+        "name": "Crear registro de tiempo",
+        "description": "Crea un registro de tiempo para el usuario conectado. Requiere start. Sin end, inicia un temporizador en curso, que Stop timer termina. Si el workspace tiene campos personalizados obligatorios para registros, Clockify rechaza el registro."
+      },
+      "fr": {
+        "name": "Créer une entrée de temps",
+        "description": "Crée une entrée de temps pour l'utilisateur connecté. Exige start. Sans end, elle démarre un chronomètre en cours, que Stop timer termine. Si le workspace a des champs personnalisés obligatoires pour les entrées de temps, Clockify refuse l'entrée."
+      }
+    },
+    "clockify_update_time_entry": {
+      "pt": {
+        "name": "Atualizar lançamento de tempo",
+        "description": "Atualiza um lançamento de tempo. Exige start. É uma atualização completa: envie também end, description, projectId, taskId e billable que devem ser mantidos, pois um campo omitido pode ser apagado."
+      },
+      "es": {
+        "name": "Actualizar registro de tiempo",
+        "description": "Actualiza un registro de tiempo. Requiere start. Es una actualización completa: envía también end, description, projectId, taskId y billable que quieras conservar, porque un campo omitido puede borrarse."
+      },
+      "fr": {
+        "name": "Mettre à jour une entrée de temps",
+        "description": "Met à jour une entrée de temps. Exige start. C'est une mise à jour complète : envoyez aussi end, description, projectId, taskId et billable à conserver, car un champ omis peut être effacé."
+      }
+    },
+    "clockify_delete_time_entry": {
+      "pt": {
+        "name": "Excluir lançamento de tempo",
+        "description": "Exclui um lançamento de tempo."
+      },
+      "es": {
+        "name": "Eliminar registro de tiempo",
+        "description": "Elimina un registro de tiempo."
+      },
+      "fr": {
+        "name": "Supprimer une entrée de temps",
+        "description": "Supprime une entrée de temps."
+      }
+    },
+    "clockify_stop_timer": {
+      "pt": {
+        "name": "Parar timer",
+        "description": "Para o timer em andamento de um usuário em um workspace, definindo o fim desse lançamento. Exige end."
+      },
+      "es": {
+        "name": "Detener temporizador",
+        "description": "Detiene el temporizador en curso de un usuario en un workspace, fijando el fin de ese registro. Requiere end."
+      },
+      "fr": {
+        "name": "Arrêter le chronomètre",
+        "description": "Arrête le chronomètre en cours d'un utilisateur dans un workspace, en fixant la fin de cette entrée. Exige end."
+      }
+    }
+  }
+}

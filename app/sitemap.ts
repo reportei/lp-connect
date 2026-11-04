@@ -7,6 +7,7 @@ import { absoluteUrl, languageAlternates } from "@/lib/seo"
 
 export const dynamic = "force-static"
 
+// The toolkit pages are in their own sitemap, app/sitemap-toolkits.xml.
 export default function sitemap(): MetadataRoute.Sitemap {
   // Every language version of a translated page is listed, each carrying the full set of alternates.
   const translated = (Object.keys(TRANSLATED_PAGES) as TranslatedPage[]).flatMap((page) =>

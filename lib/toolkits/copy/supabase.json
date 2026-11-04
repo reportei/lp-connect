@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage organizations, projects, Edge Functions and secrets in your customer's Supabase account through one Connect endpoint.",
+      "intro": "The Supabase toolkit works through the Management API: organizations and members, projects (read, rename, pause, restore and health), Edge Functions, secrets by name, and read-only SQL queries. Your customer connects Supabase once with an API token, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Project dashboard for agencies",
+          "body": "List the organizations and projects an agency manages, with status, region and health, in one screen of your own."
+        },
+        {
+          "title": "Pause idle free projects",
+          "body": "Pause a free-plan project that is not in use and restore it when needed, with every call kept in the audit log."
+        },
+        {
+          "title": "Agent inspects the database",
+          "body": "An AI agent runs a read-only SQL query with schema-qualified tables, such as public.orders, to answer questions about project data."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie organizações, projetos, Edge Functions e secrets na conta Supabase do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Supabase funciona pela Management API: organizações e membros, projetos (ler, renomear, pausar, restaurar e saúde), Edge Functions, secrets pelo nome e queries SQL somente leitura. Seu cliente conecta o Supabase uma vez com um token de API, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Painel de projetos para agências",
+          "body": "Liste as organizações e os projetos que uma agência gerencia, com status, região e saúde, em uma tela do seu próprio produto."
+        },
+        {
+          "title": "Pause projetos gratuitos ociosos",
+          "body": "Pause um projeto do plano gratuito que não está em uso e restaure quando precisar, com cada chamada guardada no log de auditoria."
+        },
+        {
+          "title": "Agente inspeciona o banco",
+          "body": "Um agente de IA roda uma query SQL somente leitura com tabelas qualificadas pelo schema, como public.orders, para responder perguntas sobre os dados do projeto."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona organizaciones, proyectos, Edge Functions y secrets en la cuenta de Supabase de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Supabase funciona a través de la Management API: organizaciones y miembros, proyectos (leer, renombrar, pausar, restaurar y salud), Edge Functions, secrets por nombre y queries SQL de solo lectura. Tu cliente conecta Supabase una vez con un token de API, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Panel de proyectos para agencias",
+          "body": "Lista las organizaciones y los proyectos que gestiona una agencia, con estado, región y salud, en una pantalla de tu propio producto."
+        },
+        {
+          "title": "Pausa proyectos gratuitos inactivos",
+          "body": "Pausa un proyecto del plan gratuito que no se usa y restáuralo cuando haga falta, con cada llamada guardada en el log de auditoría."
+        },
+        {
+          "title": "Agente inspecciona la base de datos",
+          "body": "Un agente de IA ejecuta una query SQL de solo lectura con tablas calificadas por schema, como public.orders, para responder preguntas sobre los datos del proyecto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez organisations, projets, Edge Functions et secrets dans le compte Supabase de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Supabase passe par la Management API : organisations et membres, projets (lire, renommer, mettre en pause, restaurer et santé), Edge Functions, secrets par nom et requêtes SQL en lecture seule. Votre client connecte Supabase une fois avec un token API, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Tableau de bord de projets pour agences",
+          "body": "Listez les organisations et les projets gérés par une agence, avec statut, région et santé, dans un écran de votre propre produit."
+        },
+        {
+          "title": "Mettre en pause les projets gratuits inactifs",
+          "body": "Mettez en pause un projet du plan gratuit inutilisé et restaurez-le au besoin, chaque appel restant dans le journal d'audit."
+        },
+        {
+          "title": "Un agent inspecte la base de données",
+          "body": "Un agent IA exécute une requête SQL en lecture seule avec des tables qualifiées par le schéma, comme public.orders, pour répondre aux questions sur les données du projet."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "supabase_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista as organizações que o token alcança, cada uma com id, slug e nome. O slug é o que as ferramentas de organização pedem."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista las organizaciones a las que llega el token, cada una con id, slug y nombre. El slug es lo que piden las herramientas de organización."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste les organisations accessibles avec le token, chacune avec id, slug et nom. Le slug est ce que demandent les outils d'organisation."
+      }
+    },
+    "supabase_get_organization": {
+      "pt": {
+        "name": "Obter organização",
+        "description": "Retorna uma organização com seu nome e plano: free, pro, team, enterprise ou platform."
+      },
+      "es": {
+        "name": "Obtener organización",
+        "description": "Devuelve una organización con su nombre y plan: free, pro, team, enterprise o platform."
+      },
+      "fr": {
+        "name": "Obtenir une organisation",
+        "description": "Renvoie une organisation avec son nom et son plan : free, pro, team, enterprise ou platform."
+      }
+    },
+    "supabase_list_organization_members": {
+      "pt": {
+        "name": "Listar membros da organização",
+        "description": "Lista os membros de uma organização, cada um com nome de usuário, email, papel e se o MFA está ativo."
+      },
+      "es": {
+        "name": "Listar miembros de la organización",
+        "description": "Lista los miembros de una organización, cada uno con nombre de usuario, email, rol y si el MFA está activo."
+      },
+      "fr": {
+        "name": "Lister les membres de l'organisation",
+        "description": "Liste les membres d'une organisation, chacun avec nom d'utilisateur, email, rôle et si le MFA est activé."
+      }
+    },
+    "supabase_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos de uma organização, cada um com ref, nome, região e status. O ref é o que as ferramentas de projeto pedem. Pagine com limit e offset; pagination.count é o total."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de una organización, cada uno con ref, nombre, región y estado. El ref es lo que piden las herramientas de proyecto. Pagina con limit y offset; pagination.count es el total."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets d'une organisation, chacun avec ref, nom, région et statut. Le ref est ce que demandent les outils de projet. Paginez avec limit et offset ; pagination.count est le total."
+      }
+    },
+    "supabase_get_project": {
+      "pt": {
+        "name": "Obter projeto",
+        "description": "Retorna um projeto com nome, organização, região, data de criação, status e host e versão do banco de dados."
+      },
+      "es": {
+        "name": "Obtener proyecto",
+        "description": "Devuelve un proyecto con nombre, organización, región, fecha de creación, estado y host y versión de la base de datos."
+      },
+      "fr": {
+        "name": "Obtenir un projet",
+        "description": "Renvoie un projet avec nom, organisation, région, date de création, statut et hôte et version de la base de données."
+      }
+    },
+    "supabase_update_project": {
+      "pt": {
+        "name": "Atualizar projeto",
+        "description": "Renomeia um projeto. O nome é o único campo que esta chamada altera."
+      },
+      "es": {
+        "name": "Actualizar proyecto",
+        "description": "Renombra un proyecto. El nombre es el único campo que cambia esta llamada."
+      },
+      "fr": {
+        "name": "Mettre à jour un projet",
+        "description": "Renomme un projet. Le nom est le seul champ que cet appel modifie."
+      }
+    },
+    "supabase_pause_project": {
+      "pt": {
+        "name": "Pausar projeto",
+        "description": "Pausa um projeto, o que tira seu banco de dados, APIs e functions do ar até Restaurar projeto. Só projetos de organizações no plano gratuito podem ser pausados. Projetos pausados não contam no limite de dois projetos gratuitos."
+      },
+      "es": {
+        "name": "Pausar proyecto",
+        "description": "Pausa un proyecto, lo que deja su base de datos, APIs y functions fuera de línea hasta Restaurar proyecto. Solo se pueden pausar proyectos de organizaciones del plan gratuito. Los proyectos pausados no cuentan para el límite de dos proyectos gratuitos."
+      },
+      "fr": {
+        "name": "Mettre un projet en pause",
+        "description": "Met un projet en pause, ce qui met hors ligne sa base de données, ses API et ses functions jusqu'à Restaurer un projet. Seuls les projets d'organisations du plan gratuit peuvent être mis en pause. Les projets en pause ne comptent pas dans la limite de deux projets gratuits."
+      }
+    },
+    "supabase_restore_project": {
+      "pt": {
+        "name": "Restaurar projeto",
+        "description": "Traz de volta um projeto pausado com seus dados e configurações. Um projeto pode ser restaurado por até um ano após ser pausado, e no plano gratuito volta a contar no limite de dois projetos gratuitos ativos."
+      },
+      "es": {
+        "name": "Restaurar proyecto",
+        "description": "Recupera un proyecto pausado con sus datos y configuración. Un proyecto se puede restaurar hasta un año después de pausarse, y en el plan gratuito vuelve a contar para el límite de dos proyectos gratuitos activos."
+      },
+      "fr": {
+        "name": "Restaurer un projet",
+        "description": "Remet en service un projet en pause avec ses données et ses réglages. Un projet peut être restauré jusqu'à un an après sa mise en pause, et sur un plan gratuit il compte de nouveau dans la limite de deux projets gratuits actifs."
+      }
+    },
+    "supabase_get_project_health": {
+      "pt": {
+        "name": "Obter saúde do projeto",
+        "description": "Retorna a saúde dos serviços de um projeto, cada um com healthy, status e o erro quando há um."
+      },
+      "es": {
+        "name": "Obtener salud del proyecto",
+        "description": "Devuelve la salud de los servicios de un proyecto, cada uno con healthy, status y el error cuando lo hay."
+      },
+      "fr": {
+        "name": "Obtenir la santé du projet",
+        "description": "Renvoie la santé des services d'un projet, chacun avec healthy, status et l'erreur s'il y en a une."
+      }
+    },
+    "supabase_list_functions": {
+      "pt": {
+        "name": "Listar functions",
+        "description": "Lista as Edge Functions de um projeto, cada uma com slug, nome, status, versão e se verifica o JWT de quem chama."
+      },
+      "es": {
+        "name": "Listar functions",
+        "description": "Lista las Edge Functions de un proyecto, cada una con slug, nombre, estado, versión y si verifica el JWT de quien llama."
+      },
+      "fr": {
+        "name": "Lister les functions",
+        "description": "Liste les Edge Functions d'un projet, chacune avec slug, nom, statut, version et si elle vérifie le JWT de l'appelant."
+      }
+    },
+    "supabase_list_secrets": {
+      "pt": {
+        "name": "Listar secrets",
+        "description": "Lista os secrets que as Edge Functions de um projeto leem como variáveis de ambiente, cada um com nome e data de atualização. O campo value é um digest, nunca o secret em si."
+      },
+      "es": {
+        "name": "Listar secrets",
+        "description": "Lista los secrets que las Edge Functions de un proyecto leen como variables de entorno, cada uno con nombre y fecha de actualización. El campo value es un digest, nunca el secret en sí."
+      },
+      "fr": {
+        "name": "Lister les secrets",
+        "description": "Liste les secrets que les Edge Functions d'un projet lisent comme variables d'environnement, chacun avec nom et date de mise à jour. Le champ value est un digest, jamais le secret lui-même."
+      }
+    },
+    "supabase_run_read_only_query": {
+      "pt": {
+        "name": "Executar query somente leitura",
+        "description": "Executa uma query SQL no banco de dados de um projeto como usuário somente leitura e retorna as linhas. Toda tabela deve ser qualificada pelo schema, como em public.orders. O endpoint está em beta."
+      },
+      "es": {
+        "name": "Ejecutar query de solo lectura",
+        "description": "Ejecuta una query SQL en la base de datos de un proyecto como usuario de solo lectura y devuelve las filas. Toda tabla debe estar calificada por el schema, como en public.orders. El endpoint está en beta."
+      },
+      "fr": {
+        "name": "Exécuter une requête en lecture seule",
+        "description": "Exécute une requête SQL sur la base de données d'un projet en tant qu'utilisateur en lecture seule et renvoie les lignes. Chaque table doit être qualifiée par son schéma, comme dans public.orders. L'endpoint est en bêta."
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read keyword rankings, competitors, site audits and backlink stats from your customer's SE Ranking projects, through one Connect endpoint.",
+      "intro": "The SE Ranking toolkit covers projects, the search engines and keywords they track, keyword positions and ranking history, competitors, website audits and backlink stats. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "White-label SEO reports",
+          "body": "An agency tool reads a project's summary, keyword positions and ranking history to build a client report."
+        },
+        {
+          "title": "Compare with competitors",
+          "body": "A SaaS lists a project's competitors and gets their positions for the same keywords over a period."
+        },
+        {
+          "title": "Run and read site audits",
+          "body": "An AI agent starts an audit of a domain and later reads its report, with the health score and the errors, warnings and notices."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia rankings de palavras-chave, concorrentes, auditorias de site e estatísticas de backlinks no SE Ranking do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit do SE Ranking cobre projetos, os mecanismos de busca e palavras-chave que rastreiam, posições de palavras-chave e histórico de ranking, concorrentes, auditorias de site e estatísticas de backlinks. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda a chave de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Relatórios de SEO em marca própria",
+          "body": "Uma ferramenta de agência lê o resumo de um projeto, as posições das palavras-chave e o histórico de ranking para montar o relatório do cliente."
+        },
+        {
+          "title": "Compare com concorrentes",
+          "body": "Um SaaS lista os concorrentes de um projeto e obtém suas posições para as mesmas palavras-chave em um período."
+        },
+        {
+          "title": "Rode e leia auditorias de site",
+          "body": "Um agente de IA inicia a auditoria de um domínio e depois lê o relatório, com a pontuação de saúde e os erros, avisos e notificações."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee rankings de palabras clave, competidores, auditorías de sitio y estadísticas de backlinks del SE Ranking de tu cliente, con un endpoint.",
+      "intro": "El toolkit de SE Ranking cubre proyectos, los buscadores y palabras clave que rastrean, posiciones de palabras clave e historial de ranking, competidores, auditorías de sitio web y estadísticas de backlinks. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda la clave de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Informes SEO con tu marca",
+          "body": "Una herramienta de agencia lee el resumen de un proyecto, las posiciones de palabras clave y el historial de ranking para armar el informe del cliente."
+        },
+        {
+          "title": "Compara con competidores",
+          "body": "Un SaaS lista los competidores de un proyecto y obtiene sus posiciones para las mismas palabras clave en un periodo."
+        },
+        {
+          "title": "Lanza y lee auditorías de sitio",
+          "body": "Un agente de IA inicia la auditoría de un dominio y luego lee su informe, con la puntuación de salud y los errores, advertencias y avisos."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez classements de mots-clés, concurrents, audits de site et stats de backlinks des projets SE Ranking de votre client, via un seul endpoint Connect.",
+      "intro": "Le toolkit SE Ranking couvre les projets, les moteurs de recherche et mots-clés suivis, les positions des mots-clés et l'historique de classement, les concurrents, les audits de site web et les stats de backlinks. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke la clé d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Rapports SEO en marque blanche",
+          "body": "Un outil d'agence lit le résumé d'un projet, les positions des mots-clés et l'historique de classement pour composer le rapport du client."
+        },
+        {
+          "title": "Comparer avec les concurrents",
+          "body": "Un SaaS liste les concurrents d'un projet et obtient leurs positions sur les mêmes mots-clés sur une période."
+        },
+        {
+          "title": "Lancer et lire des audits de site",
+          "body": "Un agent IA démarre l'audit d'un domaine puis lit son rapport, avec le score de santé et les erreurs, avertissements et notices."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "se_ranking_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos da conta, cada um um site rastreado, com o id que as outras ferramentas pedem como site_id, título, URL, keyword_count, frequência de verificação e o guest_link para compartilhar os rankings sem login."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de la cuenta, cada uno un sitio rastreado, con el id que piden las otras herramientas como site_id, título, URL, keyword_count, frecuencia de verificación y el guest_link para compartir los rankings sin iniciar sesión."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets du compte, chacun étant un site suivi, avec l'id que demandent les autres outils comme site_id, son titre, son URL, keyword_count, sa fréquence de vérification et le guest_link pour partager les classements sans connexion."
+      }
+    },
+    "se_ranking_get_project_summary": {
+      "pt": {
+        "name": "Obter resumo do projeto",
+        "description": "Retorna o resumo de um projeto: a posição média das duas últimas verificações, quantas posições subiram e desceram, palavras-chave no top 5, 10 e 30, visibilidade, Domain Authority e páginas indexadas no Google."
+      },
+      "es": {
+        "name": "Obtener resumen del proyecto",
+        "description": "Devuelve el resumen de un proyecto: la posición media de las dos últimas comprobaciones, cuántas posiciones subieron y bajaron, palabras clave en el top 5, 10 y 30, visibilidad, Domain Authority y páginas indexadas en Google."
+      },
+      "fr": {
+        "name": "Obtenir le résumé du projet",
+        "description": "Renvoie le résumé d'un projet : la position moyenne des deux dernières vérifications, combien de positions ont monté et baissé, les mots-clés dans le top 5, 10 et 30, la visibilité, le Domain Authority et les pages indexées dans Google."
+      }
+    },
+    "se_ranking_list_project_search_engines": {
+      "pt": {
+        "name": "Listar mecanismos de busca do projeto",
+        "description": "Lista os mecanismos de busca que um projeto rastreia, cada um com o site_engine_id que as ferramentas de ranking pedem, sua região, idioma e keyword_count."
+      },
+      "es": {
+        "name": "Listar buscadores del proyecto",
+        "description": "Lista los buscadores que rastrea un proyecto, cada uno con el site_engine_id que piden las herramientas de ranking, su región, idioma y keyword_count."
+      },
+      "fr": {
+        "name": "Lister les moteurs de recherche du projet",
+        "description": "Liste les moteurs de recherche qu'un projet suit, chacun avec le site_engine_id que demandent les outils de classement, sa région, sa langue et keyword_count."
+      }
+    },
+    "se_ranking_list_keywords": {
+      "pt": {
+        "name": "Listar palavras-chave",
+        "description": "Lista as palavras-chave que um projeto rastreia, com id, name (o texto da palavra-chave), link alvo, grupo e os site_engine_ids em que é rastreada. As ferramentas de ranking só retornam o id da palavra-chave, então é aqui que está o texto."
+      },
+      "es": {
+        "name": "Listar palabras clave",
+        "description": "Lista las palabras clave que rastrea un proyecto, con id, name (el texto de la palabra clave), enlace objetivo, grupo y los site_engine_ids en los que se rastrea. Las herramientas de ranking solo devuelven el id de la palabra clave, así que aquí está el texto."
+      },
+      "fr": {
+        "name": "Lister les mots-clés",
+        "description": "Liste les mots-clés qu'un projet suit, avec id, name (le texte du mot-clé), lien cible, groupe et les site_engine_ids où il est suivi. Les outils de classement ne renvoient que l'id du mot-clé : c'est donc ici que se trouve le texte."
+      }
+    },
+    "se_ranking_get_keyword_positions": {
+      "pt": {
+        "name": "Obter posições das palavras-chave",
+        "description": "Retorna as posições das palavras-chave de um projeto em cada data de verificação de um período, agrupadas por mecanismo de busca, com a variação, o volume de busca e a concorrência de cada uma. As palavras-chave vêm por id: o texto está em Listar palavras-chave."
+      },
+      "es": {
+        "name": "Obtener posiciones de palabras clave",
+        "description": "Devuelve las posiciones de las palabras clave de un proyecto en cada fecha de comprobación de un periodo, agrupadas por buscador, con el cambio, el volumen de búsqueda y la competencia de cada una. Las palabras clave vienen por id: el texto está en Listar palabras clave."
+      },
+      "fr": {
+        "name": "Obtenir les positions des mots-clés",
+        "description": "Renvoie les positions des mots-clés d'un projet à chaque date de vérification d'une période, groupées par moteur de recherche, avec la variation, le volume de recherche et la concurrence de chacun. Les mots-clés arrivent par id : le texte se trouve dans Lister les mots-clés."
+      }
+    },
+    "se_ranking_get_ranking_history": {
+      "pt": {
+        "name": "Obter histórico de ranking",
+        "description": "Retorna uma série temporal de uma métrica de ranking de um projeto por data de verificação: uma série por mecanismo de busca e uma com a média de todos. value às vezes vem como texto e às vezes como número."
+      },
+      "es": {
+        "name": "Obtener historial de ranking",
+        "description": "Devuelve una serie temporal de una métrica de ranking de un proyecto por fecha de comprobación: una serie por buscador y una con el promedio de todos. value a veces viene como texto y a veces como número."
+      },
+      "fr": {
+        "name": "Obtenir l'historique de classement",
+        "description": "Renvoie une série temporelle d'une métrique de classement d'un projet par date de vérification : une série par moteur de recherche et une avec la moyenne de tous. value arrive parfois en texte et parfois en nombre."
+      }
+    },
+    "se_ranking_list_competitors": {
+      "pt": {
+        "name": "Listar concorrentes",
+        "description": "Lista os concorrentes adicionados a um projeto, com o id que Obter posições do concorrente pede, nome, URL e Domain Trust."
+      },
+      "es": {
+        "name": "Listar competidores",
+        "description": "Lista los competidores añadidos a un proyecto, con el id que pide Obtener posiciones del competidor, nombre, URL y Domain Trust."
+      },
+      "fr": {
+        "name": "Lister les concurrents",
+        "description": "Liste les concurrents ajoutés à un projet, avec l'id que demande Obtenir les positions du concurrent, leur nom, leur URL et leur Domain Trust."
+      }
+    },
+    "se_ranking_get_competitor_positions": {
+      "pt": {
+        "name": "Obter posições do concorrente",
+        "description": "Retorna as posições de um concorrente para as palavras-chave do projeto em cada data de verificação de um período, agrupadas por mecanismo de busca, com o nome da palavra-chave e o volume de busca."
+      },
+      "es": {
+        "name": "Obtener posiciones del competidor",
+        "description": "Devuelve las posiciones de un competidor para las palabras clave del proyecto en cada fecha de comprobación de un periodo, agrupadas por buscador, con el nombre de la palabra clave y el volumen de búsqueda."
+      },
+      "fr": {
+        "name": "Obtenir les positions du concurrent",
+        "description": "Renvoie les positions d'un concurrent pour les mots-clés du projet à chaque date de vérification d'une période, groupées par moteur de recherche, avec le nom du mot-clé et le volume de recherche."
+      }
+    },
+    "se_ranking_list_audits": {
+      "pt": {
+        "name": "Listar auditorias",
+        "description": "Lista as auditorias de site da conta, com id, url, título, status (como processing ou finished), last_update e as últimas estatísticas, e total como o número encontrado. A última página é quando offset mais limit alcança total."
+      },
+      "es": {
+        "name": "Listar auditorías",
+        "description": "Lista las auditorías de sitio de la cuenta, con id, url, título, estado (como processing o finished), last_update y las últimas estadísticas, y total como el número encontrado. La última página es cuando offset más limit alcanza total."
+      },
+      "fr": {
+        "name": "Lister les audits",
+        "description": "Liste les audits de site du compte, avec id, url, titre, statut (comme processing ou finished), last_update et les dernières statistiques, et total comme nombre trouvé. La dernière page est celle où offset plus limit atteint total."
+      }
+    },
+    "se_ranking_create_audit": {
+      "pt": {
+        "name": "Criar auditoria",
+        "description": "Inicia a auditoria de site de um domínio e retorna seu id; Obter relatório da auditoria mostra is_finished quando termina. Usa os limites de auditoria do plano e, por padrão, o SE Ranking envia o relatório por e-mail ao dono da conta no fim, a menos que settings.send_report seja 0."
+      },
+      "es": {
+        "name": "Crear auditoría",
+        "description": "Inicia la auditoría de sitio de un dominio y devuelve su id; Obtener informe de la auditoría muestra is_finished cuando termina. Usa los límites de auditoría del plan y, por defecto, SE Ranking envía el informe por email al dueño de la cuenta al final, salvo que settings.send_report sea 0."
+      },
+      "fr": {
+        "name": "Créer un audit",
+        "description": "Démarre l'audit de site d'un domaine et renvoie son id ; Obtenir le rapport d'audit affiche is_finished à la fin. Il utilise les limites d'audit du forfait et, par défaut, SE Ranking envoie le rapport par e-mail au propriétaire du compte à la fin, sauf si settings.send_report vaut 0."
+      }
+    },
+    "se_ranking_get_audit_report": {
+      "pt": {
+        "name": "Obter relatório da auditoria",
+        "description": "Retorna o relatório de uma auditoria: is_finished, a pontuação de saúde em score_percent, as páginas rastreadas, as contagens de erros, avisos e notificações, as propriedades do domínio e cada seção de verificações com as páginas afetadas."
+      },
+      "es": {
+        "name": "Obtener informe de la auditoría",
+        "description": "Devuelve el informe de una auditoría: is_finished, la puntuación de salud en score_percent, las páginas rastreadas, los conteos de errores, advertencias y avisos, las propiedades del dominio y cada sección de comprobaciones con las páginas afectadas."
+      },
+      "fr": {
+        "name": "Obtenir le rapport d'audit",
+        "description": "Renvoie le rapport d'un audit : is_finished, le score de santé dans score_percent, les pages explorées, les nombres d'erreurs, d'avertissements et de notices, les propriétés du domaine et chaque section de vérifications avec les pages concernées."
+      }
+    },
+    "se_ranking_get_backlink_stats": {
+      "pt": {
+        "name": "Obter estatísticas de backlinks",
+        "description": "Retorna os totais dos backlinks monitorados em um projeto: backlinks, âncoras únicas, IPs e domínios, dofollow e nofollow, e quantos backlinks ainda podem ser adicionados hoje."
+      },
+      "es": {
+        "name": "Obtener estadísticas de backlinks",
+        "description": "Devuelve los totales de los backlinks monitorizados en un proyecto: backlinks, anclas únicas, IPs y dominios, dofollow y nofollow, y cuántos backlinks se pueden añadir todavía hoy."
+      },
+      "fr": {
+        "name": "Obtenir les stats de backlinks",
+        "description": "Renvoie les totaux des backlinks surveillés dans un projet : backlinks, ancres uniques, IP et domaines, dofollow et nofollow, et combien de backlinks peuvent encore être ajoutés aujourd'hui."
+      }
+    }
+  }
+}

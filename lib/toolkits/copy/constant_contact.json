@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, contact lists and email campaigns in your customer's Constant Contact account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Constant Contact toolkit covers contacts, contact lists, and email campaigns with their activities, scheduling and sending statistics. Through Connect your product or AI agent calls them with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Add subscribers on signup",
+          "body": "A SaaS creates a contact in the customer's account when someone signs up, and handles the 409 when the email already exists."
+        },
+        {
+          "title": "Send a campaign from your app",
+          "body": "A product creates a draft campaign with custom HTML, sets its lists and schedules the sending."
+        },
+        {
+          "title": "Report on campaign results",
+          "body": "An AI agent reads the stats of a sent campaign, such as opens, clicks and bounces, and summarizes them for the account owner."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, listas e campanhas de e-mail na conta Constant Contact do seu cliente, pelo seu produto ou agente de IA, com um endpoint do Connect.",
+      "intro": "O toolkit do Constant Contact cobre contatos, listas de contatos e campanhas de e-mail com suas atividades, agendamento e estatísticas de envio. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Adicione inscritos no cadastro",
+          "body": "Um SaaS cria um contato na conta do cliente quando alguém se cadastra e trata o 409 quando o e-mail já existe."
+        },
+        {
+          "title": "Envie uma campanha pelo seu app",
+          "body": "Um produto cria uma campanha em rascunho com HTML próprio, define as listas e agenda o envio."
+        },
+        {
+          "title": "Relate os resultados da campanha",
+          "body": "Um agente de IA lê as estatísticas de uma campanha enviada, como aberturas, cliques e bounces, e as resume para o dono da conta."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, listas y campañas de email en la cuenta de Constant Contact de tu cliente desde tu producto o agente de IA, con un endpoint de Connect.",
+      "intro": "El toolkit de Constant Contact cubre contactos, listas de contactos y campañas de email con sus actividades, programación y estadísticas de envío. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Añade suscriptores al registrarse",
+          "body": "Un SaaS crea un contacto en la cuenta del cliente cuando alguien se registra y gestiona el 409 cuando el email ya existe."
+        },
+        {
+          "title": "Envía una campaña desde tu app",
+          "body": "Un producto crea una campaña en borrador con HTML propio, define sus listas y programa el envío."
+        },
+        {
+          "title": "Informa de los resultados",
+          "body": "Un agente de IA lee las estadísticas de una campaña enviada, como aperturas, clics y rebotes, y las resume para el dueño de la cuenta."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, listes et campagnes e-mail dans le compte Constant Contact de votre client, depuis votre produit ou agent IA, via un endpoint Connect.",
+      "intro": "Le toolkit Constant Contact couvre les contacts, les listes de contacts et les campagnes e-mail avec leurs activités, leur planification et leurs statistiques d'envoi. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Ajouter des abonnés à l'inscription",
+          "body": "Un SaaS crée un contact dans le compte du client quand quelqu'un s'inscrit et gère le 409 lorsque l'e-mail existe déjà."
+        },
+        {
+          "title": "Envoyer une campagne depuis votre app",
+          "body": "Un produit crée une campagne en brouillon avec du HTML personnalisé, définit ses listes et planifie l'envoi."
+        },
+        {
+          "title": "Rendre compte des résultats",
+          "body": "Un agent IA lit les statistiques d'une campagne envoyée, comme les ouvertures, clics et rebonds, et les résume pour le propriétaire du compte."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "constant_contact_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos da conta, sem os excluídos por padrão, com filtro opcional por e-mail, lista, status ou data. A resposta traz contacts e, quando há mais, _links.next.href com o cursor da próxima página."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos de la cuenta, sin los eliminados por defecto, con filtro opcional por email, lista, estado o fecha. La respuesta trae contacts y, cuando hay más, _links.next.href con el cursor de la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts du compte, sans les supprimés par défaut, avec filtre facultatif par e-mail, liste, statut ou date. La réponse contient contacts et, quand il y en a plus, _links.next.href avec le curseur de la page suivante."
+      }
+    },
+    "constant_contact_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato e o retorna com seu contact_id. Envie create_source e pelo menos email_address, first_name ou last_name. Um e-mail que já existe na conta responde 409."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto y lo devuelve con su contact_id. Envía create_source y al menos email_address, first_name o last_name. Un email que ya existe en la cuenta responde 409."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact et le renvoie avec son contact_id. Envoyez create_source et au moins email_address, first_name ou last_name. Une adresse e-mail déjà présente dans le compte répond 409."
+      }
+    },
+    "constant_contact_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato substituindo seus campos principais: email_address, nomes, job_title, company_name, birthday e anniversary omitidos ficam vazios, então envie também os valores atuais, obtidos em Listar contatos. Subrecursos omitidos são mantidos, e o que é enviado substitui o atual."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto reemplazando sus campos principales: email_address, nombres, job_title, company_name, birthday y anniversary omitidos quedan vacíos, así que envía también los valores actuales, obtenidos en Listar contactos. Los subrecursos omitidos se conservan, y el que se envía reemplaza al actual."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact en remplaçant ses champs principaux : email_address, noms, job_title, company_name, birthday et anniversary omis deviennent vides, envoyez donc aussi les valeurs actuelles, obtenues via Lister les contacts. Les sous-ressources omises sont conservées, et celle qui est envoyée remplace l'actuelle."
+      }
+    },
+    "constant_contact_list_contact_lists": {
+      "pt": {
+        "name": "Listar listas de contatos",
+        "description": "Lista as listas de contatos com list_id, name e description. Uma conta tem até 1000 listas, e uma página traz até 1000."
+      },
+      "es": {
+        "name": "Listar listas de contactos",
+        "description": "Lista las listas de contactos con list_id, name y description. Una cuenta tiene hasta 1000 listas, y una página trae hasta 1000."
+      },
+      "fr": {
+        "name": "Lister les listes de contacts",
+        "description": "Liste les listes de contacts avec list_id, name et description. Un compte compte jusqu'à 1000 listes, et une page en renvoie jusqu'à 1000."
+      }
+    },
+    "constant_contact_create_contact_list": {
+      "pt": {
+        "name": "Criar lista de contatos",
+        "description": "Cria uma lista de contatos vazia e a retorna com seu list_id. Um nome já usado por outra lista responde 409."
+      },
+      "es": {
+        "name": "Crear lista de contactos",
+        "description": "Crea una lista de contactos vacía y la devuelve con su list_id. Un nombre ya usado por otra lista responde 409."
+      },
+      "fr": {
+        "name": "Créer une liste de contacts",
+        "description": "Crée une liste de contacts vide et la renvoie avec son list_id. Un nom déjà utilisé par une autre liste répond 409."
+      }
+    },
+    "constant_contact_list_email_campaigns": {
+      "pt": {
+        "name": "Listar campanhas de e-mail",
+        "description": "Lista as campanhas de e-mail, da atualizada mais recentemente para a mais antiga, com campaign_id, name, type e current_status, incluindo as excluídas (Removed). Até 500 por página; alcance as mais antigas com before_date e after_date. Os ids das atividades vêm de Obter campanha de e-mail."
+      },
+      "es": {
+        "name": "Listar campañas de email",
+        "description": "Lista las campañas de email, de la actualizada más recientemente a la más antigua, con campaign_id, name, type y current_status, incluidas las eliminadas (Removed). Hasta 500 por página; llega a las más antiguas con before_date y after_date. Los ids de las actividades vienen de Obtener campaña de email."
+      },
+      "fr": {
+        "name": "Lister les campagnes e-mail",
+        "description": "Liste les campagnes e-mail, de la plus récemment mise à jour à la plus ancienne, avec campaign_id, name, type et current_status, y compris les supprimées (Removed). Jusqu'à 500 par page ; atteignez les plus anciennes avec before_date et after_date. Les ids des activités viennent d'Obtenir une campagne e-mail."
+      }
+    },
+    "constant_contact_get_email_campaign": {
+      "pt": {
+        "name": "Obter campanha de e-mail",
+        "description": "Retorna uma campanha de e-mail com name, current_status e campaign_activities. O campaign_activity_id com role primary_email é o que as ferramentas de atividade usam."
+      },
+      "es": {
+        "name": "Obtener campaña de email",
+        "description": "Devuelve una campaña de email con name, current_status y campaign_activities. El campaign_activity_id con role primary_email es el que usan las herramientas de actividad."
+      },
+      "fr": {
+        "name": "Obtenir une campagne e-mail",
+        "description": "Renvoie une campagne e-mail avec name, current_status et campaign_activities. Le campaign_activity_id avec role primary_email est celui que prennent les outils d'activité."
+      }
+    },
+    "constant_contact_create_email_campaign": {
+      "pt": {
+        "name": "Criar campanha de e-mail",
+        "description": "Cria uma campanha de e-mail em rascunho com conteúdo HTML próprio e a retorna com campaign_activities, onde está a atividade primary_email. Para enviá-la, defina as listas com Atualizar atividade da campanha de e-mail e use Agendar atividade da campanha de e-mail."
+      },
+      "es": {
+        "name": "Crear campaña de email",
+        "description": "Crea una campaña de email en borrador con contenido HTML propio y la devuelve con campaign_activities, donde está la actividad primary_email. Para enviarla, define las listas con Actualizar actividad de la campaña de email y usa Programar actividad de la campaña de email."
+      },
+      "fr": {
+        "name": "Créer une campagne e-mail",
+        "description": "Crée une campagne e-mail en brouillon avec du contenu HTML personnalisé et la renvoie avec campaign_activities, où se trouve l'activité primary_email. Pour l'envoyer, définissez les listes avec Mettre à jour l'activité de la campagne e-mail puis utilisez Planifier l'activité de la campagne e-mail."
+      }
+    },
+    "constant_contact_get_email_campaign_activity": {
+      "pt": {
+        "name": "Obter atividade da campanha de e-mail",
+        "description": "Retorna uma atividade de campanha de e-mail: remetente, assunto, preheader, contact_list_ids ou segment_ids, format_type e current_status. html_content e physical_address_in_footer só vêm quando pedidos em include."
+      },
+      "es": {
+        "name": "Obtener actividad de la campaña de email",
+        "description": "Devuelve una actividad de campaña de email: remitente, asunto, preheader, contact_list_ids o segment_ids, format_type y current_status. html_content y physical_address_in_footer solo vienen cuando se piden en include."
+      },
+      "fr": {
+        "name": "Obtenir l'activité d'une campagne e-mail",
+        "description": "Renvoie une activité de campagne e-mail : expéditeur, objet, preheader, contact_list_ids ou segment_ids, format_type et current_status. html_content et physical_address_in_footer ne reviennent que s'ils sont demandés dans include."
+      }
+    },
+    "constant_contact_update_email_campaign_activity": {
+      "pt": {
+        "name": "Atualizar atividade da campanha de e-mail",
+        "description": "Atualiza a atividade primary_email de uma campanha em status DRAFT ou DONE. Ela substitui as propriedades: envie o remetente, assunto, preheader e listas atuais, de Obter atividade da campanha de e-mail, junto com as mudanças, pois o que ficar de fora é apagado. html_content e physical_address_in_footer são mantidos quando não enviados."
+      },
+      "es": {
+        "name": "Actualizar actividad de la campaña de email",
+        "description": "Actualiza la actividad primary_email de una campaña en estado DRAFT o DONE. Reemplaza las propiedades: envía el remitente, asunto, preheader y listas actuales, de Obtener actividad de la campaña de email, junto con los cambios, porque lo que se omita se borra. html_content y physical_address_in_footer se conservan cuando no se envían."
+      },
+      "fr": {
+        "name": "Mettre à jour l'activité d'une campagne e-mail",
+        "description": "Met à jour l'activité primary_email d'une campagne au statut DRAFT ou DONE. Elle remplace les propriétés : envoyez l'expéditeur, l'objet, le preheader et les listes actuels, issus d'Obtenir l'activité d'une campagne e-mail, avec les modifications, car ce qui est omis est effacé. html_content et physical_address_in_footer sont conservés s'ils ne sont pas envoyés."
+      }
+    },
+    "constant_contact_schedule_email_campaign_activity": {
+      "pt": {
+        "name": "Agendar atividade da campanha de e-mail",
+        "description": "Envia a atividade primary_email de uma campanha para suas listas ou segmento, na hora ou em scheduled_date. Defina as listas antes com Atualizar atividade da campanha de e-mail. Uma atividade em status DONE vai só para os contatos adicionados às suas listas desde o último envio."
+      },
+      "es": {
+        "name": "Programar actividad de la campaña de email",
+        "description": "Envía la actividad primary_email de una campaña a sus listas o segmento, de inmediato o en scheduled_date. Define las listas antes con Actualizar actividad de la campaña de email. Una actividad en estado DONE va solo a los contactos añadidos a sus listas desde el último envío."
+      },
+      "fr": {
+        "name": "Planifier l'activité d'une campagne e-mail",
+        "description": "Envoie l'activité primary_email d'une campagne à ses listes ou segment, immédiatement ou à scheduled_date. Définissez d'abord les listes avec Mettre à jour l'activité d'une campagne e-mail. Une activité au statut DONE ne va qu'aux contacts ajoutés à ses listes depuis le dernier envoi."
+      }
+    },
+    "constant_contact_get_email_campaign_stats": {
+      "pt": {
+        "name": "Obter estatísticas da campanha",
+        "description": "Retorna as estatísticas de acompanhamento de uma campanha de e-mail enviada: envios únicos, aberturas, cliques, bounces, encaminhamentos e descadastros em stats, as taxas em percentual e last_refresh_time."
+      },
+      "es": {
+        "name": "Obtener estadísticas de la campaña",
+        "description": "Devuelve las estadísticas de seguimiento de una campaña de email enviada: envíos únicos, aperturas, clics, rebotes, reenvíos y bajas en stats, las tasas en porcentaje y last_refresh_time."
+      },
+      "fr": {
+        "name": "Obtenir les statistiques d'une campagne",
+        "description": "Renvoie les statistiques de suivi d'une campagne e-mail envoyée : envois uniques, ouvertures, clics, rebonds, transferts et désabonnements dans stats, les taux en pourcentage et last_refresh_time."
+      }
+    }
+  }
+}

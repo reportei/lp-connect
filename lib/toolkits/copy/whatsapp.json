@@ -1,0 +1,218 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Send WhatsApp messages and manage templates and business profiles on your customer's WhatsApp Cloud API account, through one Connect endpoint.",
+      "intro": "The WhatsApp Cloud API toolkit covers business accounts, phone numbers, sending messages, message templates and the business profile of a number. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Send notifications by template",
+          "body": "A SaaS starts a conversation by sending a message of type template with an approved template, for example to confirm an order."
+        },
+        {
+          "title": "Manage templates from your app",
+          "body": "A product creates a message template, submits it to Meta review, then edits or deletes it as the content changes."
+        },
+        {
+          "title": "Reply to customers with an agent",
+          "body": "An AI agent answers with a free-form text message to someone who wrote to the number in the last 24 hours."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Envie mensagens de WhatsApp e gerencie templates e perfis comerciais na conta WhatsApp Cloud API do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit da WhatsApp Cloud API cobre contas comerciais, números de telefone, envio de mensagens, templates de mensagem e o perfil comercial de um número. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Envie notificações por template",
+          "body": "Um SaaS inicia uma conversa enviando uma mensagem do tipo template com um template aprovado, por exemplo para confirmar um pedido."
+        },
+        {
+          "title": "Gerencie templates pelo seu app",
+          "body": "Um produto cria um template de mensagem, o envia para revisão da Meta e depois o edita ou exclui conforme o conteúdo muda."
+        },
+        {
+          "title": "Responda clientes com um agente",
+          "body": "Um agente de IA responde com uma mensagem de texto livre a quem escreveu para o número nas últimas 24 horas."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Envía mensajes de WhatsApp y gestiona plantillas y perfiles comerciales en la cuenta de WhatsApp Cloud API de tu cliente, con un endpoint de Connect.",
+      "intro": "El toolkit de WhatsApp Cloud API cubre cuentas comerciales, números de teléfono, envío de mensajes, plantillas de mensaje y el perfil comercial de un número. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Envía notificaciones con plantilla",
+          "body": "Un SaaS inicia una conversación enviando un mensaje de tipo template con una plantilla aprobada, por ejemplo para confirmar un pedido."
+        },
+        {
+          "title": "Gestiona plantillas desde tu app",
+          "body": "Un producto crea una plantilla de mensaje, la envía a revisión de Meta y luego la edita o elimina según cambia el contenido."
+        },
+        {
+          "title": "Responde a clientes con un agente",
+          "body": "Un agente de IA responde con un mensaje de texto libre a quien escribió al número en las últimas 24 horas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Envoyez des messages WhatsApp et gérez modèles et profils professionnels sur le compte WhatsApp Cloud API de votre client, via un endpoint Connect.",
+      "intro": "Le toolkit WhatsApp Cloud API couvre les comptes professionnels, les numéros de téléphone, l'envoi de messages, les modèles de message et le profil professionnel d'un numéro. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Envoyer des notifications par modèle",
+          "body": "Un SaaS démarre une conversation en envoyant un message de type template avec un modèle approuvé, par exemple pour confirmer une commande."
+        },
+        {
+          "title": "Gérer les modèles depuis votre app",
+          "body": "Un produit crée un modèle de message, le soumet à la revue de Meta, puis le modifie ou le supprime quand le contenu change."
+        },
+        {
+          "title": "Répondre aux clients avec un agent",
+          "body": "Un agent IA répond par un message texte libre à une personne qui a écrit au numéro au cours des dernières 24 heures."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "whatsapp_list_business_accounts": {
+      "pt": {
+        "name": "Listar contas comerciais",
+        "description": "Lista as contas comerciais do WhatsApp que o usuário do sistema alcança, com id e nome. Esse id é o waba_id das outras ferramentas, que a Meta agora também chama de Messaging account id. A resposta traz data e paging.cursors.after: passe-o como after para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar cuentas comerciales",
+        "description": "Lista las cuentas comerciales de WhatsApp a las que llega el usuario del sistema, con id y nombre. Ese id es el waba_id de las otras herramientas, que Meta ahora también llama Messaging account id. La respuesta trae data y paging.cursors.after: pásalo como after para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les comptes professionnels",
+        "description": "Liste les comptes professionnels WhatsApp accessibles à l'utilisateur système, avec id et nom. Cet id est le waba_id des autres outils, que Meta appelle désormais aussi Messaging account id. La réponse contient data et paging.cursors.after : passez-le comme after pour lire la page suivante."
+      }
+    },
+    "whatsapp_get_business_account": {
+      "pt": {
+        "name": "Obter conta comercial",
+        "description": "Retorna uma conta comercial do WhatsApp com os campos pedidos, que podem ser dados da conta ou análises. Sem fields, só id e name voltam."
+      },
+      "es": {
+        "name": "Obtener cuenta comercial",
+        "description": "Devuelve una cuenta comercial de WhatsApp con los campos pedidos, que pueden ser datos de la cuenta o analíticas. Sin fields, solo vuelven id y name."
+      },
+      "fr": {
+        "name": "Obtenir un compte professionnel",
+        "description": "Renvoie un compte professionnel WhatsApp avec les champs demandés, qui peuvent être des données du compte ou des analytics. Sans fields, seuls id et name reviennent."
+      }
+    },
+    "whatsapp_list_phone_numbers": {
+      "pt": {
+        "name": "Listar números de telefone",
+        "description": "Lista os números de telefone comerciais de uma conta comercial do WhatsApp com id, display_phone_number, verified_name e quality_rating. Esse id é o phone_number_id das ferramentas de mensagem e perfil. A resposta traz data e paging.cursors.after: passe-o como after para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar números de teléfono",
+        "description": "Lista los números de teléfono comerciales de una cuenta comercial de WhatsApp con id, display_phone_number, verified_name y quality_rating. Ese id es el phone_number_id de las herramientas de mensaje y perfil. La respuesta trae data y paging.cursors.after: pásalo como after para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les numéros de téléphone",
+        "description": "Liste les numéros de téléphone professionnels d'un compte professionnel WhatsApp avec id, display_phone_number, verified_name et quality_rating. Cet id est le phone_number_id des outils de message et de profil. La réponse contient data et paging.cursors.after : passez-le comme after pour lire la page suivante."
+      }
+    },
+    "whatsapp_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Envia uma mensagem de um número de telefone comercial e retorna seu id em messages[0].id. Os tipos livres (text, image, video, document, audio) só chegam a quem escreveu para o número nas últimas 24 horas; para iniciar uma conversa, envie o tipo template com um template aprovado de Listar templates de mensagem. A Meta cobra as mensagens da conta conforme seus preços do WhatsApp."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Envía un mensaje desde un número de teléfono comercial y devuelve su id en messages[0].id. Los tipos libres (text, image, video, document, audio) solo llegan a quien escribió al número en las últimas 24 horas; para iniciar una conversación, envía el tipo template con una plantilla aprobada de Listar plantillas de mensaje. Meta cobra los mensajes a la cuenta según sus precios de WhatsApp."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Envoie un message depuis un numéro de téléphone professionnel et renvoie son id dans messages[0].id. Les types libres (text, image, video, document, audio) n'atteignent que les personnes qui ont écrit au numéro au cours des dernières 24 heures ; pour démarrer une conversation, envoyez le type template avec un modèle approuvé issu de Lister les modèles de message. Meta facture les messages au compte selon ses tarifs WhatsApp."
+      }
+    },
+    "whatsapp_list_message_templates": {
+      "pt": {
+        "name": "Listar templates de mensagem",
+        "description": "Lista os templates de mensagem de uma conta comercial do WhatsApp com id, name, language, status, category e components. A resposta traz data e paging.cursors.after: passe-o como after para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar plantillas de mensaje",
+        "description": "Lista las plantillas de mensaje de una cuenta comercial de WhatsApp con id, name, language, status, category y components. La respuesta trae data y paging.cursors.after: pásalo como after para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les modèles de message",
+        "description": "Liste les modèles de message d'un compte professionnel WhatsApp avec id, name, language, status, category et components. La réponse contient data et paging.cursors.after : passez-le comme after pour lire la page suivante."
+      }
+    },
+    "whatsapp_create_message_template": {
+      "pt": {
+        "name": "Criar template de mensagem",
+        "description": "Cria um template de mensagem e o envia para revisão da Meta, retornando id, status e category. Ele pode ser enviado quando o status for APPROVED, o que pode levar até 24 horas. As variáveis são {{1}}, {{2}} no formato POSITIONAL ou {{first_name}} no formato NAMED, e cada uma precisa de um exemplo. Um cabeçalho de imagem, vídeo ou documento precisa de um file handle de um upload, que esta conexão não faz."
+      },
+      "es": {
+        "name": "Crear plantilla de mensaje",
+        "description": "Crea una plantilla de mensaje y la envía a revisión de Meta, devolviendo id, status y category. Se puede enviar cuando el estado sea APPROVED, lo que puede tardar hasta 24 horas. Las variables son {{1}}, {{2}} en el formato POSITIONAL o {{first_name}} en el formato NAMED, y cada una necesita un ejemplo. Un encabezado de imagen, vídeo o documento necesita un file handle de una subida, que esta conexión no hace."
+      },
+      "fr": {
+        "name": "Créer un modèle de message",
+        "description": "Crée un modèle de message et le soumet à la revue de Meta, en renvoyant id, status et category. Il peut être envoyé une fois le statut APPROVED, ce qui peut prendre jusqu'à 24 heures. Les variables sont {{1}}, {{2}} au format POSITIONAL ou {{first_name}} au format NAMED, et chacune a besoin d'un exemple. Un en-tête image, vidéo ou document nécessite un file handle issu d'un upload, que cette connexion ne fait pas."
+      }
+    },
+    "whatsapp_update_message_template": {
+      "pt": {
+        "name": "Atualizar template de mensagem",
+        "description": "Edita um template e o envia para revisão de novo. Só templates nos status APPROVED, REJECTED ou PAUSED podem ser editados, e apenas sua categoria e components; components substitui todas as partes. Um template aprovado aceita até 10 edições em 30 dias e 1 em 24 horas, e sua categoria não pode mudar."
+      },
+      "es": {
+        "name": "Actualizar plantilla de mensaje",
+        "description": "Edita una plantilla y la envía de nuevo a revisión. Solo se pueden editar plantillas en estado APPROVED, REJECTED o PAUSED, y solo su categoría y components; components reemplaza todas las partes. Una plantilla aprobada admite hasta 10 ediciones en 30 días y 1 en 24 horas, y su categoría no puede cambiar."
+      },
+      "fr": {
+        "name": "Mettre à jour un modèle de message",
+        "description": "Modifie un modèle et le renvoie en revue. Seuls les modèles aux statuts APPROVED, REJECTED ou PAUSED peuvent être modifiés, et uniquement leur catégorie et leurs components ; components remplace toutes les parties. Un modèle approuvé accepte jusqu'à 10 modifications en 30 jours et 1 en 24 heures, et sa catégorie ne peut pas changer."
+      }
+    },
+    "whatsapp_delete_message_template": {
+      "pt": {
+        "name": "Excluir template de mensagem",
+        "description": "Exclui um template pelo nome, em todos os idiomas, ou apenas a versão de idioma cujo id é hsm_id. O nome de um template aprovado excluído não pode ser reutilizado por 30 dias."
+      },
+      "es": {
+        "name": "Eliminar plantilla de mensaje",
+        "description": "Elimina una plantilla por nombre, en todos los idiomas, o solo la versión de idioma cuyo id es hsm_id. El nombre de una plantilla aprobada eliminada no se puede reutilizar durante 30 días."
+      },
+      "fr": {
+        "name": "Supprimer un modèle de message",
+        "description": "Supprime un modèle par son nom, dans toutes les langues, ou uniquement la version dont l'id est hsm_id. Le nom d'un modèle approuvé supprimé ne peut pas être réutilisé pendant 30 jours."
+      }
+    },
+    "whatsapp_get_business_profile": {
+      "pt": {
+        "name": "Obter perfil comercial",
+        "description": "Retorna o perfil comercial que as pessoas veem em um número de telefone: about, address, description, email, websites, vertical e profile_picture_url."
+      },
+      "es": {
+        "name": "Obtener perfil comercial",
+        "description": "Devuelve el perfil comercial que ven las personas en un número de teléfono: about, address, description, email, websites, vertical y profile_picture_url."
+      },
+      "fr": {
+        "name": "Obtenir le profil professionnel",
+        "description": "Renvoie le profil professionnel que voient les gens sur un numéro de téléphone : about, address, description, email, websites, vertical et profile_picture_url."
+      }
+    },
+    "whatsapp_update_business_profile": {
+      "pt": {
+        "name": "Atualizar perfil comercial",
+        "description": "Atualiza o perfil comercial de um número de telefone. Os campos omitidos mantêm seu valor, e websites substitui os sites do perfil."
+      },
+      "es": {
+        "name": "Actualizar perfil comercial",
+        "description": "Actualiza el perfil comercial de un número de teléfono. Los campos omitidos conservan su valor, y websites reemplaza los sitios web del perfil."
+      },
+      "fr": {
+        "name": "Mettre à jour le profil professionnel",
+        "description": "Met à jour le profil professionnel d'un numéro de téléphone. Les champs omis conservent leur valeur, et websites remplace les sites web du profil."
+      }
+    }
+  }
+}

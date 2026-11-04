@@ -1,0 +1,190 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create, update and delete events, check free/busy and manage calendars in your customer's Google Calendar account through one Connect endpoint.",
+      "intro": "The Google Calendar toolkit lists calendars, lists, reads, creates, updates and deletes events, checks free/busy intervals and creates secondary calendars. Through Connect, a product or AI agent schedules on the customer's calendar without building the Google OAuth flow or renewing tokens.",
+      "useCases": [
+        {
+          "title": "Scheduling from your product",
+          "body": "Create an event with attendees and a Google Meet link when a lead books a call, a client approves a post or a task gets a deadline."
+        },
+        {
+          "title": "Finding a free slot",
+          "body": "Let an AI agent read the busy intervals of one or more calendars between two dates and propose times that work."
+        },
+        {
+          "title": "A calendar per client",
+          "body": "For an agency tool, create a secondary calendar for each client, such as a content calendar, and add events to it as work is planned."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie, atualize e exclua eventos, consulte free/busy e gerencie calendários na conta Google Agenda do seu cliente por um endpoint do Connect.",
+      "intro": "O toolkit do Google Agenda lista calendários, lista, lê, cria, atualiza e exclui eventos, consulta intervalos ocupados (free/busy) e cria calendários secundários. Pelo Connect, um produto ou agente de IA agenda no calendário do cliente sem construir o fluxo OAuth do Google nem renovar tokens.",
+      "useCases": [
+        {
+          "title": "Agendamento a partir do produto",
+          "body": "Crie um evento com convidados e link do Google Meet quando um lead marcar uma conversa, um cliente aprovar um post ou uma tarefa ganhar prazo."
+        },
+        {
+          "title": "Encontrar um horário livre",
+          "body": "Deixe um agente de IA ler os intervalos ocupados de um ou mais calendários entre duas datas e propor horários que funcionem."
+        },
+        {
+          "title": "Um calendário por cliente",
+          "body": "Numa ferramenta de agência, crie um calendário secundário para cada cliente, como um calendário de conteúdo, e adicione eventos conforme o trabalho é planejado."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea, actualiza y elimina eventos, consulta free/busy y gestiona calendarios en la cuenta de Google Calendar de tu cliente con un endpoint de Connect.",
+      "intro": "El toolkit de Google Calendar lista calendarios, lista, lee, crea, actualiza y elimina eventos, consulta intervalos ocupados (free/busy) y crea calendarios secundarios. Con Connect, un producto o agente de IA agenda en el calendario del cliente sin construir el flujo OAuth de Google ni renovar tokens.",
+      "useCases": [
+        {
+          "title": "Agendar desde tu producto",
+          "body": "Crea un evento con invitados y enlace de Google Meet cuando un lead reserve una llamada, un cliente apruebe una publicación o una tarea tenga fecha límite."
+        },
+        {
+          "title": "Encontrar un hueco libre",
+          "body": "Deja que un agente de IA lea los intervalos ocupados de uno o más calendarios entre dos fechas y proponga horarios que funcionen."
+        },
+        {
+          "title": "Un calendario por cliente",
+          "body": "En una herramienta de agencia, crea un calendario secundario para cada cliente, como un calendario de contenido, y agrega eventos a medida que se planifica el trabajo."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez, modifiez et supprimez des événements, consultez free/busy et gérez les agendas du compte Google Agenda de votre client via un endpoint Connect.",
+      "intro": "Le toolkit Google Agenda liste les agendas, liste, lit, crée, modifie et supprime des événements, consulte les plages occupées (free/busy) et crée des agendas secondaires. Avec Connect, un produit ou un agent IA planifie dans l'agenda du client sans construire le flux OAuth de Google ni renouveler les jetons.",
+      "useCases": [
+        {
+          "title": "Planifier depuis votre produit",
+          "body": "Créez un événement avec des invités et un lien Google Meet quand un lead réserve un appel, qu'un client valide une publication ou qu'une tâche reçoit une échéance."
+        },
+        {
+          "title": "Trouver un créneau libre",
+          "body": "Laissez un agent IA lire les plages occupées d'un ou plusieurs agendas entre deux dates et proposer des horaires qui conviennent."
+        },
+        {
+          "title": "Un agenda par client",
+          "body": "Dans un outil d'agence, créez un agenda secondaire pour chaque client, comme un calendrier de contenu, et ajoutez-y des événements au fil de la planification."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "google_calendar_list_calendars": {
+      "pt": {
+        "name": "Listar calendários",
+        "description": "Lista os calendários da lista de calendários do usuário. Use o id de um item como calendarId nas ferramentas de evento. O id primary é o calendário principal do usuário."
+      },
+      "es": {
+        "name": "Listar calendarios",
+        "description": "Lista los calendarios de la lista de calendarios del usuario. Usa el id de un elemento como calendarId en las herramientas de eventos. El id primary es el calendario principal del usuario."
+      },
+      "fr": {
+        "name": "Lister les agendas",
+        "description": "Liste les agendas de la liste d'agendas de l'utilisateur. Utilisez l'id d'un élément comme calendarId dans les outils d'événements. L'id primary est l'agenda principal de l'utilisateur."
+      }
+    },
+    "google_calendar_list_events": {
+      "pt": {
+        "name": "Listar eventos",
+        "description": "Lista os eventos de um calendário. Defina singleEvents como true para expandir eventos recorrentes, o que é necessário para ordenar por startTime."
+      },
+      "es": {
+        "name": "Listar eventos",
+        "description": "Lista los eventos de un calendario. Define singleEvents como true para expandir los eventos recurrentes, lo cual es necesario para ordenar por startTime."
+      },
+      "fr": {
+        "name": "Lister les événements",
+        "description": "Liste les événements d'un agenda. Définissez singleEvents sur true pour développer les événements récurrents, ce qui est nécessaire pour trier par startTime."
+      }
+    },
+    "google_calendar_create_event": {
+      "pt": {
+        "name": "Criar evento",
+        "description": "Cria um evento. Use start.dateTime e end.dateTime para um evento com horário, ou start.date e end.date para um evento de dia inteiro. sendUpdates define quem recebe e-mail sobre ele. Um link do Google Meet precisa de conferenceData com conferenceDataVersion 1."
+      },
+      "es": {
+        "name": "Crear evento",
+        "description": "Crea un evento. Usa start.dateTime y end.dateTime para un evento con hora, o start.date y end.date para un evento de todo el día. sendUpdates decide a quién se le envía correo sobre él. Un enlace de Google Meet necesita conferenceData con conferenceDataVersion 1."
+      },
+      "fr": {
+        "name": "Créer un événement",
+        "description": "Crée un événement. Utilisez start.dateTime et end.dateTime pour un événement horaire, ou start.date et end.date pour un événement sur la journée entière. sendUpdates décide qui reçoit un e-mail à son sujet. Un lien Google Meet nécessite conferenceData avec conferenceDataVersion 1."
+      }
+    },
+    "google_calendar_get_event": {
+      "pt": {
+        "name": "Obter evento",
+        "description": "Retorna um evento com os convidados e suas respostas, o link do Meet em hangoutLink e recurringEventId quando é uma instância de um evento recorrente."
+      },
+      "es": {
+        "name": "Obtener evento",
+        "description": "Devuelve un evento con los invitados y sus respuestas, el enlace de Meet en hangoutLink y recurringEventId cuando es una instancia de un evento recurrente."
+      },
+      "fr": {
+        "name": "Obtenir un événement",
+        "description": "Renvoie un événement avec les invités et leurs réponses, le lien Meet dans hangoutLink et recurringEventId quand il s'agit d'une instance d'un événement récurrent."
+      }
+    },
+    "google_calendar_update_event": {
+      "pt": {
+        "name": "Atualizar evento",
+        "description": "Altera os campos enviados e mantém os outros. Uma lista, como attendees ou recurrence, substitui a lista inteira, então envie todos os convidados que devem ficar. sendUpdates define quem recebe e-mail sobre a mudança."
+      },
+      "es": {
+        "name": "Actualizar evento",
+        "description": "Cambia los campos enviados y conserva los demás. Una lista, como attendees o recurrence, reemplaza la lista completa, así que envía todos los invitados que deben quedarse. sendUpdates decide a quién se le envía correo sobre el cambio."
+      },
+      "fr": {
+        "name": "Mettre à jour un événement",
+        "description": "Modifie les champs envoyés et conserve les autres. Une liste, comme attendees ou recurrence, remplace la liste entière, envoyez donc tous les invités qui doivent rester. sendUpdates décide qui reçoit un e-mail sur la modification."
+      }
+    },
+    "google_calendar_delete_event": {
+      "pt": {
+        "name": "Excluir evento",
+        "description": "Exclui um evento. O id de um evento recorrente exclui a série inteira; o id de uma instância exclui só ela. sendUpdates define quem recebe e-mail sobre o cancelamento. A resposta é vazia, com status 204."
+      },
+      "es": {
+        "name": "Eliminar evento",
+        "description": "Elimina un evento. El id de un evento recurrente elimina toda la serie; el id de una instancia elimina solo esa. sendUpdates decide a quién se le envía correo sobre la cancelación. La respuesta está vacía, con estado 204."
+      },
+      "fr": {
+        "name": "Supprimer un événement",
+        "description": "Supprime un événement. L'id d'un événement récurrent supprime toute la série ; l'id d'une instance ne supprime que celle-ci. sendUpdates décide qui reçoit un e-mail sur l'annulation. La réponse est vide, avec le statut 204."
+      }
+    },
+    "google_calendar_get_free_busy": {
+      "pt": {
+        "name": "Obter free/busy",
+        "description": "Retorna os intervalos ocupados de um ou mais calendários entre timeMin e timeMax, em calendars, indexados pelo id do calendário. Um calendário que o usuário não pode ver volta com errors em vez de busy."
+      },
+      "es": {
+        "name": "Obtener free/busy",
+        "description": "Devuelve los intervalos ocupados de uno o más calendarios entre timeMin y timeMax, en calendars, indexados por el id del calendario. Un calendario que el usuario no puede ver vuelve con errors en lugar de busy."
+      },
+      "fr": {
+        "name": "Obtenir free/busy",
+        "description": "Renvoie les plages occupées d'un ou plusieurs agendas entre timeMin et timeMax, dans calendars, indexées par l'id de l'agenda. Un agenda que l'utilisateur ne peut pas voir revient avec errors au lieu de busy."
+      }
+    },
+    "google_calendar_create_calendar": {
+      "pt": {
+        "name": "Criar calendário",
+        "description": "Cria um calendário secundário do usuário, como um calendário de conteúdo para um cliente. O id da resposta vai em calendarId nas ferramentas de evento."
+      },
+      "es": {
+        "name": "Crear calendario",
+        "description": "Crea un calendario secundario del usuario, como un calendario de contenido para un cliente. El id de la respuesta va en calendarId de las herramientas de eventos."
+      },
+      "fr": {
+        "name": "Créer un agenda",
+        "description": "Crée un agenda secondaire appartenant à l'utilisateur, comme un calendrier de contenu pour un client. L'id de la réponse va dans calendarId des outils d'événements."
+      }
+    }
+  }
+}

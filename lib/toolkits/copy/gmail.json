@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read, send and organize email in your customer's Gmail mailbox, with labels and drafts, from your product or AI agent through one Connect endpoint.",
+      "intro": "The Gmail toolkit covers messages and conversations (list, read, send, label), labels (list, create) and drafts (create, update, send, delete). Customers connect Gmail once with OAuth on your own app, and Connect renews the tokens and logs every execution, so you skip the OAuth and Gmail API plumbing.",
+      "useCases": [
+        {
+          "title": "Send mail from the user's inbox",
+          "body": "Send an email as the customer, or reply inside a conversation by passing the threadId and the Message-ID headers returned by Get message."
+        },
+        {
+          "title": "Draft, review, send",
+          "body": "An AI agent writes a reply with Create draft, the user reviews it in your product, and Send draft delivers it only after approval."
+        },
+        {
+          "title": "Triage the inbox",
+          "body": "List unread messages with a q filter, read each one, then archive it, star it or apply a label created with Create label."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia, envie e organize e-mails na caixa Gmail do seu cliente, com marcadores e rascunhos, pelo seu produto ou agente de IA, com um único endpoint.",
+      "intro": "O toolkit do Gmail cobre mensagens e conversas (listar, ler, enviar, marcar), marcadores (listar, criar) e rascunhos (criar, atualizar, enviar, excluir). O cliente conecta o Gmail uma vez por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução, sem você montar o OAuth e a API do Gmail.",
+      "useCases": [
+        {
+          "title": "Enviar e-mail pela caixa do usuário",
+          "body": "Envie um e-mail como o cliente, ou responda dentro de uma conversa passando o threadId e os headers Message-ID retornados por Get message."
+        },
+        {
+          "title": "Rascunhar, revisar, enviar",
+          "body": "Um agente de IA escreve a resposta com Create draft, o usuário revisa no seu produto e Send draft só envia depois da aprovação."
+        },
+        {
+          "title": "Triagem da caixa de entrada",
+          "body": "Liste as mensagens não lidas com um filtro q, leia cada uma e então arquive, destaque com estrela ou aplique um marcador criado com Create label."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee, envía y organiza correos en el buzón Gmail de tu cliente, con etiquetas y borradores, desde tu producto o agente de IA con un único endpoint.",
+      "intro": "El toolkit de Gmail cubre mensajes y conversaciones (listar, leer, enviar, etiquetar), etiquetas (listar, crear) y borradores (crear, actualizar, enviar, eliminar). El cliente conecta Gmail una vez por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución, sin que armes el OAuth y la API de Gmail.",
+      "useCases": [
+        {
+          "title": "Enviar correo desde el buzón del usuario",
+          "body": "Envía un email como el cliente, o responde dentro de una conversación pasando el threadId y los headers Message-ID que devuelve Get message."
+        },
+        {
+          "title": "Redactar, revisar, enviar",
+          "body": "Un agente de IA escribe la respuesta con Create draft, el usuario la revisa en tu producto y Send draft la envía solo tras la aprobación."
+        },
+        {
+          "title": "Triaje de la bandeja de entrada",
+          "body": "Lista los mensajes no leídos con un filtro q, lee cada uno y luego archívalo, márcalo con estrella o aplícale una etiqueta creada con Create label."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez, envoyez et organisez les e-mails de la boîte Gmail de votre client, avec libellés et brouillons, depuis votre produit ou agent IA via un endpoint.",
+      "intro": "Le toolkit Gmail couvre les messages et conversations (lister, lire, envoyer, libeller), les libellés (lister, créer) et les brouillons (créer, mettre à jour, envoyer, supprimer). Le client connecte Gmail une fois par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution, sans que vous construisiez l'OAuth et l'API Gmail.",
+      "useCases": [
+        {
+          "title": "Envoyer depuis la boîte de l'utilisateur",
+          "body": "Envoyez un e-mail au nom du client, ou répondez dans une conversation en passant le threadId et les headers Message-ID renvoyés par Get message."
+        },
+        {
+          "title": "Rédiger, relire, envoyer",
+          "body": "Un agent IA écrit la réponse avec Create draft, l'utilisateur la relit dans votre produit et Send draft ne l'envoie qu'après validation."
+        },
+        {
+          "title": "Trier la boîte de réception",
+          "body": "Listez les messages non lus avec un filtre q, lisez chacun, puis archivez-le, marquez-le d'une étoile ou appliquez un libellé créé avec Create label."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "gmail_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Lista as mensagens da caixa que correspondem a q e labelIds. Cada item tem apenas id e threadId: leia o conteúdo com Get message. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Lista los mensajes del buzón que coinciden con q y labelIds. Cada elemento tiene solo id y threadId: lee el contenido con Get message. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Liste les messages de la boîte qui correspondent à q et labelIds. Chaque élément n'a que id et threadId : lisez le contenu avec Get message. Passez nextPageToken en pageToken pour lire la page suivante."
+      }
+    },
+    "gmail_get_message": {
+      "pt": {
+        "name": "Ler mensagem",
+        "description": "Obtém uma mensagem com threadId, labelIds e snippet. Com format full, o padrão, payload traz os headers (From, To, Subject, Date, Message-ID) e as partes do corpo, cujo data vem em base64url. Anexos vêm apenas como attachmentId e não são baixados."
+      },
+      "es": {
+        "name": "Leer mensaje",
+        "description": "Obtiene un mensaje con threadId, labelIds y snippet. Con format full, el valor por defecto, payload trae los headers (From, To, Subject, Date, Message-ID) y las partes del cuerpo, cuyo data viene en base64url. Los adjuntos vienen solo como attachmentId y no se descargan."
+      },
+      "fr": {
+        "name": "Lire un message",
+        "description": "Récupère un message avec threadId, labelIds et snippet. Avec format full, la valeur par défaut, payload contient les headers (From, To, Subject, Date, Message-ID) et les parties du corps, dont data est encodé en base64url. Les pièces jointes ne viennent que sous forme d'attachmentId et ne sont pas téléchargées."
+      }
+    },
+    "gmail_get_thread": {
+      "pt": {
+        "name": "Ler conversa",
+        "description": "Obtém uma conversa com todas as suas mensagens. Cada mensagem tem id, labelIds, snippet e, com format full, o padrão, o payload com os headers e as partes do corpo em base64url."
+      },
+      "es": {
+        "name": "Leer conversación",
+        "description": "Obtiene una conversación con todos sus mensajes. Cada mensaje tiene id, labelIds, snippet y, con format full, el valor por defecto, el payload con los headers y las partes del cuerpo en base64url."
+      },
+      "fr": {
+        "name": "Lire une conversation",
+        "description": "Récupère une conversation avec tous ses messages. Chaque message a id, labelIds, snippet et, avec format full, la valeur par défaut, le payload avec les headers et les parties du corps en base64url."
+      }
+    },
+    "gmail_send_message": {
+      "pt": {
+        "name": "Enviar mensagem",
+        "description": "Envia um e-mail na hora para os destinatários dos headers To, Cc e Bcc de raw e retorna a mensagem enviada com id, threadId e labelIds. Para responder dentro de uma conversa, passe o threadId dela, mantenha o mesmo Subject e defina In-Reply-To e References com o Message-ID da mensagem respondida, que Get message retorna em payload.headers."
+      },
+      "es": {
+        "name": "Enviar mensaje",
+        "description": "Envía un email de inmediato a los destinatarios de los headers To, Cc y Bcc de raw y devuelve el mensaje enviado con id, threadId y labelIds. Para responder dentro de una conversación, pasa su threadId, mantén el mismo Subject y define In-Reply-To y References con el Message-ID del mensaje respondido, que Get message devuelve en payload.headers."
+      },
+      "fr": {
+        "name": "Envoyer un message",
+        "description": "Envoie immédiatement un e-mail aux destinataires des headers To, Cc et Bcc de raw et renvoie le message envoyé avec id, threadId et labelIds. Pour répondre dans une conversation, passez son threadId, gardez le même Subject et définissez In-Reply-To et References avec le Message-ID du message auquel vous répondez, que Get message renvoie dans payload.headers."
+      }
+    },
+    "gmail_update_message_labels": {
+      "pt": {
+        "name": "Atualizar marcadores da mensagem",
+        "description": "Adiciona e remove marcadores de uma mensagem e retorna seus labelIds. Remova UNREAD para marcar como lida, remova INBOX para arquivar, adicione STARRED para destacar com estrela ou adicione TRASH para mover para a lixeira."
+      },
+      "es": {
+        "name": "Actualizar etiquetas del mensaje",
+        "description": "Añade y quita etiquetas de un mensaje y devuelve sus labelIds. Quita UNREAD para marcarlo como leído, quita INBOX para archivarlo, añade STARRED para destacarlo con estrella o añade TRASH para moverlo a la papelera."
+      },
+      "fr": {
+        "name": "Mettre à jour les libellés d'un message",
+        "description": "Ajoute et retire des libellés d'un message et renvoie ses labelIds. Retirez UNREAD pour le marquer comme lu, retirez INBOX pour l'archiver, ajoutez STARRED pour le marquer d'une étoile ou ajoutez TRASH pour le placer dans la corbeille."
+      }
+    },
+    "gmail_list_labels": {
+      "pt": {
+        "name": "Listar marcadores",
+        "description": "Lista os marcadores da caixa: os do sistema, como INBOX, SENT, DRAFT, UNREAD, STARRED e SPAM, e os criados pelo usuário. O id de cada um é o que labelIds, addLabelIds e removeLabelIds recebem."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas del buzón: las del sistema, como INBOX, SENT, DRAFT, UNREAD, STARRED y SPAM, y las creadas por el usuario. El id de cada una es lo que reciben labelIds, addLabelIds y removeLabelIds."
+      },
+      "fr": {
+        "name": "Lister les libellés",
+        "description": "Liste les libellés de la boîte : ceux du système, comme INBOX, SENT, DRAFT, UNREAD, STARRED et SPAM, et ceux créés par l'utilisateur. L'id de chacun est ce que prennent labelIds, addLabelIds et removeLabelIds."
+      }
+    },
+    "gmail_create_label": {
+      "pt": {
+        "name": "Criar marcador",
+        "description": "Cria um marcador e o retorna com seu id, para aplicar com Update message labels. O nome não pode ser o de um marcador do sistema nem o de um marcador existente."
+      },
+      "es": {
+        "name": "Crear etiqueta",
+        "description": "Crea una etiqueta y la devuelve con su id, para aplicar con Update message labels. El nombre no puede ser el de una etiqueta del sistema ni el de una etiqueta existente."
+      },
+      "fr": {
+        "name": "Créer un libellé",
+        "description": "Crée un libellé et le renvoie avec son id, à appliquer avec Update message labels. Le nom ne peut pas être celui d'un libellé système ni d'un libellé existant."
+      }
+    },
+    "gmail_list_drafts": {
+      "pt": {
+        "name": "Listar rascunhos",
+        "description": "Lista os rascunhos da caixa. Cada item tem o id do rascunho e uma message com id e threadId: leia o conteúdo com Get message usando message.id. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar borradores",
+        "description": "Lista los borradores del buzón. Cada elemento tiene el id del borrador y un message con id y threadId: lee el contenido con Get message usando message.id. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les brouillons",
+        "description": "Liste les brouillons de la boîte. Chaque élément a l'id du brouillon et un message avec id et threadId : lisez le contenu avec Get message en utilisant message.id. Passez nextPageToken en pageToken pour lire la page suivante."
+      }
+    },
+    "gmail_create_draft": {
+      "pt": {
+        "name": "Criar rascunho",
+        "description": "Salva um e-mail como rascunho sem enviá-lo e retorna o id do rascunho e sua message com id e threadId. Envie-o depois com Send draft."
+      },
+      "es": {
+        "name": "Crear borrador",
+        "description": "Guarda un email como borrador sin enviarlo y devuelve el id del borrador y su message con id y threadId. Envíalo después con Send draft."
+      },
+      "fr": {
+        "name": "Créer un brouillon",
+        "description": "Enregistre un e-mail comme brouillon sans l'envoyer et renvoie l'id du brouillon et son message avec id et threadId. Envoyez-le plus tard avec Send draft."
+      }
+    },
+    "gmail_update_draft": {
+      "pt": {
+        "name": "Atualizar rascunho",
+        "description": "Substitui o e-mail inteiro de um rascunho. O id do rascunho permanece e message.id muda. Para editar o texto atual, leia-o antes com Get message, format raw, usando o message.id de List drafts."
+      },
+      "es": {
+        "name": "Actualizar borrador",
+        "description": "Reemplaza el email completo de un borrador. El id del borrador se mantiene y message.id cambia. Para editar el texto actual, léelo antes con Get message, format raw, usando el message.id de List drafts."
+      },
+      "fr": {
+        "name": "Mettre à jour un brouillon",
+        "description": "Remplace l'e-mail entier d'un brouillon. L'id du brouillon reste et message.id change. Pour modifier le texte actuel, lisez-le d'abord avec Get message, format raw, en utilisant le message.id de List drafts."
+      }
+    },
+    "gmail_send_draft": {
+      "pt": {
+        "name": "Enviar rascunho",
+        "description": "Envia na hora um rascunho existente para os destinatários dos headers To, Cc e Bcc. O rascunho é excluído, e a mensagem enviada volta com um novo id e o marcador SENT."
+      },
+      "es": {
+        "name": "Enviar borrador",
+        "description": "Envía de inmediato un borrador existente a los destinatarios de sus headers To, Cc y Bcc. El borrador se elimina, y el mensaje enviado vuelve con un nuevo id y la etiqueta SENT."
+      },
+      "fr": {
+        "name": "Envoyer un brouillon",
+        "description": "Envoie immédiatement un brouillon existant aux destinataires de ses headers To, Cc et Bcc. Le brouillon est supprimé, et le message envoyé revient avec un nouvel id et le libellé SENT."
+      }
+    },
+    "gmail_delete_draft": {
+      "pt": {
+        "name": "Excluir rascunho",
+        "description": "Exclui um rascunho definitivamente, sem movê-lo para a lixeira."
+      },
+      "es": {
+        "name": "Eliminar borrador",
+        "description": "Elimina un borrador de forma definitiva, sin moverlo a la papelera."
+      },
+      "fr": {
+        "name": "Supprimer un brouillon",
+        "description": "Supprime définitivement un brouillon, sans le déplacer dans la corbeille."
+      }
+    }
+  }
+}

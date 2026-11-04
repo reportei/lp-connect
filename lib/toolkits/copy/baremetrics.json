@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read MRR, churn and other SaaS metrics, plans, customers and subscriptions from your customer's Baremetrics account, and annotate charts, through Connect.",
+      "intro": "The Baremetrics toolkit reads the metrics of the account by day, with breakdowns by plan and the customers behind each metric, plus sources, plans, customers, subscriptions and users. It also creates and deletes chart annotations. Through Connect, a product or AI agent gets this data without building the Baremetrics integration.",
+      "useCases": [
+        {
+          "title": "Metrics inside your dashboard",
+          "body": "Pull mrr, arr, arpu and user_churn for a date range and show them next to the rest of your customer's data."
+        },
+        {
+          "title": "Explaining a churn spike",
+          "body": "Let an AI agent list the customers behind a metric on a given day and the plan breakout, then summarize what changed."
+        },
+        {
+          "title": "Annotating launches",
+          "body": "Create a chart annotation when your product ships a release or starts a campaign, so the date shows up on the Baremetrics charts."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia MRR, churn e outras métricas de SaaS, planos, clientes e assinaturas da conta Baremetrics do seu cliente, e anote gráficos, pelo Connect.",
+      "intro": "O toolkit do Baremetrics lê as métricas da conta por dia, com quebra por plano e os clientes por trás de cada métrica, além de fontes, planos, clientes, assinaturas e usuários. Também cria e apaga anotações nos gráficos. Pelo Connect, um produto ou agente de IA acessa esses dados sem construir a integração com o Baremetrics.",
+      "useCases": [
+        {
+          "title": "Métricas no seu dashboard",
+          "body": "Busque mrr, arr, arpu e user_churn de um período e mostre ao lado dos demais dados do seu cliente."
+        },
+        {
+          "title": "Explicar um pico de churn",
+          "body": "Deixe um agente de IA listar os clientes por trás de uma métrica em um dia e a quebra por plano, e resumir o que mudou."
+        },
+        {
+          "title": "Anotar lançamentos",
+          "body": "Crie uma anotação no gráfico quando seu produto lançar uma versão ou iniciar uma campanha, para a data aparecer nos gráficos do Baremetrics."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee MRR, churn y otras métricas SaaS, planes, clientes y suscripciones de la cuenta de Baremetrics de tu cliente, y anota gráficos, con Connect.",
+      "intro": "El toolkit de Baremetrics lee las métricas de la cuenta por día, con desglose por plan y los clientes detrás de cada métrica, además de fuentes, planes, clientes, suscripciones y usuarios. También crea y elimina anotaciones en los gráficos. Con Connect, un producto o agente de IA accede a estos datos sin construir la integración con Baremetrics.",
+      "useCases": [
+        {
+          "title": "Métricas en tu dashboard",
+          "body": "Trae mrr, arr, arpu y user_churn de un rango de fechas y muéstralos junto al resto de los datos de tu cliente."
+        },
+        {
+          "title": "Explicar un pico de churn",
+          "body": "Deja que un agente de IA liste los clientes detrás de una métrica en un día y el desglose por plan, y resuma qué cambió."
+        },
+        {
+          "title": "Anotar lanzamientos",
+          "body": "Crea una anotación en el gráfico cuando tu producto lance una versión o inicie una campaña, para que la fecha aparezca en los gráficos de Baremetrics."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez MRR, churn et autres métriques SaaS, plans, clients et abonnements du compte Baremetrics de votre client, et annotez les graphiques, via Connect.",
+      "intro": "Le toolkit Baremetrics lit les métriques du compte jour par jour, avec la ventilation par plan et les clients derrière chaque métrique, ainsi que les sources, plans, clients, abonnements et utilisateurs. Il crée et supprime aussi des annotations sur les graphiques. Avec Connect, un produit ou un agent IA accède à ces données sans construire l'intégration Baremetrics.",
+      "useCases": [
+        {
+          "title": "Métriques dans votre dashboard",
+          "body": "Récupérez mrr, arr, arpu et user_churn sur une période et affichez-les à côté des autres données de votre client."
+        },
+        {
+          "title": "Expliquer un pic de churn",
+          "body": "Laissez un agent IA lister les clients derrière une métrique un jour donné et la ventilation par plan, puis résumer ce qui a changé."
+        },
+        {
+          "title": "Annoter les lancements",
+          "body": "Créez une annotation sur le graphique quand votre produit publie une version ou lance une campagne, pour que la date apparaisse dans les graphiques Baremetrics."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "baremetrics_list_sources": {
+      "pt": {
+        "name": "Listar fontes",
+        "description": "Lista as fontes da conta: cada provedor de pagamento conectado, como o Stripe, e a própria API do Baremetrics. O id de uma fonte é o source_id que planos, clientes e assinaturas aceitam."
+      },
+      "es": {
+        "name": "Listar fuentes",
+        "description": "Lista las fuentes de la cuenta: cada proveedor de pagos conectado, como Stripe, y la propia API de Baremetrics. El id de una fuente es el source_id que aceptan planes, clientes y suscripciones."
+      },
+      "fr": {
+        "name": "Lister les sources",
+        "description": "Liste les sources du compte : chaque fournisseur de paiement connecté, comme Stripe, et l'API Baremetrics elle-même. L'id d'une source est le source_id que prennent les plans, clients et abonnements."
+      }
+    },
+    "baremetrics_get_metrics_summary": {
+      "pt": {
+        "name": "Obter resumo das métricas",
+        "description": "Retorna todas as métricas da conta para cada dia de um período, como mrr, arr, arpu, ltv, active_customers, new_customers e user_churn. Valores monetários vêm em centavos."
+      },
+      "es": {
+        "name": "Obtener resumen de métricas",
+        "description": "Devuelve todas las métricas de la cuenta para cada día de un rango de fechas, como mrr, arr, arpu, ltv, active_customers, new_customers y user_churn. Los valores monetarios vienen en centavos."
+      },
+      "fr": {
+        "name": "Obtenir le résumé des métriques",
+        "description": "Renvoie toutes les métriques du compte pour chaque jour d'une période, comme mrr, arr, arpu, ltv, active_customers, new_customers et user_churn. Les montants sont en centimes."
+      }
+    },
+    "baremetrics_get_metric": {
+      "pt": {
+        "name": "Obter métrica",
+        "description": "Retorna o valor de uma métrica para cada dia de um período, cada um com o valor de compare_to dias antes e a variação percentual. Valores monetários vêm em centavos, então um mrr de 6024087 é 60.240,87."
+      },
+      "es": {
+        "name": "Obtener métrica",
+        "description": "Devuelve el valor de una métrica para cada día de un rango de fechas, cada uno con el valor de compare_to días antes y el cambio porcentual. Los valores monetarios vienen en centavos, así que un mrr de 6024087 es 60.240,87."
+      },
+      "fr": {
+        "name": "Obtenir une métrique",
+        "description": "Renvoie la valeur d'une métrique pour chaque jour d'une période, chacune avec la valeur de compare_to jours avant et la variation en pourcentage. Les montants sont en centimes, donc un mrr de 6024087 vaut 60 240,87."
+      }
+    },
+    "baremetrics_list_metric_customers": {
+      "pt": {
+        "name": "Listar clientes de uma métrica",
+        "description": "Lista, para cada dia de um período, os clientes que compõem uma métrica, com a contribuição de cada um ao MRR em centavos e o plano atual e o anterior. Por exemplo, a métrica upgrades retorna os clientes que fizeram upgrade no período."
+      },
+      "es": {
+        "name": "Listar clientes de una métrica",
+        "description": "Lista, para cada día de un rango de fechas, los clientes que componen una métrica, con la contribución de cada uno al MRR en centavos y el plan actual y el anterior. Por ejemplo, la métrica upgrades devuelve los clientes que hicieron upgrade en el rango."
+      },
+      "fr": {
+        "name": "Lister les clients d'une métrique",
+        "description": "Liste, pour chaque jour d'une période, les clients qui composent une métrique, avec la contribution de chacun au MRR en centimes et le plan actuel et précédent. Par exemple, la métrique upgrades renvoie les clients qui ont fait un upgrade sur la période."
+      }
+    },
+    "baremetrics_get_metric_plan_breakout": {
+      "pt": {
+        "name": "Obter métrica por plano",
+        "description": "Divide uma métrica por plano para cada dia de um período: cada valor vem com o plano a que pertence. Valores monetários vêm em centavos."
+      },
+      "es": {
+        "name": "Obtener métrica por plan",
+        "description": "Desglosa una métrica por plan para cada día de un rango de fechas: cada valor viene con el plan al que pertenece. Los valores monetarios vienen en centavos."
+      },
+      "fr": {
+        "name": "Obtenir une métrique par plan",
+        "description": "Ventile une métrique par plan pour chaque jour d'une période : chaque valeur vient avec le plan auquel elle appartient. Les montants sont en centimes."
+      }
+    },
+    "baremetrics_list_plans": {
+      "pt": {
+        "name": "Listar planos",
+        "description": "Lista os planos de uma fonte com name, oid, intervalo de cobrança e valores em centavos. A resposta tem meta.pagination.has_more; envie page para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar planes",
+        "description": "Lista los planes de una fuente con name, oid, intervalo de facturación e importes en centavos. La respuesta tiene meta.pagination.has_more; envía page para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les plans",
+        "description": "Liste les plans d'une source avec name, oid, intervalle de facturation et montants en centimes. La réponse a meta.pagination.has_more ; envoyez page pour lire la page suivante."
+      }
+    },
+    "baremetrics_list_customers": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes de uma fonte com oid, e-mail, LTV e MRR atual em centavos, planos atuais e se estão ativos ou cancelados. A resposta tem meta.pagination.has_more; envie page para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes de una fuente con oid, correo, LTV y MRR actual en centavos, planes actuales y si están activos o cancelados. La respuesta tiene meta.pagination.has_more; envía page para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients d'une source avec oid, e-mail, LTV et MRR actuel en centimes, plans actuels et s'ils sont actifs ou résiliés. La réponse a meta.pagination.has_more ; envoyez page pour lire la page suivante."
+      }
+    },
+    "baremetrics_list_subscriptions": {
+      "pt": {
+        "name": "Listar assinaturas",
+        "description": "Lista as assinaturas de uma fonte com cliente, plano, quantidade, desconto e as datas de início e cancelamento como timestamps Unix. A resposta tem meta.pagination.has_more; envie page para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar suscripciones",
+        "description": "Lista las suscripciones de una fuente con cliente, plan, cantidad, descuento y las fechas de inicio y cancelación como timestamps Unix. La respuesta tiene meta.pagination.has_more; envía page para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les abonnements",
+        "description": "Liste les abonnements d'une source avec client, plan, quantité, remise et les dates de début et de résiliation en timestamps Unix. La réponse a meta.pagination.has_more ; envoyez page pour lire la page suivante."
+      }
+    },
+    "baremetrics_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários da conta do Baremetrics com id, nome, e-mail e se são administradores. O id é o user_id que Create annotation aceita."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de la cuenta de Baremetrics con id, nombre, correo y si son administradores. El id es el user_id que acepta Create annotation."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs du compte Baremetrics avec id, nom, e-mail et s'ils sont administrateurs. L'id est le user_id que prend Create annotation."
+      }
+    },
+    "baremetrics_list_annotations": {
+      "pt": {
+        "name": "Listar anotações",
+        "description": "Lista as anotações dos gráficos, cada uma com id, métrica, texto, data, se aparece em todos os gráficos e o usuário que a adicionou. A resposta tem meta.pagination.has_more; envie page para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar anotaciones",
+        "description": "Lista las anotaciones de los gráficos, cada una con id, métrica, texto, fecha, si aparece en todos los gráficos y el usuario que la agregó. La respuesta tiene meta.pagination.has_more; envía page para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les annotations",
+        "description": "Liste les annotations des graphiques, chacune avec id, métrique, texte, date, si elle s'affiche sur tous les graphiques et l'utilisateur qui l'a ajoutée. La réponse a meta.pagination.has_more ; envoyez page pour lire la page suivante."
+      }
+    },
+    "baremetrics_create_annotation": {
+      "pt": {
+        "name": "Criar anotação",
+        "description": "Adiciona uma anotação aos gráficos em uma data, como um lançamento ou uma campanha, e a retorna com seu id. Os cinco campos são obrigatórios."
+      },
+      "es": {
+        "name": "Crear anotación",
+        "description": "Agrega una anotación a los gráficos en una fecha, como un lanzamiento o una campaña, y la devuelve con su id. Los cinco campos son obligatorios."
+      },
+      "fr": {
+        "name": "Créer une annotation",
+        "description": "Ajoute une annotation aux graphiques à une date, comme un lancement ou une campagne, et la renvoie avec son id. Les cinq champs sont obligatoires."
+      }
+    },
+    "baremetrics_delete_annotation": {
+      "pt": {
+        "name": "Excluir anotação",
+        "description": "Exclui uma anotação dos gráficos. O app responde 202 com o corpo vazio."
+      },
+      "es": {
+        "name": "Eliminar anotación",
+        "description": "Elimina una anotación de los gráficos. La app responde 202 con el cuerpo vacío."
+      },
+      "fr": {
+        "name": "Supprimer une annotation",
+        "description": "Supprime une annotation des graphiques. L'application répond 202 avec un corps vide."
+      }
+    }
+  }
+}

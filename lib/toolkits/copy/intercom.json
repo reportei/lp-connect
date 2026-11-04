@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, conversations and messages in your customer's Intercom workspace through one Connect endpoint, ready for AI agents.",
+      "intro": "The Intercom toolkit covers contacts (users and leads), conversations with replies and assignment, outbound messages, and the teammates and teams of a workspace. Your customer connects Intercom once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Keep contacts in sync",
+          "body": "Create or update Intercom contacts with their custom attributes when users sign up or change plans in your product."
+        },
+        {
+          "title": "Support agent triages inbox",
+          "body": "An AI agent searches open conversations assigned to a team, reads each one, replies as a teammate and closes or snoozes it."
+        },
+        {
+          "title": "Proactive outreach from your app",
+          "body": "Send a message to a contact in the Messenger or by email when something happens in your product, such as a failed payment."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, conversas e mensagens no workspace Intercom do seu cliente por um único endpoint do Connect, pronto para agentes de IA.",
+      "intro": "O toolkit do Intercom cobre contatos (usuários e leads), conversas com respostas e atribuição, mensagens de saída e os membros da equipe e times de um workspace. Seu cliente conecta o Intercom uma vez por OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Mantenha contatos sincronizados",
+          "body": "Crie ou atualize contatos do Intercom com seus atributos customizados quando usuários se cadastram ou trocam de plano no seu produto."
+        },
+        {
+          "title": "Agente de suporte faz a triagem",
+          "body": "Um agente de IA busca conversas abertas atribuídas a um time, lê cada uma, responde como membro da equipe e fecha ou adia a conversa."
+        },
+        {
+          "title": "Contato proativo a partir do app",
+          "body": "Envie uma mensagem a um contato no Messenger ou por email quando algo acontece no seu produto, como um pagamento que falhou."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, conversaciones y mensajes en el workspace de Intercom de tu cliente con un único endpoint de Connect, listo para agentes de IA.",
+      "intro": "El toolkit de Intercom cubre contactos (usuarios y leads), conversaciones con respuestas y asignación, mensajes salientes y los miembros del equipo y equipos de un workspace. Tu cliente conecta Intercom una vez con OAuth, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Mantén los contactos sincronizados",
+          "body": "Crea o actualiza contactos de Intercom con sus atributos personalizados cuando los usuarios se registran o cambian de plan en tu producto."
+        },
+        {
+          "title": "Agente de soporte hace el triaje",
+          "body": "Un agente de IA busca conversaciones abiertas asignadas a un equipo, lee cada una, responde como miembro del equipo y la cierra o la pospone."
+        },
+        {
+          "title": "Contacto proactivo desde tu app",
+          "body": "Envía un mensaje a un contacto en el Messenger o por email cuando algo ocurre en tu producto, como un pago fallido."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, conversations et messages dans le workspace Intercom de votre client via un seul endpoint Connect, prêt pour les agents IA.",
+      "intro": "Le toolkit Intercom couvre les contacts (utilisateurs et leads), les conversations avec réponses et assignation, les messages sortants, ainsi que les membres d'équipe et les équipes d'un workspace. Votre client connecte Intercom une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Garder les contacts synchronisés",
+          "body": "Créez ou mettez à jour des contacts Intercom avec leurs attributs personnalisés quand des utilisateurs s'inscrivent ou changent de forfait dans votre produit."
+        },
+        {
+          "title": "Un agent de support trie la boîte",
+          "body": "Un agent IA recherche les conversations ouvertes assignées à une équipe, lit chacune, répond en tant que membre de l'équipe et la ferme ou la met en attente."
+        },
+        {
+          "title": "Contact proactif depuis votre app",
+          "body": "Envoyez un message à un contact dans le Messenger ou par email quand un événement survient dans votre produit, comme un paiement échoué."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "intercom_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos do workspace, usuários e leads, 10 por página por padrão. A próxima página vem de pages.next.starting_after na resposta; sem ele, esta é a última página. Contatos mesclados não aparecem."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos del workspace, usuarios y leads, 10 por página por defecto. La página siguiente viene de pages.next.starting_after en la respuesta; sin él, esta es la última página. Los contactos fusionados no aparecen."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts du workspace, utilisateurs et leads, 10 par page par défaut. La page suivante vient de pages.next.starting_after dans la réponse ; sans lui, c'est la dernière page. Les contacts fusionnés n'apparaissent pas."
+      }
+    },
+    "intercom_search_contacts": {
+      "pt": {
+        "name": "Buscar contatos",
+        "description": "Busca contatos pelos seus atributos, por exemplo por email, role ou um atributo customizado. Timestamps são segundos Unix em UTC. Retorna total_count e data, 50 por página por padrão, e a próxima página vem de pages.next.starting_after. Um contato criado nos últimos minutos pode ainda não aparecer."
+      },
+      "es": {
+        "name": "Buscar contactos",
+        "description": "Busca contactos por sus atributos, por ejemplo por email, role o un atributo personalizado. Los timestamps son segundos Unix en UTC. Devuelve total_count y data, 50 por página por defecto, y la página siguiente viene de pages.next.starting_after. Un contacto creado en los últimos minutos puede no aparecer todavía."
+      },
+      "fr": {
+        "name": "Rechercher des contacts",
+        "description": "Recherche des contacts par leurs attributs, par exemple par email, role ou un attribut personnalisé. Les timestamps sont en secondes Unix UTC. Renvoie total_count et data, 50 par page par défaut, et la page suivante vient de pages.next.starting_after. Un contact créé ces dernières minutes peut ne pas encore apparaître."
+      }
+    },
+    "intercom_get_contact": {
+      "pt": {
+        "name": "Obter contato",
+        "description": "Retorna um contato com role, email, telefone, nome, owner_id, custom_attributes, tags, empresas e localização. Um contato mesclado em outro retorna 410."
+      },
+      "es": {
+        "name": "Obtener contacto",
+        "description": "Devuelve un contacto con role, email, teléfono, nombre, owner_id, custom_attributes, tags, empresas y ubicación. Un contacto fusionado en otro devuelve 410."
+      },
+      "fr": {
+        "name": "Obtenir un contact",
+        "description": "Renvoie un contact avec role, email, téléphone, nom, owner_id, custom_attributes, tags, entreprises et localisation. Un contact fusionné dans un autre renvoie 410."
+      }
+    },
+    "intercom_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato, usuário ou lead. Envie ao menos um entre email, external_id ou role. Todo atributo customizado enviado já deve existir no workspace, ou o Intercom recusa o contato."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto, usuario o lead. Envía al menos uno entre email, external_id o role. Todo atributo personalizado enviado debe existir ya en el workspace, o Intercom rechaza el contacto."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact, utilisateur ou lead. Envoyez au moins un parmi email, external_id ou role. Chaque attribut personnalisé envoyé doit déjà exister dans le workspace, sinon Intercom refuse le contact."
+      }
+    },
+    "intercom_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato: envie só os campos a alterar. Um usuário não pode virar lead. Todo atributo customizado enviado já deve existir no workspace."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto: envía solo los campos a cambiar. Un usuario no puede pasar a lead. Todo atributo personalizado enviado debe existir ya en el workspace."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact : envoyez seulement les champs à modifier. Un utilisateur ne peut pas devenir lead. Chaque attribut personnalisé envoyé doit déjà exister dans le workspace."
+      }
+    },
+    "intercom_list_conversations": {
+      "pt": {
+        "name": "Listar conversas",
+        "description": "Lista as conversas do workspace, 20 por página por padrão. A próxima página vem de pages.next.starting_after na resposta; sem ele, esta é a última página. Obter conversa retorna todas as partes de uma conversa."
+      },
+      "es": {
+        "name": "Listar conversaciones",
+        "description": "Lista las conversaciones del workspace, 20 por página por defecto. La página siguiente viene de pages.next.starting_after en la respuesta; sin él, esta es la última página. Obtener conversación devuelve todas las partes de una conversación."
+      },
+      "fr": {
+        "name": "Lister les conversations",
+        "description": "Liste les conversations du workspace, 20 par page par défaut. La page suivante vient de pages.next.starting_after dans la réponse ; sans lui, c'est la dernière page. Obtenir une conversation renvoie toutes les parties d'une conversation."
+      }
+    },
+    "intercom_search_conversations": {
+      "pt": {
+        "name": "Buscar conversas",
+        "description": "Busca conversas pelos seus atributos, por exemplo as abertas atribuídas a um membro da equipe ou a um time. Timestamps são segundos Unix. Retorna total_count e conversations, 20 por página por padrão, e a próxima página vem de pages.next.starting_after."
+      },
+      "es": {
+        "name": "Buscar conversaciones",
+        "description": "Busca conversaciones por sus atributos, por ejemplo las abiertas asignadas a un miembro del equipo o a un equipo. Los timestamps son segundos Unix. Devuelve total_count y conversations, 20 por página por defecto, y la página siguiente viene de pages.next.starting_after."
+      },
+      "fr": {
+        "name": "Rechercher des conversations",
+        "description": "Recherche des conversations par leurs attributs, par exemple les ouvertes assignées à un membre de l'équipe ou à une équipe. Les timestamps sont en secondes Unix. Renvoie total_count et conversations, 20 par page par défaut, et la page suivante vient de pages.next.starting_after."
+      }
+    },
+    "intercom_get_conversation": {
+      "pt": {
+        "name": "Obter conversa",
+        "description": "Retorna uma conversa com suas partes (mensagens, notas e ações), até as 500 mais recentes, além de state, responsáveis, contatos e tags."
+      },
+      "es": {
+        "name": "Obtener conversación",
+        "description": "Devuelve una conversación con sus partes (mensajes, notas y acciones), hasta las 500 más recientes, además de state, asignados, contactos y tags."
+      },
+      "fr": {
+        "name": "Obtenir une conversation",
+        "description": "Renvoie une conversation avec ses parties (messages, notes et actions), jusqu'aux 500 plus récentes, plus state, assignés, contacts et tags."
+      }
+    },
+    "intercom_create_conversation_reply": {
+      "pt": {
+        "name": "Responder conversa",
+        "description": "Responde a uma conversa como membro da equipe. Um comment chega ao contato pelo canal da conversa, como o Messenger ou email; uma note fica interna, visível só para a equipe. Fechar, adiar, reabrir e atribuir são feitos por Gerenciar conversa."
+      },
+      "es": {
+        "name": "Responder conversación",
+        "description": "Responde a una conversación como miembro del equipo. Un comment llega al contacto por el canal de la conversación, como el Messenger o email; una note queda interna, visible solo para el equipo. Cerrar, posponer, reabrir y asignar se hacen con Gestionar conversación."
+      },
+      "fr": {
+        "name": "Répondre à une conversation",
+        "description": "Répond à une conversation en tant que membre de l'équipe. Un comment parvient au contact par le canal de la conversation, comme le Messenger ou l'email ; une note reste interne, visible seulement des équipiers. Fermer, mettre en attente, rouvrir et assigner se font avec Gérer une conversation."
+      }
+    },
+    "intercom_manage_conversation": {
+      "pt": {
+        "name": "Gerenciar conversa",
+        "description": "Fecha, adia, reabre ou atribui uma conversa. close exige type admin; snoozed exige snoozed_until; assignment exige type e assignee_id, e uma conversa pode ter um admin e um time atribuídos ao mesmo tempo. Atribuir uma conversa fechada a reabre, a menos que skip_reopen seja true."
+      },
+      "es": {
+        "name": "Gestionar conversación",
+        "description": "Cierra, pospone, reabre o asigna una conversación. close exige type admin; snoozed exige snoozed_until; assignment exige type y assignee_id, y una conversación puede tener un admin y un equipo asignados a la vez. Asignar una conversación cerrada la reabre, salvo que skip_reopen sea true."
+      },
+      "fr": {
+        "name": "Gérer une conversation",
+        "description": "Ferme, met en attente, rouvre ou assigne une conversation. close exige type admin ; snoozed exige snoozed_until ; assignment exige type et assignee_id, et une conversation peut avoir un admin et une équipe assignés en même temps. Assigner une conversation fermée la rouvre, sauf si skip_reopen est true."
+      }
+    },
+    "intercom_create_message": {
+      "pt": {
+        "name": "Criar mensagem",
+        "description": "Envia uma nova mensagem de um membro da equipe a um contato, no Messenger (in_app) ou por email. Email exige subject e template. A conversa só existe depois que o contato responde, a menos que create_conversation_without_contact_reply seja true."
+      },
+      "es": {
+        "name": "Crear mensaje",
+        "description": "Envía un mensaje nuevo de un miembro del equipo a un contacto, en el Messenger (in_app) o por email. Email exige subject y template. La conversación solo existe después de que el contacto responde, salvo que create_conversation_without_contact_reply sea true."
+      },
+      "fr": {
+        "name": "Créer un message",
+        "description": "Envoie un nouveau message d'un membre de l'équipe à un contact, dans le Messenger (in_app) ou par email. L'email exige subject et template. La conversation n'existe qu'après la réponse du contact, sauf si create_conversation_without_contact_reply est true."
+      }
+    },
+    "intercom_list_admins": {
+      "pt": {
+        "name": "Listar membros da equipe",
+        "description": "Lista os membros da equipe (admins) do workspace com id, nome, email, away_mode_enabled e team_ids. O id é o admin_id de respostas e ações de conversa e o owner_id de contatos."
+      },
+      "es": {
+        "name": "Listar miembros del equipo",
+        "description": "Lista los miembros del equipo (admins) del workspace con id, nombre, email, away_mode_enabled y team_ids. El id es el admin_id de respuestas y acciones de conversación y el owner_id de contactos."
+      },
+      "fr": {
+        "name": "Lister les équipiers",
+        "description": "Liste les équipiers (admins) du workspace avec id, nom, email, away_mode_enabled et team_ids. L'id est l'admin_id des réponses et actions de conversation et l'owner_id des contacts."
+      }
+    },
+    "intercom_list_teams": {
+      "pt": {
+        "name": "Listar times",
+        "description": "Lista os times do workspace com id, nome e admin_ids. O id é o assignee_id de uma conversa atribuída a um time."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos del workspace con id, nombre y admin_ids. El id es el assignee_id de una conversación asignada a un equipo."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes du workspace avec id, nom et admin_ids. L'id est l'assignee_id d'une conversation assignée à une équipe."
+      }
+    }
+  }
+}

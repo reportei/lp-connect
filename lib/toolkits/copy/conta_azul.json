@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and write customers, suppliers, receivables, payables and sales in your customer's Conta Azul ERP account through one Connect endpoint.",
+      "intro": "The Conta Azul toolkit covers people (customers, suppliers and carriers), receivables, payables, installments, sales, financial categories and financial accounts. Your customer connects Conta Azul once with OAuth, and your product or AI agent runs each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Push invoices into the ERP",
+          "body": "Create a customer with Create person and a receivable split by category and installments, so what your product bills shows up in the customer's finances."
+        },
+        {
+          "title": "Cash flow dashboards",
+          "body": "List receivables and payables due in a period, with their totals, to show overdue and upcoming amounts inside your own app."
+        },
+        {
+          "title": "Agent reconciles installments",
+          "body": "An AI agent reads an installment, takes its versao and updates the due date or value when a payment arrangement changes."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia e grave clientes, fornecedores, contas a receber, contas a pagar e vendas na conta Conta Azul do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit da Conta Azul cobre pessoas (clientes, fornecedores e transportadoras), contas a receber, contas a pagar, parcelas, vendas, categorias financeiras e contas financeiras. Seu cliente conecta a Conta Azul uma vez por OAuth, e seu produto ou agente de IA executa cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Envie cobranças ao ERP",
+          "body": "Crie um cliente com Criar pessoa e uma conta a receber dividida por categoria e parcelas, para o que seu produto cobra aparecer no financeiro do cliente."
+        },
+        {
+          "title": "Painéis de fluxo de caixa",
+          "body": "Liste contas a receber e a pagar com vencimento em um período, com seus totais, para mostrar valores vencidos e a vencer dentro do seu app."
+        },
+        {
+          "title": "Agente concilia parcelas",
+          "body": "Um agente de IA lê uma parcela, pega a versao e atualiza o vencimento ou o valor quando um acordo de pagamento muda."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee y escribe clientes, proveedores, cuentas por cobrar, por pagar y ventas en la cuenta de Conta Azul de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Conta Azul cubre personas (clientes, proveedores y transportistas), cuentas por cobrar, cuentas por pagar, cuotas, ventas, categorías financieras y cuentas financieras. Tu cliente conecta Conta Azul una vez con OAuth, y tu producto o agente de IA ejecuta cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Envía cobros al ERP",
+          "body": "Crea un cliente con Crear persona y una cuenta por cobrar dividida por categoría y cuotas, para que lo que factura tu producto aparezca en las finanzas del cliente."
+        },
+        {
+          "title": "Paneles de flujo de caja",
+          "body": "Lista las cuentas por cobrar y por pagar con vencimiento en un período, con sus totales, para mostrar montos vencidos y por vencer dentro de tu app."
+        },
+        {
+          "title": "Agente concilia cuotas",
+          "body": "Un agente de IA lee una cuota, toma su versao y actualiza el vencimiento o el valor cuando cambia un acuerdo de pago."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez et écrivez clients, fournisseurs, créances, dettes et ventes dans le compte Conta Azul de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Conta Azul couvre les personnes (clients, fournisseurs et transporteurs), les créances, les dettes, les échéances, les ventes, les catégories financières et les comptes financiers. Votre client connecte Conta Azul une fois via OAuth, et votre produit ou agent IA exécute chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Pousser les facturations dans l'ERP",
+          "body": "Créez un client avec Créer une personne et une créance répartie par catégorie et par échéance, pour que ce que votre produit facture apparaisse dans les finances du client."
+        },
+        {
+          "title": "Tableaux de bord de trésorerie",
+          "body": "Listez les créances et les dettes échues sur une période, avec leurs totaux, pour afficher les montants en retard et à venir dans votre app."
+        },
+        {
+          "title": "Un agent rapproche les échéances",
+          "body": "Un agent IA lit une échéance, récupère sa versao et met à jour la date ou le montant quand un accord de paiement change."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "conta_azul_list_people": {
+      "pt": {
+        "name": "Listar pessoas",
+        "description": "Lista as pessoas da empresa, que são seus clientes, fornecedores e transportadoras, com filtro opcional por texto, perfil ou tipo. A resposta traz items e totalItems; pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar personas",
+        "description": "Lista las personas de la empresa, que son sus clientes, proveedores y transportistas, con filtro opcional por texto, perfil o tipo. La respuesta trae items y totalItems; pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les personnes",
+        "description": "Liste les personnes de l'entreprise, c'est-à-dire ses clients, fournisseurs et transporteurs, avec filtre optionnel par texte, profil ou type. La réponse contient items et totalItems ; paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    },
+    "conta_azul_get_person": {
+      "pt": {
+        "name": "Obter pessoa",
+        "description": "Retorna uma pessoa, com tipo, documento, email, telefones, endereços, perfis e os valores em atraso a pagar e a receber."
+      },
+      "es": {
+        "name": "Obtener persona",
+        "description": "Devuelve una persona, con tipo, documento, email, teléfonos, direcciones, perfiles y los montos vencidos por pagar y por cobrar."
+      },
+      "fr": {
+        "name": "Obtenir une personne",
+        "description": "Renvoie une personne, avec type, document, email, téléphones, adresses, profils et les montants en retard à payer et à recevoir."
+      }
+    },
+    "conta_azul_create_person": {
+      "pt": {
+        "name": "Criar pessoa",
+        "description": "Cria uma pessoa, que é cliente, fornecedor ou transportadora conforme perfis. nome e tipo_pessoa são obrigatórios; envie cpf para pessoa física e cnpj para empresa. A resposta traz o id da pessoa."
+      },
+      "es": {
+        "name": "Crear persona",
+        "description": "Crea una persona, que es cliente, proveedor o transportista según perfis. nome y tipo_pessoa son obligatorios; envía cpf para persona física y cnpj para empresa. La respuesta trae el id de la persona."
+      },
+      "fr": {
+        "name": "Créer une personne",
+        "description": "Crée une personne, qui est un client, un fournisseur ou un transporteur selon perfis. nome et tipo_pessoa sont obligatoires ; envoyez cpf pour un particulier et cnpj pour une entreprise. La réponse contient l'id de la personne."
+      }
+    },
+    "conta_azul_update_person": {
+      "pt": {
+        "name": "Atualizar pessoa",
+        "description": "Atualiza parte de uma pessoa: só os campos enviados mudam. Para alterar um endereço existente, envie o id dele obtido em Obter pessoa."
+      },
+      "es": {
+        "name": "Actualizar persona",
+        "description": "Actualiza parte de una persona: solo cambian los campos enviados. Para cambiar una dirección existente, envía su id obtenido en Obtener persona."
+      },
+      "fr": {
+        "name": "Mettre à jour une personne",
+        "description": "Met à jour une partie d'une personne : seuls les champs envoyés changent. Pour modifier une adresse existante, envoyez son id obtenu avec Obtenir une personne."
+      }
+    },
+    "conta_azul_list_receivables": {
+      "pt": {
+        "name": "Listar contas a receber",
+        "description": "Lista as parcelas a receber (contas a receber) com vencimento em um período, com cliente, categorias, valores pagos e em aberto e status, além dos totais do período em totais. A resposta traz itens e itens_totais; pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar cuentas por cobrar",
+        "description": "Lista las cuotas por cobrar (contas a receber) con vencimiento en un período, con cliente, categorías, montos pagados y abiertos y estado, además de los totales del período en totais. La respuesta trae itens e itens_totais; pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les créances",
+        "description": "Liste les échéances à recevoir (contas a receber) arrivant à échéance sur une période, avec client, catégories, montants payés et ouverts et statut, plus les totaux de la période dans totais. La réponse contient itens et itens_totais ; paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    },
+    "conta_azul_list_payables": {
+      "pt": {
+        "name": "Listar contas a pagar",
+        "description": "Lista as parcelas a pagar (contas a pagar) com vencimento em um período, com fornecedor, categorias, valores pagos e em aberto e status, além dos totais do período em totais. A resposta traz itens e itens_totais; pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar cuentas por pagar",
+        "description": "Lista las cuotas por pagar (contas a pagar) con vencimiento en un período, con proveedor, categorías, montos pagados y abiertos y estado, además de los totales del período en totais. La respuesta trae itens e itens_totais; pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les dettes",
+        "description": "Liste les échéances à payer (contas a pagar) arrivant à échéance sur une période, avec fournisseur, catégories, montants payés et ouverts et statut, plus les totaux de la période dans totais. La réponse contient itens et itens_totais ; paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    },
+    "conta_azul_get_installment": {
+      "pt": {
+        "name": "Obter parcela",
+        "description": "Retorna uma parcela de uma conta a receber ou a pagar, com vencimento, composição do valor, pagamentos (baixas), cobranças e versao, que Atualizar parcela exige."
+      },
+      "es": {
+        "name": "Obtener cuota",
+        "description": "Devuelve una cuota de una cuenta por cobrar o por pagar, con vencimiento, composición del valor, pagos (baixas), cobros y versao, que Actualizar cuota exige."
+      },
+      "fr": {
+        "name": "Obtenir une échéance",
+        "description": "Renvoie une échéance d'une créance ou d'une dette, avec date d'échéance, composition du montant, paiements (baixas), encaissements et versao, qu'exige Mettre à jour une échéance."
+      }
+    },
+    "conta_azul_update_installment": {
+      "pt": {
+        "name": "Atualizar parcela",
+        "description": "Atualiza parte de uma parcela de conta a receber ou a pagar, como o vencimento, o valor ou a forma de pagamento. Envie a versao retornada por Obter parcela: a atualização é recusada se ela faltar ou estiver desatualizada."
+      },
+      "es": {
+        "name": "Actualizar cuota",
+        "description": "Actualiza parte de una cuota de cuenta por cobrar o por pagar, como el vencimiento, el valor o la forma de pago. Envía la versao devuelta por Obtener cuota: la actualización se rechaza si falta o está desactualizada."
+      },
+      "fr": {
+        "name": "Mettre à jour une échéance",
+        "description": "Met à jour une partie d'une échéance de créance ou de dette, comme la date d'échéance, le montant ou le mode de paiement. Envoyez la versao renvoyée par Obtenir une échéance : la mise à jour est refusée si elle manque ou n'est plus à jour."
+      }
+    },
+    "conta_azul_create_receivable": {
+      "pt": {
+        "name": "Criar conta a receber",
+        "description": "Cria uma conta a receber para um cliente: valor é dividido entre categorias em rateio e entre vencimentos em condicao_pagamento.parcelas. A resposta traz o id do evento financeiro, e suas parcelas aparecem em Listar contas a receber."
+      },
+      "es": {
+        "name": "Crear cuenta por cobrar",
+        "description": "Crea una cuenta por cobrar para un cliente: valor se divide entre categorías en rateio y entre vencimientos en condicao_pagamento.parcelas. La respuesta trae el id del evento financiero, y sus cuotas aparecen en Listar cuentas por cobrar."
+      },
+      "fr": {
+        "name": "Créer une créance",
+        "description": "Crée une créance pour un client : valor est réparti entre les catégories dans rateio et entre les échéances dans condicao_pagamento.parcelas. La réponse contient l'id de l'événement financier, et ses échéances apparaissent dans Lister les créances."
+      }
+    },
+    "conta_azul_create_payable": {
+      "pt": {
+        "name": "Criar conta a pagar",
+        "description": "Cria uma conta a pagar a um fornecedor: valor é dividido entre categorias em rateio e entre vencimentos em condicao_pagamento.parcelas. A resposta traz o id do evento financeiro, e suas parcelas aparecem em Listar contas a pagar."
+      },
+      "es": {
+        "name": "Crear cuenta por pagar",
+        "description": "Crea una cuenta por pagar a un proveedor: valor se divide entre categorías en rateio y entre vencimientos en condicao_pagamento.parcelas. La respuesta trae el id del evento financiero, y sus cuotas aparecen en Listar cuentas por pagar."
+      },
+      "fr": {
+        "name": "Créer une dette",
+        "description": "Crée une dette envers un fournisseur : valor est réparti entre les catégories dans rateio et entre les échéances dans condicao_pagamento.parcelas. La réponse contient l'id de l'événement financier, et ses échéances apparaissent dans Lister les dettes."
+      }
+    },
+    "conta_azul_list_sales": {
+      "pt": {
+        "name": "Listar vendas",
+        "description": "Lista as vendas emitidas em um período, com número, cliente, total e situação, além de totais e quantidades das vendas aprovadas, canceladas e aguardando. A resposta traz itens e total_itens; pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar ventas",
+        "description": "Lista las ventas emitidas en un período, con número, cliente, total y situación, además de totais y quantidades de las ventas aprobadas, canceladas y en espera. La respuesta trae itens y total_itens; pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les ventes",
+        "description": "Liste les ventes émises sur une période, avec numéro, client, total et situation, plus totais et quantidades des ventes approuvées, annulées et en attente. La réponse contient itens et total_itens ; paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    },
+    "conta_azul_list_categories": {
+      "pt": {
+        "name": "Listar categorias",
+        "description": "Lista as categorias financeiras, com id, nome e tipo (RECEITA ou DESPESA). O id vai em rateio.id_categoria de Criar conta a receber e Criar conta a pagar. Pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar categorías",
+        "description": "Lista las categorías financieras, con id, nombre y tipo (RECEITA o DESPESA). El id va en rateio.id_categoria de Crear cuenta por cobrar y Crear cuenta por pagar. Pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les catégories",
+        "description": "Liste les catégories financières, avec id, nom et tipo (RECEITA ou DESPESA). L'id va dans rateio.id_categoria de Créer une créance et Créer une dette. Paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    },
+    "conta_azul_list_financial_accounts": {
+      "pt": {
+        "name": "Listar contas financeiras",
+        "description": "Lista as contas financeiras da empresa, como contas bancárias, caixa e cartões de crédito, com id, nome, banco e se é a conta padrão. O id vai em conta_financeira de Criar conta a receber e Criar conta a pagar. Pagine com pagina, e uma página menor que tamanho_pagina é a última."
+      },
+      "es": {
+        "name": "Listar cuentas financieras",
+        "description": "Lista las cuentas financieras de la empresa, como cuentas bancarias, caja y tarjetas de crédito, con id, nombre, banco y si es la cuenta predeterminada. El id va en conta_financeira de Crear cuenta por cobrar y Crear cuenta por pagar. Pagina con pagina, y una página menor que tamanho_pagina es la última."
+      },
+      "fr": {
+        "name": "Lister les comptes financiers",
+        "description": "Liste les comptes financiers de l'entreprise, comme les comptes bancaires, la caisse et les cartes de crédit, avec id, nom, banque et s'il s'agit du compte par défaut. L'id va dans conta_financeira de Créer une créance et Créer une dette. Paginez avec pagina, et une page plus courte que tamanho_pagina est la dernière."
+      }
+    }
+  }
+}

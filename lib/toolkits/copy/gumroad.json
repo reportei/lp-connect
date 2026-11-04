@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage products, sales, subscribers and offer codes in your customer's Gumroad account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Gumroad toolkit covers products and their categories, publishing, sales, membership subscribers and offer codes. Through Connect your product or AI agent calls them with one endpoint, while Connect stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Publish products from your app",
+          "body": "A creator tool creates a product as a draft, then publishes it once the account can sell, and unpublishes it to stop new sales."
+        },
+        {
+          "title": "Show sales and subscribers",
+          "body": "A dashboard lists the account's sales with buyer, price and refund data, and the subscribers of a membership product with their status."
+        },
+        {
+          "title": "Launch a discount code",
+          "body": "An AI agent creates an offer code, as a percentage or a fixed amount, for a product or for every product."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie produtos, vendas, assinantes e códigos de oferta na conta Gumroad do seu cliente, pelo seu produto ou agente de IA, com um endpoint do Connect.",
+      "intro": "O toolkit do Gumroad cobre produtos e categorias, publicação, vendas, assinantes de produtos de assinatura e códigos de oferta. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Publique produtos pelo seu app",
+          "body": "Uma ferramenta para criadores cria um produto como rascunho, publica quando a conta pode vender e o despublica para parar novas vendas."
+        },
+        {
+          "title": "Mostre vendas e assinantes",
+          "body": "Um painel lista as vendas da conta com dados de comprador, preço e reembolso, e os assinantes de um produto de assinatura com seu status."
+        },
+        {
+          "title": "Lance um código de desconto",
+          "body": "Um agente de IA cria um código de oferta, em percentual ou valor fixo, para um produto ou para todos."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona productos, ventas, suscriptores y códigos de oferta en la cuenta de Gumroad de tu cliente desde tu producto o agente de IA, con un endpoint.",
+      "intro": "El toolkit de Gumroad cubre productos y categorías, publicación, ventas, suscriptores de productos de membresía y códigos de oferta. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Publica productos desde tu app",
+          "body": "Una herramienta para creadores crea un producto como borrador, lo publica cuando la cuenta puede vender y lo despublica para detener nuevas ventas."
+        },
+        {
+          "title": "Muestra ventas y suscriptores",
+          "body": "Un panel lista las ventas de la cuenta con datos de comprador, precio y reembolso, y los suscriptores de un producto de membresía con su estado."
+        },
+        {
+          "title": "Lanza un código de descuento",
+          "body": "Un agente de IA crea un código de oferta, en porcentaje o importe fijo, para un producto o para todos."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez produits, ventes, abonnés et codes promo dans le compte Gumroad de votre client, depuis votre produit ou agent IA, via un endpoint Connect.",
+      "intro": "Le toolkit Gumroad couvre les produits et leurs catégories, la publication, les ventes, les abonnés des produits d'abonnement et les codes d'offre. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Publier des produits depuis votre app",
+          "body": "Un outil pour créateurs crée un produit en brouillon, le publie quand le compte peut vendre et le dépublie pour arrêter les nouvelles ventes."
+        },
+        {
+          "title": "Afficher ventes et abonnés",
+          "body": "Un tableau de bord liste les ventes du compte avec acheteur, prix et remboursement, et les abonnés d'un produit d'abonnement avec leur statut."
+        },
+        {
+          "title": "Lancer un code de réduction",
+          "body": "Un agent IA crée un code d'offre, en pourcentage ou en montant fixe, pour un produit ou pour tous."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "gumroad_list_products": {
+      "pt": {
+        "name": "Listar produtos",
+        "description": "Lista os produtos da conta, do mais novo ao mais antigo, 10 por página, em formato resumido: Obter produto retorna o produto completo. Quando há mais, a resposta traz next_page_key, que vai em page_key."
+      },
+      "es": {
+        "name": "Listar productos",
+        "description": "Lista los productos de la cuenta, del más nuevo al más antiguo, 10 por página, en forma resumida: Obtener producto devuelve el producto completo. Cuando hay más, la respuesta trae next_page_key, que va en page_key."
+      },
+      "fr": {
+        "name": "Lister les produits",
+        "description": "Liste les produits du compte, du plus récent au plus ancien, 10 par page, sous forme abrégée : Obtenir un produit renvoie le produit complet. Quand il y en a plus, la réponse contient next_page_key, à passer dans page_key."
+      }
+    },
+    "gumroad_get_product": {
+      "pt": {
+        "name": "Obter produto",
+        "description": "Retorna um produto com preço, descrição, categoria, tags, variantes, arquivos e, com o escopo view_sales, sales_count e sales_usd_cents."
+      },
+      "es": {
+        "name": "Obtener producto",
+        "description": "Devuelve un producto con precio, descripción, categoría, etiquetas, variantes, archivos y, con el scope view_sales, sales_count y sales_usd_cents."
+      },
+      "fr": {
+        "name": "Obtenir un produit",
+        "description": "Renvoie un produit avec prix, description, catégorie, tags, variantes, fichiers et, avec le scope view_sales, sales_count et sales_usd_cents."
+      }
+    },
+    "gumroad_list_categories": {
+      "pt": {
+        "name": "Listar categorias",
+        "description": "Lista as categorias de produto do Gumroad. O path de uma categoria, como design/ui-and-web/figma, vai em category em Criar produto e Atualizar produto."
+      },
+      "es": {
+        "name": "Listar categorías",
+        "description": "Lista las categorías de producto de Gumroad. El path de una categoría, como design/ui-and-web/figma, va en category en Crear producto y Actualizar producto."
+      },
+      "fr": {
+        "name": "Lister les catégories",
+        "description": "Liste les catégories de produit de Gumroad. Le path d'une catégorie, comme design/ui-and-web/figma, va dans category de Créer un produit et Mettre à jour un produit."
+      }
+    },
+    "gumroad_create_product": {
+      "pt": {
+        "name": "Criar produto",
+        "description": "Cria um produto e o publica na hora, a menos que draft seja true. Quando a publicação é bloqueada, por exemplo por e-mail não confirmado ou falta de forma de recebimento, o produto fica como rascunho e a resposta traz um warning: publique depois com Publicar produto."
+      },
+      "es": {
+        "name": "Crear producto",
+        "description": "Crea un producto y lo publica de inmediato, salvo que draft sea true. Cuando la publicación está bloqueada, por ejemplo por un email sin confirmar o por falta de método de cobro, el producto queda como borrador y la respuesta trae un warning: publícalo después con Publicar producto."
+      },
+      "fr": {
+        "name": "Créer un produit",
+        "description": "Crée un produit et le publie immédiatement, sauf si draft vaut true. Quand la publication est bloquée, par exemple par un e-mail non confirmé ou l'absence de moyen de versement, le produit reste en brouillon et la réponse contient un warning : publiez-le plus tard avec Publier un produit."
+      }
+    },
+    "gumroad_update_product": {
+      "pt": {
+        "name": "Atualizar produto",
+        "description": "Altera um produto e o retorna. Só os campos enviados mudam, mas tags substitui a lista inteira. Um warning na resposta indica códigos de oferta que deixaram de ser válidos para o produto."
+      },
+      "es": {
+        "name": "Actualizar producto",
+        "description": "Modifica un producto y lo devuelve. Solo cambian los campos enviados, pero tags reemplaza la lista completa. Un warning en la respuesta indica códigos de oferta que dejaron de ser válidos para el producto."
+      },
+      "fr": {
+        "name": "Mettre à jour un produit",
+        "description": "Modifie un produit et le renvoie. Seuls les champs envoyés changent, mais tags remplace toute la liste. Un warning dans la réponse signale les codes d'offre devenus invalides pour le produit."
+      }
+    },
+    "gumroad_publish_product": {
+      "pt": {
+        "name": "Publicar produto",
+        "description": "Publica um rascunho ou produto despublicado, para que compradores possam comprá-lo. Recusado enquanto a conta não tiver e-mail confirmado ou forma de recebimento, ou quando um código de oferta do produto deixa o preço inválido."
+      },
+      "es": {
+        "name": "Publicar producto",
+        "description": "Publica un borrador o un producto despublicado, para que los compradores puedan comprarlo. Se rechaza mientras la cuenta no tenga email confirmado o método de cobro, o cuando un código de oferta del producto deja el precio inválido."
+      },
+      "fr": {
+        "name": "Publier un produit",
+        "description": "Publie un brouillon ou un produit dépublié, pour que les acheteurs puissent l'acheter. Refusé tant que le compte n'a pas d'e-mail confirmé ou de moyen de versement, ou quand un code d'offre du produit rend le prix invalide."
+      }
+    },
+    "gumroad_unpublish_product": {
+      "pt": {
+        "name": "Despublicar produto",
+        "description": "Despublica um produto, o que interrompe novas vendas. Publicar produto o coloca de volta à venda."
+      },
+      "es": {
+        "name": "Despublicar producto",
+        "description": "Despublica un producto, lo que detiene nuevas ventas. Publicar producto lo vuelve a poner a la venta."
+      },
+      "fr": {
+        "name": "Dépublier un produit",
+        "description": "Dépublie un produit, ce qui arrête les nouvelles ventes. Publier un produit le remet en vente."
+      }
+    },
+    "gumroad_list_sales": {
+      "pt": {
+        "name": "Listar vendas",
+        "description": "Lista as vendas concluídas da conta, das mais novas às mais antigas, 10 por página, com e-mail do comprador, produto, preço, reembolso e dados de assinatura e licença. Quando há mais, a resposta traz next_page_key, que vai em page_key."
+      },
+      "es": {
+        "name": "Listar ventas",
+        "description": "Lista las ventas exitosas de la cuenta, de las más nuevas a las más antiguas, 10 por página, con email del comprador, producto, precio, reembolso y datos de suscripción y licencia. Cuando hay más, la respuesta trae next_page_key, que va en page_key."
+      },
+      "fr": {
+        "name": "Lister les ventes",
+        "description": "Liste les ventes réussies du compte, des plus récentes aux plus anciennes, 10 par page, avec e-mail de l'acheteur, produit, prix, remboursement et données d'abonnement et de licence. Quand il y en a plus, la réponse contient next_page_key, à passer dans page_key."
+      }
+    },
+    "gumroad_get_sale": {
+      "pt": {
+        "name": "Obter venda",
+        "description": "Retorna uma venda da conta: comprador, produto, variantes, preço, reembolso e status de envio, assinatura e licença."
+      },
+      "es": {
+        "name": "Obtener venta",
+        "description": "Devuelve una venta de la cuenta: comprador, producto, variantes, precio, reembolso y estado de envío, suscripción y licencia."
+      },
+      "fr": {
+        "name": "Obtenir une vente",
+        "description": "Renvoie une vente du compte : acheteur, produit, variantes, prix, remboursement et statut d'expédition, abonnement et licence."
+      }
+    },
+    "gumroad_list_subscribers": {
+      "pt": {
+        "name": "Listar assinantes",
+        "description": "Lista os assinantes de um produto de assinatura, com e-mail, recorrência, status (alive, pending_cancellation, failed_payment, cancelled e outros) e os ids de suas vendas. Sem paginated, todos os assinantes vêm em uma resposta."
+      },
+      "es": {
+        "name": "Listar suscriptores",
+        "description": "Lista los suscriptores de un producto de membresía, con email, recurrencia, estado (alive, pending_cancellation, failed_payment, cancelled y otros) y los ids de sus ventas. Sin paginated, todos los suscriptores vienen en una respuesta."
+      },
+      "fr": {
+        "name": "Lister les abonnés",
+        "description": "Liste les abonnés d'un produit d'abonnement, avec e-mail, récurrence, statut (alive, pending_cancellation, failed_payment, cancelled et autres) et les ids de leurs ventes. Sans paginated, tous les abonnés arrivent dans une seule réponse."
+      }
+    },
+    "gumroad_list_offer_codes": {
+      "pt": {
+        "name": "Listar códigos de oferta",
+        "description": "Lista os códigos de oferta de um produto, com amount_cents para desconto fixo ou percent_off para percentual, uses, limit e validade. Um código universal vale para todos os produtos."
+      },
+      "es": {
+        "name": "Listar códigos de oferta",
+        "description": "Lista los códigos de oferta de un producto, con amount_cents para descuento fijo o percent_off para porcentaje, uses, limit y vigencia. Un código universal vale para todos los productos."
+      },
+      "fr": {
+        "name": "Lister les codes d'offre",
+        "description": "Liste les codes d'offre d'un produit, avec amount_cents pour une remise fixe ou percent_off pour un pourcentage, uses, limit et validité. Un code universel s'applique à tous les produits."
+      }
+    },
+    "gumroad_create_offer_code": {
+      "pt": {
+        "name": "Criar código de oferta",
+        "description": "Cria um código de desconto que os compradores digitam no checkout. O desconto é em centavos da moeda do produto, a menos que offer_type seja percent. O valor e universal não podem ser alterados depois."
+      },
+      "es": {
+        "name": "Crear código de oferta",
+        "description": "Crea un código de descuento que los compradores escriben en el checkout. El descuento es en centavos de la moneda del producto, salvo que offer_type sea percent. El importe y universal no se pueden cambiar después."
+      },
+      "fr": {
+        "name": "Créer un code d'offre",
+        "description": "Crée un code de réduction que les acheteurs saisissent au paiement. La réduction est en centimes de la devise du produit, sauf si offer_type vaut percent. Le montant et universal ne peuvent plus être modifiés ensuite."
+      }
+    }
+  }
+}

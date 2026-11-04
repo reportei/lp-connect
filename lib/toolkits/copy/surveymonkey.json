@@ -1,0 +1,232 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create surveys and collectors and read responses and summaries in your customer's SurveyMonkey account through one Connect endpoint.",
+      "intro": "The SurveyMonkey toolkit covers surveys and folders, collectors (web links and email invitations), individual responses and per-question rollups. Your customer connects SurveyMonkey once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Launch a survey from your app",
+          "body": "Create a survey with its pages and questions, add a weblink collector and share the url with your users."
+        },
+        {
+          "title": "Feed responses into your product",
+          "body": "List the responses of a survey with simple set to true and send answers to your CRM or analytics as they come in."
+        },
+        {
+          "title": "Agent summarizes results",
+          "body": "An AI agent reads List survey rollups and Get survey to explain how many people chose each answer, using the question ids."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie pesquisas e coletores e leia respostas e resumos na conta SurveyMonkey do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do SurveyMonkey cobre pesquisas e pastas, coletores (links web e convites por email), respostas individuais e resumos por pergunta. Seu cliente conecta o SurveyMonkey uma vez por OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Lance uma pesquisa pelo seu app",
+          "body": "Crie uma pesquisa com suas páginas e perguntas, adicione um coletor weblink e compartilhe a url com seus usuários."
+        },
+        {
+          "title": "Leve respostas para o seu produto",
+          "body": "Liste as respostas de uma pesquisa com simple true e envie as respostas ao seu CRM ou analytics assim que chegarem."
+        },
+        {
+          "title": "Agente resume os resultados",
+          "body": "Um agente de IA lê Listar resumos da pesquisa e Obter pesquisa para explicar quantas pessoas escolheram cada resposta, usando os ids das perguntas."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea encuestas y colectores y lee respuestas y resúmenes en la cuenta de SurveyMonkey de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de SurveyMonkey cubre encuestas y carpetas, colectores (enlaces web e invitaciones por email), respuestas individuales y resúmenes por pregunta. Tu cliente conecta SurveyMonkey una vez con OAuth, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Lanza una encuesta desde tu app",
+          "body": "Crea una encuesta con sus páginas y preguntas, agrega un colector weblink y comparte la url con tus usuarios."
+        },
+        {
+          "title": "Lleva respuestas a tu producto",
+          "body": "Lista las respuestas de una encuesta con simple en true y envía las respuestas a tu CRM o analítica a medida que llegan."
+        },
+        {
+          "title": "Agente resume los resultados",
+          "body": "Un agente de IA lee Listar resúmenes de la encuesta y Obtener encuesta para explicar cuántas personas eligieron cada respuesta, usando los ids de las preguntas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des enquêtes et des collecteurs et lisez réponses et synthèses dans le compte SurveyMonkey de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit SurveyMonkey couvre les enquêtes et dossiers, les collecteurs (liens web et invitations par email), les réponses individuelles et les synthèses par question. Votre client connecte SurveyMonkey une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Lancer une enquête depuis votre app",
+          "body": "Créez une enquête avec ses pages et questions, ajoutez un collecteur weblink et partagez l'url avec vos utilisateurs."
+        },
+        {
+          "title": "Alimenter votre produit en réponses",
+          "body": "Listez les réponses d'une enquête avec simple à true et envoyez-les à votre CRM ou à vos analytics dès qu'elles arrivent."
+        },
+        {
+          "title": "Un agent résume les résultats",
+          "body": "Un agent IA lit Lister les synthèses de l'enquête et Obtenir une enquête pour expliquer combien de personnes ont choisi chaque réponse, grâce aux ids des questions."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "surveymonkey_list_surveys": {
+      "pt": {
+        "name": "Listar pesquisas",
+        "description": "Lista as pesquisas que a conta possui ou que foram compartilhadas com ela, com id, título e nickname; include adiciona contagens, datas e links. Pagine com page enquanto a resposta tiver links.next."
+      },
+      "es": {
+        "name": "Listar encuestas",
+        "description": "Lista las encuestas que la cuenta posee o que se compartieron con ella, con id, título y nickname; include agrega conteos, fechas y enlaces. Pagina con page mientras la respuesta tenga links.next."
+      },
+      "fr": {
+        "name": "Lister les enquêtes",
+        "description": "Liste les enquêtes que le compte possède ou qui ont été partagées avec lui, avec id, titre et nickname ; include ajoute les compteurs, dates et liens. Paginez avec page tant que la réponse contient links.next."
+      }
+    },
+    "surveymonkey_list_survey_folders": {
+      "pt": {
+        "name": "Listar pastas de pesquisas",
+        "description": "Lista as pastas de pesquisas da conta com id, título e número de pesquisas. Pagine com page enquanto a resposta tiver links.next."
+      },
+      "es": {
+        "name": "Listar carpetas de encuestas",
+        "description": "Lista las carpetas de encuestas de la cuenta con id, título y número de encuestas. Pagina con page mientras la respuesta tenga links.next."
+      },
+      "fr": {
+        "name": "Lister les dossiers d'enquêtes",
+        "description": "Liste les dossiers d'enquêtes du compte avec id, titre et nombre d'enquêtes. Paginez avec page tant que la réponse contient links.next."
+      }
+    },
+    "surveymonkey_get_survey": {
+      "pt": {
+        "name": "Obter pesquisa",
+        "description": "Retorna a pesquisa inteira: configurações, os links de edição, prévia, coleta e análise, e cada página com suas perguntas e opções de resposta, todos com seus ids. As ferramentas de respostas e Listar resumos da pesquisa se referem a esses ids."
+      },
+      "es": {
+        "name": "Obtener encuesta",
+        "description": "Devuelve la encuesta completa: configuración, los enlaces de edición, vista previa, recolección y análisis, y cada página con sus preguntas y opciones de respuesta, todos con sus ids. Las herramientas de respuestas y Listar resúmenes de la encuesta se refieren a estos ids."
+      },
+      "fr": {
+        "name": "Obtenir une enquête",
+        "description": "Renvoie l'enquête entière : réglages, les liens de modification, d'aperçu, de collecte et d'analyse, et chaque page avec ses questions et choix de réponse, tous avec leurs ids. Les outils de réponses et Lister les synthèses de l'enquête se réfèrent à ces ids."
+      }
+    },
+    "surveymonkey_create_survey": {
+      "pt": {
+        "name": "Criar pesquisa",
+        "description": "Cria uma pesquisa: vazia, copiada de outra pesquisa com from_survey_id, ou com suas páginas e perguntas em pages. Retorna o id da pesquisa e seus links de edição, prévia e coleta. Ela ainda precisa de um coletor para receber respostas."
+      },
+      "es": {
+        "name": "Crear encuesta",
+        "description": "Crea una encuesta: vacía, copiada de otra encuesta con from_survey_id, o con sus páginas y preguntas en pages. Devuelve el id de la encuesta y sus enlaces de edición, vista previa y recolección. Aún necesita un colector para recibir respuestas."
+      },
+      "fr": {
+        "name": "Créer une enquête",
+        "description": "Crée une enquête : vide, copiée d'une autre enquête avec from_survey_id, ou avec ses pages et questions dans pages. Renvoie l'id de l'enquête et ses liens de modification, d'aperçu et de collecte. Elle a encore besoin d'un collecteur pour recevoir des réponses."
+      }
+    },
+    "surveymonkey_update_survey": {
+      "pt": {
+        "name": "Atualizar pesquisa",
+        "description": "Altera o título, nickname, idioma, textos dos botões, variáveis customizadas, rodapé ou pasta de uma pesquisa. Páginas e perguntas permanecem como estão."
+      },
+      "es": {
+        "name": "Actualizar encuesta",
+        "description": "Cambia el título, nickname, idioma, textos de los botones, variables personalizadas, pie de página o carpeta de una encuesta. Las páginas y preguntas quedan como están."
+      },
+      "fr": {
+        "name": "Mettre à jour une enquête",
+        "description": "Modifie le titre, le nickname, la langue, les textes des boutons, les variables personnalisées, le pied de page ou le dossier d'une enquête. Les pages et questions restent inchangées."
+      }
+    },
+    "surveymonkey_list_collectors": {
+      "pt": {
+        "name": "Listar coletores",
+        "description": "Lista os coletores de uma pesquisa, as formas como ela recebe respostas, como um link web ou um convite por email, com id e nome; include adiciona type, status, url e response_count. Pagine com page enquanto a resposta tiver links.next."
+      },
+      "es": {
+        "name": "Listar colectores",
+        "description": "Lista los colectores de una encuesta, las formas en que recibe respuestas, como un enlace web o una invitación por email, con id y nombre; include agrega type, status, url y response_count. Pagina con page mientras la respuesta tenga links.next."
+      },
+      "fr": {
+        "name": "Lister les collecteurs",
+        "description": "Liste les collecteurs d'une enquête, les moyens par lesquels elle reçoit des réponses, comme un lien web ou une invitation par email, avec id et nom ; include ajoute type, status, url et response_count. Paginez avec page tant que la réponse contient links.next."
+      }
+    },
+    "surveymonkey_create_collector": {
+      "pt": {
+        "name": "Criar coletor",
+        "description": "Cria um coletor para uma pesquisa. Um coletor weblink retorna o link para compartilhar em url, e é o único tipo que o plano gratuito pode criar. Um coletor email só prepara o convite: destinatários e envio ficam no SurveyMonkey."
+      },
+      "es": {
+        "name": "Crear colector",
+        "description": "Crea un colector para una encuesta. Un colector weblink devuelve el enlace para compartir en url, y es el único tipo que puede crear el plan gratuito. Un colector email solo prepara la invitación: destinatarios y envío quedan en SurveyMonkey."
+      },
+      "fr": {
+        "name": "Créer un collecteur",
+        "description": "Crée un collecteur pour une enquête. Un collecteur weblink renvoie le lien à partager dans url, et c'est le seul type que le plan gratuit peut créer. Un collecteur email ne fait que préparer l'invitation : destinataires et envoi restent dans SurveyMonkey."
+      }
+    },
+    "surveymonkey_update_collector": {
+      "pt": {
+        "name": "Atualizar coletor",
+        "description": "Altera um coletor: fecha ou reabre com status, ou muda seu nome, data de encerramento, limite de respostas, mensagens e redirecionamento."
+      },
+      "es": {
+        "name": "Actualizar colector",
+        "description": "Cambia un colector: lo cierra o lo reabre con status, o cambia su nombre, fecha de cierre, límite de respuestas, mensajes y redirección."
+      },
+      "fr": {
+        "name": "Mettre à jour un collecteur",
+        "description": "Modifie un collecteur : le ferme ou le rouvre avec status, ou change son nom, sa date de clôture, sa limite de réponses, ses messages et sa redirection."
+      }
+    },
+    "surveymonkey_list_responses": {
+      "pt": {
+        "name": "Listar respostas",
+        "description": "Lista as respostas de uma pesquisa com todas as respostas dadas, como ids de pergunta, opção e linha, mais os textos quando simple é true. No plano gratuito só as primeiras 25 respostas de cada pesquisa voltam, e pedir mais retorna o erro 1005. Pagine com page enquanto a resposta tiver links.next."
+      },
+      "es": {
+        "name": "Listar respuestas",
+        "description": "Lista las respuestas de una encuesta con todas las respuestas dadas, como ids de pregunta, opción y fila, más los textos cuando simple es true. En el plan gratuito solo vuelven las primeras 25 respuestas de cada encuesta, y pedir más devuelve el error 1005. Pagina con page mientras la respuesta tenga links.next."
+      },
+      "fr": {
+        "name": "Lister les réponses",
+        "description": "Liste les réponses d'une enquête avec toutes les réponses données, sous forme d'ids de question, de choix et de ligne, plus les textes quand simple vaut true. Sur le plan gratuit, seules les 25 premières réponses de chaque enquête reviennent, et en demander davantage renvoie l'erreur 1005. Paginez avec page tant que la réponse contient links.next."
+      }
+    },
+    "surveymonkey_get_response": {
+      "pt": {
+        "name": "Obter resposta",
+        "description": "Retorna uma resposta com todas as respostas dadas, seu status, horários, coletor e os dados do respondente que o coletor guarda."
+      },
+      "es": {
+        "name": "Obtener respuesta",
+        "description": "Devuelve una respuesta con todas las respuestas dadas, su estado, horarios, colector y los datos del encuestado que guarda el colector."
+      },
+      "fr": {
+        "name": "Obtenir une réponse",
+        "description": "Renvoie une réponse avec toutes les réponses données, son statut, ses horaires, son collecteur et les données du répondant que conserve le collecteur."
+      }
+    },
+    "surveymonkey_list_survey_rollups": {
+      "pt": {
+        "name": "Listar resumos da pesquisa",
+        "description": "Retorna o resumo de cada pergunta de uma pesquisa: quantas respostas escolheram cada opção, linha e coluna, com os ids das perguntas de Obter pesquisa."
+      },
+      "es": {
+        "name": "Listar resúmenes de la encuesta",
+        "description": "Devuelve el resumen de cada pregunta de una encuesta: cuántas respuestas eligieron cada opción, fila y columna, con los ids de las preguntas de Obtener encuesta."
+      },
+      "fr": {
+        "name": "Lister les synthèses de l'enquête",
+        "description": "Renvoie la synthèse de chaque question d'une enquête : combien de réponses ont choisi chaque option, ligne et colonne, avec les ids de questions d'Obtenir une enquête."
+      }
+    }
+  }
+}

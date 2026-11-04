@@ -1,5 +1,14 @@
 import type { Metadata } from "next"
-import { DEFAULT_LOCALE, LOCALE_INFO, LOCALES, pagePath, type Locale, type TranslatedPage } from "@/lib/i18n"
+import {
+  DEFAULT_LOCALE,
+  LOCALE_INFO,
+  LOCALES,
+  localePath,
+  pagePath,
+  type AlternatePath,
+  type Locale,
+  type TranslatedPage,
+} from "@/lib/i18n"
 
 // Public address of the LP. The pages live under reportei.com to inherit the domain's authority.
 export const SITE_URL = "https://reportei.com/connect"
@@ -13,10 +22,12 @@ export function absoluteUrl(path: string) {
 }
 
 // x-default sends visitors whose language is none of ours to the English version.
-export function languageAlternates(page: TranslatedPage) {
+export function languageAlternates(page: TranslatedPage | AlternatePath) {
+  const path = (locale: Locale) =>
+    typeof page === "function" ? localePath(locale, page(locale)) : pagePath(locale, page)
   const languages: Record<string, string> = {}
-  for (const locale of LOCALES) languages[LOCALE_INFO[locale].hreflang] = absoluteUrl(pagePath(locale, page))
-  languages["x-default"] = absoluteUrl(pagePath("en", page))
+  for (const locale of LOCALES) languages[LOCALE_INFO[locale].hreflang] = absoluteUrl(path(locale))
+  languages["x-default"] = absoluteUrl(path("en"))
   return languages
 }
 
@@ -37,7 +48,7 @@ export function pageMetadata({
   path: string
   locale?: Locale
   // Set on pages that exist in every language, so they announce their translations.
-  page?: TranslatedPage
+  page?: TranslatedPage | AlternatePath
   imageAlt?: string
   canonical?: string
 }): Metadata {

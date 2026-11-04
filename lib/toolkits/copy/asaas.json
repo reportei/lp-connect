@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create customers, charges and subscriptions in your customer's Asaas account and read payment status from your product, through one Connect endpoint.",
+      "intro": "The Asaas toolkit covers customers, payments (cobrancas) and subscriptions: list, read, create and update them, and delete payments. Connect stores the API key of each customer, logs every execution and exposes each operation as a JSON Schema tool, so your product or AI agent bills through Asaas without building the integration.",
+      "useCases": [
+        {
+          "title": "Bill from inside your SaaS",
+          "body": "Create a customer and a payment by boleto, Pix or credit card, then send the invoiceUrl returned by Create payment to the payer."
+        },
+        {
+          "title": "Recurring plans on Asaas",
+          "body": "Create a subscription for a customer and let Asaas generate one payment per cycle; read those payments with List payments filtered by subscription."
+        },
+        {
+          "title": "Billing agent for finance teams",
+          "body": "An AI agent lists overdue payments, reads each one and updates the due date or removes a payment, all logged in the Connect audit trail."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie clientes, cobranças e assinaturas na conta Asaas do seu cliente e leia o status dos pagamentos pelo seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do Asaas cobre clientes, cobranças e assinaturas: listar, consultar, criar e atualizar, além de remover cobranças. O Connect guarda a chave de API de cada cliente, registra cada execução e expõe cada operação como tool com JSON Schema, para o seu produto ou agente de IA cobrar pelo Asaas sem construir a integração.",
+      "useCases": [
+        {
+          "title": "Cobrar de dentro do seu SaaS",
+          "body": "Crie um cliente e uma cobrança por boleto, Pix ou cartão de crédito e envie ao pagador o invoiceUrl devolvido por Create payment."
+        },
+        {
+          "title": "Planos recorrentes no Asaas",
+          "body": "Crie uma assinatura para um cliente e deixe o Asaas gerar uma cobrança por ciclo; leia essas cobranças com List payments filtrando pela assinatura."
+        },
+        {
+          "title": "Agente de cobrança para o financeiro",
+          "body": "Um agente de IA lista as cobranças vencidas, consulta cada uma e atualiza o vencimento ou remove a cobrança, tudo registrado na auditoria do Connect."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea clientes, cobros y suscripciones en la cuenta Asaas de tu cliente y lee el estado de los pagos desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de Asaas cubre clientes, cobros (cobrancas) y suscripciones: listar, consultar, crear y actualizar, además de eliminar cobros. Connect guarda la clave de API de cada cliente, registra cada ejecución y expone cada operación como una tool con JSON Schema, para que tu producto o agente de IA cobre con Asaas sin construir la integración.",
+      "useCases": [
+        {
+          "title": "Cobrar desde tu SaaS",
+          "body": "Crea un cliente y un cobro por boleto, Pix o tarjeta de crédito, y envía al pagador el invoiceUrl que devuelve Create payment."
+        },
+        {
+          "title": "Planes recurrentes en Asaas",
+          "body": "Crea una suscripción para un cliente y deja que Asaas genere un cobro por ciclo; lee esos cobros con List payments filtrando por suscripción."
+        },
+        {
+          "title": "Agente de cobranza para finanzas",
+          "body": "Un agente de IA lista los cobros vencidos, consulta cada uno y actualiza la fecha de vencimiento o elimina el cobro, todo registrado en la auditoría de Connect."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez clients, paiements et abonnements dans le compte Asaas de votre client et lisez le statut des paiements, via un seul endpoint Connect.",
+      "intro": "Le toolkit Asaas couvre les clients, les paiements (cobrancas) et les abonnements : lister, consulter, créer et mettre à jour, et supprimer des paiements. Connect stocke la clé d'API de chaque client, journalise chaque exécution et expose chaque opération comme un outil JSON Schema, pour que votre produit ou agent IA facture via Asaas sans construire l'intégration.",
+      "useCases": [
+        {
+          "title": "Facturer depuis votre SaaS",
+          "body": "Créez un client et un paiement par boleto, Pix ou carte de crédit, puis envoyez au payeur l'invoiceUrl renvoyé par Create payment."
+        },
+        {
+          "title": "Abonnements récurrents sur Asaas",
+          "body": "Créez un abonnement pour un client et laissez Asaas générer un paiement par cycle ; lisez ces paiements avec List payments filtré par abonnement."
+        },
+        {
+          "title": "Agent de recouvrement",
+          "body": "Un agent IA liste les paiements en retard, consulte chacun et met à jour l'échéance ou supprime le paiement, le tout tracé dans l'audit de Connect."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "asaas_list_customers": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes (pagadores) da conta, com filtro opcional por nome, e-mail, CPF ou CNPJ, grupo ou referência externa. A resposta traz data, totalCount e hasMore; pagine com offset e limit enquanto hasMore for true."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes (pagadores) de la cuenta, con filtro opcional por nombre, email, CPF o CNPJ, grupo o referencia externa. La respuesta trae data, totalCount y hasMore; pagina con offset y limit mientras hasMore sea true."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients (payeurs) du compte, avec filtre optionnel par nom, e-mail, CPF ou CNPJ, groupe ou référence externe. La réponse contient data, totalCount et hasMore ; paginez avec offset et limit tant que hasMore vaut true."
+      }
+    },
+    "asaas_get_customer": {
+      "pt": {
+        "name": "Consultar cliente",
+        "description": "Retorna um cliente, com nome, CPF ou CNPJ, e-mail, telefones, endereço e configuração de notificação."
+      },
+      "es": {
+        "name": "Consultar cliente",
+        "description": "Devuelve un cliente, con nombre, CPF o CNPJ, email, teléfonos, dirección y configuración de notificación."
+      },
+      "fr": {
+        "name": "Consulter un client",
+        "description": "Renvoie un client, avec nom, CPF ou CNPJ, e-mail, téléphones, adresse et paramètre de notification."
+      }
+    },
+    "asaas_create_customer": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente, o pagador de cobranças e assinaturas. name e cpfCnpj são obrigatórios. Não há campo de cidade: o Asaas obtém a cidade pelo postalCode."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente, el pagador de cobros y suscripciones. name y cpfCnpj son obligatorios. No hay campo de ciudad: Asaas toma la ciudad del postalCode."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client, le payeur des paiements et abonnements. name et cpfCnpj sont obligatoires. Il n'y a pas de champ ville : Asaas déduit la ville de postalCode."
+      }
+    },
+    "asaas_update_customer": {
+      "pt": {
+        "name": "Atualizar cliente",
+        "description": "Atualiza um cliente. Os campos não enviados permanecem como estão."
+      },
+      "es": {
+        "name": "Actualizar cliente",
+        "description": "Actualiza un cliente. Los campos no enviados se mantienen como están."
+      },
+      "fr": {
+        "name": "Mettre à jour un client",
+        "description": "Met à jour un client. Les champs non envoyés restent inchangés."
+      }
+    },
+    "asaas_list_payments": {
+      "pt": {
+        "name": "Listar cobranças",
+        "description": "Lista as cobranças, com filtro opcional por cliente, assinatura, status, forma de pagamento, data de pagamento ou referência externa. Os valores são em reais. A resposta traz data, totalCount e hasMore; pagine com offset e limit enquanto hasMore for true."
+      },
+      "es": {
+        "name": "Listar cobros",
+        "description": "Lista los cobros (cobrancas), con filtro opcional por cliente, suscripción, estado, forma de pago, fecha de pago o referencia externa. Los valores están en reales. La respuesta trae data, totalCount y hasMore; pagina con offset y limit mientras hasMore sea true."
+      },
+      "fr": {
+        "name": "Lister les paiements",
+        "description": "Liste les paiements (cobrancas), avec filtre optionnel par client, abonnement, statut, mode de paiement, date de paiement ou référence externe. Les montants sont en reais. La réponse contient data, totalCount et hasMore ; paginez avec offset et limit tant que hasMore vaut true."
+      }
+    },
+    "asaas_get_payment": {
+      "pt": {
+        "name": "Consultar cobrança",
+        "description": "Retorna uma cobrança, com status, valor, valor líquido, vencimento, data de pagamento e os links invoiceUrl (a página da cobrança) e bankSlipUrl (o boleto)."
+      },
+      "es": {
+        "name": "Consultar cobro",
+        "description": "Devuelve un cobro, con estado, valor, valor neto, vencimiento, fecha de pago y los enlaces invoiceUrl (la página del cobro) y bankSlipUrl (el boleto)."
+      },
+      "fr": {
+        "name": "Consulter un paiement",
+        "description": "Renvoie un paiement, avec statut, montant, montant net, échéance, date de paiement et les liens invoiceUrl (la page du paiement) et bankSlipUrl (le boleto)."
+      }
+    },
+    "asaas_create_payment": {
+      "pt": {
+        "name": "Criar cobrança",
+        "description": "Cria uma cobrança para um cliente, por boleto, Pix ou cartão de crédito, à vista ou parcelada. A resposta traz invoiceUrl, a página da cobrança para enviar ao pagador, e o Asaas pode notificar o cliente conforme a configuração de notificação dele."
+      },
+      "es": {
+        "name": "Crear cobro",
+        "description": "Crea un cobro para un cliente, por boleto, Pix o tarjeta de crédito, en un pago o en cuotas. La respuesta trae invoiceUrl, la página del cobro para enviar al pagador, y Asaas puede notificar al cliente según su configuración de notificación."
+      },
+      "fr": {
+        "name": "Créer un paiement",
+        "description": "Crée un paiement (cobranca) pour un client, par boleto, Pix ou carte de crédit, en une fois ou en plusieurs fois. La réponse contient invoiceUrl, la page de paiement à envoyer au payeur, et Asaas peut notifier le client selon ses paramètres de notification."
+      }
+    },
+    "asaas_update_payment": {
+      "pt": {
+        "name": "Atualizar cobrança",
+        "description": "Atualiza uma cobrança ainda pendente ou vencida; o cliente não pode ser alterado. Envie billingType, value e dueDate mesmo quando não mudam, com os valores atuais de Get payment. Um novo valor ou vencimento pode notificar o cliente."
+      },
+      "es": {
+        "name": "Actualizar cobro",
+        "description": "Actualiza un cobro aún pendiente o vencido; el cliente no se puede cambiar. Envía billingType, value y dueDate aunque no cambien, con los valores actuales de Get payment. Un nuevo valor o vencimiento puede notificar al cliente."
+      },
+      "fr": {
+        "name": "Mettre à jour un paiement",
+        "description": "Met à jour un paiement encore en attente ou en retard ; le client ne peut pas changer. Envoyez billingType, value et dueDate même s'ils ne changent pas, avec les valeurs actuelles de Get payment. Un nouveau montant ou une nouvelle échéance peut notifier le client."
+      }
+    },
+    "asaas_delete_payment": {
+      "pt": {
+        "name": "Remover cobrança",
+        "description": "Remove uma cobrança, que deixa de poder ser paga; é possível restaurá-la no Asaas. Não reembolsa um valor já pago, e remover uma cobrança de assinatura não encerra a assinatura."
+      },
+      "es": {
+        "name": "Eliminar cobro",
+        "description": "Elimina un cobro, que ya no se puede pagar; se puede restaurar en Asaas. No reembolsa un valor ya pagado, y eliminar un cobro de una suscripción no termina la suscripción."
+      },
+      "fr": {
+        "name": "Supprimer un paiement",
+        "description": "Supprime un paiement, qui ne peut plus être réglé ; il peut être restauré dans Asaas. Il ne rembourse pas un montant déjà payé, et supprimer un paiement d'abonnement ne met pas fin à l'abonnement."
+      }
+    },
+    "asaas_list_subscriptions": {
+      "pt": {
+        "name": "Listar assinaturas",
+        "description": "Lista as assinaturas, com filtro opcional por cliente, status, forma de pagamento ou referência externa. As cobranças geradas por uma assinatura vêm de List payments com o filtro de assinatura. Pagine com offset e limit enquanto hasMore for true."
+      },
+      "es": {
+        "name": "Listar suscripciones",
+        "description": "Lista las suscripciones, con filtro opcional por cliente, estado, forma de pago o referencia externa. Los cobros que genera una suscripción vienen de List payments con el filtro de suscripción. Pagina con offset y limit mientras hasMore sea true."
+      },
+      "fr": {
+        "name": "Lister les abonnements",
+        "description": "Liste les abonnements, avec filtre optionnel par client, statut, mode de paiement ou référence externe. Les paiements générés par un abonnement viennent de List payments avec le filtre d'abonnement. Paginez avec offset et limit tant que hasMore vaut true."
+      }
+    },
+    "asaas_create_subscription": {
+      "pt": {
+        "name": "Criar assinatura",
+        "description": "Cria uma assinatura para um cliente, que gera uma cobrança por ciclo, a primeira com vencimento em nextDueDate. As cobranças aparecem em List payments com o filtro de assinatura."
+      },
+      "es": {
+        "name": "Crear suscripción",
+        "description": "Crea una suscripción para un cliente, que genera un cobro por ciclo, el primero con vencimiento en nextDueDate. Los cobros aparecen en List payments con el filtro de suscripción."
+      },
+      "fr": {
+        "name": "Créer un abonnement",
+        "description": "Crée un abonnement pour un client, qui génère un paiement par cycle, le premier à l'échéance nextDueDate. Les paiements apparaissent dans List payments avec le filtre d'abonnement."
+      }
+    },
+    "asaas_update_subscription": {
+      "pt": {
+        "name": "Atualizar assinatura",
+        "description": "Atualiza uma assinatura. As mudanças valem para as cobranças ainda não geradas, a menos que updatePendingPayments seja true. status INACTIVE suspende a assinatura e mantém as cobranças, e ACTIVE a reativa com um novo nextDueDate."
+      },
+      "es": {
+        "name": "Actualizar suscripción",
+        "description": "Actualiza una suscripción. Los cambios valen para los cobros aún no generados, salvo que updatePendingPayments sea true. status INACTIVE suspende la suscripción y conserva sus cobros, y ACTIVE la reactiva con un nuevo nextDueDate."
+      },
+      "fr": {
+        "name": "Mettre à jour un abonnement",
+        "description": "Met à jour un abonnement. Les changements s'appliquent aux paiements pas encore générés, sauf si updatePendingPayments vaut true. status INACTIVE suspend l'abonnement et garde ses paiements, et ACTIVE le réactive avec un nouveau nextDueDate."
+      }
+    }
+  }
+}

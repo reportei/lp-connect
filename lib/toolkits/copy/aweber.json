@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage lists, subscribers and broadcast emails in your customer's AWeber account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The AWeber toolkit covers the accounts, lists, subscribers and broadcast emails of a customer's AWeber account: read and update subscribers, and create, schedule or cancel broadcasts. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores and renews the OAuth credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Sync signups to a list",
+          "body": "When a user signs up in your SaaS, create the subscriber in the customer's AWeber list, which starts the list's follow-up series."
+        },
+        {
+          "title": "Update subscriber status",
+          "body": "Mark a subscriber as unsubscribed or change tags when something changes in your product, so the emails follow the real state of the contact."
+        },
+        {
+          "title": "Agent-drafted broadcasts",
+          "body": "An AI agent writes a broadcast as a draft, a person reviews it, and your product schedules it for a future time or cancels it before it is sent."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie listas, assinantes e broadcasts na conta AWeber do seu cliente a partir do seu produto ou agente de IA, por um único endpoint do Connect.",
+      "intro": "O toolkit da AWeber cobre contas, listas, assinantes e broadcasts da conta AWeber de um cliente: ler e atualizar assinantes, criar, agendar e cancelar broadcasts. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda e renova as credenciais OAuth e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Sincronizar cadastros com a lista",
+          "body": "Quando um usuário se cadastra no seu SaaS, crie o assinante na lista da AWeber do cliente, o que inicia a série de follow-up da lista."
+        },
+        {
+          "title": "Atualizar status do assinante",
+          "body": "Marque um assinante como descadastrado ou altere tags quando algo muda no seu produto, para que os emails acompanhem o estado real do contato."
+        },
+        {
+          "title": "Broadcasts rascunhados por agente",
+          "body": "Um agente de IA escreve um broadcast como rascunho, uma pessoa revisa, e seu produto agenda o envio para um horário futuro ou cancela antes de sair."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona listas, suscriptores y broadcasts en la cuenta AWeber de tu cliente desde tu producto o agente de IA, con un único endpoint de Connect.",
+      "intro": "El toolkit de AWeber cubre las cuentas, listas, suscriptores y broadcasts de la cuenta AWeber de un cliente: leer y actualizar suscriptores, y crear, programar o cancelar broadcasts. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda y renueva las credenciales OAuth y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Sincronizar registros con la lista",
+          "body": "Cuando un usuario se registra en tu SaaS, crea el suscriptor en la lista de AWeber del cliente, lo que inicia la serie de seguimiento de la lista."
+        },
+        {
+          "title": "Actualizar estado del suscriptor",
+          "body": "Marca a un suscriptor como dado de baja o cambia etiquetas cuando algo cambia en tu producto, para que los correos sigan el estado real del contacto."
+        },
+        {
+          "title": "Broadcasts redactados por agente",
+          "body": "Un agente de IA escribe un broadcast como borrador, una persona lo revisa, y tu producto lo programa para más adelante o lo cancela antes de enviarse."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez listes, abonnés et broadcasts dans le compte AWeber de votre client depuis votre produit ou agent IA, via un seul endpoint Connect.",
+      "intro": "Le toolkit AWeber couvre les comptes, listes, abonnés et broadcasts du compte AWeber d'un client : lire et mettre à jour les abonnés, créer, planifier ou annuler des broadcasts. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke et renouvelle les identifiants OAuth et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Synchroniser les inscriptions",
+          "body": "Quand un utilisateur s'inscrit dans votre SaaS, créez l'abonné dans la liste AWeber du client, ce qui lance la série de suivi de la liste."
+        },
+        {
+          "title": "Mettre à jour le statut d'abonné",
+          "body": "Marquez un abonné comme désinscrit ou changez ses tags quand quelque chose évolue dans votre produit, pour que les emails suivent l'état réel du contact."
+        },
+        {
+          "title": "Broadcasts rédigés par un agent",
+          "body": "Un agent IA rédige un broadcast en brouillon, une personne le relit, puis votre produit le planifie à une date future ou l'annule avant l'envoi."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "aweber_list_accounts": {
+      "pt": {
+        "name": "Listar contas",
+        "description": "Retorna a conta AWeber que a conexão alcança, em entries, com seu id, o accountId que todas as outras tools pedem e o nome da empresa."
+      },
+      "es": {
+        "name": "Listar cuentas",
+        "description": "Devuelve la cuenta de AWeber a la que llega la conexión, en entries, con su id, el accountId que piden todas las demás tools y el nombre de la empresa."
+      },
+      "fr": {
+        "name": "Lister les comptes",
+        "description": "Renvoie le compte AWeber auquel la connexion accède, dans entries, avec son id, l'accountId demandé par toutes les autres tools et le nom de l'entreprise."
+      }
+    },
+    "aweber_list_lists": {
+      "pt": {
+        "name": "Listar listas",
+        "description": "Lista as listas de assinantes da conta, em entries, com id, nome e as contagens de assinantes ativos, não confirmados e descadastrados. Só os primeiros 100 voltam; total_size traz o total."
+      },
+      "es": {
+        "name": "Listar listas",
+        "description": "Lista las listas de suscriptores de la cuenta, en entries, con id, nombre y los conteos de suscritos, sin confirmar y dados de baja. Solo vuelven los primeros 100; total_size trae el total."
+      },
+      "fr": {
+        "name": "Lister les listes",
+        "description": "Liste les listes d'abonnés du compte, dans entries, avec id, nom et le nombre d'abonnés inscrits, non confirmés et désinscrits. Seuls les 100 premiers reviennent ; total_size donne le total."
+      }
+    },
+    "aweber_list_subscribers": {
+      "pt": {
+        "name": "Listar assinantes",
+        "description": "Lista os assinantes de uma lista, em entries, com id, email, nome, status, tags, campos personalizados e data de inscrição. Só os primeiros 100 voltam, os mais antigos primeiro, a menos que sort_order seja desc; total_size traz o total."
+      },
+      "es": {
+        "name": "Listar suscriptores",
+        "description": "Lista los suscriptores de una lista, en entries, con id, email, nombre, estado, etiquetas, campos personalizados y fecha de suscripción. Solo vuelven los primeros 100, los más antiguos primero salvo que sort_order sea desc; total_size trae el total."
+      },
+      "fr": {
+        "name": "Lister les abonnés",
+        "description": "Liste les abonnés d'une liste, dans entries, avec id, email, nom, statut, tags, champs personnalisés et date d'inscription. Seuls les 100 premiers reviennent, les plus anciens d'abord sauf si sort_order vaut desc ; total_size donne le total."
+      }
+    },
+    "aweber_get_subscriber": {
+      "pt": {
+        "name": "Obter assinante",
+        "description": "Retorna um assinante de uma lista com email, nome, status, tags, campos personalizados, localização e as mensagens de follow-up já enviadas."
+      },
+      "es": {
+        "name": "Obtener suscriptor",
+        "description": "Devuelve un suscriptor de una lista con email, nombre, estado, etiquetas, campos personalizados, ubicación y los mensajes de seguimiento ya enviados."
+      },
+      "fr": {
+        "name": "Obtenir un abonné",
+        "description": "Renvoie un abonné d'une liste avec email, nom, statut, tags, champs personnalisés, localisation et les messages de suivi déjà envoyés."
+      }
+    },
+    "aweber_create_subscriber": {
+      "pt": {
+        "name": "Criar assinante",
+        "description": "Adiciona um assinante a uma lista, o que inicia a série de follow-up da lista. Um email já presente na lista retorna 400, a menos que update_existing seja true. Adicione pessoas uma a uma: adicionar em massa pela API viola os termos da AWeber."
+      },
+      "es": {
+        "name": "Crear suscriptor",
+        "description": "Agrega un suscriptor a una lista, lo que inicia la serie de seguimiento de la lista. Un email que ya está en la lista devuelve 400, salvo que update_existing sea true. Agrega personas de a una: agregar en masa por la API incumple los términos de AWeber."
+      },
+      "fr": {
+        "name": "Créer un abonné",
+        "description": "Ajoute un abonné à une liste, ce qui lance la série de suivi de la liste. Un email déjà présent dans la liste renvoie 400, sauf si update_existing vaut true. Ajoutez les personnes une par une : l'ajout en masse par l'API enfreint les conditions d'AWeber."
+      }
+    },
+    "aweber_update_subscriber": {
+      "pt": {
+        "name": "Atualizar assinante",
+        "description": "Altera o assinante de uma lista que tem o email informado. Definir status como unsubscribed para os emails ao assinante; as tags aceitam uma lista de add e outra de remove."
+      },
+      "es": {
+        "name": "Actualizar suscriptor",
+        "description": "Cambia el suscriptor de una lista que tiene el email indicado. Poner status en unsubscribed detiene los correos al suscriptor; las etiquetas aceptan una lista add y otra remove."
+      },
+      "fr": {
+        "name": "Mettre à jour un abonné",
+        "description": "Modifie l'abonné d'une liste qui a l'email donné. Mettre status à unsubscribed arrête les emails à l'abonné ; les tags acceptent une liste add et une liste remove."
+      }
+    },
+    "aweber_list_broadcasts": {
+      "pt": {
+        "name": "Listar broadcasts",
+        "description": "Lista os broadcasts de uma lista em um status, em entries: rascunhos criados pela API, agendados por horário de envio ou enviados por data de envio. Só os primeiros 100 voltam; total_size traz o total."
+      },
+      "es": {
+        "name": "Listar broadcasts",
+        "description": "Lista los broadcasts de una lista en un estado, en entries: borradores creados por la API, programados por hora de envío o enviados por fecha de envío. Solo vuelven los primeros 100; total_size trae el total."
+      },
+      "fr": {
+        "name": "Lister les broadcasts",
+        "description": "Liste les broadcasts d'une liste pour un statut, dans entries : brouillons créés par l'API, planifiés par heure d'envoi ou envoyés par date d'envoi. Seuls les 100 premiers reviennent ; total_size donne le total."
+      }
+    },
+    "aweber_get_broadcast": {
+      "pt": {
+        "name": "Obter broadcast",
+        "description": "Retorna um broadcast com assunto, conteúdo, status, agendamento, URL de arquivo e, depois de enviado, suas estatísticas."
+      },
+      "es": {
+        "name": "Obtener broadcast",
+        "description": "Devuelve un broadcast con asunto, contenido, estado, programación, URL de archivo y, una vez enviado, sus estadísticas."
+      },
+      "fr": {
+        "name": "Obtenir un broadcast",
+        "description": "Renvoie un broadcast avec objet, contenu, statut, planification, URL d'archive et, une fois envoyé, ses statistiques."
+      }
+    },
+    "aweber_create_broadcast": {
+      "pt": {
+        "name": "Criar broadcast",
+        "description": "Cria um broadcast como rascunho para a lista; nada é enviado até Schedule broadcast. A resposta traz o broadcast_id."
+      },
+      "es": {
+        "name": "Crear broadcast",
+        "description": "Crea un broadcast como borrador para la lista; no se envía nada hasta Schedule broadcast. La respuesta trae el broadcast_id."
+      },
+      "fr": {
+        "name": "Créer un broadcast",
+        "description": "Crée un broadcast en brouillon pour la liste ; rien n'est envoyé avant Schedule broadcast. La réponse contient le broadcast_id."
+      }
+    },
+    "aweber_update_broadcast": {
+      "pt": {
+        "name": "Atualizar broadcast",
+        "description": "Altera um broadcast em rascunho. Só rascunhos criados pela API podem ser alterados."
+      },
+      "es": {
+        "name": "Actualizar broadcast",
+        "description": "Cambia un broadcast en borrador. Solo se pueden cambiar borradores creados por la API."
+      },
+      "fr": {
+        "name": "Mettre à jour un broadcast",
+        "description": "Modifie un broadcast en brouillon. Seuls les brouillons créés par l'API peuvent être modifiés."
+      }
+    },
+    "aweber_schedule_broadcast": {
+      "pt": {
+        "name": "Agendar broadcast",
+        "description": "Agenda um broadcast em rascunho para ser enviado à lista no horário informado, que deve estar no futuro. Cancel broadcast o desfaz enquanto estiver agendado."
+      },
+      "es": {
+        "name": "Programar broadcast",
+        "description": "Programa un broadcast en borrador para enviarse a la lista a la hora indicada, que debe estar en el futuro. Cancel broadcast lo deshace mientras esté programado."
+      },
+      "fr": {
+        "name": "Planifier un broadcast",
+        "description": "Planifie l'envoi d'un broadcast en brouillon à la liste à l'heure donnée, qui doit être dans le futur. Cancel broadcast l'annule tant qu'il est planifié."
+      }
+    },
+    "aweber_cancel_broadcast": {
+      "pt": {
+        "name": "Cancelar broadcast",
+        "description": "Cancela um broadcast agendado antes de ele ser enviado."
+      },
+      "es": {
+        "name": "Cancelar broadcast",
+        "description": "Cancela un broadcast programado antes de que se envíe."
+      },
+      "fr": {
+        "name": "Annuler un broadcast",
+        "description": "Annule un broadcast planifié avant son envoi."
+      }
+    }
+  }
+}

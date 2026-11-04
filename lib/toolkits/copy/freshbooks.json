@@ -1,0 +1,274 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage clients, invoices, payments and expenses in your customer's FreshBooks business through one Connect endpoint.",
+      "intro": "The FreshBooks toolkit covers clients, invoices, payments received, expenses and expense categories of a business. Your customer connects FreshBooks once with OAuth, and your product or AI agent runs each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Bill from your own product",
+          "body": "Create a client, build a draft invoice and call Send invoice to email it, so billing started in your app lands in FreshBooks."
+        },
+        {
+          "title": "Record payments automatically",
+          "body": "When a payment clears elsewhere, create a payment on the invoice so it turns partial or paid in the customer's books."
+        },
+        {
+          "title": "Agent files expenses",
+          "body": "An AI agent lists expense categories and creates an expense with the right categoryid from a receipt a user sends."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie clientes, faturas, pagamentos e despesas no negócio FreshBooks do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do FreshBooks cobre clientes, faturas, pagamentos recebidos, despesas e categorias de despesa de um negócio. Seu cliente conecta o FreshBooks uma vez por OAuth, e seu produto ou agente de IA executa cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Fature pelo seu produto",
+          "body": "Crie um cliente, monte uma fatura em rascunho e chame Enviar fatura para enviá-la por email, e a cobrança iniciada no seu app chega ao FreshBooks."
+        },
+        {
+          "title": "Registre pagamentos automaticamente",
+          "body": "Quando um pagamento é confirmado em outro lugar, crie um pagamento na fatura para ela virar parcial ou paga na contabilidade do cliente."
+        },
+        {
+          "title": "Agente lança despesas",
+          "body": "Um agente de IA lista as categorias de despesa e cria uma despesa com o categoryid certo a partir de um recibo enviado por um usuário."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona clientes, facturas, pagos y gastos en el negocio de FreshBooks de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de FreshBooks cubre clientes, facturas, pagos recibidos, gastos y categorías de gasto de un negocio. Tu cliente conecta FreshBooks una vez con OAuth, y tu producto o agente de IA ejecuta cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Factura desde tu producto",
+          "body": "Crea un cliente, arma una factura en borrador y llama a Enviar factura para mandarla por email, y el cobro iniciado en tu app llega a FreshBooks."
+        },
+        {
+          "title": "Registra pagos automáticamente",
+          "body": "Cuando un pago se confirma en otro lugar, crea un pago sobre la factura para que pase a parcial o pagada en la contabilidad del cliente."
+        },
+        {
+          "title": "Agente registra gastos",
+          "body": "Un agente de IA lista las categorías de gasto y crea un gasto con el categoryid correcto a partir de un recibo que envía un usuario."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez clients, factures, paiements et dépenses dans l'entreprise FreshBooks de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit FreshBooks couvre les clients, les factures, les paiements reçus, les dépenses et les catégories de dépenses d'une entreprise. Votre client connecte FreshBooks une fois via OAuth, et votre produit ou agent IA exécute chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Facturer depuis votre produit",
+          "body": "Créez un client, montez une facture brouillon et appelez Envoyer une facture pour l'envoyer par email : la facturation lancée dans votre app arrive dans FreshBooks."
+        },
+        {
+          "title": "Enregistrer les paiements automatiquement",
+          "body": "Quand un paiement est confirmé ailleurs, créez un paiement sur la facture pour qu'elle passe en partielle ou payée dans la comptabilité du client."
+        },
+        {
+          "title": "Un agent saisit les dépenses",
+          "body": "Un agent IA liste les catégories de dépenses et crée une dépense avec le bon categoryid à partir d'un reçu envoyé par un utilisateur."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "freshbooks_get_current_user": {
+      "pt": {
+        "name": "Obter usuário atual",
+        "description": "Retorna o usuário conectado. Cada item de business_memberships traz o papel do usuário e um business com nome e account_id, o account_id que todas as outras ferramentas pedem. Um negócio sem account_id não tem contabilidade, e as outras ferramentas não funcionam nele."
+      },
+      "es": {
+        "name": "Obtener usuario actual",
+        "description": "Devuelve el usuario conectado. Cada elemento de business_memberships trae el rol del usuario y un business con nombre y account_id, el account_id que piden todas las demás herramientas. Un negocio sin account_id no tiene contabilidad, y las demás herramientas no funcionan en él."
+      },
+      "fr": {
+        "name": "Obtenir l'utilisateur actuel",
+        "description": "Renvoie l'utilisateur connecté. Chaque élément de business_memberships contient le rôle de l'utilisateur et un business avec son nom et son account_id, l'account_id que demandent tous les autres outils. Une entreprise sans account_id n'a pas de comptabilité, et les autres outils n'y fonctionnent pas."
+      }
+    },
+    "freshbooks_list_clients": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes ativos e arquivados de um negócio, com id, nomes, organização, email, telefones, endereço e moeda. A resposta traz result.clients, page, pages e total: aumente page até chegar a pages."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes activos y archivados de un negocio, con id, nombres, organización, email, teléfonos, dirección y moneda. La respuesta trae result.clients, page, pages y total: aumenta page hasta llegar a pages."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients actifs et archivés d'une entreprise, avec id, noms, organisation, email, téléphones, adresse et devise. La réponse contient result.clients, page, pages et total : augmentez page jusqu'à atteindre pages."
+      }
+    },
+    "freshbooks_create_client": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente e o retorna em result.client, com o id que as faturas usam como customerid e as despesas como clientid. Os campos vão dentro de client."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente y lo devuelve en result.client, con el id que las facturas usan como customerid y los gastos como clientid. Los campos van dentro de client."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client et le renvoie dans result.client, avec l'id que les factures utilisent comme customerid et les dépenses comme clientid. Les champs vont dans client."
+      }
+    },
+    "freshbooks_update_client": {
+      "pt": {
+        "name": "Atualizar cliente",
+        "description": "Altera os campos enviados de um cliente; os outros permanecem como estão. Os campos vão dentro de client."
+      },
+      "es": {
+        "name": "Actualizar cliente",
+        "description": "Cambia los campos enviados de un cliente; los demás quedan como están. Los campos van dentro de client."
+      },
+      "fr": {
+        "name": "Mettre à jour un client",
+        "description": "Modifie les champs envoyés d'un client ; les autres restent inchangés. Les champs vont dans client."
+      }
+    },
+    "freshbooks_list_invoices": {
+      "pt": {
+        "name": "Listar faturas",
+        "description": "Lista as faturas ativas e arquivadas de um negócio, sem suas linhas: id, invoice_number, customerid, organization, create_date, due_date, amount, outstanding, paid, v3_status e payment_status. A resposta traz result.invoices, page, pages e total: aumente page até chegar a pages."
+      },
+      "es": {
+        "name": "Listar facturas",
+        "description": "Lista las facturas activas y archivadas de un negocio, sin sus líneas: id, invoice_number, customerid, organization, create_date, due_date, amount, outstanding, paid, v3_status y payment_status. La respuesta trae result.invoices, page, pages y total: aumenta page hasta llegar a pages."
+      },
+      "fr": {
+        "name": "Lister les factures",
+        "description": "Liste les factures actives et archivées d'une entreprise, sans leurs lignes : id, invoice_number, customerid, organization, create_date, due_date, amount, outstanding, paid, v3_status et payment_status. La réponse contient result.invoices, page, pages et total : augmentez page jusqu'à atteindre pages."
+      }
+    },
+    "freshbooks_get_invoice": {
+      "pt": {
+        "name": "Obter fatura",
+        "description": "Retorna uma fatura em result.invoice, sem suas linhas: número, cliente, datas, amount, outstanding, paid, discount, notes, terms, v3_status e payment_status."
+      },
+      "es": {
+        "name": "Obtener factura",
+        "description": "Devuelve una factura en result.invoice, sin sus líneas: número, cliente, fechas, amount, outstanding, paid, discount, notes, terms, v3_status y payment_status."
+      },
+      "fr": {
+        "name": "Obtenir une facture",
+        "description": "Renvoie une facture dans result.invoice, sans ses lignes : numéro, client, dates, amount, outstanding, paid, discount, notes, terms, v3_status et payment_status."
+      }
+    },
+    "freshbooks_create_invoice": {
+      "pt": {
+        "name": "Criar fatura",
+        "description": "Cria uma fatura em rascunho e a retorna em result.invoice. Os campos vão dentro de invoice, que precisa de customerid e create_date; as linhas definem o valor. Um rascunho não conta nos relatórios e o cliente não consegue abri-lo: Enviar fatura o envia por email ou o marca como enviado."
+      },
+      "es": {
+        "name": "Crear factura",
+        "description": "Crea una factura en borrador y la devuelve en result.invoice. Los campos van dentro de invoice, que necesita customerid y create_date; las líneas definen el monto. Un borrador no cuenta en los informes y el cliente no puede abrirlo: Enviar factura lo manda por email o lo marca como enviado."
+      },
+      "fr": {
+        "name": "Créer une facture",
+        "description": "Crée une facture brouillon et la renvoie dans result.invoice. Les champs vont dans invoice, qui exige customerid et create_date ; les lignes déterminent le montant. Un brouillon ne compte pas dans les rapports et le client ne peut pas l'ouvrir : Envoyer une facture l'envoie par email ou la marque comme envoyée."
+      }
+    },
+    "freshbooks_update_invoice": {
+      "pt": {
+        "name": "Atualizar fatura",
+        "description": "Altera os campos enviados de uma fatura, como datas, número, notes, terms ou discount; os outros permanecem como estão. Os campos vão dentro de invoice. As linhas não são alteradas aqui: um PUT com lines substitui todas elas, e nenhuma ferramenta lê as linhas atuais."
+      },
+      "es": {
+        "name": "Actualizar factura",
+        "description": "Cambia los campos enviados de una factura, como fechas, número, notes, terms o discount; los demás quedan como están. Los campos van dentro de invoice. Las líneas no se cambian aquí: un PUT con lines las reemplaza todas, y ninguna herramienta lee las líneas actuales."
+      },
+      "fr": {
+        "name": "Mettre à jour une facture",
+        "description": "Modifie les champs envoyés d'une facture, comme les dates, le numéro, notes, terms ou discount ; les autres restent inchangés. Les champs vont dans invoice. Les lignes ne sont pas modifiées ici : un PUT avec lines les remplace toutes, et aucun outil ne lit les lignes actuelles."
+      }
+    },
+    "freshbooks_send_invoice": {
+      "pt": {
+        "name": "Enviar fatura",
+        "description": "Envia uma fatura por email para email_recipients, com action_email true, ou apenas a marca como enviada, com action_mark_as_sent true, para uma fatura entregue de outra forma. Nos dois casos ela sai do rascunho e passa a contar nos relatórios. Envie uma das duas ações e nenhum outro campo da fatura: o FreshBooks ignora o resto."
+      },
+      "es": {
+        "name": "Enviar factura",
+        "description": "Envía una factura por email a email_recipients, con action_email true, o solo la marca como enviada, con action_mark_as_sent true, para una factura entregada de otra forma. En ambos casos sale del borrador y empieza a contar en los informes. Envía una de las dos acciones y ningún otro campo de la factura: FreshBooks ignora el resto."
+      },
+      "fr": {
+        "name": "Envoyer une facture",
+        "description": "Envoie une facture par email à email_recipients, avec action_email true, ou la marque seulement comme envoyée, avec action_mark_as_sent true, pour une facture remise autrement. Dans les deux cas, elle quitte le brouillon et compte dans les rapports. Envoyez l'une des deux actions et aucun autre champ de facture : FreshBooks ignore le reste."
+      }
+    },
+    "freshbooks_create_payment": {
+      "pt": {
+        "name": "Criar pagamento",
+        "description": "Registra um pagamento recebido em uma fatura, como transferência bancária ou dinheiro, e o retorna em result.payment. Os campos vão dentro de payment, com invoiceid e amount. A fatura passa a parcial ou paga conforme o valor."
+      },
+      "es": {
+        "name": "Crear pago",
+        "description": "Registra un pago recibido en una factura, como transferencia bancaria o efectivo, y lo devuelve en result.payment. Los campos van dentro de payment, con invoiceid y amount. La factura pasa a parcial o pagada según el monto."
+      },
+      "fr": {
+        "name": "Créer un paiement",
+        "description": "Enregistre un paiement reçu sur une facture, comme un virement ou des espèces, et le renvoie dans result.payment. Les champs vont dans payment, avec invoiceid et amount. La facture passe en partielle ou payée selon le montant."
+      }
+    },
+    "freshbooks_list_expenses": {
+      "pt": {
+        "name": "Listar despesas",
+        "description": "Lista as despesas de um negócio, com id, amount, date, vendor, categoryid, clientid, notes e status. A resposta traz result.expenses, page, pages e total: aumente page até chegar a pages."
+      },
+      "es": {
+        "name": "Listar gastos",
+        "description": "Lista los gastos de un negocio, con id, amount, date, vendor, categoryid, clientid, notes y status. La respuesta trae result.expenses, page, pages y total: aumenta page hasta llegar a pages."
+      },
+      "fr": {
+        "name": "Lister les dépenses",
+        "description": "Liste les dépenses d'une entreprise, avec id, amount, date, vendor, categoryid, clientid, notes et status. La réponse contient result.expenses, page, pages et total : augmentez page jusqu'à atteindre pages."
+      }
+    },
+    "freshbooks_create_expense": {
+      "pt": {
+        "name": "Criar despesa",
+        "description": "Cria uma despesa e a retorna em result.expense. Os campos vão dentro de expense, que precisa de categoryid; amount e date são os usuais."
+      },
+      "es": {
+        "name": "Crear gasto",
+        "description": "Crea un gasto y lo devuelve en result.expense. Los campos van dentro de expense, que necesita categoryid; amount y date son los habituales."
+      },
+      "fr": {
+        "name": "Créer une dépense",
+        "description": "Crée une dépense et la renvoie dans result.expense. Les champs vont dans expense, qui exige categoryid ; amount et date sont les champs habituels."
+      }
+    },
+    "freshbooks_update_expense": {
+      "pt": {
+        "name": "Atualizar despesa",
+        "description": "Altera os campos enviados de uma despesa; os outros permanecem como estão. Os campos vão dentro de expense."
+      },
+      "es": {
+        "name": "Actualizar gasto",
+        "description": "Cambia los campos enviados de un gasto; los demás quedan como están. Los campos van dentro de expense."
+      },
+      "fr": {
+        "name": "Mettre à jour une dépense",
+        "description": "Modifie les champs envoyés d'une dépense ; les autres restent inchangés. Les champs vont dans expense."
+      }
+    },
+    "freshbooks_list_expense_categories": {
+      "pt": {
+        "name": "Listar categorias de despesa",
+        "description": "Lista as categorias de despesa de um negócio, como Advertising, com categoryid, o id que Criar despesa pede, e parentid. A resposta traz result.categories, page, pages e total."
+      },
+      "es": {
+        "name": "Listar categorías de gasto",
+        "description": "Lista las categorías de gasto de un negocio, como Advertising, con categoryid, el id que pide Crear gasto, y parentid. La respuesta trae result.categories, page, pages y total."
+      },
+      "fr": {
+        "name": "Lister les catégories de dépenses",
+        "description": "Liste les catégories de dépenses d'une entreprise, comme Advertising, avec categoryid, l'id que demande Créer une dépense, et parentid. La réponse contient result.categories, page, pages et total."
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search, create, update and transition issues, comment and read projects in your customer's Jira Cloud site from your product or AI agent through Connect.",
+      "intro": "The Jira toolkit covers issues, transitions, comments, projects, issue types and create fields: search with JQL, create and edit issues, move them through their workflow, comment, and look up the ids and assignable users that other calls need. The customer connects with their site credentials, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Tickets from customer feedback", "body": "Create a Jira issue from a bug report or a support request in your product, using the fields that List create fields shows for the project." },
+        { "title": "Status sync with your app", "body": "Search issues by JQL, read their status and run a transition when something is done on your side, such as moving an issue to Done." },
+        { "title": "AI agent for project follow-up", "body": "Let an agent find assignable users, assign work, add comments and list the transitions available on an issue before it moves one." }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque, crie, atualize e mova issues, comente e leia projetos no site Jira Cloud do seu cliente a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do Jira cobre issues, transições, comentários, projetos, tipos de issue e campos de criação: buscar com JQL, criar e editar issues, movê-las pelo fluxo de trabalho, comentar e consultar os ids e usuários atribuíveis que as outras chamadas pedem. O cliente conecta com as credenciais do site, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Tickets a partir de feedback", "body": "Crie uma issue no Jira a partir de um relato de bug ou de um pedido de suporte no seu produto, usando os campos que Listar campos de criação mostra para o projeto." },
+        { "title": "Status sincronizado com seu app", "body": "Busque issues por JQL, leia o status e execute uma transição quando algo termina do seu lado, como mover uma issue para Done." },
+        { "title": "Agente de IA no acompanhamento", "body": "Deixe um agente achar usuários atribuíveis, atribuir trabalho, comentar e listar as transições disponíveis de uma issue antes de movê-la." }
+      ]
+    },
+    "es": {
+      "tagline": "Busca, crea, actualiza y mueve issues, comenta y lee proyectos en el sitio Jira Cloud de tu cliente desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de Jira cubre issues, transiciones, comentarios, proyectos, tipos de issue y campos de creación: buscar con JQL, crear y editar issues, moverlas por su flujo de trabajo, comentar y consultar los ids y usuarios asignables que piden otras llamadas. El cliente conecta con las credenciales de su sitio, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Tickets desde el feedback", "body": "Crea una issue en Jira a partir de un reporte de bug o de una solicitud de soporte en tu producto, con los campos que muestra Listar campos de creación para el proyecto." },
+        { "title": "Estado sincronizado con tu app", "body": "Busca issues por JQL, lee su estado y ejecuta una transición cuando algo termina de tu lado, como mover una issue a Done." },
+        { "title": "Agente de IA para el seguimiento", "body": "Deja que un agente encuentre usuarios asignables, asigne trabajo, comente y liste las transiciones disponibles de una issue antes de moverla." }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez, créez, modifiez et faites évoluer des issues, commentez et lisez les projets du site Jira Cloud de votre client via Connect.",
+      "intro": "Le toolkit Jira couvre les issues, les transitions, les commentaires, les projets, les types d'issue et les champs de création : rechercher en JQL, créer et modifier des issues, les faire avancer dans leur workflow, commenter et retrouver les ids et utilisateurs assignables dont les autres appels ont besoin. Le client se connecte avec les identifiants de son site, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Des tickets issus des retours", "body": "Créez une issue Jira à partir d'un rapport de bug ou d'une demande de support dans votre produit, avec les champs que Lister les champs de création montre pour le projet." },
+        { "title": "Statut synchronisé avec votre app", "body": "Recherchez des issues en JQL, lisez leur statut et lancez une transition quand une tâche se termine chez vous, par exemple passer une issue à Done." },
+        { "title": "Agent IA pour le suivi de projet", "body": "Laissez un agent trouver les utilisateurs assignables, assigner du travail, commenter et lister les transitions disponibles d'une issue avant d'en lancer une." }
+      ]
+    }
+  },
+  "tools": {
+    "jira_search_issues": {
+      "pt": { "name": "Buscar issues", "description": "Busca issues com JQL. A consulta precisa ser delimitada, por exemplo project = KEY. Só o id da issue volta, a menos que fields liste o que incluir. Passe o nextPageToken da resposta para ler a próxima página." },
+      "es": { "name": "Buscar issues", "description": "Busca issues con JQL. La consulta debe estar acotada, por ejemplo project = KEY. Solo vuelve el id de la issue, salvo que fields liste qué incluir. Pasa el nextPageToken de la respuesta para leer la página siguiente." },
+      "fr": { "name": "Rechercher des issues", "description": "Recherche des issues avec JQL. La requête doit être bornée, par exemple project = KEY. Seul l'id de l'issue revient, sauf si fields liste ce qu'il faut inclure. Passez le nextPageToken de la réponse pour lire la page suivante." }
+    },
+    "jira_get_issue": {
+      "pt": { "name": "Obter issue", "description": "Retorna uma issue pelo id ou pela chave, com todos os campos navegáveis, a menos que fields liste o que incluir." },
+      "es": { "name": "Obtener issue", "description": "Devuelve una issue por id o clave, con todos los campos navegables, salvo que fields liste qué incluir." },
+      "fr": { "name": "Obtenir une issue", "description": "Renvoie une issue par id ou clé, avec tous les champs navigables, sauf si fields liste ce qu'il faut inclure." }
+    },
+    "jira_create_issue": {
+      "pt": { "name": "Criar issue", "description": "Cria uma issue. fields precisa ter ao menos project, issuetype e summary, e qualquer outro campo precisa existir na tela de criação do projeto, como mostra Listar campos de criação. Nesta versão da API, o campo description recebe um objeto Atlassian Document Format, não texto simples." },
+      "es": { "name": "Crear issue", "description": "Crea una issue. fields necesita al menos project, issuetype y summary, y cualquier otro campo debe existir en la pantalla de creación del proyecto, como muestra Listar campos de creación. En esta versión de la API, el campo description recibe un objeto Atlassian Document Format, no texto plano." },
+      "fr": { "name": "Créer une issue", "description": "Crée une issue. fields doit contenir au moins project, issuetype et summary, et tout autre champ doit exister sur l'écran de création du projet, comme le montre Lister les champs de création. Dans cette version de l'API, le champ description prend un objet Atlassian Document Format, pas du texte brut." }
+    },
+    "jira_update_issue": {
+      "pt": { "name": "Atualizar issue", "description": "Edita os campos de uma issue: fields define valores, e update aplica operações como adicionar ou remover um label. Um campo vai em fields ou em update, nunca nos dois. O status não muda aqui: use Fazer transição da issue. A resposta é vazia, status 204, a menos que returnIssue seja true." },
+      "es": { "name": "Actualizar issue", "description": "Edita los campos de una issue: fields define valores, y update aplica operaciones como agregar o quitar un label. Un campo va en fields o en update, nunca en ambos. El estado no cambia aquí: usa Hacer transición de la issue. La respuesta es vacía, status 204, salvo que returnIssue sea true." },
+      "fr": { "name": "Modifier une issue", "description": "Modifie les champs d'une issue : fields définit des valeurs, et update applique des opérations comme ajouter ou retirer un label. Un champ va dans fields ou dans update, jamais dans les deux. Le statut ne change pas ici : utilisez Faire une transition d'issue. La réponse est vide, status 204, sauf si returnIssue vaut true." }
+    },
+    "jira_delete_issue": {
+      "pt": { "name": "Excluir issue", "description": "Exclui uma issue. Uma issue com subtarefas só é excluída com deleteSubtasks definido como true, o que também exclui as subtarefas. Exige a permissão Delete issues no projeto. A resposta é vazia, status 204." },
+      "es": { "name": "Eliminar issue", "description": "Elimina una issue. Una issue con subtareas solo se elimina con deleteSubtasks en true, lo que también elimina las subtareas. Requiere el permiso Delete issues en el proyecto. La respuesta es vacía, status 204." },
+      "fr": { "name": "Supprimer une issue", "description": "Supprime une issue. Une issue avec des sous-tâches n'est supprimée qu'avec deleteSubtasks à true, ce qui supprime aussi les sous-tâches. Exige la permission Delete issues dans le projet. La réponse est vide, status 204." }
+    },
+    "jira_list_transitions": {
+      "pt": { "name": "Listar transições", "description": "Lista as transições que o usuário pode fazer agora em uma issue, cada uma com o id que Fazer transição da issue recebe, seu name e o status para o qual leva em to." },
+      "es": { "name": "Listar transiciones", "description": "Lista las transiciones que el usuario puede hacer ahora en una issue, cada una con el id que recibe Hacer transición de la issue, su name y el estado al que lleva en to." },
+      "fr": { "name": "Lister les transitions", "description": "Liste les transitions que l'utilisateur peut effectuer maintenant sur une issue, chacune avec l'id que prend Faire une transition d'issue, son name et le statut vers lequel elle mène dans to." }
+    },
+    "jira_transition_issue": {
+      "pt": { "name": "Fazer transição da issue", "description": "Move uma issue para outro status executando uma de suas transições. Quando a transição tem uma tela, seus campos obrigatórios, como resolution, vão em fields ou update. A resposta é vazia, status 204." },
+      "es": { "name": "Hacer transición de la issue", "description": "Mueve una issue a otro estado ejecutando una de sus transiciones. Cuando la transición tiene una pantalla, sus campos obligatorios, como resolution, van en fields o update. La respuesta es vacía, status 204." },
+      "fr": { "name": "Faire une transition d'issue", "description": "Fait passer une issue à un autre statut en exécutant l'une de ses transitions. Quand la transition a un écran, ses champs obligatoires, comme resolution, vont dans fields ou update. La réponse est vide, status 204." }
+    },
+    "jira_list_comments": {
+      "pt": { "name": "Listar comentários", "description": "Lista os comentários de uma issue, com o corpo em Atlassian Document Format. Pagine com startAt e maxResults até que startAt mais a quantidade retornada alcance total." },
+      "es": { "name": "Listar comentarios", "description": "Lista los comentarios de una issue, con el cuerpo en Atlassian Document Format. Pagina con startAt y maxResults hasta que startAt más la cantidad devuelta alcance total." },
+      "fr": { "name": "Lister les commentaires", "description": "Liste les commentaires d'une issue, avec le corps en Atlassian Document Format. Paginez avec startAt et maxResults jusqu'à ce que startAt plus le nombre renvoyé atteigne total." }
+    },
+    "jira_create_comment": {
+      "pt": { "name": "Criar comentário", "description": "Adiciona um comentário a uma issue, visível para todos que podem ver a issue. O Jira notifica os observadores pelo esquema de notificação do projeto. Retorna o novo comentário." },
+      "es": { "name": "Crear comentario", "description": "Agrega un comentario a una issue, visible para todos los que pueden ver la issue. Jira notifica a los observadores según el esquema de notificaciones del proyecto. Devuelve el nuevo comentario." },
+      "fr": { "name": "Créer un commentaire", "description": "Ajoute un commentaire à une issue, visible par tous ceux qui peuvent voir l'issue. Jira notifie les observateurs selon le schéma de notification du projet. Renvoie le nouveau commentaire." }
+    },
+    "jira_list_projects": {
+      "pt": { "name": "Listar projetos", "description": "Lista os projetos que o usuário pode ver, com a key e o id que as ferramentas de issue e o JQL recebem. Pagine com startAt e maxResults até que isLast seja true." },
+      "es": { "name": "Listar proyectos", "description": "Lista los proyectos que el usuario puede ver, con la key y el id que reciben las herramientas de issues y el JQL. Pagina con startAt y maxResults hasta que isLast sea true." },
+      "fr": { "name": "Lister les projets", "description": "Liste les projets que l'utilisateur peut voir, avec la key et l'id que prennent les outils d'issues et le JQL. Paginez avec startAt et maxResults jusqu'à ce que isLast vaille true." }
+    },
+    "jira_list_issue_types": {
+      "pt": { "name": "Listar tipos de issue", "description": "Lista os tipos de issue que o usuário pode criar em um projeto, com o id e o name que Criar issue e Listar campos de criação recebem, e subtask true para os tipos de subtarefa." },
+      "es": { "name": "Listar tipos de issue", "description": "Lista los tipos de issue que el usuario puede crear en un proyecto, con el id y el name que reciben Crear issue y Listar campos de creación, y subtask true para los tipos de subtarea." },
+      "fr": { "name": "Lister les types d'issue", "description": "Liste les types d'issue que l'utilisateur peut créer dans un projet, avec l'id et le name que prennent Créer une issue et Lister les champs de création, et subtask true pour les types de sous-tâche." }
+    },
+    "jira_list_create_fields": {
+      "pt": { "name": "Listar campos de criação", "description": "Lista os campos da tela de criação para um projeto e um tipo de issue: o fieldId que Criar issue recebe, se é obrigatório, seu schema e seus valores permitidos com os ids. Pagine com startAt e maxResults até total." },
+      "es": { "name": "Listar campos de creación", "description": "Lista los campos de la pantalla de creación para un proyecto y un tipo de issue: el fieldId que recibe Crear issue, si es obligatorio, su schema y sus valores permitidos con sus ids. Pagina con startAt y maxResults hasta total." },
+      "fr": { "name": "Lister les champs de création", "description": "Liste les champs de l'écran de création pour un projet et un type d'issue : le fieldId que prend Créer une issue, s'il est obligatoire, son schema et ses valeurs autorisées avec leurs ids. Paginez avec startAt et maxResults jusqu'à total." }
+    },
+    "jira_search_assignable_users": {
+      "pt": { "name": "Buscar usuários atribuíveis", "description": "Encontra usuários que podem ser atribuídos a novas issues de um projeto ou a uma issue, com o accountId que o campo assignee recebe. Envie project ou issueKey. Retorna uma lista, que pode ser menor que maxResults mesmo quando existem mais usuários." },
+      "es": { "name": "Buscar usuarios asignables", "description": "Encuentra usuarios que se pueden asignar a nuevas issues de un proyecto o a una issue, con el accountId que recibe el campo assignee. Envía project o issueKey. Devuelve una lista, que puede ser menor que maxResults aunque existan más usuarios." },
+      "fr": { "name": "Rechercher des utilisateurs assignables", "description": "Trouve les utilisateurs qui peuvent être assignés aux nouvelles issues d'un projet ou à une issue, avec l'accountId que prend le champ assignee. Envoyez project ou issueKey. Renvoie une liste, qui peut être plus courte que maxResults même s'il existe d'autres utilisateurs." }
+    }
+  }
+}

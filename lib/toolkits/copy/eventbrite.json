@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and publish events, set up ticket classes and read attendees and orders in your customer's Eventbrite account through one Reportei Connect endpoint.",
+      "intro": "The Eventbrite toolkit covers organizations, events, ticket classes, venues, attendees and orders. Your customer connects with an API key or OAuth, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Launch events from your product",
+          "body": "Create a draft event, add a ticket class and publish it, so an event-planning tool can put an event on sale in the customer's Eventbrite."
+        },
+        {
+          "title": "Sync attendees to your CRM",
+          "body": "List the attendees of an event with their profile, ticket class and check-in status and push them to your contact base."
+        },
+        {
+          "title": "Sales summaries from an agent",
+          "body": "Let an AI agent read the orders of an event, with gross, fees and net, and report how ticket sales are going."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e publique eventos, configure ingressos e leia participantes e pedidos na conta Eventbrite do seu cliente por um endpoint do Reportei Connect.",
+      "intro": "O toolkit do Eventbrite cobre organizações, eventos, tipos de ingresso, locais, participantes e pedidos. Seu cliente conecta com uma API key ou OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Lançar eventos pelo seu produto",
+          "body": "Crie um evento em rascunho, adicione um tipo de ingresso e publique, para que uma ferramenta de planejamento coloque o evento à venda no Eventbrite do cliente."
+        },
+        {
+          "title": "Sincronizar participantes com o CRM",
+          "body": "Liste os participantes de um evento com perfil, tipo de ingresso e status de check-in e envie para a sua base de contatos."
+        },
+        {
+          "title": "Resumo de vendas por agente",
+          "body": "Deixe um agente de IA ler os pedidos de um evento, com valor bruto, taxas e líquido, e relatar como andam as vendas de ingressos."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y publica eventos, configura tipos de entrada y lee asistentes y pedidos en la cuenta de Eventbrite de tu cliente con un endpoint de Reportei Connect.",
+      "intro": "El toolkit de Eventbrite cubre organizaciones, eventos, tipos de entrada, recintos, asistentes y pedidos. Tu cliente conecta con una API key u OAuth, y tu producto o agente de IA llama cada operación a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Lanzar eventos desde tu producto",
+          "body": "Crea un evento en borrador, añade un tipo de entrada y publícalo, para que una herramienta de planificación ponga el evento a la venta en el Eventbrite del cliente."
+        },
+        {
+          "title": "Sincronizar asistentes con el CRM",
+          "body": "Lista los asistentes de un evento con su perfil, tipo de entrada y estado de check-in y envíalos a tu base de contactos."
+        },
+        {
+          "title": "Resumen de ventas con un agente",
+          "body": "Deja que un agente de IA lea los pedidos de un evento, con bruto, comisiones y neto, e informe cómo van las ventas de entradas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et publiez des événements, configurez les billets et lisez participants et commandes du compte Eventbrite de votre client via Reportei Connect.",
+      "intro": "Le toolkit Eventbrite couvre les organisations, événements, types de billets, lieux, participants et commandes. Votre client se connecte avec une API key ou OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Lancer des événements depuis votre produit",
+          "body": "Créez un événement en brouillon, ajoutez un type de billet et publiez-le, pour qu'un outil de planification mette l'événement en vente dans l'Eventbrite du client."
+        },
+        {
+          "title": "Synchroniser les participants avec le CRM",
+          "body": "Listez les participants d'un événement avec leur profil, type de billet et statut de check-in et envoyez-les vers votre base de contacts."
+        },
+        {
+          "title": "Synthèse des ventes par un agent",
+          "body": "Laissez un agent IA lire les commandes d'un événement, avec brut, frais et net, et indiquer comment se passent les ventes de billets."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "eventbrite_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista as organizações das quais o usuário conectado é membro, com id e name. Eventos, locais, pedidos e participantes pertencem a uma organização. Quando pagination.has_more_items é true, envie pagination.continuation como continuation para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista las organizaciones de las que es miembro el usuario conectado, con id y name. Eventos, recintos, pedidos y asistentes pertenecen a una organización. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste les organisations dont l'utilisateur connecté est membre, avec id et name. Les événements, lieux, commandes et participants appartiennent à une organisation. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation pour lire la page suivante."
+      }
+    },
+    "eventbrite_list_events": {
+      "pt": {
+        "name": "Listar eventos",
+        "description": "Lista os eventos de uma organização, com id, name, summary, start, end, status, url, venue_id e organizer_id. Quando pagination.has_more_items é true, envie pagination.continuation como continuation, com os mesmos filtros, para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar eventos",
+        "description": "Lista los eventos de una organización, con id, name, summary, start, end, status, url, venue_id y organizer_id. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation, con los mismos filtros, para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les événements",
+        "description": "Liste les événements d'une organisation, avec id, name, summary, start, end, status, url, venue_id et organizer_id. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation, avec les mêmes filtres, pour lire la page suivante."
+      }
+    },
+    "eventbrite_get_event": {
+      "pt": {
+        "name": "Obter evento",
+        "description": "Retorna um evento, com name, summary, start e end (timezone, utc e local), status, url, currency, capacity, online_event, listed, venue_id e organizer_id. Um evento criado ou alterado há instantes pode levar alguns segundos para mostrar a mudança aqui."
+      },
+      "es": {
+        "name": "Obtener evento",
+        "description": "Devuelve un evento, con name, summary, start y end (timezone, utc y local), status, url, currency, capacity, online_event, listed, venue_id y organizer_id. Un evento creado o modificado hace un momento puede tardar unos segundos en mostrar el cambio aquí."
+      },
+      "fr": {
+        "name": "Obtenir un événement",
+        "description": "Renvoie un événement, avec name, summary, start et end (timezone, utc et local), status, url, currency, capacity, online_event, listed, venue_id et organizer_id. Un événement créé ou modifié à l'instant peut mettre quelques secondes à afficher le changement ici."
+      }
+    },
+    "eventbrite_create_event": {
+      "pt": {
+        "name": "Criar evento",
+        "description": "Cria um evento em rascunho em uma organização e o retorna. Para colocá-lo à venda, adicione um tipo de ingresso com Create ticket class e use Publish event."
+      },
+      "es": {
+        "name": "Crear evento",
+        "description": "Crea un evento en borrador en una organización y lo devuelve. Para ponerlo a la venta, añade un tipo de entrada con Create ticket class y usa Publish event."
+      },
+      "fr": {
+        "name": "Créer un événement",
+        "description": "Crée un événement en brouillon dans une organisation et le renvoie. Pour le mettre en vente, ajoutez un type de billet avec Create ticket class puis utilisez Publish event."
+      }
+    },
+    "eventbrite_update_event": {
+      "pt": {
+        "name": "Atualizar evento",
+        "description": "Atualiza um evento e o retorna. Só os campos enviados mudam. No evento pai de uma série de datas, name, currency, capacity, password e as opções de mostrar e ocultar mudam em todas as datas."
+      },
+      "es": {
+        "name": "Actualizar evento",
+        "description": "Actualiza un evento y lo devuelve. Solo cambian los campos enviados. En el evento padre de una serie de fechas, name, currency, capacity, password y las opciones de mostrar y ocultar cambian en todas las fechas."
+      },
+      "fr": {
+        "name": "Mettre à jour un événement",
+        "description": "Met à jour un événement et le renvoie. Seuls les champs envoyés changent. Sur le parent d'une série de dates, name, currency, capacity, password et les options d'affichage et de masquage changent sur toutes les dates."
+      }
+    },
+    "eventbrite_publish_event": {
+      "pt": {
+        "name": "Publicar evento",
+        "description": "Publica um evento em rascunho, que entra à venda, e retorna published true. O evento precisa de name, summary ou description, um organizador, ao menos um tipo de ingresso e, para ingressos pagos, opções de pagamento válidas. Um evento excluído não pode ser publicado."
+      },
+      "es": {
+        "name": "Publicar evento",
+        "description": "Publica un evento en borrador, que sale a la venta, y devuelve published true. El evento necesita name, summary o description, un organizador, al menos un tipo de entrada y, para entradas de pago, opciones de pago válidas. Un evento eliminado no se puede publicar."
+      },
+      "fr": {
+        "name": "Publier un événement",
+        "description": "Publie un événement en brouillon, qui passe en vente, et renvoie published true. L'événement doit avoir un name, un summary ou une description, un organisateur, au moins un type de billet et, pour les billets payants, des options de paiement valides. Un événement supprimé ne peut pas être publié."
+      }
+    },
+    "eventbrite_delete_event": {
+      "pt": {
+        "name": "Excluir evento",
+        "description": "Exclui um evento e retorna deleted true. Só é possível excluir um evento sem pedidos pendentes ou concluídos. Excluir o pai de uma série de datas exclui todas as datas."
+      },
+      "es": {
+        "name": "Eliminar evento",
+        "description": "Elimina un evento y devuelve deleted true. Solo se puede eliminar un evento sin pedidos pendientes o completados. Eliminar el padre de una serie de fechas elimina todas las fechas."
+      },
+      "fr": {
+        "name": "Supprimer un événement",
+        "description": "Supprime un événement et renvoie deleted true. Seul un événement sans commandes en attente ou terminées peut être supprimé. Supprimer le parent d'une série de dates supprime toutes les dates."
+      }
+    },
+    "eventbrite_list_ticket_classes": {
+      "pt": {
+        "name": "Listar tipos de ingresso",
+        "description": "Lista os tipos de ingresso de um evento, com id, name, cost, fee, free, donation, capacity, quantity_sold, sales_start e sales_end. Quando pagination.has_more_items é true, envie pagination.continuation como continuation para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar tipos de entrada",
+        "description": "Lista los tipos de entrada de un evento, con id, name, cost, fee, free, donation, capacity, quantity_sold, sales_start y sales_end. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les types de billets",
+        "description": "Liste les types de billets d'un événement, avec id, name, cost, fee, free, donation, capacity, quantity_sold, sales_start et sales_end. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation pour lire la page suivante."
+      }
+    },
+    "eventbrite_create_ticket_class": {
+      "pt": {
+        "name": "Criar tipo de ingresso",
+        "description": "Cria um tipo de ingresso para um evento e o retorna: gratuito (free true), pago (cost) ou doação (donation true). Um tipo gratuito ou pago precisa de capacity."
+      },
+      "es": {
+        "name": "Crear tipo de entrada",
+        "description": "Crea un tipo de entrada para un evento y lo devuelve: gratuita (free true), de pago (cost) o donación (donation true). Un tipo gratuito o de pago necesita capacity."
+      },
+      "fr": {
+        "name": "Créer un type de billet",
+        "description": "Crée un type de billet pour un événement et le renvoie : gratuit (free true), payant (cost) ou don (donation true). Un type gratuit ou payant exige capacity."
+      }
+    },
+    "eventbrite_list_event_attendees": {
+      "pt": {
+        "name": "Listar participantes do evento",
+        "description": "Lista os participantes de um evento, um por ingresso vendido, com profile (nome e email), ticket_class_name, order_id, status, checked_in, cancelled, refunded e as respostas às perguntas. Quando pagination.has_more_items é true, envie pagination.continuation como continuation, com os mesmos filtros, para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar asistentes del evento",
+        "description": "Lista los asistentes de un evento, uno por entrada vendida, con profile (nombre y email), ticket_class_name, order_id, status, checked_in, cancelled, refunded y las respuestas a las preguntas. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation, con los mismos filtros, para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les participants d'un événement",
+        "description": "Liste les participants d'un événement, un par billet vendu, avec profile (nom et email), ticket_class_name, order_id, status, checked_in, cancelled, refunded et les réponses aux questions. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation, avec les mêmes filtres, pour lire la page suivante."
+      }
+    },
+    "eventbrite_list_event_orders": {
+      "pt": {
+        "name": "Listar pedidos do evento",
+        "description": "Lista os pedidos de um evento, com id, nome e email do comprador, costs (bruto, taxas e líquido), status e created. Quando pagination.has_more_items é true, envie pagination.continuation como continuation, com os mesmos filtros, para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar pedidos del evento",
+        "description": "Lista los pedidos de un evento, con id, nombre y email del comprador, costs (bruto, comisiones y neto), status y created. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation, con los mismos filtros, para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les commandes d'un événement",
+        "description": "Liste les commandes d'un événement, avec id, nom et email de l'acheteur, costs (brut, frais et net), status et created. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation, avec les mêmes filtres, pour lire la page suivante."
+      }
+    },
+    "eventbrite_list_venues": {
+      "pt": {
+        "name": "Listar locais",
+        "description": "Lista os locais de uma organização, com id, name, address e capacity: o venue_id que Create event e Update event aceitam. Quando pagination.has_more_items é true, envie pagination.continuation como continuation para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar recintos",
+        "description": "Lista los recintos de una organización, con id, name, address y capacity: el venue_id que aceptan Create event y Update event. Cuando pagination.has_more_items es true, envía pagination.continuation como continuation para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les lieux",
+        "description": "Liste les lieux d'une organisation, avec id, name, address et capacity : le venue_id que prennent Create event et Update event. Quand pagination.has_more_items vaut true, passez pagination.continuation comme continuation pour lire la page suivante."
+      }
+    }
+  }
+}

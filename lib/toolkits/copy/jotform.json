@@ -1,0 +1,82 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read forms, questions, submissions and reports from your customer's Jotform account through one Reportei Connect endpoint, read only.",
+      "intro": "The Jotform toolkit is read only: it covers forms, form questions, submissions across one form or the whole account, and reports. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        { "title": "Pull leads into your CRM", "body": "List the submissions of a lead form with their answers keyed by question id and create the contacts in your product." },
+        { "title": "Show form results in a dashboard", "body": "List forms with their submission and unread counts, so a SaaS can show response volume per form without its own Jotform integration." },
+        { "title": "Answers for an AI agent", "body": "Let an agent read a form's questions and submissions to summarize responses or find a specific submission by id." }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia formulários, perguntas, envios e relatórios da conta Jotform do seu cliente por um único endpoint do Reportei Connect, somente leitura.",
+      "intro": "O toolkit do Jotform é somente leitura: cobre formulários, perguntas de formulário, envios de um formulário ou de toda a conta e relatórios. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        { "title": "Levar leads para o CRM", "body": "Liste os envios de um formulário de captação com as respostas indexadas pelo id da pergunta e crie os contatos no seu produto." },
+        { "title": "Mostrar resultados em um painel", "body": "Liste formulários com a contagem de envios e de não lidos, para um SaaS exibir o volume de respostas por formulário sem integração própria com o Jotform." },
+        { "title": "Respostas para um agente de IA", "body": "Deixe um agente ler as perguntas e os envios de um formulário para resumir respostas ou achar um envio específico pelo id." }
+      ]
+    },
+    "es": {
+      "tagline": "Lee formularios, preguntas, envíos e informes de la cuenta de Jotform de tu cliente con un solo endpoint de Reportei Connect, solo lectura.",
+      "intro": "El toolkit de Jotform es de solo lectura: cubre formularios, preguntas de formulario, envíos de un formulario o de toda la cuenta e informes. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        { "title": "Llevar leads al CRM", "body": "Lista los envíos de un formulario de captación con las respuestas indexadas por id de pregunta y crea los contactos en tu producto." },
+        { "title": "Mostrar resultados en un panel", "body": "Lista formularios con su conteo de envíos y de no leídos, para que un SaaS muestre el volumen de respuestas por formulario sin integración propia con Jotform." },
+        { "title": "Respuestas para un agente de IA", "body": "Deja que un agente lea las preguntas y los envíos de un formulario para resumir respuestas o encontrar un envío concreto por id." }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez formulaires, questions, soumissions et rapports du compte Jotform de votre client via un seul endpoint Reportei Connect, en lecture seule.",
+      "intro": "Le toolkit Jotform est en lecture seule : il couvre les formulaires, les questions de formulaire, les soumissions d'un formulaire ou de tout le compte et les rapports. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        { "title": "Importer les leads dans le CRM", "body": "Listez les soumissions d'un formulaire de capture avec leurs réponses indexées par id de question et créez les contacts dans votre produit." },
+        { "title": "Afficher les résultats dans un tableau de bord", "body": "Listez les formulaires avec leur nombre de soumissions et de non lues, pour qu'un SaaS affiche le volume de réponses par formulaire sans intégration Jotform dédiée." },
+        { "title": "Réponses pour un agent IA", "body": "Laissez un agent lire les questions et les soumissions d'un formulaire pour résumer les réponses ou retrouver une soumission précise par id." }
+      ]
+    }
+  },
+  "tools": {
+    "jotform_list_forms": {
+      "pt": { "name": "Listar formulários", "description": "Lista os formulários da conta com id, title, status, url, datas e as contagens de envios (count) e de não lidos (new). Pagine com offset e limit até vir menos formulários que limit." },
+      "es": { "name": "Listar formularios", "description": "Lista los formularios de la cuenta con id, title, status, url, fechas y los conteos de envíos (count) y de no leídos (new). Pagina con offset y limit hasta que lleguen menos formularios que limit." },
+      "fr": { "name": "Lister les formulaires", "description": "Liste les formulaires du compte avec id, title, status, url, dates et les nombres de soumissions (count) et de non lues (new). Paginez avec offset et limit jusqu'à recevoir moins de formulaires que limit." }
+    },
+    "jotform_get_form": {
+      "pt": { "name": "Obter formulário", "description": "Retorna os detalhes básicos de um formulário: title, status (ENABLED, DISABLED ou DELETED), url, datas, último envio, total de envios (count) e não lidos (new)." },
+      "es": { "name": "Obtener formulario", "description": "Devuelve los detalles básicos de un formulario: title, status (ENABLED, DISABLED o DELETED), url, fechas, último envío, total de envíos (count) y no leídos (new)." },
+      "fr": { "name": "Obtenir un formulaire", "description": "Renvoie les détails de base d'un formulaire : title, status (ENABLED, DISABLED ou DELETED), url, dates, dernière soumission, total de soumissions (count) et non lues (new)." }
+    },
+    "jotform_list_form_questions": {
+      "pt": { "name": "Listar perguntas do formulário", "description": "Lista as perguntas de um formulário indexadas pelo id da pergunta (qid), com type, label (text), name, order e configurações como required. Os envios indexam suas respostas pelo mesmo qid." },
+      "es": { "name": "Listar preguntas del formulario", "description": "Lista las preguntas de un formulario indexadas por id de pregunta (qid), con type, label (text), name, order y ajustes como required. Los envíos indexan sus respuestas por el mismo qid." },
+      "fr": { "name": "Lister les questions d'un formulaire", "description": "Liste les questions d'un formulaire indexées par id de question (qid), avec type, label (text), name, order et des paramètres comme required. Les soumissions indexent leurs réponses par le même qid." }
+    },
+    "jotform_list_form_submissions": {
+      "pt": { "name": "Listar envios do formulário", "description": "Lista os envios de um formulário, cada um com id, created_at, status (ACTIVE ou OVERQUOTA), new e as respostas indexadas pelo id da pergunta, cada uma com o rótulo, o tipo e a resposta. Pagine com offset e limit até vir menos envios que limit." },
+      "es": { "name": "Listar envíos del formulario", "description": "Lista los envíos de un formulario, cada uno con id, created_at, status (ACTIVE u OVERQUOTA), new y las respuestas indexadas por id de pregunta, cada una con la etiqueta, el tipo y la respuesta. Pagina con offset y limit hasta que lleguen menos envíos que limit." },
+      "fr": { "name": "Lister les soumissions d'un formulaire", "description": "Liste les soumissions d'un formulaire, chacune avec id, created_at, status (ACTIVE ou OVERQUOTA), new et les réponses indexées par id de question, chacune avec le libellé, le type et la réponse. Paginez avec offset et limit jusqu'à recevoir moins de soumissions que limit." }
+    },
+    "jotform_list_submissions": {
+      "pt": { "name": "Listar envios", "description": "Lista os envios de todos os formulários da conta, cada um com id, form_id, created_at, status, new e as respostas indexadas pelo id da pergunta, cada uma com o rótulo, o tipo e a resposta. Pagine com offset e limit até vir menos envios que limit." },
+      "es": { "name": "Listar envíos", "description": "Lista los envíos de todos los formularios de la cuenta, cada uno con id, form_id, created_at, status, new y las respuestas indexadas por id de pregunta, cada una con la etiqueta, el tipo y la respuesta. Pagina con offset y limit hasta que lleguen menos envíos que limit." },
+      "fr": { "name": "Lister les soumissions", "description": "Liste les soumissions de tous les formulaires du compte, chacune avec id, form_id, created_at, status, new et les réponses indexées par id de question, chacune avec le libellé, le type et la réponse. Paginez avec offset et limit jusqu'à recevoir moins de soumissions que limit." }
+    },
+    "jotform_get_submission": {
+      "pt": { "name": "Obter envio", "description": "Retorna um envio com form_id, created_at, status, new e as respostas indexadas pelo id da pergunta, cada uma com o rótulo, o tipo e a resposta." },
+      "es": { "name": "Obtener envío", "description": "Devuelve un envío con form_id, created_at, status, new y las respuestas indexadas por id de pregunta, cada una con la etiqueta, el tipo y la respuesta." },
+      "fr": { "name": "Obtenir une soumission", "description": "Renvoie une soumission avec form_id, created_at, status, new et les réponses indexées par id de question, chacune avec le libellé, le type et la réponse." }
+    },
+    "jotform_list_form_reports": {
+      "pt": { "name": "Listar relatórios do formulário", "description": "Lista os relatórios de um formulário com id, title, o tipo em list_type (excel, csv, grid, table, calendar, rss ou visual), os campos que exibem e a url onde o relatório abre." },
+      "es": { "name": "Listar informes del formulario", "description": "Lista los informes de un formulario con id, title, el tipo en list_type (excel, csv, grid, table, calendar, rss o visual), los campos que muestran y la url donde se abre el informe." },
+      "fr": { "name": "Lister les rapports d'un formulaire", "description": "Liste les rapports d'un formulaire avec id, title, le type dans list_type (excel, csv, grid, table, calendar, rss ou visual), les champs affichés et l'url où le rapport s'ouvre." }
+    },
+    "jotform_get_report": {
+      "pt": { "name": "Obter relatório", "description": "Retorna um relatório com form_id, title, list_type, os campos que exibe, status, url e se é protegido por senha." },
+      "es": { "name": "Obtener informe", "description": "Devuelve un informe con form_id, title, list_type, los campos que muestra, status, url y si está protegido con contraseña." },
+      "fr": { "name": "Obtenir un rapport", "description": "Renvoie un rapport avec form_id, title, list_type, les champs affichés, status, url et s'il est protégé par mot de passe." }
+    }
+  }
+}

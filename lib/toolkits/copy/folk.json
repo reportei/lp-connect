@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and write people, companies, deals and notes in your customer's folk CRM workspace from your product, through one Connect endpoint.",
+      "intro": "The folk toolkit covers groups and their custom fields, people, companies, deals (and other objects of a group) and notes: list, create and update them. Customers connect with an API key that Connect stores, and every execution is logged, so your product or AI agent works the CRM without a custom integration.",
+      "useCases": [
+        {
+          "title": "Sync leads into the CRM",
+          "body": "When a signup happens in your SaaS, create a person, link them to a company and add them to a group so they show up in the pipeline."
+        },
+        {
+          "title": "Move deals through the pipeline",
+          "body": "List the deals of a group and update the Status custom field when your product detects a change, which moves the deal in the pipeline."
+        },
+        {
+          "title": "Notes written by an AI agent",
+          "body": "An agent summarizes a call or an email and adds the text as a Markdown note to the right person, company or deal."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia e grave pessoas, empresas, negócios e notas no workspace folk CRM do seu cliente a partir do seu produto, com um único endpoint do Connect.",
+      "intro": "O toolkit do folk cobre grupos e seus campos personalizados, pessoas, empresas, negócios (e outros objetos de um grupo) e notas: listar, criar e atualizar. O cliente conecta com uma chave de API que o Connect guarda, e cada execução é registrada, para o seu produto ou agente de IA trabalhar o CRM sem uma integração própria.",
+      "useCases": [
+        {
+          "title": "Sincronizar leads no CRM",
+          "body": "Quando alguém se cadastra no seu SaaS, crie uma pessoa, vincule-a a uma empresa e coloque-a em um grupo para que apareça no funil."
+        },
+        {
+          "title": "Mover negócios no funil",
+          "body": "Liste os negócios de um grupo e atualize o campo personalizado Status quando o seu produto detectar uma mudança, o que move o negócio no funil."
+        },
+        {
+          "title": "Notas escritas por um agente de IA",
+          "body": "Um agente resume uma ligação ou um e-mail e adiciona o texto como nota em Markdown na pessoa, empresa ou negócio certo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee y escribe personas, empresas, negocios y notas en el workspace folk CRM de tu cliente desde tu producto, con un único endpoint de Connect.",
+      "intro": "El toolkit de folk cubre grupos y sus campos personalizados, personas, empresas, negocios (y otros objetos de un grupo) y notas: listar, crear y actualizar. El cliente conecta con una clave de API que Connect guarda, y cada ejecución queda registrada, para que tu producto o agente de IA trabaje el CRM sin una integración propia.",
+      "useCases": [
+        {
+          "title": "Sincronizar leads al CRM",
+          "body": "Cuando alguien se registra en tu SaaS, crea una persona, vincúlala a una empresa y agrégala a un grupo para que aparezca en el pipeline."
+        },
+        {
+          "title": "Mover negocios en el pipeline",
+          "body": "Lista los negocios de un grupo y actualiza el campo personalizado Status cuando tu producto detecte un cambio, lo que mueve el negocio en el pipeline."
+        },
+        {
+          "title": "Notas escritas por un agente de IA",
+          "body": "Un agente resume una llamada o un email y añade el texto como nota en Markdown a la persona, empresa o negocio correcto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez et écrivez personnes, entreprises, deals et notes dans le workspace folk CRM de votre client depuis votre produit, via un seul endpoint Connect.",
+      "intro": "Le toolkit folk couvre les groupes et leurs champs personnalisés, les personnes, les entreprises, les deals (et autres objets d'un groupe) et les notes : lister, créer et mettre à jour. Le client se connecte avec une clé d'API que Connect stocke, et chaque exécution est journalisée, pour que votre produit ou agent IA travaille le CRM sans intégration sur mesure.",
+      "useCases": [
+        {
+          "title": "Synchroniser les leads dans le CRM",
+          "body": "Quand quelqu'un s'inscrit dans votre SaaS, créez une personne, liez-la à une entreprise et ajoutez-la à un groupe pour qu'elle apparaisse dans le pipeline."
+        },
+        {
+          "title": "Faire avancer les deals",
+          "body": "Listez les deals d'un groupe et mettez à jour le champ personnalisé Status quand votre produit détecte un changement, ce qui déplace le deal dans le pipeline."
+        },
+        {
+          "title": "Notes rédigées par un agent IA",
+          "body": "Un agent résume un appel ou un e-mail et ajoute le texte comme note Markdown sur la bonne personne, entreprise ou deal."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "folk_list_groups": {
+      "pt": {
+        "name": "Listar grupos",
+        "description": "Lista os grupos do workspace com id e nome. Os grupos contêm pessoas, empresas e negócios. A próxima página vem do cursor dentro de pagination.nextLink; a última página não tem nextLink."
+      },
+      "es": {
+        "name": "Listar grupos",
+        "description": "Lista los grupos del workspace con id y nombre. Los grupos contienen personas, empresas y negocios. La página siguiente viene del cursor dentro de pagination.nextLink; la última página no tiene nextLink."
+      },
+      "fr": {
+        "name": "Lister les groupes",
+        "description": "Liste les groupes du workspace avec id et nom. Les groupes contiennent des personnes, des entreprises et des deals. La page suivante vient du curseur dans pagination.nextLink ; la dernière page n'a pas de nextLink."
+      }
+    },
+    "folk_list_group_custom_fields": {
+      "pt": {
+        "name": "Listar campos personalizados do grupo",
+        "description": "Lista os campos personalizados de um grupo para pessoas, empresas ou um tipo de objeto, com nome, tipo e as opções dos campos de seleção. Em pessoa ou empresa, cada campo do tipo objectField é um tipo de objeto do grupo, como Deals, e seu nome é o objectType das tools de objeto."
+      },
+      "es": {
+        "name": "Listar campos personalizados del grupo",
+        "description": "Lista los campos personalizados de un grupo para personas, empresas o un tipo de objeto, con nombre, tipo y las opciones de los campos de selección. En persona o empresa, cada campo de tipo objectField es un tipo de objeto del grupo, como Deals, y su nombre es el objectType de las tools de objeto."
+      },
+      "fr": {
+        "name": "Lister les champs personnalisés d'un groupe",
+        "description": "Liste les champs personnalisés d'un groupe pour les personnes, les entreprises ou un type d'objet, avec nom, type et options des champs de sélection. Sur personne ou entreprise, chaque champ de type objectField est un type d'objet du groupe, comme Deals, et son nom est l'objectType des outils d'objet."
+      }
+    },
+    "folk_list_people": {
+      "pt": {
+        "name": "Listar pessoas",
+        "description": "Lista as pessoas do workspace com id, nomes, e-mails, telefones, cargo, empresas, grupos e valores dos campos personalizados. A próxima página vem do cursor dentro de pagination.nextLink; a última página não tem nextLink."
+      },
+      "es": {
+        "name": "Listar personas",
+        "description": "Lista las personas del workspace con id, nombres, emails, teléfonos, cargo, empresas, grupos y valores de los campos personalizados. La página siguiente viene del cursor dentro de pagination.nextLink; la última página no tiene nextLink."
+      },
+      "fr": {
+        "name": "Lister les personnes",
+        "description": "Liste les personnes du workspace avec id, noms, e-mails, téléphones, poste, entreprises, groupes et valeurs des champs personnalisés. La page suivante vient du curseur dans pagination.nextLink ; la dernière page n'a pas de nextLink."
+      }
+    },
+    "folk_create_person": {
+      "pt": {
+        "name": "Criar pessoa",
+        "description": "Cria uma pessoa, opcionalmente em grupos e vinculada a empresas. O folk mescla duplicatas em segundo plano, o que pode sobrescrever parte dos dados enviados. Uma pessoa sem grupo só aparece na busca do folk."
+      },
+      "es": {
+        "name": "Crear persona",
+        "description": "Crea una persona, opcionalmente en grupos y vinculada a empresas. folk fusiona duplicados en segundo plano, lo que puede sobrescribir parte de los datos enviados. Una persona sin grupo solo aparece en la búsqueda de folk."
+      },
+      "fr": {
+        "name": "Créer une personne",
+        "description": "Crée une personne, éventuellement dans des groupes et liée à des entreprises. folk fusionne les doublons en arrière-plan, ce qui peut écraser une partie des données envoyées. Une personne sans groupe n'apparaît que dans la recherche folk."
+      }
+    },
+    "folk_update_person": {
+      "pt": {
+        "name": "Atualizar pessoa",
+        "description": "Atualiza uma pessoa, alterando apenas os campos enviados. Uma lista (groups, companies, emails, phones, addresses, urls) substitui a atual, então envie-a completa. Deixar um grupo de fora remove a pessoa dele, junto com os valores dos campos personalizados nesse grupo."
+      },
+      "es": {
+        "name": "Actualizar persona",
+        "description": "Actualiza una persona, cambiando solo los campos enviados. Una lista (groups, companies, emails, phones, addresses, urls) sustituye a la actual, así que envíala completa. Dejar un grupo fuera quita a la persona de él, junto con los valores de sus campos personalizados en ese grupo."
+      },
+      "fr": {
+        "name": "Mettre à jour une personne",
+        "description": "Met à jour une personne, en ne modifiant que les champs envoyés. Une liste (groups, companies, emails, phones, addresses, urls) remplace l'actuelle, envoyez-la donc en entier. Omettre un groupe retire la personne de ce groupe, avec les valeurs de ses champs personnalisés dans ce groupe."
+      }
+    },
+    "folk_list_companies": {
+      "pt": {
+        "name": "Listar empresas",
+        "description": "Lista as empresas do workspace com id, nome, setor, e-mails, telefones, URLs, grupos e valores dos campos personalizados. A próxima página vem do cursor dentro de pagination.nextLink; a última página não tem nextLink."
+      },
+      "es": {
+        "name": "Listar empresas",
+        "description": "Lista las empresas del workspace con id, nombre, sector, emails, teléfonos, URLs, grupos y valores de los campos personalizados. La página siguiente viene del cursor dentro de pagination.nextLink; la última página no tiene nextLink."
+      },
+      "fr": {
+        "name": "Lister les entreprises",
+        "description": "Liste les entreprises du workspace avec id, nom, secteur, e-mails, téléphones, URL, groupes et valeurs des champs personnalisés. La page suivante vient du curseur dans pagination.nextLink ; la dernière page n'a pas de nextLink."
+      }
+    },
+    "folk_create_company": {
+      "pt": {
+        "name": "Criar empresa",
+        "description": "Cria uma empresa, opcionalmente em grupos. Os nomes são únicos no workspace: um nome existente devolve essa empresa em vez de criar outra. Uma empresa sem grupo só aparece na busca do folk."
+      },
+      "es": {
+        "name": "Crear empresa",
+        "description": "Crea una empresa, opcionalmente en grupos. Los nombres son únicos en el workspace: un nombre existente devuelve esa empresa en lugar de crear otra. Una empresa sin grupo solo aparece en la búsqueda de folk."
+      },
+      "fr": {
+        "name": "Créer une entreprise",
+        "description": "Crée une entreprise, éventuellement dans des groupes. Les noms sont uniques dans le workspace : un nom existant renvoie cette entreprise au lieu d'en créer une autre. Une entreprise sans groupe n'apparaît que dans la recherche folk."
+      }
+    },
+    "folk_update_company": {
+      "pt": {
+        "name": "Atualizar empresa",
+        "description": "Atualiza uma empresa, alterando apenas os campos enviados. Uma lista (groups, emails, phones, addresses, urls) substitui a atual, então envie-a completa. Deixar um grupo de fora remove a empresa dele, junto com os valores dos campos personalizados nesse grupo. Um nome já usado por outra empresa falha."
+      },
+      "es": {
+        "name": "Actualizar empresa",
+        "description": "Actualiza una empresa, cambiando solo los campos enviados. Una lista (groups, emails, phones, addresses, urls) sustituye a la actual, así que envíala completa. Dejar un grupo fuera quita a la empresa de él, junto con los valores de sus campos personalizados en ese grupo. Un nombre ya usado por otra empresa falla."
+      },
+      "fr": {
+        "name": "Mettre à jour une entreprise",
+        "description": "Met à jour une entreprise, en ne modifiant que les champs envoyés. Une liste (groups, emails, phones, addresses, urls) remplace l'actuelle, envoyez-la donc en entier. Omettre un groupe retire l'entreprise de ce groupe, avec les valeurs de ses champs personnalisés dans ce groupe. Un nom déjà utilisé par une autre entreprise échoue."
+      }
+    },
+    "folk_list_objects": {
+      "pt": {
+        "name": "Listar objetos",
+        "description": "Lista os negócios, ou os objetos de outro tipo, de um grupo, com id, nome, pessoas e empresas vinculadas e valores dos campos personalizados, como o Status do negócio. A próxima página vem do cursor dentro de pagination.nextLink; a última página não tem nextLink. Um objectType desconhecido responde 404 com os tipos de objeto do grupo."
+      },
+      "es": {
+        "name": "Listar objetos",
+        "description": "Lista los negocios, o los objetos de otro tipo, de un grupo, con id, nombre, personas y empresas vinculadas y valores de los campos personalizados, como el Status del negocio. La página siguiente viene del cursor dentro de pagination.nextLink; la última página no tiene nextLink. Un objectType desconocido responde 404 con los tipos de objeto del grupo."
+      },
+      "fr": {
+        "name": "Lister les objets",
+        "description": "Liste les deals, ou les objets d'un autre type, d'un groupe, avec id, nom, personnes et entreprises liées et valeurs des champs personnalisés, comme le Status du deal. La page suivante vient du curseur dans pagination.nextLink ; la dernière page n'a pas de nextLink. Un objectType inconnu répond 404 avec les types d'objet du groupe."
+      }
+    },
+    "folk_create_object": {
+      "pt": {
+        "name": "Criar objeto",
+        "description": "Cria um negócio, ou um objeto de outro tipo, em um grupo. As pessoas e empresas vinculadas já precisam estar no grupo, ou o folk as ignora. Um nome de campo personalizado desconhecido faz a requisição inteira falhar com 422."
+      },
+      "es": {
+        "name": "Crear objeto",
+        "description": "Crea un negocio, o un objeto de otro tipo, en un grupo. Las personas y empresas vinculadas ya deben estar en el grupo, o folk las ignora. Un nombre de campo personalizado desconocido hace fallar toda la solicitud con 422."
+      },
+      "fr": {
+        "name": "Créer un objet",
+        "description": "Crée un deal, ou un objet d'un autre type, dans un groupe. Les personnes et entreprises liées doivent déjà être dans le groupe, sinon folk les ignore. Un nom de champ personnalisé inconnu fait échouer toute la requête avec 422."
+      }
+    },
+    "folk_update_object": {
+      "pt": {
+        "name": "Atualizar objeto",
+        "description": "Atualiza um negócio ou outro objeto, alterando apenas os campos enviados. people e companies substituem as listas atuais, então envie-as completas. Mover um negócio no funil é uma mudança do campo personalizado Status."
+      },
+      "es": {
+        "name": "Actualizar objeto",
+        "description": "Actualiza un negocio u otro objeto, cambiando solo los campos enviados. people y companies sustituyen las listas actuales, así que envíalas completas. Mover un negocio en el pipeline es un cambio del campo personalizado Status."
+      },
+      "fr": {
+        "name": "Mettre à jour un objet",
+        "description": "Met à jour un deal ou un autre objet, en ne modifiant que les champs envoyés. people et companies remplacent les listes actuelles, envoyez-les donc en entier. Déplacer un deal dans le pipeline revient à changer le champ personnalisé Status."
+      }
+    },
+    "folk_list_notes": {
+      "pt": {
+        "name": "Listar notas",
+        "description": "Lista as notas do workspace com conteúdo, visibilidade, autor, data de criação e a pessoa, empresa ou objeto a que cada uma pertence. query busca no conteúdo. A próxima página vem do cursor dentro de pagination.nextLink; a última página não tem nextLink."
+      },
+      "es": {
+        "name": "Listar notas",
+        "description": "Lista las notas del workspace con contenido, visibilidad, autor, fecha de creación y la persona, empresa u objeto al que pertenece cada una. query busca en el contenido. La página siguiente viene del cursor dentro de pagination.nextLink; la última página no tiene nextLink."
+      },
+      "fr": {
+        "name": "Lister les notes",
+        "description": "Liste les notes du workspace avec contenu, visibilité, auteur, date de création et la personne, l'entreprise ou l'objet auquel chacune appartient. query recherche dans le contenu. La page suivante vient du curseur dans pagination.nextLink ; la dernière page n'a pas de nextLink."
+      }
+    },
+    "folk_create_note": {
+      "pt": {
+        "name": "Criar nota",
+        "description": "Adiciona uma nota a uma pessoa, uma empresa ou um objeto, como um negócio. O conteúdo aceita Markdown."
+      },
+      "es": {
+        "name": "Crear nota",
+        "description": "Añade una nota a una persona, una empresa o un objeto, como un negocio. El contenido acepta Markdown."
+      },
+      "fr": {
+        "name": "Créer une note",
+        "description": "Ajoute une note à une personne, une entreprise ou un objet comme un deal. Le contenu accepte le Markdown."
+      }
+    }
+  }
+}

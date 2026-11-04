@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search, read, create and edit pages, data source rows, blocks and comments in your customer's Notion workspace through Connect.",
+      "intro": "The Notion toolkit works on the pages and data sources the customer shared with the connection: search, read properties and Markdown content, create and update pages, append blocks, query database rows and handle comments. Your product or AI agent calls it through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Write records into Notion",
+          "body": "A SaaS creates a page in a customer's data source for each new lead, ticket or report, filling the properties the data source defines."
+        },
+        {
+          "title": "Keep docs up to date",
+          "body": "An agency tool edits a page's Markdown with search-and-replace or rewrites it whole when the numbers change."
+        },
+        {
+          "title": "Agent with workspace memory",
+          "body": "An AI agent searches pages by title, reads their Markdown, lists the rows of a data source and replies in the comments."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque, leia, crie e edite páginas, linhas de data sources, blocos e comentários no workspace Notion do seu cliente pelo Connect.",
+      "intro": "O toolkit do Notion trabalha sobre as páginas e data sources que o cliente compartilhou com a conexão: busca, leitura de propriedades e do conteúdo em Markdown, criação e atualização de páginas, blocos, consulta de linhas de database e comentários. Seu produto ou agente de IA o chama pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Registros direto no Notion",
+          "body": "Um SaaS cria uma página em um data source do cliente para cada novo lead, ticket ou relatório, preenchendo as propriedades que o data source define."
+        },
+        {
+          "title": "Documentos sempre atualizados",
+          "body": "Uma ferramenta de agência edita o Markdown de uma página com busca e substituição, ou a reescreve inteira quando os números mudam."
+        },
+        {
+          "title": "Agente com memória do workspace",
+          "body": "Um agente de IA busca páginas pelo título, lê o Markdown, lista as linhas de um data source e responde nos comentários."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Busca, lee, crea y edita páginas, filas de data sources, bloques y comentarios en el workspace de Notion de tu cliente con Connect.",
+      "intro": "El toolkit de Notion trabaja sobre las páginas y data sources que el cliente compartió con la conexión: búsqueda, lectura de propiedades y del contenido en Markdown, creación y actualización de páginas, bloques, consulta de filas de bases de datos y comentarios. Tu producto o agente de IA lo llama por Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Registros directo en Notion",
+          "body": "Un SaaS crea una página en un data source del cliente por cada nuevo lead, ticket o informe, completando las propiedades que define el data source."
+        },
+        {
+          "title": "Documentos siempre al día",
+          "body": "Una herramienta de agencia edita el Markdown de una página con búsqueda y reemplazo, o la reescribe completa cuando cambian las cifras."
+        },
+        {
+          "title": "Agente con memoria del workspace",
+          "body": "Un agente de IA busca páginas por título, lee su Markdown, lista las filas de un data source y responde en los comentarios."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez, lisez, créez et modifiez pages, lignes de data sources, blocs et commentaires dans le workspace Notion de votre client via Connect.",
+      "intro": "Le toolkit Notion travaille sur les pages et data sources que le client a partagés avec la connexion : recherche, lecture des propriétés et du contenu en Markdown, création et mise à jour de pages, ajout de blocs, requête de lignes de base de données et commentaires. Votre produit ou agent IA l'appelle via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Des enregistrements dans Notion",
+          "body": "Un SaaS crée une page dans un data source du client pour chaque nouveau lead, ticket ou rapport, en remplissant les propriétés que définit le data source."
+        },
+        {
+          "title": "Des docs toujours à jour",
+          "body": "Un outil d'agence modifie le Markdown d'une page par recherche et remplacement, ou la réécrit entièrement quand les chiffres changent."
+        },
+        {
+          "title": "Agent avec mémoire du workspace",
+          "body": "Un agent IA cherche des pages par titre, lit leur Markdown, liste les lignes d'un data source et répond dans les commentaires."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "notion_search": {
+      "pt": {
+        "name": "Buscar",
+        "description": "Busca pelo título as páginas e data sources compartilhados com a conexão. Devolve has_more e next_cursor para a página seguinte."
+      },
+      "es": {
+        "name": "Buscar",
+        "description": "Busca por título las páginas y data sources compartidos con la conexión. Devuelve has_more y next_cursor para la página siguiente."
+      },
+      "fr": {
+        "name": "Rechercher",
+        "description": "Recherche par titre les pages et data sources partagés avec la connexion. Renvoie has_more et next_cursor pour la page suivante."
+      }
+    },
+    "notion_retrieve_page": {
+      "pt": {
+        "name": "Obter página",
+        "description": "Devolve as propriedades de uma página. O conteúdo não está incluído: leia com Obter markdown da página."
+      },
+      "es": {
+        "name": "Obtener página",
+        "description": "Devuelve las propiedades de una página. El contenido no está incluido: léelo con Obtener markdown de la página."
+      },
+      "fr": {
+        "name": "Obtenir une page",
+        "description": "Renvoie les propriétés d'une page. Le contenu n'est pas inclus : lisez-le avec Obtenir le markdown d'une page."
+      }
+    },
+    "notion_create_page": {
+      "pt": {
+        "name": "Criar página",
+        "description": "Cria uma página sob uma página ou data source compartilhado com a conexão. Envie o conteúdo como Markdown em markdown, ou como blocos em children, nunca os dois."
+      },
+      "es": {
+        "name": "Crear página",
+        "description": "Crea una página bajo una página o data source compartido con la conexión. Envía el contenido como Markdown en markdown, o como bloques en children, nunca ambos."
+      },
+      "fr": {
+        "name": "Créer une page",
+        "description": "Crée une page sous une page ou un data source partagé avec la connexion. Envoyez le contenu en Markdown dans markdown, ou en blocs dans children, jamais les deux."
+      }
+    },
+    "notion_update_page": {
+      "pt": {
+        "name": "Atualizar página",
+        "description": "Atualiza as propriedades, o ícone ou a capa de uma página, ou a move para a lixeira e de volta com in_trash. Propriedades omitidas mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar página",
+        "description": "Actualiza las propiedades, el ícono o la portada de una página, o la mueve a la papelera y de vuelta con in_trash. Las propiedades omitidas conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une page",
+        "description": "Met à jour les propriétés, l'icône ou la couverture d'une page, ou la met à la corbeille et l'en sort avec in_trash. Les propriétés omises gardent leur valeur."
+      }
+    },
+    "notion_get_page_markdown": {
+      "pt": {
+        "name": "Obter markdown da página",
+        "description": "Devolve o conteúdo de uma página como Markdown no campo markdown. Em páginas muito grandes, truncated é true e unknown_block_ids lista as partes deixadas de fora."
+      },
+      "es": {
+        "name": "Obtener markdown de la página",
+        "description": "Devuelve el contenido de una página como Markdown en el campo markdown. En páginas muy grandes, truncated es true y unknown_block_ids lista las partes omitidas."
+      },
+      "fr": {
+        "name": "Obtenir le markdown d'une page",
+        "description": "Renvoie le contenu d'une page en Markdown dans le champ markdown. Sur une très grande page, truncated vaut true et unknown_block_ids liste les parties omises."
+      }
+    },
+    "notion_update_page_markdown": {
+      "pt": {
+        "name": "Atualizar markdown da página",
+        "description": "Edita o conteúdo de uma página com Markdown: o tipo update_content aplica edições de busca e substituição, e replace_content reescreve a página inteira."
+      },
+      "es": {
+        "name": "Actualizar markdown de la página",
+        "description": "Edita el contenido de una página con Markdown: el tipo update_content aplica ediciones de búsqueda y reemplazo, y replace_content reescribe toda la página."
+      },
+      "fr": {
+        "name": "Mettre à jour le markdown d'une page",
+        "description": "Modifie le contenu d'une page en Markdown : le type update_content applique des modifications par recherche et remplacement, et replace_content réécrit toute la page."
+      }
+    },
+    "notion_create_blocks": {
+      "pt": {
+        "name": "Criar blocos",
+        "description": "Adiciona blocos de conteúdo a uma página, ou a um bloco que aceita filhos, no fim salvo se position disser o contrário. Até 100 blocos por chamada."
+      },
+      "es": {
+        "name": "Crear bloques",
+        "description": "Agrega bloques de contenido a una página, o a un bloque que acepta hijos, al final salvo que position indique otra cosa. Hasta 100 bloques por llamada."
+      },
+      "fr": {
+        "name": "Créer des blocs",
+        "description": "Ajoute des blocs de contenu à une page, ou à un bloc qui accepte des enfants, à la fin sauf si position dit autre chose. Jusqu'à 100 blocs par appel."
+      }
+    },
+    "notion_get_database": {
+      "pt": {
+        "name": "Obter database",
+        "description": "Devolve um database com título, parent e data_sources, o id e o name de cada data source nele."
+      },
+      "es": {
+        "name": "Obtener database",
+        "description": "Devuelve un database con título, parent y data_sources, el id y el name de cada data source en él."
+      },
+      "fr": {
+        "name": "Obtenir une base de données",
+        "description": "Renvoie une base de données avec titre, parent et data_sources, l'id et le name de chaque data source qu'elle contient."
+      }
+    },
+    "notion_get_data_source": {
+      "pt": {
+        "name": "Obter data source",
+        "description": "Devolve o schema de um data source: nome, id, tipo e opções de cada propriedade. Leia antes de criar, atualizar ou filtrar páginas nele."
+      },
+      "es": {
+        "name": "Obtener data source",
+        "description": "Devuelve el schema de un data source: nombre, id, tipo y opciones de cada propiedad. Léelo antes de crear, actualizar o filtrar páginas en él."
+      },
+      "fr": {
+        "name": "Obtenir un data source",
+        "description": "Renvoie le schéma d'un data source : nom, id, type et options de chaque propriété. Lisez-le avant de créer, mettre à jour ou filtrer des pages dedans."
+      }
+    },
+    "notion_list_data_source_pages": {
+      "pt": {
+        "name": "Listar páginas do data source",
+        "description": "Lista as páginas de um data source, as linhas de um database, com filtro e ordenação opcionais. Devolve has_more e next_cursor para a página seguinte."
+      },
+      "es": {
+        "name": "Listar páginas del data source",
+        "description": "Lista las páginas de un data source, las filas de un database, con filtro y orden opcionales. Devuelve has_more y next_cursor para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les pages d'un data source",
+        "description": "Liste les pages d'un data source, les lignes d'une base de données, avec filtre et tris optionnels. Renvoie has_more et next_cursor pour la page suivante."
+      }
+    },
+    "notion_list_comments": {
+      "pt": {
+        "name": "Listar comentários",
+        "description": "Lista os comentários não resolvidos de uma página ou bloco, cada um com seu discussion_id. Devolve has_more e next_cursor para a página seguinte."
+      },
+      "es": {
+        "name": "Listar comentarios",
+        "description": "Lista los comentarios no resueltos de una página o bloque, cada uno con su discussion_id. Devuelve has_more y next_cursor para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les commentaires",
+        "description": "Liste les commentaires non résolus d'une page ou d'un bloc, chacun avec son discussion_id. Renvoie has_more et next_cursor pour la page suivante."
+      }
+    },
+    "notion_create_comment": {
+      "pt": {
+        "name": "Criar comentário",
+        "description": "Comenta em uma página ou bloco, abrindo uma nova discussão, ou responde a uma discussão existente. Envie parent ou discussion_id, não os dois."
+      },
+      "es": {
+        "name": "Crear comentario",
+        "description": "Comenta en una página o bloque, abriendo una nueva discusión, o responde a una discusión existente. Envía parent o discussion_id, no ambos."
+      },
+      "fr": {
+        "name": "Créer un commentaire",
+        "description": "Commente une page ou un bloc, en ouvrant une nouvelle discussion, ou répond à une discussion existante. Envoyez parent ou discussion_id, pas les deux."
+      }
+    },
+    "notion_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os membros e bots do workspace, sem convidados, com o id que as propriedades de pessoa e as menções aceitam."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los miembros y bots del workspace, sin invitados, con el id que aceptan las propiedades de persona y las menciones."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les membres et bots du workspace, sans invités, avec l'id que prennent les propriétés de personne et les mentions."
+      }
+    }
+  }
+}

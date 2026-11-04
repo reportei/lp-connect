@@ -1,0 +1,112 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts, tags, opportunities, notes and tasks in your customer's Keap app from your product or AI agent through Connect.",
+      "intro": "The Keap toolkit covers contacts, tags, sales pipeline opportunities and stages, notes, tasks and users: list, create and update contacts, apply or remove tags, create and move opportunities, and log notes and tasks. The customer connects Keap once with OAuth, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Lead capture into Keap", "body": "Create or update a contact when someone signs up in your product, with duplicate_option to avoid duplicates, then apply a tag that starts the right automation." },
+        { "title": "Pipeline updates from your app", "body": "Create an opportunity in a pipeline stage and change its stage_id when a deal moves, so the customer's pipeline matches what happens in your product." },
+        { "title": "AI agent as a sales assistant", "body": "Let an agent find a contact, log a note after a call and create a task assigned to the right user." }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos, tags, oportunidades, notas e tarefas no app Keap do seu cliente a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do Keap cobre contatos, tags, oportunidades e etapas do funil de vendas, notas, tarefas e usuários: listar, criar e atualizar contatos, aplicar ou remover tags, criar e mover oportunidades e registrar notas e tarefas. O cliente conecta o Keap uma vez por OAuth, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Captura de leads no Keap", "body": "Crie ou atualize um contato quando alguém se cadastra no seu produto, com duplicate_option para evitar duplicados, e aplique uma tag que dispara a automação certa." },
+        { "title": "Funil atualizado pelo seu app", "body": "Crie uma oportunidade em uma etapa do funil e mude o stage_id quando um negócio avançar, para o funil do cliente refletir o que acontece no seu produto." },
+        { "title": "Agente de IA como assistente de vendas", "body": "Deixe um agente achar um contato, registrar uma nota após uma ligação e criar uma tarefa atribuída ao usuário certo." }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos, tags, oportunidades, notas y tareas en la app Keap de tu cliente desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de Keap cubre contactos, tags, oportunidades y etapas del embudo de ventas, notas, tareas y usuarios: listar, crear y actualizar contactos, aplicar o quitar tags, crear y mover oportunidades y registrar notas y tareas. El cliente conecta Keap una vez con OAuth, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Captura de leads en Keap", "body": "Crea o actualiza un contacto cuando alguien se registra en tu producto, con duplicate_option para evitar duplicados, y aplica un tag que dispare la automatización correcta." },
+        { "title": "Embudo actualizado desde tu app", "body": "Crea una oportunidad en una etapa del embudo y cambia su stage_id cuando un negocio avance, para que el embudo del cliente refleje lo que pasa en tu producto." },
+        { "title": "Agente de IA como asistente de ventas", "body": "Deja que un agente encuentre un contacto, registre una nota tras una llamada y cree una tarea asignada al usuario correcto." }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts, tags, opportunités, notes et tâches dans l'app Keap de votre client depuis votre produit ou agent IA via Connect.",
+      "intro": "Le toolkit Keap couvre les contacts, les tags, les opportunités et étapes du pipeline de vente, les notes, les tâches et les utilisateurs : lister, créer et modifier des contacts, appliquer ou retirer des tags, créer et déplacer des opportunités, et consigner notes et tâches. Le client connecte Keap une fois par OAuth, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Capture de leads dans Keap", "body": "Créez ou mettez à jour un contact quand quelqu'un s'inscrit dans votre produit, avec duplicate_option pour éviter les doublons, puis appliquez un tag qui lance la bonne automatisation." },
+        { "title": "Pipeline mis à jour par votre app", "body": "Créez une opportunité à une étape du pipeline et changez son stage_id quand une affaire avance, pour que le pipeline du client reflète ce qui se passe dans votre produit." },
+        { "title": "Agent IA assistant commercial", "body": "Laissez un agent retrouver un contact, consigner une note après un appel et créer une tâche assignée au bon utilisateur." }
+      ]
+    }
+  },
+  "tools": {
+    "keap_list_contacts": {
+      "pt": { "name": "Listar contatos", "description": "Lista os contatos do app Keap em contacts, com next_page_token para a página seguinte. Sem fields, cada contato vem com um conjunto padrão de propriedades. Filtre por email, nome, ids e outros campos com filter." },
+      "es": { "name": "Listar contactos", "description": "Lista los contactos de la app Keap en contacts, con next_page_token para la página siguiente. Sin fields, cada contacto viene con un conjunto predeterminado de propiedades. Filtra por email, nombre, ids y otros campos con filter." },
+      "fr": { "name": "Lister les contacts", "description": "Liste les contacts de l'app Keap dans contacts, avec next_page_token pour la page suivante. Sans fields, chaque contact vient avec un ensemble de propriétés par défaut. Filtrez par email, nom, ids et autres champs avec filter." }
+    },
+    "keap_create_contact": {
+      "pt": { "name": "Criar contato", "description": "Cria um contato e o retorna. Exige ao menos um item em email_addresses, phone_numbers ou addresses. Com duplicate_option, um contato correspondente é atualizado em vez de criar um novo." },
+      "es": { "name": "Crear contacto", "description": "Crea un contacto y lo devuelve. Requiere al menos un elemento en email_addresses, phone_numbers o addresses. Con duplicate_option, un contacto coincidente se actualiza en lugar de crear uno nuevo." },
+      "fr": { "name": "Créer un contact", "description": "Crée un contact et le renvoie. Il faut au moins un élément dans email_addresses, phone_numbers ou addresses. Avec duplicate_option, un contact correspondant est mis à jour au lieu d'en créer un nouveau." }
+    },
+    "keap_update_contact": {
+      "pt": { "name": "Atualizar contato", "description": "Atualiza os campos enviados e retorna o contato. Campos omitidos mantêm os valores, mas cada lista enviada (email_addresses, phone_numbers, addresses) substitui a lista inteira." },
+      "es": { "name": "Actualizar contacto", "description": "Actualiza los campos enviados y devuelve el contacto. Los campos omitidos mantienen sus valores, pero cada lista enviada (email_addresses, phone_numbers, addresses) reemplaza la lista completa." },
+      "fr": { "name": "Modifier un contact", "description": "Met à jour les champs envoyés et renvoie le contact. Les champs omis gardent leurs valeurs, mais chaque liste envoyée (email_addresses, phone_numbers, addresses) remplace toute la liste." }
+    },
+    "keap_list_tags": {
+      "pt": { "name": "Listar tags", "description": "Lista as tags do app Keap em tags, com id, name, description e category, e next_page_token para a página seguinte." },
+      "es": { "name": "Listar tags", "description": "Lista los tags de la app Keap en tags, con id, name, description y category, y next_page_token para la página siguiente." },
+      "fr": { "name": "Lister les tags", "description": "Liste les tags de l'app Keap dans tags, avec id, name, description et category, et next_page_token pour la page suivante." }
+    },
+    "keap_create_tag": {
+      "pt": { "name": "Criar tag", "description": "Cria uma tag e a retorna com seu id. A tag não é aplicada a ninguém até Aplicar tag." },
+      "es": { "name": "Crear tag", "description": "Crea un tag y lo devuelve con su id. El tag no se aplica a nadie hasta Aplicar tag." },
+      "fr": { "name": "Créer un tag", "description": "Crée un tag et le renvoie avec son id. Le tag n'est appliqué à personne avant Appliquer un tag." }
+    },
+    "keap_apply_tag": {
+      "pt": { "name": "Aplicar tag", "description": "Aplica uma tag a um ou mais contatos. Aplicar uma tag pode disparar as automações do app Keap que a escutam, como sequências de email." },
+      "es": { "name": "Aplicar tag", "description": "Aplica un tag a uno o más contactos. Aplicar un tag puede disparar las automatizaciones de la app Keap que lo escuchan, como secuencias de email." },
+      "fr": { "name": "Appliquer un tag", "description": "Applique un tag à un ou plusieurs contacts. Appliquer un tag peut déclencher les automatisations de l'app Keap qui l'écoutent, comme les séquences d'emails." }
+    },
+    "keap_remove_tag": {
+      "pt": { "name": "Remover tag", "description": "Remove uma tag de um ou mais contatos. A tag em si continua no app Keap." },
+      "es": { "name": "Quitar tag", "description": "Quita un tag de uno o más contactos. El tag en sí permanece en la app Keap." },
+      "fr": { "name": "Retirer un tag", "description": "Retire un tag d'un ou plusieurs contacts. Le tag lui-même reste dans l'app Keap." }
+    },
+    "keap_list_opportunities": {
+      "pt": { "name": "Listar oportunidades", "description": "Lista as oportunidades do funil de vendas em opportunities, cada uma com seu contato, etapa e usuário, e next_page_token para a página seguinte." },
+      "es": { "name": "Listar oportunidades", "description": "Lista las oportunidades del embudo de ventas en opportunities, cada una con su contacto, etapa y usuario, y next_page_token para la página siguiente." },
+      "fr": { "name": "Lister les opportunités", "description": "Liste les opportunités du pipeline de vente dans opportunities, chacune avec son contact, son étape et son utilisateur, et next_page_token pour la page suivante." }
+    },
+    "keap_create_opportunity": {
+      "pt": { "name": "Criar oportunidade", "description": "Cria uma oportunidade para um contato em uma etapa do funil e a retorna. opportunity_title, contact_id e stage_id são obrigatórios." },
+      "es": { "name": "Crear oportunidad", "description": "Crea una oportunidad para un contacto en una etapa del embudo y la devuelve. opportunity_title, contact_id y stage_id son obligatorios." },
+      "fr": { "name": "Créer une opportunité", "description": "Crée une opportunité pour un contact à une étape du pipeline et la renvoie. opportunity_title, contact_id et stage_id sont obligatoires." }
+    },
+    "keap_update_opportunity": {
+      "pt": { "name": "Atualizar oportunidade", "description": "Atualiza os campos enviados e retorna a oportunidade. Campos omitidos mantêm os valores. Mover a oportunidade para outra etapa é uma mudança de stage_id." },
+      "es": { "name": "Actualizar oportunidad", "description": "Actualiza los campos enviados y devuelve la oportunidad. Los campos omitidos mantienen sus valores. Mover la oportunidad a otra etapa es un cambio de stage_id." },
+      "fr": { "name": "Modifier une opportunité", "description": "Met à jour les champs envoyés et renvoie l'opportunité. Les champs omis gardent leurs valeurs. Déplacer l'opportunité vers une autre étape revient à changer stage_id." }
+    },
+    "keap_create_note": {
+      "pt": { "name": "Criar nota", "description": "Adiciona uma nota a um contato e a retorna. user_id é obrigatório, e title ou type também." },
+      "es": { "name": "Crear nota", "description": "Agrega una nota a un contacto y la devuelve. user_id es obligatorio, y también title o type." },
+      "fr": { "name": "Créer une note", "description": "Ajoute une note à un contact et la renvoie. user_id est obligatoire, ainsi que title ou type." }
+    },
+    "keap_create_task": {
+      "pt": { "name": "Criar tarefa", "description": "Cria uma tarefa atribuída a um usuário, opcionalmente sobre um contato ou uma oportunidade, e a retorna. title e assigned_to_user_id são obrigatórios." },
+      "es": { "name": "Crear tarea", "description": "Crea una tarea asignada a un usuario, opcionalmente sobre un contacto o una oportunidad, y la devuelve. title y assigned_to_user_id son obligatorios." },
+      "fr": { "name": "Créer une tâche", "description": "Crée une tâche assignée à un utilisateur, éventuellement liée à un contact ou à une opportunité, et la renvoie. title et assigned_to_user_id sont obligatoires." }
+    },
+    "keap_list_opportunity_stages": {
+      "pt": { "name": "Listar etapas de oportunidade", "description": "Lista as etapas do funil de vendas em stages, com id, name, order e probabilidade de ganho. Os ids são o stage_id que as ferramentas de oportunidade recebem." },
+      "es": { "name": "Listar etapas de oportunidad", "description": "Lista las etapas del embudo de ventas en stages, con id, name, order y probabilidad de ganar. Los ids son el stage_id que reciben las herramientas de oportunidades." },
+      "fr": { "name": "Lister les étapes d'opportunité", "description": "Liste les étapes du pipeline de vente dans stages, avec id, name, order et probabilité de gain. Les ids sont le stage_id que prennent les outils d'opportunités." }
+    },
+    "keap_list_users": {
+      "pt": { "name": "Listar usuários", "description": "Lista os usuários do app Keap em users, com id, nomes, emails, admin e status, e next_page_token para a página seguinte. O id deles é o owner_id, user_id e assigned_to_user_id que as outras ferramentas recebem." },
+      "es": { "name": "Listar usuarios", "description": "Lista los usuarios de la app Keap en users, con id, nombres, emails, admin y status, y next_page_token para la página siguiente. Su id es el owner_id, user_id y assigned_to_user_id que reciben las demás herramientas." },
+      "fr": { "name": "Lister les utilisateurs", "description": "Liste les utilisateurs de l'app Keap dans users, avec id, noms, emails, admin et status, et next_page_token pour la page suivante. Leur id est l'owner_id, le user_id et l'assigned_to_user_id que prennent les autres outils." }
+    }
+  }
+}

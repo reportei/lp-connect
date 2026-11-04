@@ -1,0 +1,288 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage contacts and lists, send campaign drafts and read email statistics in your customer's Mailjet account through one Reportei Connect endpoint.",
+      "intro": "The Mailjet toolkit covers contacts, contact lists, contact properties, senders, templates, campaign drafts and email statistics. Your customer connects once with their Mailjet credentials, and your product or AI agent calls each operation through Connect, which stores them and logs every execution.",
+      "useCases": [
+        {
+          "title": "Sync users to mailing lists",
+          "body": "Add a contact to a list by email as users sign up, with name and properties, and unsubscribe or remove them when they leave."
+        },
+        {
+          "title": "Send campaigns from your product",
+          "body": "Create a campaign draft with a sender, a list and a template, then schedule it or send it to the list right away."
+        },
+        {
+          "title": "Deliverability reports for agents",
+          "body": "Let an AI agent read sent, delivered, opened, clicked, bounced and spam counts for a campaign, a list or a sender, over time."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie contatos e listas, envie rascunhos de campanha e leia estatísticas de email na conta Mailjet do seu cliente por um endpoint do Reportei Connect.",
+      "intro": "O toolkit do Mailjet cobre contatos, listas de contatos, propriedades de contato, remetentes, templates, rascunhos de campanha e estatísticas de email. Seu cliente conecta uma vez com as credenciais do Mailjet, e seu produto ou agente de IA chama cada operação pelo Connect, que as guarda e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Sincronizar usuários com listas",
+          "body": "Adicione um contato a uma lista por email conforme os usuários se cadastram, com nome e propriedades, e cancele a inscrição ou remova quando saírem."
+        },
+        {
+          "title": "Enviar campanhas pelo seu produto",
+          "body": "Crie um rascunho de campanha com remetente, lista e template, e depois agende o envio ou envie para a lista na hora."
+        },
+        {
+          "title": "Relatórios de entregabilidade por agente",
+          "body": "Deixe um agente de IA ler as contagens de enviados, entregues, abertos, clicados, rejeitados e spam de uma campanha, lista ou remetente ao longo do tempo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona contactos y listas, envía borradores de campaña y lee estadísticas de email en el Mailjet de tu cliente con un endpoint de Reportei Connect.",
+      "intro": "El toolkit de Mailjet cubre contactos, listas de contactos, propiedades de contacto, remitentes, plantillas, borradores de campaña y estadísticas de email. Tu cliente conecta una vez con sus credenciales de Mailjet, y tu producto o agente de IA llama cada operación a través de Connect, que las guarda y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Sincronizar usuarios con listas",
+          "body": "Añade un contacto a una lista por email cuando los usuarios se registran, con nombre y propiedades, y date de baja o elimínalo cuando se vayan."
+        },
+        {
+          "title": "Enviar campañas desde tu producto",
+          "body": "Crea un borrador de campaña con remitente, lista y plantilla, y luego prográmalo o envíalo a la lista de inmediato."
+        },
+        {
+          "title": "Informes de entregabilidad con agentes",
+          "body": "Deja que un agente de IA lea los conteos de enviados, entregados, abiertos, clicados, rebotados y spam de una campaña, lista o remitente a lo largo del tiempo."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez contacts et listes, envoyez des brouillons de campagne et lisez les statistiques email du compte Mailjet de votre client via Reportei Connect.",
+      "intro": "Le toolkit Mailjet couvre les contacts, listes de contacts, propriétés de contact, expéditeurs, modèles, brouillons de campagne et statistiques d'email. Votre client se connecte une fois avec ses identifiants Mailjet, et votre produit ou agent IA appelle chaque opération via Connect, qui les stocke et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Synchroniser les utilisateurs avec les listes",
+          "body": "Ajoutez un contact à une liste par email à l'inscription des utilisateurs, avec nom et propriétés, et désabonnez-le ou retirez-le quand il part."
+        },
+        {
+          "title": "Envoyer des campagnes depuis votre produit",
+          "body": "Créez un brouillon de campagne avec expéditeur, liste et modèle, puis planifiez-le ou envoyez-le tout de suite à la liste."
+        },
+        {
+          "title": "Rapports de délivrabilité par agent",
+          "body": "Laissez un agent IA lire les nombres d'envoyés, délivrés, ouverts, cliqués, rebonds et spam d'une campagne, d'une liste ou d'un expéditeur dans le temps."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "mailjet_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos da conta com email, nome, status de exclusão e datas de atividade, opcionalmente só os de uma lista. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos de la cuenta con email, nombre, estado de exclusión y fechas de actividad, opcionalmente solo los de una lista. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts du compte avec email, nom, statut d'exclusion et dates d'activité, éventuellement seulement ceux d'une liste. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_get_contact": {
+      "pt": {
+        "name": "Obter contato",
+        "description": "Retorna um contato, encontrado pelo ID ou pelo endereço de email, com nome, status de exclusão e datas de atividade. Use para obter o ID de um contato que você só conhece pelo email."
+      },
+      "es": {
+        "name": "Obtener contacto",
+        "description": "Devuelve un contacto, encontrado por su ID o por su dirección de email, con nombre, estado de exclusión y fechas de actividad. Úsalo para obtener el ID de un contacto que solo conoces por el email."
+      },
+      "fr": {
+        "name": "Obtenir un contact",
+        "description": "Renvoie un contact, trouvé par son ID ou son adresse email, avec nom, statut d'exclusion et dates d'activité. Utilisez-le pour obtenir l'ID d'un contact que vous ne connaissez que par son email."
+      }
+    },
+    "mailjet_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Altera o nome de um contato ou sua exclusão de emails de marketing. Só os campos enviados mudam. Um contato excluído continua recebendo emails transacionais."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Cambia el nombre de un contacto o su exclusión de emails de marketing. Solo cambian los campos enviados. Un contacto excluido sigue recibiendo emails transaccionales."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Modifie le nom d'un contact ou son exclusion des emails marketing. Seuls les champs envoyés changent. Un contact exclu reçoit toujours les emails transactionnels."
+      }
+    },
+    "mailjet_list_contact_lists": {
+      "pt": {
+        "name": "Listar listas de contatos",
+        "description": "Lista as listas de contatos com ID, nome, número de inscritos e status de exclusão. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar listas de contactos",
+        "description": "Lista las listas de contactos con ID, nombre, número de suscriptores y estado de eliminación. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les listes de contacts",
+        "description": "Liste les listes de contacts avec ID, nom, nombre d'abonnés et statut de suppression. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_create_contact_list": {
+      "pt": {
+        "name": "Criar lista de contatos",
+        "description": "Cria uma lista de contatos vazia e a retorna com seu ID."
+      },
+      "es": {
+        "name": "Crear lista de contactos",
+        "description": "Crea una lista de contactos vacía y la devuelve con su ID."
+      },
+      "fr": {
+        "name": "Créer une liste de contacts",
+        "description": "Crée une liste de contacts vide et la renvoie avec son ID."
+      }
+    },
+    "mailjet_manage_list_contact": {
+      "pt": {
+        "name": "Gerenciar contato da lista",
+        "description": "Adiciona um contato a uma lista por email, criando o contato quando o email é novo e definindo seu nome e propriedades, ou cancela a inscrição ou o remove da lista, conforme Action."
+      },
+      "es": {
+        "name": "Gestionar contacto de la lista",
+        "description": "Añade un contacto a una lista por email, creando el contacto cuando el email es nuevo y fijando su nombre y propiedades, o lo da de baja o lo elimina de la lista, según Action."
+      },
+      "fr": {
+        "name": "Gérer un contact de liste",
+        "description": "Ajoute un contact à une liste par email, en créant le contact quand l'email est nouveau et en définissant son nom et ses propriétés, ou le désabonne ou le retire de la liste, selon Action."
+      }
+    },
+    "mailjet_list_contact_properties": {
+      "pt": {
+        "name": "Listar propriedades de contato",
+        "description": "Lista as propriedades de contato da conta com nome, tipo de dado e namespace. Os nomes são as chaves de Properties em Manage list contact. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar propiedades de contacto",
+        "description": "Lista las propiedades de contacto de la cuenta con nombre, tipo de dato y namespace. Los nombres son las claves de Properties en Manage list contact. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les propriétés de contact",
+        "description": "Liste les propriétés de contact du compte avec nom, type de données et namespace. Les noms sont les clés de Properties dans Manage list contact. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_list_senders": {
+      "pt": {
+        "name": "Listar remetentes",
+        "description": "Lista os endereços e domínios remetentes da conta com ID, email, nome e status. Só um remetente Active pode enviar uma campanha. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar remitentes",
+        "description": "Lista las direcciones y dominios remitentes de la cuenta con ID, email, nombre y estado. Solo un remitente Active puede enviar una campaña. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les expéditeurs",
+        "description": "Liste les adresses et domaines expéditeurs du compte avec ID, email, nom et statut. Seul un expéditeur Active peut envoyer une campagne. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_list_templates": {
+      "pt": {
+        "name": "Listar templates",
+        "description": "Lista os templates de email com ID, nome, finalidades e modo de edição. O ID liga um template a um rascunho de campanha como seu conteúdo. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar plantillas",
+        "description": "Lista las plantillas de email con ID, nombre, propósitos y modo de edición. El ID vincula una plantilla a un borrador de campaña como su contenido. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les modèles",
+        "description": "Liste les modèles d'email avec ID, nom, usages et mode d'édition. L'ID relie un modèle à un brouillon de campagne comme contenu. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_list_campaign_drafts": {
+      "pt": {
+        "name": "Listar rascunhos de campanha",
+        "description": "Lista os rascunhos de campanha com ID, título, assunto, remetente, lista, status e, depois de enviada, o CampaignID usado por Get statistics. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Listar borradores de campaña",
+        "description": "Lista los borradores de campaña con ID, título, asunto, remitente, lista, estado y, una vez enviada, el CampaignID que usa Get statistics. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Lister les brouillons de campagne",
+        "description": "Liste les brouillons de campagne avec ID, titre, objet, expéditeur, liste, statut et, une fois envoyée, le CampaignID utilisé par Get statistics. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    },
+    "mailjet_create_campaign_draft": {
+      "pt": {
+        "name": "Criar rascunho de campanha",
+        "description": "Cria um rascunho de campanha e o retorna com seu ID. Para enviar, precisa de Sender, SenderEmail e ContactsListID, mais conteúdo: vincule um template com TemplateID ou escreva o conteúdo no editor do Mailjet."
+      },
+      "es": {
+        "name": "Crear borrador de campaña",
+        "description": "Crea un borrador de campaña y lo devuelve con su ID. Para enviarlo necesita Sender, SenderEmail y ContactsListID, más contenido: vincula una plantilla con TemplateID o escribe el contenido en el editor de Mailjet."
+      },
+      "fr": {
+        "name": "Créer un brouillon de campagne",
+        "description": "Crée un brouillon de campagne et le renvoie avec son ID. L'envoi exige Sender, SenderEmail et ContactsListID, plus un contenu : reliez un modèle avec TemplateID ou rédigez le contenu dans l'éditeur Mailjet."
+      }
+    },
+    "mailjet_update_campaign_draft": {
+      "pt": {
+        "name": "Atualizar rascunho de campanha",
+        "description": "Atualiza um rascunho de campanha que ainda não foi enviado. Só os campos enviados mudam. Status arquiva ou exclui o rascunho, ou o tira do arquivo."
+      },
+      "es": {
+        "name": "Actualizar borrador de campaña",
+        "description": "Actualiza un borrador de campaña que aún no se envió. Solo cambian los campos enviados. Status archiva o elimina el borrador, o lo saca del archivo."
+      },
+      "fr": {
+        "name": "Mettre à jour un brouillon de campagne",
+        "description": "Met à jour un brouillon de campagne pas encore envoyé. Seuls les champs envoyés changent. Status archive ou supprime le brouillon, ou le sort des archives."
+      }
+    },
+    "mailjet_schedule_campaign_draft": {
+      "pt": {
+        "name": "Agendar rascunho de campanha",
+        "description": "Agenda o envio de um rascunho de campanha para sua lista. O rascunho precisa de remetente, lista e conteúdo. O Mailjet envia em Date, e os emails saem para todos os contatos inscritos da lista."
+      },
+      "es": {
+        "name": "Programar borrador de campaña",
+        "description": "Programa el envío de un borrador de campaña a su lista. El borrador necesita remitente, lista y contenido. Mailjet lo envía en Date, y los emails salen a todos los contactos suscritos de la lista."
+      },
+      "fr": {
+        "name": "Planifier un brouillon de campagne",
+        "description": "Planifie l'envoi d'un brouillon de campagne à sa liste. Le brouillon exige un expéditeur, une liste et un contenu. Mailjet l'envoie à Date, et les emails partent vers tous les contacts abonnés de la liste."
+      }
+    },
+    "mailjet_send_campaign_draft": {
+      "pt": {
+        "name": "Enviar rascunho de campanha",
+        "description": "Envia um rascunho de campanha na hora para todos os contatos inscritos da sua lista. O rascunho precisa de remetente, lista e conteúdo, e o envio não pode ser desfeito."
+      },
+      "es": {
+        "name": "Enviar borrador de campaña",
+        "description": "Envía un borrador de campaña de inmediato a todos los contactos suscritos de su lista. El borrador necesita remitente, lista y contenido, y el envío no se puede deshacer."
+      },
+      "fr": {
+        "name": "Envoyer un brouillon de campagne",
+        "description": "Envoie un brouillon de campagne immédiatement à tous les contacts abonnés de sa liste. Le brouillon exige un expéditeur, une liste et un contenu, et l'envoi est irréversible."
+      }
+    },
+    "mailjet_get_statistics": {
+      "pt": {
+        "name": "Obter estatísticas",
+        "description": "Retorna as contagens de enviados, entregues, abertos, clicados, rejeitados, spam e cancelamentos de uma campanha, lista, remetente ou de toda a API key, no total ou a cada 5 minutos, hora ou dia. A resposta traz Data, Count e Total; pagine com Limit e Offset."
+      },
+      "es": {
+        "name": "Obtener estadísticas",
+        "description": "Devuelve los conteos de enviados, entregados, abiertos, clicados, rebotados, spam y bajas de una campaña, lista, remitente o de toda la API key, en total o cada 5 minutos, hora o día. La respuesta trae Data, Count y Total; pagina con Limit y Offset."
+      },
+      "fr": {
+        "name": "Obtenir les statistiques",
+        "description": "Renvoie les nombres d'envoyés, délivrés, ouverts, cliqués, rebonds, spam et désabonnés d'une campagne, d'une liste, d'un expéditeur ou de toute la API key, au total ou toutes les 5 minutes, heures ou jours. La réponse contient Data, Count et Total ; paginez avec Limit et Offset."
+      }
+    }
+  }
+}

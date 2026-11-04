@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and write docs, pages, tables and rows in your customer's Superhuman Docs (Coda) account through one Connect endpoint.",
+      "intro": "The toolkit covers docs, pages, tables, columns and rows: list and create docs, read and write page content, and read, insert, update and delete table rows. Your product or AI agent calls them through Connect, which stores the API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "Use a doc as a database",
+          "body": "A SaaS writes rows into a table of the customer's doc with Create rows and updates them later, matching on key columns."
+        },
+        {
+          "title": "Generate pages from your data",
+          "body": "An agency tool creates a page with Markdown content in a doc, then edits or appends to it as the data changes."
+        },
+        {
+          "title": "Agent that reads team docs",
+          "body": "An AI agent lists docs and pages, reads a page's content as text and queries table rows to answer questions."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia e escreva docs, páginas, tabelas e linhas no Superhuman Docs (Coda) do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit cobre docs, páginas, tabelas, colunas e linhas: lista e cria docs, lê e escreve o conteúdo das páginas, e lê, insere, atualiza e exclui linhas de tabelas. Seu produto ou agente de IA os chama pelo Connect, que guarda a API key e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Um doc como banco de dados",
+          "body": "Um SaaS grava linhas em uma tabela do doc do cliente com Criar linhas e as atualiza depois, casando por colunas-chave."
+        },
+        {
+          "title": "Páginas geradas dos seus dados",
+          "body": "Uma ferramenta de agência cria uma página com conteúdo em Markdown em um doc e depois a edita ou acrescenta conteúdo conforme os dados mudam."
+        },
+        {
+          "title": "Agente que lê os docs do time",
+          "body": "Um agente de IA lista docs e páginas, lê o conteúdo de uma página como texto e consulta linhas de tabelas para responder perguntas."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lee y escribe docs, páginas, tablas y filas en el Superhuman Docs (Coda) de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit cubre docs, páginas, tablas, columnas y filas: lista y crea docs, lee y escribe el contenido de las páginas, y lee, inserta, actualiza y elimina filas de tablas. Tu producto o agente de IA los llama por Connect, que guarda la API key y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Un doc como base de datos",
+          "body": "Un SaaS escribe filas en una tabla del doc del cliente con Crear filas y las actualiza después, cruzando por columnas clave."
+        },
+        {
+          "title": "Páginas generadas desde tus datos",
+          "body": "Una herramienta de agencia crea una página con contenido en Markdown en un doc y luego la edita o agrega contenido a medida que cambian los datos."
+        },
+        {
+          "title": "Agente que lee los docs del equipo",
+          "body": "Un agente de IA lista docs y páginas, lee el contenido de una página como texto y consulta filas de tablas para responder preguntas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez et écrivez docs, pages, tables et lignes dans le Superhuman Docs (Coda) de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit couvre docs, pages, tables, colonnes et lignes : liste et création de docs, lecture et écriture du contenu des pages, lecture, insertion, mise à jour et suppression de lignes. Votre produit ou agent IA les appelle via Connect, qui stocke la clé API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Un doc comme base de données",
+          "body": "Un SaaS écrit des lignes dans une table du doc du client avec Créer des lignes et les met à jour ensuite, en faisant correspondre des colonnes clés."
+        },
+        {
+          "title": "Pages générées depuis vos données",
+          "body": "Un outil d'agence crée une page en Markdown dans un doc, puis la modifie ou y ajoute du contenu quand les données changent."
+        },
+        {
+          "title": "Agent qui lit les docs de l'équipe",
+          "body": "Un agent IA liste docs et pages, lit le contenu d'une page en texte et interroge les lignes de tables pour répondre aux questions."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "coda_list_docs": {
+      "pt": {
+        "name": "Listar docs",
+        "description": "Lista os docs que o usuário pode acessar e já abriu ao menos uma vez, do mais recente ao mais antigo, com id, name, owner, workspace e browserLink. Envie nextPageToken como pageToken para a próxima página."
+      },
+      "es": {
+        "name": "Listar docs",
+        "description": "Lista los docs a los que el usuario puede acceder y que abrió al menos una vez, del más reciente al más antiguo, con id, name, owner, workspace y browserLink. Envía nextPageToken como pageToken para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les docs",
+        "description": "Liste les docs auxquels l'utilisateur peut accéder et qu'il a ouverts au moins une fois, du plus récent au plus ancien, avec id, name, owner, workspace et browserLink. Envoyez nextPageToken comme pageToken pour la page suivante."
+      }
+    },
+    "coda_create_doc": {
+      "pt": {
+        "name": "Criar doc",
+        "description": "Cria um doc, vazio ou como cópia de outro, na pasta My docs do workspace mais antigo do usuário. Exige o papel Doc Maker no workspace."
+      },
+      "es": {
+        "name": "Crear doc",
+        "description": "Crea un doc, vacío o como copia de otro, en la carpeta My docs del workspace más antiguo del usuario. Exige el rol Doc Maker en el workspace."
+      },
+      "fr": {
+        "name": "Créer un doc",
+        "description": "Crée un doc, vide ou copie d'un autre, dans le dossier My docs du plus ancien workspace de l'utilisateur. Exige le rôle Doc Maker dans le workspace."
+      }
+    },
+    "coda_list_pages": {
+      "pt": {
+        "name": "Listar páginas",
+        "description": "Lista as páginas de um doc com id, name, subtitle, parent e children. Envie nextPageToken como pageToken para a próxima página."
+      },
+      "es": {
+        "name": "Listar páginas",
+        "description": "Lista las páginas de un doc con id, name, subtitle, parent y children. Envía nextPageToken como pageToken para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les pages",
+        "description": "Liste les pages d'un doc avec id, name, subtitle, parent et children. Envoyez nextPageToken comme pageToken pour la page suivante."
+      }
+    },
+    "coda_list_page_content": {
+      "pt": {
+        "name": "Listar conteúdo da página",
+        "description": "Devolve o conteúdo de uma página como texto simples, elemento por elemento. Envie nextPageToken como pageToken para a próxima parte."
+      },
+      "es": {
+        "name": "Listar contenido de la página",
+        "description": "Devuelve el contenido de una página como texto plano, elemento por elemento. Envía nextPageToken como pageToken para la parte siguiente."
+      },
+      "fr": {
+        "name": "Lister le contenu d'une page",
+        "description": "Renvoie le contenu d'une page en texte brut, élément par élément. Envoyez nextPageToken comme pageToken pour la partie suivante."
+      }
+    },
+    "coda_create_page": {
+      "pt": {
+        "name": "Criar página",
+        "description": "Cria uma página em um doc, ou uma subpágina, com conteúdo em Markdown ou HTML. A alteração entra na fila e aparece em alguns segundos; a resposta traz o id da página."
+      },
+      "es": {
+        "name": "Crear página",
+        "description": "Crea una página en un doc, o una subpágina, con contenido en Markdown o HTML. El cambio entra en cola y aparece en unos segundos; la respuesta trae el id de la página."
+      },
+      "fr": {
+        "name": "Créer une page",
+        "description": "Crée une page dans un doc, ou une sous-page, avec du contenu en Markdown ou HTML. Le changement est mis en file et apparaît en quelques secondes ; la réponse contient l'id de la page."
+      }
+    },
+    "coda_update_page": {
+      "pt": {
+        "name": "Atualizar página",
+        "description": "Renomeia uma página ou adiciona conteúdo a ela, no fim, no início ou substituindo tudo. A alteração entra na fila e aparece em alguns segundos."
+      },
+      "es": {
+        "name": "Actualizar página",
+        "description": "Renombra una página o le agrega contenido, al final, al inicio o reemplazando todo. El cambio entra en cola y aparece en unos segundos."
+      },
+      "fr": {
+        "name": "Mettre à jour une page",
+        "description": "Renomme une page ou y ajoute du contenu, à la fin, au début ou en remplaçant tout. Le changement est mis en file et apparaît en quelques secondes."
+      }
+    },
+    "coda_list_tables": {
+      "pt": {
+        "name": "Listar tabelas",
+        "description": "Lista as tabelas e views de um doc com id, name, type e a página pai. Linhas só são gravadas em tabelas, não em views."
+      },
+      "es": {
+        "name": "Listar tablas",
+        "description": "Lista las tablas y vistas de un doc con id, name, type y la página padre. Las filas solo se escriben en tablas, no en vistas."
+      },
+      "fr": {
+        "name": "Lister les tables",
+        "description": "Liste les tables et vues d'un doc avec id, name, type et la page parente. Les lignes ne s'écrivent que dans les tables, pas dans les vues."
+      }
+    },
+    "coda_list_columns": {
+      "pt": {
+        "name": "Listar colunas",
+        "description": "Lista as colunas de uma tabela com id, name e format. Os ids das colunas vão nas cells de Criar linhas e Atualizar linha e na query de Listar linhas."
+      },
+      "es": {
+        "name": "Listar columnas",
+        "description": "Lista las columnas de una tabla con id, name y format. Los ids de las columnas van en las cells de Crear filas y Actualizar fila y en la query de Listar filas."
+      },
+      "fr": {
+        "name": "Lister les colonnes",
+        "description": "Liste les colonnes d'une table avec id, name et format. Les ids de colonnes vont dans les cells de Créer des lignes et Mettre à jour une ligne, et dans la query de Lister les lignes."
+      }
+    },
+    "coda_list_rows": {
+      "pt": {
+        "name": "Listar linhas",
+        "description": "Lista as linhas de uma tabela ou view, da mais antiga para a mais nova salvo se sortBy disser o contrário, com id, name e os valores indexados pelo id da coluna. Os dados podem atrasar alguns segundos."
+      },
+      "es": {
+        "name": "Listar filas",
+        "description": "Lista las filas de una tabla o vista, de la más antigua a la más reciente salvo que sortBy indique otra cosa, con id, name y los valores indexados por el id de la columna. Los datos pueden tardar unos segundos."
+      },
+      "fr": {
+        "name": "Lister les lignes",
+        "description": "Liste les lignes d'une table ou vue, de la plus ancienne à la plus récente sauf si sortBy dit autre chose, avec id, name et les valeurs indexées par id de colonne. Les données peuvent avoir quelques secondes de retard."
+      }
+    },
+    "coda_create_rows": {
+      "pt": {
+        "name": "Criar linhas",
+        "description": "Insere linhas em uma tabela, ou atualiza as que casam com keyColumns. Toda linha correspondente é atualizada. Só tabelas base aceitam linhas, não views; a alteração entra na fila."
+      },
+      "es": {
+        "name": "Crear filas",
+        "description": "Inserta filas en una tabla, o actualiza las que coinciden con keyColumns. Toda fila coincidente se actualiza. Solo las tablas base aceptan filas, no las vistas; el cambio entra en cola."
+      },
+      "fr": {
+        "name": "Créer des lignes",
+        "description": "Insère des lignes dans une table, ou met à jour celles qui correspondent à keyColumns. Toute ligne correspondante est mise à jour. Seules les tables de base acceptent des lignes, pas les vues ; le changement est mis en file."
+      }
+    },
+    "coda_update_row": {
+      "pt": {
+        "name": "Atualizar linha",
+        "description": "Altera células de uma linha. A alteração entra na fila e aparece em alguns segundos."
+      },
+      "es": {
+        "name": "Actualizar fila",
+        "description": "Cambia celdas de una fila. El cambio entra en cola y aparece en unos segundos."
+      },
+      "fr": {
+        "name": "Mettre à jour une ligne",
+        "description": "Modifie des cellules d'une ligne. Le changement est mis en file et apparaît en quelques secondes."
+      }
+    },
+    "coda_delete_row": {
+      "pt": {
+        "name": "Excluir linha",
+        "description": "Exclui uma linha de uma tabela ou view. A exclusão entra na fila e é feita em alguns segundos."
+      },
+      "es": {
+        "name": "Eliminar fila",
+        "description": "Elimina una fila de una tabla o vista. La eliminación entra en cola y se hace en unos segundos."
+      },
+      "fr": {
+        "name": "Supprimer une ligne",
+        "description": "Supprime une ligne d'une table ou vue. La suppression est mise en file et effectuée en quelques secondes."
+      }
+    }
+  }
+}

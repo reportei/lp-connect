@@ -1,0 +1,288 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create conversations, send messages and manage contacts in your customer's Chatwoot Cloud account from your product or AI agent, through Connect.",
+      "intro": "The Chatwoot toolkit covers conversations, messages, contacts, inboxes, agents and teams of a Chatwoot Cloud account: start and assign conversations, change their status and labels, send messages or internal notes, and manage contacts. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Open a conversation from your app",
+          "body": "When a user needs help, find or create the contact, then create a conversation in the right inbox with a first message."
+        },
+        {
+          "title": "AI agent triage",
+          "body": "An agent reads the latest messages of a conversation, replies or leaves a private note, then labels, assigns it to an agent or team, and sets its status."
+        },
+        {
+          "title": "Keep contacts in sync",
+          "body": "Search contacts by email or phone and update their fields when the customer record changes in your CRM or SaaS."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie conversas, envie mensagens e gerencie contatos na conta Chatwoot Cloud do seu cliente a partir do seu produto ou agente de IA, pelo Connect.",
+      "intro": "O toolkit do Chatwoot cobre conversas, mensagens, contatos, caixas de entrada, agentes e times de uma conta Chatwoot Cloud: iniciar e atribuir conversas, mudar status e etiquetas, enviar mensagens ou notas internas e gerenciar contatos. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Abrir conversa a partir do app",
+          "body": "Quando um usuário precisa de ajuda, encontre ou crie o contato e crie uma conversa na caixa de entrada certa, já com a primeira mensagem."
+        },
+        {
+          "title": "Triagem por agente de IA",
+          "body": "Um agente lê as últimas mensagens de uma conversa, responde ou deixa uma nota privada, aplica etiquetas, atribui a um agente ou time e define o status."
+        },
+        {
+          "title": "Contatos sempre sincronizados",
+          "body": "Busque contatos por email ou telefone e atualize seus campos quando o cadastro do cliente mudar no seu CRM ou SaaS."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea conversaciones, envía mensajes y gestiona contactos en la cuenta Chatwoot Cloud de tu cliente desde tu producto o agente de IA, con Connect.",
+      "intro": "El toolkit de Chatwoot cubre las conversaciones, mensajes, contactos, bandejas, agentes y equipos de una cuenta Chatwoot Cloud: iniciar y asignar conversaciones, cambiar su estado y etiquetas, enviar mensajes o notas internas y gestionar contactos. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Abrir conversación desde tu app",
+          "body": "Cuando un usuario necesita ayuda, encuentra o crea el contacto y crea una conversación en la bandeja correcta con un primer mensaje."
+        },
+        {
+          "title": "Triaje con agente de IA",
+          "body": "Un agente lee los últimos mensajes de una conversación, responde o deja una nota privada, etiqueta, asigna a un agente o equipo y define el estado."
+        },
+        {
+          "title": "Contactos siempre sincronizados",
+          "body": "Busca contactos por email o teléfono y actualiza sus campos cuando cambie el registro del cliente en tu CRM o SaaS."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des conversations, envoyez des messages et gérez les contacts du compte Chatwoot Cloud de votre client depuis votre produit ou agent IA, via Connect.",
+      "intro": "Le toolkit Chatwoot couvre les conversations, messages, contacts, boîtes de réception, agents et équipes d'un compte Chatwoot Cloud : démarrer et assigner des conversations, changer leur statut et leurs étiquettes, envoyer des messages ou notes internes et gérer les contacts. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Ouvrir une conversation depuis l'app",
+          "body": "Quand un utilisateur a besoin d'aide, trouvez ou créez le contact, puis créez une conversation dans la bonne boîte avec un premier message."
+        },
+        {
+          "title": "Tri par agent IA",
+          "body": "Un agent lit les derniers messages d'une conversation, répond ou laisse une note privée, ajoute des étiquettes, assigne à un agent ou une équipe et fixe le statut."
+        },
+        {
+          "title": "Contacts toujours synchronisés",
+          "body": "Recherchez des contacts par email ou téléphone et mettez à jour leurs champs quand la fiche client change dans votre CRM ou SaaS."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "chatwoot_list_conversations": {
+      "pt": {
+        "name": "Listar conversas",
+        "description": "Lista as conversas de uma conta, por padrão as abertas, com status, etiquetas, inbox_id, can_reply, o contato em meta.sender, o responsável e a última mensagem. data.meta traz as contagens por tipo de responsável. As páginas começam em 1; um payload vazio significa que não há mais páginas."
+      },
+      "es": {
+        "name": "Listar conversaciones",
+        "description": "Lista las conversaciones de una cuenta, por defecto las abiertas, con estado, etiquetas, inbox_id, can_reply, el contacto en meta.sender, el responsable y el último mensaje. data.meta trae los conteos por tipo de responsable. Las páginas empiezan en 1; un payload vacío significa que no hay más páginas."
+      },
+      "fr": {
+        "name": "Lister les conversations",
+        "description": "Liste les conversations d'un compte, par défaut les ouvertes, avec statut, étiquettes, inbox_id, can_reply, le contact dans meta.sender, l'assigné et le dernier message. data.meta contient les compteurs par type d'assigné. Les pages commencent à 1 ; un payload vide signifie qu'il n'y a plus de pages."
+      }
+    },
+    "chatwoot_create_conversation": {
+      "pt": {
+        "name": "Criar conversa",
+        "description": "Inicia uma conversa com um contato em uma caixa de entrada, opcionalmente com uma primeira mensagem. source_id identifica o contato nessa caixa: vem de contact_inboxes em Search contacts, de Create contact ou de Create contact inbox. Em caixas de WhatsApp, a primeira mensagem vai como template aprovado em message.template_params."
+      },
+      "es": {
+        "name": "Crear conversación",
+        "description": "Inicia una conversación con un contacto en una bandeja, opcionalmente con un primer mensaje. source_id identifica al contacto en esa bandeja: viene de contact_inboxes en Search contacts, de Create contact o de Create contact inbox. En bandejas de WhatsApp, el primer mensaje va como plantilla aprobada en message.template_params."
+      },
+      "fr": {
+        "name": "Créer une conversation",
+        "description": "Démarre une conversation avec un contact dans une boîte, éventuellement avec un premier message. source_id identifie le contact dans cette boîte : il vient de contact_inboxes dans Search contacts, de Create contact ou de Create contact inbox. Dans les boîtes WhatsApp, le premier message part comme template approuvé dans message.template_params."
+      }
+    },
+    "chatwoot_update_conversation_status": {
+      "pt": {
+        "name": "Atualizar status da conversa",
+        "description": "Define o status de uma conversa: open, resolved, pending ou snoozed. Sem snoozed_until, uma conversa em snoozed espera a próxima resposta do contato, e qualquer resposta do contato a reabre."
+      },
+      "es": {
+        "name": "Actualizar estado de la conversación",
+        "description": "Define el estado de una conversación: open, resolved, pending o snoozed. Sin snoozed_until, una conversación en snoozed espera la próxima respuesta del contacto, y cualquier respuesta del contacto la reabre."
+      },
+      "fr": {
+        "name": "Mettre à jour le statut d'une conversation",
+        "description": "Définit le statut d'une conversation : open, resolved, pending ou snoozed. Sans snoozed_until, une conversation en snoozed attend la prochaine réponse du contact, et toute réponse du contact la rouvre."
+      }
+    },
+    "chatwoot_assign_conversation": {
+      "pt": {
+        "name": "Atribuir conversa",
+        "description": "Atribui uma conversa a um agente ou a um time. Quando assignee_id é enviado, team_id é ignorado."
+      },
+      "es": {
+        "name": "Asignar conversación",
+        "description": "Asigna una conversación a un agente o a un equipo. Cuando se envía assignee_id, team_id se ignora."
+      },
+      "fr": {
+        "name": "Assigner une conversation",
+        "description": "Assigne une conversation à un agent ou à une équipe. Quand assignee_id est envoyé, team_id est ignoré."
+      }
+    },
+    "chatwoot_update_conversation_labels": {
+      "pt": {
+        "name": "Atualizar etiquetas da conversa",
+        "description": "Define as etiquetas de uma conversa. A lista enviada substitui as etiquetas atuais, então deve incluir as que devem ficar."
+      },
+      "es": {
+        "name": "Actualizar etiquetas de la conversación",
+        "description": "Define las etiquetas de una conversación. La lista enviada reemplaza las etiquetas actuales, así que debe incluir las que se quieren conservar."
+      },
+      "fr": {
+        "name": "Mettre à jour les étiquettes d'une conversation",
+        "description": "Définit les étiquettes d'une conversation. La liste envoyée remplace les étiquettes actuelles : elle doit donc inclure celles à conserver."
+      }
+    },
+    "chatwoot_list_messages": {
+      "pt": {
+        "name": "Listar mensagens",
+        "description": "Retorna as últimas mensagens de uma conversa em ordem crescente, com meta contendo etiquetas, contato e responsável. sender_type diz quem enviou cada mensagem, e private marca notas internas. Para mensagens mais antigas, passe before com o id da mais antiga recebida."
+      },
+      "es": {
+        "name": "Listar mensajes",
+        "description": "Devuelve los últimos mensajes de una conversación en orden ascendente, con meta que contiene etiquetas, contacto y responsable. sender_type indica quién envió cada mensaje, y private marca las notas internas. Para mensajes más antiguos, pasa before con el id del más antiguo recibido."
+      },
+      "fr": {
+        "name": "Lister les messages",
+        "description": "Renvoie les derniers messages d'une conversation dans l'ordre croissant, avec meta contenant étiquettes, contact et assigné. sender_type indique qui a envoyé chaque message, et private marque les notes internes. Pour des messages plus anciens, passez before avec l'id du plus ancien reçu."
+      }
+    },
+    "chatwoot_create_message": {
+      "pt": {
+        "name": "Criar mensagem",
+        "description": "Envia uma mensagem em uma conversa. Uma mensagem de saída chega ao contato pelo canal da caixa de entrada, como WhatsApp, email ou widget do site; private true cria uma nota interna que só os agentes veem. No WhatsApp, template_params envia um template aprovado."
+      },
+      "es": {
+        "name": "Crear mensaje",
+        "description": "Envía un mensaje en una conversación. Un mensaje saliente llega al contacto por el canal de la bandeja, como WhatsApp, email o el widget del sitio; private true crea una nota interna que solo ven los agentes. En WhatsApp, template_params envía una plantilla aprobada."
+      },
+      "fr": {
+        "name": "Créer un message",
+        "description": "Envoie un message dans une conversation. Un message sortant arrive au contact par le canal de la boîte, comme WhatsApp, email ou le widget du site ; private true crée une note interne que seuls les agents voient. Sur WhatsApp, template_params envoie un template approuvé."
+      }
+    },
+    "chatwoot_search_contacts": {
+      "pt": {
+        "name": "Buscar contatos",
+        "description": "Busca os contatos que têm identificador, email ou telefone, por nome, identificador, email ou número de telefone, 15 por página. Cada contato traz contact_inboxes, que liga cada caixa ao source_id de que Create conversation precisa. meta.count é o total; uma página com menos de 15 contatos é a última."
+      },
+      "es": {
+        "name": "Buscar contactos",
+        "description": "Busca los contactos que tienen identificador, email o teléfono, por nombre, identificador, email o número de teléfono, 15 por página. Cada contacto trae contact_inboxes, que une cada bandeja con el source_id que necesita Create conversation. meta.count es el total; una página con menos de 15 contactos es la última."
+      },
+      "fr": {
+        "name": "Rechercher des contacts",
+        "description": "Recherche les contacts qui ont un identifiant, un email ou un téléphone, par nom, identifiant, email ou numéro de téléphone, 15 par page. Chaque contact a contact_inboxes, qui associe chaque boîte au source_id dont Create conversation a besoin. meta.count est le total ; une page de moins de 15 contacts est la dernière."
+      }
+    },
+    "chatwoot_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato em uma caixa de entrada da conta. A resposta traz o contato e o contact_inbox com o source_id de que Create conversation precisa."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto en una bandeja de la cuenta. La respuesta trae el contacto y el contact_inbox con el source_id que necesita Create conversation."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact dans une boîte du compte. La réponse contient le contact et le contact_inbox avec le source_id dont Create conversation a besoin."
+      }
+    },
+    "chatwoot_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza um contato: envie apenas os campos a alterar."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza un contacto: envía solo los campos a cambiar."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour un contact : envoyez uniquement les champs à modifier."
+      }
+    },
+    "chatwoot_create_contact_inbox": {
+      "pt": {
+        "name": "Vincular contato a caixa de entrada",
+        "description": "Vincula um contato existente a outra caixa de entrada e retorna o contact_inbox com seu source_id, para Create conversation quando o contato ainda não tem source_id nessa caixa."
+      },
+      "es": {
+        "name": "Vincular contacto a bandeja",
+        "description": "Vincula un contacto existente a otra bandeja y devuelve el contact_inbox con su source_id, para Create conversation cuando el contacto aún no tiene source_id en esa bandeja."
+      },
+      "fr": {
+        "name": "Lier un contact à une boîte",
+        "description": "Lie un contact existant à une autre boîte et renvoie le contact_inbox avec son source_id, pour Create conversation quand le contact n'a pas encore de source_id dans cette boîte."
+      }
+    },
+    "chatwoot_list_inboxes": {
+      "pt": {
+        "name": "Listar caixas de entrada",
+        "description": "Lista as caixas de entrada da conta, uma por canal, como WhatsApp, site, email ou API, com id, nome e channel_type. O id é o inbox_id de conversas e contatos."
+      },
+      "es": {
+        "name": "Listar bandejas",
+        "description": "Lista las bandejas de la cuenta, una por canal, como WhatsApp, sitio web, email o API, con id, nombre y channel_type. El id es el inbox_id de conversaciones y contactos."
+      },
+      "fr": {
+        "name": "Lister les boîtes de réception",
+        "description": "Liste les boîtes du compte, une par canal, comme WhatsApp, site web, email ou API, avec id, nom et channel_type. L'id est l'inbox_id des conversations et des contacts."
+      }
+    },
+    "chatwoot_list_agents": {
+      "pt": {
+        "name": "Listar agentes",
+        "description": "Lista os agentes da conta com id, nome, email, função e availability_status. O id é o assignee_id de uma conversa."
+      },
+      "es": {
+        "name": "Listar agentes",
+        "description": "Lista los agentes de la cuenta con id, nombre, email, rol y availability_status. El id es el assignee_id de una conversación."
+      },
+      "fr": {
+        "name": "Lister les agents",
+        "description": "Liste les agents du compte avec id, nom, email, rôle et availability_status. L'id est l'assignee_id d'une conversation."
+      }
+    },
+    "chatwoot_list_teams": {
+      "pt": {
+        "name": "Listar times",
+        "description": "Lista os times da conta com id, nome e se o usuário da conexão é membro. O id é o team_id das conversas."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos de la cuenta con id, nombre y si el usuario de la conexión es miembro. El id es el team_id de las conversaciones."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes du compte avec id, nom et si l'utilisateur de la connexion en est membre. L'id est le team_id des conversations."
+      }
+    },
+    "chatwoot_get_profile": {
+      "pt": {
+        "name": "Obter perfil",
+        "description": "Retorna o usuário conectado: id, nome, email e as contas a que pertence, cada uma com id, nome e função. O id de cada conta é o account_id que as outras tools pedem. O campo access_token da resposta vem mascarado."
+      },
+      "es": {
+        "name": "Obtener perfil",
+        "description": "Devuelve el usuario conectado: id, nombre, email y las cuentas a las que pertenece, cada una con id, nombre y rol. El id de cada cuenta es el account_id que piden las otras tools. El campo access_token de la respuesta viene enmascarado."
+      },
+      "fr": {
+        "name": "Obtenir le profil",
+        "description": "Renvoie l'utilisateur connecté : id, nom, email et les comptes auxquels il appartient, chacun avec id, nom et rôle. L'id de chaque compte est l'account_id demandé par les autres tools. Le champ access_token de la réponse est masqué."
+      }
+    }
+  }
+}

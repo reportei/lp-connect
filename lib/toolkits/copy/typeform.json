@@ -1,0 +1,204 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and edit forms, read and search responses, and manage workspaces and themes in your customer's Typeform account, through one Connect endpoint.",
+      "intro": "The Typeform toolkit covers workspaces, forms (list, read, create, replace the whole definition), responses (list, search by answer, tag, hidden field or time) and themes. Customers connect with an API key or OAuth, Connect stores the credentials and logs every execution, so your product or AI agent builds forms and collects answers without a custom integration.",
+      "useCases": [
+        {
+          "title": "Generate a form from a prompt",
+          "body": "An AI agent turns a brief into fields and logic, creates the form with Create form and returns the public link from _links.display."
+        },
+        {
+          "title": "Pull answers into your product",
+          "body": "Read the responses of a form newest first, or search by an answer value or hidden field, and sync them into your CRM or dashboard."
+        },
+        {
+          "title": "Template forms per client",
+          "body": "Read a form with Get form, change what you need and send the full definition back with Update form, keeping field ids so answers stay attached."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e edite formulários, leia e busque respostas e gerencie workspaces e temas na conta Typeform do seu cliente, com um único endpoint do Connect.",
+      "intro": "O toolkit do Typeform cobre workspaces, formulários (listar, consultar, criar, substituir a definição inteira), respostas (listar, buscar por resposta, tag, hidden field ou horário) e temas. O cliente conecta com uma chave de API ou OAuth, o Connect guarda as credenciais e registra cada execução, para o seu produto ou agente de IA montar formulários e coletar respostas sem uma integração própria.",
+      "useCases": [
+        {
+          "title": "Gerar um formulário a partir de um prompt",
+          "body": "Um agente de IA transforma um briefing em campos e lógica, cria o formulário com Create form e devolve o link público de _links.display."
+        },
+        {
+          "title": "Trazer respostas para o seu produto",
+          "body": "Leia as respostas de um formulário da mais nova para a mais antiga, ou busque por um valor de resposta ou hidden field, e sincronize com seu CRM ou painel."
+        },
+        {
+          "title": "Formulários modelo por cliente",
+          "body": "Leia um formulário com Get form, altere o que precisar e envie a definição completa de volta com Update form, mantendo os ids dos campos para que as respostas continuem ligadas."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y edita formularios, lee y busca respuestas y gestiona workspaces y temas en la cuenta Typeform de tu cliente, con un único endpoint de Connect.",
+      "intro": "El toolkit de Typeform cubre workspaces, formularios (listar, consultar, crear, reemplazar la definición completa), respuestas (listar, buscar por respuesta, tag, hidden field u hora) y temas. El cliente conecta con una clave de API u OAuth, Connect guarda las credenciales y registra cada ejecución, para que tu producto o agente de IA arme formularios y recoja respuestas sin una integración propia.",
+      "useCases": [
+        {
+          "title": "Generar un formulario desde un prompt",
+          "body": "Un agente de IA convierte un brief en campos y lógica, crea el formulario con Create form y devuelve el enlace público de _links.display."
+        },
+        {
+          "title": "Traer respuestas a tu producto",
+          "body": "Lee las respuestas de un formulario de la más nueva a la más antigua, o busca por un valor de respuesta o hidden field, y sincronízalas con tu CRM o panel."
+        },
+        {
+          "title": "Formularios plantilla por cliente",
+          "body": "Lee un formulario con Get form, cambia lo que necesites y envía la definición completa de vuelta con Update form, conservando los ids de los campos para que las respuestas sigan asociadas."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez des formulaires, lisez les réponses et gérez workspaces et thèmes dans le compte Typeform de votre client, via un endpoint Connect.",
+      "intro": "Le toolkit Typeform couvre les workspaces, les formulaires (lister, lire, créer, remplacer la définition entière), les réponses (lister, rechercher par réponse, tag, hidden field ou heure) et les thèmes. Le client se connecte avec une clé d'API ou OAuth, Connect stocke les identifiants et journalise chaque exécution, pour que votre produit ou agent IA construise des formulaires et collecte les réponses sans intégration sur mesure.",
+      "useCases": [
+        {
+          "title": "Générer un formulaire depuis un prompt",
+          "body": "Un agent IA transforme un brief en champs et logique, crée le formulaire avec Create form et renvoie le lien public de _links.display."
+        },
+        {
+          "title": "Récupérer les réponses dans votre produit",
+          "body": "Lisez les réponses d'un formulaire de la plus récente à la plus ancienne, ou recherchez par valeur de réponse ou hidden field, et synchronisez-les avec votre CRM ou tableau de bord."
+        },
+        {
+          "title": "Formulaires modèles par client",
+          "body": "Lisez un formulaire avec Get form, modifiez ce qu'il faut et renvoyez la définition complète avec Update form, en gardant les ids des champs pour que les réponses restent rattachées."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "typeform_list_workspaces": {
+      "pt": {
+        "name": "Listar workspaces",
+        "description": "Lista os workspaces que a conta alcança, entre suas organizações, com id, name, self.href e o número de formulários. Pagine com page até chegar ao page_count da resposta."
+      },
+      "es": {
+        "name": "Listar workspaces",
+        "description": "Lista los workspaces a los que accede la cuenta, entre sus organizaciones, con id, name, self.href y el número de formularios. Pagina con page hasta llegar al page_count de la respuesta."
+      },
+      "fr": {
+        "name": "Lister les workspaces",
+        "description": "Liste les workspaces accessibles au compte, dans toutes ses organisations, avec id, name, self.href et le nombre de formulaires. Paginez avec page jusqu'à atteindre le page_count de la réponse."
+      }
+    },
+    "typeform_create_workspace": {
+      "pt": {
+        "name": "Criar workspace",
+        "description": "Cria um workspace na organização em que o usuário conectado é proprietário e o retorna com id e self.href."
+      },
+      "es": {
+        "name": "Crear workspace",
+        "description": "Crea un workspace en la organización en la que el usuario conectado es propietario y lo devuelve con id y self.href."
+      },
+      "fr": {
+        "name": "Créer un workspace",
+        "description": "Crée un workspace dans l'organisation dont l'utilisateur connecté est propriétaire et le renvoie avec id et self.href."
+      }
+    },
+    "typeform_list_forms": {
+      "pt": {
+        "name": "Listar formulários",
+        "description": "Lista os formulários da conta, públicos e privados, com id, título, datas e o link público em _links.display. Pagine com page até chegar ao page_count da resposta."
+      },
+      "es": {
+        "name": "Listar formularios",
+        "description": "Lista los formularios de la cuenta, públicos y privados, con id, título, fechas y el enlace público en _links.display. Pagina con page hasta llegar al page_count de la respuesta."
+      },
+      "fr": {
+        "name": "Lister les formulaires",
+        "description": "Liste les formulaires du compte, publics et privés, avec id, titre, dates et le lien public dans _links.display. Paginez avec page jusqu'à atteindre le page_count de la réponse."
+      }
+    },
+    "typeform_get_form": {
+      "pt": {
+        "name": "Consultar formulário",
+        "description": "Retorna a definição inteira de um formulário: configurações, tema, workspace, hidden fields, telas, lógica e os campos com seus ids e refs. Os ids dos campos são o que as tools de respostas filtram."
+      },
+      "es": {
+        "name": "Consultar formulario",
+        "description": "Devuelve la definición completa de un formulario: configuración, tema, workspace, hidden fields, pantallas, lógica y los campos con sus ids y refs. Los ids de los campos son lo que filtran las tools de respuestas."
+      },
+      "fr": {
+        "name": "Consulter un formulaire",
+        "description": "Renvoie la définition complète d'un formulaire : paramètres, thème, workspace, hidden fields, écrans, logique et les champs avec leurs ids et refs. Les ids des champs sont ce sur quoi filtrent les outils de réponses."
+      }
+    },
+    "typeform_create_form": {
+      "pt": {
+        "name": "Criar formulário",
+        "description": "Cria um formulário em um workspace e o retorna com id, ids dos campos e o link público em _links.display. Imagens em campos e telas já precisam existir na conta."
+      },
+      "es": {
+        "name": "Crear formulario",
+        "description": "Crea un formulario en un workspace y lo devuelve con id, ids de los campos y el enlace público en _links.display. Las imágenes en campos y pantallas ya deben existir en la cuenta."
+      },
+      "fr": {
+        "name": "Créer un formulaire",
+        "description": "Crée un formulaire dans un workspace et le renvoie avec id, ids des champs et le lien public dans _links.display. Les images des champs et des écrans doivent déjà exister dans le compte."
+      }
+    },
+    "typeform_update_form": {
+      "pt": {
+        "name": "Atualizar formulário",
+        "description": "Substitui a definição inteira de um formulário. Leia-o com Get form, altere o que precisar e envie tudo de volta: cada campo mantém seu id, e um campo deixado de fora é apagado junto com suas respostas nas respostas existentes."
+      },
+      "es": {
+        "name": "Actualizar formulario",
+        "description": "Reemplaza la definición completa de un formulario. Léelo con Get form, cambia lo que necesites y envía todo de vuelta: cada campo conserva su id, y un campo omitido se elimina junto con sus respuestas en las respuestas existentes."
+      },
+      "fr": {
+        "name": "Mettre à jour un formulaire",
+        "description": "Remplace la définition complète d'un formulaire. Lisez-le avec Get form, modifiez ce qu'il faut et renvoyez tout : chaque champ garde son id, et un champ omis est supprimé avec ses réponses dans les réponses existantes."
+      }
+    },
+    "typeform_list_responses": {
+      "pt": {
+        "name": "Listar respostas",
+        "description": "Lista as respostas de um formulário, da mais nova para a mais antiga, com answers, hidden fields, variáveis, metadados e os horários landed_at e submitted_at. Respostas dos últimos 30 minutos podem não aparecer. O corpo traz total_items; para a próxima página, envie o response_id do último item como before."
+      },
+      "es": {
+        "name": "Listar respuestas",
+        "description": "Lista las respuestas de un formulario, de la más nueva a la más antigua, con answers, hidden fields, variables, metadatos y las horas landed_at y submitted_at. Las respuestas de los últimos 30 minutos pueden faltar. El cuerpo trae total_items; para la página siguiente, envía el response_id del último elemento como before."
+      },
+      "fr": {
+        "name": "Lister les réponses",
+        "description": "Liste les réponses d'un formulaire, de la plus récente à la plus ancienne, avec answers, hidden fields, variables, métadonnées et les heures landed_at et submitted_at. Les réponses des 30 dernières minutes peuvent manquer. Le corps contient total_items ; pour la page suivante, passez le response_id du dernier élément en before."
+      }
+    },
+    "typeform_search_responses": {
+      "pt": {
+        "name": "Buscar respostas",
+        "description": "Busca as respostas de um formulário por valores de resposta, tags, hidden fields, metadados ou horário de envio, todas as condições juntas. Use em vez de List responses para filtrar por uma resposta. Para a próxima página, envie o response_id do último item como before_response_id."
+      },
+      "es": {
+        "name": "Buscar respuestas",
+        "description": "Busca las respuestas de un formulario por valores de respuesta, tags, hidden fields, metadatos u hora de envío, todas las condiciones juntas. Úsala en lugar de List responses para filtrar por una respuesta. Para la página siguiente, envía el response_id del último elemento como before_response_id."
+      },
+      "fr": {
+        "name": "Rechercher des réponses",
+        "description": "Recherche les réponses d'un formulaire par valeurs de réponse, tags, hidden fields, métadonnées ou heure de soumission, toutes les conditions ensemble. À préférer à List responses pour filtrer par une réponse. Pour la page suivante, passez le response_id du dernier élément en before_response_id."
+      }
+    },
+    "typeform_list_themes": {
+      "pt": {
+        "name": "Listar temas",
+        "description": "Lista os temas da conta, do mais novo para o mais antigo, com id, nome, cores e fonte. Pagine com page até chegar ao page_count da resposta."
+      },
+      "es": {
+        "name": "Listar temas",
+        "description": "Lista los temas de la cuenta, del más nuevo al más antiguo, con id, nombre, colores y fuente. Pagina con page hasta llegar al page_count de la respuesta."
+      },
+      "fr": {
+        "name": "Lister les thèmes",
+        "description": "Liste les thèmes du compte, du plus récent au plus ancien, avec id, nom, couleurs et police. Paginez avec page jusqu'à atteindre le page_count de la réponse."
+      }
+    }
+  }
+}

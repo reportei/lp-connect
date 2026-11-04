@@ -45,6 +45,7 @@ export const en: Messages = {
     comparisons: "Comparisons",
     contact: "Contact",
     allIntegrations: "All integrations",
+    toolkits: "Toolkits",
     guides: "API guides",
     docs: "Documentation",
     ai: "Build it with AI",
@@ -507,5 +508,144 @@ export const en: Messages = {
     catalog: "Full catalog",
     comparisons: "Comparisons",
     versus: (competitor) => `Connect or ${competitor}`,
+  },
+  toolkits: {
+    breadcrumb: "Toolkits",
+    breadcrumbLabel: "Breadcrumb",
+    home: {
+      eyebrow: "Toolkits",
+      title: (n) => `Beyond data: ${n} apps your product operates`,
+      copy: (tools) =>
+        `Send WhatsApp messages, create Jira issues, book on Google Calendar. ${tools} tools your product and your AI agents run on your customer's account, through the same API.`,
+      cta: (n) => `See all ${n} toolkits`,
+    },
+    hub: {
+      metaTitle: (n, tools) => `Reportei Connect toolkits: ${n} apps and ${tools} tools in one API`,
+      metaDescription: (n, tools) =>
+        `WhatsApp, Notion, Jira, Stripe and ${n - 4} more apps: ${tools} tools your product and your AI agents run on your customers' accounts.`,
+      eyebrow: "Toolkits",
+      h1: (n) => `${n} apps your product and your AI agents operate through one API`,
+      copy: "Your customer connects the app account once. Your system sends messages, creates tasks, reads contacts and books meetings by calling the tools through the same endpoint, without building each app's API.",
+      toolCount: (n) => (n === 1 ? "1 tool" : `${n} tools`),
+      stats: (n, tools) => `${n} toolkits · ${tools} tools`,
+    },
+    categories: {
+      communication: "Communication",
+      crm: "CRM and sales",
+      marketing: "Marketing",
+      email_marketing: "Email marketing",
+      ecommerce: "E-commerce",
+      finance: "Finance and payments",
+      support: "Customer support",
+      project_management: "Project management",
+      productivity: "Productivity",
+      scheduling: "Scheduling",
+      analytics: "Analytics",
+      file_storage: "File storage",
+      developer_tools: "Developer tools",
+    },
+    auth: {
+      api_key: {
+        label: "API key",
+        body: "Your customer pastes the app's key on a Connect screen, or your system sends the key with POST /api/customer-toolkits, with no screen.",
+      },
+      basic: {
+        label: "Username and password",
+        body: "Your customer enters the app credentials on a Connect screen, or your system sends them with POST /api/customer-toolkits, with no screen.",
+      },
+      oauth2: {
+        label: "OAuth with your product's app",
+        body: (slug) =>
+          `You register your product's OAuth app once, with POST /api/merchants/credentials/${slug}, and your customer authorizes the account on a consent screen. Connect renews the token when it is about to expire.`,
+      },
+    },
+    hostParams: (params) => `When connecting, your customer also enters ${params}: the address of their account on the app's API.`,
+    toolkit: {
+      metaTitle: (name) => `${name} API for SaaS and AI agents`,
+      h1: (name) => `${name} in your product and your AI agents, through one API`,
+      signup: "Start free trial",
+      docs: "Read the docs",
+      trial: "15 days to try it. No credit card.",
+      sampleCaption: (tool) => `Example: the "${tool}" tool on an account your customer connected.`,
+      howEyebrow: "How it works",
+      howTitle: (name) => `From a connected customer to the first ${name} call.`,
+      steps: (name) => [
+        {
+          title: "Your customer connects the account",
+          body: `Your system opens a Connect session for the toolkit and your customer connects their ${name} account. You get the connection id.`,
+        },
+        {
+          title: "Your product calls the tool",
+          body: "A POST to /api/tools/{tool}/execute with the connection id and the arguments. The response is the app's own, with the same status and body.",
+        },
+        {
+          title: "Connect handles the rest",
+          body: "It stores the credential encrypted, renews OAuth tokens and records every execution in an audit trail you query through the API.",
+        },
+      ],
+      useCasesEyebrow: "Use cases",
+      useCasesTitle: (name) => `What your product does with ${name}.`,
+      connectEyebrow: "Connection",
+      connectTitle: "How your customer connects the account",
+      toolsEyebrow: "Tools",
+      toolsTitle: (name, n) => `${n} ${name} tools`,
+      seeAllTools: (n) => `See all ${n} tools`,
+      faqTitle: (name) => `Questions about the ${name} toolkit`,
+      faq: (name, tools, modes) => [
+        {
+          q: `Do I need to build against the ${name} API?`,
+          a: `No. Connect ships ${tools} ${name} tools, described and ready. Your customer connects the account and your system calls every tool through the same endpoint, with the same request format.`,
+        },
+        {
+          q: `How does my customer connect their ${name} account?`,
+          a: `With the mode the toolkit accepts: ${modes}. Connect stores the credential encrypted and never returns it to your system.`,
+        },
+        {
+          q: "Does it work with AI agents?",
+          a: "Yes. Each tool's input is described in JSON Schema, which your agent uses directly as a tool definition. The agent picks the tool and the arguments, and your system makes the call to Connect.",
+        },
+        {
+          q: "Does my customer need a Reportei account?",
+          a: "No. Your customer connects the account on a Connect screen, or your system sends the credential through the API, and they keep using only your product.",
+        },
+      ],
+      relatedTitle: "Toolkits in the same category",
+      allToolkits: (n) => `See all ${n} toolkits`,
+      officialDocs: (name) => `Official ${name} documentation`,
+    },
+    toolsPage: {
+      metaTitle: (name, n) => `${name}: all ${n} API tools`,
+      metaDescription: (name, n, examples) =>
+        `The ${n} tools of the ${name} toolkit on Reportei Connect: ${examples} and more. Each one with its parameters and a sample call.`,
+      h1: (name) => `${name} tools`,
+      copy: (name, n) =>
+        `The ${n} ${name} operations your product runs on your customer's account through Connect. All of them use the same endpoint, POST /api/tools/{tool}/execute.`,
+    },
+    tool: {
+      metaTitle: (tool, name) => `${name} API: ${tool}`,
+      metaSuffix: (name) => `Run it on your customer's ${name} account through Reportei Connect.`,
+      h1: (tool, name) => `${tool} with the ${name} API`,
+      requestTitle: "The request",
+      requestCopy:
+        "Your system sends your customer's connection id and the tool arguments. The headers are the same as the rest of the Connect API: your product's token and your customer's token.",
+      responseTitle: "The response",
+      responseCopy:
+        "Connect returns the app's response status and body as they came, with the X-Toolkit-Execution-Id header. Every execution is recorded and can be read with GET /api/tools/executions/{uuid}.",
+      paramsTitle: "Parameters",
+      paramsNote: "",
+      columns: { name: "Parameter", type: "Type", required: "Required", description: "Description" },
+      yes: "Yes",
+      no: "No",
+      values: "Values:",
+      noParams: "This tool takes no arguments.",
+      connectionsTitle: "Supported connections",
+      connectionsCopy: (name) =>
+        `Your customer connects their ${name} account once, with one of the modes below. The same connection serves every tool of the toolkit.`,
+      aiTitle: "Ready for AI agents",
+      aiCopy: (slug) =>
+        `This tool's input is a JSON Schema, available at GET /api/tools/${slug}. It becomes your agent's tool definition with no conversion.`,
+      identifier: "Identifier",
+      otherTools: (name) => `Other ${name} tools`,
+    },
   },
 }

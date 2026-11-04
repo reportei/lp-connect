@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and edit time entries, projects and clients and read time reports in your customer's Toggl Track account, through one Connect endpoint.",
+      "intro": "The Toggl Track toolkit covers the connected user, projects, clients, time entries with the running timer, and the summary report by project, client or user. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Start timers from your app",
+          "body": "A project tool starts a time entry with duration -1 when someone opens a task, and stops it when they finish."
+        },
+        {
+          "title": "Log past work",
+          "body": "A product creates time entries for work already done, with a start and a duration in seconds, in the right project."
+        },
+        {
+          "title": "Build billing from tracked time",
+          "body": "An agency tool gets the summary report of a workspace in a period, grouped by project or client, to prepare an invoice."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e edite registros de tempo, projetos e clientes e leia relatórios de tempo na conta Toggl Track do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit do Toggl Track cobre o usuário conectado, projetos, clientes, registros de tempo com o timer em andamento e o relatório resumido por projeto, cliente ou usuário. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Inicie timers pelo seu app",
+          "body": "Uma ferramenta de projetos inicia um registro de tempo com duration -1 quando alguém abre uma tarefa e o para quando termina."
+        },
+        {
+          "title": "Lance trabalho já feito",
+          "body": "Um produto cria registros de tempo para trabalho concluído, com início e duração em segundos, no projeto certo."
+        },
+        {
+          "title": "Faturamento a partir do tempo",
+          "body": "Uma ferramenta de agência obtém o relatório resumido de um workspace em um período, agrupado por projeto ou cliente, para preparar uma fatura."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y edita registros de tiempo, proyectos y clientes y lee informes de tiempo en la cuenta de Toggl Track de tu cliente, con un endpoint de Connect.",
+      "intro": "El toolkit de Toggl Track cubre el usuario conectado, proyectos, clientes, registros de tiempo con el temporizador en marcha y el informe resumen por proyecto, cliente o usuario. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Inicia temporizadores desde tu app",
+          "body": "Una herramienta de proyectos inicia un registro de tiempo con duration -1 cuando alguien abre una tarea y lo detiene cuando termina."
+        },
+        {
+          "title": "Registra trabajo ya hecho",
+          "body": "Un producto crea registros de tiempo para trabajo ya realizado, con inicio y duración en segundos, en el proyecto correcto."
+        },
+        {
+          "title": "Facturación desde el tiempo",
+          "body": "Una herramienta de agencia obtiene el informe resumen de un workspace en un periodo, agrupado por proyecto o cliente, para preparar una factura."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez entrées de temps, projets et clients et lisez les rapports de temps du compte Toggl Track de votre client via un endpoint Connect.",
+      "intro": "Le toolkit Toggl Track couvre l'utilisateur connecté, les projets, les clients, les entrées de temps avec le minuteur en cours et le rapport récapitulatif par projet, client ou utilisateur. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Lancer des minuteurs depuis votre app",
+          "body": "Un outil de projets démarre une entrée de temps avec duration -1 quand quelqu'un ouvre une tâche et l'arrête quand il a fini."
+        },
+        {
+          "title": "Saisir du travail déjà fait",
+          "body": "Un produit crée des entrées de temps pour du travail terminé, avec un début et une durée en secondes, dans le bon projet."
+        },
+        {
+          "title": "Facturer à partir du temps suivi",
+          "body": "Un outil d'agence obtient le rapport récapitulatif d'un workspace sur une période, groupé par projet ou client, pour préparer une facture."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "toggl_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos de todos os workspaces do usuário, com id, workspace_id, client_id e nome do cliente, flag billable e status. É daqui que vêm os ids de workspace. Esta rota conta nas 30 requisições por hora que o Toggl dá a cada usuário para rotas de nível de usuário, em qualquer plano."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de todos los workspaces del usuario, con id, workspace_id, client_id y nombre del cliente, marca billable y estado. De aquí salen los ids de workspace. Esta ruta cuenta en las 30 solicitudes por hora que Toggl da a cada usuario para rutas de nivel de usuario, en cualquier plan."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets de tous les workspaces de l'utilisateur, avec id, workspace_id, client_id et nom du client, indicateur billable et statut. C'est d'ici que viennent les ids de workspace. Cette route compte dans les 30 requêtes par heure que Toggl accorde à chaque utilisateur pour les routes de niveau utilisateur, quel que soit le forfait."
+      }
+    },
+    "toggl_list_clients": {
+      "pt": {
+        "name": "Listar clientes",
+        "description": "Lista os clientes de todos os workspaces do usuário, com id, nome, notas, flag archived e o id do workspace em wid. Esta rota conta nas 30 requisições por hora que o Toggl dá a cada usuário para rotas de nível de usuário, em qualquer plano."
+      },
+      "es": {
+        "name": "Listar clientes",
+        "description": "Lista los clientes de todos los workspaces del usuario, con id, nombre, notas, marca archived y el id del workspace en wid. Esta ruta cuenta en las 30 solicitudes por hora que Toggl da a cada usuario para rutas de nivel de usuario, en cualquier plan."
+      },
+      "fr": {
+        "name": "Lister les clients",
+        "description": "Liste les clients de tous les workspaces de l'utilisateur, avec id, nom, notes, indicateur archived et l'id du workspace dans wid. Cette route compte dans les 30 requêtes par heure que Toggl accorde à chaque utilisateur pour les routes de niveau utilisateur, quel que soit le forfait."
+      }
+    },
+    "toggl_create_client": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente em um workspace. Exige name."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente en un workspace. Requiere name."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client dans un workspace. Exige name."
+      }
+    },
+    "toggl_create_project": {
+      "pt": {
+        "name": "Criar projeto",
+        "description": "Cria um projeto em um workspace, opcionalmente para um cliente. Exige name. Billable é um recurso pago."
+      },
+      "es": {
+        "name": "Crear proyecto",
+        "description": "Crea un proyecto en un workspace, opcionalmente para un cliente. Requiere name. Billable es una función de pago."
+      },
+      "fr": {
+        "name": "Créer un projet",
+        "description": "Crée un projet dans un workspace, éventuellement pour un client. Exige name. Billable est une fonctionnalité payante."
+      }
+    },
+    "toggl_update_project": {
+      "pt": {
+        "name": "Atualizar projeto",
+        "description": "Atualiza os campos enviados de um projeto e mantém os demais. Arquivar um projeto é active false."
+      },
+      "es": {
+        "name": "Actualizar proyecto",
+        "description": "Actualiza los campos enviados de un proyecto y conserva los demás. Archivar un proyecto es active false."
+      },
+      "fr": {
+        "name": "Mettre à jour un projet",
+        "description": "Met à jour les champs envoyés d'un projet et conserve les autres. Archiver un projet correspond à active false."
+      }
+    },
+    "toggl_list_time_entries": {
+      "pt": {
+        "name": "Listar registros de tempo",
+        "description": "Lista os registros de tempo mais recentes do usuário conectado, até 1000. Para uma janela, envie start_date e end_date juntos; para períodos inteiros ou outras pessoas, use Obter relatório resumido. Esta rota conta nas 30 requisições por hora que o Toggl dá a cada usuário para rotas de nível de usuário, em qualquer plano."
+      },
+      "es": {
+        "name": "Listar registros de tiempo",
+        "description": "Lista los registros de tiempo más recientes del usuario conectado, hasta 1000. Para una ventana, envía start_date y end_date juntos; para periodos completos u otras personas, usa Obtener informe resumen. Esta ruta cuenta en las 30 solicitudes por hora que Toggl da a cada usuario para rutas de nivel de usuario, en cualquier plan."
+      },
+      "fr": {
+        "name": "Lister les entrées de temps",
+        "description": "Liste les entrées de temps les plus récentes de l'utilisateur connecté, jusqu'à 1000. Pour une fenêtre, envoyez start_date et end_date ensemble ; pour des périodes entières ou d'autres personnes, utilisez Obtenir le rapport récapitulatif. Cette route compte dans les 30 requêtes par heure que Toggl accorde à chaque utilisateur pour les routes de niveau utilisateur, quel que soit le forfait."
+      }
+    },
+    "toggl_get_current_time_entry": {
+      "pt": {
+        "name": "Obter registro de tempo atual",
+        "description": "Retorna o registro de tempo em andamento do usuário conectado, com seu id, ou null quando não há timer rodando. Esta rota conta nas 30 requisições por hora que o Toggl dá a cada usuário para rotas de nível de usuário, em qualquer plano."
+      },
+      "es": {
+        "name": "Obtener registro de tiempo actual",
+        "description": "Devuelve el registro de tiempo en curso del usuario conectado, con su id, o null cuando no hay ningún temporizador en marcha. Esta ruta cuenta en las 30 solicitudes por hora que Toggl da a cada usuario para rutas de nivel de usuario, en cualquier plan."
+      },
+      "fr": {
+        "name": "Obtenir l'entrée de temps en cours",
+        "description": "Renvoie l'entrée de temps en cours de l'utilisateur connecté, avec son id, ou null quand aucun minuteur ne tourne. Cette route compte dans les 30 requêtes par heure que Toggl accorde à chaque utilisateur pour les routes de niveau utilisateur, quel que soit le forfait."
+      }
+    },
+    "toggl_create_time_entry": {
+      "pt": {
+        "name": "Criar registro de tempo",
+        "description": "Cria um registro de tempo para o usuário conectado. Exige workspace, workspace_id, created_with e start. Para um timer em andamento, envie duration -1; para trabalho passado, envie duration em segundos ou stop."
+      },
+      "es": {
+        "name": "Crear registro de tiempo",
+        "description": "Crea un registro de tiempo para el usuario conectado. Requiere workspace, workspace_id, created_with y start. Para un temporizador en marcha, envía duration -1; para trabajo pasado, envía duration en segundos o stop."
+      },
+      "fr": {
+        "name": "Créer une entrée de temps",
+        "description": "Crée une entrée de temps pour l'utilisateur connecté. Exige workspace, workspace_id, created_with et start. Pour un minuteur en cours, envoyez duration -1 ; pour du travail passé, envoyez duration en secondes ou stop."
+      }
+    },
+    "toggl_update_time_entry": {
+      "pt": {
+        "name": "Atualizar registro de tempo",
+        "description": "Atualiza os campos enviados de um registro de tempo e mantém os demais. Exige workspace e workspace_id. Mudar start ou stop muda a duração."
+      },
+      "es": {
+        "name": "Actualizar registro de tiempo",
+        "description": "Actualiza los campos enviados de un registro de tiempo y conserva los demás. Requiere workspace y workspace_id. Cambiar start o stop cambia la duración."
+      },
+      "fr": {
+        "name": "Mettre à jour une entrée de temps",
+        "description": "Met à jour les champs envoyés d'une entrée de temps et conserve les autres. Exige workspace et workspace_id. Modifier start ou stop modifie la durée."
+      }
+    },
+    "toggl_stop_time_entry": {
+      "pt": {
+        "name": "Parar registro de tempo",
+        "description": "Para agora um registro de tempo em andamento."
+      },
+      "es": {
+        "name": "Detener registro de tiempo",
+        "description": "Detiene ahora un registro de tiempo en curso."
+      },
+      "fr": {
+        "name": "Arrêter une entrée de temps",
+        "description": "Arrête maintenant une entrée de temps en cours."
+      }
+    },
+    "toggl_delete_time_entry": {
+      "pt": {
+        "name": "Excluir registro de tempo",
+        "description": "Exclui um registro de tempo."
+      },
+      "es": {
+        "name": "Eliminar registro de tiempo",
+        "description": "Elimina un registro de tiempo."
+      },
+      "fr": {
+        "name": "Supprimer une entrée de temps",
+        "description": "Supprime une entrée de temps."
+      }
+    },
+    "toggl_get_summary_report": {
+      "pt": {
+        "name": "Obter relatório resumido",
+        "description": "Retorna o tempo registrado de um workspace em um período, em segundos, agrupado por projeto, cliente ou usuário e subagrupado, para todos que o usuário pode ver. Exige start_date. Os grupos e subgrupos trazem ids, cujos nomes vêm de Listar projetos e Listar clientes."
+      },
+      "es": {
+        "name": "Obtener informe resumen",
+        "description": "Devuelve el tiempo registrado de un workspace en un periodo, en segundos, agrupado por proyecto, cliente o usuario y subagrupado, para todos los que el usuario puede ver. Requiere start_date. Los grupos y subgrupos traen ids, cuyos nombres vienen de Listar proyectos y Listar clientes."
+      },
+      "fr": {
+        "name": "Obtenir le rapport récapitulatif",
+        "description": "Renvoie le temps suivi d'un workspace sur une période, en secondes, groupé par projet, client ou utilisateur et sous-groupé, pour toutes les personnes que l'utilisateur peut voir. Exige start_date. Les groupes et sous-groupes contiennent des ids, dont les noms viennent de Lister les projets et Lister les clients."
+      }
+    },
+    "toggl_get_me": {
+      "pt": {
+        "name": "Obter usuário conectado",
+        "description": "Retorna o usuário conectado: id, fullname, email, timezone e default_workspace_id, o workspace que Criar cliente, Criar projeto e as ferramentas de registro de tempo pedem quando a conta ainda não tem projeto nem cliente. Conta na cota fixa de 30 chamadas por hora das rotas de usuário. O campo api_token da resposta volta mascarado."
+      },
+      "es": {
+        "name": "Obtener usuario conectado",
+        "description": "Devuelve el usuario conectado: id, fullname, email, timezone y default_workspace_id, el workspace que piden Crear cliente, Crear proyecto y las herramientas de registro de tiempo cuando la cuenta aún no tiene proyecto ni cliente. Cuenta en la cuota fija de 30 llamadas por hora de las rutas de usuario. El campo api_token de la respuesta vuelve enmascarado."
+      },
+      "fr": {
+        "name": "Obtenir l'utilisateur connecté",
+        "description": "Renvoie l'utilisateur connecté : id, fullname, email, timezone et default_workspace_id, le workspace que demandent Créer un client, Créer un projet et les outils d'entrées de temps quand le compte n'a encore ni projet ni client. Compte dans le quota fixe de 30 appels par heure des routes utilisateur. Le champ api_token de la réponse revient masqué."
+      }
+    }
+  }
+}

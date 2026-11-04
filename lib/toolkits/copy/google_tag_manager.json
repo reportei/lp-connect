@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and edit tags and triggers, then create and publish versions in your customer's Google Tag Manager through one Reportei Connect endpoint.",
+      "intro": "The Google Tag Manager toolkit covers accounts, containers, workspaces, tags, triggers and container versions. Your customer authorizes Google once with OAuth, and your product or AI agent calls each operation through Connect, which stores and renews the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Install tracking for new clients",
+          "body": "An agency tool creates a tag and a pageview trigger in the client's container workspace, then creates and publishes a version to put it live."
+        },
+        {
+          "title": "Pause a tag safely",
+          "body": "Read a tag, set paused to true and publish a new version, so a product can switch off a misbehaving tag without deleting it."
+        },
+        {
+          "title": "Container audits by an agent",
+          "body": "Let an AI agent list containers, tags, triggers and versions across accounts and flag tags that have no firing trigger."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e edite tags e acionadores, e crie e publique versões no Google Tag Manager do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do Google Tag Manager cobre contas, contêineres, workspaces, tags, acionadores e versões de contêiner. Seu cliente autoriza o Google uma vez com OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda e renova as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Instalar rastreamento em novos clientes",
+          "body": "Uma ferramenta de agência cria uma tag e um acionador de pageview no workspace do contêiner do cliente, e depois cria e publica uma versão para colocar no ar."
+        },
+        {
+          "title": "Pausar uma tag com segurança",
+          "body": "Leia uma tag, defina paused como true e publique uma nova versão, para que um produto desligue uma tag com problema sem excluí-la."
+        },
+        {
+          "title": "Auditoria de contêineres por agente",
+          "body": "Deixe um agente de IA listar contêineres, tags, acionadores e versões de várias contas e apontar tags sem acionador de disparo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y edita etiquetas y activadores, y crea y publica versiones en el Google Tag Manager de tu cliente con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de Google Tag Manager cubre cuentas, contenedores, workspaces, etiquetas, activadores y versiones de contenedor. Tu cliente autoriza Google una vez con OAuth, y tu producto o agente de IA llama cada operación a través de Connect, que guarda y renueva las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Instalar seguimiento en clientes nuevos",
+          "body": "Una herramienta de agencia crea una etiqueta y un activador de pageview en el workspace del contenedor del cliente, y luego crea y publica una versión para ponerlo en producción."
+        },
+        {
+          "title": "Pausar una etiqueta con seguridad",
+          "body": "Lee una etiqueta, pon paused en true y publica una versión nueva, para que un producto apague una etiqueta defectuosa sin eliminarla."
+        },
+        {
+          "title": "Auditorías de contenedores con un agente",
+          "body": "Deja que un agente de IA liste contenedores, etiquetas, activadores y versiones de varias cuentas y señale etiquetas sin activador de disparo."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et modifiez balises et déclencheurs, puis publiez des versions dans le Google Tag Manager de votre client via un endpoint Reportei Connect.",
+      "intro": "Le toolkit Google Tag Manager couvre les comptes, conteneurs, workspaces, balises, déclencheurs et versions de conteneur. Votre client autorise Google une fois via OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke et renouvelle les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Installer le suivi chez de nouveaux clients",
+          "body": "Un outil d'agence crée une balise et un déclencheur pageview dans le workspace du conteneur du client, puis crée et publie une version pour la mettre en ligne."
+        },
+        {
+          "title": "Mettre une balise en pause sans risque",
+          "body": "Lisez une balise, passez paused à true et publiez une nouvelle version, pour qu'un produit coupe une balise défaillante sans la supprimer."
+        },
+        {
+          "title": "Audits de conteneurs par un agent",
+          "body": "Laissez un agent IA lister conteneurs, balises, déclencheurs et versions de plusieurs comptes et repérer les balises sans déclencheur d'activation."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "google_tag_manager_list_accounts": {
+      "pt": {
+        "name": "Listar contas",
+        "description": "Lista as contas do Tag Manager que o usuário pode acessar, com accountId e name. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar cuentas",
+        "description": "Lista las cuentas de Tag Manager a las que puede acceder el usuario, con accountId y name. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les comptes",
+        "description": "Liste les comptes Tag Manager auxquels l'utilisateur a accès, avec accountId et name. Envoyez nextPageToken comme pageToken pour lire la page suivante."
+      }
+    },
+    "google_tag_manager_list_containers": {
+      "pt": {
+        "name": "Listar contêineres",
+        "description": "Lista os contêineres de uma conta, com containerId, name, publicId (o código GTM- instalado no site) e usageContext, como web. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar contenedores",
+        "description": "Lista los contenedores de una cuenta, con containerId, name, publicId (el código GTM- instalado en el sitio) y usageContext, como web. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les conteneurs",
+        "description": "Liste les conteneurs d'un compte, avec containerId, name, publicId (le code GTM- installé sur le site) et usageContext, comme web. Envoyez nextPageToken comme pageToken pour lire la page suivante."
+      }
+    },
+    "google_tag_manager_list_workspaces": {
+      "pt": {
+        "name": "Listar workspaces",
+        "description": "Lista os workspaces de um contêiner, com workspaceId e name. Tags e acionadores são editados em um workspace, em geral o Default Workspace, e só chegam ao site por Create version e Publish version."
+      },
+      "es": {
+        "name": "Listar workspaces",
+        "description": "Lista los workspaces de un contenedor, con workspaceId y name. Las etiquetas y los activadores se editan en un workspace, normalmente Default Workspace, y solo llegan al sitio mediante Create version y Publish version."
+      },
+      "fr": {
+        "name": "Lister les workspaces",
+        "description": "Liste les workspaces d'un conteneur, avec workspaceId et name. Les balises et déclencheurs se modifient dans un workspace, en général Default Workspace, et n'atteignent le site que par Create version et Publish version."
+      }
+    },
+    "google_tag_manager_list_tags": {
+      "pt": {
+        "name": "Listar tags",
+        "description": "Lista as tags de um workspace, com tagId, name, type, parameter, firingTriggerId e paused. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar etiquetas",
+        "description": "Lista las etiquetas de un workspace, con tagId, name, type, parameter, firingTriggerId y paused. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les balises",
+        "description": "Liste les balises d'un workspace, avec tagId, name, type, parameter, firingTriggerId et paused. Envoyez nextPageToken comme pageToken pour lire la page suivante."
+      }
+    },
+    "google_tag_manager_get_tag": {
+      "pt": {
+        "name": "Obter tag",
+        "description": "Retorna uma tag com todos os seus campos, incluindo fingerprint. Update tag substitui a tag inteira, então parta desta resposta."
+      },
+      "es": {
+        "name": "Obtener etiqueta",
+        "description": "Devuelve una etiqueta con todos sus campos, incluido fingerprint. Update tag reemplaza la etiqueta completa, así que parte de esta respuesta."
+      },
+      "fr": {
+        "name": "Obtenir une balise",
+        "description": "Renvoie une balise avec tous ses champs, y compris fingerprint. Update tag remplace toute la balise, partez donc de cette réponse."
+      }
+    },
+    "google_tag_manager_create_tag": {
+      "pt": {
+        "name": "Criar tag",
+        "description": "Cria uma tag em um workspace. Ela só chega ao site depois de Create version e Publish version. Sem firingTriggerId a tag nunca dispara."
+      },
+      "es": {
+        "name": "Crear etiqueta",
+        "description": "Crea una etiqueta en un workspace. Solo llega al sitio después de Create version y Publish version. Sin firingTriggerId la etiqueta nunca se dispara."
+      },
+      "fr": {
+        "name": "Créer une balise",
+        "description": "Crée une balise dans un workspace. Elle n'atteint le site qu'après Create version et Publish version. Sans firingTriggerId la balise ne se déclenche jamais."
+      }
+    },
+    "google_tag_manager_update_tag": {
+      "pt": {
+        "name": "Atualizar tag",
+        "description": "Substitui uma tag inteira: envie todos os campos a manter, como Get tag os retorna, com as mudanças, pois um campo omitido é apagado. Defina paused como true para parar uma tag sem excluí-la. A mudança só chega ao site depois de Create version e Publish version."
+      },
+      "es": {
+        "name": "Actualizar etiqueta",
+        "description": "Reemplaza una etiqueta completa: envía todos los campos que quieras conservar, tal como los devuelve Get tag, con los cambios, porque un campo omitido se borra. Pon paused en true para detener una etiqueta sin eliminarla. El cambio solo llega al sitio después de Create version y Publish version."
+      },
+      "fr": {
+        "name": "Mettre à jour une balise",
+        "description": "Remplace toute une balise : envoyez tous les champs à conserver, tels que Get tag les renvoie, avec les modifications, car un champ omis est effacé. Passez paused à true pour arrêter une balise sans la supprimer. Le changement n'atteint le site qu'après Create version et Publish version."
+      }
+    },
+    "google_tag_manager_delete_tag": {
+      "pt": {
+        "name": "Excluir tag",
+        "description": "Exclui uma tag de um workspace. O site continua disparando a tag até que uma versão sem ela seja publicada."
+      },
+      "es": {
+        "name": "Eliminar etiqueta",
+        "description": "Elimina una etiqueta de un workspace. El sitio sigue disparándola hasta que se publique una versión sin ella."
+      },
+      "fr": {
+        "name": "Supprimer une balise",
+        "description": "Supprime une balise d'un workspace. Le site continue de la déclencher jusqu'à la publication d'une version sans elle."
+      }
+    },
+    "google_tag_manager_list_triggers": {
+      "pt": {
+        "name": "Listar acionadores",
+        "description": "Lista os acionadores de um workspace, com triggerId, name, type e conditions. Um triggerId vai em firingTriggerId ou blockingTriggerId de uma tag. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar activadores",
+        "description": "Lista los activadores de un workspace, con triggerId, name, type y conditions. Un triggerId va en firingTriggerId o blockingTriggerId de una etiqueta. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les déclencheurs",
+        "description": "Liste les déclencheurs d'un workspace, avec triggerId, name, type et conditions. Un triggerId se place dans firingTriggerId ou blockingTriggerId d'une balise. Envoyez nextPageToken comme pageToken pour lire la page suivante."
+      }
+    },
+    "google_tag_manager_create_trigger": {
+      "pt": {
+        "name": "Criar acionador",
+        "description": "Cria um acionador em um workspace e retorna seu triggerId. Um acionador de pageview sem filter dispara em todas as páginas. Uma condição compara uma variável, como {{Page URL}}, com um valor; as variáveis internas de cliques e formulários, como {{Click ID}}, só funcionam depois de ativadas no workspace, o que este toolkit não faz."
+      },
+      "es": {
+        "name": "Crear activador",
+        "description": "Crea un activador en un workspace y devuelve su triggerId. Un activador de pageview sin filter se dispara en todas las páginas. Una condición compara una variable, como {{Page URL}}, con un valor; las variables integradas de clics y formularios, como {{Click ID}}, solo funcionan una vez activadas en el workspace, algo que este toolkit no hace."
+      },
+      "fr": {
+        "name": "Créer un déclencheur",
+        "description": "Crée un déclencheur dans un workspace et renvoie son triggerId. Un déclencheur pageview sans filter se déclenche sur toutes les pages. Une condition compare une variable, comme {{Page URL}}, à une valeur ; les variables intégrées de clics et de formulaires, comme {{Click ID}}, ne fonctionnent qu'une fois activées dans le workspace, ce que ce toolkit ne fait pas."
+      }
+    },
+    "google_tag_manager_create_version": {
+      "pt": {
+        "name": "Criar versão",
+        "description": "Transforma as mudanças de um workspace em uma versão do contêiner, que só chega ao site por Publish version. O workspace é excluído depois: a resposta traz containerVersion, com seu containerVersionId, e newWorkspacePath, cuja última parte é o id do workspace que o substitui. compilerError true significa que o workspace tem erros a corrigir."
+      },
+      "es": {
+        "name": "Crear versión",
+        "description": "Convierte los cambios de un workspace en una versión del contenedor, que solo llega al sitio mediante Publish version. El workspace se elimina después: la respuesta trae containerVersion, con su containerVersionId, y newWorkspacePath, cuya última parte es el id del workspace que lo reemplaza. compilerError true significa que el workspace tiene errores por corregir."
+      },
+      "fr": {
+        "name": "Créer une version",
+        "description": "Transforme les modifications d'un workspace en version de conteneur, qui n'atteint le site que par Publish version. Le workspace est supprimé ensuite : la réponse contient containerVersion, avec son containerVersionId, et newWorkspacePath, dont la dernière partie est l'id du workspace qui le remplace. compilerError true signifie que le workspace a des erreurs à corriger."
+      }
+    },
+    "google_tag_manager_list_versions": {
+      "pt": {
+        "name": "Listar versões",
+        "description": "Lista as versões de um contêiner, com containerVersionId, name e o número de tags, acionadores e variáveis. Para voltar a uma versão anterior, publique-a com Publish version. Envie nextPageToken como pageToken para ler a próxima página."
+      },
+      "es": {
+        "name": "Listar versiones",
+        "description": "Lista las versiones de un contenedor, con containerVersionId, name y el número de etiquetas, activadores y variables. Para volver a una versión anterior, publícala con Publish version. Envía nextPageToken como pageToken para leer la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les versions",
+        "description": "Liste les versions d'un conteneur, avec containerVersionId, name et le nombre de balises, déclencheurs et variables. Pour revenir à une version antérieure, publiez-la avec Publish version. Envoyez nextPageToken comme pageToken pour lire la page suivante."
+      }
+    },
+    "google_tag_manager_publish_version": {
+      "pt": {
+        "name": "Publicar versão",
+        "description": "Publica uma versão do contêiner: suas tags entram no ar em todos os sites que têm o contêiner, no lugar da versão publicada antes. O Google não pede confirmação."
+      },
+      "es": {
+        "name": "Publicar versión",
+        "description": "Publica una versión del contenedor: sus etiquetas se activan en todos los sitios que tienen el contenedor, en lugar de la versión publicada antes. Google no pide confirmación."
+      },
+      "fr": {
+        "name": "Publier une version",
+        "description": "Publie une version du conteneur : ses balises passent en ligne sur tous les sites qui ont le conteneur, à la place de la version publiée précédemment. Google ne demande aucune confirmation."
+      }
+    }
+  }
+}

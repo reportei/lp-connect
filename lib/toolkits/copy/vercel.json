@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create projects, trigger and promote deployments, read build logs and manage domains in your customer's Vercel account, through one Connect endpoint.",
+      "intro": "The Vercel toolkit covers the teams, projects, deployments and domains of a Vercel account: create and update projects, start, cancel and promote deployments, read build logs, and add and check project domains. Through Connect, your product or AI agent calls these operations with one endpoint, while Connect stores the token and logs every execution.",
+      "useCases": [
+        {
+          "title": "Deploy sites for your users",
+          "body": "Create a project linked to a Git repository, start a deployment, and follow it with Get deployment until its readyState changes."
+        },
+        {
+          "title": "Custom domains",
+          "body": "Add a customer's domain to a project and read the DNS config to show the recommendedIPv4 or recommendedCNAME values to set."
+        },
+        {
+          "title": "Agent that fixes failed builds",
+          "body": "An AI agent reads the build log of a failed deployment, finds the cause, and promotes an older deployment to roll production back."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie projetos, dispare e promova deploys, leia logs de build e gerencie domínios na conta Vercel do seu cliente, por um único endpoint do Connect.",
+      "intro": "O toolkit da Vercel cobre times, projetos, deployments e domínios de uma conta Vercel: criar e atualizar projetos, iniciar, cancelar e promover deployments, ler logs de build e adicionar e verificar domínios de projetos. Pelo Connect, seu produto ou agente de IA chama essas operações por um só endpoint, enquanto o Connect guarda o token e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Publicar sites para seus usuários",
+          "body": "Crie um projeto ligado a um repositório Git, inicie um deployment e acompanhe-o com Get deployment até o readyState mudar."
+        },
+        {
+          "title": "Domínios personalizados",
+          "body": "Adicione o domínio de um cliente a um projeto e leia a config de DNS para mostrar os valores recommendedIPv4 ou recommendedCNAME a configurar."
+        },
+        {
+          "title": "Agente que resolve builds com falha",
+          "body": "Um agente de IA lê o log de build de um deployment que falhou, encontra a causa e promove um deployment mais antigo para reverter a produção."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea proyectos, lanza y promueve deployments, lee logs de build y gestiona dominios en la cuenta Vercel de tu cliente, con un único endpoint de Connect.",
+      "intro": "El toolkit de Vercel cubre los equipos, proyectos, deployments y dominios de una cuenta Vercel: crear y actualizar proyectos, iniciar, cancelar y promover deployments, leer logs de build, y agregar y verificar dominios de proyectos. Con Connect, tu producto o agente de IA llama a estas operaciones por un solo endpoint, mientras Connect guarda el token y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Publicar sitios para tus usuarios",
+          "body": "Crea un proyecto vinculado a un repositorio Git, inicia un deployment y síguelo con Get deployment hasta que cambie su readyState."
+        },
+        {
+          "title": "Dominios personalizados",
+          "body": "Agrega el dominio de un cliente a un proyecto y lee la config de DNS para mostrar los valores recommendedIPv4 o recommendedCNAME que debe configurar."
+        },
+        {
+          "title": "Agente que arregla builds fallidos",
+          "body": "Un agente de IA lee el log de build de un deployment fallido, encuentra la causa y promueve un deployment anterior para revertir la producción."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des projets, lancez et promouvez des déploiements, lisez les logs de build et gérez les domaines du compte Vercel de votre client, via Connect.",
+      "intro": "Le toolkit Vercel couvre les équipes, projets, déploiements et domaines d'un compte Vercel : créer et modifier des projets, démarrer, annuler et promouvoir des déploiements, lire les logs de build, ajouter et vérifier les domaines d'un projet. Avec Connect, votre produit ou agent IA appelle ces opérations par un seul endpoint, pendant que Connect stocke le token et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Déployer des sites pour vos utilisateurs",
+          "body": "Créez un projet lié à un dépôt Git, démarrez un déploiement et suivez-le avec Get deployment jusqu'au changement de son readyState."
+        },
+        {
+          "title": "Domaines personnalisés",
+          "body": "Ajoutez le domaine d'un client à un projet et lisez la config DNS pour afficher les valeurs recommendedIPv4 ou recommendedCNAME à configurer."
+        },
+        {
+          "title": "Agent qui corrige les builds en échec",
+          "body": "Un agent IA lit le log de build d'un déploiement en échec, trouve la cause et promeut un ancien déploiement pour revenir en arrière en production."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "vercel_list_teams": {
+      "pt": {
+        "name": "Listar times",
+        "description": "Lista os times a que a conta pertence. Cada item tem id, o teamId que as outras tools usam, e slug. Só um token de Full Account precisa de teamId: um token criado para um time já atua nesse time. Pagine passando pagination.next da resposta como until."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos a los que pertenece la cuenta. Cada elemento tiene id, el teamId que usan las otras tools, y slug. Solo un token de Full Account necesita teamId: un token creado para un equipo ya actúa en ese equipo. Pagina pasando pagination.next de la respuesta como until."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes auxquelles appartient le compte. Chaque élément a id, le teamId utilisé par les autres tools, et slug. Seul un token Full Account a besoin de teamId : un token créé pour une équipe agit déjà sur cette équipe. Paginez en passant pagination.next de la réponse comme until."
+      }
+    },
+    "vercel_list_projects": {
+      "pt": {
+        "name": "Listar projetos",
+        "description": "Lista os projetos da conta ou de um time, com suas configurações, vínculo com Git e últimos deployments. Cada item tem id e name, que as outras tools usam como o projeto. Pagine passando pagination.next da resposta como from."
+      },
+      "es": {
+        "name": "Listar proyectos",
+        "description": "Lista los proyectos de la cuenta o de un equipo, con sus ajustes, vínculo con Git y últimos deployments. Cada elemento tiene id y name, que las otras tools usan como el proyecto. Pagina pasando pagination.next de la respuesta como from."
+      },
+      "fr": {
+        "name": "Lister les projets",
+        "description": "Liste les projets du compte ou d'une équipe, avec leurs paramètres, lien Git et derniers déploiements. Chaque élément a id et name, que les autres tools utilisent comme projet. Paginez en passant pagination.next de la réponse comme from."
+      }
+    },
+    "vercel_create_project": {
+      "pt": {
+        "name": "Criar projeto",
+        "description": "Cria um projeto e o retorna, com seu id. Com gitRepository, cada push no repositório faz deploy automaticamente; o app da Vercel do provedor Git precisa ter acesso ao repositório. Configurações de build omitidas são detectadas pela Vercel."
+      },
+      "es": {
+        "name": "Crear proyecto",
+        "description": "Crea un proyecto y lo devuelve, con su id. Con gitRepository, cada push al repositorio hace deploy automáticamente; la app de Vercel del proveedor Git debe tener acceso al repositorio. Los ajustes de build omitidos los detecta Vercel."
+      },
+      "fr": {
+        "name": "Créer un projet",
+        "description": "Crée un projet et le renvoie, avec son id. Avec gitRepository, chaque push dans le dépôt déploie automatiquement ; l'app Vercel du fournisseur Git doit avoir accès au dépôt. Les paramètres de build omis sont détectés par Vercel."
+      }
+    },
+    "vercel_update_project": {
+      "pt": {
+        "name": "Atualizar projeto",
+        "description": "Altera o nome ou as configurações de build de um projeto e o retorna. Só os campos enviados mudam. As novas configurações valem a partir do próximo deployment."
+      },
+      "es": {
+        "name": "Actualizar proyecto",
+        "description": "Cambia el nombre o los ajustes de build de un proyecto y lo devuelve. Solo cambian los campos enviados. Los nuevos ajustes se aplican desde el próximo deployment."
+      },
+      "fr": {
+        "name": "Mettre à jour un projet",
+        "description": "Modifie le nom ou les paramètres de build d'un projet et le renvoie. Seuls les champs envoyés changent. Les nouveaux paramètres s'appliquent dès le prochain déploiement."
+      }
+    },
+    "vercel_list_deployments": {
+      "pt": {
+        "name": "Listar deployments",
+        "description": "Lista deployments, do mais novo ao mais antigo, com state, target, url e metadados do Git. Cada item tem uid, o id do deployment. Pagine passando pagination.next da resposta como until."
+      },
+      "es": {
+        "name": "Listar deployments",
+        "description": "Lista deployments, del más nuevo al más antiguo, con state, target, url y metadatos de Git. Cada elemento tiene uid, el id del deployment. Pagina pasando pagination.next de la respuesta como until."
+      },
+      "fr": {
+        "name": "Lister les déploiements",
+        "description": "Liste les déploiements, du plus récent au plus ancien, avec state, target, url et métadonnées Git. Chaque élément a uid, l'id du déploiement. Paginez en passant pagination.next de la réponse comme until."
+      }
+    },
+    "vercel_get_deployment": {
+      "pt": {
+        "name": "Obter deployment",
+        "description": "Retorna um deployment pelo id ou pela url, com readyState, target, alias, projectId e, para um build que falhou, errorCode e errorMessage."
+      },
+      "es": {
+        "name": "Obtener deployment",
+        "description": "Devuelve un deployment por su id o su url, con readyState, target, alias, projectId y, para un build fallido, errorCode y errorMessage."
+      },
+      "fr": {
+        "name": "Obtenir un déploiement",
+        "description": "Renvoie un déploiement par son id ou son url, avec readyState, target, alias, projectId et, pour un build en échec, errorCode et errorMessage."
+      }
+    },
+    "vercel_create_deployment": {
+      "pt": {
+        "name": "Criar deployment",
+        "description": "Inicia um deployment e o retorna, com id, url e readyState. Envie deploymentId para refazer o deploy de um deployment existente, ou gitSource para fazer deploy de um branch ou commit do repositório conectado. Sem target é um preview; production o torna o deployment de produção. O build leva minutos: acompanhe com Get deployment."
+      },
+      "es": {
+        "name": "Crear deployment",
+        "description": "Inicia un deployment y lo devuelve, con id, url y readyState. Envía deploymentId para volver a desplegar un deployment existente, o gitSource para desplegar una rama o commit del repositorio conectado. Sin target es un preview; production lo convierte en el deployment de producción. El build tarda minutos: síguelo con Get deployment."
+      },
+      "fr": {
+        "name": "Créer un déploiement",
+        "description": "Démarre un déploiement et le renvoie, avec id, url et readyState. Envoyez deploymentId pour redéployer un déploiement existant, ou gitSource pour déployer une branche ou un commit du dépôt connecté. Sans target, c'est un preview ; production en fait le déploiement de production. Le build prend quelques minutes : suivez-le avec Get deployment."
+      }
+    },
+    "vercel_cancel_deployment": {
+      "pt": {
+        "name": "Cancelar deployment",
+        "description": "Interrompe um deployment ainda na fila ou em build e o retorna com readyState CANCELED."
+      },
+      "es": {
+        "name": "Cancelar deployment",
+        "description": "Detiene un deployment que sigue en cola o en build y lo devuelve con readyState CANCELED."
+      },
+      "fr": {
+        "name": "Annuler un déploiement",
+        "description": "Arrête un déploiement encore en file d'attente ou en build et le renvoie avec readyState CANCELED."
+      }
+    },
+    "vercel_promote_deployment": {
+      "pt": {
+        "name": "Promover deployment",
+        "description": "Aponta os domínios de produção de um projeto para um deployment existente, sem fazer o build de novo, como para reverter a produção a um deployment de produção mais antigo. Para colocar um preview em produção com um novo build, use Create deployment com seu deploymentId e target production. Responde 201 ou 202 quando aceito."
+      },
+      "es": {
+        "name": "Promover deployment",
+        "description": "Apunta los dominios de producción de un proyecto a un deployment existente, sin volver a hacer el build, por ejemplo para revertir la producción a un deployment de producción anterior. Para poner un preview en producción con un nuevo build, usa Create deployment con su deploymentId y target production. Responde 201 o 202 cuando se acepta."
+      },
+      "fr": {
+        "name": "Promouvoir un déploiement",
+        "description": "Fait pointer les domaines de production d'un projet vers un déploiement existant, sans le reconstruire, par exemple pour revenir à un ancien déploiement de production. Pour mettre un preview en production avec un nouveau build, utilisez Create deployment avec son deploymentId et target production. Répond 201 ou 202 quand c'est accepté."
+      }
+    },
+    "vercel_list_deployment_events": {
+      "pt": {
+        "name": "Listar eventos do deployment",
+        "description": "Retorna o log de build de um deployment como uma lista de eventos, cada um com type (como stdout, stderr ou command), created e o texto da linha. Use para ver por que um build falhou."
+      },
+      "es": {
+        "name": "Listar eventos del deployment",
+        "description": "Devuelve el log de build de un deployment como una lista de eventos, cada uno con type (como stdout, stderr o command), created y el texto de la línea. Úsalo para ver por qué falló un build."
+      },
+      "fr": {
+        "name": "Lister les événements d'un déploiement",
+        "description": "Renvoie le log de build d'un déploiement sous forme de liste d'événements, chacun avec type (comme stdout, stderr ou command), created et le texte de la ligne. Utilisez-le pour voir pourquoi un build a échoué."
+      }
+    },
+    "vercel_list_project_domains": {
+      "pt": {
+        "name": "Listar domínios do projeto",
+        "description": "Lista os domínios de um projeto, com verified, o redirecionamento e o branch do Git de cada um. Pagine passando pagination.next da resposta como until."
+      },
+      "es": {
+        "name": "Listar dominios del proyecto",
+        "description": "Lista los dominios de un proyecto, con verified, la redirección y la rama de Git de cada uno. Pagina pasando pagination.next de la respuesta como until."
+      },
+      "fr": {
+        "name": "Lister les domaines d'un projet",
+        "description": "Liste les domaines d'un projet, avec verified, la redirection et la branche Git de chacun. Paginez en passant pagination.next de la réponse comme until."
+      }
+    },
+    "vercel_create_project_domain": {
+      "pt": {
+        "name": "Adicionar domínio ao projeto",
+        "description": "Adiciona um domínio a um projeto e o retorna com verified. Depois aponte o DNS do domínio para a Vercel, como Get domain config mostra. Com verified false, o domínio está em uso em outro lugar: crie o registro TXT listado em verification e verifique no painel da Vercel. Um domínio já no projeto responde 400."
+      },
+      "es": {
+        "name": "Agregar dominio al proyecto",
+        "description": "Agrega un dominio a un proyecto y lo devuelve con verified. Después apunta el DNS del dominio a Vercel, como muestra Get domain config. Con verified false, el dominio está en uso en otro lugar: crea el registro TXT listado en verification y verifícalo en el panel de Vercel. Un dominio que ya está en el proyecto responde 400."
+      },
+      "fr": {
+        "name": "Ajouter un domaine au projet",
+        "description": "Ajoute un domaine à un projet et le renvoie avec verified. Faites ensuite pointer le DNS du domaine vers Vercel, comme l'indique Get domain config. Avec verified false, le domaine est utilisé ailleurs : créez l'enregistrement TXT listé dans verification et vérifiez-le dans le tableau de bord Vercel. Un domaine déjà dans le projet répond 400."
+      }
+    },
+    "vercel_get_domain_config": {
+      "pt": {
+        "name": "Obter config do domínio",
+        "description": "Informa se o DNS de um domínio aponta para a Vercel: misconfigured, configuredBy e os valores recommendedIPv4 e recommendedCNAME a configurar no provedor de DNS."
+      },
+      "es": {
+        "name": "Obtener config del dominio",
+        "description": "Indica si el DNS de un dominio apunta a Vercel: misconfigured, configuredBy y los valores recommendedIPv4 y recommendedCNAME a configurar en el proveedor de DNS."
+      },
+      "fr": {
+        "name": "Obtenir la config d'un domaine",
+        "description": "Indique si le DNS d'un domaine pointe vers Vercel : misconfigured, configuredBy et les valeurs recommendedIPv4 et recommendedCNAME à définir chez le fournisseur DNS."
+      }
+    }
+  }
+}

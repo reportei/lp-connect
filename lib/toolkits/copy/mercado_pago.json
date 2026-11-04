@@ -1,0 +1,102 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search payments, create checkout links and manage subscription plans in your customer's Mercado Pago seller account through Connect.",
+      "intro": "The Mercado Pago toolkit covers payments, payment preferences (Checkout Pro links), subscription plans and subscriptions: search and read payments, cancel a pending one, create checkout links, and create plans and pause, reactivate or cancel subscriptions. The seller connects with their own access token, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Checkout links from your product", "body": "Create a payment preference with items and prices and send the init_point link to the buyer, who pays by Pix, card, boleto or Mercado Pago balance." },
+        { "title": "Payment reconciliation", "body": "Search the payments received and read status, status_detail and the net amount received, to reconcile orders in your platform." },
+        { "title": "Subscription management", "body": "Create subscription plans, then pause, reactivate or cancel a buyer's subscription from your own billing screen." }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque pagamentos, crie links de checkout e gerencie planos de assinatura na conta de vendedor Mercado Pago do seu cliente via Connect.",
+      "intro": "O toolkit do Mercado Pago cobre pagamentos, preferências de pagamento (links do Checkout Pro), planos de assinatura e assinaturas: buscar e ler pagamentos, cancelar um pendente, criar links de checkout, criar planos e pausar, reativar ou cancelar assinaturas. O vendedor conecta com o próprio access token, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Links de checkout no seu produto", "body": "Crie uma preferência de pagamento com itens e preços e envie o link init_point ao comprador, que paga por Pix, cartão, boleto ou saldo do Mercado Pago." },
+        { "title": "Conciliação de pagamentos", "body": "Busque os pagamentos recebidos e leia status, status_detail e o valor líquido recebido, para conciliar os pedidos na sua plataforma." },
+        { "title": "Gestão de assinaturas", "body": "Crie planos de assinatura e pause, reative ou cancele a assinatura de um comprador a partir da sua própria tela de cobrança." }
+      ]
+    },
+    "es": {
+      "tagline": "Busca pagos, crea enlaces de checkout y gestiona planes de suscripción en la cuenta de vendedor de Mercado Pago de tu cliente con Connect.",
+      "intro": "El toolkit de Mercado Pago cubre pagos, preferencias de pago (enlaces de Checkout Pro), planes de suscripción y suscripciones: buscar y leer pagos, cancelar uno pendiente, crear enlaces de checkout, crear planes y pausar, reactivar o cancelar suscripciones. El vendedor conecta con su propio access token, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Enlaces de checkout desde tu producto", "body": "Crea una preferencia de pago con ítems y precios y envía el enlace init_point al comprador, que paga con Pix, tarjeta, boleto o saldo de Mercado Pago." },
+        { "title": "Conciliación de pagos", "body": "Busca los pagos recibidos y lee status, status_detail y el monto neto recibido, para conciliar los pedidos en tu plataforma." },
+        { "title": "Gestión de suscripciones", "body": "Crea planes de suscripción y pausa, reactiva o cancela la suscripción de un comprador desde tu propia pantalla de cobro." }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez des paiements, créez des liens de checkout et gérez les plans d'abonnement du compte vendeur Mercado Pago de votre client via Connect.",
+      "intro": "Le toolkit Mercado Pago couvre les paiements, les préférences de paiement (liens Checkout Pro), les plans d'abonnement et les abonnements : rechercher et lire des paiements, annuler un paiement en attente, créer des liens de checkout, créer des plans et mettre en pause, réactiver ou annuler des abonnements. Le vendeur se connecte avec son propre access token, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Liens de checkout depuis votre produit", "body": "Créez une préférence de paiement avec articles et prix et envoyez le lien init_point à l'acheteur, qui paie par Pix, carte, boleto ou solde Mercado Pago." },
+        { "title": "Rapprochement des paiements", "body": "Recherchez les paiements reçus et lisez status, status_detail et le montant net reçu, pour rapprocher les commandes de votre plateforme." },
+        { "title": "Gestion des abonnements", "body": "Créez des plans d'abonnement, puis mettez en pause, réactivez ou annulez l'abonnement d'un acheteur depuis votre propre écran de facturation." }
+      ]
+    }
+  },
+  "tools": {
+    "mercado_pago_search_payments": {
+      "pt": { "name": "Buscar pagamentos", "description": "Busca os pagamentos que a conta recebeu nos últimos 12 meses; sem datas, os criados nos últimos 3 meses. A resposta tem results e paging com total, limit e offset: aumente offset em limit para ler a próxima página." },
+      "es": { "name": "Buscar pagos", "description": "Busca los pagos que recibió la cuenta en los últimos 12 meses; sin fechas, los creados en los últimos 3 meses. La respuesta tiene results y paging con total, limit y offset: aumenta offset en limit para leer la página siguiente." },
+      "fr": { "name": "Rechercher des paiements", "description": "Recherche les paiements reçus par le compte au cours des 12 derniers mois ; sans dates, ceux créés au cours des 3 derniers mois. La réponse contient results et paging avec total, limit et offset : augmentez offset de limit pour lire la page suivante." }
+    },
+    "mercado_pago_get_payment": {
+      "pt": { "name": "Obter pagamento", "description": "Retorna um pagamento: status e status_detail, transaction_amount, transaction_details com o valor líquido recebido, meio e tipo de pagamento, parcelas, pagador e datas." },
+      "es": { "name": "Obtener pago", "description": "Devuelve un pago: status y status_detail, transaction_amount, transaction_details con el monto neto recibido, medio y tipo de pago, cuotas, pagador y fechas." },
+      "fr": { "name": "Obtenir un paiement", "description": "Renvoie un paiement : status et status_detail, transaction_amount, transaction_details avec le montant net reçu, moyen et type de paiement, échéances, payeur et dates." }
+    },
+    "mercado_pago_update_payment": {
+      "pt": { "name": "Atualizar pagamento", "description": "Cancela um pagamento ainda pending, in_process ou authorized, como um boleto ou Pix não pago, ou muda a data de expiração de um pendente. Um pagamento aprovado não é cancelado aqui: ele é reembolsado no Mercado Pago." },
+      "es": { "name": "Actualizar pago", "description": "Cancela un pago aún pending, in_process o authorized, como un boleto o Pix sin pagar, o cambia la fecha de vencimiento de uno pendiente. Un pago aprobado no se cancela aquí: se reembolsa en Mercado Pago." },
+      "fr": { "name": "Modifier un paiement", "description": "Annule un paiement encore pending, in_process ou authorized, comme un boleto ou un Pix impayé, ou change la date d'expiration d'un paiement en attente. Un paiement approuvé n'est pas annulé ici : il est remboursé dans Mercado Pago." }
+    },
+    "mercado_pago_search_preferences": {
+      "pt": { "name": "Buscar preferências", "description": "Lista as preferências de pagamento, os links de checkout, criadas nos últimos 90 dias. A resposta tem elements, next_offset e total. O link em si, init_point, vem de Obter preferência." },
+      "es": { "name": "Buscar preferencias", "description": "Lista las preferencias de pago, los enlaces de checkout, creadas en los últimos 90 días. La respuesta tiene elements, next_offset y total. El enlace en sí, init_point, viene de Obtener preferencia." },
+      "fr": { "name": "Rechercher des préférences", "description": "Liste les préférences de paiement, les liens de checkout, créées au cours des 90 derniers jours. La réponse contient elements, next_offset et total. Le lien lui-même, init_point, vient de Obtenir une préférence." }
+    },
+    "mercado_pago_get_preference": {
+      "pt": { "name": "Obter preferência", "description": "Retorna uma preferência de pagamento com seus itens, pagador, configurações de pagamento, validade e init_point, o link de checkout a enviar ao comprador. Funciona para preferências de qualquer idade." },
+      "es": { "name": "Obtener preferencia", "description": "Devuelve una preferencia de pago con sus ítems, pagador, configuración de pago, vigencia e init_point, el enlace de checkout que se envía al comprador. Funciona para preferencias de cualquier antigüedad." },
+      "fr": { "name": "Obtenir une préférence", "description": "Renvoie une préférence de paiement avec ses articles, son payeur, ses réglages de paiement, sa validité et init_point, le lien de checkout à envoyer à l'acheteur. Fonctionne pour les préférences de tout âge." }
+    },
+    "mercado_pago_create_preference": {
+      "pt": { "name": "Criar preferência", "description": "Cria uma preferência de pagamento e a retorna com id e init_point, o link do Checkout Pro onde o comprador paga por Pix, cartão, boleto ou saldo do Mercado Pago. Cada item precisa de id, title, quantity e unit_price. Compartilhe init_point com o comprador." },
+      "es": { "name": "Crear preferencia", "description": "Crea una preferencia de pago y la devuelve con id e init_point, el enlace de Checkout Pro donde el comprador paga con Pix, tarjeta, boleto o saldo de Mercado Pago. Cada ítem necesita id, title, quantity y unit_price. Comparte init_point con el comprador." },
+      "fr": { "name": "Créer une préférence", "description": "Crée une préférence de paiement et la renvoie avec id et init_point, le lien Checkout Pro où l'acheteur paie par Pix, carte, boleto ou solde Mercado Pago. Chaque article a besoin de id, title, quantity et unit_price. Partagez init_point avec l'acheteur." }
+    },
+    "mercado_pago_update_preference": {
+      "pt": { "name": "Atualizar preferência", "description": "Altera os campos enviados de uma preferência de pagamento, como itens, preços, dados do comprador ou validade. O id e o link init_point continuam os mesmos." },
+      "es": { "name": "Actualizar preferencia", "description": "Cambia los campos enviados de una preferencia de pago, como ítems, precios, datos del comprador o vigencia. El id y el enlace init_point siguen siendo los mismos." },
+      "fr": { "name": "Modifier une préférence", "description": "Modifie les champs envoyés d'une préférence de paiement, comme les articles, les prix, les données de l'acheteur ou la validité. L'id et le lien init_point restent les mêmes." }
+    },
+    "mercado_pago_search_subscription_plans": {
+      "pt": { "name": "Buscar planos de assinatura", "description": "Busca os planos de assinatura da conta. Cada plano em results tem id, reason, auto_recurring, status, subscribed (quantos assinantes) e init_point, o link onde um comprador assina. Pagine com offset e limit; paging traz o total." },
+      "es": { "name": "Buscar planes de suscripción", "description": "Busca los planes de suscripción de la cuenta. Cada plan en results tiene id, reason, auto_recurring, status, subscribed (cuántos suscriptores) e init_point, el enlace donde un comprador se suscribe. Pagina con offset y limit; paging trae el total." },
+      "fr": { "name": "Rechercher des plans d'abonnement", "description": "Recherche les plans d'abonnement du compte. Chaque plan dans results a id, reason, auto_recurring, status, subscribed (combien d'abonnés) et init_point, le lien où un acheteur s'abonne. Paginez avec offset et limit ; paging donne le total." }
+    },
+    "mercado_pago_create_subscription_plan": {
+      "pt": { "name": "Criar plano de assinatura", "description": "Cria um plano de assinatura e o retorna com id e init_point, o link onde os compradores assinam com cartão. Exige reason, back_url e auto_recurring com frequency, frequency_type e currency_id." },
+      "es": { "name": "Crear plan de suscripción", "description": "Crea un plan de suscripción y lo devuelve con id e init_point, el enlace donde los compradores se suscriben con tarjeta. Requiere reason, back_url y auto_recurring con frequency, frequency_type y currency_id." },
+      "fr": { "name": "Créer un plan d'abonnement", "description": "Crée un plan d'abonnement et le renvoie avec id et init_point, le lien où les acheteurs s'abonnent par carte. Exige reason, back_url et auto_recurring avec frequency, frequency_type et currency_id." }
+    },
+    "mercado_pago_update_subscription_plan": {
+      "pt": { "name": "Atualizar plano de assinatura", "description": "Altera os campos enviados de um plano de assinatura, como o nome, o valor ou o ciclo. O id e o link init_point continuam os mesmos." },
+      "es": { "name": "Actualizar plan de suscripción", "description": "Cambia los campos enviados de un plan de suscripción, como el nombre, el monto o el ciclo. El id y el enlace init_point siguen siendo los mismos." },
+      "fr": { "name": "Modifier un plan d'abonnement", "description": "Modifie les champs envoyés d'un plan d'abonnement, comme le nom, le montant ou le cycle. L'id et le lien init_point restent les mêmes." }
+    },
+    "mercado_pago_search_subscriptions": {
+      "pt": { "name": "Buscar assinaturas", "description": "Busca as assinaturas dos compradores da conta. Cada uma em results tem id, status, reason, preapproval_plan_id, payer_id e name, auto_recurring, next_payment_date e summarized, com os valores cobrados e pendentes. Pagine com offset e limit; paging traz o total." },
+      "es": { "name": "Buscar suscripciones", "description": "Busca las suscripciones de los compradores de la cuenta. Cada una en results tiene id, status, reason, preapproval_plan_id, payer_id y name, auto_recurring, next_payment_date y summarized, con los montos cobrados y pendientes. Pagina con offset y limit; paging trae el total." },
+      "fr": { "name": "Rechercher des abonnements", "description": "Recherche les abonnements des acheteurs du compte. Chacun dans results a id, status, reason, preapproval_plan_id, payer_id et name, auto_recurring, next_payment_date et summarized, avec les montants facturés et en attente. Paginez avec offset et limit ; paging donne le total." }
+    },
+    "mercado_pago_update_subscription": {
+      "pt": { "name": "Atualizar assinatura", "description": "Pausa, reativa ou cancela uma assinatura, ou altera seu nome, external_reference, back_url ou valor. paused interrompe as cobranças até ser autorizada de novo; canceled encerra a assinatura." },
+      "es": { "name": "Actualizar suscripción", "description": "Pausa, reactiva o cancela una suscripción, o cambia su nombre, external_reference, back_url o monto. paused detiene los cobros hasta que se autorice de nuevo; canceled termina la suscripción." },
+      "fr": { "name": "Modifier un abonnement", "description": "Met en pause, réactive ou annule un abonnement, ou change son nom, external_reference, back_url ou montant. paused arrête les prélèvements jusqu'à une nouvelle autorisation ; canceled met fin à l'abonnement." }
+    }
+  }
+}

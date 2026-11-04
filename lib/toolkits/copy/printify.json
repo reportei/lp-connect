@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and publish print-on-demand products, read orders and manage uploads in your customer's Printify account, through one Connect endpoint.",
+      "intro": "The Printify toolkit covers shops, products, orders, the catalog of blueprints with their print providers and variants, and the media library. Through Connect your product or AI agent calls them with one endpoint, while Connect stores the API token and logs every execution.",
+      "useCases": [
+        {
+          "title": "Create products from designs",
+          "body": "A design tool uploads an image from a public URL and creates a product from a blueprint, a print provider and the variants to sell."
+        },
+        {
+          "title": "Publish to the sales channel",
+          "body": "A merchant app updates a product and publishes it to the shop's sales channel, such as Shopify or Etsy."
+        },
+        {
+          "title": "Track order fulfillment",
+          "body": "A dashboard lists a shop's orders with status, costs and shipments with tracking, and gets one order in detail."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e publique produtos de impressão sob demanda, leia pedidos e gerencie uploads na conta Printify do seu cliente, com um endpoint do Connect.",
+      "intro": "O toolkit do Printify cobre lojas, produtos, pedidos, o catálogo de blueprints com seus print providers e variantes, e a biblioteca de mídia. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda o token de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Crie produtos a partir de designs",
+          "body": "Uma ferramenta de design envia uma imagem por URL pública e cria um produto a partir de um blueprint, um print provider e as variantes à venda."
+        },
+        {
+          "title": "Publique no canal de vendas",
+          "body": "Um app para lojistas atualiza um produto e o publica no canal de vendas da loja, como Shopify ou Etsy."
+        },
+        {
+          "title": "Acompanhe o atendimento dos pedidos",
+          "body": "Um painel lista os pedidos de uma loja com status, custos e envios com rastreio, e obtém um pedido em detalhe."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y publica productos de impresión bajo demanda, lee pedidos y gestiona subidas en la cuenta de Printify de tu cliente, con un endpoint de Connect.",
+      "intro": "El toolkit de Printify cubre tiendas, productos, pedidos, el catálogo de blueprints con sus print providers y variantes, y la biblioteca de medios. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda el token de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Crea productos desde diseños",
+          "body": "Una herramienta de diseño sube una imagen desde una URL pública y crea un producto a partir de un blueprint, un print provider y las variantes a vender."
+        },
+        {
+          "title": "Publica en el canal de ventas",
+          "body": "Una app para comerciantes actualiza un producto y lo publica en el canal de ventas de la tienda, como Shopify o Etsy."
+        },
+        {
+          "title": "Sigue el cumplimiento de pedidos",
+          "body": "Un panel lista los pedidos de una tienda con estado, costes y envíos con seguimiento, y obtiene un pedido al detalle."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et publiez des produits en impression à la demande, lisez les commandes et gérez les uploads du compte Printify de votre client via Connect.",
+      "intro": "Le toolkit Printify couvre les boutiques, les produits, les commandes, le catalogue de blueprints avec leurs print providers et variantes, et la médiathèque. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke le jeton d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Créer des produits depuis des designs",
+          "body": "Un outil de design téléverse une image depuis une URL publique et crée un produit à partir d'un blueprint, d'un print provider et des variantes à vendre."
+        },
+        {
+          "title": "Publier sur le canal de vente",
+          "body": "Une app pour marchands met à jour un produit et le publie sur le canal de vente de la boutique, comme Shopify ou Etsy."
+        },
+        {
+          "title": "Suivre l'exécution des commandes",
+          "body": "Un tableau de bord liste les commandes d'une boutique avec statut, coûts et expéditions avec suivi, et obtient une commande en détail."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "printify_list_shops": {
+      "pt": {
+        "name": "Listar lojas",
+        "description": "Lista as lojas da conta com id, title e sales_channel, como shopify, etsy ou disconnected. O id é o shop_id que todas as outras ferramentas pedem."
+      },
+      "es": {
+        "name": "Listar tiendas",
+        "description": "Lista las tiendas de la cuenta con id, title y sales_channel, como shopify, etsy o disconnected. El id es el shop_id que piden todas las otras herramientas."
+      },
+      "fr": {
+        "name": "Lister les boutiques",
+        "description": "Liste les boutiques du compte avec id, title et sales_channel, comme shopify, etsy ou disconnected. L'id est le shop_id que demandent tous les autres outils."
+      }
+    },
+    "printify_list_products": {
+      "pt": {
+        "name": "Listar produtos",
+        "description": "Lista os produtos de uma loja com title, description, tags, variantes com preço em centavos, imagens de mockup, blueprint_id, print_provider_id e status de publicação. 10 por página por padrão; current_page e last_page vêm na resposta."
+      },
+      "es": {
+        "name": "Listar productos",
+        "description": "Lista los productos de una tienda con title, description, tags, variantes con precio en centavos, imágenes de mockup, blueprint_id, print_provider_id y estado de publicación. 10 por página por defecto; current_page y last_page vienen en la respuesta."
+      },
+      "fr": {
+        "name": "Lister les produits",
+        "description": "Liste les produits d'une boutique avec title, description, tags, variantes avec prix en centimes, images de mockup, blueprint_id, print_provider_id et statut de publication. 10 par page par défaut ; current_page et last_page figurent dans la réponse."
+      }
+    },
+    "printify_get_product": {
+      "pt": {
+        "name": "Obter produto",
+        "description": "Retorna um produto: title, description, tags, opções, variantes com sku, preço e custo em centavos, áreas de impressão com as imagens e sua posição, mockups, is_locked e os links para o canal de vendas."
+      },
+      "es": {
+        "name": "Obtener producto",
+        "description": "Devuelve un producto: title, description, tags, opciones, variantes con sku, precio y coste en centavos, áreas de impresión con las imágenes y su posición, mockups, is_locked y los enlaces al canal de ventas."
+      },
+      "fr": {
+        "name": "Obtenir un produit",
+        "description": "Renvoie un produit : title, description, tags, options, variantes avec sku, prix et coût en centimes, zones d'impression avec les images et leur position, mockups, is_locked et les liens vers le canal de vente."
+      }
+    },
+    "printify_create_product": {
+      "pt": {
+        "name": "Criar produto",
+        "description": "Cria um produto em uma loja a partir de um blueprint do catálogo, um print provider, as variantes à venda com seus preços e as imagens enviadas posicionadas em cada área de impressão. Uma imagem de baixa resolução é recusada com o erro 8203. O produto não é publicado: use Publicar produto."
+      },
+      "es": {
+        "name": "Crear producto",
+        "description": "Crea un producto en una tienda a partir de un blueprint del catálogo, un print provider, las variantes a vender con sus precios y las imágenes subidas colocadas en cada área de impresión. Una imagen de baja resolución se rechaza con el error 8203. El producto no se publica: usa Publicar producto."
+      },
+      "fr": {
+        "name": "Créer un produit",
+        "description": "Crée un produit dans une boutique à partir d'un blueprint du catalogue, d'un print provider, des variantes à vendre avec leurs prix et des images téléversées placées sur chaque zone d'impression. Une image en basse résolution est refusée avec l'erreur 8203. Le produit n'est pas publié : utilisez Publier un produit."
+      }
+    },
+    "printify_update_product": {
+      "pt": {
+        "name": "Atualizar produto",
+        "description": "Altera um produto e o retorna. Só os campos enviados mudam, mas variants deve listar todas as variantes do produto. Recusado enquanto is_locked for true, durante uma publicação. As mudanças só chegam ao canal de vendas após Publicar produto."
+      },
+      "es": {
+        "name": "Actualizar producto",
+        "description": "Modifica un producto y lo devuelve. Solo cambian los campos enviados, pero variants debe listar todas las variantes del producto. Se rechaza mientras is_locked sea true, durante una publicación. Los cambios llegan al canal de ventas solo después de Publicar producto."
+      },
+      "fr": {
+        "name": "Mettre à jour un produit",
+        "description": "Modifie un produit et le renvoie. Seuls les champs envoyés changent, mais variants doit lister toutes les variantes du produit. Refusé tant que is_locked vaut true, pendant une publication. Les changements n'atteignent le canal de vente qu'après Publier un produit."
+      }
+    },
+    "printify_publish_product": {
+      "pt": {
+        "name": "Publicar produto",
+        "description": "Envia um produto ao canal de vendas da loja, como Shopify ou Etsy, e o bloqueia no Printify até o canal confirmar; em uma loja conectada por API, essa loja precisa confirmar. Cada campo true é enviado, false mantém o que o canal tem. Limitado a 200 chamadas a cada 30 minutos."
+      },
+      "es": {
+        "name": "Publicar producto",
+        "description": "Envía un producto al canal de ventas de la tienda, como Shopify o Etsy, y lo bloquea en Printify hasta que el canal confirme; en una tienda conectada por API, esa tienda tiene que confirmar. Cada campo true se envía, false conserva lo que tiene el canal. Limitado a 200 llamadas cada 30 minutos."
+      },
+      "fr": {
+        "name": "Publier un produit",
+        "description": "Envoie un produit au canal de vente de la boutique, comme Shopify ou Etsy, et le verrouille dans Printify jusqu'à confirmation du canal ; dans une boutique connectée par API, cette boutique doit confirmer. Chaque champ à true est poussé, false conserve ce que le canal a. Limité à 200 appels toutes les 30 minutes."
+      }
+    },
+    "printify_list_orders": {
+      "pt": {
+        "name": "Listar pedidos",
+        "description": "Lista os pedidos de uma loja com status, itens, endereço, custos em centavos e envios com rastreio. No máximo 10 por página; current_page e last_page vêm na resposta."
+      },
+      "es": {
+        "name": "Listar pedidos",
+        "description": "Lista los pedidos de una tienda con estado, líneas, dirección, costes en centavos y envíos con seguimiento. Como máximo 10 por página; current_page y last_page vienen en la respuesta."
+      },
+      "fr": {
+        "name": "Lister les commandes",
+        "description": "Liste les commandes d'une boutique avec statut, lignes, adresse, coûts en centimes et expéditions avec suivi. 10 par page au maximum ; current_page et last_page figurent dans la réponse."
+      }
+    },
+    "printify_get_order": {
+      "pt": {
+        "name": "Obter pedido",
+        "description": "Retorna um pedido: status, itens com seu status de produção, endereço de entrega, custos em centavos, envios com transportadora e rastreio, e as datas de criação, produção e atendimento."
+      },
+      "es": {
+        "name": "Obtener pedido",
+        "description": "Devuelve un pedido: estado, líneas con su estado de producción, dirección de envío, costes en centavos, envíos con transportista y seguimiento, y las fechas de creación, producción y cumplimiento."
+      },
+      "fr": {
+        "name": "Obtenir une commande",
+        "description": "Renvoie une commande : statut, lignes avec leur statut de production, adresse de livraison, coûts en centimes, expéditions avec transporteur et suivi, et les dates de création, de production et d'exécution."
+      }
+    },
+    "printify_list_blueprints": {
+      "pt": {
+        "name": "Listar blueprints",
+        "description": "Lista todo o catálogo de produtos em branco do Printify, chamados blueprints, com id, title, brand, model e imagens, em uma única resposta longa. Prefira o blueprint_id de um produto existente quando um servir."
+      },
+      "es": {
+        "name": "Listar blueprints",
+        "description": "Lista todo el catálogo de productos en blanco de Printify, llamados blueprints, con id, title, brand, model e imágenes, en una única respuesta larga. Prefiere el blueprint_id de un producto existente cuando uno sirva."
+      },
+      "fr": {
+        "name": "Lister les blueprints",
+        "description": "Liste tout le catalogue de produits vierges de Printify, appelés blueprints, avec id, title, brand, model et images, dans une seule longue réponse. Préférez le blueprint_id d'un produit existant quand l'un convient."
+      }
+    },
+    "printify_list_blueprint_print_providers": {
+      "pt": {
+        "name": "Listar print providers do blueprint",
+        "description": "Lista os print providers que fabricam um blueprint, com id e title. Cada um tem suas próprias variantes, preços e áreas de impressão."
+      },
+      "es": {
+        "name": "Listar print providers del blueprint",
+        "description": "Lista los print providers que fabrican un blueprint, con id y title. Cada uno tiene sus propias variantes, precios y áreas de impresión."
+      },
+      "fr": {
+        "name": "Lister les print providers du blueprint",
+        "description": "Liste les print providers qui fabriquent un blueprint, avec id et title. Chacun a ses propres variantes, prix et zones d'impression."
+      }
+    },
+    "printify_list_blueprint_variants": {
+      "pt": {
+        "name": "Listar variantes do blueprint",
+        "description": "Lista as variantes em estoque de um blueprint de um print provider: id, title, opções de tamanho e cor, e os placeholders com cada posição de impressão e seu tamanho em pixels."
+      },
+      "es": {
+        "name": "Listar variantes del blueprint",
+        "description": "Lista las variantes en stock de un blueprint de un print provider: id, title, opciones de talla y color, y los placeholders con cada posición de impresión y su tamaño en píxeles."
+      },
+      "fr": {
+        "name": "Lister les variantes du blueprint",
+        "description": "Liste les variantes en stock d'un blueprint auprès d'un print provider : id, title, options de taille et de couleur, et les placeholders avec chaque position d'impression et sa taille en pixels."
+      }
+    },
+    "printify_list_uploads": {
+      "pt": {
+        "name": "Listar uploads",
+        "description": "Lista as imagens da biblioteca de mídia da conta com id, nome do arquivo, tamanho em pixels e URL de prévia. O id vai nas áreas de impressão de Criar produto e Atualizar produto. 10 por página por padrão."
+      },
+      "es": {
+        "name": "Listar subidas",
+        "description": "Lista las imágenes de la biblioteca de medios de la cuenta con id, nombre de archivo, tamaño en píxeles y URL de vista previa. El id va en las áreas de impresión de Crear producto y Actualizar producto. 10 por página por defecto."
+      },
+      "fr": {
+        "name": "Lister les uploads",
+        "description": "Liste les images de la médiathèque du compte avec id, nom de fichier, taille en pixels et URL d'aperçu. L'id va dans les zones d'impression de Créer un produit et Mettre à jour un produit. 10 par page par défaut."
+      }
+    },
+    "printify_create_upload": {
+      "pt": {
+        "name": "Criar upload",
+        "description": "Adiciona uma imagem à biblioteca de mídia a partir de uma URL pública, que o Printify baixa, e a retorna com seu id para as áreas de impressão de Criar produto e Atualizar produto."
+      },
+      "es": {
+        "name": "Crear subida",
+        "description": "Añade una imagen a la biblioteca de medios desde una URL pública, que Printify descarga, y la devuelve con su id para las áreas de impresión de Crear producto y Actualizar producto."
+      },
+      "fr": {
+        "name": "Créer un upload",
+        "description": "Ajoute une image à la médiathèque depuis une URL publique, que Printify télécharge, et la renvoie avec son id pour les zones d'impression de Créer un produit et Mettre à jour un produit."
+      }
+    }
+  }
+}

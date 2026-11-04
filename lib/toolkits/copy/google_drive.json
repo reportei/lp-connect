@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, create, copy, share and comment on files and folders in your customer's Google Drive, including shared drives, through Connect.",
+      "intro": "The Google Drive toolkit covers files and folders, shared drives, permissions and comments. Your product or AI agent calls them through Connect, which handles the customer's OAuth connection and logs every execution, so you skip building the integration.",
+      "useCases": [
+        {
+          "title": "Report folders per client",
+          "body": "An agency tool copies a report template into the client's folder and shares it with the right people through permissions."
+        },
+        {
+          "title": "Review on shared documents",
+          "body": "A SaaS lists the comments of a Google Doc under review and adds its own comment when a step in the workflow completes."
+        },
+        {
+          "title": "Agent that finds files",
+          "body": "An AI agent searches files by name or type, reads their metadata and webViewLink, and moves or renames them on request."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, crie, copie, compartilhe e comente arquivos e pastas no Google Drive do seu cliente, incluindo drives compartilhados, pelo Connect.",
+      "intro": "O toolkit do Google Drive cobre arquivos e pastas, drives compartilhados, permissões e comentários. Seu produto ou agente de IA os chama pelo Connect, que cuida da conexão OAuth do cliente e registra cada execução, sem você construir a integração.",
+      "useCases": [
+        {
+          "title": "Pastas de relatório por cliente",
+          "body": "Uma ferramenta de agência copia um modelo de relatório para a pasta do cliente e o compartilha com as pessoas certas por permissões."
+        },
+        {
+          "title": "Revisão em documentos compartilhados",
+          "body": "Um SaaS lista os comentários de um Google Doc em revisão e adiciona o seu próprio quando uma etapa do fluxo termina."
+        },
+        {
+          "title": "Agente que encontra arquivos",
+          "body": "Um agente de IA busca arquivos por nome ou tipo, lê seus metadados e webViewLink, e os move ou renomeia sob pedido."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, crea, copia, comparte y comenta archivos y carpetas en el Google Drive de tu cliente, incluidas las unidades compartidas, con Connect.",
+      "intro": "El toolkit de Google Drive cubre archivos y carpetas, unidades compartidas, permisos y comentarios. Tu producto o agente de IA los llama por Connect, que maneja la conexión OAuth del cliente y registra cada ejecución, sin que construyas la integración.",
+      "useCases": [
+        {
+          "title": "Carpetas de informes por cliente",
+          "body": "Una herramienta de agencia copia una plantilla de informe a la carpeta del cliente y la comparte con las personas correctas mediante permisos."
+        },
+        {
+          "title": "Revisión en documentos compartidos",
+          "body": "Un SaaS lista los comentarios de un Google Doc en revisión y agrega el suyo cuando termina un paso del flujo."
+        },
+        {
+          "title": "Agente que encuentra archivos",
+          "body": "Un agente de IA busca archivos por nombre o tipo, lee sus metadatos y webViewLink, y los mueve o renombra cuando se le pide."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, créez, copiez, partagez et commentez fichiers et dossiers dans le Google Drive de votre client, y compris les drives partagés, via Connect.",
+      "intro": "Le toolkit Google Drive couvre fichiers et dossiers, drives partagés, autorisations et commentaires. Votre produit ou agent IA les appelle via Connect, qui gère la connexion OAuth du client et journalise chaque exécution, sans que vous construisiez l'intégration.",
+      "useCases": [
+        {
+          "title": "Dossiers de rapports par client",
+          "body": "Un outil d'agence copie un modèle de rapport dans le dossier du client et le partage avec les bonnes personnes via les autorisations."
+        },
+        {
+          "title": "Relecture de documents partagés",
+          "body": "Un SaaS liste les commentaires d'un Google Doc en relecture et ajoute le sien quand une étape du workflow se termine."
+        },
+        {
+          "title": "Agent qui retrouve des fichiers",
+          "body": "Un agent IA recherche des fichiers par nom ou type, lit leurs métadonnées et webViewLink, et les déplace ou renomme à la demande."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "google_drive_list_files": {
+      "pt": {
+        "name": "Listar arquivos",
+        "description": "Busca os arquivos e pastas que a conta pode ver. Cada arquivo traz só id, name e mimeType, a menos que fields peça mais, como webViewLink e modifiedTime."
+      },
+      "es": {
+        "name": "Listar archivos",
+        "description": "Busca los archivos y carpetas que la cuenta puede ver. Cada archivo trae solo id, name y mimeType, salvo que fields pida más, como webViewLink y modifiedTime."
+      },
+      "fr": {
+        "name": "Lister les fichiers",
+        "description": "Recherche les fichiers et dossiers que le compte peut voir. Chaque fichier ne contient que id, name et mimeType, sauf si fields en demande plus, comme webViewLink et modifiedTime."
+      }
+    },
+    "google_drive_get_file": {
+      "pt": {
+        "name": "Obter arquivo",
+        "description": "Obtém os metadados de um arquivo ou pasta, não o conteúdo. webViewLink é o endereço que o abre no navegador, e parents tem o id da pasta em que está."
+      },
+      "es": {
+        "name": "Obtener archivo",
+        "description": "Obtiene los metadatos de un archivo o carpeta, no el contenido. webViewLink es la dirección que lo abre en el navegador, y parents tiene el id de la carpeta en que está."
+      },
+      "fr": {
+        "name": "Obtenir un fichier",
+        "description": "Obtient les métadonnées d'un fichier ou dossier, pas le contenu. webViewLink est l'adresse qui l'ouvre dans le navigateur, et parents contient l'id du dossier où il se trouve."
+      }
+    },
+    "google_drive_create_file": {
+      "pt": {
+        "name": "Criar arquivo",
+        "description": "Cria um arquivo só com metadados, sem conteúdo: uma pasta, ou um Google Doc, Sheet ou apresentação Slides vazio, escolhido por mimeType. Devolve id, name e mimeType."
+      },
+      "es": {
+        "name": "Crear archivo",
+        "description": "Crea un archivo solo con metadatos, sin contenido: una carpeta, o un Google Doc, Sheet o presentación Slides vacío, elegido por mimeType. Devuelve id, name y mimeType."
+      },
+      "fr": {
+        "name": "Créer un fichier",
+        "description": "Crée un fichier avec métadonnées seulement, sans contenu : un dossier, ou un Google Doc, Sheet ou présentation Slides vide, choisi par mimeType. Renvoie id, name et mimeType."
+      }
+    },
+    "google_drive_update_file": {
+      "pt": {
+        "name": "Atualizar arquivo",
+        "description": "Renomeia, descreve, marca com estrela, move ou envia para a lixeira um arquivo ou pasta; só os campos enviados mudam. Para mover, passe a nova pasta em addParents."
+      },
+      "es": {
+        "name": "Actualizar archivo",
+        "description": "Renombra, describe, marca con estrella, mueve o envía a la papelera un archivo o carpeta; solo cambian los campos enviados. Para mover, pasa la nueva carpeta en addParents."
+      },
+      "fr": {
+        "name": "Mettre à jour un fichier",
+        "description": "Renomme, décrit, met en favori, déplace ou met à la corbeille un fichier ou dossier ; seuls les champs envoyés changent. Pour déplacer, passez le nouveau dossier dans addParents."
+      }
+    },
+    "google_drive_copy_file": {
+      "pt": {
+        "name": "Copiar arquivo",
+        "description": "Copia um arquivo, como um modelo de relatório, e devolve o novo arquivo. Sem parents a cópia fica na mesma pasta do original. Pastas não podem ser copiadas."
+      },
+      "es": {
+        "name": "Copiar archivo",
+        "description": "Copia un archivo, como una plantilla de informe, y devuelve el nuevo archivo. Sin parents la copia queda en la misma carpeta que el original. Las carpetas no se pueden copiar."
+      },
+      "fr": {
+        "name": "Copier un fichier",
+        "description": "Copie un fichier, comme un modèle de rapport, et renvoie le nouveau fichier. Sans parents la copie reste dans le même dossier que l'original. Les dossiers ne peuvent pas être copiés."
+      }
+    },
+    "google_drive_list_shared_drives": {
+      "pt": {
+        "name": "Listar drives compartilhados",
+        "description": "Lista os drives compartilhados de que a conta é membro, com id e name. O id vai em driveId de Listar arquivos. Passe nextPageToken como pageToken para a próxima página."
+      },
+      "es": {
+        "name": "Listar unidades compartidas",
+        "description": "Lista las unidades compartidas de las que la cuenta es miembro, con id y name. El id va en driveId de Listar archivos. Pasa nextPageToken como pageToken para la página siguiente."
+      },
+      "fr": {
+        "name": "Lister les drives partagés",
+        "description": "Liste les drives partagés dont le compte est membre, avec id et name. L'id va dans driveId de Lister les fichiers. Passez nextPageToken comme pageToken pour la page suivante."
+      }
+    },
+    "google_drive_list_permissions": {
+      "pt": {
+        "name": "Listar permissões",
+        "description": "Lista quem tem acesso a um arquivo ou pasta. Sem fields cada permissão traz só campos básicos, como id, type e role: peça emailAddress e displayName para ver mais."
+      },
+      "es": {
+        "name": "Listar permisos",
+        "description": "Lista quién tiene acceso a un archivo o carpeta. Sin fields cada permiso trae solo campos básicos, como id, type y role: pide emailAddress y displayName para ver más."
+      },
+      "fr": {
+        "name": "Lister les autorisations",
+        "description": "Liste qui a accès à un fichier ou dossier. Sans fields chaque autorisation ne contient que des champs de base, comme id, type et role : demandez emailAddress et displayName pour en voir plus."
+      }
+    },
+    "google_drive_create_permission": {
+      "pt": {
+        "name": "Criar permissão",
+        "description": "Compartilha um arquivo ou pasta e devolve a nova permissão com seu id. O Google envia e-mail aos usuários e grupos, a menos que sendNotificationEmail seja false."
+      },
+      "es": {
+        "name": "Crear permiso",
+        "description": "Comparte un archivo o carpeta y devuelve el nuevo permiso con su id. Google envía un correo a los usuarios y grupos, salvo que sendNotificationEmail sea false."
+      },
+      "fr": {
+        "name": "Créer une autorisation",
+        "description": "Partage un fichier ou dossier et renvoie la nouvelle autorisation avec son id. Google envoie un e-mail aux utilisateurs et groupes, sauf si sendNotificationEmail vaut false."
+      }
+    },
+    "google_drive_update_permission": {
+      "pt": {
+        "name": "Atualizar permissão",
+        "description": "Altera o role ou a expiração de um acesso que já existe e devolve a permissão."
+      },
+      "es": {
+        "name": "Actualizar permiso",
+        "description": "Cambia el role o la expiración de un acceso que ya existe y devuelve el permiso."
+      },
+      "fr": {
+        "name": "Mettre à jour une autorisation",
+        "description": "Modifie le role ou l'expiration d'un accès existant et renvoie l'autorisation."
+      }
+    },
+    "google_drive_delete_permission": {
+      "pt": {
+        "name": "Excluir permissão",
+        "description": "Remove um acesso de um arquivo ou pasta: o usuário, grupo, domínio ou link perde o acesso."
+      },
+      "es": {
+        "name": "Eliminar permiso",
+        "description": "Quita un acceso de un archivo o carpeta: el usuario, grupo, dominio o enlace pierde el acceso."
+      },
+      "fr": {
+        "name": "Supprimer une autorisation",
+        "description": "Retire un accès d'un fichier ou dossier : l'utilisateur, le groupe, le domaine ou le lien perd l'accès."
+      }
+    },
+    "google_drive_list_comments": {
+      "pt": {
+        "name": "Listar comentários",
+        "description": "Lista os comentários de um arquivo, como um Google Doc em revisão, com suas respostas e se estão resolvidos. O Google exige fields nesta chamada."
+      },
+      "es": {
+        "name": "Listar comentarios",
+        "description": "Lista los comentarios de un archivo, como un Google Doc en revisión, con sus respuestas y si están resueltos. Google exige fields en esta llamada."
+      },
+      "fr": {
+        "name": "Lister les commentaires",
+        "description": "Liste les commentaires d'un fichier, comme un Google Doc en relecture, avec leurs réponses et leur état résolu ou non. Google exige fields dans cet appel."
+      }
+    },
+    "google_drive_create_comment": {
+      "pt": {
+        "name": "Criar comentário",
+        "description": "Adiciona um comentário a um arquivo. No Google Docs, Sheets e Slides ele não fica preso a um trecho: aparece como comentário do arquivo inteiro. O Google exige fields."
+      },
+      "es": {
+        "name": "Crear comentario",
+        "description": "Agrega un comentario a un archivo. En Google Docs, Sheets y Slides no queda atado a un pasaje: aparece como comentario de todo el archivo. Google exige fields."
+      },
+      "fr": {
+        "name": "Créer un commentaire",
+        "description": "Ajoute un commentaire à un fichier. Dans Google Docs, Sheets et Slides il n'est pas lié à un passage : il apparaît comme commentaire du fichier entier. Google exige fields."
+      }
+    }
+  }
+}

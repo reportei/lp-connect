@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage people, cadences, calls and notes in your customer's Salesloft team, and read email and call activity, through Connect.",
+      "intro": "The Salesloft toolkit covers people, cadences and cadence memberships, plus the emails and calls of the team. Your product or AI agent can create and update people, enroll them in cadences, log calls and add notes through Connect, which handles the customer's OAuth connection and logs every execution.",
+      "useCases": [
+        {
+          "title": "Enroll leads in a cadence",
+          "body": "A SaaS creates a person in Salesloft when a lead qualifies and adds them to a cadence, or removes them when they convert."
+        },
+        {
+          "title": "Log outreach from your product",
+          "body": "A dialer or meeting tool logs a call with its disposition and sentiment and adds a note to the person."
+        },
+        {
+          "title": "Rep assistant for agents",
+          "body": "An AI agent lists the emails and calls of the team, checks views, clicks and replies, and decides who to follow up with."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie pessoas, cadências, ligações e notas no time Salesloft do seu cliente, e leia a atividade de e-mails e ligações, pelo Connect.",
+      "intro": "O toolkit do Salesloft cobre pessoas, cadências e memberships de cadência, além dos e-mails e ligações do time. Seu produto ou agente de IA cria e atualiza pessoas, as inscreve em cadências, registra ligações e adiciona notas pelo Connect, que cuida da conexão OAuth do cliente e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Inscreva leads em uma cadência",
+          "body": "Um SaaS cria uma pessoa no Salesloft quando um lead é qualificado e a adiciona a uma cadência, ou a remove quando converte."
+        },
+        {
+          "title": "Registre contatos pelo seu produto",
+          "body": "Um discador ou ferramenta de reuniões registra uma ligação com disposition e sentiment e adiciona uma nota à pessoa."
+        },
+        {
+          "title": "Assistente para representantes",
+          "body": "Um agente de IA lista os e-mails e ligações do time, confere visualizações, cliques e respostas, e decide com quem fazer follow-up."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona personas, cadencias, llamadas y notas en el equipo de Salesloft de tu cliente, y lee la actividad de correos y llamadas, con Connect.",
+      "intro": "El toolkit de Salesloft cubre personas, cadencias y membresías de cadencia, además de los correos y llamadas del equipo. Tu producto o agente de IA crea y actualiza personas, las inscribe en cadencias, registra llamadas y agrega notas por Connect, que maneja la conexión OAuth del cliente y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Inscribe leads en una cadencia",
+          "body": "Un SaaS crea una persona en Salesloft cuando un lead se califica y la agrega a una cadencia, o la quita cuando se convierte."
+        },
+        {
+          "title": "Registra contactos desde tu producto",
+          "body": "Un marcador o herramienta de reuniones registra una llamada con su disposition y sentiment y agrega una nota a la persona."
+        },
+        {
+          "title": "Asistente para representantes",
+          "body": "Un agente de IA lista los correos y llamadas del equipo, revisa vistas, clics y respuestas, y decide con quién hacer seguimiento."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez personnes, cadences, appels et notes dans l'équipe Salesloft de votre client, et lisez l'activité e-mail et appels, via Connect.",
+      "intro": "Le toolkit Salesloft couvre les personnes, les cadences et les adhésions aux cadences, ainsi que les e-mails et appels de l'équipe. Votre produit ou agent IA crée et met à jour des personnes, les inscrit dans des cadences, enregistre des appels et ajoute des notes via Connect, qui gère la connexion OAuth du client et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Inscrire des leads dans une cadence",
+          "body": "Un SaaS crée une personne dans Salesloft quand un lead est qualifié et l'ajoute à une cadence, ou la retire à la conversion."
+        },
+        {
+          "title": "Journaliser la prospection",
+          "body": "Un outil d'appels ou de réunions enregistre un appel avec son disposition et sentiment et ajoute une note à la personne."
+        },
+        {
+          "title": "Assistant pour commerciaux",
+          "body": "Un agent IA liste les e-mails et appels de l'équipe, vérifie vues, clics et réponses, et décide qui relancer."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "salesloft_list_people": {
+      "pt": {
+        "name": "Listar pessoas",
+        "description": "Lista as pessoas do time, 25 por página por padrão, opcionalmente filtradas por e-mail, nome ou cadência atual. Pagine com page, começando em 1."
+      },
+      "es": {
+        "name": "Listar personas",
+        "description": "Lista las personas del equipo, 25 por página por defecto, opcionalmente filtradas por correo, nombre o cadencia actual. Pagina con page, empezando en 1."
+      },
+      "fr": {
+        "name": "Lister les personnes",
+        "description": "Liste les personnes de l'équipe, 25 par page par défaut, éventuellement filtrées par e-mail, nom ou cadence actuelle. Paginez avec page, à partir de 1."
+      }
+    },
+    "salesloft_get_person": {
+      "pt": {
+        "name": "Obter pessoa",
+        "description": "Devolve uma pessoa, com dados de contato, responsável, conta e as contagens de e-mails e ligações."
+      },
+      "es": {
+        "name": "Obtener persona",
+        "description": "Devuelve una persona, con datos de contacto, responsable, cuenta y los conteos de correos y llamadas."
+      },
+      "fr": {
+        "name": "Obtenir une personne",
+        "description": "Renvoie une personne, avec coordonnées, responsable, compte et les nombres d'e-mails et d'appels."
+      }
+    },
+    "salesloft_create_person": {
+      "pt": {
+        "name": "Criar pessoa",
+        "description": "Cria uma pessoa. Envie email_address, ou phone junto com last_name, porque um deles identifica a pessoa no time."
+      },
+      "es": {
+        "name": "Crear persona",
+        "description": "Crea una persona. Envía email_address, o phone junto con last_name, porque uno de ellos identifica a la persona en el equipo."
+      },
+      "fr": {
+        "name": "Créer une personne",
+        "description": "Crée une personne. Envoyez email_address, ou phone avec last_name, car l'un d'eux identifie la personne dans l'équipe."
+      }
+    },
+    "salesloft_update_person": {
+      "pt": {
+        "name": "Atualizar pessoa",
+        "description": "Atualiza os campos informados de uma pessoa."
+      },
+      "es": {
+        "name": "Actualizar persona",
+        "description": "Actualiza los campos indicados de una persona."
+      },
+      "fr": {
+        "name": "Mettre à jour une personne",
+        "description": "Met à jour les champs indiqués d'une personne."
+      }
+    },
+    "salesloft_list_cadences": {
+      "pt": {
+        "name": "Listar cadências",
+        "description": "Lista as cadências que o usuário pode ver, 25 por página por padrão. Use o id de uma cadência nas tools de membership e de atividade. Pagine com page, começando em 1."
+      },
+      "es": {
+        "name": "Listar cadencias",
+        "description": "Lista las cadencias que el usuario puede ver, 25 por página por defecto. Usa el id de una cadencia en las tools de membresía y de actividad. Pagina con page, empezando en 1."
+      },
+      "fr": {
+        "name": "Lister les cadences",
+        "description": "Liste les cadences que l'utilisateur peut voir, 25 par page par défaut. Utilisez l'id d'une cadence dans les tools d'adhésion et d'activité. Paginez avec page, à partir de 1."
+      }
+    },
+    "salesloft_list_cadence_memberships": {
+      "pt": {
+        "name": "Listar memberships de cadência",
+        "description": "Lista quem está ou já esteve em uma cadência. Cada membership liga uma pessoa a uma cadência, com seu estado atual e contagens, e tem o id que Excluir membership de cadência pede."
+      },
+      "es": {
+        "name": "Listar membresías de cadencia",
+        "description": "Lista quién está o estuvo en una cadencia. Cada membresía une a una persona con una cadencia, con su estado actual y conteos, y tiene el id que pide Eliminar membresía de cadencia."
+      },
+      "fr": {
+        "name": "Lister les adhésions aux cadences",
+        "description": "Liste qui est ou a été dans une cadence. Chaque adhésion relie une personne à une cadence, avec son état actuel et ses nombres, et porte l'id que demande Supprimer une adhésion à une cadence."
+      }
+    },
+    "salesloft_create_cadence_membership": {
+      "pt": {
+        "name": "Criar membership de cadência",
+        "description": "Adiciona uma pessoa a uma cadência, na primeira etapa, para o usuário conectado. A pessoa e a cadência devem estar visíveis ao usuário."
+      },
+      "es": {
+        "name": "Crear membresía de cadencia",
+        "description": "Agrega una persona a una cadencia, en el primer paso, para el usuario conectado. La persona y la cadencia deben ser visibles para el usuario."
+      },
+      "fr": {
+        "name": "Créer une adhésion à une cadence",
+        "description": "Ajoute une personne à une cadence, à la première étape, pour l'utilisateur connecté. La personne et la cadence doivent être visibles de l'utilisateur."
+      }
+    },
+    "salesloft_delete_cadence_membership": {
+      "pt": {
+        "name": "Excluir membership de cadência",
+        "description": "Remove uma pessoa de uma cadência excluindo o membership."
+      },
+      "es": {
+        "name": "Eliminar membresía de cadencia",
+        "description": "Quita a una persona de una cadencia eliminando la membresía."
+      },
+      "fr": {
+        "name": "Supprimer une adhésion à une cadence",
+        "description": "Retire une personne d'une cadence en supprimant l'adhésion."
+      }
+    },
+    "salesloft_list_emails": {
+      "pt": {
+        "name": "Listar e-mails",
+        "description": "Lista os e-mails do time, enviados ou agendados, com status, as contagens de visualizações, cliques e respostas, e a pessoa, cadência e etapa de cada um. Pagine com page."
+      },
+      "es": {
+        "name": "Listar correos",
+        "description": "Lista los correos del equipo, enviados o programados, con estado, los conteos de vistas, clics y respuestas, y la persona, cadencia y paso de cada uno. Pagina con page."
+      },
+      "fr": {
+        "name": "Lister les e-mails",
+        "description": "Liste les e-mails de l'équipe, envoyés ou planifiés, avec statut, les nombres de vues, clics et réponses, et la personne, cadence et étape de chacun. Paginez avec page."
+      }
+    },
+    "salesloft_list_calls": {
+      "pt": {
+        "name": "Listar ligações",
+        "description": "Lista as ligações do time, com duração, disposition, sentiment e a pessoa contatada. Pagine com page, começando em 1, e per_page, até 100."
+      },
+      "es": {
+        "name": "Listar llamadas",
+        "description": "Lista las llamadas del equipo, con duración, disposition, sentiment y la persona llamada. Pagina con page, empezando en 1, y per_page, hasta 100."
+      },
+      "fr": {
+        "name": "Lister les appels",
+        "description": "Liste les appels de l'équipe, avec durée, disposition, sentiment et la personne appelée. Paginez avec page, à partir de 1, et per_page, jusqu'à 100."
+      }
+    },
+    "salesloft_create_call": {
+      "pt": {
+        "name": "Criar ligação",
+        "description": "Registra uma ligação feita a uma pessoa, para o usuário conectado. disposition e sentiment devem ser valores configurados pelo time, que pode torná-los obrigatórios."
+      },
+      "es": {
+        "name": "Crear llamada",
+        "description": "Registra una llamada hecha a una persona, para el usuario conectado. disposition y sentiment deben ser valores configurados por el equipo, que puede hacerlos obligatorios."
+      },
+      "fr": {
+        "name": "Créer un appel",
+        "description": "Enregistre un appel passé à une personne, pour l'utilisateur connecté. disposition et sentiment doivent être des valeurs configurées par l'équipe, qui peut les rendre obligatoires."
+      }
+    },
+    "salesloft_create_note": {
+      "pt": {
+        "name": "Criar nota",
+        "description": "Cria uma nota em uma pessoa, para o usuário conectado. A nota sincroniza com o CRM do usuário, a menos que skip_crm_sync seja true."
+      },
+      "es": {
+        "name": "Crear nota",
+        "description": "Crea una nota en una persona, para el usuario conectado. La nota se sincroniza con el CRM del usuario, salvo que skip_crm_sync sea true."
+      },
+      "fr": {
+        "name": "Créer une note",
+        "description": "Crée une note sur une personne, pour l'utilisateur connecté. La note se synchronise avec le CRM de l'utilisateur, sauf si skip_crm_sync vaut true."
+      }
+    }
+  }
+}

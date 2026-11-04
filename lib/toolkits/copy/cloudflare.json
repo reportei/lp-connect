@@ -1,0 +1,190 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Add domains, manage DNS records and purge cache in your customer's Cloudflare account from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Cloudflare toolkit covers the zones, DNS records and cache of a Cloudflare account: list, add and pause zones, create, change and delete DNS records, and purge cached content. Through Connect, your product or AI agent calls them with one endpoint, while Connect stores the API token and logs every execution.",
+      "useCases": [
+        {
+          "title": "Custom domains for your users",
+          "body": "When a customer connects their domain, add the zone, show the name_servers to set at the registrar, and create the DNS records your product needs."
+        },
+        {
+          "title": "DNS changes by an AI agent",
+          "body": "An agent lists the records of a zone, creates or updates a CNAME or A record, and deletes the old one once a migration is done."
+        },
+        {
+          "title": "Purge cache after a publish",
+          "body": "After your product publishes new content, purge the affected files, tags, hosts or prefixes of the customer's zone so visitors get the fresh version."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Adicione domínios, gerencie registros DNS e limpe o cache na conta Cloudflare do seu cliente, a partir do seu produto ou agente de IA, pelo Connect.",
+      "intro": "O toolkit da Cloudflare cobre zonas, registros DNS e cache de uma conta Cloudflare: listar, adicionar e pausar zonas, criar, alterar e excluir registros DNS e limpar conteúdo em cache. Pelo Connect, seu produto ou agente de IA chama tudo por um só endpoint, enquanto o Connect guarda o token de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Domínios próprios para seus usuários",
+          "body": "Quando um cliente conecta o domínio dele, adicione a zona, mostre os name_servers a configurar no registrador e crie os registros DNS que seu produto precisa."
+        },
+        {
+          "title": "Mudanças de DNS por agente de IA",
+          "body": "Um agente lista os registros de uma zona, cria ou atualiza um registro CNAME ou A e exclui o antigo quando a migração termina."
+        },
+        {
+          "title": "Limpar cache após publicar",
+          "body": "Depois que seu produto publica conteúdo novo, limpe os arquivos, tags, hosts ou prefixos afetados na zona do cliente para que os visitantes vejam a versão atual."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Agrega dominios, gestiona registros DNS y purga la caché en la cuenta Cloudflare de tu cliente desde tu producto o agente de IA, con Connect.",
+      "intro": "El toolkit de Cloudflare cubre las zonas, registros DNS y caché de una cuenta Cloudflare: listar, agregar y pausar zonas, crear, cambiar y eliminar registros DNS y purgar contenido en caché. Con Connect, tu producto o agente de IA lo llama todo por un solo endpoint, mientras Connect guarda el token de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Dominios propios para tus usuarios",
+          "body": "Cuando un cliente conecta su dominio, agrega la zona, muestra los name_servers que debe configurar en el registrador y crea los registros DNS que tu producto necesita."
+        },
+        {
+          "title": "Cambios de DNS con agente de IA",
+          "body": "Un agente lista los registros de una zona, crea o actualiza un registro CNAME o A y elimina el antiguo cuando termina una migración."
+        },
+        {
+          "title": "Purgar caché tras publicar",
+          "body": "Después de que tu producto publique contenido nuevo, purga los archivos, etiquetas, hosts o prefijos afectados en la zona del cliente para que los visitantes vean la versión actual."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Ajoutez des domaines, gérez les enregistrements DNS et purgez le cache du compte Cloudflare de votre client depuis votre produit ou agent IA, via Connect.",
+      "intro": "Le toolkit Cloudflare couvre les zones, enregistrements DNS et le cache d'un compte Cloudflare : lister, ajouter et mettre en pause des zones, créer, modifier et supprimer des enregistrements DNS, purger le contenu en cache. Avec Connect, votre produit ou agent IA appelle le tout par un seul endpoint, pendant que Connect stocke le token d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Domaines personnalisés pour vos utilisateurs",
+          "body": "Quand un client connecte son domaine, ajoutez la zone, affichez les name_servers à configurer chez le registrar et créez les enregistrements DNS dont votre produit a besoin."
+        },
+        {
+          "title": "Changements DNS par un agent IA",
+          "body": "Un agent liste les enregistrements d'une zone, crée ou met à jour un enregistrement CNAME ou A, puis supprime l'ancien une fois la migration terminée."
+        },
+        {
+          "title": "Purger le cache après publication",
+          "body": "Après la publication de nouveau contenu par votre produit, purgez les fichiers, tags, hosts ou préfixes concernés dans la zone du client pour que les visiteurs voient la version à jour."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "cloudflare_list_zones": {
+      "pt": {
+        "name": "Listar zonas",
+        "description": "Lista as zonas (domínios) que o token alcança, com id, nome, status, name_servers, plano e conta. O id é o zone_id que as outras tools usam. Pagine com page e per_page; result_info.total_pages diz quantas páginas existem."
+      },
+      "es": {
+        "name": "Listar zonas",
+        "description": "Lista las zonas (dominios) a las que llega el token, con id, nombre, estado, name_servers, plan y cuenta. El id es el zone_id que usan las otras tools. Pagina con page y per_page; result_info.total_pages indica cuántas páginas hay."
+      },
+      "fr": {
+        "name": "Lister les zones",
+        "description": "Liste les zones (domaines) auxquelles le token accède, avec id, nom, statut, name_servers, forfait et compte. L'id est le zone_id utilisé par les autres tools. Paginez avec page et per_page ; result_info.total_pages indique le nombre de pages."
+      }
+    },
+    "cloudflare_create_zone": {
+      "pt": {
+        "name": "Criar zona",
+        "description": "Adiciona um domínio a uma conta Cloudflare e retorna a zona com status pending, com os name_servers a configurar no registrador do domínio. A zona fica active quando o registrador aponta para eles."
+      },
+      "es": {
+        "name": "Crear zona",
+        "description": "Agrega un dominio a una cuenta Cloudflare y devuelve la zona en estado pending, con los name_servers a configurar en el registrador del dominio. La zona pasa a active cuando el registrador apunta a ellos."
+      },
+      "fr": {
+        "name": "Créer une zone",
+        "description": "Ajoute un domaine à un compte Cloudflare et renvoie la zone au statut pending, avec les name_servers à configurer chez le registrar du domaine. La zone devient active quand le registrar pointe vers eux."
+      }
+    },
+    "cloudflare_update_zone": {
+      "pt": {
+        "name": "Atualizar zona",
+        "description": "Pausa ou retoma a Cloudflare em uma zona e a retorna. Com paused true a zona mantém só o DNS, sem os recursos de segurança e desempenho da Cloudflare."
+      },
+      "es": {
+        "name": "Actualizar zona",
+        "description": "Pausa o reanuda Cloudflare en una zona y la devuelve. Con paused true la zona conserva solo el DNS, sin las funciones de seguridad y rendimiento de Cloudflare."
+      },
+      "fr": {
+        "name": "Mettre à jour une zone",
+        "description": "Met en pause ou reprend Cloudflare sur une zone et la renvoie. Avec paused true, la zone ne garde que le DNS, sans les fonctions de sécurité et de performance de Cloudflare."
+      }
+    },
+    "cloudflare_list_dns_records": {
+      "pt": {
+        "name": "Listar registros DNS",
+        "description": "Lista os registros DNS de uma zona, com id, type, name, content, proxied, ttl e comment. Os filtros funcionam juntos, a menos que match seja any. Pagine com page e per_page; result_info.total_pages diz quantas páginas existem."
+      },
+      "es": {
+        "name": "Listar registros DNS",
+        "description": "Lista los registros DNS de una zona, con id, type, name, content, proxied, ttl y comment. Los filtros funcionan juntos salvo que match sea any. Pagina con page y per_page; result_info.total_pages indica cuántas páginas hay."
+      },
+      "fr": {
+        "name": "Lister les enregistrements DNS",
+        "description": "Liste les enregistrements DNS d'une zone, avec id, type, name, content, proxied, ttl et comment. Les filtres fonctionnent ensemble sauf si match vaut any. Paginez avec page et per_page ; result_info.total_pages indique le nombre de pages."
+      }
+    },
+    "cloudflare_create_dns_record": {
+      "pt": {
+        "name": "Criar registro DNS",
+        "description": "Cria um registro DNS em uma zona e o retorna, com seu id. Registros A e AAAA não podem ter o mesmo nome de um CNAME, e um registro NS não pode ter o mesmo nome de nenhum outro."
+      },
+      "es": {
+        "name": "Crear registro DNS",
+        "description": "Crea un registro DNS en una zona y lo devuelve, con su id. Los registros A y AAAA no pueden compartir nombre con un CNAME, y un registro NS no puede compartir nombre con ningún otro."
+      },
+      "fr": {
+        "name": "Créer un enregistrement DNS",
+        "description": "Crée un enregistrement DNS dans une zone et le renvoie, avec son id. Les enregistrements A et AAAA ne peuvent pas partager un nom avec un CNAME, et un enregistrement NS ne peut partager son nom avec aucun autre."
+      }
+    },
+    "cloudflare_update_dns_record": {
+      "pt": {
+        "name": "Atualizar registro DNS",
+        "description": "Altera um registro DNS e o retorna. Só os campos enviados mudam. Registros A e AAAA não podem ter o mesmo nome de um CNAME, e um registro NS não pode ter o mesmo nome de nenhum outro."
+      },
+      "es": {
+        "name": "Actualizar registro DNS",
+        "description": "Cambia un registro DNS y lo devuelve. Solo cambian los campos enviados. Los registros A y AAAA no pueden compartir nombre con un CNAME, y un registro NS no puede compartir nombre con ningún otro."
+      },
+      "fr": {
+        "name": "Mettre à jour un enregistrement DNS",
+        "description": "Modifie un enregistrement DNS et le renvoie. Seuls les champs envoyés changent. Les enregistrements A et AAAA ne peuvent pas partager un nom avec un CNAME, et un enregistrement NS ne peut partager son nom avec aucun autre."
+      }
+    },
+    "cloudflare_delete_dns_record": {
+      "pt": {
+        "name": "Excluir registro DNS",
+        "description": "Exclui um registro DNS de uma zona e retorna seu id. A mudança chega às respostas de DNS imediatamente e não pode ser desfeita."
+      },
+      "es": {
+        "name": "Eliminar registro DNS",
+        "description": "Elimina un registro DNS de una zona y devuelve su id. El cambio llega a las respuestas DNS de inmediato y no se puede deshacer."
+      },
+      "fr": {
+        "name": "Supprimer un enregistrement DNS",
+        "description": "Supprime un enregistrement DNS d'une zone et renvoie son id. Le changement atteint immédiatement les réponses DNS et ne peut pas être annulé."
+      }
+    },
+    "cloudflare_purge_cache": {
+      "pt": {
+        "name": "Limpar cache",
+        "description": "Remove o conteúdo em cache de uma zona de todos os data centers da Cloudflare; a próxima requisição vai para a origem. Envie exatamente um entre files, tags, hosts, prefixes ou purge_everything. Sucesso significa que a requisição foi aceita, não que algo estava em cache. Quantos itens cabem em uma chamada depende do plano."
+      },
+      "es": {
+        "name": "Purgar caché",
+        "description": "Elimina el contenido en caché de una zona de todos los data centers de Cloudflare; la siguiente solicitud va al origen. Envía exactamente uno de files, tags, hosts, prefixes o purge_everything. Un éxito significa que la solicitud fue aceptada, no que algo estuviera en caché. Cuántos elementos caben en una llamada depende del plan."
+      },
+      "fr": {
+        "name": "Purger le cache",
+        "description": "Supprime le contenu en cache d'une zone de tous les data centers Cloudflare ; la requête suivante va à l'origine. Envoyez exactement un parmi files, tags, hosts, prefixes ou purge_everything. Un succès signifie que la requête a été acceptée, pas que quelque chose était en cache. Le nombre d'éléments par appel dépend du forfait."
+      }
+    }
+  }
+}

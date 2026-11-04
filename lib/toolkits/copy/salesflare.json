@@ -1,0 +1,260 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update accounts, contacts and opportunities in your customer's Salesflare team from your product or AI agent, through one Connect endpoint.",
+      "intro": "The Salesflare toolkit covers the accounts (companies), contacts and opportunities of a Salesflare team, plus the pipelines, stages and users they refer to. Your product or AI agent can list, read, create and update them through Connect with one endpoint, while Connect stores the API key and logs every execution.",
+      "useCases": [
+        {
+          "title": "Create leads from signups",
+          "body": "When a user signs up in your SaaS, create the account and the contact in Salesflare and open an opportunity at the first stage of a pipeline."
+        },
+        {
+          "title": "Move deals from your product",
+          "body": "Update an opportunity's stage when something happens in your app, such as a trial converting to a paid plan."
+        },
+        {
+          "title": "Agent that reads the pipeline",
+          "body": "An AI agent lists opportunities closing in a date range, looks up the owner and stage, and reports what needs attention."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize contas, contatos e oportunidades no time Salesflare do seu cliente a partir do seu produto ou agente de IA, por um endpoint do Connect.",
+      "intro": "O toolkit do Salesflare cobre contas (empresas), contatos e oportunidades de um time Salesflare, além dos pipelines, etapas e usuários a que se referem. Seu produto ou agente de IA pode listar, ler, criar e atualizar tudo pelo Connect, por um só endpoint, enquanto o Connect guarda a chave de API e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Criar leads a partir de cadastros",
+          "body": "Quando um usuário se cadastra no seu SaaS, crie a conta e o contato no Salesflare e abra uma oportunidade na primeira etapa de um pipeline."
+        },
+        {
+          "title": "Mover negócios a partir do produto",
+          "body": "Atualize a etapa de uma oportunidade quando algo acontece no seu app, como um trial que vira plano pago."
+        },
+        {
+          "title": "Agente que lê o pipeline",
+          "body": "Um agente de IA lista oportunidades com fechamento em um intervalo de datas, consulta responsável e etapa e relata o que precisa de atenção."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza cuentas, contactos y oportunidades en el equipo Salesflare de tu cliente desde tu producto o agente de IA, con un endpoint de Connect.",
+      "intro": "El toolkit de Salesflare cubre las cuentas (empresas), contactos y oportunidades de un equipo Salesflare, además de los pipelines, etapas y usuarios a los que se refieren. Tu producto o agente de IA puede listar, leer, crear y actualizar todo con Connect por un solo endpoint, mientras Connect guarda la clave de API y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Crear leads desde registros",
+          "body": "Cuando un usuario se registra en tu SaaS, crea la cuenta y el contacto en Salesflare y abre una oportunidad en la primera etapa de un pipeline."
+        },
+        {
+          "title": "Mover negocios desde el producto",
+          "body": "Actualiza la etapa de una oportunidad cuando algo ocurre en tu app, como un trial que pasa a plan de pago."
+        },
+        {
+          "title": "Agente que lee el pipeline",
+          "body": "Un agente de IA lista oportunidades que cierran en un rango de fechas, consulta responsable y etapa, y informa qué necesita atención."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et mettez à jour comptes, contacts et opportunités dans l'équipe Salesflare de votre client depuis votre produit ou agent IA, via Connect.",
+      "intro": "Le toolkit Salesflare couvre les comptes (entreprises), contacts et opportunités d'une équipe Salesflare, ainsi que les pipelines, étapes et utilisateurs auxquels ils renvoient. Votre produit ou agent IA peut les lister, lire, créer et mettre à jour via Connect par un seul endpoint, pendant que Connect stocke la clé d'API et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Créer des leads depuis les inscriptions",
+          "body": "Quand un utilisateur s'inscrit dans votre SaaS, créez le compte et le contact dans Salesflare et ouvrez une opportunité à la première étape d'un pipeline."
+        },
+        {
+          "title": "Faire avancer les deals depuis le produit",
+          "body": "Mettez à jour l'étape d'une opportunité quand quelque chose se passe dans votre app, comme un essai qui passe à un forfait payant."
+        },
+        {
+          "title": "Agent qui lit le pipeline",
+          "body": "Un agent IA liste les opportunités qui se concluent dans une plage de dates, consulte responsable et étape, et signale ce qui demande de l'attention."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "salesflare_list_accounts": {
+      "pt": {
+        "name": "Listar contas",
+        "description": "Lista as contas, as empresas do time, 10 por página por padrão. Pagine com limit e offset; uma página menor que limit é a última."
+      },
+      "es": {
+        "name": "Listar cuentas",
+        "description": "Lista las cuentas, las empresas del equipo, 10 por página por defecto. Pagina con limit y offset; una página menor que limit es la última."
+      },
+      "fr": {
+        "name": "Lister les comptes",
+        "description": "Liste les comptes, les entreprises de l'équipe, 10 par page par défaut. Paginez avec limit et offset ; une page plus courte que limit est la dernière."
+      }
+    },
+    "salesflare_get_account": {
+      "pt": {
+        "name": "Obter conta",
+        "description": "Retorna uma conta com endereços, emails, telefones, tags e campos personalizados."
+      },
+      "es": {
+        "name": "Obtener cuenta",
+        "description": "Devuelve una cuenta con direcciones, emails, teléfonos, etiquetas y campos personalizados."
+      },
+      "fr": {
+        "name": "Obtenir un compte",
+        "description": "Renvoie un compte avec adresses, emails, téléphones, tags et champs personnalisés."
+      }
+    },
+    "salesflare_create_account": {
+      "pt": {
+        "name": "Criar conta",
+        "description": "Cria uma conta, a empresa à qual contatos e oportunidades pertencem. Retorna a nova conta com seu id."
+      },
+      "es": {
+        "name": "Crear cuenta",
+        "description": "Crea una cuenta, la empresa a la que pertenecen contactos y oportunidades. Devuelve la nueva cuenta con su id."
+      },
+      "fr": {
+        "name": "Créer un compte",
+        "description": "Crée un compte, l'entreprise à laquelle appartiennent contacts et opportunités. Renvoie le nouveau compte avec son id."
+      }
+    },
+    "salesflare_update_account": {
+      "pt": {
+        "name": "Atualizar conta",
+        "description": "Atualiza os campos informados de uma conta."
+      },
+      "es": {
+        "name": "Actualizar cuenta",
+        "description": "Actualiza los campos indicados de una cuenta."
+      },
+      "fr": {
+        "name": "Mettre à jour un compte",
+        "description": "Met à jour les champs indiqués d'un compte."
+      }
+    },
+    "salesflare_list_contacts": {
+      "pt": {
+        "name": "Listar contatos",
+        "description": "Lista os contatos do time, 20 por página por padrão. Pagine com limit e offset; uma página menor que limit é a última."
+      },
+      "es": {
+        "name": "Listar contactos",
+        "description": "Lista los contactos del equipo, 20 por página por defecto. Pagina con limit y offset; una página menor que limit es la última."
+      },
+      "fr": {
+        "name": "Lister les contacts",
+        "description": "Liste les contacts de l'équipe, 20 par page par défaut. Paginez avec limit et offset ; une page plus courte que limit est la dernière."
+      }
+    },
+    "salesflare_get_contact": {
+      "pt": {
+        "name": "Obter contato",
+        "description": "Retorna um contato com sua conta, cargos, telefones, endereços, tags e campos personalizados."
+      },
+      "es": {
+        "name": "Obtener contacto",
+        "description": "Devuelve un contacto con su cuenta, cargos, teléfonos, direcciones, etiquetas y campos personalizados."
+      },
+      "fr": {
+        "name": "Obtenir un contact",
+        "description": "Renvoie un contact avec son compte, ses postes, téléphones, adresses, tags et champs personnalisés."
+      }
+    },
+    "salesflare_create_contact": {
+      "pt": {
+        "name": "Criar contato",
+        "description": "Cria um contato, vinculado a uma conta com account. Retorna o novo contato com seu id."
+      },
+      "es": {
+        "name": "Crear contacto",
+        "description": "Crea un contacto, vinculado a una cuenta con account. Devuelve el nuevo contacto con su id."
+      },
+      "fr": {
+        "name": "Créer un contact",
+        "description": "Crée un contact, lié à un compte avec account. Renvoie le nouveau contact avec son id."
+      }
+    },
+    "salesflare_update_contact": {
+      "pt": {
+        "name": "Atualizar contato",
+        "description": "Atualiza os campos informados de um contato. archived true o arquiva."
+      },
+      "es": {
+        "name": "Actualizar contacto",
+        "description": "Actualiza los campos indicados de un contacto. archived true lo archiva."
+      },
+      "fr": {
+        "name": "Mettre à jour un contact",
+        "description": "Met à jour les champs indiqués d'un contact. archived true l'archive."
+      }
+    },
+    "salesflare_list_opportunities": {
+      "pt": {
+        "name": "Listar oportunidades",
+        "description": "Lista as oportunidades, com etapa, valor, conta e responsável. close_after e close_before filtram por close_date. Pagine com limit e offset; uma página menor que limit é a última."
+      },
+      "es": {
+        "name": "Listar oportunidades",
+        "description": "Lista las oportunidades, con etapa, valor, cuenta y responsable. close_after y close_before filtran por close_date. Pagina con limit y offset; una página menor que limit es la última."
+      },
+      "fr": {
+        "name": "Lister les opportunités",
+        "description": "Liste les opportunités, avec étape, valeur, compte et responsable. close_after et close_before filtrent sur close_date. Paginez avec limit et offset ; une page plus courte que limit est la dernière."
+      }
+    },
+    "salesflare_create_opportunity": {
+      "pt": {
+        "name": "Criar oportunidade",
+        "description": "Cria uma oportunidade para uma conta, em uma etapa de um pipeline. account é obrigatório. Retorna a nova oportunidade com seu id."
+      },
+      "es": {
+        "name": "Crear oportunidad",
+        "description": "Crea una oportunidad para una cuenta, en una etapa de un pipeline. account es obligatorio. Devuelve la nueva oportunidad con su id."
+      },
+      "fr": {
+        "name": "Créer une opportunité",
+        "description": "Crée une opportunité pour un compte, à une étape d'un pipeline. account est obligatoire. Renvoie la nouvelle opportunité avec son id."
+      }
+    },
+    "salesflare_update_opportunity": {
+      "pt": {
+        "name": "Atualizar oportunidade",
+        "description": "Atualiza os campos informados de uma oportunidade. Movê-la pelo pipeline é uma mudança de etapa."
+      },
+      "es": {
+        "name": "Actualizar oportunidad",
+        "description": "Actualiza los campos indicados de una oportunidad. Moverla por el pipeline es un cambio de etapa."
+      },
+      "fr": {
+        "name": "Mettre à jour une opportunité",
+        "description": "Met à jour les champs indiqués d'une opportunité. La faire avancer dans le pipeline revient à changer d'étape."
+      }
+    },
+    "salesflare_list_pipelines": {
+      "pt": {
+        "name": "Listar pipelines",
+        "description": "Lista os pipelines do time, cada um com sua moeda e suas etapas, com id, nome e probabilidade de cada etapa. Use o id de uma etapa nas tools de oportunidade."
+      },
+      "es": {
+        "name": "Listar pipelines",
+        "description": "Lista los pipelines del equipo, cada uno con su moneda y sus etapas, con id, nombre y probabilidad de cada etapa. Usa el id de una etapa en las tools de oportunidades."
+      },
+      "fr": {
+        "name": "Lister les pipelines",
+        "description": "Liste les pipelines de l'équipe, chacun avec sa devise et ses étapes, avec id, nom et probabilité de chaque étape. Utilisez l'id d'une étape dans les tools d'opportunités."
+      }
+    },
+    "salesflare_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários do time, com nome e email. Use o id de um usuário como owner ou assignee nas outras tools."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios del equipo, con nombre y email. Usa el id de un usuario como owner o assignee en las otras tools."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs de l'équipe, avec nom et email. Utilisez l'id d'un utilisateur comme owner ou assignee dans les autres tools."
+      }
+    }
+  }
+}

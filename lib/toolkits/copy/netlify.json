@@ -1,0 +1,232 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage sites, deploys and form submissions in your customer's Netlify account through one Connect endpoint.",
+      "intro": "The Netlify toolkit covers sites, deploys (list, read, build, cancel and restore) and the forms and submissions Netlify collects. Your customer connects Netlify once with an API key, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Deploy button in your CMS",
+          "body": "Call Create site build when content is published and follow the deploy with Get deploy until its state is ready or error."
+        },
+        {
+          "title": "One-call rollback",
+          "body": "Restore an earlier deploy to make it the live version of the site when a release goes wrong."
+        },
+        {
+          "title": "Forms into your inbox or CRM",
+          "body": "Read the submissions of a site's forms and pass them to your product, then delete spam submissions."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie sites, deploys e envios de formulários na conta Netlify do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit da Netlify cobre sites, deploys (listar, ler, buildar, cancelar e restaurar) e os formulários e envios que a Netlify coleta. Seu cliente conecta a Netlify uma vez com uma chave de API, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Botão de deploy no seu CMS",
+          "body": "Chame Criar build do site quando o conteúdo for publicado e acompanhe o deploy com Obter deploy até o state ser ready ou error."
+        },
+        {
+          "title": "Rollback em uma chamada",
+          "body": "Restaure um deploy anterior para torná-lo a versão no ar do site quando uma publicação dá errado."
+        },
+        {
+          "title": "Formulários no seu inbox ou CRM",
+          "body": "Leia os envios dos formulários de um site e repasse ao seu produto, e exclua os envios de spam."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona sitios, deploys y envíos de formularios en la cuenta de Netlify de tu cliente con un único endpoint de Connect.",
+      "intro": "El toolkit de Netlify cubre sitios, deploys (listar, leer, compilar, cancelar y restaurar) y los formularios y envíos que recoge Netlify. Tu cliente conecta Netlify una vez con una API key, y tu producto o agente de IA llama a cada operación a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Botón de deploy en tu CMS",
+          "body": "Llama a Crear build del sitio cuando se publique contenido y sigue el deploy con Obtener deploy hasta que su state sea ready o error."
+        },
+        {
+          "title": "Rollback en una llamada",
+          "body": "Restaura un deploy anterior para convertirlo en la versión en vivo del sitio cuando una publicación sale mal."
+        },
+        {
+          "title": "Formularios a tu bandeja o CRM",
+          "body": "Lee los envíos de los formularios de un sitio y pásalos a tu producto, y elimina los envíos de spam."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez sites, déploiements et soumissions de formulaires dans le compte Netlify de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Netlify couvre les sites, les déploiements (lister, lire, lancer un build, annuler et restaurer) et les formulaires et soumissions collectés par Netlify. Votre client connecte Netlify une fois avec une clé API, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Bouton de déploiement dans votre CMS",
+          "body": "Appelez Créer un build du site à la publication d'un contenu et suivez le déploiement avec Obtenir un déploiement jusqu'à ce que son state soit ready ou error."
+        },
+        {
+          "title": "Rollback en un appel",
+          "body": "Restaurez un déploiement antérieur pour en faire la version en ligne du site quand une mise en production se passe mal."
+        },
+        {
+          "title": "Formulaires vers votre boîte ou CRM",
+          "body": "Lisez les soumissions des formulaires d'un site et transmettez-les à votre produit, puis supprimez les soumissions de spam."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "netlify_list_sites": {
+      "pt": {
+        "name": "Listar sites",
+        "description": "Lista os sites (projetos, na interface da Netlify) que a conta alcança, com id, nome, url, custom_domain, o deploy publicado e as configurações de build. O id ou o domínio de um site é o site_id que as outras ferramentas recebem. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar sitios",
+        "description": "Lista los sitios (proyectos, en la interfaz de Netlify) a los que llega la cuenta, con id, nombre, url, custom_domain, el deploy publicado y la configuración de build. El id o el dominio de un sitio es el site_id que reciben las demás herramientas. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les sites",
+        "description": "Liste les sites (projets, dans l'interface Netlify) accessibles au compte, avec id, nom, url, custom_domain, le déploiement publié et les réglages de build. L'id ou le domaine d'un site est le site_id que prennent les autres outils. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "netlify_update_site": {
+      "pt": {
+        "name": "Atualizar site",
+        "description": "Altera o nome ou os domínios de um site e o retorna. Só os campos enviados mudam. O DNS de um novo domínio personalizado ainda precisa apontar para a Netlify."
+      },
+      "es": {
+        "name": "Actualizar sitio",
+        "description": "Cambia el nombre o los dominios de un sitio y lo devuelve. Solo cambian los campos enviados. El DNS de un nuevo dominio personalizado aún debe apuntar a Netlify."
+      },
+      "fr": {
+        "name": "Mettre à jour un site",
+        "description": "Modifie le nom ou les domaines d'un site et le renvoie. Seuls les champs envoyés changent. Le DNS d'un nouveau domaine personnalisé doit encore pointer vers Netlify."
+      }
+    },
+    "netlify_list_site_deploys": {
+      "pt": {
+        "name": "Listar deploys do site",
+        "description": "Lista os deploys de um site, do mais recente ao mais antigo, com id, state, branch, context, error_message e a URL do deploy. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar deploys del sitio",
+        "description": "Lista los deploys de un sitio, del más reciente al más antiguo, con id, state, branch, context, error_message y la URL del deploy. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les déploiements du site",
+        "description": "Liste les déploiements d'un site, du plus récent au plus ancien, avec id, state, branch, context, error_message et l'URL du déploiement. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "netlify_get_deploy": {
+      "pt": {
+        "name": "Obter deploy",
+        "description": "Retorna um deploy, com state (ready quando está no ar ou pronto para publicar, error quando o build falhou), error_message, branch, commit_ref, published_at e a URL do deploy."
+      },
+      "es": {
+        "name": "Obtener deploy",
+        "description": "Devuelve un deploy, con state (ready cuando está en vivo o listo para publicar, error cuando el build falló), error_message, branch, commit_ref, published_at y la URL del deploy."
+      },
+      "fr": {
+        "name": "Obtenir un déploiement",
+        "description": "Renvoie un déploiement, avec state (ready quand il est en ligne ou prêt à publier, error quand le build a échoué), error_message, branch, commit_ref, published_at et l'URL du déploiement."
+      }
+    },
+    "netlify_create_site_build": {
+      "pt": {
+        "name": "Criar build do site",
+        "description": "Inicia um build de um site a partir do repositório conectado e retorna o build, com deploy_id para acompanhar em Obter deploy. Sem branch, faz o build de produção; outra branch gera um branch deploy. Espera na fila quando o time não tem capacidade de build livre."
+      },
+      "es": {
+        "name": "Crear build del sitio",
+        "description": "Inicia un build de un sitio desde el repositorio conectado y devuelve el build, con deploy_id para seguir en Obtener deploy. Sin branch, compila producción; otra branch genera un branch deploy. Espera en cola cuando el equipo no tiene capacidad de build libre."
+      },
+      "fr": {
+        "name": "Créer un build du site",
+        "description": "Lance un build d'un site depuis son dépôt connecté et renvoie le build, avec deploy_id à suivre dans Obtenir un déploiement. Sans branch, il construit la production ; une autre branche produit un déploiement de branche. Il attend en file quand l'équipe n'a pas de capacité de build libre."
+      }
+    },
+    "netlify_cancel_deploy": {
+      "pt": {
+        "name": "Cancelar deploy",
+        "description": "Interrompe um deploy que ainda está na fila ou em build e o retorna."
+      },
+      "es": {
+        "name": "Cancelar deploy",
+        "description": "Detiene un deploy que aún está en cola o compilándose y lo devuelve."
+      },
+      "fr": {
+        "name": "Annuler un déploiement",
+        "description": "Arrête un déploiement encore en file d'attente ou en cours de build et le renvoie."
+      }
+    },
+    "netlify_restore_site_deploy": {
+      "pt": {
+        "name": "Restaurar deploy do site",
+        "description": "Publica de novo um deploy anterior e o torna a versão no ar do site, que é como funciona um rollback. Retorna o deploy."
+      },
+      "es": {
+        "name": "Restaurar deploy del sitio",
+        "description": "Publica de nuevo un deploy anterior y lo convierte en la versión en vivo del sitio, que es como funciona un rollback. Devuelve el deploy."
+      },
+      "fr": {
+        "name": "Restaurer un déploiement du site",
+        "description": "Publie à nouveau un déploiement antérieur et en fait la version en ligne du site, ce qui constitue un rollback. Renvoie le déploiement."
+      }
+    },
+    "netlify_list_site_forms": {
+      "pt": {
+        "name": "Listar formulários do site",
+        "description": "Lista os formulários que a Netlify detectou em um site, com id, nome, campos e submission_count. Os envios em si vêm de Listar envios de um formulário."
+      },
+      "es": {
+        "name": "Listar formularios del sitio",
+        "description": "Lista los formularios que Netlify detectó en un sitio, con id, nombre, campos y submission_count. Los envíos en sí vienen de Listar envíos de un formulario."
+      },
+      "fr": {
+        "name": "Lister les formulaires du site",
+        "description": "Liste les formulaires que Netlify a détectés dans un site, avec id, nom, champs et submission_count. Les soumissions elles-mêmes viennent de Lister les soumissions d'un formulaire."
+      }
+    },
+    "netlify_list_site_submissions": {
+      "pt": {
+        "name": "Listar envios do site",
+        "description": "Lista os envios de todos os formulários de um site, do mais recente ao mais antigo, com nome, email, os dados de cada campo e created_at. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar envíos del sitio",
+        "description": "Lista los envíos de todos los formularios de un sitio, del más reciente al más antiguo, con nombre, email, los datos de cada campo y created_at. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les soumissions du site",
+        "description": "Liste les soumissions de tous les formulaires d'un site, de la plus récente à la plus ancienne, avec nom, email, les données de chaque champ et created_at. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "netlify_list_form_submissions": {
+      "pt": {
+        "name": "Listar envios de um formulário",
+        "description": "Lista os envios de um formulário, do mais recente ao mais antigo, com nome, email, os dados de cada campo e created_at. Pagine com page e per_page: uma página com menos itens que per_page é a última."
+      },
+      "es": {
+        "name": "Listar envíos de un formulario",
+        "description": "Lista los envíos de un formulario, del más reciente al más antiguo, con nombre, email, los datos de cada campo y created_at. Pagina con page y per_page: una página con menos elementos que per_page es la última."
+      },
+      "fr": {
+        "name": "Lister les soumissions d'un formulaire",
+        "description": "Liste les soumissions d'un formulaire, de la plus récente à la plus ancienne, avec nom, email, les données de chaque champ et created_at. Paginez avec page et per_page : une page avec moins d'éléments que per_page est la dernière."
+      }
+    },
+    "netlify_delete_submission": {
+      "pt": {
+        "name": "Excluir envio",
+        "description": "Exclui um envio de formulário de vez, como spam ou um teste. Não pode ser desfeito."
+      },
+      "es": {
+        "name": "Eliminar envío",
+        "description": "Elimina un envío de formulario para siempre, como spam o una prueba. No se puede deshacer."
+      },
+      "fr": {
+        "name": "Supprimer une soumission",
+        "description": "Supprime définitivement une soumission de formulaire, comme du spam ou un test. Cette action est irréversible."
+      }
+    }
+  }
+}

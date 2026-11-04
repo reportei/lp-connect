@@ -1,15 +1,16 @@
 import { withBase } from "@/lib/base-path"
 import { LanguageSwitcher } from "@/components/language-switcher"
-import { appUrl, DEFAULT_LOCALE, languageLinks, pageHref, type Locale, type TranslatedPage } from "@/lib/i18n"
+import { appUrl, DEFAULT_LOCALE, languageLinks, localePath, pageHref, type AlternatePath, type Locale, type TranslatedPage } from "@/lib/i18n"
 import { INTEGRATIONS } from "@/lib/integrations"
 import { getMessages } from "@/lib/messages"
 
 type FooterProps = {
   locale?: Locale
   page?: TranslatedPage
+  alternatePath?: AlternatePath
 }
 
-export function Footer({ locale = DEFAULT_LOCALE, page }: FooterProps) {
+export function Footer({ locale = DEFAULT_LOCALE, page, alternatePath }: FooterProps) {
   const m = getMessages(locale)
   const t = m.footer
   const home = (hash: string) => pageHref(locale, "home", hash)
@@ -48,6 +49,7 @@ export function Footer({ locale = DEFAULT_LOCALE, page }: FooterProps) {
             ]
           : []),
         { href: pageHref(locale, "integrations"), label: t.allIntegrations },
+        { href: withBase(localePath(locale, "/toolkits")), label: t.toolkits },
         ...(portuguese ? [{ href: withBase("/guias"), label: t.guides }] : []),
       ],
     },
@@ -96,7 +98,7 @@ export function Footer({ locale = DEFAULT_LOCALE, page }: FooterProps) {
               {t.terms}
             </a>
             <div className="text-foreground">
-              <LanguageSwitcher locale={locale} links={languageLinks(page)} label={m.language.label} side="top" />
+              <LanguageSwitcher locale={locale} links={languageLinks(page, alternatePath)} label={m.language.label} side="top" />
             </div>
           </div>
         </div>

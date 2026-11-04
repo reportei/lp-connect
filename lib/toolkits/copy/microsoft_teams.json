@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List teams and channels, read and post channel messages and chat with people in your customer's Microsoft Teams account, through one Connect endpoint.",
+      "intro": "The Microsoft Teams toolkit covers teams, channels (list, create), channel messages and replies (read, post, reply) and chats (list chats, members and messages, send a chat message), as the connected user. Customers connect a work or school account with OAuth on your own app, and Connect renews the tokens and logs every execution.",
+      "useCases": [
+        {
+          "title": "Notify a channel from your product",
+          "body": "List the teams and channels of the user, pick one and post a message with Send channel message when something needs the team's attention."
+        },
+        {
+          "title": "Reply inside a thread",
+          "body": "Read the root messages of a channel and their replies, then answer in the same thread with Reply to channel message, from a bot or an AI agent."
+        },
+        {
+          "title": "Chat assistant for a person",
+          "body": "List the user's chats, read recent messages with List chat messages and send a message in an existing chat after the user approves the text."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste equipes e canais, leia e publique mensagens de canal e converse em chats na conta Microsoft Teams do seu cliente, com um único endpoint do Connect.",
+      "intro": "O toolkit do Microsoft Teams cobre equipes, canais (listar, criar), mensagens de canal e respostas (ler, publicar, responder) e chats (listar chats, membros e mensagens, enviar mensagem), como o usuário conectado. O cliente conecta uma conta corporativa ou escolar por OAuth no seu próprio app, e o Connect renova os tokens e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Avisar um canal pelo seu produto",
+          "body": "Liste as equipes e os canais do usuário, escolha um e publique uma mensagem com Send channel message quando algo precisar da atenção do time."
+        },
+        {
+          "title": "Responder dentro de uma conversa",
+          "body": "Leia as mensagens raiz de um canal e suas respostas, e responda na mesma conversa com Reply to channel message, por um bot ou um agente de IA."
+        },
+        {
+          "title": "Assistente de chat para uma pessoa",
+          "body": "Liste os chats do usuário, leia as mensagens recentes com List chat messages e envie uma mensagem em um chat existente depois que o usuário aprovar o texto."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista equipos y canales, lee y publica mensajes y chatea en la cuenta Microsoft Teams de tu cliente, con un único endpoint de Connect.",
+      "intro": "El toolkit de Microsoft Teams cubre equipos, canales (listar, crear), mensajes de canal y respuestas (leer, publicar, responder) y chats (listar chats, miembros y mensajes, enviar un mensaje), como el usuario conectado. El cliente conecta una cuenta laboral o educativa por OAuth en tu propia app, y Connect renueva los tokens y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Avisar a un canal desde tu producto",
+          "body": "Lista los equipos y canales del usuario, elige uno y publica un mensaje con Send channel message cuando algo necesite la atención del equipo."
+        },
+        {
+          "title": "Responder dentro de un hilo",
+          "body": "Lee los mensajes raíz de un canal y sus respuestas, y contesta en el mismo hilo con Reply to channel message, desde un bot o un agente de IA."
+        },
+        {
+          "title": "Asistente de chat para una persona",
+          "body": "Lista los chats del usuario, lee los mensajes recientes con List chat messages y envía un mensaje en un chat existente cuando el usuario apruebe el texto."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez équipes et canaux, lisez et publiez des messages et discutez dans le compte Microsoft Teams de votre client, via un endpoint Connect.",
+      "intro": "Le toolkit Microsoft Teams couvre les équipes, les canaux (lister, créer), les messages de canal et leurs réponses (lire, publier, répondre) et les chats (lister chats, membres et messages, envoyer un message), au nom de l'utilisateur connecté. Le client connecte un compte professionnel ou scolaire par OAuth sur votre propre app, et Connect renouvelle les tokens et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Alerter un canal depuis votre produit",
+          "body": "Listez les équipes et canaux de l'utilisateur, choisissez-en un et publiez un message avec Send channel message quand quelque chose demande l'attention de l'équipe."
+        },
+        {
+          "title": "Répondre dans un fil",
+          "body": "Lisez les messages racine d'un canal et leurs réponses, puis répondez dans le même fil avec Reply to channel message, depuis un bot ou un agent IA."
+        },
+        {
+          "title": "Assistant de chat pour une personne",
+          "body": "Listez les chats de l'utilisateur, lisez les messages récents avec List chat messages et envoyez un message dans un chat existant une fois le texte validé par l'utilisateur."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "microsoft_teams_list_teams": {
+      "pt": {
+        "name": "Listar equipes",
+        "description": "Lista as equipes de que o usuário é membro direto, com id, displayName, description e isArchived. Use o id como team_id nas outras tools."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos de los que el usuario es miembro directo, con id, displayName, description e isArchived. Usa el id como team_id en las otras tools."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes dont l'utilisateur est membre direct, avec id, displayName, description et isArchived. Utilisez l'id comme team_id dans les autres outils."
+      }
+    },
+    "microsoft_teams_list_channels": {
+      "pt": {
+        "name": "Listar canais",
+        "description": "Lista os canais de uma equipe que o usuário pode ver, com id, displayName, description, membershipType e webUrl. Canais privados e compartilhados aparecem apenas para seus membros. Use o id como channel_id nas tools de mensagem."
+      },
+      "es": {
+        "name": "Listar canales",
+        "description": "Lista los canales de un equipo que el usuario puede ver, con id, displayName, description, membershipType y webUrl. Los canales privados y compartidos aparecen solo para sus miembros. Usa el id como channel_id en las tools de mensajes."
+      },
+      "fr": {
+        "name": "Lister les canaux",
+        "description": "Liste les canaux d'une équipe que l'utilisateur peut voir, avec id, displayName, description, membershipType et webUrl. Les canaux privés et partagés n'apparaissent qu'à leurs membres. Utilisez l'id comme channel_id dans les outils de messages."
+      }
+    },
+    "microsoft_teams_create_channel": {
+      "pt": {
+        "name": "Criar canal",
+        "description": "Cria um canal padrão, aberto a todos os membros da equipe, e o retorna com seu id. Canais privados e compartilhados precisam de uma lista de membros e não são suportados aqui."
+      },
+      "es": {
+        "name": "Crear canal",
+        "description": "Crea un canal estándar, abierto a todos los miembros del equipo, y lo devuelve con su id. Los canales privados y compartidos necesitan una lista de miembros y no se admiten aquí."
+      },
+      "fr": {
+        "name": "Créer un canal",
+        "description": "Crée un canal standard, ouvert à tous les membres de l'équipe, et le renvoie avec son id. Les canaux privés et partagés exigent une liste de membres et ne sont pas pris en charge ici."
+      }
+    },
+    "microsoft_teams_list_channel_messages": {
+      "pt": {
+        "name": "Listar mensagens do canal",
+        "description": "Lista as mensagens raiz de um canal, sem as respostas, 20 por página e ordenadas pela atividade mais recente de cada conversa. Só a primeira página volta: o @odata.nextLink da resposta não pode ser seguido aqui. Leia uma conversa com List channel message replies."
+      },
+      "es": {
+        "name": "Listar mensajes del canal",
+        "description": "Lista los mensajes raíz de un canal, sin sus respuestas, 20 por página y ordenados por la actividad más reciente de cada hilo. Solo vuelve la primera página: el @odata.nextLink de la respuesta no se puede seguir aquí. Lee un hilo con List channel message replies."
+      },
+      "fr": {
+        "name": "Lister les messages d'un canal",
+        "description": "Liste les messages racine d'un canal, sans leurs réponses, 20 par page et triés par l'activité la plus récente de chaque fil. Seule la première page est renvoyée : le @odata.nextLink de la réponse ne peut pas être suivi ici. Lisez un fil avec List channel message replies."
+      }
+    },
+    "microsoft_teams_get_channel_message": {
+      "pt": {
+        "name": "Ler mensagem do canal",
+        "description": "Retorna uma mensagem raiz de um canal, com seu corpo, o remetente em from, createdDateTime e webUrl. As respostas não estão incluídas."
+      },
+      "es": {
+        "name": "Leer mensaje del canal",
+        "description": "Devuelve un mensaje raíz de un canal, con su cuerpo, el remitente en from, createdDateTime y webUrl. Sus respuestas no están incluidas."
+      },
+      "fr": {
+        "name": "Lire un message de canal",
+        "description": "Renvoie un message racine d'un canal, avec son corps, l'expéditeur dans from, createdDateTime et webUrl. Ses réponses ne sont pas incluses."
+      }
+    },
+    "microsoft_teams_list_channel_message_replies": {
+      "pt": {
+        "name": "Listar respostas da mensagem do canal",
+        "description": "Lista as respostas a uma mensagem raiz de um canal. A mensagem raiz não está incluída: leia-a com Get channel message. Só a primeira página volta."
+      },
+      "es": {
+        "name": "Listar respuestas del mensaje del canal",
+        "description": "Lista las respuestas a un mensaje raíz de un canal. El mensaje raíz no está incluido: léelo con Get channel message. Solo vuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les réponses à un message de canal",
+        "description": "Liste les réponses à un message racine d'un canal. Le message racine n'est pas inclus : lisez-le avec Get channel message. Seule la première page est renvoyée."
+      }
+    },
+    "microsoft_teams_send_channel_message": {
+      "pt": {
+        "name": "Enviar mensagem no canal",
+        "description": "Publica uma nova mensagem em um canal como o usuário e a retorna com seu id. Os termos da Microsoft proíbem usar o Teams como log, então envie apenas mensagens que pessoas vão ler."
+      },
+      "es": {
+        "name": "Enviar mensaje al canal",
+        "description": "Publica un mensaje nuevo en un canal como el usuario y lo devuelve con su id. Los términos de Microsoft prohíben usar Teams como registro, así que envía solo mensajes que las personas vayan a leer."
+      },
+      "fr": {
+        "name": "Envoyer un message dans un canal",
+        "description": "Publie un nouveau message dans un canal au nom de l'utilisateur et le renvoie avec son id. Les conditions de Microsoft interdisent d'utiliser Teams comme journal : n'envoyez que des messages que des personnes liront."
+      }
+    },
+    "microsoft_teams_reply_to_channel_message": {
+      "pt": {
+        "name": "Responder mensagem do canal",
+        "description": "Publica uma resposta na conversa de uma mensagem raiz de um canal, como o usuário, e a retorna com seu id. Envie apenas mensagens que pessoas vão ler."
+      },
+      "es": {
+        "name": "Responder mensaje del canal",
+        "description": "Publica una respuesta en el hilo de un mensaje raíz de un canal, como el usuario, y la devuelve con su id. Envía solo mensajes que las personas vayan a leer."
+      },
+      "fr": {
+        "name": "Répondre à un message de canal",
+        "description": "Publie une réponse dans le fil d'un message racine d'un canal, au nom de l'utilisateur, et la renvoie avec son id. N'envoyez que des messages que des personnes liront."
+      }
+    },
+    "microsoft_teams_list_chats": {
+      "pt": {
+        "name": "Listar chats",
+        "description": "Lista os chats individuais, em grupo e de reunião do usuário, com id, topic, chatType e webUrl. Chats individuais não têm topic: use List chat members para ver quem está em um chat. Só a primeira página volta."
+      },
+      "es": {
+        "name": "Listar chats",
+        "description": "Lista los chats individuales, de grupo y de reunión del usuario, con id, topic, chatType y webUrl. Los chats individuales no tienen topic: usa List chat members para ver quién está en un chat. Solo vuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les chats",
+        "description": "Liste les chats individuels, de groupe et de réunion de l'utilisateur, avec id, topic, chatType et webUrl. Les chats individuels n'ont pas de topic : utilisez List chat members pour voir qui s'y trouve. Seule la première page est renvoyée."
+      }
+    },
+    "microsoft_teams_list_chat_members": {
+      "pt": {
+        "name": "Listar membros do chat",
+        "description": "Lista as pessoas de um chat, com displayName, email e userId."
+      },
+      "es": {
+        "name": "Listar miembros del chat",
+        "description": "Lista las personas de un chat, con displayName, email y userId."
+      },
+      "fr": {
+        "name": "Lister les membres d'un chat",
+        "description": "Liste les personnes d'un chat, avec displayName, email et userId."
+      }
+    },
+    "microsoft_teams_list_chat_messages": {
+      "pt": {
+        "name": "Listar mensagens do chat",
+        "description": "Lista as mensagens de um chat, as modificadas mais recentemente primeiro, com body, o remetente em from e createdDateTime. Só a primeira página volta."
+      },
+      "es": {
+        "name": "Listar mensajes del chat",
+        "description": "Lista los mensajes de un chat, los modificados más recientemente primero, con body, el remitente en from y createdDateTime. Solo vuelve la primera página."
+      },
+      "fr": {
+        "name": "Lister les messages d'un chat",
+        "description": "Liste les messages d'un chat, les plus récemment modifiés d'abord, avec body, l'expéditeur dans from et createdDateTime. Seule la première page est renvoyée."
+      }
+    },
+    "microsoft_teams_send_chat_message": {
+      "pt": {
+        "name": "Enviar mensagem no chat",
+        "description": "Envia uma mensagem em um chat existente como o usuário e a retorna com seu id. Não é possível iniciar um chat novo aqui, então o chat deve vir de List chats. Envie apenas mensagens que pessoas vão ler."
+      },
+      "es": {
+        "name": "Enviar mensaje al chat",
+        "description": "Envía un mensaje en un chat existente como el usuario y lo devuelve con su id. No se puede iniciar un chat nuevo aquí, así que el chat debe venir de List chats. Envía solo mensajes que las personas vayan a leer."
+      },
+      "fr": {
+        "name": "Envoyer un message dans un chat",
+        "description": "Envoie un message dans un chat existant au nom de l'utilisateur et le renvoie avec son id. Il n'est pas possible de démarrer un nouveau chat ici : le chat doit venir de List chats. N'envoyez que des messages que des personnes liront."
+      }
+    }
+  }
+}

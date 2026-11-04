@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create documents from templates, update them, send them for e-signature and track status in your customer's PandaDoc workspace through Reportei Connect.",
+      "intro": "The PandaDoc toolkit covers documents, templates, folders, e-signature sending and reminders. Your customer connects with an API key or OAuth, and your product or AI agent calls each operation through Connect, which stores the credentials and logs every execution.",
+      "useCases": [
+        {
+          "title": "Generate contracts from deals",
+          "body": "When a deal closes in your CRM, create a document from a template, fill its recipients and variables, and send it for signature."
+        },
+        {
+          "title": "Track signature status",
+          "body": "Read a document's status and recipients to show who has completed it, and send a reminder to those who still have to sign."
+        },
+        {
+          "title": "Proposal drafting by an agent",
+          "body": "Let an AI agent read a template to learn what it can fill, create the document, check it reached draft and send it after review."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie documentos de templates, atualize, envie para assinatura eletrônica e acompanhe o status no workspace PandaDoc do seu cliente pelo Reportei Connect.",
+      "intro": "O toolkit do PandaDoc cobre documentos, templates, pastas, envio para assinatura eletrônica e lembretes. Seu cliente conecta com uma API key ou OAuth, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda as credenciais e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Gerar contratos a partir de negócios",
+          "body": "Quando um negócio fecha no seu CRM, crie um documento a partir de um template, preencha destinatários e variáveis e envie para assinatura."
+        },
+        {
+          "title": "Acompanhar o status de assinatura",
+          "body": "Leia o status e os destinatários de um documento para mostrar quem já concluiu, e envie um lembrete a quem ainda precisa assinar."
+        },
+        {
+          "title": "Rascunho de propostas por agente",
+          "body": "Deixe um agente de IA ler um template para saber o que ele aceita preencher, criar o documento, conferir que chegou a rascunho e enviar após a revisão."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea documentos desde plantillas, actualízalos, envíalos a firma electrónica y sigue su estado en el PandaDoc de tu cliente con Reportei Connect.",
+      "intro": "El toolkit de PandaDoc cubre documentos, plantillas, carpetas, envío a firma electrónica y recordatorios. Tu cliente conecta con una API key u OAuth, y tu producto o agente de IA llama cada operación a través de Connect, que guarda las credenciales y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Generar contratos desde negocios",
+          "body": "Cuando se cierra un negocio en tu CRM, crea un documento desde una plantilla, rellena destinatarios y variables y envíalo a firma."
+        },
+        {
+          "title": "Seguir el estado de la firma",
+          "body": "Lee el estado y los destinatarios de un documento para mostrar quién lo completó, y envía un recordatorio a quienes aún deben firmar."
+        },
+        {
+          "title": "Redacción de propuestas con un agente",
+          "body": "Deja que un agente de IA lea una plantilla para saber qué puede rellenar, cree el documento, compruebe que llegó a borrador y lo envíe tras la revisión."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez des documents depuis des modèles, envoyez-les en signature électronique et suivez leur statut dans le PandaDoc de votre client via Reportei Connect.",
+      "intro": "Le toolkit PandaDoc couvre les documents, modèles, dossiers, l'envoi en signature électronique et les relances. Votre client se connecte avec une API key ou OAuth, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke les identifiants et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Générer des contrats depuis les affaires",
+          "body": "Quand une affaire est conclue dans votre CRM, créez un document à partir d'un modèle, renseignez destinataires et variables et envoyez-le en signature."
+        },
+        {
+          "title": "Suivre l'état des signatures",
+          "body": "Lisez le statut et les destinataires d'un document pour montrer qui l'a terminé, et relancez ceux qui doivent encore signer."
+        },
+        {
+          "title": "Rédaction de propositions par un agent",
+          "body": "Laissez un agent IA lire un modèle pour savoir ce qu'il peut remplir, créer le document, vérifier qu'il est passé en brouillon et l'envoyer après relecture."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "pandadoc_list_documents": {
+      "pt": {
+        "name": "Listar documentos",
+        "description": "Lista os documentos do workspace com id, name, status e datas, 50 por página por padrão. Peça a próxima página com page; uma página com menos resultados que count é a última."
+      },
+      "es": {
+        "name": "Listar documentos",
+        "description": "Lista los documentos del workspace con id, name, status y fechas, 50 por página por defecto. Pide la página siguiente con page; una página con menos resultados que count es la última."
+      },
+      "fr": {
+        "name": "Lister les documents",
+        "description": "Liste les documents du workspace avec id, name, status et dates, 50 par page par défaut. Demandez la page suivante avec page ; une page avec moins de résultats que count est la dernière."
+      }
+    },
+    "pandadoc_get_document": {
+      "pt": {
+        "name": "Obter documento",
+        "description": "Retorna os detalhes de um documento: status, destinatários com seu id, has_completed e shared_link, campos, tokens, preços, textos, metadata e tags. Funciona depois que o documento sai do status document.uploaded."
+      },
+      "es": {
+        "name": "Obtener documento",
+        "description": "Devuelve los detalles de un documento: status, destinatarios con su id, has_completed y shared_link, campos, tokens, precios, textos, metadata y tags. Funciona una vez que el documento sale del estado document.uploaded."
+      },
+      "fr": {
+        "name": "Obtenir un document",
+        "description": "Renvoie les détails d'un document : status, destinataires avec leur id, has_completed et shared_link, champs, tokens, tarifs, textes, metadata et tags. Fonctionne une fois que le document a quitté le statut document.uploaded."
+      }
+    },
+    "pandadoc_get_document_status": {
+      "pt": {
+        "name": "Obter status do documento",
+        "description": "Retorna o id, o name e o status de um documento. Depois de Create document, o status fica document.uploaded por alguns segundos; aguarde document.draft antes de atualizar ou enviar."
+      },
+      "es": {
+        "name": "Obtener estado del documento",
+        "description": "Devuelve el id, el name y el status de un documento. Después de Create document, el estado se queda en document.uploaded unos segundos; espera document.draft antes de actualizarlo o enviarlo."
+      },
+      "fr": {
+        "name": "Obtenir le statut d'un document",
+        "description": "Renvoie l'id, le name et le status d'un document. Après Create document, le statut reste document.uploaded quelques secondes ; attendez document.draft avant de le modifier ou de l'envoyer."
+      }
+    },
+    "pandadoc_create_document": {
+      "pt": {
+        "name": "Criar documento",
+        "description": "Cria um documento a partir de um template (template_uuid) ou de um PDF público (url e name). Fica em document.uploaded por alguns segundos e depois vira document.draft. Nada é enviado: chame Send document quando Get document status mostrar document.draft."
+      },
+      "es": {
+        "name": "Crear documento",
+        "description": "Crea un documento a partir de una plantilla (template_uuid) o de un PDF público (url y name). Queda en document.uploaded unos segundos y luego pasa a document.draft. No se envía nada: llama a Send document cuando Get document status muestre document.draft."
+      },
+      "fr": {
+        "name": "Créer un document",
+        "description": "Crée un document à partir d'un modèle (template_uuid) ou d'un PDF public (url et name). Il reste en document.uploaded quelques secondes puis passe en document.draft. Rien n'est envoyé : appelez Send document quand Get document status affiche document.draft."
+      }
+    },
+    "pandadoc_update_document": {
+      "pt": {
+        "name": "Atualizar documento",
+        "description": "Atualiza um documento no status document.draft: name, destinatários, variáveis, campos, blocos de texto, tabelas de preços, metadata e tags. Para um documento já enviado, chame Move document to draft antes."
+      },
+      "es": {
+        "name": "Actualizar documento",
+        "description": "Actualiza un documento en estado document.draft: name, destinatarios, variables, campos, bloques de texto, tablas de precios, metadata y tags. Para un documento ya enviado, llama antes a Move document to draft."
+      },
+      "fr": {
+        "name": "Mettre à jour un document",
+        "description": "Met à jour un document au statut document.draft : name, destinataires, variables, champs, blocs de texte, tableaux de prix, metadata et tags. Pour un document déjà envoyé, appelez d'abord Move document to draft."
+      }
+    },
+    "pandadoc_move_document_to_draft": {
+      "pt": {
+        "name": "Mover documento para rascunho",
+        "description": "Move um documento enviado ou concluído de volta para document.draft, para que Update document possa alterá-lo. Os campos de assinatura e de iniciais são limpos, os destinatários não são avisados e o documento precisa ser enviado de novo."
+      },
+      "es": {
+        "name": "Mover documento a borrador",
+        "description": "Mueve un documento enviado o completado de vuelta a document.draft para que Update document pueda modificarlo. Se borran los campos de firma e iniciales, los destinatarios no reciben aviso y el documento debe enviarse de nuevo."
+      },
+      "fr": {
+        "name": "Remettre un document en brouillon",
+        "description": "Remet un document envoyé ou terminé en document.draft pour que Update document puisse le modifier. Les champs de signature et d'initiales sont effacés, les destinataires ne sont pas prévenus et le document doit être renvoyé."
+      }
+    },
+    "pandadoc_send_document": {
+      "pt": {
+        "name": "Enviar documento",
+        "description": "Envia um documento no status document.draft aos destinatários, por email a menos que silent seja true, e o move para document.sent, o que trava sua estrutura. Com uma chave de sandbox, os destinatários devem ter o mesmo domínio de email do remetente."
+      },
+      "es": {
+        "name": "Enviar documento",
+        "description": "Envía un documento en estado document.draft a sus destinatarios, por email salvo que silent sea true, y lo pasa a document.sent, lo que bloquea su estructura. Con una clave de sandbox, los destinatarios deben compartir el dominio de email del remitente."
+      },
+      "fr": {
+        "name": "Envoyer un document",
+        "description": "Envoie un document au statut document.draft à ses destinataires, par email sauf si silent vaut true, et le passe en document.sent, ce qui verrouille sa structure. Avec une clé sandbox, les destinataires doivent partager le domaine email de l'expéditeur."
+      }
+    },
+    "pandadoc_send_document_reminder": {
+      "pt": {
+        "name": "Enviar lembrete do documento",
+        "description": "Envia agora um lembrete aos destinatários que ainda precisam concluir um documento enviado. O resultado diz, por destinatário, se cada lembrete saiu; com ordem de assinatura, só o signatário atual pode ser lembrado."
+      },
+      "es": {
+        "name": "Enviar recordatorio del documento",
+        "description": "Envía ahora un recordatorio a los destinatarios que aún deben completar un documento enviado. El resultado indica, por destinatario, si cada recordatorio salió; con orden de firma, solo se puede recordar al firmante actual."
+      },
+      "fr": {
+        "name": "Envoyer une relance de document",
+        "description": "Envoie maintenant une relance aux destinataires qui doivent encore terminer un document envoyé. Le résultat indique, par destinataire, si chaque relance est partie ; avec un ordre de signature, seul le signataire courant peut être relancé."
+      }
+    },
+    "pandadoc_delete_document": {
+      "pt": {
+        "name": "Excluir documento",
+        "description": "Exclui um documento. Com forever false ele vai para a Lixeira, de onde pode ser restaurado; sem forever, o PandaDoc o exclui de forma permanente."
+      },
+      "es": {
+        "name": "Eliminar documento",
+        "description": "Elimina un documento. Con forever false va a la Papelera, de donde se puede restaurar; sin forever, PandaDoc lo elimina de forma permanente."
+      },
+      "fr": {
+        "name": "Supprimer un document",
+        "description": "Supprime un document. Avec forever false il va dans la Corbeille, d'où il peut être restauré ; sans forever, PandaDoc le supprime définitivement."
+      }
+    },
+    "pandadoc_list_templates": {
+      "pt": {
+        "name": "Listar templates",
+        "description": "Lista os templates do workspace com id e name, uma página por vez. Uma página com menos resultados que count é a última."
+      },
+      "es": {
+        "name": "Listar plantillas",
+        "description": "Lista las plantillas del workspace con id y name, una página a la vez. Una página con menos resultados que count es la última."
+      },
+      "fr": {
+        "name": "Lister les modèles",
+        "description": "Liste les modèles du workspace avec id et name, une page à la fois. Une page avec moins de résultats que count est la dernière."
+      }
+    },
+    "pandadoc_get_template": {
+      "pt": {
+        "name": "Obter template",
+        "description": "Retorna os detalhes de um template: papéis, campos, tokens (variáveis), tabelas de preços, textos, placeholders de conteúdo, metadata e tags, que dizem o que Create document pode preencher."
+      },
+      "es": {
+        "name": "Obtener plantilla",
+        "description": "Devuelve los detalles de una plantilla: roles, campos, tokens (variables), tablas de precios, textos, marcadores de contenido, metadata y tags, que indican qué puede rellenar Create document."
+      },
+      "fr": {
+        "name": "Obtenir un modèle",
+        "description": "Renvoie les détails d'un modèle : rôles, champs, tokens (variables), tableaux de prix, textes, espaces réservés de contenu, metadata et tags, qui indiquent ce que Create document peut remplir."
+      }
+    },
+    "pandadoc_list_document_folders": {
+      "pt": {
+        "name": "Listar pastas de documentos",
+        "description": "Lista as pastas de documentos dentro de uma pasta, com uuid e name. Sem parent_uuid lista as pastas da raiz, que não é listada em si."
+      },
+      "es": {
+        "name": "Listar carpetas de documentos",
+        "description": "Lista las carpetas de documentos dentro de una carpeta, con uuid y name. Sin parent_uuid lista las carpetas de la raíz, que no se lista a sí misma."
+      },
+      "fr": {
+        "name": "Lister les dossiers de documents",
+        "description": "Liste les dossiers de documents d'un dossier, avec uuid et name. Sans parent_uuid il liste les dossiers de la racine, qui n'est pas listée elle-même."
+      }
+    }
+  }
+}

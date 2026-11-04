@@ -1,0 +1,107 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Read and answer conversations, assign operators and manage contacts in your customer's Crisp workspace from your product or AI agent through Connect.",
+      "intro": "The Crisp toolkit covers websites (workspaces), conversations and their messages, operators and people profiles: list and read conversations, send a message or an internal note, change the state, assign an operator, and create or update contacts. The customer connects with the token of their own Crisp plugin, and your product or AI agent calls every operation through one Connect endpoint.",
+      "useCases": [
+        { "title": "Support inbox inside your app", "body": "List conversations and their latest messages, and let your users reply as an operator or leave an internal note without opening Crisp." },
+        { "title": "AI agent that triages chats", "body": "Let an agent read a conversation, set it to pending or resolved and assign it to the right operator by user_id." },
+        { "title": "Contact sync with your CRM", "body": "Create and update Crisp people profiles with email, name and segments when a lead changes in your CRM, and read them back by search." }
+      ]
+    },
+    "pt": {
+      "tagline": "Leia e responda conversas, atribua operadores e gerencie contatos no workspace Crisp do seu cliente a partir do seu produto ou agente de IA via Connect.",
+      "intro": "O toolkit do Crisp cobre websites (workspaces), conversas e suas mensagens, operadores e perfis de pessoas: listar e ler conversas, enviar uma mensagem ou uma nota interna, mudar o estado, atribuir um operador e criar ou atualizar contatos. O cliente conecta com o token do próprio plugin do Crisp, e seu produto ou agente de IA chama cada operação por um único endpoint do Connect.",
+      "useCases": [
+        { "title": "Caixa de suporte no seu app", "body": "Liste conversas e as últimas mensagens e deixe seus usuários responderem como operador ou deixarem uma nota interna sem abrir o Crisp." },
+        { "title": "Agente de IA que faz a triagem", "body": "Deixe um agente ler uma conversa, marcá-la como pending ou resolved e atribuí-la ao operador certo pelo user_id." },
+        { "title": "Contatos sincronizados com o CRM", "body": "Crie e atualize perfis de pessoas no Crisp com email, nome e segmentos quando um lead mudar no seu CRM, e leia de volta por busca." }
+      ]
+    },
+    "es": {
+      "tagline": "Lee y responde conversaciones, asigna operadores y gestiona contactos en el workspace de Crisp de tu cliente desde tu producto o agente de IA con Connect.",
+      "intro": "El toolkit de Crisp cubre websites (workspaces), conversaciones y sus mensajes, operadores y perfiles de personas: listar y leer conversaciones, enviar un mensaje o una nota interna, cambiar el estado, asignar un operador y crear o actualizar contactos. El cliente conecta con el token de su propio plugin de Crisp, y tu producto o agente de IA llama a cada operación por un único endpoint de Connect.",
+      "useCases": [
+        { "title": "Bandeja de soporte en tu app", "body": "Lista conversaciones y sus últimos mensajes, y deja que tus usuarios respondan como operador o dejen una nota interna sin abrir Crisp." },
+        { "title": "Agente de IA que clasifica chats", "body": "Deja que un agente lea una conversación, la marque como pending o resolved y la asigne al operador correcto por user_id." },
+        { "title": "Contactos sincronizados con el CRM", "body": "Crea y actualiza perfiles de personas en Crisp con email, nombre y segmentos cuando un lead cambie en tu CRM, y léelos de vuelta por búsqueda." }
+      ]
+    },
+    "fr": {
+      "tagline": "Lisez les conversations, répondez, assignez des opérateurs et gérez les contacts du workspace Crisp de votre client depuis votre produit ou agent IA.",
+      "intro": "Le toolkit Crisp couvre les websites (workspaces), les conversations et leurs messages, les opérateurs et les profils de personnes : lister et lire les conversations, envoyer un message ou une note interne, changer l'état, assigner un opérateur et créer ou modifier des contacts. Le client se connecte avec le jeton de son propre plugin Crisp, et votre produit ou agent IA appelle chaque opération via un seul endpoint Connect.",
+      "useCases": [
+        { "title": "Boîte de support dans votre app", "body": "Listez les conversations et leurs derniers messages, et laissez vos utilisateurs répondre en tant qu'opérateur ou laisser une note interne sans ouvrir Crisp." },
+        { "title": "Agent IA qui trie les chats", "body": "Laissez un agent lire une conversation, la passer à pending ou resolved et l'assigner au bon opérateur par user_id." },
+        { "title": "Contacts synchronisés avec le CRM", "body": "Créez et mettez à jour des profils de personnes dans Crisp avec email, nom et segments quand un prospect change dans votre CRM, et relisez-les par recherche." }
+      ]
+    }
+  },
+  "tools": {
+    "crisp_list_websites": {
+      "pt": { "name": "Listar websites", "description": "Lista os workspaces do Crisp, chamados de websites na API, onde o plugin deste token está instalado, com seu website_id. Obter website dá o nome de cada um. As páginas começam em 1, e uma lista data vazia indica que não há mais páginas." },
+      "es": { "name": "Listar websites", "description": "Lista los workspaces de Crisp, llamados websites en la API, donde está instalado el plugin de este token, con su website_id. Obtener website da el nombre de cada uno. Las páginas empiezan en 1, y una lista data vacía indica que no hay más páginas." },
+      "fr": { "name": "Lister les websites", "description": "Liste les workspaces Crisp, appelés websites dans l'API, où le plugin de ce jeton est installé, avec leur website_id. Obtenir un website donne le nom de chacun. Les pages commencent à 1, et une liste data vide signifie qu'il n'y a plus de pages." }
+    },
+    "crisp_get_website": {
+      "pt": { "name": "Obter website", "description": "Retorna o nome, o domínio e o logo de um workspace do Crisp, para distinguir os ids que Listar websites devolve." },
+      "es": { "name": "Obtener website", "description": "Devuelve el nombre, el dominio y el logo de un workspace de Crisp, para distinguir los ids que devuelve Listar websites." },
+      "fr": { "name": "Obtenir un website", "description": "Renvoie le nom, le domaine et le logo d'un workspace Crisp, pour distinguer les ids que renvoie Lister les websites." }
+    },
+    "crisp_list_conversations": {
+      "pt": { "name": "Listar conversas", "description": "Lista as conversas de um workspace, com session_id, state, contagens de não lidas, operador atribuído, última mensagem e o meta do visitante (nickname, email, phone, segments). As páginas começam em 1, e uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar conversaciones", "description": "Lista las conversaciones de un workspace, con session_id, state, contadores de no leídos, operador asignado, último mensaje y el meta del visitante (nickname, email, phone, segments). Las páginas empiezan en 1, y una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les conversations", "description": "Liste les conversations d'un workspace, avec session_id, state, compteurs de non-lus, opérateur assigné, dernier message et le meta du visiteur (nickname, email, phone, segments). Les pages commencent à 1, et une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "crisp_get_conversation": {
+      "pt": { "name": "Obter conversa", "description": "Retorna uma conversa com seu estado, operador atribuído, contagens de não lidas, última mensagem, people_id do contato e o meta do visitante. As mensagens vêm de Listar mensagens da conversa." },
+      "es": { "name": "Obtener conversación", "description": "Devuelve una conversación con su estado, operador asignado, contadores de no leídos, último mensaje, people_id del contacto y el meta del visitante. Los mensajes vienen de Listar mensajes de la conversación." },
+      "fr": { "name": "Obtenir une conversation", "description": "Renvoie une conversation avec son état, l'opérateur assigné, les compteurs de non-lus, le dernier message, le people_id du contact et le meta du visiteur. Les messages viennent de Lister les messages de la conversation." }
+    },
+    "crisp_list_conversation_messages": {
+      "pt": { "name": "Listar mensagens da conversa", "description": "Retorna o último lote de mensagens de uma conversa, com type, sender, content e timestamp em milissegundos. Para paginar rumo às mensagens mais antigas, envie o timestamp da mensagem mais antiga do lote como timestamp_before." },
+      "es": { "name": "Listar mensajes de la conversación", "description": "Devuelve el último lote de mensajes de una conversación, con type, sender, content y timestamp en milisegundos. Para paginar hacia los mensajes más antiguos, envía el timestamp del mensaje más antiguo del lote como timestamp_before." },
+      "fr": { "name": "Lister les messages d'une conversation", "description": "Renvoie le dernier lot de messages d'une conversation, avec type, sender, content et timestamp en millisecondes. Pour paginer vers les messages plus anciens, envoyez le timestamp du plus ancien message du lot comme timestamp_before." }
+    },
+    "crisp_send_message": {
+      "pt": { "name": "Enviar mensagem", "description": "Envia uma mensagem como operador em uma conversa. O type text vai ao visitante na hora; o type note é uma nota interna vista só pelos operadores." },
+      "es": { "name": "Enviar mensaje", "description": "Envía un mensaje como operador en una conversación. El type text llega al visitante de inmediato; el type note es una nota interna que solo ven los operadores." },
+      "fr": { "name": "Envoyer un message", "description": "Envoie un message en tant qu'opérateur dans une conversation. Le type text part tout de suite au visiteur ; le type note est une note interne vue seulement par les opérateurs." }
+    },
+    "crisp_update_conversation_state": {
+      "pt": { "name": "Atualizar estado da conversa", "description": "Muda o estado de uma conversa para pending, unresolved ou resolved." },
+      "es": { "name": "Actualizar estado de la conversación", "description": "Cambia el estado de una conversación a pending, unresolved o resolved." },
+      "fr": { "name": "Modifier l'état d'une conversation", "description": "Change l'état d'une conversation en pending, unresolved ou resolved." }
+    },
+    "crisp_assign_conversation": {
+      "pt": { "name": "Atribuir conversa", "description": "Atribui uma conversa a um operador, que é notificado, a menos que silent seja true." },
+      "es": { "name": "Asignar conversación", "description": "Asigna una conversación a un operador, que recibe una notificación salvo que silent sea true." },
+      "fr": { "name": "Assigner une conversation", "description": "Assigne une conversation à un opérateur, qui est notifié sauf si silent vaut true." }
+    },
+    "crisp_update_conversation_meta": {
+      "pt": { "name": "Atualizar meta da conversa", "description": "Atualiza os dados do visitante e o assunto ou os segmentos de uma conversa. Envie só os campos a mudar." },
+      "es": { "name": "Actualizar meta de la conversación", "description": "Actualiza los datos del visitante y el asunto o los segmentos de una conversación. Envía solo los campos a cambiar." },
+      "fr": { "name": "Modifier le meta d'une conversation", "description": "Met à jour les informations du visiteur et le sujet ou les segments d'une conversation. N'envoyez que les champs à modifier." }
+    },
+    "crisp_list_operators": {
+      "pt": { "name": "Listar operadores", "description": "Lista os operadores e os convites pendentes de um workspace. Cada item tem um type e um objeto details com user_id, email, name, role e availability; o user_id é o que atribuição, filtros e menções recebem." },
+      "es": { "name": "Listar operadores", "description": "Lista los operadores y las invitaciones pendientes de un workspace. Cada elemento tiene un type y un objeto details con user_id, email, name, role y availability; el user_id es lo que reciben la asignación, los filtros y las menciones." },
+      "fr": { "name": "Lister les opérateurs", "description": "Liste les opérateurs et les invitations en attente d'un workspace. Chaque élément a un type et un objet details avec user_id, email, name, role et availability ; le user_id est ce que prennent l'assignation, les filtres et les mentions." }
+    },
+    "crisp_list_people": {
+      "pt": { "name": "Listar pessoas", "description": "Lista ou busca os contatos (perfis de pessoas) de um workspace, com people_id, email, name, company, segments e notepad. As páginas começam em 1, e uma página com menos itens que per_page é a última." },
+      "es": { "name": "Listar personas", "description": "Lista o busca los contactos (perfiles de personas) de un workspace, con people_id, email, name, company, segments y notepad. Las páginas empiezan en 1, y una página con menos elementos que per_page es la última." },
+      "fr": { "name": "Lister les personnes", "description": "Liste ou recherche les contacts (profils de personnes) d'un workspace, avec people_id, email, name, company, segments et notepad. Les pages commencent à 1, et une page avec moins d'éléments que per_page est la dernière." }
+    },
+    "crisp_create_person": {
+      "pt": { "name": "Criar pessoa", "description": "Cria um contato (perfil de pessoa) em um workspace e retorna seu people_id. email e person.nickname são obrigatórios." },
+      "es": { "name": "Crear persona", "description": "Crea un contacto (perfil de persona) en un workspace y devuelve su people_id. email y person.nickname son obligatorios." },
+      "fr": { "name": "Créer une personne", "description": "Crée un contact (profil de personne) dans un workspace et renvoie son people_id. email et person.nickname sont obligatoires." }
+    },
+    "crisp_update_person": {
+      "pt": { "name": "Atualizar pessoa", "description": "Atualiza um contato (perfil de pessoa). O Crisp salva só os campos enviados, por cima da versão anterior do perfil." },
+      "es": { "name": "Actualizar persona", "description": "Actualiza un contacto (perfil de persona). Crisp guarda solo los campos enviados, sobre la versión anterior del perfil." },
+      "fr": { "name": "Modifier une personne", "description": "Met à jour un contact (profil de personne). Crisp n'enregistre que les champs envoyés, par-dessus la version précédente du profil." }
+    }
+  }
+}

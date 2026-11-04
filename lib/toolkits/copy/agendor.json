@@ -1,0 +1,288 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Create and update people, organizations, deals and tasks in your customer's Agendor CRM account through one Connect endpoint.",
+      "intro": "The Agendor toolkit covers people, organizations, deals and tasks, plus the users, funnels and loss reasons those records point to. Your product or AI agent calls them through Connect, which stores the customer's API key and logs every execution, so you skip building the integration.",
+      "useCases": [
+        {
+          "title": "Sync leads into the CRM",
+          "body": "A SaaS creates a person or organization in the customer's Agendor when a lead signs up, and opens a deal for it in the right funnel."
+        },
+        {
+          "title": "Move deals from your product",
+          "body": "When a trial converts or a proposal is accepted, update the deal stage or mark it as won or lost, using the loss reasons configured in the account."
+        },
+        {
+          "title": "Sales assistant for agents",
+          "body": "An AI agent lists the open deals of a user and schedules a call or meeting task on a deal."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Crie e atualize pessoas, organizações, negócios e tarefas no Agendor do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Agendor cobre pessoas, organizações, negócios e tarefas, além dos usuários, funis e motivos de perda a que esses registros se referem. Seu produto ou agente de IA os chama pelo Connect, que guarda a API key do cliente e registra cada execução, sem você construir a integração.",
+      "useCases": [
+        {
+          "title": "Leads direto no CRM",
+          "body": "Um SaaS cria a pessoa ou organização no Agendor do cliente quando um lead se cadastra e abre um negócio no funil certo."
+        },
+        {
+          "title": "Mova negócios pelo produto",
+          "body": "Quando um trial converte ou uma proposta é aceita, atualize a etapa do negócio ou marque como ganho ou perdido, usando os motivos de perda configurados na conta."
+        },
+        {
+          "title": "Assistente de vendas com IA",
+          "body": "Um agente de IA lista os negócios em aberto de um usuário e agenda uma tarefa de ligação ou reunião em um negócio."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Crea y actualiza personas, organizaciones, negocios y tareas en el Agendor de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Agendor cubre personas, organizaciones, negocios y tareas, además de los usuarios, embudos y motivos de pérdida a los que apuntan esos registros. Tu producto o agente de IA los llama por Connect, que guarda la API key del cliente y registra cada ejecución, sin que construyas la integración.",
+      "useCases": [
+        {
+          "title": "Leads directo al CRM",
+          "body": "Un SaaS crea la persona u organización en el Agendor del cliente cuando se registra un lead y abre un negocio en el embudo correcto."
+        },
+        {
+          "title": "Mueve negocios desde tu producto",
+          "body": "Cuando un trial se convierte o se acepta una propuesta, actualiza la etapa del negocio o márcalo como ganado o perdido, con los motivos de pérdida configurados en la cuenta."
+        },
+        {
+          "title": "Asistente de ventas con IA",
+          "body": "Un agente de IA lista los negocios abiertos de un usuario y agenda una tarea de llamada o reunión en un negocio."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Créez et mettez à jour personnes, organisations, affaires et tâches dans l'Agendor de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Agendor couvre les personnes, organisations, affaires et tâches, ainsi que les utilisateurs, entonnoirs et motifs de perte auxquels ces fiches renvoient. Votre produit ou agent IA les appelle via Connect, qui stocke la clé API du client et journalise chaque exécution, sans que vous construisiez l'intégration.",
+      "useCases": [
+        {
+          "title": "Leads directement dans le CRM",
+          "body": "Un SaaS crée la personne ou l'organisation dans l'Agendor du client à l'inscription d'un lead et ouvre une affaire dans le bon entonnoir."
+        },
+        {
+          "title": "Faire avancer les affaires",
+          "body": "Quand un essai se convertit ou qu'une proposition est acceptée, mettez à jour l'étape de l'affaire ou marquez-la gagnée ou perdue, avec les motifs de perte du compte."
+        },
+        {
+          "title": "Assistant commercial IA",
+          "body": "Un agent IA liste les affaires ouvertes d'un utilisateur et planifie une tâche d'appel ou de réunion sur une affaire."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "agendor_list_people": {
+      "pt": {
+        "name": "Listar pessoas",
+        "description": "Lista e busca as pessoas da conta, 10 por página por padrão, em data, com meta.totalCount e a próxima página em links.next."
+      },
+      "es": {
+        "name": "Listar personas",
+        "description": "Lista y busca las personas de la cuenta, 10 por página por defecto, en data, con meta.totalCount y la página siguiente en links.next."
+      },
+      "fr": {
+        "name": "Lister les personnes",
+        "description": "Liste et recherche les personnes du compte, 10 par page par défaut, dans data, avec meta.totalCount et la page suivante dans links.next."
+      }
+    },
+    "agendor_create_person": {
+      "pt": {
+        "name": "Criar pessoa",
+        "description": "Cria uma pessoa, contato de uma organização no B2B ou o cliente no B2C, e a devolve em data. name é obrigatório."
+      },
+      "es": {
+        "name": "Crear persona",
+        "description": "Crea una persona, contacto de una organización en B2B o el cliente en B2C, y la devuelve en data. name es obligatorio."
+      },
+      "fr": {
+        "name": "Créer une personne",
+        "description": "Crée une personne, contact d'une organisation en B2B ou client en B2C, et la renvoie dans data. name est obligatoire."
+      }
+    },
+    "agendor_update_person": {
+      "pt": {
+        "name": "Atualizar pessoa",
+        "description": "Atualiza os campos enviados e devolve a pessoa em data. Os campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar persona",
+        "description": "Actualiza los campos enviados y devuelve la persona en data. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une personne",
+        "description": "Met à jour les champs envoyés et renvoie la personne dans data. Les champs omis gardent leur valeur."
+      }
+    },
+    "agendor_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista e busca as organizações da conta, os clientes B2B, 10 por página por padrão, em data, com meta.totalCount e a próxima página em links.next."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista y busca las organizaciones de la cuenta, los clientes B2B, 10 por página por defecto, en data, con meta.totalCount y la página siguiente en links.next."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste et recherche les organisations du compte, les clients B2B, 10 par page par défaut, dans data, avec meta.totalCount et la page suivante dans links.next."
+      }
+    },
+    "agendor_create_organization": {
+      "pt": {
+        "name": "Criar organização",
+        "description": "Cria uma organização, um cliente B2B, e a devolve em data. name é obrigatório."
+      },
+      "es": {
+        "name": "Crear organización",
+        "description": "Crea una organización, un cliente B2B, y la devuelve en data. name es obligatorio."
+      },
+      "fr": {
+        "name": "Créer une organisation",
+        "description": "Crée une organisation, un client B2B, et la renvoie dans data. name est obligatoire."
+      }
+    },
+    "agendor_update_organization": {
+      "pt": {
+        "name": "Atualizar organização",
+        "description": "Atualiza os campos enviados e devolve a organização em data. Os campos omitidos mantêm o valor."
+      },
+      "es": {
+        "name": "Actualizar organización",
+        "description": "Actualiza los campos enviados y devuelve la organización en data. Los campos omitidos conservan su valor."
+      },
+      "fr": {
+        "name": "Mettre à jour une organisation",
+        "description": "Met à jour les champs envoyés et renvoie l'organisation dans data. Les champs omis gardent leur valeur."
+      }
+    },
+    "agendor_list_deals": {
+      "pt": {
+        "name": "Listar negócios",
+        "description": "Lista e busca os negócios da conta, 10 por página por padrão, em data, com meta.totalCount e a próxima página em links.next. Cada negócio traz seu status e mais."
+      },
+      "es": {
+        "name": "Listar negocios",
+        "description": "Lista y busca los negocios de la cuenta, 10 por página por defecto, en data, con meta.totalCount y la página siguiente en links.next. Cada negocio trae su estado y más."
+      },
+      "fr": {
+        "name": "Lister les affaires",
+        "description": "Liste et recherche les affaires du compte, 10 par page par défaut, dans data, avec meta.totalCount et la page suivante dans links.next. Chaque affaire apporte son statut et plus."
+      }
+    },
+    "agendor_create_organization_deal": {
+      "pt": {
+        "name": "Criar negócio de organização",
+        "description": "Cria um negócio para uma organização, o caso B2B, e o devolve em data. title é obrigatório. Sem funnel e dealStage, o negócio começa na primeira etapa do funil padrão."
+      },
+      "es": {
+        "name": "Crear negocio de organización",
+        "description": "Crea un negocio para una organización, el caso B2B, y lo devuelve en data. title es obligatorio. Sin funnel y dealStage, el negocio empieza en la primera etapa del embudo por defecto."
+      },
+      "fr": {
+        "name": "Créer une affaire d'organisation",
+        "description": "Crée une affaire pour une organisation, le cas B2B, et la renvoie dans data. title est obligatoire. Sans funnel et dealStage, l'affaire démarre à la première étape de l'entonnoir par défaut."
+      }
+    },
+    "agendor_create_person_deal": {
+      "pt": {
+        "name": "Criar negócio de pessoa",
+        "description": "Cria um negócio para uma pessoa, o caso B2C, e o devolve em data. title é obrigatório. Sem funnel e dealStage, o negócio começa na primeira etapa do funil padrão."
+      },
+      "es": {
+        "name": "Crear negocio de persona",
+        "description": "Crea un negocio para una persona, el caso B2C, y lo devuelve en data. title es obligatorio. Sin funnel y dealStage, el negocio empieza en la primera etapa del embudo por defecto."
+      },
+      "fr": {
+        "name": "Créer une affaire de personne",
+        "description": "Crée une affaire pour une personne, le cas B2C, et la renvoie dans data. title est obligatoire. Sans funnel et dealStage, l'affaire démarre à la première étape de l'entonnoir par défaut."
+      }
+    },
+    "agendor_update_deal": {
+      "pt": {
+        "name": "Atualizar negócio",
+        "description": "Atualiza os campos enviados e devolve o negócio em data. dealStage move o negócio de etapa, e dealStatusText o ganha, perde ou reabre."
+      },
+      "es": {
+        "name": "Actualizar negocio",
+        "description": "Actualiza los campos enviados y devuelve el negocio en data. dealStage mueve el negocio de etapa, y dealStatusText lo gana, pierde o reabre."
+      },
+      "fr": {
+        "name": "Mettre à jour une affaire",
+        "description": "Met à jour les champs envoyés et renvoie l'affaire dans data. dealStage déplace l'affaire d'étape, et dealStatusText la gagne, la perd ou la rouvre."
+      }
+    },
+    "agendor_list_tasks": {
+      "pt": {
+        "name": "Listar tarefas",
+        "description": "Lista as tarefas e atividades que o usuário pode ver, 10 por página por padrão, em data. Sem entityType e entityId, createdByUserId ou sortBy, a chamada exige um intervalo de datas."
+      },
+      "es": {
+        "name": "Listar tareas",
+        "description": "Lista las tareas y actividades que el usuario puede ver, 10 por página por defecto, en data. Sin entityType y entityId, createdByUserId o sortBy, la llamada exige un rango de fechas."
+      },
+      "fr": {
+        "name": "Lister les tâches",
+        "description": "Liste les tâches et activités que l'utilisateur peut voir, 10 par page par défaut, dans data. Sans entityType et entityId, createdByUserId ou sortBy, l'appel exige une plage de dates."
+      }
+    },
+    "agendor_create_deal_task": {
+      "pt": {
+        "name": "Criar tarefa de negócio",
+        "description": "Cria uma tarefa em um negócio, como uma ligação ou reunião a agendar, e a devolve em data. text é obrigatório."
+      },
+      "es": {
+        "name": "Crear tarea de negocio",
+        "description": "Crea una tarea en un negocio, como una llamada o reunión por agendar, y la devuelve en data. text es obligatorio."
+      },
+      "fr": {
+        "name": "Créer une tâche d'affaire",
+        "description": "Crée une tâche sur une affaire, comme un appel ou une réunion à planifier, et la renvoie dans data. text est obligatoire."
+      }
+    },
+    "agendor_list_users": {
+      "pt": {
+        "name": "Listar usuários",
+        "description": "Lista os usuários da conta do Agendor em data, com id, nome, e-mail de contato e equipes. Os ids deles são os responsáveis que as outras tools aceitam."
+      },
+      "es": {
+        "name": "Listar usuarios",
+        "description": "Lista los usuarios de la cuenta de Agendor en data, con id, nombre, correo de contacto y equipos. Sus ids son los responsables que aceptan las otras tools."
+      },
+      "fr": {
+        "name": "Lister les utilisateurs",
+        "description": "Liste les utilisateurs du compte Agendor dans data, avec id, nom, e-mail de contact et équipes. Leurs ids sont les responsables que prennent les autres tools."
+      }
+    },
+    "agendor_list_funnels": {
+      "pt": {
+        "name": "Listar funis",
+        "description": "Lista os funis de vendas da conta em data, cada um com seu id e suas dealStages, que trazem id, nome e sequência de cada etapa."
+      },
+      "es": {
+        "name": "Listar embudos",
+        "description": "Lista los embudos de ventas de la cuenta en data, cada uno con su id y sus dealStages, que traen id, nombre y secuencia de cada etapa."
+      },
+      "fr": {
+        "name": "Lister les entonnoirs",
+        "description": "Liste les entonnoirs de vente du compte dans data, chacun avec son id et ses dealStages, qui donnent id, nom et séquence de chaque étape."
+      }
+    },
+    "agendor_list_loss_reasons": {
+      "pt": {
+        "name": "Listar motivos de perda",
+        "description": "Lista os motivos de perda configurados na conta em data, com id e nome, para o lossReason de Atualizar negócio."
+      },
+      "es": {
+        "name": "Listar motivos de pérdida",
+        "description": "Lista los motivos de pérdida configurados en la cuenta en data, con id y nombre, para el lossReason de Actualizar negocio."
+      },
+      "fr": {
+        "name": "Lister les motifs de perte",
+        "description": "Liste les motifs de perte configurés dans le compte dans data, avec id et nom, pour le lossReason de Mettre à jour une affaire."
+      }
+    }
+  }
+}

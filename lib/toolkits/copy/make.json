@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "List, activate, run and monitor scenarios, and retry incomplete executions, in your customer's Make organization through one Reportei Connect endpoint.",
+      "intro": "The Make toolkit covers organizations, teams, scenarios, execution logs and incomplete executions of one Make zone. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        {
+          "title": "Trigger automations from your product",
+          "body": "Run a customer's scenario when something happens in your SaaS, and wait for the status and outputs with responsive true."
+        },
+        {
+          "title": "Control scenarios from a settings page",
+          "body": "Show a customer's scenarios, rename them and switch them on or off, so users manage automations without opening Make."
+        },
+        {
+          "title": "Failed-run recovery for agents",
+          "body": "Let an AI agent list the logs and incomplete executions of a scenario, read the error and the module that caused it, and retry the run."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Liste, ative, execute e monitore cenários, e reexecute execuções incompletas, na organização Make do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do Make cobre organizações, times, cenários, logs de execução e execuções incompletas de uma zona do Make. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Disparar automações pelo seu produto",
+          "body": "Execute o cenário de um cliente quando algo acontece no seu SaaS e aguarde o status e as saídas com responsive true."
+        },
+        {
+          "title": "Controlar cenários em uma tela de ajustes",
+          "body": "Mostre os cenários de um cliente, renomeie e ligue ou desligue, para o usuário gerenciar automações sem abrir o Make."
+        },
+        {
+          "title": "Recuperar execuções com falha por agente",
+          "body": "Deixe um agente de IA listar os logs e as execuções incompletas de um cenário, ler o erro e o módulo que o causou e tentar a execução de novo."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Lista, activa, ejecuta y monitorea escenarios y reintenta ejecuciones incompletas en la organización de Make de tu cliente con Reportei Connect.",
+      "intro": "El toolkit de Make cubre organizaciones, equipos, escenarios, logs de ejecución y ejecuciones incompletas de una zona de Make. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Disparar automatizaciones desde tu producto",
+          "body": "Ejecuta el escenario de un cliente cuando algo ocurre en tu SaaS y espera el estado y las salidas con responsive true."
+        },
+        {
+          "title": "Controlar escenarios desde una pantalla de ajustes",
+          "body": "Muestra los escenarios de un cliente, renómbralos y enciéndelos o apágalos, para que el usuario gestione automatizaciones sin abrir Make."
+        },
+        {
+          "title": "Recuperar ejecuciones fallidas con un agente",
+          "body": "Deja que un agente de IA liste los logs y las ejecuciones incompletas de un escenario, lea el error y el módulo que lo causó y reintente la ejecución."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Listez, activez, lancez et surveillez des scénarios, et relancez les exécutions incomplètes, dans l'organisation Make de votre client via Reportei Connect.",
+      "intro": "Le toolkit Make couvre les organisations, équipes, scénarios, journaux d'exécution et exécutions incomplètes d'une zone Make. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Déclencher des automatisations depuis votre produit",
+          "body": "Lancez le scénario d'un client quand un événement survient dans votre SaaS et attendez le statut et les sorties avec responsive true."
+        },
+        {
+          "title": "Piloter les scénarios depuis une page de réglages",
+          "body": "Affichez les scénarios d'un client, renommez-les et activez-les ou désactivez-les, pour que l'utilisateur gère ses automatisations sans ouvrir Make."
+        },
+        {
+          "title": "Reprise des exécutions en échec par un agent",
+          "body": "Laissez un agent IA lister les journaux et les exécutions incomplètes d'un scénario, lire l'erreur et le module en cause et relancer l'exécution."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "make_list_organizations": {
+      "pt": {
+        "name": "Listar organizações",
+        "description": "Lista as organizações do usuário, cada uma com id e name. O id é o organizationId que as outras ferramentas pedem."
+      },
+      "es": {
+        "name": "Listar organizaciones",
+        "description": "Lista las organizaciones del usuario, cada una con id y name. El id es el organizationId que piden las demás herramientas."
+      },
+      "fr": {
+        "name": "Lister les organisations",
+        "description": "Liste les organisations de l'utilisateur, chacune avec id et name. L'id est l'organizationId que demandent les autres outils."
+      }
+    },
+    "make_list_teams": {
+      "pt": {
+        "name": "Listar times",
+        "description": "Lista os times de uma organização, cada um com id e name. O id é o teamId de List scenarios."
+      },
+      "es": {
+        "name": "Listar equipos",
+        "description": "Lista los equipos de una organización, cada uno con id y name. El id es el teamId de List scenarios."
+      },
+      "fr": {
+        "name": "Lister les équipes",
+        "description": "Liste les équipes d'une organisation, chacune avec id et name. L'id est le teamId de List scenarios."
+      }
+    },
+    "make_list_scenarios": {
+      "pt": {
+        "name": "Listar cenários",
+        "description": "Lista os cenários de um time ou de uma organização inteira: envie teamId ou organizationId, nunca os dois. Cada item traz o id e o name do cenário."
+      },
+      "es": {
+        "name": "Listar escenarios",
+        "description": "Lista los escenarios de un equipo o de una organización completa: envía teamId u organizationId, nunca ambos. Cada elemento trae el id y el name del escenario."
+      },
+      "fr": {
+        "name": "Lister les scénarios",
+        "description": "Liste les scénarios d'une équipe ou de toute une organisation : envoyez teamId ou organizationId, jamais les deux. Chaque élément contient l'id et le name du scénario."
+      }
+    },
+    "make_get_scenario": {
+      "pt": {
+        "name": "Obter cenário",
+        "description": "Retorna os detalhes de um cenário, como nome, time, agendamento e se está ativo."
+      },
+      "es": {
+        "name": "Obtener escenario",
+        "description": "Devuelve los detalles de un escenario, como nombre, equipo, programación y si está activo."
+      },
+      "fr": {
+        "name": "Obtenir un scénario",
+        "description": "Renvoie les détails d'un scénario, comme son nom, son équipe, sa planification et s'il est actif."
+      }
+    },
+    "make_update_scenario": {
+      "pt": {
+        "name": "Atualizar cenário",
+        "description": "Renomeia um cenário. O nome não precisa ser único."
+      },
+      "es": {
+        "name": "Actualizar escenario",
+        "description": "Renombra un escenario. El nombre no tiene que ser único."
+      },
+      "fr": {
+        "name": "Mettre à jour un scénario",
+        "description": "Renomme un scénario. Le nom n'a pas besoin d'être unique."
+      }
+    },
+    "make_activate_scenario": {
+      "pt": {
+        "name": "Ativar cenário",
+        "description": "Ativa um cenário para que rode no seu agendamento. Um cenário agendado em intervalos regulares também roda na hora."
+      },
+      "es": {
+        "name": "Activar escenario",
+        "description": "Activa un escenario para que se ejecute según su programación. Un escenario programado a intervalos regulares también se ejecuta de inmediato."
+      },
+      "fr": {
+        "name": "Activer un scénario",
+        "description": "Active un scénario pour qu'il s'exécute selon sa planification. Un scénario planifié à intervalles réguliers s'exécute aussi tout de suite."
+      }
+    },
+    "make_deactivate_scenario": {
+      "pt": {
+        "name": "Desativar cenário",
+        "description": "Desativa um cenário, o que interrompe seu agendamento e a execução em andamento, se houver."
+      },
+      "es": {
+        "name": "Desactivar escenario",
+        "description": "Desactiva un escenario, lo que detiene su programación y la ejecución en curso, si la hay."
+      },
+      "fr": {
+        "name": "Désactiver un scénario",
+        "description": "Désactive un scénario, ce qui arrête sa planification et l'exécution en cours, s'il y en a une."
+      }
+    },
+    "make_run_scenario": {
+      "pt": {
+        "name": "Executar cenário",
+        "description": "Executa um cenário ativo agora, o que consome operações da organização. Retorna o executionId; com responsive true aguarda até 40 segundos e retorna também o status e as saídas do cenário. Uma organização ou time pausado responde 429 com o código IM310."
+      },
+      "es": {
+        "name": "Ejecutar escenario",
+        "description": "Ejecuta un escenario activo ahora, lo que consume operaciones de la organización. Devuelve el executionId; con responsive true espera hasta 40 segundos y devuelve también el estado y las salidas del escenario. Una organización o equipo en pausa responde 429 con el código IM310."
+      },
+      "fr": {
+        "name": "Exécuter un scénario",
+        "description": "Exécute un scénario actif maintenant, ce qui consomme des opérations de l'organisation. Renvoie l'executionId ; avec responsive true il attend jusqu'à 40 secondes et renvoie aussi le statut et les sorties du scénario. Une organisation ou équipe en pause répond 429 avec le code IM310."
+      }
+    },
+    "make_list_scenario_logs": {
+      "pt": {
+        "name": "Listar logs do cenário",
+        "description": "Lista os logs de execução de um cenário, do mais novo ao mais antigo, cada um com o id da execução, status, duração, operações e transferência."
+      },
+      "es": {
+        "name": "Listar logs del escenario",
+        "description": "Lista los logs de ejecución de un escenario, del más nuevo al más antiguo, cada uno con el id de la ejecución, estado, duración, operaciones y transferencia."
+      },
+      "fr": {
+        "name": "Lister les journaux d'un scénario",
+        "description": "Liste les journaux d'exécution d'un scénario, du plus récent au plus ancien, chacun avec l'id de l'exécution, le statut, la durée, les opérations et le transfert."
+      }
+    },
+    "make_get_scenario_execution": {
+      "pt": {
+        "name": "Obter execução do cenário",
+        "description": "Retorna o status de uma execução de um cenário, com as saídas do cenário, ou o erro e o módulo que o causou."
+      },
+      "es": {
+        "name": "Obtener ejecución del escenario",
+        "description": "Devuelve el estado de una ejecución de un escenario, con las salidas del escenario, o el error y el módulo que lo causó."
+      },
+      "fr": {
+        "name": "Obtenir une exécution de scénario",
+        "description": "Renvoie le statut d'une exécution d'un scénario, avec les sorties du scénario, ou l'erreur et le module qui l'a causée."
+      }
+    },
+    "make_list_incomplete_executions": {
+      "pt": {
+        "name": "Listar execuções incompletas",
+        "description": "Lista as execuções incompletas de um cenário, as que pararam por um erro e foram guardadas para nova tentativa, cada uma com id, motivo, data de criação, tentativas e se foi resolvida."
+      },
+      "es": {
+        "name": "Listar ejecuciones incompletas",
+        "description": "Lista las ejecuciones incompletas de un escenario, las que se detuvieron por un error y se guardaron para reintentar, cada una con id, motivo, hora de creación, intentos y si está resuelta."
+      },
+      "fr": {
+        "name": "Lister les exécutions incomplètes",
+        "description": "Liste les exécutions incomplètes d'un scénario, celles qui se sont arrêtées sur une erreur et ont été conservées pour être relancées, chacune avec id, raison, date de création, tentatives et si elle est résolue."
+      }
+    },
+    "make_retry_incomplete_execution": {
+      "pt": {
+        "name": "Tentar execução incompleta de novo",
+        "description": "Tenta de novo uma execução incompleta com o blueprint que o cenário tinha quando o erro aconteceu, o que consome operações da organização."
+      },
+      "es": {
+        "name": "Reintentar ejecución incompleta",
+        "description": "Reintenta una ejecución incompleta con el blueprint que tenía el escenario cuando ocurrió el error, lo que consume operaciones de la organización."
+      },
+      "fr": {
+        "name": "Relancer une exécution incomplète",
+        "description": "Relance une exécution incomplète avec le blueprint qu'avait le scénario au moment de l'erreur, ce qui consomme des opérations de l'organisation."
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Manage projects, task lists, tasks, comments and time entries in your customer's Teamwork.com site through one Connect endpoint.",
+      "intro": "The Teamwork.com toolkit covers projects, task lists, tasks with comments, the people of the site and time entries. Through Connect, a product or AI agent creates and completes tasks and logs billable time in the customer's Teamwork without building the integration or storing its credentials.",
+      "useCases": [
+        { "title": "Tasks from your product", "body": "Create a task in a task list, assign it to a person and add a comment when something in your app needs follow-up from the customer's team." },
+        { "title": "Time logging by an agent", "body": "Let an AI agent log time on a task, with the minutes and date, and list the entries marked billable for an invoice." },
+        { "title": "Project status for clients", "body": "List projects and their open tasks and show the progress of each one to the client in your own portal." }
+      ]
+    },
+    "pt": {
+      "tagline": "Gerencie projetos, listas de tarefas, tarefas, comentários e lançamentos de tempo no site Teamwork.com do seu cliente por um único endpoint do Connect.",
+      "intro": "O toolkit do Teamwork.com cobre projetos, listas de tarefas, tarefas com comentários, as pessoas do site e lançamentos de tempo. Pelo Connect, um produto ou agente de IA cria e conclui tarefas e registra horas faturáveis no Teamwork do cliente sem construir a integração nem guardar as credenciais.",
+      "useCases": [
+        { "title": "Tarefas criadas pelo produto", "body": "Crie uma tarefa em uma lista, atribua a uma pessoa e adicione um comentário quando algo no seu app precisar de acompanhamento da equipe do cliente." },
+        { "title": "Registro de horas por agente", "body": "Deixe um agente de IA registrar tempo em uma tarefa, com os minutos e a data, e listar os lançamentos faturáveis para uma fatura." },
+        { "title": "Status de projeto para clientes", "body": "Liste projetos e suas tarefas abertas e mostre o andamento de cada um ao cliente no seu próprio portal." }
+      ]
+    },
+    "es": {
+      "tagline": "Gestiona proyectos, listas de tareas, tareas, comentarios y registros de tiempo en el sitio de Teamwork.com de tu cliente con un solo endpoint de Connect.",
+      "intro": "El toolkit de Teamwork.com cubre proyectos, listas de tareas, tareas con comentarios, las personas del sitio y registros de tiempo. Con Connect, un producto o agente de IA crea y completa tareas y registra horas facturables en el Teamwork del cliente sin construir la integración ni guardar sus credenciales.",
+      "useCases": [
+        { "title": "Tareas desde tu producto", "body": "Crea una tarea en una lista, asígnala a una persona y agrega un comentario cuando algo en tu app necesite seguimiento del equipo del cliente." },
+        { "title": "Registro de horas por un agente", "body": "Deja que un agente de IA registre tiempo en una tarea, con los minutos y la fecha, y liste los registros facturables para una factura." },
+        { "title": "Estado de proyectos para clientes", "body": "Lista proyectos y sus tareas abiertas y muestra el avance de cada uno al cliente en tu propio portal." }
+      ]
+    },
+    "fr": {
+      "tagline": "Gérez projets, listes de tâches, tâches, commentaires et saisies de temps sur le site Teamwork.com de votre client via un seul endpoint Connect.",
+      "intro": "Le toolkit Teamwork.com couvre les projets, les listes de tâches, les tâches avec leurs commentaires, les personnes du site et les saisies de temps. Avec Connect, un produit ou un agent IA crée et termine des tâches et enregistre du temps facturable dans le Teamwork du client sans construire l'intégration ni stocker ses identifiants.",
+      "useCases": [
+        { "title": "Tâches depuis votre produit", "body": "Créez une tâche dans une liste, assignez-la à une personne et ajoutez un commentaire quand quelque chose dans votre app nécessite un suivi de l'équipe du client." },
+        { "title": "Saisie du temps par un agent", "body": "Laissez un agent IA enregistrer du temps sur une tâche, avec les minutes et la date, et lister les saisies facturables pour une facture." },
+        { "title": "État des projets pour les clients", "body": "Listez les projets et leurs tâches ouvertes et montrez l'avancement de chacun au client dans votre propre portail." }
+      ]
+    }
+  },
+  "tools": {
+    "teamwork_list_projects": {
+      "pt": { "name": "Listar projetos", "description": "Lista os projetos a que o usuário conectado tem acesso, 50 por página por padrão. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar proyectos", "description": "Lista los proyectos a los que el usuario conectado tiene acceso, 50 por página por defecto. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les projets", "description": "Liste les projets auxquels l'utilisateur connecté a accès, 50 par page par défaut. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_list_tasklists": {
+      "pt": { "name": "Listar listas de tarefas", "description": "Lista as listas de tarefas de um projeto. As tarefas são criadas dentro de uma lista. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar listas de tareas", "description": "Lista las listas de tareas de un proyecto. Las tareas se crean dentro de una lista. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les listes de tâches", "description": "Liste les listes de tâches d'un projet. Les tâches sont créées dans une liste. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_list_tasks": {
+      "pt": { "name": "Listar tarefas", "description": "Lista as tarefas a que o usuário conectado tem acesso, em todos os projetos ou por projeto, lista de tarefas ou responsável, 50 por página por padrão e sem as tarefas concluídas, a menos que seja pedido. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar tareas", "description": "Lista las tareas a las que el usuario conectado tiene acceso, en todos los proyectos o por proyecto, lista de tareas o asignado, 50 por página por defecto y sin las tareas completadas, salvo que se pidan. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les tâches", "description": "Liste les tâches auxquelles l'utilisateur connecté a accès, dans tous les projets ou par projet, liste de tâches ou responsable, 50 par page par défaut et sans les tâches terminées sauf demande contraire. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_get_task": {
+      "pt": { "name": "Obter tarefa", "description": "Retorna uma tarefa com descrição, status, prioridade, datas, responsáveis, estimativa e progresso." },
+      "es": { "name": "Obtener tarea", "description": "Devuelve una tarea con descripción, estado, prioridad, fechas, asignados, estimación y progreso." },
+      "fr": { "name": "Obtenir une tâche", "description": "Renvoie une tâche avec description, statut, priorité, dates, assignés, estimation et progression." }
+    },
+    "teamwork_create_task": {
+      "pt": { "name": "Criar tarefa", "description": "Cria uma tarefa em uma lista de tarefas. Exige task com um name. As datas são yyyy-MM-dd." },
+      "es": { "name": "Crear tarea", "description": "Crea una tarea en una lista de tareas. Requiere task con un name. Las fechas son yyyy-MM-dd." },
+      "fr": { "name": "Créer une tâche", "description": "Crée une tâche dans une liste de tâches. Nécessite task avec un name. Les dates sont au format yyyy-MM-dd." }
+    },
+    "teamwork_update_task": {
+      "pt": { "name": "Atualizar tarefa", "description": "Atualiza os campos enviados de uma tarefa e mantém os outros. Para concluir uma tarefa, use Complete task. As datas são yyyy-MM-dd." },
+      "es": { "name": "Actualizar tarea", "description": "Actualiza los campos enviados de una tarea y conserva los demás. Para completar una tarea, usa Complete task. Las fechas son yyyy-MM-dd." },
+      "fr": { "name": "Mettre à jour une tâche", "description": "Met à jour les champs envoyés d'une tâche et conserve les autres. Pour terminer une tâche, utilisez Complete task. Les dates sont au format yyyy-MM-dd." }
+    },
+    "teamwork_complete_task": {
+      "pt": { "name": "Concluir tarefa", "description": "Marca uma tarefa como concluída. É a rota que o Teamwork documenta para concluir tarefas, na API v1." },
+      "es": { "name": "Completar tarea", "description": "Marca una tarea como completada. Es la ruta que Teamwork documenta para completar tareas, en la API v1." },
+      "fr": { "name": "Terminer une tâche", "description": "Marque une tâche comme terminée. C'est la route que Teamwork documente pour terminer les tâches, dans l'API v1." }
+    },
+    "teamwork_delete_task": {
+      "pt": { "name": "Excluir tarefa", "description": "Exclui uma tarefa e suas subtarefas." },
+      "es": { "name": "Eliminar tarea", "description": "Elimina una tarea y sus subtareas." },
+      "fr": { "name": "Supprimer une tâche", "description": "Supprime une tâche et ses sous-tâches." }
+    },
+    "teamwork_list_task_comments": {
+      "pt": { "name": "Listar comentários da tarefa", "description": "Lista os comentários de uma tarefa. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar comentarios de la tarea", "description": "Lista los comentarios de una tarea. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les commentaires d'une tâche", "description": "Liste les commentaires d'une tâche. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_create_task_comment": {
+      "pt": { "name": "Criar comentário na tarefa", "description": "Adiciona um comentário a uma tarefa. Exige comment com um body." },
+      "es": { "name": "Crear comentario en la tarea", "description": "Agrega un comentario a una tarea. Requiere comment con un body." },
+      "fr": { "name": "Créer un commentaire sur une tâche", "description": "Ajoute un commentaire à une tâche. Nécessite comment avec un body." }
+    },
+    "teamwork_list_people": {
+      "pt": { "name": "Listar pessoas", "description": "Lista as pessoas do site com seus ids, que os argumentos assignee e user aceitam, e seus e-mails. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar personas", "description": "Lista las personas del sitio con sus ids, que aceptan los argumentos assignee y user, y sus correos. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les personnes", "description": "Liste les personnes du site avec leurs ids, que prennent les arguments assignee et user, et leurs e-mails. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_list_time_entries": {
+      "pt": { "name": "Listar lançamentos de tempo", "description": "Lista os lançamentos de tempo a que o usuário conectado tem acesso, com os minutos, a pessoa, a tarefa e se são faturáveis. Pagine com page, a partir de 1, enquanto meta.page.hasMore na resposta for true." },
+      "es": { "name": "Listar registros de tiempo", "description": "Lista los registros de tiempo a los que el usuario conectado tiene acceso, con los minutos, la persona, la tarea y si son facturables. Pagina con page, desde 1, mientras meta.page.hasMore en la respuesta sea true." },
+      "fr": { "name": "Lister les saisies de temps", "description": "Liste les saisies de temps auxquelles l'utilisateur connecté a accès, avec les minutes, la personne, la tâche et si elles sont facturables. Paginez avec page, à partir de 1, tant que meta.page.hasMore dans la réponse est true." }
+    },
+    "teamwork_create_time_entry": {
+      "pt": { "name": "Criar lançamento de tempo", "description": "Registra tempo em uma tarefa. Exige timelog com date, time e minutes. Sem userId, o tempo vai para o usuário conectado." },
+      "es": { "name": "Crear registro de tiempo", "description": "Registra tiempo en una tarea. Requiere timelog con date, time y minutes. Sin userId, el tiempo va al usuario conectado." },
+      "fr": { "name": "Créer une saisie de temps", "description": "Enregistre du temps sur une tâche. Nécessite timelog avec date, time et minutes. Sans userId, le temps va à l'utilisateur connecté." }
+    }
+  }
+}

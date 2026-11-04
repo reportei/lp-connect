@@ -1,0 +1,246 @@
+{
+  "toolkit": {
+    "en": {
+      "tagline": "Search customers, charges, subscriptions and invoices, and create and send invoices in your customer's Stripe account through Reportei Connect.",
+      "intro": "The Stripe toolkit covers customers, charges, subscriptions and invoices, with search, creation of customers and draft invoices, and updates to subscriptions. Your customer connects once with an API key, and your product or AI agent calls each operation through Connect, which stores the credential and logs every execution.",
+      "useCases": [
+        {
+          "title": "Billing views in your product",
+          "body": "Search a customer's subscriptions, invoices and charges by status or date to show billing history inside your SaaS or agency dashboard."
+        },
+        {
+          "title": "Invoice from your workflow",
+          "body": "Create a customer, a draft invoice and its lines, then finalize and email it with Send invoice when a job or project is done."
+        },
+        {
+          "title": "Revenue questions for an agent",
+          "body": "Let an AI agent search new or canceled subscriptions in a period, or set cancel_at_period_end on a subscription, as part of a retention flow."
+        }
+      ]
+    },
+    "pt": {
+      "tagline": "Busque clientes, cobranças, assinaturas e faturas, e crie e envie faturas na conta Stripe do seu cliente por um único endpoint do Reportei Connect.",
+      "intro": "O toolkit do Stripe cobre clientes, cobranças, assinaturas e faturas, com busca, criação de clientes e de faturas em rascunho e atualização de assinaturas. Seu cliente conecta uma vez com uma API key, e seu produto ou agente de IA chama cada operação pelo Connect, que guarda a credencial e registra cada execução.",
+      "useCases": [
+        {
+          "title": "Visões de cobrança no seu produto",
+          "body": "Busque assinaturas, faturas e cobranças de um cliente por status ou data para mostrar o histórico de cobrança dentro do seu SaaS ou painel de agência."
+        },
+        {
+          "title": "Faturar a partir do seu fluxo",
+          "body": "Crie um cliente, uma fatura em rascunho e suas linhas, e finalize e envie por email com Send invoice quando um trabalho ou projeto terminar."
+        },
+        {
+          "title": "Perguntas de receita para um agente",
+          "body": "Deixe um agente de IA buscar assinaturas novas ou canceladas em um período, ou definir cancel_at_period_end em uma assinatura, dentro de um fluxo de retenção."
+        }
+      ]
+    },
+    "es": {
+      "tagline": "Busca clientes, cobros, suscripciones y facturas, y crea y envía facturas en la cuenta de Stripe de tu cliente con un solo endpoint de Reportei Connect.",
+      "intro": "El toolkit de Stripe cubre clientes, cobros, suscripciones y facturas, con búsqueda, creación de clientes y de facturas en borrador y actualización de suscripciones. Tu cliente conecta una vez con una API key, y tu producto o agente de IA llama cada operación a través de Connect, que guarda la credencial y registra cada ejecución.",
+      "useCases": [
+        {
+          "title": "Vistas de facturación en tu producto",
+          "body": "Busca suscripciones, facturas y cobros de un cliente por estado o fecha para mostrar el historial de facturación dentro de tu SaaS o panel de agencia."
+        },
+        {
+          "title": "Facturar desde tu flujo",
+          "body": "Crea un cliente, una factura en borrador y sus líneas, y finalízala y envíala por email con Send invoice cuando termine un trabajo o proyecto."
+        },
+        {
+          "title": "Preguntas de ingresos para un agente",
+          "body": "Deja que un agente de IA busque suscripciones nuevas o canceladas en un periodo, o fije cancel_at_period_end en una suscripción, dentro de un flujo de retención."
+        }
+      ]
+    },
+    "fr": {
+      "tagline": "Recherchez clients, paiements, abonnements et factures, et créez et envoyez des factures dans le Stripe de votre client via Reportei Connect.",
+      "intro": "Le toolkit Stripe couvre les clients, paiements, abonnements et factures, avec recherche, création de clients et de factures brouillon et mise à jour des abonnements. Votre client se connecte une fois avec une API key, et votre produit ou agent IA appelle chaque opération via Connect, qui stocke l'identifiant et journalise chaque exécution.",
+      "useCases": [
+        {
+          "title": "Vues de facturation dans votre produit",
+          "body": "Recherchez les abonnements, factures et paiements d'un client par statut ou date pour afficher l'historique de facturation dans votre SaaS ou tableau de bord d'agence."
+        },
+        {
+          "title": "Facturer depuis votre workflow",
+          "body": "Créez un client, une facture brouillon et ses lignes, puis finalisez-la et envoyez-la par email avec Send invoice quand une mission ou un projet se termine."
+        },
+        {
+          "title": "Questions de revenus pour un agent",
+          "body": "Laissez un agent IA rechercher les abonnements nouveaux ou résiliés sur une période, ou définir cancel_at_period_end sur un abonnement, dans un parcours de rétention."
+        }
+      ]
+    }
+  },
+  "tools": {
+    "stripe_search_customers": {
+      "pt": {
+        "name": "Buscar clientes",
+        "description": "Busca clientes com a linguagem de consulta de busca do Stripe, por email, nome, telefone, data de criação ou metadata. A resposta traz data, has_more e next_page; envie next_page como page para a próxima página. Um cliente criado ou atualizado no último minuto pode ainda não aparecer."
+      },
+      "es": {
+        "name": "Buscar clientes",
+        "description": "Busca clientes con el lenguaje de consulta de búsqueda de Stripe, por email, nombre, teléfono, fecha de creación o metadata. La respuesta trae data, has_more y next_page; envía next_page como page para la página siguiente. Un cliente creado o actualizado en el último minuto puede no aparecer todavía."
+      },
+      "fr": {
+        "name": "Rechercher des clients",
+        "description": "Recherche des clients avec le langage de requête de recherche de Stripe, par email, nom, téléphone, date de création ou metadata. La réponse contient data, has_more et next_page ; envoyez next_page comme page pour la page suivante. Un client créé ou modifié dans la dernière minute peut ne pas encore apparaître."
+      }
+    },
+    "stripe_get_customer": {
+      "pt": {
+        "name": "Obter cliente",
+        "description": "Retorna um cliente, com nome, email, telefone, endereço, saldo em centavos e configurações de fatura. Um cliente excluído volta apenas com id e deleted true."
+      },
+      "es": {
+        "name": "Obtener cliente",
+        "description": "Devuelve un cliente, con nombre, email, teléfono, dirección, saldo en centavos y ajustes de factura. Un cliente eliminado vuelve solo con id y deleted true."
+      },
+      "fr": {
+        "name": "Obtenir un client",
+        "description": "Renvoie un client, avec nom, email, téléphone, adresse, solde en centimes et paramètres de facture. Un client supprimé revient avec seulement id et deleted true."
+      }
+    },
+    "stripe_create_customer": {
+      "pt": {
+        "name": "Criar cliente",
+        "description": "Cria um cliente. Nenhum campo é obrigatório, mas o Stripe só envia faturas e recibos a clientes com email. Endereço, tax ids e metadata não estão disponíveis aqui."
+      },
+      "es": {
+        "name": "Crear cliente",
+        "description": "Crea un cliente. Ningún campo es obligatorio, pero Stripe solo envía facturas y recibos a clientes con email. Dirección, tax ids y metadata no están disponibles aquí."
+      },
+      "fr": {
+        "name": "Créer un client",
+        "description": "Crée un client. Aucun champ n'est obligatoire, mais Stripe n'envoie factures et reçus qu'aux clients ayant un email. L'adresse, les tax ids et metadata ne sont pas disponibles ici."
+      }
+    },
+    "stripe_update_customer": {
+      "pt": {
+        "name": "Atualizar cliente",
+        "description": "Atualiza o nome, o email, o telefone ou a descrição de um cliente. Os campos não enviados permanecem como estão."
+      },
+      "es": {
+        "name": "Actualizar cliente",
+        "description": "Actualiza el nombre, el email, el teléfono o la descripción de un cliente. Los campos no enviados se quedan como están."
+      },
+      "fr": {
+        "name": "Mettre à jour un client",
+        "description": "Met à jour le nom, l'email, le téléphone ou la description d'un client. Les champs non envoyés restent inchangés."
+      }
+    },
+    "stripe_search_charges": {
+      "pt": {
+        "name": "Buscar cobranças",
+        "description": "Busca as cobranças, que são as tentativas de pagamento com status, valor, reembolsos e disputas, com a linguagem de consulta de busca do Stripe. Os valores estão na menor unidade da moeda, como centavos. A resposta traz data, has_more e next_page; envie next_page como page para a próxima página."
+      },
+      "es": {
+        "name": "Buscar cobros",
+        "description": "Busca los cobros, que son los intentos de pago con estado, importe, reembolsos y disputas, con el lenguaje de consulta de búsqueda de Stripe. Los importes están en la unidad más pequeña de la moneda, como centavos. La respuesta trae data, has_more y next_page; envía next_page como page para la página siguiente."
+      },
+      "fr": {
+        "name": "Rechercher des paiements",
+        "description": "Recherche les paiements, c'est-à-dire les tentatives de paiement avec statut, montant, remboursements et litiges, avec le langage de requête de recherche de Stripe. Les montants sont dans la plus petite unité de la devise, comme les centimes. La réponse contient data, has_more et next_page ; envoyez next_page comme page pour la page suivante."
+      }
+    },
+    "stripe_list_subscriptions": {
+      "pt": {
+        "name": "Listar assinaturas",
+        "description": "Lista as assinaturas, da mais nova à mais antiga, opcionalmente de um cliente, um preço ou um status. Sem status, assinaturas canceladas ficam de fora. Cada assinatura traz seus preços em items.data. Pagine com starting_after enquanto has_more for true."
+      },
+      "es": {
+        "name": "Listar suscripciones",
+        "description": "Lista las suscripciones, de la más nueva a la más antigua, opcionalmente de un cliente, un precio o un estado. Sin status, las suscripciones canceladas quedan fuera. Cada suscripción trae sus precios en items.data. Pagina con starting_after mientras has_more sea true."
+      },
+      "fr": {
+        "name": "Lister les abonnements",
+        "description": "Liste les abonnements, du plus récent au plus ancien, éventuellement pour un client, un prix ou un statut. Sans status, les abonnements résiliés sont exclus. Chaque abonnement contient ses prix dans items.data. Paginez avec starting_after tant que has_more vaut true."
+      }
+    },
+    "stripe_search_subscriptions": {
+      "pt": {
+        "name": "Buscar assinaturas",
+        "description": "Busca assinaturas por status, data de criação, data de cancelamento ou metadata com a linguagem de consulta de busca do Stripe, o que serve para perguntas como assinaturas novas ou canceladas em um período. A resposta traz data, has_more e next_page; envie next_page como page para a próxima página."
+      },
+      "es": {
+        "name": "Buscar suscripciones",
+        "description": "Busca suscripciones por estado, fecha de creación, fecha de cancelación o metadata con el lenguaje de consulta de búsqueda de Stripe, lo que sirve para preguntas como suscripciones nuevas o canceladas en un periodo. La respuesta trae data, has_more y next_page; envía next_page como page para la página siguiente."
+      },
+      "fr": {
+        "name": "Rechercher des abonnements",
+        "description": "Recherche des abonnements par statut, date de création, date de résiliation ou metadata avec le langage de requête de recherche de Stripe, ce qui convient à des questions comme les abonnements nouveaux ou résiliés sur une période. La réponse contient data, has_more et next_page ; envoyez next_page comme page pour la page suivante."
+      }
+    },
+    "stripe_update_subscription": {
+      "pt": {
+        "name": "Atualizar assinatura",
+        "description": "Atualiza uma assinatura, por exemplo para cancelá-la no fim do período atual com cancel_at_period_end, ou para desfazer isso. Alterar os itens ou preços da assinatura não está disponível aqui."
+      },
+      "es": {
+        "name": "Actualizar suscripción",
+        "description": "Actualiza una suscripción, por ejemplo para cancelarla al final del periodo actual con cancel_at_period_end, o para deshacerlo. Cambiar los elementos o precios de la suscripción no está disponible aquí."
+      },
+      "fr": {
+        "name": "Mettre à jour un abonnement",
+        "description": "Met à jour un abonnement, par exemple pour le résilier à la fin de la période en cours avec cancel_at_period_end, ou pour annuler cela. Modifier les éléments ou prix de l'abonnement n'est pas disponible ici."
+      }
+    },
+    "stripe_search_invoices": {
+      "pt": {
+        "name": "Buscar faturas",
+        "description": "Busca faturas por cliente, assinatura, status, data, total ou número com a linguagem de consulta de busca do Stripe. Os valores estão na menor unidade da moeda, como centavos. A resposta traz data, has_more e next_page; envie next_page como page para a próxima página."
+      },
+      "es": {
+        "name": "Buscar facturas",
+        "description": "Busca facturas por cliente, suscripción, estado, fecha, total o número con el lenguaje de consulta de búsqueda de Stripe. Los importes están en la unidad más pequeña de la moneda, como centavos. La respuesta trae data, has_more y next_page; envía next_page como page para la página siguiente."
+      },
+      "fr": {
+        "name": "Rechercher des factures",
+        "description": "Recherche des factures par client, abonnement, statut, date, total ou numéro avec le langage de requête de recherche de Stripe. Les montants sont dans la plus petite unité de la devise, comme les centimes. La réponse contient data, has_more et next_page ; envoyez next_page comme page pour la page suivante."
+      }
+    },
+    "stripe_create_invoice": {
+      "pt": {
+        "name": "Criar fatura",
+        "description": "Cria uma fatura em rascunho para um cliente. Adicione as linhas com Create invoice item e envie por email com Send invoice. Com collection_method send_invoice, envie days_until_due ou due_date."
+      },
+      "es": {
+        "name": "Crear factura",
+        "description": "Crea una factura en borrador para un cliente. Añade las líneas con Create invoice item y envíala por email con Send invoice. Con collection_method send_invoice, envía days_until_due o due_date."
+      },
+      "fr": {
+        "name": "Créer une facture",
+        "description": "Crée une facture brouillon pour un client. Ajoutez les lignes avec Create invoice item puis envoyez-la par email avec Send invoice. Avec collection_method send_invoice, envoyez days_until_due ou due_date."
+      }
+    },
+    "stripe_create_invoice_item": {
+      "pt": {
+        "name": "Criar item de fatura",
+        "description": "Adiciona uma linha a uma fatura em rascunho, com descrição e valor na menor unidade da moeda, como centavos. Envie amount, ou unit_amount_decimal com quantity. Sem invoice, a linha espera a próxima fatura do cliente."
+      },
+      "es": {
+        "name": "Crear línea de factura",
+        "description": "Añade una línea a una factura en borrador, con descripción e importe en la unidad más pequeña de la moneda, como centavos. Envía amount, o unit_amount_decimal con quantity. Sin invoice, la línea espera a la próxima factura del cliente."
+      },
+      "fr": {
+        "name": "Créer une ligne de facture",
+        "description": "Ajoute une ligne à une facture brouillon, avec une description et un montant dans la plus petite unité de la devise, comme les centimes. Envoyez amount, ou unit_amount_decimal avec quantity. Sans invoice, la ligne attend la prochaine facture du client."
+      }
+    },
+    "stripe_send_invoice": {
+      "pt": {
+        "name": "Enviar fatura",
+        "description": "Finaliza uma fatura em rascunho e a envia por email ao cliente com as instruções de pagamento. Uma fatura finalizada não pode mais mudar seus valores. Em sandbox nenhum email é enviado."
+      },
+      "es": {
+        "name": "Enviar factura",
+        "description": "Finaliza una factura en borrador y la envía por email al cliente con las instrucciones de pago. Una factura finalizada ya no puede cambiar sus importes. En sandbox no se envía ningún email."
+      },
+      "fr": {
+        "name": "Envoyer une facture",
+        "description": "Finalise une facture brouillon et l'envoie par email au client avec les instructions de paiement. Une facture finalisée ne peut plus changer ses montants. En sandbox aucun email n'est envoyé."
+      }
+    }
+  }
+}
