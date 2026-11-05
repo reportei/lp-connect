@@ -28,12 +28,12 @@ export function HeaderBar({ locale, homeHref, nav, login, signup, menuLabels, la
   return (
     <header className="connect-page sticky top-0 z-50 w-full border-b bg-white">
       <div className="lp-container">
-        <div className="flex h-20 items-center justify-between">
-          <a href={homeHref} className="flex items-center">
+        <div className="flex h-20 items-center justify-between gap-8">
+          <a href={homeHref} className="flex shrink-0 items-center">
             <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-10 w-auto" />
           </a>
 
-          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7">
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-6">
             {nav.map((item) => (
               <a key={item.href} href={item.href} className="whitespace-nowrap text-sm font-medium transition-colors hover:text-primary">
                 {item.label}
@@ -41,8 +41,8 @@ export function HeaderBar({ locale, homeHref, nav, login, signup, menuLabels, la
             ))}
           </nav>
 
-          <div className="hidden xl:flex items-center gap-4 2xl:gap-5">
-            {switcher("hidden 2xl:inline")}
+          <div className="hidden xl:flex shrink-0 items-center gap-4 2xl:gap-5">
+            {switcher("hidden")}
             <a href={login.href} className="whitespace-nowrap text-sm font-medium hover:text-primary">
               {login.label}
             </a>
