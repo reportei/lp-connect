@@ -649,6 +649,18 @@ export const en: Messages = {
     },
   },
   features: {
+    home: {
+      eyebrow: "Features",
+      title: "Beyond reading data: publish, advertise and call LLMs through the same API",
+      copy: "The accounts your customer connected also publish posts, manage Meta Ads, return metrics and call AI models. Each action has its own page with the request ready.",
+      cards: {
+        posts: "Publish to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube.",
+        ads: "Create, boost and manage ads in your customers' Meta Ads.",
+        metrics: (n) => `Numbers, charts and tables from ${n} platforms in the same format.`,
+        llm: "OpenAI, Anthropic and Meta in the OpenAI format, with your own key.",
+      },
+      seeAll: (area) => `All of ${area}`,
+    },
     nav: "Features",
     breadcrumbLabel: "Breadcrumb",
     areas: {

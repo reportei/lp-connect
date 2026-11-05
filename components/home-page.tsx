@@ -8,6 +8,7 @@ import { ProblemsSection } from "@/components/problems-section"
 import { CaseStudySection } from "@/components/case-study-section"
 import { NetworksSection } from "@/components/networks-section"
 import { ToolkitsHomeSection } from "@/components/toolkit-pages"
+import { FeaturesHomeSection } from "@/components/feature-pages"
 import { AiSection } from "@/components/ai-section"
 import { PlansPricingSection } from "@/components/plans-pricing-section"
 import { FaqSection, faqItems } from "@/components/faq-section"
@@ -55,6 +56,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <ClientsSection locale={locale} />
         <WhatIsSection locale={locale} />
         <ApiDemoSection t={m.apiDemo} locale={locale} />
+        <FeaturesHomeSection locale={locale} />
         <HowItWorksSection locale={locale} />
         <ProblemsSection locale={locale} />
         <CaseStudySection locale={locale} />

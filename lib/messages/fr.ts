@@ -653,6 +653,18 @@ export const fr: Messages = {
     },
   },
   features: {
+    home: {
+      eyebrow: "Fonctionnalités",
+      title: "Au-delà de la lecture : publiez, faites de la publicité et appelez des LLM via la même API",
+      copy: "Les comptes connectés par votre client servent aussi à publier des posts, gérer Meta Ads, lire des métriques et appeler des modèles d'IA. Chaque action a sa page avec l'appel prêt à l'emploi.",
+      cards: {
+        posts: "Publiez sur Instagram, Facebook, Threads, LinkedIn, Pinterest et YouTube.",
+        ads: "Créez, boostez et gérez les publicités Meta Ads de vos clients.",
+        metrics: (n) => `Chiffres, graphiques et tableaux de ${n} plateformes au même format.`,
+        llm: "OpenAI, Anthropic et Meta au format OpenAI, avec votre clé.",
+      },
+      seeAll: (area) => `Tout ${area}`,
+    },
     nav: "Fonctionnalités",
     breadcrumbLabel: "Fil d'Ariane",
     areas: {

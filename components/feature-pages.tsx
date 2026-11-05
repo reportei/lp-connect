@@ -136,6 +136,59 @@ function capabilityTitle(locale: Locale, capability: Capability) {
   return capabilityCopy(capability.slug)![locale].title
 }
 
+// ---------- Home block ----------
+
+const HOME_PICKS: Record<FeatureArea, string[]> = {
+  posts: ["instagram-reels", "instagram-carousel", "linkedin-page-post"],
+  ads: ["create-ad", "boost-post", "targeting"],
+  metrics: ["compare-periods", "charts", "metrics-webhook"],
+  llm: ["model-fallback", "streaming", "function-calling"],
+}
+
+export function FeaturesHomeSection({ locale }: { locale: Locale }) {
+  const m = getMessages(locale).features
+  const t = m.home
+  return (
+    <section id="funcionalidades" className="lp-section border-t">
+      <div className="lp-container">
+        <div className="mb-10 max-w-3xl">
+          <p className="lp-eyebrow mb-3">{t.eyebrow}</p>
+          <h2 className="lp-title mb-5">{t.title}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">{t.copy}</p>
+        </div>
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {FEATURE_AREAS.map((area) => (
+            <li key={area} className="flex flex-col rounded-xl border bg-white p-6">
+              <h3 className="text-lg font-semibold tracking-tight">
+                <a href={href(locale, areaPath(area))} className="hover:text-primary">
+                  {m.areas[area].name}
+                </a>
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{area === "metrics" ? t.cards.metrics(METRICS_INTEGRATIONS.length) : t.cards[area]}</p>
+              <ul className="mt-5 space-y-2 text-sm">
+                {HOME_PICKS[area]
+                  .map((slug) => findCapability(area, slug))
+                  .filter((capability): capability is Capability => Boolean(capability))
+                  .map((capability) => (
+                    <li key={capability.slug}>
+                      <a href={href(locale, capabilityPath(capability))} className="lp-link">
+                        {capabilityTitle(locale, capability)}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+              <a href={href(locale, areaPath(area))} className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-primary">
+                {t.seeAll(m.areas[area].name)}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
 // ---------- Area hub: /posts, /ads, /metrics, /llm ----------
 
 export function areaMetadata(locale: Locale, area: FeatureArea) {

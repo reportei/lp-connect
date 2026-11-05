@@ -658,6 +658,18 @@ export const pt = {
     },
   },
   features: {
+    home: {
+      eyebrow: "Funcionalidades",
+      title: "Além de ler dados: publique, anuncie e chame LLMs pela mesma API",
+      copy: "As mesmas contas que seu cliente conectou servem para publicar posts, gerenciar anúncios no Meta Ads, consultar métricas e chamar modelos de IA. Cada ação tem uma página com a chamada pronta.",
+      cards: {
+        posts: "Publique no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube.",
+        ads: "Crie, impulsione e gerencie anúncios no Meta Ads dos seus clientes.",
+        metrics: (n: number) => `Números, gráficos e tabelas de ${n} plataformas no mesmo formato.`,
+        llm: "OpenAI, Anthropic e Meta no formato da OpenAI, com a sua chave.",
+      },
+      seeAll: (area: string) => `Tudo de ${area}`,
+    },
     nav: "Funcionalidades",
     breadcrumbLabel: "Trilha",
     areas: {
