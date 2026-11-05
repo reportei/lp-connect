@@ -708,6 +708,8 @@ export const pt = {
       integrationsCopy: "O catálogo de cada plataforma, com o que dá para consultar e o identificador de cada métrica.",
       models: "Modelos disponíveis",
       otherAreas: "Outras funcionalidades",
+      sampleCaption: (title: string) => `Exemplo: ${title}.`,
+      sampleLink: "Ver a página",
     },
     capability: {
       h1: (title: string) => `${title} pela API`,

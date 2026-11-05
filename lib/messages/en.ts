@@ -699,6 +699,8 @@ export const en: Messages = {
       integrationsCopy: "The catalog of each platform, with what you can query and the id of each metric.",
       models: "Available models",
       otherAreas: "Other features",
+      sampleCaption: (title) => `Example: ${title}.`,
+      sampleLink: "See the page",
     },
     capability: {
       h1: (title) => `${title} via API`,

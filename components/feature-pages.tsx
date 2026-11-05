@@ -203,10 +203,20 @@ export function areaMetadata(locale: Locale, area: FeatureArea) {
   })
 }
 
+// The capability whose request illustrates each area at the top of its overview.
+const AREA_SAMPLE: Record<FeatureArea, string> = {
+  posts: "instagram-reels",
+  ads: "create-ad",
+  metrics: "compare-periods",
+  llm: "one-api-three-providers",
+}
+
 export function AreaPage({ locale, area }: { locale: Locale; area: FeatureArea }) {
   const m = getMessages(locale).features
   const t = m.areas[area]
   const capabilities = areaCapabilities(area)
+  const featured = findCapability(area, AREA_SAMPLE[area])
+  const featuredCopy = featured && capabilityCopy(featured.slug)
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -220,7 +230,27 @@ export function AreaPage({ locale, area }: { locale: Locale; area: FeatureArea }
 
   return (
     <Page locale={locale} alternatePath={() => areaPath(area)} jsonLd={[itemList]}>
-      <Hero locale={locale} crumbs={[{ name: m.nav }, { name: t.name }]} eyebrow={t.name} h1={t.h1} intro={t.intro} />
+      <Hero
+        locale={locale}
+        crumbs={[{ name: m.nav }, { name: t.name }]}
+        eyebrow={t.name}
+        h1={t.h1}
+        intro={t.intro}
+        aside={
+          featured &&
+          featuredCopy && (
+            <figure>
+              <Code>{requestSample(featuredCopy.sample, isCustomerRoute(featuredCopy.sample.path))}</Code>
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                {m.hub.sampleCaption(featuredCopy[locale].title)}{" "}
+                <a href={href(locale, capabilityPath(featured))} className="lp-link">
+                  {m.hub.sampleLink}
+                </a>
+              </figcaption>
+            </figure>
+          )
+        }
+      />
 
       <section className="lp-section border-t bg-muted/40">
         <div className="lp-container">

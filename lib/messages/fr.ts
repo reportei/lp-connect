@@ -703,6 +703,8 @@ export const fr: Messages = {
       integrationsCopy: "Le catalogue de chaque plateforme, avec ce que vous pouvez interroger et l'identifiant de chaque métrique.",
       models: "Modèles disponibles",
       otherAreas: "Autres fonctionnalités",
+      sampleCaption: (title) => `Exemple : ${title}.`,
+      sampleLink: "Voir la page",
     },
     capability: {
       h1: (title) => `${title} via l'API`,

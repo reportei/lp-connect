@@ -703,6 +703,8 @@ export const es: Messages = {
       integrationsCopy: "El catálogo de cada plataforma, con lo que puedes consultar y el identificador de cada métrica.",
       models: "Modelos disponibles",
       otherAreas: "Otras funcionalidades",
+      sampleCaption: (title) => `Ejemplo: ${title}.`,
+      sampleLink: "Ver la página",
     },
     capability: {
       h1: (title) => `${title} con la API`,

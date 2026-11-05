@@ -77,7 +77,7 @@ export function Breadcrumb({ locale, items }: { locale: Locale; items: { name: s
               {item.name}
             </a>
           ) : (
-            <span className="text-foreground">{item.name}</span>
+            <span className={i === items.length - 1 ? "text-foreground" : undefined}>{item.name}</span>
           )}
         </span>
       ))}
