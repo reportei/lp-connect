@@ -32,6 +32,9 @@ foreach ($locales as $reporteiLocale => $locale) {
             if (!$key || empty($reference['title'])) continue;
             $out[$slug]['metrics'][$key]['key'] = $key;
             $out[$slug]['metrics'][$key]['component'] = $widget['component'] ?? null;
+            // The request a merchant sends repeats the widget's fields and dimensions, as the catalog returns them.
+            $out[$slug]['metrics'][$key]['fields'] = array_values($widget['metrics'] ?? []);
+            $out[$slug]['metrics'][$key]['dimensions'] = array_values($widget['dimensions'] ?? []);
             $out[$slug]['metrics'][$key]['title'][$locale] = __($reference['title']);
             if (!empty($reference['description'])) {
                 $out[$slug]['metrics'][$key]['description'][$locale] = __($reference['description']);

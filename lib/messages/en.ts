@@ -728,6 +728,10 @@ export const en: Messages = {
       groups: { number_v1: "Numbers", chart_v1: "Charts", datatable_v1: "Tables", datagrid_v1: "Tables" },
       count: (n) => (n === 1 ? "1 metric" : `${n} metrics`),
       sampleCaption: (title) => `Example: the "${title}" metric of a connected account.`,
+      comparisonCaption: (title) => `Example: "${title}" in October, compared to September.`,
+      examplesTitle: (name) => `More ${name} request examples`,
+      examplesCopy: "The same endpoint for every kind of metric. The metrics and dimensions of each item come from the platform catalog (GET /api/metrics/{integration_slug}).",
+      exampleKinds: { chart_v1: "Chart", datatable_v1: "Table", number_v1: "Number" },
       others: "Metrics from other platforms",
     },
     llmModel: {

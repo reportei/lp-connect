@@ -253,27 +253,6 @@ export function AreaPage({ locale, area }: { locale: Locale; area: FeatureArea }
         }
       />
 
-      <section className="lp-section border-t bg-muted/40">
-        <div className="lp-container">
-          <h2 className="lp-title mb-8">{m.hub.capabilities}</h2>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((capability) => {
-              const copy = capabilityCopy(capability.slug)![locale]
-              return (
-                <li key={capability.slug}>
-                  <LinkCard
-                    href={href(locale, capabilityPath(capability))}
-                    title={copy.title}
-                    body={copy.tagline}
-                    logo={capability.integrations[0] ? integrationLogo(capability.integrations[0]) : undefined}
-                  />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </section>
-
       {area === "metrics" && (
         <section className="lp-section border-t">
           <div className="lp-container">
@@ -295,6 +274,27 @@ export function AreaPage({ locale, area }: { locale: Locale; area: FeatureArea }
           </div>
         </section>
       )}
+
+      <section className="lp-section border-t bg-muted/40">
+        <div className="lp-container">
+          <h2 className="lp-title mb-8">{m.hub.capabilities}</h2>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((capability) => {
+              const copy = capabilityCopy(capability.slug)![locale]
+              return (
+                <li key={capability.slug}>
+                  <LinkCard
+                    href={href(locale, capabilityPath(capability))}
+                    title={copy.title}
+                    body={copy.tagline}
+                    logo={capability.integrations[0] ? integrationLogo(capability.integrations[0]) : undefined}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </section>
 
       {area === "llm" && (
         <section className="lp-section border-t">
@@ -529,26 +529,42 @@ function CapabilityPage({ locale, capability }: { locale: Locale; capability: Ca
 
 const GROUPS = ["number_v1", "chart_v1", "datatable_v1"] as const
 
+// The request for one catalog metric, with its fields and dimensions as the catalog returns them.
+function metricRequest(metric: MetricsIntegration["metrics"][number], comparison = false) {
+  const item = {
+    id: "m1",
+    reference_key: metric.key,
+    component: metric.component,
+    ...(metric.fields.length ? { metrics: metric.fields } : {}),
+    ...(metric.dimensions.length ? { dimensions: metric.dimensions } : {}),
+  }
+  const body = {
+    customer_integration: "<connection uuid>",
+    start: "2026-10-01",
+    end: "2026-10-31",
+    ...(comparison ? { comparison_start: "2026-09-01", comparison_end: "2026-09-30" } : {}),
+    metrics: [item],
+  }
+  return `POST /api/metrics/get-data
+Authorization: Bearer <merchant token>
+x-customer-token: <customer token>
+
+${JSON.stringify(body, null, 2)}`
+}
+
 function MetricsIntegrationPage({ locale, integration }: { locale: Locale; integration: MetricsIntegration & { urlSlug: string } }) {
   const m = getMessages(locale).features
   const t = m.metricsIntegration
   const area = m.areas.metrics
   const group = (component: string) => (component === "datagrid_v1" ? "datatable_v1" : component)
-  const first = integration.metrics[0]
-  const sample = `POST /api/metrics/get-data
-Authorization: Bearer <merchant token>
-x-customer-token: <customer token>
-
-${JSON.stringify(
-  {
-    customer_integration: "<connection uuid>",
-    start: "2026-10-01",
-    end: "2026-10-31",
-    metrics: [{ id: "m1", reference_key: first.key, component: first.component }],
-  },
-  null,
-  2,
-)}`
+  const numbers = integration.metrics.filter((metric) => metric.component === "number_v1")
+  const headline = numbers[0] ?? integration.metrics[0]
+  // One example of each kind the platform has: a chart, a table and a second number.
+  const examples = [
+    { kind: "chart_v1", metric: integration.metrics.find((metric) => metric.component === "chart_v1") },
+    { kind: "datatable_v1", metric: integration.metrics.find((metric) => group(metric.component) === "datatable_v1") },
+    { kind: "number_v1", metric: numbers[1] },
+  ].filter((example): example is { kind: string; metric: MetricsIntegration["metrics"][number] } => Boolean(example.metric))
   const others = METRICS_INTEGRATIONS.filter((item) => item.slug !== integration.slug).slice(0, 12)
 
   return (
@@ -571,11 +587,38 @@ ${JSON.stringify(
         logo={integrationLogo(integration.slug)}
         aside={
           <figure>
-            <Code>{sample}</Code>
-            <figcaption className="mt-3 text-sm text-muted-foreground">{t.sampleCaption(first.title[locale])}</figcaption>
+            <Code>{metricRequest(headline, headline.component === "number_v1")}</Code>
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              {headline.component === "number_v1" ? t.comparisonCaption(headline.title[locale]) : t.sampleCaption(headline.title[locale])}
+            </figcaption>
           </figure>
         }
       />
+
+      {examples.length > 0 && (
+        <section className="lp-section border-t">
+          <div className="lp-container">
+            <h2 className="lp-title mb-3">{t.examplesTitle(integration.name)}</h2>
+            <p className="lp-copy mb-10">{t.examplesCopy}</p>
+            <div className="space-y-10">
+              {examples.map(({ kind, metric }) => (
+                <figure key={metric.key} className="grid min-w-0 gap-4 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
+                  <div>
+                    <p className="lp-eyebrow mb-2">{t.exampleKinds[kind]}</p>
+                    <h3 className="text-lg font-semibold tracking-tight">{metric.title[locale]}</h3>
+                    {metric.description?.[locale] && (
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{metric.description[locale]}</p>
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <Code>{metricRequest(metric)}</Code>
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {GROUPS.map((component, i) => {
         const metrics = integration.metrics.filter((metric) => group(metric.component) === component)

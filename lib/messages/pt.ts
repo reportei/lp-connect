@@ -737,6 +737,10 @@ export const pt = {
       groups: { number_v1: "Números", chart_v1: "Gráficos", datatable_v1: "Tabelas", datagrid_v1: "Tabelas" } as Record<string, string>,
       count: (n: number) => (n === 1 ? "1 métrica" : `${n} métricas`),
       sampleCaption: (title: string) => `Exemplo: a métrica "${title}" de uma conta conectada.`,
+      comparisonCaption: (title: string) => `Exemplo: "${title}" em outubro, comparado a setembro.`,
+      examplesTitle: (name: string) => `Mais exemplos de chamadas no ${name}`,
+      examplesCopy: "O mesmo endpoint para cada tipo de métrica. Os campos metrics e dimensions de cada item vêm do catálogo da plataforma (GET /api/metrics/{integration_slug}).",
+      exampleKinds: { chart_v1: "Gráfico", datatable_v1: "Tabela", number_v1: "Número" } as Record<string, string>,
       others: "Métricas de outras plataformas",
     },
     llmModel: {

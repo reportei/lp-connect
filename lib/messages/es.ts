@@ -732,6 +732,10 @@ export const es: Messages = {
       groups: { number_v1: "Números", chart_v1: "Gráficos", datatable_v1: "Tablas", datagrid_v1: "Tablas" },
       count: (n) => (n === 1 ? "1 métrica" : `${n} métricas`),
       sampleCaption: (title) => `Ejemplo: la métrica "${title}" de una cuenta conectada.`,
+      comparisonCaption: (title) => `Ejemplo: "${title}" en octubre, comparado con septiembre.`,
+      examplesTitle: (name) => `Más ejemplos de llamadas a ${name}`,
+      examplesCopy: "El mismo endpoint para cada tipo de métrica. Los campos metrics y dimensions de cada ítem vienen del catálogo de la plataforma (GET /api/metrics/{integration_slug}).",
+      exampleKinds: { chart_v1: "Gráfico", datatable_v1: "Tabla", number_v1: "Número" },
       others: "Métricas de otras plataformas",
     },
     llmModel: {

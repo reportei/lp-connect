@@ -31,7 +31,14 @@ export type MetricsIntegration = {
   slug: string
   name: string
   logo: string
-  metrics: { key: string; component: string; title: Localized; description?: Partial<Localized> }[]
+  metrics: {
+    key: string
+    component: string
+    fields: string[]
+    dimensions: unknown[]
+    title: Localized
+    description?: Partial<Localized>
+  }[]
 }
 
 export type LlmModel = {
