@@ -77,7 +77,8 @@ function Hero({
 }
 
 function Code({ children }: { children: string }) {
-  return <pre className="lp-code overflow-x-auto p-5 text-[13px]">{children}</pre>
+  // Long trees (a whole ad) scroll inside the block instead of pushing the page down.
+  return <pre className="lp-code max-h-[34rem] overflow-auto p-5 text-[13px]">{children}</pre>
 }
 
 function Bullets({ items, icon = "check" }: { items: string[]; icon?: "check" | "info" }) {
@@ -206,7 +207,7 @@ export function areaMetadata(locale: Locale, area: FeatureArea) {
 // The capability whose request illustrates each area at the top of its overview.
 const AREA_SAMPLE: Record<FeatureArea, string> = {
   posts: "instagram-reels",
-  ads: "create-ad",
+  ads: "create-campaign",
   metrics: "compare-periods",
   llm: "one-api-three-providers",
 }
