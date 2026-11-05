@@ -1,0 +1,262 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/merchants/posts",
+    "query": {
+      "status": "failed",
+      "per_page": 50
+    }
+  },
+  "fields": [
+    {
+      "name": "customer",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtro: o uuid de um customer do merchant.",
+        "en": "Filter: the uuid of one of the merchant's customers.",
+        "es": "Filtro: el uuid de un customer del merchant.",
+        "fr": "Filtre : l'uuid d'un customer du merchant."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtro: o uuid de uma conexão de um customer do merchant.",
+        "en": "Filter: the uuid of a connection of one of the merchant's customers.",
+        "es": "Filtro: el uuid de una conexión de un customer del merchant.",
+        "fr": "Filtre : l'uuid d'une connexion d'un customer du merchant."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtro: created, publishing, published ou failed.",
+        "en": "Filter: created, publishing, published or failed.",
+        "es": "Filtro: created, publishing, published o failed.",
+        "fr": "Filtre : created, publishing, published ou failed."
+      }
+    },
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtro: o id do post no seu sistema (até 100 caracteres).",
+        "en": "Filter: the post's id in your system (up to 100 characters).",
+        "es": "Filtro: el id del post en tu sistema (hasta 100 caracteres).",
+        "fr": "Filtre : l'id du post dans votre système (100 caractères max)."
+      }
+    },
+    {
+      "name": "per_page",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Itens por página, de 1 a 100. Padrão 15.",
+        "en": "Items per page, from 1 to 100. Default 15.",
+        "es": "Elementos por página, de 1 a 100. Por defecto 15.",
+        "fr": "Éléments par page, de 1 à 100. 15 par défaut."
+      }
+    },
+    {
+      "name": "customer_uuid",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Em cada post da resposta: o customer dono do post.",
+        "en": "On each post in the response: the customer that owns the post.",
+        "es": "En cada post de la respuesta: el customer dueño del post.",
+        "fr": "Sur chaque post de la réponse : le customer propriétaire du post."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Listar posts de todos os clientes",
+    "tagline": "Veja os posts de todos os customers do seu merchant em uma única chamada, só com o Bearer, e filtre por customer, conexão ou status.",
+    "intro": "GET /merchants/posts devolve os posts de todos os seus clientes de uma vez, mais recentes primeiro, usando só o token do merchant. É a visão de monitoramento: onde há posts com falha, o que foi publicado e para qual cliente.",
+    "can": [
+      "Listar os posts de todos os customers em uma chamada, sem x-customer-token.",
+      "Filtrar por um customer com customer, ou por uma conexão com customer_integration.",
+      "Filtrar por status (created, publishing, published, failed) para achar falhas.",
+      "Achar um post pelo id do seu sistema com external_reference.",
+      "Paginar com per_page, de 1 a 100."
+    ],
+    "rules": [
+      "Só o Bearer do merchant, sem x-customer-token. Para os posts de um único cliente, use GET /posts com o x-customer-token.",
+      "customer e customer_integration são filtros, não credencial: o cliente e a conexão são conferidos contra o merchant do Bearer.",
+      "Os filtros se combinam. A lista vem com os mais recentes primeiro, 15 por página por padrão.",
+      "Cada post traz customer_uuid, para você saber de qual cliente ele é."
+    ],
+    "useCases": [
+      {
+        "title": "Painel de operações",
+        "body": "O time de suporte vê todos os posts com falha de todos os clientes numa tela, sem consultar cliente por cliente."
+      },
+      {
+        "title": "Alertas de falha",
+        "body": "Um job periódico lista status failed e avisa o responsável de cada conta."
+      },
+      {
+        "title": "Agente de IA de monitoramento",
+        "body": "O agente resume a semana de publicações por cliente e destaca os que mais falharam."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso do x-customer-token?",
+        "a": "Não. Esta rota usa só o Bearer do merchant. O GET /posts, por cliente, exige o x-customer-token."
+      },
+      {
+        "q": "Como vejo só um cliente?",
+        "a": "Passe customer com o uuid do customer, ou customer_integration com o uuid da conexão."
+      },
+      {
+        "q": "Como acho os posts com falha?",
+        "a": "Filtre por status=failed. Para os detalhes do erro, consulte o post com GET /posts/{uuid}."
+      }
+    ]
+  },
+  "en": {
+    "title": "List posts across all customers",
+    "tagline": "See the posts of all your merchant's customers in a single call, with only the Bearer token, and filter by customer, connection or status.",
+    "intro": "GET /merchants/posts returns the posts of all your customers at once, most recent first, using only the merchant token. It is the monitoring view: where posts failed, what was published and for which customer.",
+    "can": [
+      "List the posts of all customers in one call, with no x-customer-token.",
+      "Filter by one customer with customer, or by one connection with customer_integration.",
+      "Filter by status (created, publishing, published, failed) to find failures.",
+      "Find a post by your system's id with external_reference.",
+      "Paginate with per_page, from 1 to 100."
+    ],
+    "rules": [
+      "Only the merchant Bearer, with no x-customer-token. For one customer's posts, use GET /posts with the x-customer-token.",
+      "customer and customer_integration are filters, not credentials: the customer and the connection are checked against the Bearer's merchant.",
+      "Filters combine. The list comes most recent first, 15 per page by default.",
+      "Each post carries customer_uuid, so you know which customer it belongs to."
+    ],
+    "useCases": [
+      {
+        "title": "Operations dashboard",
+        "body": "The support team sees every failed post from every customer on one screen, without querying customer by customer."
+      },
+      {
+        "title": "Failure alerts",
+        "body": "A periodic job lists status failed and notifies the owner of each account."
+      },
+      {
+        "title": "Monitoring AI agent",
+        "body": "The agent summarizes the week's publishing per customer and highlights the ones that failed most."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need the x-customer-token?",
+        "a": "No. This route uses only the merchant Bearer. GET /posts, per customer, requires the x-customer-token."
+      },
+      {
+        "q": "How do I see just one customer?",
+        "a": "Pass customer with the customer's uuid, or customer_integration with the connection's uuid."
+      },
+      {
+        "q": "How do I find the failed posts?",
+        "a": "Filter by status=failed. For the error details, read the post with GET /posts/{uuid}."
+      }
+    ]
+  },
+  "es": {
+    "title": "Listar posts de todos los clientes",
+    "tagline": "Ve los posts de todos los customers de tu merchant en una sola llamada, solo con el Bearer, y filtra por customer, conexión o status.",
+    "intro": "GET /merchants/posts devuelve los posts de todos tus clientes a la vez, los más recientes primero, usando solo el token del merchant. Es la vista de monitoreo: dónde hay posts con fallo, qué se publicó y para qué cliente.",
+    "can": [
+      "Listar los posts de todos los customers en una llamada, sin x-customer-token.",
+      "Filtrar por un customer con customer, o por una conexión con customer_integration.",
+      "Filtrar por status (created, publishing, published, failed) para encontrar fallos.",
+      "Encontrar un post por el id de tu sistema con external_reference.",
+      "Paginar con per_page, de 1 a 100."
+    ],
+    "rules": [
+      "Solo el Bearer del merchant, sin x-customer-token. Para los posts de un solo cliente, usa GET /posts con el x-customer-token.",
+      "customer y customer_integration son filtros, no credencial: el cliente y la conexión se verifican contra el merchant del Bearer.",
+      "Los filtros se combinan. La lista viene con los más recientes primero, 15 por página por defecto.",
+      "Cada post trae customer_uuid, para que sepas de qué cliente es."
+    ],
+    "useCases": [
+      {
+        "title": "Panel de operaciones",
+        "body": "El equipo de soporte ve todos los posts con fallo de todos los clientes en una pantalla, sin consultar cliente por cliente."
+      },
+      {
+        "title": "Alertas de fallo",
+        "body": "Un job periódico lista status failed y avisa al responsable de cada cuenta."
+      },
+      {
+        "title": "Agente de IA de monitoreo",
+        "body": "El agente resume la semana de publicaciones por cliente y destaca los que más fallaron."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito el x-customer-token?",
+        "a": "No. Esta ruta usa solo el Bearer del merchant. GET /posts, por cliente, exige el x-customer-token."
+      },
+      {
+        "q": "¿Cómo veo solo un cliente?",
+        "a": "Pasa customer con el uuid del customer, o customer_integration con el uuid de la conexión."
+      },
+      {
+        "q": "¿Cómo encuentro los posts con fallo?",
+        "a": "Filtra por status=failed. Para los detalles del error, consulta el post con GET /posts/{uuid}."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Lister les posts de tous les clients",
+    "tagline": "Voyez les posts de tous les customers de votre merchant en un seul appel, avec le seul Bearer, et filtrez par customer, connexion ou status.",
+    "intro": "GET /merchants/posts renvoie d'un coup les posts de tous vos clients, les plus récents d'abord, avec le seul token du merchant. C'est la vue de suivi : où des posts ont échoué, ce qui a été publié et pour quel client.",
+    "can": [
+      "Lister les posts de tous les customers en un appel, sans x-customer-token.",
+      "Filtrer par un customer avec customer, ou par une connexion avec customer_integration.",
+      "Filtrer par status (created, publishing, published, failed) pour repérer les échecs.",
+      "Retrouver un post par l'id de votre système avec external_reference.",
+      "Paginer avec per_page, de 1 à 100."
+    ],
+    "rules": [
+      "Seulement le Bearer du merchant, sans x-customer-token. Pour les posts d'un seul client, utilisez GET /posts avec le x-customer-token.",
+      "customer et customer_integration sont des filtres, pas des identifiants : le client et la connexion sont vérifiés par rapport au merchant du Bearer.",
+      "Les filtres se combinent. La liste arrive avec les plus récents d'abord, 15 par page par défaut.",
+      "Chaque post porte customer_uuid, pour savoir à quel client il appartient."
+    ],
+    "useCases": [
+      {
+        "title": "Tableau de bord des opérations",
+        "body": "L'équipe support voit tous les posts en échec de tous les clients sur un seul écran, sans interroger client par client."
+      },
+      {
+        "title": "Alertes d'échec",
+        "body": "Un job périodique liste les status failed et prévient le responsable de chaque compte."
+      },
+      {
+        "title": "Agent IA de suivi",
+        "body": "L'agent résume la semaine de publications par client et met en avant ceux qui ont le plus échoué."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Ai-je besoin du x-customer-token ?",
+        "a": "Non. Cette route utilise uniquement le Bearer du merchant. GET /posts, par client, exige le x-customer-token."
+      },
+      {
+        "q": "Comment voir un seul client ?",
+        "a": "Passez customer avec l'uuid du customer, ou customer_integration avec l'uuid de la connexion."
+      },
+      {
+        "q": "Comment trouver les posts en échec ?",
+        "a": "Filtrez par status=failed. Pour le détail de l'erreur, lisez le post avec GET /posts/{uuid}."
+      }
+    ]
+  }
+}

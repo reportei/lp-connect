@@ -1,0 +1,266 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts/pinterest/boards",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "body": {
+      "name": "Summer collection",
+      "description": "Ideas and products for the season",
+      "privacy": "PUBLIC"
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O uuid da conexão do Pinterest, na query. Alternativa ao source_name.",
+        "en": "The uuid of the Pinterest connection, in the query. Alternative to source_name.",
+        "es": "El uuid de la conexión de Pinterest, en el query. Alternativa a source_name.",
+        "fr": "L'uuid de la connexion Pinterest, dans la query. Alternative à source_name."
+      }
+    },
+    {
+      "name": "source_name",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O nome da conta do Pinterest (até 255 caracteres). Usado quando não há customer_integration.",
+        "en": "The Pinterest account name (up to 255 characters). Used when there is no customer_integration.",
+        "es": "El nombre de la cuenta de Pinterest (hasta 255 caracteres). Se usa cuando no hay customer_integration.",
+        "fr": "Le nom du compte Pinterest (255 caractères max). Utilisé sans customer_integration."
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome do board, até 180 caracteres.",
+        "en": "Board name, up to 180 characters.",
+        "es": "Nombre del tablero, hasta 180 caracteres.",
+        "fr": "Nom du tableau, 180 caractères max."
+      }
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Descrição do board, até 500 caracteres.",
+        "en": "Board description, up to 500 characters.",
+        "es": "Descripción del tablero, hasta 500 caracteres.",
+        "fr": "Description du tableau, 500 caractères max."
+      }
+    },
+    {
+      "name": "privacy",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Visibilidade do board: PUBLIC, PROTECTED ou SECRET.",
+        "en": "Board visibility: PUBLIC, PROTECTED or SECRET.",
+        "es": "Visibilidad del tablero: PUBLIC, PROTECTED o SECRET.",
+        "fr": "Visibilité du tableau : PUBLIC, PROTECTED ou SECRET."
+      }
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta 201, o id do board criado. Use-o como pinterest.board_id ao publicar.",
+        "en": "In the 201 response, the id of the created board. Use it as pinterest.board_id when publishing.",
+        "es": "En la respuesta 201, el id del tablero creado. Úsalo como pinterest.board_id al publicar.",
+        "fr": "Dans la réponse 201, l'id du tableau créé. Utilisez-le comme pinterest.board_id à la publication."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Criar e listar boards do Pinterest",
+    "tagline": "Crie e liste boards na conta do Pinterest do seu cliente pela API, e use o id do board para publicar pins, sem implementar o OAuth do Pinterest.",
+    "intro": "Antes de publicar um pin, é preciso um board. Com POST /posts/pinterest/boards seu produto cria o board na conta que o cliente conectou, e com GET /posts/pinterest/boards lista os que já existem, ao vivo. O Connect cuida do token do Pinterest.",
+    "can": [
+      "Criar um board com nome, descrição e privacidade.",
+      "Listar os boards da conta em tempo real, com id, name, description e privacy.",
+      "Escolher a conta pela conexão (customer_integration) ou pelo nome (source_name).",
+      "Listar as seções de um board com GET /posts/pinterest/boards/{board_id}/sections.",
+      "Usar o id do board criado em pinterest.board_id no POST /posts."
+    ],
+    "rules": [
+      "POST /posts/pinterest/boards responde 201 com o board criado: id, name, description e privacy.",
+      "name é obrigatório e vai até 180 caracteres. description vai até 500. privacy aceita PUBLIC, PROTECTED ou SECRET.",
+      "A conta é indicada por customer_integration na query ou por source_name no corpo, nunca pelos dois.",
+      "A listagem é ao vivo, direto da conta do cliente no Pinterest, não uma cópia guardada no Connect."
+    ],
+    "useCases": [
+      {
+        "title": "Onboarding de marca",
+        "body": "Ao conectar o Pinterest, seu produto cria os boards padrão da marca (coleções, lançamentos) automaticamente."
+      },
+      {
+        "title": "Catálogo organizado por categoria",
+        "body": "Uma plataforma de e-commerce cria um board por categoria de produto e depois publica os pins em cada um."
+      },
+      {
+        "title": "Agente de IA de curadoria",
+        "body": "Um agente verifica se o board do tema existe, cria quando não existe e publica o pin nele."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso criar o board antes de publicar um pin?",
+        "a": "O pin precisa de um pinterest.board_id. Você pode usar um board existente, listado por GET /posts/pinterest/boards, ou criar um novo."
+      },
+      {
+        "q": "O que muda entre PUBLIC, PROTECTED e SECRET?",
+        "a": "É a visibilidade do board no Pinterest. O Connect repassa o valor que você enviar em privacy."
+      },
+      {
+        "q": "Como listo os boards?",
+        "a": "Chame GET /posts/pinterest/boards com customer_integration ou source_name. A resposta traz a lista de boards da conta."
+      }
+    ]
+  },
+  "en": {
+    "title": "Create and list Pinterest boards",
+    "tagline": "Create and list boards on your customer's Pinterest account through the API, and use the board id to publish pins, with no Pinterest OAuth to build.",
+    "intro": "A pin needs a board. With POST /posts/pinterest/boards your product creates the board on the account the customer connected, and with GET /posts/pinterest/boards it lists the existing ones, live. Connect handles the Pinterest token.",
+    "can": [
+      "Create a board with a name, description and privacy.",
+      "List the account's boards in real time, with id, name, description and privacy.",
+      "Pick the account by connection (customer_integration) or by name (source_name).",
+      "List a board's sections with GET /posts/pinterest/boards/{board_id}/sections.",
+      "Use the id of the created board as pinterest.board_id in POST /posts."
+    ],
+    "rules": [
+      "POST /posts/pinterest/boards responds 201 with the created board: id, name, description and privacy.",
+      "name is required and goes up to 180 characters. description goes up to 500. privacy accepts PUBLIC, PROTECTED or SECRET.",
+      "The account is given by customer_integration in the query or by source_name in the body, never both.",
+      "The listing is live, straight from the customer's Pinterest account, not a copy kept in Connect."
+    ],
+    "useCases": [
+      {
+        "title": "Brand onboarding",
+        "body": "When Pinterest is connected, your product automatically creates the brand's default boards (collections, launches)."
+      },
+      {
+        "title": "Catalog organized by category",
+        "body": "An e-commerce platform creates one board per product category and then publishes pins to each."
+      },
+      {
+        "title": "Curation AI agent",
+        "body": "An agent checks whether the topic's board exists, creates it when it doesn't and publishes the pin to it."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need to create the board before publishing a pin?",
+        "a": "A pin needs a pinterest.board_id. You can use an existing board, listed by GET /posts/pinterest/boards, or create a new one."
+      },
+      {
+        "q": "What changes between PUBLIC, PROTECTED and SECRET?",
+        "a": "It is the board's visibility on Pinterest. Connect passes on the value you send in privacy."
+      },
+      {
+        "q": "How do I list the boards?",
+        "a": "Call GET /posts/pinterest/boards with customer_integration or source_name. The response carries the account's list of boards."
+      }
+    ]
+  },
+  "es": {
+    "title": "Crear y listar tableros de Pinterest",
+    "tagline": "Crea y lista tableros en la cuenta de Pinterest de tu cliente por API, y usa el id del tablero para publicar pins, sin implementar el OAuth de Pinterest.",
+    "intro": "Un pin necesita un tablero. Con POST /posts/pinterest/boards tu producto crea el tablero en la cuenta que el cliente conectó, y con GET /posts/pinterest/boards lista los existentes, en vivo. Connect se encarga del token de Pinterest.",
+    "can": [
+      "Crear un tablero con nombre, descripción y privacidad.",
+      "Listar los tableros de la cuenta en tiempo real, con id, name, description y privacy.",
+      "Elegir la cuenta por la conexión (customer_integration) o por el nombre (source_name).",
+      "Listar las secciones de un tablero con GET /posts/pinterest/boards/{board_id}/sections.",
+      "Usar el id del tablero creado como pinterest.board_id en POST /posts."
+    ],
+    "rules": [
+      "POST /posts/pinterest/boards responde 201 con el tablero creado: id, name, description y privacy.",
+      "name es obligatorio y llega hasta 180 caracteres. description llega hasta 500. privacy acepta PUBLIC, PROTECTED o SECRET.",
+      "La cuenta se indica con customer_integration en el query o con source_name en el cuerpo, nunca con ambos.",
+      "El listado es en vivo, directo de la cuenta de Pinterest del cliente, no una copia guardada en Connect."
+    ],
+    "useCases": [
+      {
+        "title": "Onboarding de marca",
+        "body": "Al conectar Pinterest, tu producto crea automáticamente los tableros base de la marca (colecciones, lanzamientos)."
+      },
+      {
+        "title": "Catálogo organizado por categoría",
+        "body": "Una plataforma de e-commerce crea un tablero por categoría de producto y luego publica los pins en cada uno."
+      },
+      {
+        "title": "Agente de IA de curaduría",
+        "body": "Un agente verifica si existe el tablero del tema, lo crea si no existe y publica el pin en él."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Debo crear el tablero antes de publicar un pin?",
+        "a": "Un pin necesita un pinterest.board_id. Puedes usar un tablero existente, listado por GET /posts/pinterest/boards, o crear uno nuevo."
+      },
+      {
+        "q": "¿Qué cambia entre PUBLIC, PROTECTED y SECRET?",
+        "a": "Es la visibilidad del tablero en Pinterest. Connect traspasa el valor que envíes en privacy."
+      },
+      {
+        "q": "¿Cómo listo los tableros?",
+        "a": "Llama a GET /posts/pinterest/boards con customer_integration o source_name. La respuesta trae la lista de tableros de la cuenta."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Créer et lister des tableaux Pinterest",
+    "tagline": "Créez et listez des tableaux sur le compte Pinterest de votre client par API, et utilisez l'id du tableau pour publier des pins, sans OAuth Pinterest.",
+    "intro": "Un pin a besoin d'un tableau. Avec POST /posts/pinterest/boards, votre produit crée le tableau sur le compte que le client a connecté, et avec GET /posts/pinterest/boards il liste les existants, en direct. Connect gère le token Pinterest.",
+    "can": [
+      "Créer un tableau avec nom, description et confidentialité.",
+      "Lister les tableaux du compte en temps réel, avec id, name, description et privacy.",
+      "Choisir le compte par la connexion (customer_integration) ou par le nom (source_name).",
+      "Lister les sections d'un tableau avec GET /posts/pinterest/boards/{board_id}/sections.",
+      "Utiliser l'id du tableau créé comme pinterest.board_id dans POST /posts."
+    ],
+    "rules": [
+      "POST /posts/pinterest/boards répond 201 avec le tableau créé : id, name, description et privacy.",
+      "name est obligatoire et va jusqu'à 180 caractères. description va jusqu'à 500. privacy accepte PUBLIC, PROTECTED ou SECRET.",
+      "Le compte est indiqué par customer_integration dans la query ou par source_name dans le corps, jamais les deux.",
+      "La liste est en direct, issue du compte Pinterest du client, et non une copie conservée dans Connect."
+    ],
+    "useCases": [
+      {
+        "title": "Onboarding de marque",
+        "body": "À la connexion de Pinterest, votre produit crée automatiquement les tableaux de base de la marque (collections, lancements)."
+      },
+      {
+        "title": "Catalogue organisé par catégorie",
+        "body": "Une plateforme e-commerce crée un tableau par catégorie de produit puis publie les pins dans chacun."
+      },
+      {
+        "title": "Agent IA de curation",
+        "body": "Un agent vérifie si le tableau du thème existe, le crée sinon et y publie le pin."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Dois-je créer le tableau avant de publier un pin ?",
+        "a": "Un pin a besoin d'un pinterest.board_id. Vous pouvez utiliser un tableau existant, listé par GET /posts/pinterest/boards, ou en créer un."
+      },
+      {
+        "q": "Quelle différence entre PUBLIC, PROTECTED et SECRET ?",
+        "a": "C'est la visibilité du tableau sur Pinterest. Connect transmet la valeur envoyée dans privacy."
+      },
+      {
+        "q": "Comment lister les tableaux ?",
+        "a": "Appelez GET /posts/pinterest/boards avec customer_integration ou source_name. La réponse contient la liste des tableaux du compte."
+      }
+    ]
+  }
+}

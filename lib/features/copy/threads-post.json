@@ -1,0 +1,300 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "post-5120",
+      "format": "feed",
+      "caption": "We shipped v2 of the dashboard. What do you want to see in v3?",
+      "threads": {
+        "reply_control": "accounts_you_follow",
+        "topic_tag": "saas",
+        "first_comment": "Full changelog on our site."
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Stops the same post from being published twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Évite de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Sempre feed no Threads.",
+        "en": "Always feed on Threads.",
+        "es": "Siempre feed en Threads.",
+        "fr": "Toujours feed sur Threads."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O texto do post, até 500 caracteres. Obrigatório quando não há mídia.",
+        "en": "The post text, up to 500 characters. Required when there is no media.",
+        "es": "El texto del post, hasta 500 caracteres. Obligatorio cuando no hay medios.",
+        "fr": "Le texte du post, 500 caractères max. Obligatoire sans média."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Até 20 imagens ou vídeos, em ordem. Pode ficar de fora para um post só de texto.",
+        "en": "Up to 20 images or videos, in order. Leave it out for a text-only post.",
+        "es": "Hasta 20 imágenes o videos, en orden. Puede omitirse para un post solo de texto.",
+        "fr": "Jusqu'à 20 images ou vidéos, dans l'ordre. À omettre pour un post texte seul."
+      }
+    },
+    {
+      "name": "threads.reply_control",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Quem pode responder: everyone, accounts_you_follow, mentioned_only, parent_post_author_only ou followers_only.",
+        "en": "Who can reply: everyone, accounts_you_follow, mentioned_only, parent_post_author_only or followers_only.",
+        "es": "Quién puede responder: everyone, accounts_you_follow, mentioned_only, parent_post_author_only o followers_only.",
+        "fr": "Qui peut répondre : everyone, accounts_you_follow, mentioned_only, parent_post_author_only ou followers_only."
+      }
+    },
+    {
+      "name": "threads.link_attachment",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Link com prévia anexado ao post. Só em post sem mídia.",
+        "en": "A link with preview attached to the post. Only on a post without media.",
+        "es": "Enlace con vista previa adjunto al post. Solo en un post sin medios.",
+        "fr": "Lien avec aperçu joint au post. Uniquement sur un post sans média."
+      }
+    },
+    {
+      "name": "threads.topic_tag",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Tag de tópico, até 50 caracteres, sem ponto e sem &.",
+        "en": "Topic tag, up to 50 characters, no periods and no &.",
+        "es": "Etiqueta de tema, hasta 50 caracteres, sin puntos ni &.",
+        "fr": "Tag de sujet, 50 caractères max, sans point ni &."
+      }
+    },
+    {
+      "name": "threads.first_comment",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Resposta publicada pela própria conta logo após o post, até 500 caracteres.",
+        "en": "A reply posted by the account itself right after the post, up to 500 characters.",
+        "es": "Respuesta publicada por la propia cuenta justo después del post, hasta 500 caracteres.",
+        "fr": "Réponse publiée par le compte lui-même juste après le post, 500 caractères max."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar no Threads",
+    "tagline": "Publique texto, imagens e vídeos no Threads dos seus clientes pela API, com controle de respostas, tag de tópico e primeiro comentário.",
+    "intro": "Um POST /posts com o format feed publica no Threads da conta que o cliente conectou. Você não implementa o OAuth do Threads nem guarda tokens: manda o conteúdo e o Connect publica em segundo plano. O mesmo endpoint serve as outras redes.",
+    "can": [
+      "Publicar texto puro, com legenda de até 500 caracteres.",
+      "Publicar até 20 imagens ou vídeos em um único post.",
+      "Definir quem pode responder com reply_control.",
+      "Anexar um link com prévia em um post de texto com link_attachment.",
+      "Marcar o post com um topic_tag e publicar um first_comment logo depois."
+    ],
+    "rules": [
+      "Só o format feed existe no Threads. Precisa de legenda ou de mídia.",
+      "link_attachment só vale em post sem mídia. topic_tag não aceita ponto nem &.",
+      "O POST /posts responde 202 e a publicação roda depois. Acompanhe por GET /posts/{uuid}.",
+      "external_reference é obrigatória. Publicar de novo a mesma referência na mesma conta, enquanto publica ou depois de publicada, retorna 409.",
+      "O header Idempotency-Key (até 255 caracteres) devolve o post já gravado se a mesma requisição for repetida."
+    ],
+    "useCases": [
+      {
+        "title": "Ferramenta de social media",
+        "body": "Seu produto de agendamento próprio envia o post ao Threads junto com Instagram e LinkedIn, pelo mesmo endpoint."
+      },
+      {
+        "title": "Agente de IA que publica",
+        "body": "Um agente redige o texto e publica no Threads do cliente, escolhendo reply_control para limitar as respostas."
+      },
+      {
+        "title": "CRM com conteúdo",
+        "body": "Um CRM publica novidades dos clientes no Threads e usa first_comment para colocar o link logo abaixo."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso publicar só texto no Threads?",
+        "a": "Sim. Envie format feed e caption, sem media. A legenda vai até 500 caracteres."
+      },
+      {
+        "q": "Quantas mídias cabem em um post do Threads?",
+        "a": "Até 20 imagens ou vídeos em um post."
+      },
+      {
+        "q": "Como sei se o post foi publicado?",
+        "a": "O POST /posts responde 202 com o post em created. Consulte GET /posts/{uuid} até o status ser published ou failed."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish to Threads",
+    "tagline": "Publish text, images and videos to your customers' Threads accounts through the API, with reply control, a topic tag and a first comment.",
+    "intro": "A POST /posts with format feed publishes to the Threads account your customer connected. You don't build the Threads OAuth flow or store tokens: you send the content and Connect publishes it in the background. The same endpoint serves the other networks.",
+    "can": [
+      "Publish plain text, with a caption of up to 500 characters.",
+      "Publish up to 20 images or videos in a single post.",
+      "Set who can reply with reply_control.",
+      "Attach a link with preview to a text post with link_attachment.",
+      "Tag the post with a topic_tag and publish a first_comment right after."
+    ],
+    "rules": [
+      "Threads only has the feed format. It needs a caption or media.",
+      "link_attachment only works on a post without media. topic_tag does not accept periods or &.",
+      "POST /posts responds 202 and publishing runs afterwards. Track it with GET /posts/{uuid}.",
+      "external_reference is required. Sending the same reference again on the same account, while it is publishing or after it was published, returns 409.",
+      "The Idempotency-Key header (up to 255 characters) returns the already stored post when the same request is repeated."
+    ],
+    "useCases": [
+      {
+        "title": "Social media tool",
+        "body": "Your own scheduling product sends the post to Threads alongside Instagram and LinkedIn, through the same endpoint."
+      },
+      {
+        "title": "AI agent that publishes",
+        "body": "An agent writes the text and publishes it to the customer's Threads, picking reply_control to limit replies."
+      },
+      {
+        "title": "CRM with content",
+        "body": "A CRM publishes customer news to Threads and uses first_comment to place the link right below it."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I publish text only to Threads?",
+        "a": "Yes. Send format feed and caption, without media. The caption goes up to 500 characters."
+      },
+      {
+        "q": "How many media items fit in a Threads post?",
+        "a": "Up to 20 images or videos in one post."
+      },
+      {
+        "q": "How do I know the post went out?",
+        "a": "POST /posts responds 202 with the post in created. Poll GET /posts/{uuid} until status is published or failed."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar en Threads",
+    "tagline": "Publica texto, imágenes y videos en el Threads de tus clientes por API, con control de respuestas, etiqueta de tema y primer comentario.",
+    "intro": "Un POST /posts con format feed publica en la cuenta de Threads que el cliente conectó. No implementas el OAuth de Threads ni guardas tokens: envías el contenido y Connect publica en segundo plano. El mismo endpoint sirve para las otras redes.",
+    "can": [
+      "Publicar texto puro, con un pie de hasta 500 caracteres.",
+      "Publicar hasta 20 imágenes o videos en un solo post.",
+      "Definir quién puede responder con reply_control.",
+      "Adjuntar un enlace con vista previa a un post de texto con link_attachment.",
+      "Marcar el post con un topic_tag y publicar un first_comment justo después."
+    ],
+    "rules": [
+      "En Threads solo existe el format feed. Necesita pie o medios.",
+      "link_attachment solo vale en un post sin medios. topic_tag no acepta puntos ni &.",
+      "POST /posts responde 202 y la publicación corre después. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatoria. Enviar de nuevo la misma referencia en la misma cuenta, mientras publica o ya publicada, devuelve 409.",
+      "El header Idempotency-Key (hasta 255 caracteres) devuelve el post ya guardado si se repite la misma solicitud."
+    ],
+    "useCases": [
+      {
+        "title": "Herramienta de redes sociales",
+        "body": "Tu producto de programación envía el post a Threads junto con Instagram y LinkedIn, por el mismo endpoint."
+      },
+      {
+        "title": "Agente de IA que publica",
+        "body": "Un agente redacta el texto y lo publica en el Threads del cliente, eligiendo reply_control para limitar las respuestas."
+      },
+      {
+        "title": "CRM con contenido",
+        "body": "Un CRM publica novedades de sus clientes en Threads y usa first_comment para poner el enlace justo debajo."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo publicar solo texto en Threads?",
+        "a": "Sí. Envía format feed y caption, sin media. El pie llega hasta 500 caracteres."
+      },
+      {
+        "q": "¿Cuántos medios caben en un post de Threads?",
+        "a": "Hasta 20 imágenes o videos en un post."
+      },
+      {
+        "q": "¿Cómo sé si el post salió?",
+        "a": "POST /posts responde 202 con el post en created. Consulta GET /posts/{uuid} hasta que status sea published o failed."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier sur Threads",
+    "tagline": "Publiez texte, images et vidéos sur le Threads de vos clients par API, avec contrôle des réponses, tag de sujet et premier commentaire.",
+    "intro": "Un POST /posts avec format feed publie sur le compte Threads que le client a connecté. Vous n'implémentez pas l'OAuth de Threads et ne stockez aucun token : vous envoyez le contenu et Connect publie en arrière-plan. Le même endpoint sert les autres réseaux.",
+    "can": [
+      "Publier du texte seul, avec une légende de 500 caractères maximum.",
+      "Publier jusqu'à 20 images ou vidéos dans un même post.",
+      "Définir qui peut répondre avec reply_control.",
+      "Joindre un lien avec aperçu à un post texte avec link_attachment.",
+      "Taguer le post avec un topic_tag et publier un first_comment juste après."
+    ],
+    "rules": [
+      "Sur Threads, seul le format feed existe. Il faut une légende ou un média.",
+      "link_attachment ne vaut que sur un post sans média. topic_tag n'accepte ni point ni &.",
+      "POST /posts répond 202 et la publication se fait ensuite. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire. Renvoyer la même référence sur le même compte, pendant la publication ou après, retourne 409.",
+      "Le header Idempotency-Key (255 caractères max) renvoie le post déjà enregistré si la même requête est répétée."
+    ],
+    "useCases": [
+      {
+        "title": "Outil de réseaux sociaux",
+        "body": "Votre produit de planification envoie le post sur Threads avec Instagram et LinkedIn, par le même endpoint."
+      },
+      {
+        "title": "Agent IA qui publie",
+        "body": "Un agent rédige le texte et le publie sur le Threads du client, en choisissant reply_control pour limiter les réponses."
+      },
+      {
+        "title": "CRM avec contenu",
+        "body": "Un CRM publie les nouveautés de ses clients sur Threads et utilise first_comment pour placer le lien juste dessous."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je publier uniquement du texte sur Threads ?",
+        "a": "Oui. Envoyez format feed et caption, sans media. La légende va jusqu'à 500 caractères."
+      },
+      {
+        "q": "Combien de médias dans un post Threads ?",
+        "a": "Jusqu'à 20 images ou vidéos par post."
+      },
+      {
+        "q": "Comment savoir si le post est sorti ?",
+        "a": "POST /posts répond 202 avec le post en created. Interrogez GET /posts/{uuid} jusqu'à ce que status soit published ou failed."
+      }
+    ]
+  }
+}

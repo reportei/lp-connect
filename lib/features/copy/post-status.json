@@ -1,0 +1,295 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/posts/<post uuid>"
+  },
+  "fields": [
+    {
+      "name": "uuid",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O id do post no Connect, devolvido pelo POST /posts.",
+        "en": "The post's id in Connect, returned by POST /posts.",
+        "es": "El id del post en Connect, devuelto por POST /posts.",
+        "fr": "L'id du post dans Connect, renvoyé par POST /posts."
+      }
+    },
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O id do post no seu sistema. Também filtra o GET /posts.",
+        "en": "The post's id in your system. Also filters GET /posts.",
+        "es": "El id del post en tu sistema. También filtra GET /posts.",
+        "fr": "L'id du post dans votre système. Filtre aussi GET /posts."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "created, publishing, published ou failed. Também filtra o GET /posts.",
+        "en": "created, publishing, published or failed. Also filters GET /posts.",
+        "es": "created, publishing, published o failed. También filtra GET /posts.",
+        "fr": "created, publishing, published ou failed. Filtre aussi GET /posts."
+      }
+    },
+    {
+      "name": "permalink",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O link do post na rede, depois de publicado.",
+        "en": "The post's link on the network, once published.",
+        "es": "El enlace del post en la red, una vez publicado.",
+        "fr": "Le lien du post sur le réseau, une fois publié."
+      }
+    },
+    {
+      "name": "publishing.status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O estado da publicação: pending, processing, ready, publishing, published, partially_published ou failed. Cada item de media tem o seu publishing.",
+        "en": "The publishing state: pending, processing, ready, publishing, published, partially_published or failed. Each media item has its own publishing.",
+        "es": "El estado de la publicación: pending, processing, ready, publishing, published, partially_published o failed. Cada medio tiene su propio publishing.",
+        "fr": "L'état de la publication : pending, processing, ready, publishing, published, partially_published ou failed. Chaque média a son propre publishing."
+      }
+    },
+    {
+      "name": "publishing.error",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "Preenchido quando falhou: code e message. Decida pelo code, não pela mensagem.",
+        "en": "Filled in when it failed: code and message. Branch on code, not on the message.",
+        "es": "Se completa cuando falló: code y message. Decide por el code, no por el mensaje.",
+        "fr": "Renseigné en cas d'échec : code et message. Décidez d'après code, pas le message."
+      }
+    },
+    {
+      "name": "publishing.external_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O id que a rede deu ao post.",
+        "en": "The id the network gave the post.",
+        "es": "El id que la red le dio al post.",
+        "fr": "L'id que le réseau a donné au post."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtro do GET /posts: o uuid da conexão.",
+        "en": "GET /posts filter: the connection's uuid.",
+        "es": "Filtro de GET /posts: el uuid de la conexión.",
+        "fr": "Filtre de GET /posts : l'uuid de la connexion."
+      }
+    },
+    {
+      "name": "per_page",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Itens por página no GET /posts, de 1 a 100. Padrão 15.",
+        "en": "Items per page in GET /posts, from 1 to 100. Default 15.",
+        "es": "Elementos por página en GET /posts, de 1 a 100. Por defecto 15.",
+        "fr": "Éléments par page dans GET /posts, de 1 à 100. 15 par défaut."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Acompanhar o status de uma publicação",
+    "tagline": "Veja se um post foi publicado, falhou ou ainda está na fila: consulte GET /posts/{uuid} ou liste com GET /posts e filtros por status e external_reference.",
+    "intro": "Publicar com o Connect é assíncrono: o POST /posts responde 202 e o post segue para a rede depois. Para saber o resultado, consulte o post pelo uuid ou liste os posts do cliente com filtros. A resposta traz o status, o link do post publicado e o motivo de uma falha.",
+    "can": [
+      "Consultar um post com GET /posts/{uuid} e ver status, permalink e o estado da publicação.",
+      "Listar os posts do cliente com GET /posts, filtrando por customer_integration, external_reference e status.",
+      "Ver o estado de cada mídia no publishing de cada item de media.",
+      "Pegar o link do post na rede em permalink e o id da rede em publishing.external_id, depois de publicado.",
+      "Achar o post pelo id do seu sistema, filtrando por external_reference."
+    ],
+    "rules": [
+      "O POST /posts responde 202 com o post em created. Consulte até o status ser published ou failed.",
+      "O status do post é created, publishing, published ou failed. O publishing.status detalha o andamento e inclui partially_published.",
+      "Quando falha, publishing.error traz code e message. Decida pelo code, nunca pela mensagem.",
+      "O GET /posts devolve os posts do cliente mais recentes primeiro, com per_page de 1 a 100 (padrão 15). Exige o x-customer-token.",
+      "Para ver os posts de todos os clientes de uma vez, use GET /merchants/posts, só com o Bearer."
+    ],
+    "useCases": [
+      {
+        "title": "Painel de publicações",
+        "body": "O produto mostra cada post como na fila, publicado ou com falha, e o permalink assim que ele existe."
+      },
+      {
+        "title": "Reprocessar falhas",
+        "body": "Um job lista os posts com status failed, lê publishing.error e avisa o cliente ou tenta de novo com outra external_reference."
+      },
+      {
+        "title": "Agente de IA que confirma a entrega",
+        "body": "O agente publica, consulta o post até o status ser published e só então devolve ao usuário o link do post."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como sei que o post foi publicado?",
+        "a": "Consulte GET /posts/{uuid} até o status ser published ou failed. Com published, o permalink traz o link do post na rede."
+      },
+      {
+        "q": "Como acho um post pelo id do meu sistema?",
+        "a": "Use GET /posts com external_reference, que é o id do post no seu sistema. Também dá para filtrar por status e customer_integration."
+      },
+      {
+        "q": "O que significa failed?",
+        "a": "A publicação não foi concluída. O publishing.error traz o code e a message do motivo."
+      }
+    ]
+  },
+  "en": {
+    "title": "Track the status of a publication",
+    "tagline": "See whether a post was published, failed or is still queued: read GET /posts/{uuid} or list with GET /posts and filters by status and external_reference.",
+    "intro": "Publishing with Connect is asynchronous: POST /posts responds 202 and the post goes to the network afterwards. To get the result, read the post by uuid or list the customer's posts with filters. The response carries the status, the link of the published post and the reason for a failure.",
+    "can": [
+      "Read a post with GET /posts/{uuid} and see status, permalink and the publishing state.",
+      "List the customer's posts with GET /posts, filtering by customer_integration, external_reference and status.",
+      "See the state of each media item in the publishing of each media entry.",
+      "Get the post's link on the network in permalink and the network's id in publishing.external_id, once published.",
+      "Find the post by your system's id, filtering by external_reference."
+    ],
+    "rules": [
+      "POST /posts responds 202 with the post in created. Check until status is published or failed.",
+      "A post's status is created, publishing, published or failed. publishing.status details the progress and includes partially_published.",
+      "When it fails, publishing.error carries code and message. Branch on code, never on the message.",
+      "GET /posts returns the customer's posts, most recent first, with per_page from 1 to 100 (default 15). It requires the x-customer-token.",
+      "To see the posts of all customers at once, use GET /merchants/posts, with only the Bearer."
+    ],
+    "useCases": [
+      {
+        "title": "Publishing dashboard",
+        "body": "The product shows each post as queued, published or failed, and the permalink as soon as it exists."
+      },
+      {
+        "title": "Reprocess failures",
+        "body": "A job lists posts with status failed, reads publishing.error and notifies the customer or retries with another external_reference."
+      },
+      {
+        "title": "AI agent confirming delivery",
+        "body": "The agent publishes, checks the post until status is published and only then gives the user the post link."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I know the post went out?",
+        "a": "Read GET /posts/{uuid} until status is published or failed. With published, permalink carries the post's link on the network."
+      },
+      {
+        "q": "How do I find a post by my system's id?",
+        "a": "Use GET /posts with external_reference, which is the post's id in your system. You can also filter by status and customer_integration."
+      },
+      {
+        "q": "What does failed mean?",
+        "a": "The publication was not completed. publishing.error carries the code and message of the reason."
+      }
+    ]
+  },
+  "es": {
+    "title": "Seguir el estado de una publicación",
+    "tagline": "Sabe si un post se publicó, falló o sigue en la cola: consulta GET /posts/{uuid} o lista con GET /posts y filtros por status y external_reference.",
+    "intro": "Publicar con Connect es asíncrono: POST /posts responde 202 y el post sigue a la red después. Para saber el resultado, consulta el post por uuid o lista los posts del cliente con filtros. La respuesta trae el status, el enlace del post publicado y el motivo de un fallo.",
+    "can": [
+      "Consultar un post con GET /posts/{uuid} y ver status, permalink y el estado de la publicación.",
+      "Listar los posts del cliente con GET /posts, filtrando por customer_integration, external_reference y status.",
+      "Ver el estado de cada medio en el publishing de cada elemento de media.",
+      "Obtener el enlace del post en la red en permalink y el id de la red en publishing.external_id, una vez publicado.",
+      "Encontrar el post por el id de tu sistema, filtrando por external_reference."
+    ],
+    "rules": [
+      "POST /posts responde 202 con el post en created. Consulta hasta que status sea published o failed.",
+      "El status del post es created, publishing, published o failed. publishing.status detalla el avance e incluye partially_published.",
+      "Cuando falla, publishing.error trae code y message. Decide por el code, nunca por el mensaje.",
+      "GET /posts devuelve los posts del cliente, los más recientes primero, con per_page de 1 a 100 (por defecto 15). Exige el x-customer-token.",
+      "Para ver los posts de todos los clientes a la vez, usa GET /merchants/posts, solo con el Bearer."
+    ],
+    "useCases": [
+      {
+        "title": "Panel de publicaciones",
+        "body": "El producto muestra cada post como en cola, publicado o con fallo, y el permalink en cuanto existe."
+      },
+      {
+        "title": "Reprocesar fallos",
+        "body": "Un job lista los posts con status failed, lee publishing.error y avisa al cliente o reintenta con otra external_reference."
+      },
+      {
+        "title": "Agente de IA que confirma la entrega",
+        "body": "El agente publica, consulta el post hasta que status sea published y solo entonces entrega al usuario el enlace del post."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo sé que el post salió?",
+        "a": "Consulta GET /posts/{uuid} hasta que status sea published o failed. Con published, permalink trae el enlace del post en la red."
+      },
+      {
+        "q": "¿Cómo encuentro un post por el id de mi sistema?",
+        "a": "Usa GET /posts con external_reference, que es el id del post en tu sistema. También puedes filtrar por status y customer_integration."
+      },
+      {
+        "q": "¿Qué significa failed?",
+        "a": "La publicación no se completó. publishing.error trae el code y el message del motivo."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Suivre le statut d'une publication",
+    "tagline": "Sachez si un post est publié, en échec ou encore en file : lisez GET /posts/{uuid} ou listez avec GET /posts et des filtres par status et external_reference.",
+    "intro": "Publier avec Connect est asynchrone : POST /posts répond 202 et le post part ensuite vers le réseau. Pour connaître le résultat, lisez le post par uuid ou listez les posts du client avec des filtres. La réponse contient le status, le lien du post publié et la raison d'un échec.",
+    "can": [
+      "Lire un post avec GET /posts/{uuid} et voir status, permalink et l'état de la publication.",
+      "Lister les posts du client avec GET /posts, en filtrant par customer_integration, external_reference et status.",
+      "Voir l'état de chaque média dans le publishing de chaque élément de media.",
+      "Obtenir le lien du post sur le réseau dans permalink et l'id du réseau dans publishing.external_id, une fois publié.",
+      "Retrouver le post par l'id de votre système, en filtrant par external_reference."
+    ],
+    "rules": [
+      "POST /posts répond 202 avec le post en created. Interrogez jusqu'à ce que status soit published ou failed.",
+      "Le status d'un post est created, publishing, published ou failed. publishing.status détaille l'avancement et inclut partially_published.",
+      "En cas d'échec, publishing.error contient code et message. Décidez d'après code, jamais d'après le message.",
+      "GET /posts renvoie les posts du client, les plus récents d'abord, avec per_page de 1 à 100 (15 par défaut). Il exige le x-customer-token.",
+      "Pour voir les posts de tous les clients d'un coup, utilisez GET /merchants/posts, avec le seul Bearer."
+    ],
+    "useCases": [
+      {
+        "title": "Tableau de bord de publications",
+        "body": "Le produit affiche chaque post en file, publié ou en échec, et le permalink dès qu'il existe."
+      },
+      {
+        "title": "Retraiter les échecs",
+        "body": "Un job liste les posts en status failed, lit publishing.error et prévient le client ou réessaie avec une autre external_reference."
+      },
+      {
+        "title": "Agent IA qui confirme la livraison",
+        "body": "L'agent publie, interroge le post jusqu'à status published et ne donne qu'alors le lien du post à l'utilisateur."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment savoir que le post est sorti ?",
+        "a": "Lisez GET /posts/{uuid} jusqu'à ce que status soit published ou failed. Avec published, permalink contient le lien du post sur le réseau."
+      },
+      {
+        "q": "Comment retrouver un post par l'id de mon système ?",
+        "a": "Utilisez GET /posts avec external_reference, l'id du post dans votre système. Vous pouvez aussi filtrer par status et customer_integration."
+      },
+      {
+        "q": "Que signifie failed ?",
+        "a": "La publication n'a pas abouti. publishing.error contient le code et le message du motif."
+      }
+    ]
+  }
+}

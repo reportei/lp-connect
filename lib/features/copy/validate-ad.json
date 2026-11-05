@@ -1,0 +1,346 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/validate",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "body": {
+      "name": "Black Friday, imagem",
+      "status": "active",
+      "campaign": {
+        "name": "Black Friday",
+        "budget": {
+          "amount": 50,
+          "type": "daily"
+        },
+        "facebook_ads": {
+          "objective": "traffic",
+          "special_ad_categories": []
+        }
+      },
+      "adset": {
+        "name": "BR 25-45",
+        "schedule": {
+          "start": "2026-11-20T00:00:00-03:00"
+        },
+        "targeting": {
+          "countries": [
+            "BR"
+          ],
+          "age_min": 25,
+          "age_max": 45
+        },
+        "facebook_ads": {
+          "optimization_goal": "link_clicks",
+          "billing_event": "impressions",
+          "placements": {
+            "publisher_platforms": [
+              "facebook",
+              "instagram"
+            ]
+          },
+          "targeting": {
+            "interests": [
+              {
+                "id": "6003139266461",
+                "name": "Moda"
+              }
+            ],
+            "advantage_audience": false
+          }
+        }
+      },
+      "ad": {
+        "format": "image",
+        "headline": "Black Friday",
+        "body": "Up to 50% off",
+        "link_url": "https://loja.com/bf",
+        "call_to_action": "shop_now",
+        "media": [
+          {
+            "type": "image",
+            "url": "https://cdn.loja.com/bf.jpg"
+          }
+        ],
+        "facebook_ads": {
+          "page_id": "1068595869664481"
+        }
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome do anúncio, e dos níveis que não tiverem nome.",
+        "en": "The ad's name, and that of the levels that don't have one.",
+        "es": "Nombre del anuncio, y de los niveles que no tengan uno.",
+        "fr": "Nom de l'annonce, et des niveaux qui n'en ont pas."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Estado final pretendido da árvore (active ou paused).",
+        "en": "The tree's intended final state (active or paused).",
+        "es": "Estado final previsto del árbol (active o paused).",
+        "fr": "État final prévu de l'arbre (active ou paused)."
+      }
+    },
+    {
+      "name": "campaign",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "{\"id\": ...} para uma campanha existente; sem id, descreve a que seria criada.",
+        "en": "{\"id\": ...} for an existing campaign; without id, describes the one that would be created.",
+        "es": "{\"id\": ...} para una campaña existente; sin id, describe la que se crearía.",
+        "fr": "{\"id\": ...} pour une campagne existante ; sans id, décrit celle qui serait créée."
+      }
+    },
+    {
+      "name": "adset",
+      "type": "object",
+      "required": true,
+      "description": {
+        "pt": "{\"id\": ...} para um conjunto existente; sem id, descreve o que seria criado.",
+        "en": "{\"id\": ...} for an existing ad set; without id, describes the one that would be created.",
+        "es": "{\"id\": ...} para un conjunto existente; sin id, describe el que se crearía.",
+        "fr": "{\"id\": ...} pour un ensemble existant ; sans id, décrit celui qui serait créé."
+      }
+    },
+    {
+      "name": "ad.format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "image ou video.",
+        "en": "image or video.",
+        "es": "image o video.",
+        "fr": "image ou video."
+      }
+    },
+    {
+      "name": "ad.link_url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL de destino do anúncio.",
+        "en": "The ad's destination URL.",
+        "es": "URL de destino del anuncio.",
+        "fr": "URL de destination de l'annonce."
+      }
+    },
+    {
+      "name": "ad.media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Arquivo(s) do criativo, por url, hash ou id.",
+        "en": "The creative's file(s), by url, hash or id.",
+        "es": "Archivo(s) del creativo, por url, hash o id.",
+        "fr": "Fichier(s) du visuel, par url, hash ou id."
+      }
+    },
+    {
+      "name": "ad.facebook_ads.page_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Página que assina o anúncio. Deve ser da conta da conexão.",
+        "en": "The page that publishes the ad. Must belong to the connection's account.",
+        "es": "Página que firma el anuncio. Debe ser de la cuenta de la conexión.",
+        "fr": "Page qui publie l'annonce. Doit appartenir au compte de la connexion."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Validar anúncio do Meta Ads sem criar",
+    "tagline": "Faça um dry run da árvore campanha, conjunto e anúncio no Meta Ads: o mesmo corpo do POST /ads, validado nível a nível sem criar nada.",
+    "intro": "POST /ads/validate recebe exatamente o corpo do POST /ads e valida cada nível sem criar nada na conta do cliente. Você descobre erros de campo, de página ou de mídia antes de gastar tempo e antes de qualquer risco de verba.",
+    "can": [
+      "Validar a árvore inteira (campanha, conjunto e anúncio) antes de criar.",
+      "Validar um anúncio sobre campanha e conjunto existentes, passando {\"id\": ...}.",
+      "Receber o resultado por nível.",
+      "Usar o mesmo corpo depois no POST /ads, sem adaptar nada."
+    ],
+    "rules": [
+      "Não cria nada na conta do cliente e não registra operação.",
+      "Não precisa de Idempotency-Key.",
+      "Cada nível é validado pela integração; os que dependem de um pai que ainda não existe voltam como skipped.",
+      "Erros de campo respondem 422 validation_error com errors e supported_values quando o campo é um enum.",
+      "Usa só a conexão em customer_integration, na query, e confere que ela pertence ao cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Formulário com feedback imediato",
+        "body": "Valide o que o usuário preencheu antes de ele clicar em publicar e mostre os erros de cada nível na tela."
+      },
+      {
+        "title": "Aprovação em lote",
+        "body": "Valide centenas de anúncios gerados por template e só crie os que passaram."
+      },
+      {
+        "title": "Agente de IA que se autocorrige",
+        "body": "O agente monta o corpo, valida, lê os erros, corrige e só então chama POST /ads."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Validar consome verba ou cria objetos?",
+        "a": "Não. A rota não cria nada na conta e não registra operação."
+      },
+      {
+        "q": "O corpo é diferente do POST /ads?",
+        "a": "Não, é o mesmo corpo. Você pode validar e, se passar, enviar igual ao POST /ads com um Idempotency-Key."
+      },
+      {
+        "q": "O que significa skipped no resultado?",
+        "a": "Que aquele nível depende de um pai que ainda não existe, então não dá para validá-lo isoladamente."
+      }
+    ]
+  },
+  "en": {
+    "title": "Validate a Meta Ads ad without creating it",
+    "tagline": "Dry-run the campaign, ad set and ad tree on Meta Ads: the same body as POST /ads, validated level by level without creating anything.",
+    "intro": "POST /ads/validate takes exactly the body of POST /ads and validates each level without creating anything in the client's account. You find field, page or media errors before wasting time and before any risk to the budget.",
+    "can": [
+      "Validate the whole tree (campaign, ad set and ad) before creating.",
+      "Validate an ad over an existing campaign and ad set, by passing {\"id\": ...}.",
+      "Get the result per level.",
+      "Reuse the same body later in POST /ads, with no changes."
+    ],
+    "rules": [
+      "Creates nothing in the client's account and records no operation.",
+      "Does not need an Idempotency-Key.",
+      "Each level is validated by the integration; levels that depend on a parent that doesn't exist yet come back as skipped.",
+      "Field errors return 422 validation_error with errors and, for enums, supported_values.",
+      "Uses only the connection in customer_integration, in the query, and checks that it belongs to the customer."
+    ],
+    "useCases": [
+      {
+        "title": "Form with instant feedback",
+        "body": "Validate what the user filled in before they click publish and show the errors of each level on screen."
+      },
+      {
+        "title": "Batch approval",
+        "body": "Validate hundreds of template-generated ads and create only the ones that passed."
+      },
+      {
+        "title": "Self-correcting AI agent",
+        "body": "The agent builds the body, validates, reads the errors, fixes them and only then calls POST /ads."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does validating spend budget or create objects?",
+        "a": "No. The route creates nothing in the account and records no operation."
+      },
+      {
+        "q": "Is the body different from POST /ads?",
+        "a": "No, it is the same body. You can validate and, if it passes, send it as is to POST /ads with an Idempotency-Key."
+      },
+      {
+        "q": "What does skipped mean in the result?",
+        "a": "That level depends on a parent that doesn't exist yet, so it can't be validated on its own."
+      }
+    ]
+  },
+  "es": {
+    "title": "Validar un anuncio de Meta Ads sin crearlo",
+    "tagline": "Haz un dry run del árbol campaña, conjunto y anuncio en Meta Ads: el mismo cuerpo de POST /ads, validado nivel por nivel sin crear nada.",
+    "intro": "POST /ads/validate recibe exactamente el cuerpo de POST /ads y valida cada nivel sin crear nada en la cuenta del cliente. Descubres errores de campo, de página o de media antes de perder tiempo y antes de cualquier riesgo para el presupuesto.",
+    "can": [
+      "Validar el árbol completo (campaña, conjunto y anuncio) antes de crear.",
+      "Validar un anuncio sobre una campaña y un conjunto existentes, pasando {\"id\": ...}.",
+      "Recibir el resultado por nivel.",
+      "Usar luego el mismo cuerpo en POST /ads, sin adaptar nada."
+    ],
+    "rules": [
+      "No crea nada en la cuenta del cliente y no registra operación.",
+      "No necesita Idempotency-Key.",
+      "Cada nivel lo valida la integración; los que dependen de un padre que aún no existe vuelven como skipped.",
+      "Los errores de campo responden 422 validation_error con errors y, en enums, supported_values.",
+      "Usa solo la conexión de customer_integration, en la query, y comprueba que pertenece al cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Formulario con feedback inmediato",
+        "body": "Valida lo que el usuario completó antes de que pulse publicar y muestra los errores de cada nivel en pantalla."
+      },
+      {
+        "title": "Aprobación por lotes",
+        "body": "Valida cientos de anuncios generados desde una plantilla y crea solo los que pasaron."
+      },
+      {
+        "title": "Agente de IA que se autocorrige",
+        "body": "El agente arma el cuerpo, valida, lee los errores, los corrige y solo entonces llama a POST /ads."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Validar gasta presupuesto o crea objetos?",
+        "a": "No. La ruta no crea nada en la cuenta y no registra operación."
+      },
+      {
+        "q": "¿El cuerpo es distinto al de POST /ads?",
+        "a": "No, es el mismo. Puedes validar y, si pasa, enviarlo igual a POST /ads con un Idempotency-Key."
+      },
+      {
+        "q": "¿Qué significa skipped en el resultado?",
+        "a": "Que ese nivel depende de un padre que aún no existe, así que no se puede validar por separado."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Valider une annonce Meta Ads sans la créer",
+    "tagline": "Faites un dry run de l'arbre campagne, ensemble et annonce sur Meta Ads : le même corps que POST /ads, validé niveau par niveau sans rien créer.",
+    "intro": "POST /ads/validate reçoit exactement le corps de POST /ads et valide chaque niveau sans rien créer dans le compte du client. Vous détectez les erreurs de champ, de page ou de média avant de perdre du temps et avant tout risque pour le budget.",
+    "can": [
+      "Valider tout l'arbre (campagne, ensemble et annonce) avant de créer.",
+      "Valider une annonce sur une campagne et un ensemble existants, en passant {\"id\": ...}.",
+      "Obtenir le résultat par niveau.",
+      "Réutiliser ensuite le même corps dans POST /ads, sans rien adapter."
+    ],
+    "rules": [
+      "Ne crée rien dans le compte du client et n'enregistre aucune opération.",
+      "N'a pas besoin d'Idempotency-Key.",
+      "Chaque niveau est validé par l'intégration ; ceux qui dépendent d'un parent qui n'existe pas encore reviennent en skipped.",
+      "Les erreurs de champ renvoient 422 validation_error avec errors et, pour les enums, supported_values.",
+      "N'utilise que la connexion de customer_integration, dans la query, et vérifie qu'elle appartient au client."
+    ],
+    "useCases": [
+      {
+        "title": "Formulaire avec retour immédiat",
+        "body": "Validez ce que l'utilisateur a saisi avant qu'il clique sur publier et affichez les erreurs de chaque niveau à l'écran."
+      },
+      {
+        "title": "Approbation en lot",
+        "body": "Validez des centaines d'annonces générées par modèle et ne créez que celles qui ont passé."
+      },
+      {
+        "title": "Agent IA qui se corrige",
+        "body": "L'agent construit le corps, valide, lit les erreurs, les corrige et n'appelle POST /ads qu'ensuite."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Valider dépense-t-il du budget ou crée-t-il des objets ?",
+        "a": "Non. La route ne crée rien dans le compte et n'enregistre aucune opération."
+      },
+      {
+        "q": "Le corps est-il différent de POST /ads ?",
+        "a": "Non, c'est le même. Vous pouvez valider puis, si cela passe, l'envoyer tel quel à POST /ads avec une Idempotency-Key."
+      },
+      {
+        "q": "Que signifie skipped dans le résultat ?",
+        "a": "Ce niveau dépend d'un parent qui n'existe pas encore, il ne peut donc pas être validé seul."
+      }
+    ]
+  }
+}

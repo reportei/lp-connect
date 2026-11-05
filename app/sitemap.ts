@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next"
 import { ALTERNATIVE_PAGES } from "@/lib/alternativas"
 import { GUIDES } from "@/lib/guias"
-import { LOCALES, TRANSLATED_PAGES, pagePath, type TranslatedPage } from "@/lib/i18n"
+import { LOCALES, TRANSLATED_PAGES, localePath, pagePath, type TranslatedPage } from "@/lib/i18n"
+import { allFeaturePaths } from "@/lib/features"
 import { PLATFORM_PAGES } from "@/lib/plataformas"
 import { absoluteUrl, languageAlternates } from "@/lib/seo"
 
@@ -27,5 +28,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...GUIDES.map((guide) => `/guias/${guide.slug}`),
   ].map((path) => ({ url: absoluteUrl(path), changeFrequency: "monthly" as const, priority: 0.7 }))
 
-  return [...translated, ...portugueseOnly]
+  // Feature pages keep the same path in every language, so each path yields one entry per locale.
+  const features = allFeaturePaths().flatMap((path) =>
+    LOCALES.map((locale) => ({
+      url: absoluteUrl(localePath(locale, path)),
+      changeFrequency: "monthly" as const,
+      priority: path.split("/").length === 2 ? 0.8 : 0.6,
+      alternates: { languages: languageAlternates(() => path) },
+    })),
+  )
+
+  return [...translated, ...portugueseOnly, ...features]
 }

@@ -1,0 +1,279 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "story-77",
+      "format": "story",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/story.jpg"
+        }
+      ],
+      "instagram": {
+        "collaborators": [
+          "marca_parceira"
+        ]
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.type",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Tipo da mídia: image, video ou document (documento só no LinkedIn).",
+        "en": "Media type: image, video or document (document is LinkedIn only).",
+        "es": "Tipo de medio: image, video o document (documento solo en LinkedIn).",
+        "fr": "Type de média : image, video ou document (document : LinkedIn uniquement)."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "instagram.collaborators",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Até 5 usuários convidados como colaboradores, sem @. Vale em feed, reels e story.",
+        "en": "Up to 5 users invited as collaborators, without @. Works on feed, reels and story.",
+        "es": "Hasta 5 usuarios invitados como colaboradores, sin @. Vale en feed, reels y story.",
+        "fr": "Jusqu'à 5 utilisateurs invités comme collaborateurs, sans @. Valable en feed, reels et story."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar stories no Instagram",
+    "tagline": "Publique stories de imagem ou vídeo no Instagram dos seus clientes com POST /posts, sem app review e sem lidar com tokens.",
+    "intro": "Com format story, o Connect publica a mídia como story na conta Instagram conectada pelo seu cliente. É a mesma chamada POST /posts dos outros formatos, para qualquer conta conectada.",
+    "can": [
+      "Publicar um story a partir de uma URL https:// pública de imagem ou vídeo.",
+      "Convidar colaboradores com instagram.collaborators.",
+      "Marcar usuários na mídia com media[].user_tags.",
+      "Usar a conta por customer_integration ou por integration_slug e source_name."
+    ],
+    "rules": [
+      "Stories não aceitam legenda: não envie caption.",
+      "No bloco instagram, o story aceita apenas collaborators, até 5, sem @.",
+      "Até 10 mídias por chamada, cada uma vira um story, publicadas em ordem. Todos os arquivos são verificados pela rede antes do primeiro sair, então um arquivo com problema não deixa a sequência pela metade.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e Idempotency-Key evita duplicar a chamada."
+    ],
+    "useCases": [
+      {
+        "title": "Avisos e promoções",
+        "body": "O seu SaaS publica um story de oferta relâmpago na conta do cliente no horário em que o usuário clicar em publicar."
+      },
+      {
+        "title": "Ferramenta de eventos",
+        "body": "Gere um story com a arte do evento para cada participante e publique na conta de cada um."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Um agente transforma uma notícia da marca em imagem vertical e publica como story automaticamente."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso colocar legenda em um story?",
+        "a": "Não. Stories não carregam legenda; o texto deve estar na própria imagem ou vídeo."
+      },
+      {
+        "q": "Quais opções do bloco instagram valem no story?",
+        "a": "Só collaborators. As demais opções são de feed e reels."
+      },
+      {
+        "q": "Funciona em contas instagram e instagram_business?",
+        "a": "Sim, as duas conexões aceitam format story."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish stories on Instagram",
+    "tagline": "Publish image or video stories on your customers' Instagram with POST /posts, with no app review and no token handling.",
+    "intro": "With format story, Connect publishes the media as a story on the Instagram account your customer connected. It is the same POST /posts call as the other formats, for any connected account.",
+    "can": [
+      "Publish a story from a public https:// image or video URL.",
+      "Invite collaborators with instagram.collaborators.",
+      "Tag users on the media with media[].user_tags.",
+      "Target the account by customer_integration or by integration_slug and source_name."
+    ],
+    "rules": [
+      "Stories carry no caption: do not send caption.",
+      "In the instagram block, a story accepts only collaborators, up to 5, without @.",
+      "Up to 10 media per call, each one becomes a story, published in order. The network checks every file before the first one goes out, so a broken file never leaves the sequence half published.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and Idempotency-Key avoids duplicating the call."
+    ],
+    "useCases": [
+      {
+        "title": "Alerts and promotions",
+        "body": "Your SaaS publishes a flash-sale story on the customer's account the moment the user hits publish."
+      },
+      {
+        "title": "Events tool",
+        "body": "Generate a story with the event artwork for each attendee and publish it on each one's account."
+      },
+      {
+        "title": "AI agent",
+        "body": "An agent turns a brand news item into a vertical image and publishes it as a story automatically."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I add a caption to a story?",
+        "a": "No. Stories carry no caption; the text has to be in the image or video itself."
+      },
+      {
+        "q": "Which instagram block options work on a story?",
+        "a": "Only collaborators. The other options are for feed and reels."
+      },
+      {
+        "q": "Does it work on instagram and instagram_business accounts?",
+        "a": "Yes, both connections accept format story."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar stories en Instagram",
+    "tagline": "Publica stories de imagen o video en el Instagram de tus clientes con POST /posts, sin app review y sin manejar tokens.",
+    "intro": "Con format story, Connect publica el medio como story en la cuenta de Instagram que tu cliente conectó. Es la misma llamada POST /posts de los otros formatos, para cualquier cuenta conectada.",
+    "can": [
+      "Publicar un story desde una URL https:// pública de imagen o video.",
+      "Invitar colaboradores con instagram.collaborators.",
+      "Etiquetar usuarios en el medio con media[].user_tags.",
+      "Apuntar a la cuenta por customer_integration o por integration_slug y source_name."
+    ],
+    "rules": [
+      "Los stories no llevan leyenda: no envíes caption.",
+      "En el bloque instagram, el story acepta solo collaborators, hasta 5, sin @.",
+      "Hasta 10 medios por llamada, cada uno se convierte en una story, publicadas en orden. La red verifica todos los archivos antes de que salga el primero, así que un archivo con problemas no deja la secuencia a medias.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio e Idempotency-Key evita duplicar la llamada."
+    ],
+    "useCases": [
+      {
+        "title": "Avisos y promociones",
+        "body": "Tu SaaS publica un story de oferta relámpago en la cuenta del cliente en el momento en que el usuario pulsa publicar."
+      },
+      {
+        "title": "Herramienta de eventos",
+        "body": "Genera un story con el arte del evento para cada asistente y publícalo en la cuenta de cada uno."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Un agente convierte una noticia de la marca en una imagen vertical y la publica como story automáticamente."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo poner leyenda en un story?",
+        "a": "No. Los stories no llevan leyenda; el texto debe ir en la propia imagen o video."
+      },
+      {
+        "q": "¿Qué opciones del bloque instagram valen en el story?",
+        "a": "Solo collaborators. Las demás opciones son de feed y reels."
+      },
+      {
+        "q": "¿Funciona en cuentas instagram e instagram_business?",
+        "a": "Sí, las dos conexiones aceptan format story."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des stories sur Instagram",
+    "tagline": "Publiez des stories image ou vidéo sur l'Instagram de vos clients avec POST /posts, sans app review ni gestion de tokens.",
+    "intro": "Avec format story, Connect publie le média en story sur le compte Instagram connecté par votre client. C'est le même appel POST /posts que pour les autres formats, pour tout compte connecté.",
+    "can": [
+      "Publier une story à partir d'une URL https:// publique d'image ou de vidéo.",
+      "Inviter des collaborateurs avec instagram.collaborators.",
+      "Identifier des utilisateurs sur le média avec media[].user_tags.",
+      "Cibler le compte par customer_integration ou par integration_slug et source_name."
+    ],
+    "rules": [
+      "Les stories n'ont pas de légende : n'envoyez pas caption.",
+      "Dans le bloc instagram, une story n'accepte que collaborators, 5 au plus, sans @.",
+      "Jusqu'à 10 médias par appel, chacun devient une story, publiées dans l'ordre. Le réseau vérifie tous les fichiers avant la sortie du premier, donc un fichier défectueux ne laisse jamais la séquence à moitié publiée.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et Idempotency-Key évite de dupliquer l'appel."
+    ],
+    "useCases": [
+      {
+        "title": "Alertes et promotions",
+        "body": "Votre SaaS publie une story de vente flash sur le compte du client au moment où l'utilisateur clique sur publier."
+      },
+      {
+        "title": "Outil d'événements",
+        "body": "Générez une story avec le visuel de l'événement pour chaque participant et publiez-la sur son compte."
+      },
+      {
+        "title": "Agent IA",
+        "body": "Un agent transforme une actualité de la marque en image verticale et la publie automatiquement en story."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je ajouter une légende à une story ?",
+        "a": "Non. Les stories n'ont pas de légende ; le texte doit être dans l'image ou la vidéo elle-même."
+      },
+      {
+        "q": "Quelles options du bloc instagram valent pour une story ?",
+        "a": "Seulement collaborators. Les autres options sont pour feed et reels."
+      },
+      {
+        "q": "Cela marche sur les comptes instagram et instagram_business ?",
+        "a": "Oui, les deux connexions acceptent format story."
+      }
+    ]
+  }
+}

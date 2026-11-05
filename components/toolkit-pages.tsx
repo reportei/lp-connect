@@ -35,14 +35,14 @@ const DOCS_URL = "https://developers.reportei.com/connect"
 // Locale-aware href for a path that is the same in every language.
 const href = (locale: Locale, path: string) => withBase(localePath(locale, path))
 
-function truncate(text: string, max = 155) {
+export function truncate(text: string, max = 155) {
   if (text.length <= max) return text
   const cut = text.slice(0, max - 1)
   return `${cut.slice(0, cut.lastIndexOf(" "))}…`
 }
 
 // The brand goes at the end of the title only while the whole title fits in a search result.
-function withBrand(title: string) {
+export function withBrand(title: string) {
   const branded = `${title} | Reportei Connect`
   return branded.length <= 60 ? branded : title
 }
@@ -53,7 +53,7 @@ function toolDescription(locale: Locale, toolkit: Toolkit, description: string) 
   return description.length < 110 ? `${description} ${suffix}` : description
 }
 
-function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]) {
+export function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -66,7 +66,7 @@ function breadcrumbJsonLd(locale: Locale, items: { name: string; path: string }[
   }
 }
 
-function Breadcrumb({ locale, items }: { locale: Locale; items: { name: string; path?: string }[] }) {
+export function Breadcrumb({ locale, items }: { locale: Locale; items: { name: string; path?: string }[] }) {
   return (
     <nav aria-label={getMessages(locale).toolkits.breadcrumbLabel} className="mb-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
       {items.map((item, i) => (
@@ -91,7 +91,7 @@ function ToolkitLogo({ toolkit, className }: { toolkit: Toolkit; className: stri
   return <img src={src} alt="" loading="lazy" className={`${className} object-contain`} />
 }
 
-function Page({
+export function Page({
   locale,
   alternatePath,
   jsonLd,

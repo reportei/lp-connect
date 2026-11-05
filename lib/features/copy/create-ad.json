@@ -1,0 +1,387 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "name": "Black Friday, imagem",
+      "status": "active",
+      "campaign": {
+        "name": "Black Friday",
+        "budget": {
+          "amount": 50,
+          "type": "daily"
+        },
+        "facebook_ads": {
+          "objective": "traffic",
+          "special_ad_categories": []
+        }
+      },
+      "adset": {
+        "name": "BR 25-45",
+        "schedule": {
+          "start": "2026-11-20T00:00:00-03:00"
+        },
+        "targeting": {
+          "countries": [
+            "BR"
+          ],
+          "age_min": 25,
+          "age_max": 45
+        },
+        "facebook_ads": {
+          "optimization_goal": "link_clicks",
+          "billing_event": "impressions",
+          "placements": {
+            "publisher_platforms": [
+              "facebook",
+              "instagram"
+            ]
+          },
+          "targeting": {
+            "interests": [
+              {
+                "id": "6003139266461",
+                "name": "Moda"
+              }
+            ],
+            "advantage_audience": false
+          }
+        }
+      },
+      "ad": {
+        "format": "image",
+        "headline": "Black Friday",
+        "body": "Up to 50% off",
+        "link_url": "https://loja.com/bf",
+        "call_to_action": "shop_now",
+        "media": [
+          {
+            "type": "image",
+            "url": "https://cdn.loja.com/bf.jpg"
+          }
+        ],
+        "facebook_ads": {
+          "page_id": "1068595869664481"
+        }
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome do anúncio, e dos níveis criados que não tiverem nome.",
+        "en": "The ad's name, and that of the created levels that don't have one.",
+        "es": "Nombre del anuncio, y de los niveles creados que no tengan uno.",
+        "fr": "Nom de l'annonce, et des niveaux créés qui n'en ont pas."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Estado final da árvore (active ou paused). Tudo nasce pausado e a ativação é o último passo.",
+        "en": "The tree's final state (active or paused). Everything is created paused and activation is the last step.",
+        "es": "Estado final del árbol (active o paused). Todo nace pausado y la activación es el último paso.",
+        "fr": "État final de l'arbre (active ou paused). Tout est créé en pause et l'activation est la dernière étape."
+      }
+    },
+    {
+      "name": "campaign",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "{\"id\": ...} usa uma campanha existente; sem id, descreve a que será criada. Proibido quando adset.id é enviado.",
+        "en": "{\"id\": ...} uses an existing campaign; without id, describes the one to be created. Forbidden when adset.id is sent.",
+        "es": "{\"id\": ...} usa una campaña existente; sin id, describe la que se creará. Prohibido cuando se envía adset.id.",
+        "fr": "{\"id\": ...} utilise une campagne existante ; sans id, décrit celle à créer. Interdit quand adset.id est envoyé."
+      }
+    },
+    {
+      "name": "adset",
+      "type": "object",
+      "required": true,
+      "description": {
+        "pt": "{\"id\": ...} usa um conjunto existente; sem id, descreve o que será criado.",
+        "en": "{\"id\": ...} uses an existing ad set; without id, describes the one to be created.",
+        "es": "{\"id\": ...} usa un conjunto existente; sin id, describe el que se creará.",
+        "fr": "{\"id\": ...} utilise un ensemble existant ; sans id, décrit celui à créer."
+      }
+    },
+    {
+      "name": "ad.format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "image ou video.",
+        "en": "image or video.",
+        "es": "image o video.",
+        "fr": "image ou video."
+      }
+    },
+    {
+      "name": "ad.link_url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL de destino do anúncio.",
+        "en": "The ad's destination URL.",
+        "es": "URL de destino del anuncio.",
+        "fr": "URL de destination de l'annonce."
+      }
+    },
+    {
+      "name": "ad.call_to_action",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Botão do anúncio. Valores em GET /ads/options.",
+        "en": "The ad's button. Values in GET /ads/options.",
+        "es": "Botón del anuncio. Valores en GET /ads/options.",
+        "fr": "Bouton de l'annonce. Valeurs dans GET /ads/options."
+      }
+    },
+    {
+      "name": "ad.media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Um arquivo para todos os posicionamentos, ou dois (versão feed e versão story) com placements. Imagem por url ou hash; vídeo por url ou id.",
+        "en": "One file for all placements, or two (feed and story versions) with placements. Image by url or hash; video by url or id.",
+        "es": "Un archivo para todas las ubicaciones, o dos (versión feed y versión story) con placements. Imagen por url o hash; video por url o id.",
+        "fr": "Un fichier pour tous les emplacements, ou deux (version feed et version story) avec placements. Image par url ou hash ; vidéo par url ou id."
+      }
+    },
+    {
+      "name": "ad.facebook_ads.page_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Página que assina o anúncio. Deve ser uma página da conta da conexão.",
+        "en": "The page that publishes the ad. Must be a page of the connection's account.",
+        "es": "Página que firma el anuncio. Debe ser una página de la cuenta de la conexión.",
+        "fr": "Page qui publie l'annonce. Doit être une page du compte de la connexion."
+      }
+    },
+    {
+      "name": "ad.facebook_ads.instagram_account_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Conta do Instagram que assina o anúncio.",
+        "en": "The Instagram account that publishes the ad.",
+        "es": "Cuenta de Instagram que firma el anuncio.",
+        "fr": "Compte Instagram qui publie l'annonce."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Criar anúncio no Meta Ads",
+    "tagline": "Crie o anúncio e toda a árvore acima dele (campanha e conjunto) no Meta Ads com um POST. Tudo nasce pausado e a ativação é o último passo.",
+    "intro": "Um único POST /ads cria o anúncio e, se você quiser, a campanha e o conjunto acima dele. Cada nível usa um existente ({\"id\": ...}) ou descreve o novo. Se algo falhar no meio, o que foi criado é desfeito, e nada fica gastando.",
+    "can": [
+      "Criar campanha, conjunto e anúncio em uma só chamada.",
+      "Reaproveitar uma campanha ou um conjunto existente passando {\"id\": ...}.",
+      "Anunciar imagem (por url ou hash) ou vídeo (por url ou id, com thumbnail_url).",
+      "Usar dois arquivos do mesmo criativo, um para o feed e outro para stories e reels, com placements.",
+      "Definir página e conta do Instagram que assinam o anúncio no bloco facebook_ads.",
+      "Pedir status active para ativar a árvore no final."
+    ],
+    "rules": [
+      "Tudo é criado pausado. O status pedido é aplicado no último passo, depois que a árvore inteira existe.",
+      "Idempotency-Key é obrigatório no header. Repetir com a mesma chave devolve 200 com Idempotent-Replay: true.",
+      "Se um passo falhar na criação, o que foi criado é desfeito em ordem inversa; o que não pôde ser desfeito vem em created. Repetir com a mesma chave retoma de onde parou.",
+      "Na ativação só são ativados os níveis que a própria chamada criou; níveis referenciados por id não são tocados.",
+      "Vídeo ainda em processamento responde 409 ads_video_not_ready. Repita com a mesma chave: o vídeo e os níveis já criados são reaproveitados.",
+      "campaign é proibido quando adset.id é enviado. A página precisa ser da conta da conexão.",
+      "A resposta é síncrona: 201 com o resultado."
+    ],
+    "useCases": [
+      {
+        "title": "Criador de anúncios dentro do seu produto",
+        "body": "O cliente escolhe criativo, texto e público e você publica o anúncio completo na conta dele, sem montar o fluxo de OAuth do Meta."
+      },
+      {
+        "title": "Agência que sobe criativos em escala",
+        "body": "Reaproveite uma campanha e um conjunto existentes e crie dezenas de anúncios novos só mudando a mídia e o texto."
+      },
+      {
+        "title": "Agente de IA que gera criativos",
+        "body": "O agente cria o anúncio pausado, valida antes com POST /ads/validate e só ativa depois da aprovação."
+      }
+    ],
+    "faq": [
+      {
+        "q": "O anúncio vai ao ar assim que a chamada termina?",
+        "a": "Só se você enviar status active. Mesmo assim, tudo é criado pausado e a ativação é o último passo."
+      },
+      {
+        "q": "E se a chamada falhar no meio?",
+        "a": "O que já foi criado é desfeito e nada fica gastando. O que não pôde ser desfeito vem em created. Repetindo com o mesmo Idempotency-Key, a chamada retoma de onde parou."
+      },
+      {
+        "q": "Posso testar o corpo sem criar nada?",
+        "a": "Sim, com POST /ads/validate, que recebe o mesmo corpo e valida cada nível sem criar nada."
+      }
+    ]
+  },
+  "en": {
+    "title": "Create a Meta Ads ad",
+    "tagline": "Create the ad and the whole tree above it (campaign and ad set) on Meta Ads with one POST. Everything is created paused and activation is the last step.",
+    "intro": "A single POST /ads creates the ad and, if you want, the campaign and ad set above it. Each level uses an existing one ({\"id\": ...}) or describes the new one. If something fails midway, what was created is undone, so nothing is left spending.",
+    "can": [
+      "Create campaign, ad set and ad in one call.",
+      "Reuse an existing campaign or ad set by passing {\"id\": ...}.",
+      "Advertise an image (by url or hash) or a video (by url or id, with thumbnail_url).",
+      "Use two files of the same creative, one for the feed and one for stories and reels, with placements.",
+      "Set the page and Instagram account that publish the ad in the facebook_ads block.",
+      "Ask for status active to activate the tree at the end."
+    ],
+    "rules": [
+      "Everything is created paused. The requested status is applied in the last step, after the whole tree exists.",
+      "Idempotency-Key is required in the header. Repeating with the same key returns 200 with Idempotent-Replay: true.",
+      "If a creation step fails, what was created is undone in reverse order; what could not be undone comes in created. Repeating with the same key resumes where it stopped.",
+      "On activation, only the levels this call created are activated; levels referenced by id are not touched.",
+      "A video still processing returns 409 ads_video_not_ready. Repeat with the same key: the video and the levels already created are reused.",
+      "campaign is forbidden when adset.id is sent. The page must belong to the connection's account.",
+      "The response is synchronous: 201 with the result."
+    ],
+    "useCases": [
+      {
+        "title": "Ad creator inside your product",
+        "body": "The client picks creative, copy and audience and you publish the complete ad in their account, without building Meta's OAuth flow."
+      },
+      {
+        "title": "Agency uploading creatives at scale",
+        "body": "Reuse an existing campaign and ad set and create dozens of new ads by changing only the media and the text."
+      },
+      {
+        "title": "AI agent that generates creatives",
+        "body": "The agent creates the ad paused, validates first with POST /ads/validate and only activates after approval."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the ad go live as soon as the call finishes?",
+        "a": "Only if you send status active. Even then, everything is created paused and activation is the last step."
+      },
+      {
+        "q": "What if the call fails midway?",
+        "a": "What was already created is undone and nothing is left spending. What could not be undone comes in created. Retrying with the same Idempotency-Key resumes where it stopped."
+      },
+      {
+        "q": "Can I test the body without creating anything?",
+        "a": "Yes, with POST /ads/validate, which takes the same body and validates each level without creating anything."
+      }
+    ]
+  },
+  "es": {
+    "title": "Crear un anuncio en Meta Ads",
+    "tagline": "Crea el anuncio y todo el árbol sobre él (campaña y conjunto) en Meta Ads con un POST. Todo nace pausado y la activación es el último paso.",
+    "intro": "Un solo POST /ads crea el anuncio y, si quieres, la campaña y el conjunto que lo contienen. Cada nivel usa uno existente ({\"id\": ...}) o describe el nuevo. Si algo falla a mitad, lo creado se deshace y nada queda gastando.",
+    "can": [
+      "Crear campaña, conjunto y anuncio en una sola llamada.",
+      "Reutilizar una campaña o un conjunto existente pasando {\"id\": ...}.",
+      "Anunciar una imagen (por url o hash) o un video (por url o id, con thumbnail_url).",
+      "Usar dos archivos del mismo creativo, uno para el feed y otro para stories y reels, con placements.",
+      "Definir la página y la cuenta de Instagram que firman el anuncio en el bloque facebook_ads.",
+      "Pedir status active para activar el árbol al final."
+    ],
+    "rules": [
+      "Todo se crea pausado. El status pedido se aplica en el último paso, cuando todo el árbol ya existe.",
+      "Idempotency-Key es obligatorio en el header. Repetir con la misma clave devuelve 200 con Idempotent-Replay: true.",
+      "Si un paso de creación falla, lo creado se deshace en orden inverso; lo que no se pudo deshacer viene en created. Repetir con la misma clave retoma donde quedó.",
+      "En la activación solo se activan los niveles que creó la propia llamada; los niveles referenciados por id no se tocan.",
+      "Un video aún en procesamiento responde 409 ads_video_not_ready. Repite con la misma clave: el video y los niveles ya creados se reutilizan.",
+      "campaign está prohibido cuando se envía adset.id. La página debe ser de la cuenta de la conexión.",
+      "La respuesta es síncrona: 201 con el resultado."
+    ],
+    "useCases": [
+      {
+        "title": "Creador de anuncios dentro de tu producto",
+        "body": "El cliente elige creativo, texto y público y tú publicas el anuncio completo en su cuenta, sin armar el flujo OAuth de Meta."
+      },
+      {
+        "title": "Agencia que sube creativos a escala",
+        "body": "Reutiliza una campaña y un conjunto existentes y crea decenas de anuncios nuevos cambiando solo la media y el texto."
+      },
+      {
+        "title": "Agente de IA que genera creativos",
+        "body": "El agente crea el anuncio pausado, valida antes con POST /ads/validate y solo activa tras la aprobación."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿El anuncio sale al aire apenas termina la llamada?",
+        "a": "Solo si envías status active. Aun así, todo se crea pausado y la activación es el último paso."
+      },
+      {
+        "q": "¿Y si la llamada falla a mitad?",
+        "a": "Lo ya creado se deshace y nada queda gastando. Lo que no se pudo deshacer viene en created. Repitiendo con el mismo Idempotency-Key, retoma donde quedó."
+      },
+      {
+        "q": "¿Puedo probar el cuerpo sin crear nada?",
+        "a": "Sí, con POST /ads/validate, que recibe el mismo cuerpo y valida cada nivel sin crear nada."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Créer une annonce Meta Ads",
+    "tagline": "Créez l'annonce et tout l'arbre au-dessus (campagne et ensemble) sur Meta Ads avec un POST. Tout est créé en pause, l'activation vient en dernier.",
+    "intro": "Un seul POST /ads crée l'annonce et, si vous le souhaitez, la campagne et l'ensemble au-dessus. Chaque niveau utilise un niveau existant ({\"id\": ...}) ou décrit le nouveau. Si une étape échoue, ce qui a été créé est annulé et rien ne reste en train de dépenser.",
+    "can": [
+      "Créer campagne, ensemble et annonce en un seul appel.",
+      "Réutiliser une campagne ou un ensemble existant en passant {\"id\": ...}.",
+      "Diffuser une image (par url ou hash) ou une vidéo (par url ou id, avec thumbnail_url).",
+      "Utiliser deux fichiers du même visuel, un pour le feed et un pour stories et reels, avec placements.",
+      "Définir la page et le compte Instagram qui publient l'annonce dans le bloc facebook_ads.",
+      "Demander status active pour activer l'arbre à la fin."
+    ],
+    "rules": [
+      "Tout est créé en pause. Le status demandé est appliqué à la dernière étape, quand tout l'arbre existe.",
+      "Idempotency-Key est obligatoire dans le header. Répéter avec la même clé renvoie 200 avec Idempotent-Replay: true.",
+      "Si une étape de création échoue, ce qui a été créé est annulé dans l'ordre inverse ; ce qui n'a pas pu l'être figure dans created. Répéter avec la même clé reprend là où cela s'est arrêté.",
+      "À l'activation, seuls les niveaux créés par cet appel sont activés ; les niveaux référencés par id ne sont pas touchés.",
+      "Une vidéo encore en traitement renvoie 409 ads_video_not_ready. Répétez avec la même clé : la vidéo et les niveaux déjà créés sont réutilisés.",
+      "campaign est interdit quand adset.id est envoyé. La page doit appartenir au compte de la connexion.",
+      "La réponse est synchrone : 201 avec le résultat."
+    ],
+    "useCases": [
+      {
+        "title": "Créateur d'annonces dans votre produit",
+        "body": "Le client choisit visuel, texte et audience et vous publiez l'annonce complète dans son compte, sans construire le flux OAuth de Meta."
+      },
+      {
+        "title": "Agence qui charge des visuels à grande échelle",
+        "body": "Réutilisez une campagne et un ensemble existants et créez des dizaines d'annonces en ne changeant que le média et le texte."
+      },
+      {
+        "title": "Agent IA qui génère des visuels",
+        "body": "L'agent crée l'annonce en pause, valide d'abord avec POST /ads/validate et n'active qu'après approbation."
+      }
+    ],
+    "faq": [
+      {
+        "q": "L'annonce est-elle diffusée dès la fin de l'appel ?",
+        "a": "Seulement si vous envoyez status active. Même dans ce cas, tout est créé en pause et l'activation est la dernière étape."
+      },
+      {
+        "q": "Et si l'appel échoue en cours de route ?",
+        "a": "Ce qui a déjà été créé est annulé et rien ne reste en dépense. Ce qui n'a pas pu l'être figure dans created. En rejouant avec la même Idempotency-Key, l'appel reprend là où il s'est arrêté."
+      },
+      {
+        "q": "Puis-je tester le corps sans rien créer ?",
+        "a": "Oui, avec POST /ads/validate, qui reçoit le même corps et valide chaque niveau sans rien créer."
+      }
+    ]
+  }
+}

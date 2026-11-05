@@ -1,0 +1,297 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/llm/chat/completions",
+    "body": {
+      "model": "openai/gpt-5.4-mini",
+      "models": [
+        "anthropic/claude-haiku-5-5"
+      ],
+      "max_tokens": 512,
+      "messages": [
+        {
+          "role": "user",
+          "content": "What was yesterday's reach?"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_reach",
+            "description": "Account reach on a given day",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "date"
+              ]
+            }
+          }
+        }
+      ],
+      "tool_choice": "auto"
+    }
+  },
+  "fields": [
+    {
+      "name": "model",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Id do modelo, de GET /llm/models, no formato provedor/modelo.",
+        "en": "Model id from GET /llm/models, in provider/model form.",
+        "es": "Id del modelo, de GET /llm/models, con formato proveedor/modelo.",
+        "fr": "Id du modèle, issu de GET /llm/models, au format fournisseur/modèle."
+      }
+    },
+    {
+      "name": "messages",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "A conversa, como na OpenAI. role: system, developer, user, assistant ou tool.",
+        "en": "The conversation, as in OpenAI. role: system, developer, user, assistant or tool.",
+        "es": "La conversación, como en OpenAI. role: system, developer, user, assistant o tool.",
+        "fr": "La conversation, comme chez OpenAI. role : system, developer, user, assistant ou tool."
+      }
+    },
+    {
+      "name": "max_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Obrigatório (ou max_completion_tokens). Até o teto da conta e o max_output_tokens de cada modelo da chamada.",
+        "en": "Required (or max_completion_tokens). Up to the account cap and each model's max_output_tokens in the call.",
+        "es": "Obligatorio (o max_completion_tokens). Hasta el tope de la cuenta y el max_output_tokens de cada modelo de la llamada.",
+        "fr": "Obligatoire (ou max_completion_tokens). Jusqu'au plafond du compte et au max_output_tokens de chaque modèle de l'appel."
+      }
+    },
+    {
+      "name": "tools",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Funções que o modelo pode chamar, como na OpenAI. Só em modelos com supports_tools.",
+        "en": "Functions the model can call, as in OpenAI. Only on models with supports_tools.",
+        "es": "Funciones que el modelo puede llamar, como en OpenAI. Solo en modelos con supports_tools.",
+        "fr": "Fonctions que le modèle peut appeler, comme chez OpenAI. Seulement sur les modèles avec supports_tools."
+      }
+    },
+    {
+      "name": "tool_choice",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "auto ou none em todos os modelos.",
+        "en": "auto or none on all models.",
+        "es": "auto o none en todos los modelos.",
+        "fr": "auto ou none sur tous les modèles."
+      }
+    },
+    {
+      "name": "tool_calls",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: as chamadas de função que o modelo pediu, em choices[].message.",
+        "en": "In the response: the function calls the model asked for, in choices[].message.",
+        "es": "En la respuesta: las llamadas a funciones que pidió el modelo, en choices[].message.",
+        "fr": "Dans la réponse : les appels de fonction demandés par le modèle, dans choices[].message."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Function calling com OpenAI, Anthropic e Meta",
+    "tagline": "Envie tools no formato da OpenAI e receba tool_calls dos modelos que suportam, com o mesmo código para OpenAI, Anthropic e Meta.",
+    "intro": "Em POST /llm/chat/completions, tools e tool_choice seguem o formato da OpenAI. O modelo devolve tool_calls, você executa a função e manda o resultado em uma mensagem com role tool. Para a Anthropic, o Connect traduz tools e tool_calls, então o código é o mesmo.",
+    "can": [
+      "Declarar funções em tools e deixar o modelo decidir quando chamá-las.",
+      "Devolver o resultado da função com uma mensagem role: tool e tool_call_id.",
+      "Usar tool_choice auto ou none em todos os modelos.",
+      "Conferir em GET /llm/models quais modelos têm supports_tools.",
+      "Combinar tools com fallback e stream."
+    ],
+    "rules": [
+      "tools e tool_choice só são aceitos se todo modelo da chamada (model e cada item de models) tiver supports_tools. Caso contrário: 400 llm_unsupported_field.",
+      "Nem todo modelo suporta tools: confira supports_tools em GET /llm/models antes de escolher.",
+      "tool_choice aceita auto e none em todos os modelos.",
+      "Na Anthropic, tools que não sejam do tipo function retornam 400 llm_unsupported_field.",
+      "A resposta traz tool_calls em choices[].message, com finish_reason tool_calls quando o modelo pede uma função."
+    ],
+    "useCases": [
+      {
+        "title": "Agente que consulta os dados do cliente",
+        "body": "O modelo chama uma função sua que busca as métricas do cliente pela API do Connect e responde com os números."
+      },
+      {
+        "title": "Assistente que executa ações",
+        "body": "Declare funções como criar tarefa ou agendar reunião no seu SaaS e deixe o modelo escolher quando usar."
+      },
+      {
+        "title": "Extração estruturada",
+        "body": "Use uma função com parâmetros tipados para o modelo devolver dados estruturados a partir de texto livre."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Todos os modelos suportam tools?",
+        "a": "Não. Cada modelo em GET /llm/models tem o campo supports_tools. Enviar tools para um modelo sem ele retorna 400 llm_unsupported_field."
+      },
+      {
+        "q": "O formato muda entre provedores?",
+        "a": "Não. Você envia tools no formato da OpenAI e lê tool_calls da resposta. Para a Anthropic, o Connect traduz tools e tool_calls."
+      },
+      {
+        "q": "Funciona com fallback?",
+        "a": "Sim, desde que todos os modelos da chamada tenham supports_tools. Se algum não tiver, a chamada é recusada antes de ir ao modelo."
+      }
+    ]
+  },
+  "en": {
+    "title": "Function calling with OpenAI, Anthropic and Meta",
+    "tagline": "Send tools in the OpenAI format and get tool_calls from models that support them, with the same code for OpenAI, Anthropic and Meta.",
+    "intro": "In POST /llm/chat/completions, tools and tool_choice follow the OpenAI format. The model returns tool_calls, you run the function and send the result in a message with role tool. For Anthropic, Connect translates tools and tool_calls, so the code is the same.",
+    "can": [
+      "Declare functions in tools and let the model decide when to call them.",
+      "Return the function result with a role: tool message and tool_call_id.",
+      "Use tool_choice auto or none on all models.",
+      "Check in GET /llm/models which models have supports_tools.",
+      "Combine tools with fallback and stream."
+    ],
+    "rules": [
+      "tools and tool_choice are only accepted if every model in the call (model and each item of models) has supports_tools. Otherwise: 400 llm_unsupported_field.",
+      "Not every model supports tools: check supports_tools in GET /llm/models before choosing.",
+      "tool_choice accepts auto and none on all models.",
+      "On Anthropic, tools that are not of type function return 400 llm_unsupported_field.",
+      "The response carries tool_calls in choices[].message, with finish_reason tool_calls when the model asks for a function."
+    ],
+    "useCases": [
+      {
+        "title": "Agent that queries customer data",
+        "body": "The model calls a function of yours that fetches the customer's metrics through the Connect API and answers with the numbers."
+      },
+      {
+        "title": "Assistant that performs actions",
+        "body": "Declare functions such as create task or book meeting in your SaaS and let the model choose when to use them."
+      },
+      {
+        "title": "Structured extraction",
+        "body": "Use a function with typed parameters so the model returns structured data from free text."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do all models support tools?",
+        "a": "No. Each model in GET /llm/models has a supports_tools field. Sending tools to a model without it returns 400 llm_unsupported_field."
+      },
+      {
+        "q": "Does the format change between providers?",
+        "a": "No. You send tools in the OpenAI format and read tool_calls from the response. For Anthropic, Connect translates tools and tool_calls."
+      },
+      {
+        "q": "Does it work with fallback?",
+        "a": "Yes, as long as every model in the call has supports_tools. If any lacks it, the call is refused before reaching the model."
+      }
+    ]
+  },
+  "es": {
+    "title": "Function calling con OpenAI, Anthropic y Meta",
+    "tagline": "Envía tools en formato OpenAI y recibe tool_calls de los modelos que lo soportan, con el mismo código para OpenAI, Anthropic y Meta.",
+    "intro": "En POST /llm/chat/completions, tools y tool_choice siguen el formato de OpenAI. El modelo devuelve tool_calls, ejecutas la función y envías el resultado en un mensaje con role tool. Para Anthropic, Connect traduce tools y tool_calls, así que el código es el mismo.",
+    "can": [
+      "Declarar funciones en tools y dejar que el modelo decida cuándo llamarlas.",
+      "Devolver el resultado de la función con un mensaje role: tool y tool_call_id.",
+      "Usar tool_choice auto o none en todos los modelos.",
+      "Consultar en GET /llm/models qué modelos tienen supports_tools.",
+      "Combinar tools con fallback y stream."
+    ],
+    "rules": [
+      "tools y tool_choice solo se aceptan si todo modelo de la llamada (model y cada ítem de models) tiene supports_tools. Si no: 400 llm_unsupported_field.",
+      "No todos los modelos soportan tools: revisa supports_tools en GET /llm/models antes de elegir.",
+      "tool_choice acepta auto y none en todos los modelos.",
+      "En Anthropic, las tools que no sean de tipo function devuelven 400 llm_unsupported_field.",
+      "La respuesta trae tool_calls en choices[].message, con finish_reason tool_calls cuando el modelo pide una función."
+    ],
+    "useCases": [
+      {
+        "title": "Agente que consulta los datos del cliente",
+        "body": "El modelo llama a una función tuya que busca las métricas del cliente con la API de Connect y responde con los números."
+      },
+      {
+        "title": "Asistente que ejecuta acciones",
+        "body": "Declara funciones como crear tarea o agendar reunión en tu SaaS y deja que el modelo elija cuándo usarlas."
+      },
+      {
+        "title": "Extracción estructurada",
+        "body": "Usa una función con parámetros tipados para que el modelo devuelva datos estructurados a partir de texto libre."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Todos los modelos soportan tools?",
+        "a": "No. Cada modelo en GET /llm/models tiene el campo supports_tools. Enviar tools a un modelo sin él devuelve 400 llm_unsupported_field."
+      },
+      {
+        "q": "¿El formato cambia entre proveedores?",
+        "a": "No. Envías tools en formato OpenAI y lees tool_calls de la respuesta. Para Anthropic, Connect traduce tools y tool_calls."
+      },
+      {
+        "q": "¿Funciona con fallback?",
+        "a": "Sí, siempre que todos los modelos de la llamada tengan supports_tools. Si alguno no lo tiene, la llamada se rechaza antes de llegar al modelo."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Function calling avec OpenAI, Anthropic et Meta",
+    "tagline": "Envoyez des tools au format OpenAI et recevez des tool_calls des modèles compatibles, avec le même code pour OpenAI, Anthropic et Meta.",
+    "intro": "Dans POST /llm/chat/completions, tools et tool_choice suivent le format OpenAI. Le modèle renvoie des tool_calls, vous exécutez la fonction et envoyez le résultat dans un message avec role tool. Pour Anthropic, Connect traduit tools et tool_calls : le code est donc le même.",
+    "can": [
+      "Déclarer des fonctions dans tools et laisser le modèle décider quand les appeler.",
+      "Renvoyer le résultat de la fonction avec un message role: tool et tool_call_id.",
+      "Utiliser tool_choice auto ou none sur tous les modèles.",
+      "Vérifier dans GET /llm/models quels modèles ont supports_tools.",
+      "Combiner tools avec le repli et stream."
+    ],
+    "rules": [
+      "tools et tool_choice ne sont acceptés que si chaque modèle de l'appel (model et chaque élément de models) a supports_tools. Sinon : 400 llm_unsupported_field.",
+      "Tous les modèles ne gèrent pas tools : vérifiez supports_tools dans GET /llm/models avant de choisir.",
+      "tool_choice accepte auto et none sur tous les modèles.",
+      "Chez Anthropic, les tools qui ne sont pas de type function renvoient 400 llm_unsupported_field.",
+      "La réponse porte tool_calls dans choices[].message, avec finish_reason tool_calls quand le modèle demande une fonction."
+    ],
+    "useCases": [
+      {
+        "title": "Agent qui interroge les données du client",
+        "body": "Le modèle appelle une fonction à vous qui récupère les métriques du client via l'API Connect et répond avec les chiffres."
+      },
+      {
+        "title": "Assistant qui exécute des actions",
+        "body": "Déclarez des fonctions comme créer une tâche ou planifier une réunion dans votre SaaS et laissez le modèle choisir quand les utiliser."
+      },
+      {
+        "title": "Extraction structurée",
+        "body": "Utilisez une fonction à paramètres typés pour que le modèle renvoie des données structurées à partir de texte libre."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Tous les modèles gèrent-ils tools ?",
+        "a": "Non. Chaque modèle de GET /llm/models a un champ supports_tools. Envoyer tools à un modèle qui ne l'a pas renvoie 400 llm_unsupported_field."
+      },
+      {
+        "q": "Le format change-t-il selon le fournisseur ?",
+        "a": "Non. Vous envoyez tools au format OpenAI et lisez tool_calls dans la réponse. Pour Anthropic, Connect traduit tools et tool_calls."
+      },
+      {
+        "q": "Cela marche-t-il avec le repli ?",
+        "a": "Oui, tant que tous les modèles de l'appel ont supports_tools. Si l'un ne l'a pas, l'appel est refusé avant d'atteindre le modèle."
+      }
+    ]
+  }
+}

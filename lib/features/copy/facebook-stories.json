@@ -1,0 +1,259 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "fb-story-23",
+      "format": "story",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/story.jpg"
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.type",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Tipo da mídia: image, video ou document (documento só no LinkedIn).",
+        "en": "Media type: image, video or document (document is LinkedIn only).",
+        "es": "Tipo de medio: image, video o document (documento solo en LinkedIn).",
+        "fr": "Type de média : image, video ou document (document : LinkedIn uniquement)."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar stories na Página do Facebook",
+    "tagline": "Publique stories de imagem ou vídeo na Página do Facebook dos seus clientes com POST /posts, sem app review e sem lidar com tokens.",
+    "intro": "Com format story e integration_slug facebook, o Connect publica a mídia como story na Página que o seu cliente conectou, com a mesma chamada POST /posts dos outros formatos.",
+    "can": [
+      "Publicar um story a partir de uma URL https:// pública de imagem ou vídeo.",
+      "Usar a Página pela conexão (customer_integration) ou por integration_slug e source_name.",
+      "Repetir a chamada com segurança usando Idempotency-Key."
+    ],
+    "rules": [
+      "Stories não aceitam legenda: não envie caption.",
+      "O formato story não tem opções no bloco facebook.",
+      "Até 10 mídias por chamada, cada uma vira um story, publicadas em ordem. Todos os arquivos são verificados pela rede antes do primeiro sair, então um arquivo com problema não deixa a sequência pela metade.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e evita publicar duas vezes a mesma referência na conta (409)."
+    ],
+    "useCases": [
+      {
+        "title": "Avisos rápidos",
+        "body": "O SaaS publica um story de promoção do dia na Página do cliente com um clique do usuário."
+      },
+      {
+        "title": "Rede de lojas",
+        "body": "Publique a mesma arte vertical como story nas Páginas de várias unidades."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Um agente transforma um lançamento em imagem vertical e publica como story."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso colocar legenda no story?",
+        "a": "Não. Stories não carregam legenda."
+      },
+      {
+        "q": "Há opções extras do bloco facebook?",
+        "a": "Não para story. O bloco facebook tem link no feed e título e capa no reels."
+      },
+      {
+        "q": "Como acompanho a publicação?",
+        "a": "O POST /posts responde 202. Consulte GET /posts/{uuid}."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish stories to a Facebook Page",
+    "tagline": "Publish image or video stories to your customers' Facebook Page with POST /posts, with no app review and no token handling.",
+    "intro": "With format story and integration_slug facebook, Connect publishes the media as a story on the Page your customer connected, with the same POST /posts call as the other formats.",
+    "can": [
+      "Publish a story from a public https:// image or video URL.",
+      "Target the Page by connection (customer_integration) or by integration_slug and source_name.",
+      "Retry safely with Idempotency-Key."
+    ],
+    "rules": [
+      "Stories carry no caption: do not send caption.",
+      "The story format has no options in the facebook block.",
+      "Up to 10 media per call, each one becomes a story, published in order. The network checks every file before the first one goes out, so a broken file never leaves the sequence half published.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and prevents publishing the same reference twice on the account (409)."
+    ],
+    "useCases": [
+      {
+        "title": "Quick notices",
+        "body": "The SaaS publishes a deal-of-the-day story on the customer's Page with one click from the user."
+      },
+      {
+        "title": "Store chain",
+        "body": "Publish the same vertical artwork as a story on the Pages of several locations."
+      },
+      {
+        "title": "AI agent",
+        "body": "An agent turns a launch into a vertical image and publishes it as a story."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I add a caption to the story?",
+        "a": "No. Stories carry no caption."
+      },
+      {
+        "q": "Are there extra facebook block options?",
+        "a": "Not for story. The facebook block has link on feed and title and cover on reels."
+      },
+      {
+        "q": "How do I follow the publication?",
+        "a": "POST /posts answers 202. Check GET /posts/{uuid}."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar stories en la Página de Facebook",
+    "tagline": "Publica stories de imagen o video en la Página de Facebook de tus clientes con POST /posts, sin app review y sin manejar tokens.",
+    "intro": "Con format story e integration_slug facebook, Connect publica el medio como story en la Página que tu cliente conectó, con la misma llamada POST /posts de los otros formatos.",
+    "can": [
+      "Publicar un story desde una URL https:// pública de imagen o video.",
+      "Apuntar a la Página por conexión (customer_integration) o por integration_slug y source_name.",
+      "Reintentar con seguridad usando Idempotency-Key."
+    ],
+    "rules": [
+      "Los stories no llevan leyenda: no envíes caption.",
+      "El formato story no tiene opciones en el bloque facebook.",
+      "Hasta 10 medios por llamada, cada uno se convierte en una story, publicadas en orden. La red verifica todos los archivos antes de que salga el primero, así que un archivo con problemas no deja la secuencia a medias.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio y evita publicar dos veces la misma referencia en la cuenta (409)."
+    ],
+    "useCases": [
+      {
+        "title": "Avisos rápidos",
+        "body": "El SaaS publica un story de promoción del día en la Página del cliente con un clic del usuario."
+      },
+      {
+        "title": "Cadena de tiendas",
+        "body": "Publica el mismo arte vertical como story en las Páginas de varias sucursales."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Un agente convierte un lanzamiento en una imagen vertical y la publica como story."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo poner leyenda en el story?",
+        "a": "No. Los stories no llevan leyenda."
+      },
+      {
+        "q": "¿Hay opciones extra del bloque facebook?",
+        "a": "No para story. El bloque facebook tiene link en el feed y título y portada en reels."
+      },
+      {
+        "q": "¿Cómo sigo la publicación?",
+        "a": "POST /posts responde 202. Consulta GET /posts/{uuid}."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des stories sur une Page Facebook",
+    "tagline": "Publiez des stories image ou vidéo sur la Page Facebook de vos clients avec POST /posts, sans app review ni gestion de tokens.",
+    "intro": "Avec format story et integration_slug facebook, Connect publie le média en story sur la Page que votre client a connectée, avec le même appel POST /posts que les autres formats.",
+    "can": [
+      "Publier une story à partir d'une URL https:// publique d'image ou de vidéo.",
+      "Cibler la Page par connexion (customer_integration) ou par integration_slug et source_name.",
+      "Réessayer en toute sécurité avec Idempotency-Key."
+    ],
+    "rules": [
+      "Les stories n'ont pas de légende : n'envoyez pas caption.",
+      "Le format story n'a pas d'options dans le bloc facebook.",
+      "Jusqu'à 10 médias par appel, chacun devient une story, publiées dans l'ordre. Le réseau vérifie tous les fichiers avant la sortie du premier, donc un fichier défectueux ne laisse jamais la séquence à moitié publiée.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et évite de publier deux fois la même référence sur le compte (409)."
+    ],
+    "useCases": [
+      {
+        "title": "Avis rapides",
+        "body": "Le SaaS publie une story de promo du jour sur la Page du client d'un clic de l'utilisateur."
+      },
+      {
+        "title": "Chaîne de magasins",
+        "body": "Publiez le même visuel vertical en story sur les Pages de plusieurs points de vente."
+      },
+      {
+        "title": "Agent IA",
+        "body": "Un agent transforme un lancement en image verticale et la publie en story."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je ajouter une légende à la story ?",
+        "a": "Non. Les stories n'ont pas de légende."
+      },
+      {
+        "q": "Y a-t-il des options supplémentaires dans le bloc facebook ?",
+        "a": "Pas pour story. Le bloc facebook a link en feed, et titre et couverture en reels."
+      },
+      {
+        "q": "Comment suivre la publication ?",
+        "a": "POST /posts répond 202. Consultez GET /posts/{uuid}."
+      }
+    ]
+  }
+}

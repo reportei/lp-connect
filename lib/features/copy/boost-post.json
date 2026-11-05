@@ -1,0 +1,324 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/boost",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "name": "Impulsionar post",
+      "status": "active",
+      "campaign": {
+        "facebook_ads": {
+          "objective": "engagement"
+        }
+      },
+      "adset": {
+        "budget": {
+          "amount": 20,
+          "type": "daily"
+        },
+        "targeting": {
+          "countries": [
+            "BR"
+          ]
+        },
+        "facebook_ads": {
+          "optimization_goal": "post_engagement",
+          "billing_event": "impressions"
+        }
+      },
+      "ad": {
+        "post_id": "18191649508387596",
+        "facebook_ads": {
+          "instagram_account_id": "17841442920331135"
+        }
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome do anúncio, e dos níveis criados que não tiverem nome.",
+        "en": "The ad's name, and that of the created levels that don't have one.",
+        "es": "Nombre del anuncio, y de los niveles creados que no tengan uno.",
+        "fr": "Nom de l'annonce, et des niveaux créés qui n'en ont pas."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Estado final da árvore (active ou paused). Tudo nasce pausado e é ativado no último passo.",
+        "en": "The tree's final state (active or paused). Everything is created paused and activated in the last step.",
+        "es": "Estado final del árbol (active o paused). Todo nace pausado y se activa en el último paso.",
+        "fr": "État final de l'arbre (active ou paused). Tout est créé en pause et activé à la dernière étape."
+      }
+    },
+    {
+      "name": "campaign",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "{\"id\": ...} para uma campanha existente; sem id, descreve a que será criada.",
+        "en": "{\"id\": ...} for an existing campaign; without id, describes the one to be created.",
+        "es": "{\"id\": ...} para una campaña existente; sin id, describe la que se creará.",
+        "fr": "{\"id\": ...} pour une campagne existante ; sans id, décrit celle à créer."
+      }
+    },
+    {
+      "name": "adset",
+      "type": "object",
+      "required": true,
+      "description": {
+        "pt": "{\"id\": ...} para um conjunto existente; sem id, descreve o que será criado (orçamento, público, otimização).",
+        "en": "{\"id\": ...} for an existing ad set; without id, describes the one to be created (budget, audience, optimization).",
+        "es": "{\"id\": ...} para un conjunto existente; sin id, describe el que se creará (presupuesto, público, optimización).",
+        "fr": "{\"id\": ...} pour un ensemble existant ; sans id, décrit celui à créer (budget, audience, optimisation)."
+      }
+    },
+    {
+      "name": "ad.post_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O post a impulsionar, vindo de GET /ads/facebook_ads/posts.",
+        "en": "The post to boost, from GET /ads/facebook_ads/posts.",
+        "es": "El post a impulsar, de GET /ads/facebook_ads/posts.",
+        "fr": "Le post à booster, issu de GET /ads/facebook_ads/posts."
+      }
+    },
+    {
+      "name": "ad.facebook_ads.instagram_account_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "A conta do Instagram dona do post. É por ela que a posse do post é provada.",
+        "en": "The account that owns the post. Post ownership is proven through it.",
+        "es": "La cuenta de Instagram dueña del post. La propiedad del post se prueba por ella.",
+        "fr": "Le compte Instagram propriétaire du post. La propriété du post est prouvée par lui."
+      }
+    },
+    {
+      "name": "ad.link_url",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "URL de destino, quando aplicável.",
+        "en": "Destination URL, when applicable.",
+        "es": "URL de destino, cuando aplica.",
+        "fr": "URL de destination, le cas échéant."
+      }
+    },
+    {
+      "name": "ad.call_to_action",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Botão do anúncio. Valores em GET /ads/options.",
+        "en": "The ad's button. Values in GET /ads/options.",
+        "es": "Botón del anuncio. Valores en GET /ads/options.",
+        "fr": "Bouton de l'annonce. Valeurs dans GET /ads/options."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Impulsionar post do Instagram pela API",
+    "tagline": "Impulsione um post do Instagram do seu cliente com um POST: o Connect cria campanha, conjunto e anúncio a partir do post. Nasce pausado, idempotente.",
+    "intro": "POST /ads/boost transforma um post já publicado em anúncio, na conta que o cliente conectou. A mesma árvore do POST /ads (campanha, conjunto e anúncio), mas o criativo vem do post: texto e mídia não fazem parte do impulsionamento. Você não precisa implementar a API do Meta nem passar por revisão de app.",
+    "can": [
+      "Listar os posts que podem ser impulsionados em GET /ads/facebook_ads/posts.",
+      "Impulsionar um post criando campanha e conjunto novos, ou reaproveitando existentes com {\"id\": ...}.",
+      "Definir orçamento, país, otimização e cobrança do conjunto.",
+      "Pedir status active para ativar no último passo.",
+      "Informar link_url e call_to_action opcionais."
+    ],
+    "rules": [
+      "Tudo é criado pausado e o status pedido é aplicado no último passo.",
+      "Idempotency-Key é obrigatório no header; repetir com a mesma chave devolve 200 com Idempotent-Replay: true.",
+      "ad.post_id vem de GET /ads/facebook_ads/posts. Sem o parâmetro source, a lista traz mídia do Instagram, a única que serve para impulsionar; com source=facebook a lista serve só para descoberta.",
+      "facebook_ads.instagram_account_id é obrigatório: é por ele que a posse do post é provada.",
+      "O criativo de um anúncio impulsionado não pode ser trocado depois: 422 boosted_creative_not_replaceable.",
+      "Se um passo falhar, o que foi criado é desfeito e repetir com a mesma chave retoma. A resposta é síncrona (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Botão Impulsionar no seu produto",
+        "body": "Mostre os posts do cliente e, com um clique, crie o impulsionamento com orçamento e público escolhidos."
+      },
+      {
+        "title": "Automação para posts de bom desempenho",
+        "body": "Quando um post passa de um limite de engajamento nas suas métricas, crie o impulsionamento automaticamente, pausado, para aprovação."
+      },
+      {
+        "title": "Agente de IA de social media",
+        "body": "O agente escolhe o post, propõe orçamento e público e o cria pausado para o gestor aprovar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso impulsionar posts do Facebook?",
+        "a": "A lista de posts do Facebook (source=facebook) serve para descoberta, mas não para impulsionar. O impulsionamento usa mídia do Instagram."
+      },
+      {
+        "q": "Posso mudar o texto ou a imagem do anúncio impulsionado?",
+        "a": "Não. O criativo vem do post, e trocá-lo responde 422 boosted_creative_not_replaceable."
+      },
+      {
+        "q": "O impulsionamento começa a gastar na hora?",
+        "a": "Só se você enviar status active. Tudo nasce pausado e a ativação é o último passo."
+      }
+    ]
+  },
+  "en": {
+    "title": "Boost an Instagram post via API",
+    "tagline": "Boost your client's Instagram post with one POST: Connect creates the campaign, ad set and ad from the post. Created paused, idempotent.",
+    "intro": "POST /ads/boost turns an already published post into an ad, in the account your client connected. It is the same tree as POST /ads (campaign, ad set and ad), but the creative comes from the post: texts and media are not part of a boost. You don't implement the Meta API or go through app review.",
+    "can": [
+      "List the posts that can be boosted in GET /ads/facebook_ads/posts.",
+      "Boost a post creating a new campaign and ad set, or reusing existing ones with {\"id\": ...}.",
+      "Set the ad set's budget, country, optimization and billing.",
+      "Ask for status active to activate in the last step.",
+      "Send optional link_url and call_to_action."
+    ],
+    "rules": [
+      "Everything is created paused and the requested status is applied in the last step.",
+      "Idempotency-Key is required in the header; repeating with the same key returns 200 with Idempotent-Replay: true.",
+      "ad.post_id comes from GET /ads/facebook_ads/posts. Without the source parameter, the list returns Instagram media, the only kind that works for boosting; with source=facebook the list is for discovery only.",
+      "facebook_ads.instagram_account_id is required: post ownership is proven through it.",
+      "The creative of a boosted ad can't be replaced afterwards: 422 boosted_creative_not_replaceable.",
+      "If a step fails, what was created is undone and repeating with the same key resumes. The response is synchronous (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Boost button in your product",
+        "body": "Show the client's posts and, with one click, create the boost with the chosen budget and audience."
+      },
+      {
+        "title": "Automation for high-performing posts",
+        "body": "When a post passes an engagement threshold in your metrics, create the boost automatically, paused, for approval."
+      },
+      {
+        "title": "Social media AI agent",
+        "body": "The agent picks the post, proposes budget and audience and creates it paused for the manager to approve."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I boost Facebook posts?",
+        "a": "The Facebook post list (source=facebook) is for discovery, not for boosting. Boosting uses Instagram media."
+      },
+      {
+        "q": "Can I change the text or image of a boosted ad?",
+        "a": "No. The creative comes from the post, and replacing it returns 422 boosted_creative_not_replaceable."
+      },
+      {
+        "q": "Does the boost start spending right away?",
+        "a": "Only if you send status active. Everything is created paused and activation is the last step."
+      }
+    ]
+  },
+  "es": {
+    "title": "Impulsar un post de Instagram por API",
+    "tagline": "Impulsa un post de Instagram de tu cliente con un POST: Connect crea campaña, conjunto y anuncio desde el post. Nace pausado, idempotente.",
+    "intro": "POST /ads/boost convierte un post ya publicado en anuncio, en la cuenta que el cliente conectó. Es el mismo árbol de POST /ads (campaña, conjunto y anuncio), pero el creativo viene del post: textos y media no forman parte del impulso. No implementas la API de Meta ni pasas por revisión de app.",
+    "can": [
+      "Listar los posts que se pueden impulsar en GET /ads/facebook_ads/posts.",
+      "Impulsar un post creando campaña y conjunto nuevos, o reutilizando existentes con {\"id\": ...}.",
+      "Definir presupuesto, país, optimización y facturación del conjunto.",
+      "Pedir status active para activar en el último paso.",
+      "Enviar link_url y call_to_action opcionales."
+    ],
+    "rules": [
+      "Todo se crea pausado y el status pedido se aplica en el último paso.",
+      "Idempotency-Key es obligatorio en el header; repetir con la misma clave devuelve 200 con Idempotent-Replay: true.",
+      "ad.post_id sale de GET /ads/facebook_ads/posts. Sin el parámetro source, la lista trae media de Instagram, la única que sirve para impulsar; con source=facebook la lista sirve solo para descubrimiento.",
+      "facebook_ads.instagram_account_id es obligatorio: por él se prueba la propiedad del post.",
+      "El creativo de un anuncio impulsado no se puede cambiar después: 422 boosted_creative_not_replaceable.",
+      "Si un paso falla, lo creado se deshace y repetir con la misma clave retoma. La respuesta es síncrona (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Botón Impulsar en tu producto",
+        "body": "Muestra los posts del cliente y, con un clic, crea el impulso con el presupuesto y el público elegidos."
+      },
+      {
+        "title": "Automatización para posts de buen rendimiento",
+        "body": "Cuando un post supera un umbral de engagement en tus métricas, crea el impulso automáticamente, pausado, para aprobación."
+      },
+      {
+        "title": "Agente de IA de redes sociales",
+        "body": "El agente elige el post, propone presupuesto y público y lo crea pausado para que el gestor lo apruebe."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo impulsar posts de Facebook?",
+        "a": "La lista de posts de Facebook (source=facebook) sirve para descubrimiento, no para impulsar. El impulso usa media de Instagram."
+      },
+      {
+        "q": "¿Puedo cambiar el texto o la imagen del anuncio impulsado?",
+        "a": "No. El creativo viene del post, y cambiarlo responde 422 boosted_creative_not_replaceable."
+      },
+      {
+        "q": "¿El impulso empieza a gastar enseguida?",
+        "a": "Solo si envías status active. Todo nace pausado y la activación es el último paso."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Booster un post Instagram par API",
+    "tagline": "Boostez un post Instagram de votre client avec un POST : Connect crée campagne, ensemble et annonce depuis le post. Créé en pause, idempotent.",
+    "intro": "POST /ads/boost transforme un post déjà publié en annonce, dans le compte que le client a connecté. C'est le même arbre que POST /ads (campagne, ensemble et annonce), mais le visuel vient du post : textes et médias ne font pas partie d'un boost. Vous n'implémentez pas l'API Meta et ne passez pas par la revue d'app.",
+    "can": [
+      "Lister les posts qui peuvent être boostés dans GET /ads/facebook_ads/posts.",
+      "Booster un post en créant une campagne et un ensemble neufs, ou en réutilisant des existants avec {\"id\": ...}.",
+      "Définir budget, pays, optimisation et facturation de l'ensemble.",
+      "Demander status active pour activer à la dernière étape.",
+      "Envoyer link_url et call_to_action en option."
+    ],
+    "rules": [
+      "Tout est créé en pause et le status demandé est appliqué à la dernière étape.",
+      "Idempotency-Key est obligatoire dans le header ; répéter avec la même clé renvoie 200 avec Idempotent-Replay: true.",
+      "ad.post_id vient de GET /ads/facebook_ads/posts. Sans le paramètre source, la liste renvoie des médias Instagram, les seuls qui servent au boost ; avec source=facebook la liste ne sert qu'à la découverte.",
+      "facebook_ads.instagram_account_id est obligatoire : la propriété du post est prouvée par lui.",
+      "Le visuel d'une annonce boostée ne peut pas être remplacé ensuite : 422 boosted_creative_not_replaceable.",
+      "Si une étape échoue, ce qui a été créé est annulé et répéter avec la même clé reprend. La réponse est synchrone (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Bouton Booster dans votre produit",
+        "body": "Affichez les posts du client et, en un clic, créez le boost avec le budget et l'audience choisis."
+      },
+      {
+        "title": "Automatisation pour les posts performants",
+        "body": "Quand un post dépasse un seuil d'engagement dans vos métriques, créez le boost automatiquement, en pause, pour approbation."
+      },
+      {
+        "title": "Agent IA de réseaux sociaux",
+        "body": "L'agent choisit le post, propose budget et audience et le crée en pause pour que le gestionnaire l'approuve."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je booster des posts Facebook ?",
+        "a": "La liste des posts Facebook (source=facebook) sert à la découverte, pas au boost. Le boost utilise des médias Instagram."
+      },
+      {
+        "q": "Puis-je changer le texte ou l'image d'une annonce boostée ?",
+        "a": "Non. Le visuel vient du post, et le remplacer renvoie 422 boosted_creative_not_replaceable."
+      },
+      {
+        "q": "Le boost dépense-t-il tout de suite ?",
+        "a": "Seulement si vous envoyez status active. Tout est créé en pause et l'activation est la dernière étape."
+      }
+    ]
+  }
+}

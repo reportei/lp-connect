@@ -1,0 +1,287 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/metrics/get-data",
+    "body": {
+      "customer_integration": "<connection uuid>",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "metrics": [
+        {
+          "id": "f35a44ce-dac5-4188-aace-5c44a8952176",
+          "reference_key": "ig:followers_gender",
+          "component": "chart_v1",
+          "metrics": [
+            "followers"
+          ],
+          "dimensions": [
+            "gender"
+          ]
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "UUID da conexão do cliente de onde as métricas são lidas. Uma por chamada.",
+        "en": "UUID of the customer's connection the metrics are read from. One per call.",
+        "es": "UUID de la conexión del cliente de donde se leen las métricas. Una por llamada.",
+        "fr": "UUID de la connexion du client dont les métriques sont lues. Une par appel."
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Início do período (YYYY-MM-DD). Deve ser menor ou igual a end.",
+        "en": "Start of the period (YYYY-MM-DD). Must be less than or equal to end.",
+        "es": "Inicio del período (YYYY-MM-DD). Debe ser menor o igual a end.",
+        "fr": "Début de la période (YYYY-MM-DD). Doit être inférieur ou égal à end."
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Fim do período (YYYY-MM-DD).",
+        "en": "End of the period (YYYY-MM-DD).",
+        "es": "Fin del período (YYYY-MM-DD).",
+        "fr": "Fin de la période (YYYY-MM-DD)."
+      }
+    },
+    {
+      "name": "metrics.reference_key",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Métrica cujo catálogo indica chart_v1, como ig:followers_gender.",
+        "en": "A metric whose catalog entry is chart_v1, such as ig:followers_gender.",
+        "es": "Métrica cuyo catálogo indica chart_v1, como ig:followers_gender.",
+        "fr": "Métrique dont le catalogue indique chart_v1, comme ig:followers_gender."
+      }
+    },
+    {
+      "name": "metrics.component",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Use chart_v1 para receber os dados no formato de gráfico.",
+        "en": "Use chart_v1 to get the data in chart format.",
+        "es": "Usa chart_v1 para recibir los datos en formato de gráfico.",
+        "fr": "Utilisez chart_v1 pour recevoir les données au format graphique."
+      }
+    },
+    {
+      "name": "metrics.metrics",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Os valores pedidos dentro da métrica. Copie do item do catálogo.",
+        "en": "The values requested within that metric. Copy them from the catalog item.",
+        "es": "Los valores pedidos dentro de la métrica. Cópialos del ítem del catálogo.",
+        "fr": "Les valeurs demandées au sein de la métrique. Copiez-les depuis l'élément du catalogue."
+      }
+    },
+    {
+      "name": "metrics.id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "UUID gerado por você; é a chave do resultado na resposta.",
+        "en": "A UUID you generate; it is the key of the result in the response.",
+        "es": "UUID generado por ti; es la clave del resultado en la respuesta.",
+        "fr": "UUID que vous générez ; c'est la clé du résultat dans la réponse."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Obter dados de gráficos de métricas",
+    "tagline": "Peça métricas com component chart_v1 e receba dados prontos para gráficos de linha, barra ou pizza, direto de Instagram, Meta Ads e mais.",
+    "intro": "O component define o formato do resultado. Com chart_v1 em POST /metrics/get-data, a métrica volta como dados de gráfico (linha, pizza, barra) que o seu front renderiza com a biblioteca que quiser. Nada de coletar e agregar por plataforma.",
+    "can": [
+      "Pedir métricas em formato de gráfico com component chart_v1, junto de number_v1 e tabelas na mesma chamada.",
+      "Descobrir quais métricas são gráficos no catálogo GET /metrics/{integration_slug}, que traz o component padrão de cada uma.",
+      "Combinar um gráfico com um período de comparação (comparison_start e comparison_end).",
+      "Usar a versão assíncrona (get-data-async) para gráficos de períodos longos."
+    ],
+    "rules": [
+      "Copie o item do catálogo para metrics[]: cada item de data já é um item válido da requisição.",
+      "O formato do resultado depende do component pedido; o payload é aberto, então leia o resultado de cada métrica pela chave id.",
+      "Se uma métrica falhar sozinha, ela volta com um objeto de erro (invalid_metrics_combination, no_data_in_period, internal_error ou expired_token) e as demais vêm com status 200.",
+      "Cada chamada lê uma conexão (customer_integration) e exige o x-customer-token do cliente.",
+      "No período de teste, start volta no máximo 62 dias e metrics aceita até 15 itens."
+    ],
+    "useCases": [
+      {
+        "title": "Painéis de desempenho no seu SaaS",
+        "body": "Mostre evolução de alcance ou gasto em gráficos de linha dentro do seu produto, com dados vindos da conta conectada do cliente."
+      },
+      {
+        "title": "Relatórios de agência",
+        "body": "Monte páginas de relatório com gráficos por plataforma sem integrar cada API de rede social."
+      },
+      {
+        "title": "Agentes de IA com contexto visual",
+        "body": "Um agente busca a série de dados de um gráfico e descreve a tendência ao usuário."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como sei se uma métrica vem como gráfico?",
+        "a": "No catálogo GET /metrics/{integration_slug}, cada item traz o component padrão. As que vêm com chart_v1 retornam dados de gráfico."
+      },
+      {
+        "q": "A API desenha o gráfico?",
+        "a": "Não. Ela devolve os dados no formato chart_v1; a renderização fica com o seu front-end."
+      },
+      {
+        "q": "Posso misturar gráficos e números na mesma chamada?",
+        "a": "Sim. Cada item de metrics[] tem o seu component, e cada resultado volta sob o id do item."
+      }
+    ]
+  },
+  "en": {
+    "title": "Get chart data for metrics",
+    "tagline": "Request metrics with the chart_v1 component and get data ready for line, bar or pie charts, straight from Instagram, Meta Ads and more.",
+    "intro": "The component sets the result format. With chart_v1 in POST /metrics/get-data, the metric comes back as chart data (line, pie, bar) that your front end renders with any library you like. No collecting and aggregating per platform.",
+    "can": [
+      "Request metrics in chart format with component chart_v1, next to number_v1 and tables in the same call.",
+      "Find which metrics are charts in the GET /metrics/{integration_slug} catalog, which gives each one's default component.",
+      "Combine a chart with a comparison period (comparison_start and comparison_end).",
+      "Use the async version (get-data-async) for charts over long periods."
+    ],
+    "rules": [
+      "Copy the catalog item into metrics[]: each item in data is already a valid request item.",
+      "The result format depends on the requested component; the payload is open, so read each metric's result by its id key.",
+      "If one metric fails on its own, it comes back as an error object (invalid_metrics_combination, no_data_in_period, internal_error or expired_token) and the others come with status 200.",
+      "Each call reads one connection (customer_integration) and needs the customer's x-customer-token.",
+      "On trial, start can go back at most 62 days and metrics accepts up to 15 items."
+    ],
+    "useCases": [
+      {
+        "title": "Performance panels in your SaaS",
+        "body": "Show reach or spend trends as line charts inside your product, with data from the customer's connected account."
+      },
+      {
+        "title": "Agency reports",
+        "body": "Build report pages with charts per platform without integrating each social network API."
+      },
+      {
+        "title": "AI agents with visual context",
+        "body": "An agent fetches a chart's data series and describes the trend to the user."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I know if a metric comes as a chart?",
+        "a": "In the GET /metrics/{integration_slug} catalog, each item carries its default component. Those with chart_v1 return chart data."
+      },
+      {
+        "q": "Does the API draw the chart?",
+        "a": "No. It returns the data in the chart_v1 format; rendering is up to your front end."
+      },
+      {
+        "q": "Can I mix charts and numbers in one call?",
+        "a": "Yes. Each item in metrics[] has its own component, and each result comes back under the item's id."
+      }
+    ]
+  },
+  "es": {
+    "title": "Obtener datos de gráficos de métricas",
+    "tagline": "Pide métricas con el component chart_v1 y recibe datos listos para gráficos de línea, barras o torta, directo de Instagram, Meta Ads y más.",
+    "intro": "El component define el formato del resultado. Con chart_v1 en POST /metrics/get-data, la métrica vuelve como datos de gráfico (línea, torta, barras) que tu front-end dibuja con la biblioteca que quieras. Sin recolectar ni agregar por plataforma.",
+    "can": [
+      "Pedir métricas en formato de gráfico con component chart_v1, junto a number_v1 y tablas en la misma llamada.",
+      "Descubrir qué métricas son gráficos en el catálogo GET /metrics/{integration_slug}, que trae el component por defecto de cada una.",
+      "Combinar un gráfico con un período de comparación (comparison_start y comparison_end).",
+      "Usar la versión asíncrona (get-data-async) para gráficos de períodos largos."
+    ],
+    "rules": [
+      "Copia el ítem del catálogo en metrics[]: cada ítem de data ya es un ítem válido de la solicitud.",
+      "El formato del resultado depende del component pedido; el payload es abierto, así que lee el resultado de cada métrica por la clave id.",
+      "Si una métrica falla por separado, vuelve como objeto de error (invalid_metrics_combination, no_data_in_period, internal_error o expired_token) y las demás vienen con status 200.",
+      "Cada llamada lee una conexión (customer_integration) y exige el x-customer-token del cliente.",
+      "En el período de prueba, start retrocede como máximo 62 días y metrics acepta hasta 15 ítems."
+    ],
+    "useCases": [
+      {
+        "title": "Paneles de desempeño en tu SaaS",
+        "body": "Muestra la evolución de alcance o gasto en gráficos de línea dentro de tu producto, con datos de la cuenta conectada del cliente."
+      },
+      {
+        "title": "Informes de agencia",
+        "body": "Arma páginas de informe con gráficos por plataforma sin integrar la API de cada red social."
+      },
+      {
+        "title": "Agentes de IA con contexto visual",
+        "body": "Un agente busca la serie de datos de un gráfico y describe la tendencia al usuario."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo sé si una métrica viene como gráfico?",
+        "a": "En el catálogo GET /metrics/{integration_slug}, cada ítem trae su component por defecto. Las que traen chart_v1 devuelven datos de gráfico."
+      },
+      {
+        "q": "¿La API dibuja el gráfico?",
+        "a": "No. Devuelve los datos en el formato chart_v1; el dibujo queda a cargo de tu front-end."
+      },
+      {
+        "q": "¿Puedo mezclar gráficos y números en una llamada?",
+        "a": "Sí. Cada ítem de metrics[] tiene su component, y cada resultado vuelve bajo el id del ítem."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Obtenir les données de graphiques de métriques",
+    "tagline": "Demandez des métriques en chart_v1 et recevez des données prêtes pour des graphiques en ligne, barres ou secteurs, depuis Instagram et Meta Ads.",
+    "intro": "Le component définit le format du résultat. Avec chart_v1 dans POST /metrics/get-data, la métrique revient sous forme de données de graphique (ligne, secteurs, barres) que votre front-end affiche avec la bibliothèque de votre choix. Sans collecte ni agrégation par plateforme.",
+    "can": [
+      "Demander des métriques au format graphique avec le component chart_v1, avec number_v1 et des tableaux dans le même appel.",
+      "Trouver quelles métriques sont des graphiques dans le catalogue GET /metrics/{integration_slug}, qui donne le component par défaut de chacune.",
+      "Combiner un graphique avec une période de comparaison (comparison_start et comparison_end).",
+      "Utiliser la version asynchrone (get-data-async) pour les graphiques sur de longues périodes."
+    ],
+    "rules": [
+      "Copiez l'élément du catalogue dans metrics[] : chaque élément de data est déjà un élément de requête valide.",
+      "Le format du résultat dépend du component demandé ; le payload est ouvert, lisez donc le résultat de chaque métrique par sa clé id.",
+      "Si une métrique échoue seule, elle revient sous forme d'objet d'erreur (invalid_metrics_combination, no_data_in_period, internal_error ou expired_token) et les autres arrivent avec le statut 200.",
+      "Chaque appel lit une connexion (customer_integration) et exige le x-customer-token du client.",
+      "En période d'essai, start remonte de 62 jours au maximum et metrics accepte jusqu'à 15 éléments."
+    ],
+    "useCases": [
+      {
+        "title": "Panneaux de performance dans votre SaaS",
+        "body": "Affichez l'évolution de la portée ou de la dépense en graphiques en ligne dans votre produit, avec les données du compte connecté du client."
+      },
+      {
+        "title": "Rapports d'agence",
+        "body": "Construisez des pages de rapport avec des graphiques par plateforme sans intégrer l'API de chaque réseau social."
+      },
+      {
+        "title": "Agents IA avec contexte visuel",
+        "body": "Un agent récupère la série de données d'un graphique et décrit la tendance à l'utilisateur."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment savoir si une métrique vient en graphique ?",
+        "a": "Dans le catalogue GET /metrics/{integration_slug}, chaque élément porte son component par défaut. Celles avec chart_v1 renvoient des données de graphique."
+      },
+      {
+        "q": "L'API dessine-t-elle le graphique ?",
+        "a": "Non. Elle renvoie les données au format chart_v1 ; l'affichage revient à votre front-end."
+      },
+      {
+        "q": "Puis-je mélanger graphiques et nombres dans un appel ?",
+        "a": "Oui. Chaque élément de metrics[] a son component, et chaque résultat revient sous l'id de l'élément."
+      }
+    ]
+  }
+}

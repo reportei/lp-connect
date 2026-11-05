@@ -1,0 +1,257 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/ads/audiences",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "uuid da conexão do cliente. Define a conta de anúncios. Vai sempre na query.",
+        "en": "The uuid of the customer's connection. It defines the ad account. Always goes in the query.",
+        "es": "El uuid de la conexión del cliente. Define la cuenta de anuncios. Va siempre en la query.",
+        "fr": "L'uuid de la connexion du client. Il définit le compte publicitaire. Toujours dans la query."
+      }
+    },
+    {
+      "name": "refresh",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Ignora o cache de 600 s e busca de novo na plataforma.",
+        "en": "Bypasses the 600 s cache and fetches again from the platform.",
+        "es": "Ignora el caché de 600 s y consulta de nuevo la plataforma.",
+        "fr": "Ignore le cache de 600 s et interroge à nouveau la plateforme."
+      }
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o id do público. É o que vai em targeting.custom_audiences.",
+        "en": "In the response: the audience id. It is what goes in targeting.custom_audiences.",
+        "es": "En la respuesta: el id de la audiencia. Es lo que va en targeting.custom_audiences.",
+        "fr": "Dans la réponse : l'id de l'audience. C'est ce qui va dans targeting.custom_audiences."
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o nome do público na conta.",
+        "en": "In the response: the audience name in the account.",
+        "es": "En la respuesta: el nombre de la audiencia en la cuenta.",
+        "fr": "Dans la réponse : le nom de l'audience dans le compte."
+      }
+    },
+    {
+      "name": "subtype",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o tipo do público na plataforma.",
+        "en": "In the response: the audience type on the platform.",
+        "es": "En la respuesta: el tipo de audiencia en la plataforma.",
+        "fr": "Dans la réponse : le type d'audience sur la plateforme."
+      }
+    },
+    {
+      "name": "approximate_size",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o tamanho aproximado, como faixa com lower e upper.",
+        "en": "In the response: the approximate size, as a range with lower and upper.",
+        "es": "En la respuesta: el tamaño aproximado, como rango con lower y upper.",
+        "fr": "Dans la réponse : la taille approximative, sous forme de fourchette avec lower et upper."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Listar públicos personalizados do Meta Ads",
+    "tagline": "Liste os públicos personalizados da conta de anúncios do cliente no Meta Ads, com id e tamanho aproximado, para usar na segmentação de um conjunto.",
+    "intro": "Uma rota lista os públicos personalizados da conta de anúncios do cliente, com id, nome, tipo e tamanho aproximado. O id vai na segmentação do conjunto de anúncios, e você lê tudo pela conexão do cliente, sem implementar OAuth nem passar pelo app review da Meta.",
+    "can": [
+      "Listar os públicos personalizados da conta com GET /ads/audiences.",
+      "Usar o id de cada público em targeting.custom_audiences ao criar um conjunto de anúncios.",
+      "Ver o nome, o subtype e o tamanho aproximado (approximate_size, de lower a upper) de cada público.",
+      "Forçar uma leitura nova da plataforma com refresh=true."
+    ],
+    "rules": [
+      "A rota é só de leitura. Criar públicos e enviar listas de usuários não faz parte desta versão.",
+      "Não é paginada: vêm no máximo 200 itens por leitura.",
+      "Cache de 600 s por conexão. meta.cached e meta.cached_at mostram se veio do cache, e refresh=true ignora.",
+      "A conexão vai sempre em ?customer_integration= e a chamada exige Authorization e x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Seletor de público no seu SaaS",
+        "body": "Mostre ao cliente os públicos que ele já tem na conta e deixe escolher quais usar no conjunto de anúncios."
+      },
+      {
+        "title": "Remarketing por agência",
+        "body": "Uma agência lista os públicos de visitantes do cliente e cria um conjunto de anúncios direcionado a eles."
+      },
+      {
+        "title": "Agente de IA que monta campanhas",
+        "body": "Um agente lê os públicos da conta, escolhe o de clientes atuais e o usa na segmentação do novo conjunto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso criar um público personalizado pela API?",
+        "a": "Ainda não. A rota é só de leitura: criar públicos e enviar listas de usuários não fazem parte desta versão."
+      },
+      {
+        "q": "Onde uso o id do público?",
+        "a": "Em targeting.custom_audiences, na segmentação do conjunto de anúncios."
+      },
+      {
+        "q": "Um público novo aparece na hora?",
+        "a": "A leitura tem cache de 600 s por conexão. Use refresh=true para buscar de novo na plataforma."
+      }
+    ]
+  },
+  "en": {
+    "title": "List Meta Ads custom audiences",
+    "tagline": "List the custom audiences in a customer's Meta Ads account, with id and approximate size, to use in an ad set's targeting.",
+    "intro": "One route lists the custom audiences in the customer's ad account, with id, name, type and approximate size. The id goes in the ad set's targeting, and you read it all through the customer's connection, with no OAuth to build and no Meta app review.",
+    "can": [
+      "List the account's custom audiences with GET /ads/audiences.",
+      "Use each audience's id in targeting.custom_audiences when creating an ad set.",
+      "See each audience's name, subtype and approximate size (approximate_size, from lower to upper).",
+      "Force a fresh read from the platform with refresh=true."
+    ],
+    "rules": [
+      "The route is read-only. Creating audiences and uploading user lists are not part of this version.",
+      "It is not paginated: at most 200 items come back per read.",
+      "Cached for 600 s per connection. meta.cached and meta.cached_at show whether it came from the cache, and refresh=true bypasses it.",
+      "The connection always goes in ?customer_integration= and the call needs Authorization and x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Audience picker in your SaaS",
+        "body": "Show the customer the audiences they already have in the account and let them choose which to use in the ad set."
+      },
+      {
+        "title": "Agency remarketing",
+        "body": "An agency lists the customer's visitor audiences and creates an ad set aimed at them."
+      },
+      {
+        "title": "AI agent that builds campaigns",
+        "body": "An agent reads the account's audiences, picks the current-customers one and uses it in the new ad set's targeting."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I create a custom audience through the API?",
+        "a": "Not yet. The route is read-only: creating audiences and uploading user lists are not part of this version."
+      },
+      {
+        "q": "Where do I use the audience id?",
+        "a": "In targeting.custom_audiences, in the ad set's targeting."
+      },
+      {
+        "q": "Does a new audience show up right away?",
+        "a": "The read is cached for 600 s per connection. Use refresh=true to fetch again from the platform."
+      }
+    ]
+  },
+  "es": {
+    "title": "Listar audiencias personalizadas de Meta Ads",
+    "tagline": "Lista las audiencias personalizadas de la cuenta de Meta Ads del cliente, con id y tamaño aproximado, para usar en la segmentación de un conjunto.",
+    "intro": "Una ruta lista las audiencias personalizadas de la cuenta de anuncios del cliente, con id, nombre, tipo y tamaño aproximado. El id va en la segmentación del conjunto de anuncios, y lo lees todo por la conexión del cliente, sin implementar OAuth ni pasar por el app review de Meta.",
+    "can": [
+      "Listar las audiencias personalizadas de la cuenta con GET /ads/audiences.",
+      "Usar el id de cada audiencia en targeting.custom_audiences al crear un conjunto de anuncios.",
+      "Ver el nombre, el subtype y el tamaño aproximado (approximate_size, de lower a upper) de cada audiencia.",
+      "Forzar una lectura nueva de la plataforma con refresh=true."
+    ],
+    "rules": [
+      "La ruta es solo de lectura. Crear audiencias y subir listas de usuarios no forma parte de esta versión.",
+      "No está paginada: vienen como máximo 200 ítems por lectura.",
+      "Caché de 600 s por conexión. meta.cached y meta.cached_at muestran si vino del caché, y refresh=true lo ignora.",
+      "La conexión va siempre en ?customer_integration= y la llamada exige Authorization y x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Selector de audiencia en tu SaaS",
+        "body": "Muestra al cliente las audiencias que ya tiene en la cuenta y deja elegir cuáles usar en el conjunto de anuncios."
+      },
+      {
+        "title": "Remarketing de agencia",
+        "body": "Una agencia lista las audiencias de visitantes del cliente y crea un conjunto de anuncios dirigido a ellas."
+      },
+      {
+        "title": "Agente de IA que arma campañas",
+        "body": "Un agente lee las audiencias de la cuenta, elige la de clientes actuales y la usa en la segmentación del nuevo conjunto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo crear una audiencia personalizada por la API?",
+        "a": "Todavía no. La ruta es solo de lectura: crear audiencias y subir listas de usuarios no forman parte de esta versión."
+      },
+      {
+        "q": "¿Dónde uso el id de la audiencia?",
+        "a": "En targeting.custom_audiences, en la segmentación del conjunto de anuncios."
+      },
+      {
+        "q": "¿Una audiencia nueva aparece de inmediato?",
+        "a": "La lectura tiene caché de 600 s por conexión. Usa refresh=true para consultar de nuevo la plataforma."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Lister les audiences personnalisées Meta Ads",
+    "tagline": "Listez les audiences personnalisées du compte Meta Ads du client, avec id et taille approximative, pour le ciblage d'un ensemble d'annonces.",
+    "intro": "Une route liste les audiences personnalisées du compte publicitaire du client, avec id, nom, type et taille approximative. L'id va dans le ciblage de l'ensemble d'annonces, et vous lisez tout via la connexion du client, sans OAuth à développer ni app review Meta.",
+    "can": [
+      "Lister les audiences personnalisées du compte avec GET /ads/audiences.",
+      "Utiliser l'id de chaque audience dans targeting.custom_audiences à la création d'un ensemble d'annonces.",
+      "Voir le nom, le subtype et la taille approximative (approximate_size, de lower à upper) de chaque audience.",
+      "Forcer une nouvelle lecture depuis la plateforme avec refresh=true."
+    ],
+    "rules": [
+      "La route est en lecture seule. Créer des audiences et envoyer des listes d'utilisateurs ne font pas partie de cette version.",
+      "Elle n'est pas paginée : 200 éléments maximum par lecture.",
+      "Cache de 600 s par connexion. meta.cached et meta.cached_at indiquent si cela vient du cache, et refresh=true l'ignore.",
+      "La connexion va toujours dans ?customer_integration= et l'appel exige Authorization et x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Sélecteur d'audience dans votre SaaS",
+        "body": "Montrez au client les audiences qu'il a déjà dans le compte et laissez-le choisir lesquelles utiliser dans l'ensemble d'annonces."
+      },
+      {
+        "title": "Remarketing d'agence",
+        "body": "Une agence liste les audiences de visiteurs du client et crée un ensemble d'annonces qui les cible."
+      },
+      {
+        "title": "Agent IA qui construit des campagnes",
+        "body": "Un agent lit les audiences du compte, choisit celle des clients actuels et l'utilise dans le ciblage du nouvel ensemble."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je créer une audience personnalisée via l'API ?",
+        "a": "Pas encore. La route est en lecture seule : créer des audiences et envoyer des listes d'utilisateurs ne font pas partie de cette version."
+      },
+      {
+        "q": "Où utiliser l'id de l'audience ?",
+        "a": "Dans targeting.custom_audiences, dans le ciblage de l'ensemble d'annonces."
+      },
+      {
+        "q": "Une nouvelle audience apparaît-elle tout de suite ?",
+        "a": "La lecture est mise en cache 600 s par connexion. Utilisez refresh=true pour interroger à nouveau la plateforme."
+      }
+    ]
+  }
+}

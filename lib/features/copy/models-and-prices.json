@@ -1,0 +1,284 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/llm/models"
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O valor de model nas chamadas, sempre provedor/modelo, como anthropic/claude-sonnet-5-5.",
+        "en": "The model value in calls, always provider/model, such as anthropic/claude-sonnet-5-5.",
+        "es": "El valor de model en las llamadas, siempre proveedor/modelo, como anthropic/claude-sonnet-5-5.",
+        "fr": "La valeur de model dans les appels, toujours fournisseur/modèle, comme anthropic/claude-sonnet-5-5."
+      }
+    },
+    {
+      "name": "owned_by",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O provedor: openai, anthropic ou meta.",
+        "en": "The provider: openai, anthropic or meta.",
+        "es": "El proveedor: openai, anthropic o meta.",
+        "fr": "Le fournisseur : openai, anthropic ou meta."
+      }
+    },
+    {
+      "name": "context_window",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Tokens de entrada e saída que cabem numa chamada.",
+        "en": "Input and output tokens that fit in one call.",
+        "es": "Tokens de entrada y salida que caben en una llamada.",
+        "fr": "Tokens d'entrée et de sortie qui tiennent dans un appel."
+      }
+    },
+    {
+      "name": "max_output_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "O maior max_tokens que o modelo aceita.",
+        "en": "The largest max_tokens the model accepts.",
+        "es": "El mayor max_tokens que acepta el modelo.",
+        "fr": "Le plus grand max_tokens accepté par le modèle."
+      }
+    },
+    {
+      "name": "supports_tools",
+      "type": "boolean",
+      "required": true,
+      "description": {
+        "pt": "Se o modelo atende tools e devolve tool_calls.",
+        "en": "Whether the model handles tools and returns tool_calls.",
+        "es": "Si el modelo atiende tools y devuelve tool_calls.",
+        "fr": "Si le modèle gère tools et renvoie tool_calls."
+      }
+    },
+    {
+      "name": "supports_vision",
+      "type": "boolean",
+      "required": true,
+      "description": {
+        "pt": "Se o modelo aceita image_url nas mensagens.",
+        "en": "Whether the model accepts image_url in messages.",
+        "es": "Si el modelo acepta image_url en los mensajes.",
+        "fr": "Si le modèle accepte image_url dans les messages."
+      }
+    },
+    {
+      "name": "pricing.input_per_mtok",
+      "type": "number",
+      "required": true,
+      "description": {
+        "pt": "Preço de entrada em dólares por 1 milhão de tokens.",
+        "en": "Input price in dollars per 1 million tokens.",
+        "es": "Precio de entrada en dólares por 1 millón de tokens.",
+        "fr": "Prix d'entrée en dollars par million de tokens."
+      }
+    },
+    {
+      "name": "pricing.long_context",
+      "type": "object",
+      "required": true,
+      "description": {
+        "pt": "Faixa de prompt longo, quando o provedor cobra mais acima de um tamanho de entrada. null quando há um preço só.",
+        "en": "The long-prompt tier, when the provider charges more above an input size. null when there is a single price.",
+        "es": "Franja de prompt largo, cuando el proveedor cobra más por encima de un tamaño de entrada. null cuando hay un solo precio.",
+        "fr": "Palier de long prompt, quand le fournisseur facture plus au-delà d'une taille d'entrée. null quand il n'y a qu'un prix."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Listar modelos de LLM e preços",
+    "tagline": "GET /llm/models lista os modelos que você pode chamar, com preço por 1M de tokens, limites e se aceitam tools e imagens.",
+    "intro": "GET /llm/models devolve, no formato do GET /v1/models da OpenAI, os modelos ativos e liberados para a sua conta, de OpenAI, Anthropic e Meta (Muse), com preço, janela de contexto, limite de saída e suporte a tools e visão. O id de cada um é o que vai em model nas chamadas.",
+    "can": [
+      "Descobrir quais modelos a sua conta pode chamar, de OpenAI, Anthropic e Meta.",
+      "Ver o preço de entrada e de saída por 1 milhão de tokens de cada modelo.",
+      "Ver context_window e max_output_tokens para dimensionar a chamada.",
+      "Saber quais modelos têm supports_tools e supports_vision antes de enviar tools ou imagens.",
+      "Montar um seletor de modelos no seu produto a partir da lista."
+    ],
+    "rules": [
+      "A lista traz só os modelos ativos e liberados para a conta, e só dos provedores em que você cadastrou a sua chave em /merchants/credentials/{provider}.",
+      "O id é sempre provedor/modelo e é o valor de model e de models em POST /llm/chat/completions.",
+      "O preço é em dólares por 1 milhão de tokens. Alguns modelos têm pricing.long_context: acima de above_input_tokens tokens de entrada, a chamada inteira, entrada e saída, é cobrada nesses preços.",
+      "max_tokens de uma chamada não pode passar do max_output_tokens do modelo nem do teto da conta.",
+      "Só o Bearer do merchant é necessário, sem x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Seletor de modelo no seu SaaS",
+        "body": "Mostre ao usuário os modelos disponíveis com o custo de cada um, lendo direto de GET /llm/models."
+      },
+      {
+        "title": "Estimativa de custo",
+        "body": "Calcule o custo previsto de uma tarefa a partir dos preços de entrada e saída."
+      },
+      {
+        "title": "Agentes que escolhem o modelo",
+        "body": "Um agente consulta a lista e escolhe o modelo mais barato que tenha supports_tools para a tarefa."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Por que um modelo não aparece na lista?",
+        "a": "A lista só traz modelos ativos, liberados para a sua conta e de provedores em que você cadastrou a sua chave em /merchants/credentials/{provider}."
+      },
+      {
+        "q": "Quem cobra pelo uso?",
+        "a": "O provedor, na sua chave. O Connect registra os tokens e o custo de cada chamada, com o preço de GET /llm/models na hora."
+      },
+      {
+        "q": "O que é pricing.long_context?",
+        "a": "Uma faixa de prompt longo: quando a entrada passa de above_input_tokens, a chamada inteira é cobrada com os preços dessa faixa. É null nos modelos com preço único."
+      }
+    ]
+  },
+  "en": {
+    "title": "List LLM models and prices",
+    "tagline": "GET /llm/models lists the models you can call, with price per 1M tokens, limits and whether they accept tools and images.",
+    "intro": "GET /llm/models returns, in the format of OpenAI's GET /v1/models, the models active and enabled for your account, from OpenAI, Anthropic and Meta (Muse), with price, context window, output limit and support for tools and vision. Each id is what goes in model in calls.",
+    "can": [
+      "Find out which models your account can call, from OpenAI, Anthropic and Meta.",
+      "See each model's input and output price per 1 million tokens.",
+      "See context_window and max_output_tokens to size the call.",
+      "Know which models have supports_tools and supports_vision before sending tools or images.",
+      "Build a model picker in your product from the list."
+    ],
+    "rules": [
+      "The list only carries models that are active and enabled for the account, and only from providers where you registered your key in /merchants/credentials/{provider}.",
+      "The id is always provider/model and is the value of model and models in POST /llm/chat/completions.",
+      "Price is in dollars per 1 million tokens. Some models have pricing.long_context: above above_input_tokens input tokens, the whole call, input and output, is charged at those prices.",
+      "A call's max_tokens cannot exceed the model's max_output_tokens or the account cap.",
+      "Only the merchant Bearer is needed, no x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Model picker in your SaaS",
+        "body": "Show users the available models with each one's cost, reading straight from GET /llm/models."
+      },
+      {
+        "title": "Cost estimates",
+        "body": "Compute the expected cost of a task from the input and output prices."
+      },
+      {
+        "title": "Agents that pick the model",
+        "body": "An agent reads the list and picks the cheapest model with supports_tools for the task."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why is a model missing from the list?",
+        "a": "The list only carries models that are active, enabled for your account and from providers where you registered your key in /merchants/credentials/{provider}."
+      },
+      {
+        "q": "Who bills the usage?",
+        "a": "The provider, on your key. Connect records the tokens and cost of each call, at the GET /llm/models price at the time."
+      },
+      {
+        "q": "What is pricing.long_context?",
+        "a": "A long-prompt tier: when the input exceeds above_input_tokens, the whole call is charged at that tier's prices. It is null on models with a single price."
+      }
+    ]
+  },
+  "es": {
+    "title": "Listar modelos de LLM y precios",
+    "tagline": "GET /llm/models lista los modelos que puedes llamar, con precio por 1M de tokens, límites y si aceptan tools e imágenes.",
+    "intro": "GET /llm/models devuelve, en el formato de GET /v1/models de OpenAI, los modelos activos y habilitados para tu cuenta, de OpenAI, Anthropic y Meta (Muse), con precio, ventana de contexto, límite de salida y soporte de tools y visión. El id de cada uno es lo que va en model en las llamadas.",
+    "can": [
+      "Descubrir qué modelos puede llamar tu cuenta, de OpenAI, Anthropic y Meta.",
+      "Ver el precio de entrada y de salida por 1 millón de tokens de cada modelo.",
+      "Ver context_window y max_output_tokens para dimensionar la llamada.",
+      "Saber qué modelos tienen supports_tools y supports_vision antes de enviar tools o imágenes.",
+      "Armar un selector de modelos en tu producto a partir de la lista."
+    ],
+    "rules": [
+      "La lista trae solo los modelos activos y habilitados para la cuenta, y solo de los proveedores donde registraste tu clave en /merchants/credentials/{provider}.",
+      "El id es siempre proveedor/modelo y es el valor de model y models en POST /llm/chat/completions.",
+      "El precio es en dólares por 1 millón de tokens. Algunos modelos tienen pricing.long_context: por encima de above_input_tokens tokens de entrada, toda la llamada, entrada y salida, se cobra a esos precios.",
+      "El max_tokens de una llamada no puede superar el max_output_tokens del modelo ni el tope de la cuenta.",
+      "Solo se necesita el Bearer del merchant, sin x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Selector de modelo en tu SaaS",
+        "body": "Muestra a los usuarios los modelos disponibles con el costo de cada uno, leyendo directo de GET /llm/models."
+      },
+      {
+        "title": "Estimación de costos",
+        "body": "Calcula el costo previsto de una tarea a partir de los precios de entrada y salida."
+      },
+      {
+        "title": "Agentes que eligen el modelo",
+        "body": "Un agente consulta la lista y elige el modelo más barato con supports_tools para la tarea."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué un modelo no aparece en la lista?",
+        "a": "La lista solo trae modelos activos, habilitados para tu cuenta y de proveedores donde registraste tu clave en /merchants/credentials/{provider}."
+      },
+      {
+        "q": "¿Quién cobra el uso?",
+        "a": "El proveedor, en tu clave. Connect registra los tokens y el costo de cada llamada, con el precio de GET /llm/models en ese momento."
+      },
+      {
+        "q": "¿Qué es pricing.long_context?",
+        "a": "Una franja de prompt largo: cuando la entrada supera above_input_tokens, toda la llamada se cobra con los precios de esa franja. Es null en los modelos con precio único."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Lister les modèles LLM et leurs prix",
+    "tagline": "GET /llm/models liste les modèles appelables, avec prix par million de tokens, limites et prise en charge de tools et d'images.",
+    "intro": "GET /llm/models renvoie, au format du GET /v1/models d'OpenAI, les modèles actifs et activés pour votre compte, d'OpenAI, Anthropic et Meta (Muse), avec prix, fenêtre de contexte, limite de sortie et prise en charge de tools et de la vision. L'id de chacun est ce qui va dans model lors des appels.",
+    "can": [
+      "Découvrir quels modèles votre compte peut appeler, d'OpenAI, Anthropic et Meta.",
+      "Voir le prix d'entrée et de sortie par million de tokens de chaque modèle.",
+      "Voir context_window et max_output_tokens pour dimensionner l'appel.",
+      "Savoir quels modèles ont supports_tools et supports_vision avant d'envoyer tools ou images.",
+      "Construire un sélecteur de modèles dans votre produit à partir de la liste."
+    ],
+    "rules": [
+      "La liste ne contient que les modèles actifs et activés pour le compte, et seulement des fournisseurs pour lesquels vous avez enregistré votre clé dans /merchants/credentials/{provider}.",
+      "L'id est toujours fournisseur/modèle et c'est la valeur de model et models dans POST /llm/chat/completions.",
+      "Le prix est en dollars par million de tokens. Certains modèles ont pricing.long_context : au-delà de above_input_tokens tokens d'entrée, tout l'appel, entrée et sortie, est facturé à ces prix.",
+      "Le max_tokens d'un appel ne peut dépasser ni le max_output_tokens du modèle ni le plafond du compte.",
+      "Seul le Bearer du merchant est nécessaire, sans x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Sélecteur de modèle dans votre SaaS",
+        "body": "Montrez aux utilisateurs les modèles disponibles avec le coût de chacun, en lisant directement GET /llm/models."
+      },
+      {
+        "title": "Estimation des coûts",
+        "body": "Calculez le coût prévu d'une tâche à partir des prix d'entrée et de sortie."
+      },
+      {
+        "title": "Agents qui choisissent le modèle",
+        "body": "Un agent consulte la liste et choisit le modèle le moins cher avec supports_tools pour la tâche."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi un modèle manque-t-il dans la liste ?",
+        "a": "La liste ne contient que des modèles actifs, activés pour votre compte et de fournisseurs pour lesquels vous avez enregistré votre clé dans /merchants/credentials/{provider}."
+      },
+      {
+        "q": "Qui facture l'usage ?",
+        "a": "Le fournisseur, sur votre clé. Connect enregistre les tokens et le coût de chaque appel, au prix de GET /llm/models à ce moment-là."
+      },
+      {
+        "q": "Qu'est-ce que pricing.long_context ?",
+        "a": "Un palier de long prompt : quand l'entrée dépasse above_input_tokens, tout l'appel est facturé aux prix de ce palier. Il vaut null pour les modèles à prix unique."
+      }
+    ]
+  }
+}

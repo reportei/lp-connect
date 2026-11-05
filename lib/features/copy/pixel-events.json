@@ -1,0 +1,272 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/ads/facebook_ads/pixels/900000000000001/events",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "uuid da conexão do cliente. Define a conta de anúncios. Vai sempre na query.",
+        "en": "The uuid of the customer's connection. It defines the ad account. Always goes in the query.",
+        "es": "El uuid de la conexión del cliente. Define la cuenta de anuncios. Va siempre en la query.",
+        "fr": "L'uuid de la connexion du client. Il définit le compte publicitaire. Toujours dans la query."
+      }
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Em /pixels/{id}/events: o id do pixel, vindo de GET /ads/facebook_ads/pixels.",
+        "en": "In /pixels/{id}/events: the pixel id, from GET /ads/facebook_ads/pixels.",
+        "es": "En /pixels/{id}/events: el id del pixel, obtenido de GET /ads/facebook_ads/pixels.",
+        "fr": "Dans /pixels/{id}/events : l'id du pixel, obtenu via GET /ads/facebook_ads/pixels."
+      }
+    },
+    {
+      "name": "refresh",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Ignora o cache de 600 s e busca de novo na plataforma.",
+        "en": "Bypasses the 600 s cache and fetches again from the platform.",
+        "es": "Ignora el caché de 600 s y consulta de nuevo la plataforma.",
+        "fr": "Ignore le cache de 600 s et interroge à nouveau la plateforme."
+      }
+    },
+    {
+      "name": "event_name",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o nome do evento que o pixel registrou.",
+        "en": "In the response: the name of the event the pixel recorded.",
+        "es": "En la respuesta: el nombre del evento que el pixel registró.",
+        "fr": "Dans la réponse : le nom de l'événement enregistré par le pixel."
+      }
+    },
+    {
+      "name": "count",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: quantas vezes o evento ocorreu nos últimos 90 dias.",
+        "en": "In the response: how many times the event occurred in the last 90 days.",
+        "es": "En la respuesta: cuántas veces ocurrió el evento en los últimos 90 días.",
+        "fr": "Dans la réponse : combien de fois l'événement s'est produit ces 90 derniers jours."
+      }
+    },
+    {
+      "name": "last_fired_at",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na lista de pixels: quando o pixel disparou pela última vez.",
+        "en": "In the pixels list: when the pixel last fired.",
+        "es": "En la lista de pixels: cuándo disparó el pixel por última vez.",
+        "fr": "Dans la liste des pixels : quand le pixel s'est déclenché pour la dernière fois."
+      }
+    },
+    {
+      "name": "is_unavailable",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Na lista de pixels: indica se o pixel está indisponível.",
+        "en": "In the pixels list: tells whether the pixel is unavailable.",
+        "es": "En la lista de pixels: indica si el pixel no está disponible.",
+        "fr": "Dans la liste des pixels : indique si le pixel est indisponible."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Listar pixels e eventos de conversão do Meta Ads",
+    "tagline": "Liste os pixels da conta de anúncios do Meta Ads do cliente e os eventos que cada um registrou nos últimos 90 dias, para otimizar por conversão.",
+    "intro": "Duas rotas mostram os pixels da conta de anúncios do cliente e os eventos que cada pixel registrou, com a contagem do período. O id do pixel vai no conjunto de anúncios otimizado para conversão, e você lê tudo pela conexão do cliente, sem implementar a API da Meta.",
+    "can": [
+      "Listar os pixels da conta com GET /ads/facebook_ads/pixels, com id, nome, last_fired_at, created_at e is_unavailable.",
+      "Ver os eventos que um pixel registrou com GET /ads/facebook_ads/pixels/{id}/events, com event_name e count.",
+      "Usar o id do pixel em adset.facebook_ads.promoted_object.pixel_id num conjunto otimizado para conversão.",
+      "Forçar uma leitura nova da plataforma com refresh=true."
+    ],
+    "rules": [
+      "A contagem de eventos cobre os últimos 90 dias, a janela que a integração usa para que eventos raros não desapareçam.",
+      "Não é paginada: vêm no máximo 200 itens por leitura.",
+      "Cache de 600 s por conexão. meta.cached e meta.cached_at mostram se veio do cache, e refresh=true ignora.",
+      "Um id de pixel que não é da conta da conexão responde 404 ads_object_not_found.",
+      "A conexão vai sempre em ?customer_integration= e a chamada exige Authorization e x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Checar o pixel antes de subir a campanha",
+        "body": "Seu SaaS confere se o pixel do cliente registrou Purchase nos últimos 90 dias antes de permitir otimizar por compra."
+      },
+      {
+        "title": "Diagnóstico de rastreamento numa agência",
+        "body": "Uma agência lista os pixels e a data do último disparo para achar quem parou de funcionar."
+      },
+      {
+        "title": "Agente de IA que escolhe o evento",
+        "body": "Um agente lê os eventos do pixel, escolhe o de maior volume e configura o conjunto de anúncios com ele."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qual o período da contagem de eventos?",
+        "a": "Os últimos 90 dias, a janela que a integração usa para que eventos raros não desapareçam."
+      },
+      {
+        "q": "Onde uso o id do pixel?",
+        "a": "Em adset.facebook_ads.promoted_object.pixel_id, num conjunto de anúncios otimizado para conversão."
+      },
+      {
+        "q": "Como sei se o pixel está funcionando?",
+        "a": "GET /ads/facebook_ads/pixels traz last_fired_at e is_unavailable, e a rota de eventos mostra quais eventos chegaram e quantas vezes."
+      }
+    ]
+  },
+  "en": {
+    "title": "List Meta Ads pixels and conversion events",
+    "tagline": "List the pixels in a customer's Meta Ads account and the events each one recorded in the last 90 days, to optimize for conversions.",
+    "intro": "Two routes show the pixels in the customer's ad account and the events each pixel recorded, with the period's count. The pixel id goes in the ad set optimized for conversion, and you read it all through the customer's connection, without implementing the Meta API.",
+    "can": [
+      "List the account's pixels with GET /ads/facebook_ads/pixels, with id, name, last_fired_at, created_at and is_unavailable.",
+      "See the events a pixel recorded with GET /ads/facebook_ads/pixels/{id}/events, with event_name and count.",
+      "Use the pixel id in adset.facebook_ads.promoted_object.pixel_id on a conversion-optimized ad set.",
+      "Force a fresh read from the platform with refresh=true."
+    ],
+    "rules": [
+      "The event count covers the last 90 days, the window the integration uses so rare events do not disappear.",
+      "It is not paginated: at most 200 items come back per read.",
+      "Cached for 600 s per connection. meta.cached and meta.cached_at show whether it came from the cache, and refresh=true bypasses it.",
+      "A pixel id that is not in the connection's account answers 404 ads_object_not_found.",
+      "The connection always goes in ?customer_integration= and the call needs Authorization and x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Check the pixel before launching",
+        "body": "Your SaaS checks that the customer's pixel recorded Purchase in the last 90 days before allowing purchase optimization."
+      },
+      {
+        "title": "Tracking diagnosis at an agency",
+        "body": "An agency lists pixels and their last fire date to find the ones that stopped working."
+      },
+      {
+        "title": "AI agent that picks the event",
+        "body": "An agent reads the pixel's events, picks the highest-volume one and configures the ad set with it."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What period does the event count cover?",
+        "a": "The last 90 days, the window the integration uses so rare events do not disappear."
+      },
+      {
+        "q": "Where do I use the pixel id?",
+        "a": "In adset.facebook_ads.promoted_object.pixel_id, on a conversion-optimized ad set."
+      },
+      {
+        "q": "How do I know if the pixel is working?",
+        "a": "GET /ads/facebook_ads/pixels returns last_fired_at and is_unavailable, and the events route shows which events arrived and how many times."
+      }
+    ]
+  },
+  "es": {
+    "title": "Listar pixels y eventos de conversión de Meta Ads",
+    "tagline": "Lista los pixels de la cuenta de Meta Ads del cliente y los eventos que cada uno registró en los últimos 90 días, para optimizar por conversión.",
+    "intro": "Dos rutas muestran los pixels de la cuenta de anuncios del cliente y los eventos que cada pixel registró, con el conteo del período. El id del pixel va en el conjunto de anuncios optimizado para conversión, y lo lees todo por la conexión del cliente, sin implementar la API de Meta.",
+    "can": [
+      "Listar los pixels de la cuenta con GET /ads/facebook_ads/pixels, con id, nombre, last_fired_at, created_at e is_unavailable.",
+      "Ver los eventos que un pixel registró con GET /ads/facebook_ads/pixels/{id}/events, con event_name y count.",
+      "Usar el id del pixel en adset.facebook_ads.promoted_object.pixel_id en un conjunto optimizado para conversión.",
+      "Forzar una lectura nueva de la plataforma con refresh=true."
+    ],
+    "rules": [
+      "El conteo de eventos cubre los últimos 90 días, la ventana que usa la integración para que los eventos raros no desaparezcan.",
+      "No está paginada: vienen como máximo 200 ítems por lectura.",
+      "Caché de 600 s por conexión. meta.cached y meta.cached_at muestran si vino del caché, y refresh=true lo ignora.",
+      "Un id de pixel que no es de la cuenta de la conexión responde 404 ads_object_not_found.",
+      "La conexión va siempre en ?customer_integration= y la llamada exige Authorization y x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Revisar el pixel antes de lanzar",
+        "body": "Tu SaaS verifica que el pixel del cliente registró Purchase en los últimos 90 días antes de permitir optimizar por compra."
+      },
+      {
+        "title": "Diagnóstico de seguimiento en una agencia",
+        "body": "Una agencia lista los pixels y la fecha del último disparo para encontrar los que dejaron de funcionar."
+      },
+      {
+        "title": "Agente de IA que elige el evento",
+        "body": "Un agente lee los eventos del pixel, elige el de mayor volumen y configura el conjunto de anuncios con él."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué período cubre el conteo de eventos?",
+        "a": "Los últimos 90 días, la ventana que usa la integración para que los eventos raros no desaparezcan."
+      },
+      {
+        "q": "¿Dónde uso el id del pixel?",
+        "a": "En adset.facebook_ads.promoted_object.pixel_id, en un conjunto de anuncios optimizado para conversión."
+      },
+      {
+        "q": "¿Cómo sé si el pixel funciona?",
+        "a": "GET /ads/facebook_ads/pixels trae last_fired_at e is_unavailable, y la ruta de eventos muestra qué eventos llegaron y cuántas veces."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Lister pixels et événements de conversion Meta Ads",
+    "tagline": "Listez les pixels du compte Meta Ads du client et les événements enregistrés par chacun ces 90 derniers jours, pour optimiser sur la conversion.",
+    "intro": "Deux routes montrent les pixels du compte publicitaire du client et les événements enregistrés par chaque pixel, avec le décompte de la période. L'id du pixel va dans l'ensemble d'annonces optimisé pour la conversion, et vous lisez tout via la connexion du client, sans implémenter l'API Meta.",
+    "can": [
+      "Lister les pixels du compte avec GET /ads/facebook_ads/pixels, avec id, nom, last_fired_at, created_at et is_unavailable.",
+      "Voir les événements enregistrés par un pixel avec GET /ads/facebook_ads/pixels/{id}/events, avec event_name et count.",
+      "Utiliser l'id du pixel dans adset.facebook_ads.promoted_object.pixel_id sur un ensemble optimisé pour la conversion.",
+      "Forcer une nouvelle lecture depuis la plateforme avec refresh=true."
+    ],
+    "rules": [
+      "Le décompte des événements couvre les 90 derniers jours, la fenêtre utilisée par l'intégration pour que les événements rares ne disparaissent pas.",
+      "Elle n'est pas paginée : 200 éléments maximum par lecture.",
+      "Cache de 600 s par connexion. meta.cached et meta.cached_at indiquent si cela vient du cache, et refresh=true l'ignore.",
+      "Un id de pixel qui n'appartient pas au compte de la connexion répond 404 ads_object_not_found.",
+      "La connexion va toujours dans ?customer_integration= et l'appel exige Authorization et x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Vérifier le pixel avant le lancement",
+        "body": "Votre SaaS vérifie que le pixel du client a enregistré Purchase ces 90 derniers jours avant d'autoriser l'optimisation sur l'achat."
+      },
+      {
+        "title": "Diagnostic du suivi dans une agence",
+        "body": "Une agence liste les pixels et la date du dernier déclenchement pour trouver ceux qui ont cessé de fonctionner."
+      },
+      {
+        "title": "Agent IA qui choisit l'événement",
+        "body": "Un agent lit les événements du pixel, choisit celui au plus fort volume et configure l'ensemble d'annonces avec lui."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelle période couvre le décompte des événements ?",
+        "a": "Les 90 derniers jours, la fenêtre utilisée par l'intégration pour que les événements rares ne disparaissent pas."
+      },
+      {
+        "q": "Où utiliser l'id du pixel ?",
+        "a": "Dans adset.facebook_ads.promoted_object.pixel_id, sur un ensemble d'annonces optimisé pour la conversion."
+      },
+      {
+        "q": "Comment savoir si le pixel fonctionne ?",
+        "a": "GET /ads/facebook_ads/pixels renvoie last_fired_at et is_unavailable, et la route des événements montre quels événements sont arrivés et combien de fois."
+      }
+    ]
+  }
+}

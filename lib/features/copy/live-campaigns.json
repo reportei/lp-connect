@@ -1,0 +1,290 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/ads/campaigns",
+    "query": {
+      "customer_integration": "<connection uuid>",
+      "source": "external",
+      "status": "active",
+      "per_page": 50
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "uuid da conexão do cliente. Define a conta de anúncios. Vai sempre na query.",
+        "en": "The uuid of the customer's connection. It defines the ad account. Always goes in the query.",
+        "es": "El uuid de la conexión del cliente. Define la cuenta de anuncios. Va siempre en la query.",
+        "fr": "L'uuid de la connexion du client. Il définit le compte publicitaire. Toujours dans la query."
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "connect (padrão) lê o que o Connect criou ou já escreveu na conta. external lê a conta ao vivo, inclusive o que foi criado fora do Connect.",
+        "en": "connect (default) reads what Connect created or already wrote in the account. external reads the account live, including what was created outside Connect.",
+        "es": "connect (por defecto) lee lo que Connect creó o ya escribió en la cuenta. external lee la cuenta en vivo, incluso lo creado fuera de Connect.",
+        "fr": "connect (par défaut) lit ce que Connect a créé ou déjà écrit dans le compte. external lit le compte en direct, y compris ce qui a été créé hors de Connect."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtra por active ou paused.",
+        "en": "Filters by active or paused.",
+        "es": "Filtra por active o paused.",
+        "fr": "Filtre par active ou paused."
+      }
+    },
+    {
+      "name": "effective_status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só com source=connect. Filtra pelo status que a plataforma aplica de fato, como pending_review, disapproved ou with_issues.",
+        "en": "Only with source=connect. Filters by the status the platform actually applies, such as pending_review, disapproved or with_issues.",
+        "es": "Solo con source=connect. Filtra por el estado que la plataforma aplica realmente, como pending_review, disapproved o with_issues.",
+        "fr": "Uniquement avec source=connect. Filtre par le statut réellement appliqué par la plateforme, comme pending_review, disapproved ou with_issues."
+      }
+    },
+    {
+      "name": "refresh",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Com source=external ignora o cache de 120 s. Com source=connect relê status e nome dos itens da página e atualiza o Connect.",
+        "en": "With source=external it bypasses the 120 s cache. With source=connect it re-reads the status and name of the page's items and updates Connect.",
+        "es": "Con source=external ignora el caché de 120 s. Con source=connect relee estado y nombre de los ítems de la página y actualiza Connect.",
+        "fr": "Avec source=external, ignore le cache de 120 s. Avec source=connect, relit statut et nom des éléments de la page et met Connect à jour."
+      }
+    },
+    {
+      "name": "per_page",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Itens por página, de 1 a 100. O padrão é 15.",
+        "en": "Items per page, from 1 to 100. The default is 15.",
+        "es": "Ítems por página, de 1 a 100. El valor por defecto es 15.",
+        "fr": "Éléments par page, de 1 à 100. La valeur par défaut est 15."
+      }
+    },
+    {
+      "name": "campaign_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só em /ads/adsets e /ads: filtra pelo id da campanha ou pelo uuid do Connect.",
+        "en": "Only on /ads/adsets and /ads: filters by the campaign id or the Connect uuid.",
+        "es": "Solo en /ads/adsets y /ads: filtra por el id de la campaña o el uuid de Connect.",
+        "fr": "Uniquement sur /ads/adsets et /ads : filtre par l'id de la campagne ou l'uuid Connect."
+      }
+    },
+    {
+      "name": "include_deleted",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Só com source=connect. Inclui os objetos apagados, com deleted_at.",
+        "en": "Only with source=connect. Includes deleted objects, with deleted_at.",
+        "es": "Solo con source=connect. Incluye los objetos eliminados, con deleted_at.",
+        "fr": "Uniquement avec source=connect. Inclut les objets supprimés, avec deleted_at."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Listar campanhas, conjuntos e anúncios do Meta Ads",
+    "tagline": "Liste campanhas, conjuntos e anúncios do Meta Ads de um cliente, com status e orçamento, direto da conta ao vivo ou do que o Connect já guarda.",
+    "intro": "Três rotas GET listam campanhas, conjuntos e anúncios da conta de anúncios de um cliente, com status, status efetivo, motivos de problema e orçamento. Você escolhe ler o que o Connect guarda ou a conta ao vivo, sem implementar OAuth nem passar pelo app review da Meta.",
+    "can": [
+      "Listar campanhas, conjuntos de anúncios e anúncios com GET /ads/campaigns, /ads/adsets e /ads.",
+      "Ler a conta ao vivo com source=external, inclusive o que foi criado fora do Connect.",
+      "Filtrar por status (active ou paused) e, com source=connect, por effective_status, como pending_review ou disapproved.",
+      "Ver em issues por que a plataforma está segurando um objeto, como reprovação ou problema de entrega.",
+      "Filtrar conjuntos e anúncios por campaign_id e anúncios por adset_id, e paginar com page e per_page."
+    ],
+    "rules": [
+      "O padrão é source=connect: o que o Connect criou ou já escreveu na conta, sem chamar a plataforma. Uma conta com campanhas antigas lista vazio até a primeira escrita pelo Connect.",
+      "Para ver tudo da conta, use source=external. A leitura ao vivo tem cache de 120 s, e refresh=true ignora o cache.",
+      "Toda resposta traz synced_at, a última vez que o Connect conferiu o objeto. Com source=connect, refresh=true relê status e nome dos itens da página.",
+      "per_page vai de 1 a 100 (padrão 15) e a resposta é {data, links, meta}. Em source=external não vem meta.total, e com status a página pode passar um pouco de per_page.",
+      "Itens que o Connect guarda vêm com uuid. Os que só existem na conta vêm com uuid null. O orçamento vem na moeda da conta, nunca em centavos."
+    ],
+    "useCases": [
+      {
+        "title": "Painel de campanhas no seu SaaS",
+        "body": "Mostre ao cliente as campanhas ativas, o orçamento e o status efetivo de cada uma sem ele abrir o Gerenciador de Anúncios."
+      },
+      {
+        "title": "Alerta de anúncio reprovado",
+        "body": "Consulte periodicamente com effective_status=disapproved e avise o time quando um anúncio for rejeitado, com o motivo em issues."
+      },
+      {
+        "title": "Agente de IA que audita contas",
+        "body": "Um agente lista a conta ao vivo, encontra conjuntos com problemas de entrega e propõe pausar ou ajustar o orçamento."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Por que a lista vem vazia numa conta que já tinha campanhas?",
+        "a": "Porque o padrão é source=connect, que só mostra o que o Connect criou ou já escreveu na conta. Para ver o que foi criado fora do Connect, use source=external."
+      },
+      {
+        "q": "Os dados são em tempo real?",
+        "a": "Com source=external sim, com cache de 120 s que refresh=true ignora. Com source=connect você vê o último estado conhecido, indicado em synced_at, e refresh=true o atualiza."
+      },
+      {
+        "q": "Como filtro só o que está com problema?",
+        "a": "Use effective_status com valores como with_issues, disapproved ou pending_review (só com source=connect). O motivo vem no campo issues."
+      }
+    ]
+  },
+  "en": {
+    "title": "List Meta Ads campaigns, ad sets and ads",
+    "tagline": "List a customer's Meta Ads campaigns, ad sets and ads with status and budget, live from the account or from what Connect already stores.",
+    "intro": "Three GET routes list the campaigns, ad sets and ads of a customer's ad account, with status, effective status, issues and budget. You choose to read what Connect stores or the account live, with no OAuth to build and no Meta app review.",
+    "can": [
+      "List campaigns, ad sets and ads with GET /ads/campaigns, /ads/adsets and /ads.",
+      "Read the account live with source=external, including what was created outside Connect.",
+      "Filter by status (active or paused) and, with source=connect, by effective_status, such as pending_review or disapproved.",
+      "See in issues why the platform is holding an object, such as a rejection or a delivery problem.",
+      "Filter ad sets and ads by campaign_id and ads by adset_id, and paginate with page and per_page."
+    ],
+    "rules": [
+      "The default is source=connect: what Connect created or already wrote in the account, without calling the platform. An account with older campaigns lists empty until the first write through Connect.",
+      "To see the whole account, use source=external. The live read is cached for 120 s, and refresh=true bypasses the cache.",
+      "Every response carries synced_at, the last time Connect checked the object. With source=connect, refresh=true re-reads the status and name of the page's items.",
+      "per_page goes from 1 to 100 (default 15) and the response is {data, links, meta}. With source=external there is no meta.total, and with status the page may exceed per_page slightly.",
+      "Items Connect stores come with a uuid. Ones that only exist in the account come with uuid null. The budget comes in the account's currency, never in cents."
+    ],
+    "useCases": [
+      {
+        "title": "Campaign dashboard in your SaaS",
+        "body": "Show the customer their active campaigns, budget and effective status without opening Ads Manager."
+      },
+      {
+        "title": "Rejected ad alerts",
+        "body": "Poll with effective_status=disapproved and notify the team when an ad is rejected, with the reason in issues."
+      },
+      {
+        "title": "AI agent that audits accounts",
+        "body": "An agent lists the account live, finds ad sets with delivery problems and suggests pausing or adjusting the budget."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why is the list empty on an account that already had campaigns?",
+        "a": "Because the default is source=connect, which only shows what Connect created or already wrote in the account. To see what was created outside Connect, use source=external."
+      },
+      {
+        "q": "Is the data real time?",
+        "a": "With source=external yes, cached for 120 s and refresh=true bypasses it. With source=connect you see the last known state, shown in synced_at, and refresh=true updates it."
+      },
+      {
+        "q": "How do I filter only what has problems?",
+        "a": "Use effective_status with values such as with_issues, disapproved or pending_review (only with source=connect). The reason comes in the issues field."
+      }
+    ]
+  },
+  "es": {
+    "title": "Listar campañas, conjuntos y anuncios de Meta Ads",
+    "tagline": "Lista las campañas, conjuntos y anuncios de Meta Ads de un cliente, con estado y presupuesto, en vivo desde la cuenta o desde lo que Connect ya guarda.",
+    "intro": "Tres rutas GET listan las campañas, conjuntos y anuncios de la cuenta de anuncios de un cliente, con estado, estado efectivo, problemas y presupuesto. Eliges leer lo que Connect guarda o la cuenta en vivo, sin implementar OAuth ni pasar por el app review de Meta.",
+    "can": [
+      "Listar campañas, conjuntos de anuncios y anuncios con GET /ads/campaigns, /ads/adsets y /ads.",
+      "Leer la cuenta en vivo con source=external, incluso lo creado fuera de Connect.",
+      "Filtrar por status (active o paused) y, con source=connect, por effective_status, como pending_review o disapproved.",
+      "Ver en issues por qué la plataforma retiene un objeto, como un rechazo o un problema de entrega.",
+      "Filtrar conjuntos y anuncios por campaign_id y anuncios por adset_id, y paginar con page y per_page."
+    ],
+    "rules": [
+      "El valor por defecto es source=connect: lo que Connect creó o ya escribió en la cuenta, sin llamar a la plataforma. Una cuenta con campañas antiguas lista vacío hasta la primera escritura por Connect.",
+      "Para ver toda la cuenta, usa source=external. La lectura en vivo tiene caché de 120 s y refresh=true lo ignora.",
+      "Toda respuesta trae synced_at, la última vez que Connect revisó el objeto. Con source=connect, refresh=true relee estado y nombre de los ítems de la página.",
+      "per_page va de 1 a 100 (por defecto 15) y la respuesta es {data, links, meta}. Con source=external no viene meta.total, y con status la página puede superar un poco per_page.",
+      "Los ítems que Connect guarda traen uuid. Los que solo existen en la cuenta traen uuid null. El presupuesto viene en la moneda de la cuenta, nunca en centavos."
+    ],
+    "useCases": [
+      {
+        "title": "Panel de campañas en tu SaaS",
+        "body": "Muestra al cliente sus campañas activas, el presupuesto y el estado efectivo sin que abra el Administrador de Anuncios."
+      },
+      {
+        "title": "Alerta de anuncio rechazado",
+        "body": "Consulta periódicamente con effective_status=disapproved y avisa al equipo cuando un anuncio sea rechazado, con el motivo en issues."
+      },
+      {
+        "title": "Agente de IA que audita cuentas",
+        "body": "Un agente lista la cuenta en vivo, encuentra conjuntos con problemas de entrega y propone pausar o ajustar el presupuesto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué la lista viene vacía en una cuenta que ya tenía campañas?",
+        "a": "Porque el valor por defecto es source=connect, que solo muestra lo que Connect creó o ya escribió en la cuenta. Para ver lo creado fuera de Connect, usa source=external."
+      },
+      {
+        "q": "¿Los datos son en tiempo real?",
+        "a": "Con source=external sí, con caché de 120 s que refresh=true ignora. Con source=connect ves el último estado conocido, indicado en synced_at, y refresh=true lo actualiza."
+      },
+      {
+        "q": "¿Cómo filtro solo lo que tiene problemas?",
+        "a": "Usa effective_status con valores como with_issues, disapproved o pending_review (solo con source=connect). El motivo viene en el campo issues."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Lister campagnes, ensembles et annonces Meta Ads",
+    "tagline": "Listez les campagnes, ensembles et annonces Meta Ads d'un client, avec statut et budget, en direct depuis le compte ou depuis ce que Connect stocke.",
+    "intro": "Trois routes GET listent les campagnes, ensembles et annonces du compte publicitaire d'un client, avec statut, statut effectif, problèmes et budget. Vous choisissez de lire ce que Connect stocke ou le compte en direct, sans OAuth à développer ni app review Meta.",
+    "can": [
+      "Lister campagnes, ensembles d'annonces et annonces avec GET /ads/campaigns, /ads/adsets et /ads.",
+      "Lire le compte en direct avec source=external, y compris ce qui a été créé hors de Connect.",
+      "Filtrer par status (active ou paused) et, avec source=connect, par effective_status, comme pending_review ou disapproved.",
+      "Voir dans issues pourquoi la plateforme retient un objet, comme un refus ou un problème de diffusion.",
+      "Filtrer ensembles et annonces par campaign_id et annonces par adset_id, et paginer avec page et per_page."
+    ],
+    "rules": [
+      "La valeur par défaut est source=connect : ce que Connect a créé ou déjà écrit dans le compte, sans appeler la plateforme. Un compte avec d'anciennes campagnes liste vide jusqu'à la première écriture via Connect.",
+      "Pour voir tout le compte, utilisez source=external. La lecture en direct est mise en cache 120 s, et refresh=true ignore le cache.",
+      "Chaque réponse contient synced_at, la dernière vérification de l'objet par Connect. Avec source=connect, refresh=true relit statut et nom des éléments de la page.",
+      "per_page va de 1 à 100 (15 par défaut) et la réponse est {data, links, meta}. Avec source=external, pas de meta.total, et avec status la page peut dépasser un peu per_page.",
+      "Les éléments stockés par Connect ont un uuid. Ceux qui n'existent que dans le compte ont uuid null. Le budget est dans la devise du compte, jamais en centimes."
+    ],
+    "useCases": [
+      {
+        "title": "Tableau de bord de campagnes dans votre SaaS",
+        "body": "Montrez au client ses campagnes actives, le budget et le statut effectif sans qu'il ouvre le Gestionnaire de publicités."
+      },
+      {
+        "title": "Alerte d'annonce refusée",
+        "body": "Interrogez régulièrement avec effective_status=disapproved et prévenez l'équipe quand une annonce est refusée, avec le motif dans issues."
+      },
+      {
+        "title": "Agent IA qui audite les comptes",
+        "body": "Un agent liste le compte en direct, repère les ensembles avec des problèmes de diffusion et propose de mettre en pause ou d'ajuster le budget."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi la liste est-elle vide sur un compte qui avait déjà des campagnes ?",
+        "a": "Parce que la valeur par défaut est source=connect, qui ne montre que ce que Connect a créé ou déjà écrit dans le compte. Pour voir ce qui a été créé hors de Connect, utilisez source=external."
+      },
+      {
+        "q": "Les données sont-elles en temps réel ?",
+        "a": "Avec source=external oui, avec un cache de 120 s que refresh=true ignore. Avec source=connect, vous voyez le dernier état connu, indiqué dans synced_at, et refresh=true le met à jour."
+      },
+      {
+        "q": "Comment filtrer uniquement ce qui pose problème ?",
+        "a": "Utilisez effective_status avec des valeurs comme with_issues, disapproved ou pending_review (uniquement avec source=connect). Le motif est dans le champ issues."
+      }
+    ]
+  }
+}

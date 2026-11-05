@@ -1,0 +1,276 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/llm/chat/completions",
+    "body": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "max_tokens": 1024,
+      "messages": [
+        {
+          "role": "system",
+          "content": "You summarize marketing data in English."
+        },
+        {
+          "role": "user",
+          "content": "Summarize the account's week."
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "model",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Id do modelo, de GET /llm/models, no formato provedor/modelo.",
+        "en": "Model id from GET /llm/models, in provider/model form.",
+        "es": "Id del modelo, de GET /llm/models, con formato proveedor/modelo.",
+        "fr": "Id du modèle, issu de GET /llm/models, au format fournisseur/modèle."
+      }
+    },
+    {
+      "name": "messages",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "A conversa, como na OpenAI. role: system, developer, user, assistant ou tool.",
+        "en": "The conversation, as in OpenAI. role: system, developer, user, assistant or tool.",
+        "es": "La conversación, como en OpenAI. role: system, developer, user, assistant o tool.",
+        "fr": "La conversation, comme chez OpenAI. role : system, developer, user, assistant ou tool."
+      }
+    },
+    {
+      "name": "max_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Obrigatório (ou max_completion_tokens). Até o teto da conta e o max_output_tokens de cada modelo da chamada.",
+        "en": "Required (or max_completion_tokens). Up to the account cap and each model's max_output_tokens in the call.",
+        "es": "Obligatorio (o max_completion_tokens). Hasta el tope de la cuenta y el max_output_tokens de cada modelo de la llamada.",
+        "fr": "Obligatoire (ou max_completion_tokens). Jusqu'au plafond du compte et au max_output_tokens de chaque modèle de l'appel."
+      }
+    },
+    {
+      "name": "owned_by",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Em GET /llm/models: o provedor do modelo (openai, anthropic ou meta).",
+        "en": "In GET /llm/models: the model's provider (openai, anthropic or meta).",
+        "es": "En GET /llm/models: el proveedor del modelo (openai, anthropic o meta).",
+        "fr": "Dans GET /llm/models : le fournisseur du modèle (openai, anthropic ou meta)."
+      }
+    },
+    {
+      "name": "models",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Fallback: até 3 modelos de GET /llm/models, tentados em ordem se model falhar antes do primeiro token.",
+        "en": "Fallback: up to 3 models from GET /llm/models, tried in order if model fails before the first token.",
+        "es": "Fallback: hasta 3 modelos de GET /llm/models, probados en orden si model falla antes del primer token.",
+        "fr": "Repli : jusqu'à 3 modèles de GET /llm/models, essayés dans l'ordre si model échoue avant le premier token."
+      }
+    },
+    {
+      "name": "stream",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Com true, a resposta é text/event-stream.",
+        "en": "With true, the response is text/event-stream.",
+        "es": "Con true, la respuesta es text/event-stream.",
+        "fr": "Avec true, la réponse est en text/event-stream."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Uma API de LLM para OpenAI, Anthropic e Meta",
+    "tagline": "Chame modelos da OpenAI, da Anthropic e da Meta (Muse) com o formato de chat completions da OpenAI, usando o SDK que você já tem.",
+    "intro": "POST /llm/chat/completions tem o mesmo corpo, a mesma resposta e o mesmo stream do POST /v1/chat/completions da OpenAI, e atende modelos de três provedores. Você cadastra a chave de cada provedor uma vez e o SDK da OpenAI funciona sem adaptação: só mudam a base URL e o model.",
+    "can": [
+      "Chamar modelos da OpenAI, da Anthropic e da Meta (Muse) com um corpo único no formato OpenAI.",
+      "Listar os modelos disponíveis, com preço e limites, em GET /llm/models.",
+      "Trocar de provedor mudando apenas o valor de model, por exemplo anthropic/claude-sonnet-5-5 ou openai/gpt-5.4-mini.",
+      "Usar stream, tools e imagens nos modelos que suportam.",
+      "Autenticar só com o Bearer do merchant, sem x-customer-token."
+    ],
+    "rules": [
+      "O gateway só chama um provedor com a chave do próprio merchant, cadastrada uma vez em /merchants/credentials/{openai|anthropic|meta}. O provedor cobra direto de você.",
+      "Sem a chave do provedor de um modelo da chamada, a resposta é 400 llm_credential_missing.",
+      "max_tokens (ou max_completion_tokens) é obrigatório em toda chamada.",
+      "n precisa ser 1 ou ausente; audio, modalities, prediction, logprobs, top_logprobs e logit_bias não são aceitos (llm_unsupported_field).",
+      "Os erros vêm no formato de erro da OpenAI: {\"error\": {\"message\", \"type\", \"code\"}}. Ramifique por error.code."
+    ],
+    "useCases": [
+      {
+        "title": "Recursos de IA no seu SaaS",
+        "body": "Resuma relatórios, gere legendas ou responda perguntas dos clientes com um modelo à escolha, sem escrever um cliente por provedor."
+      },
+      {
+        "title": "Agentes de IA",
+        "body": "Seu agente usa o SDK da OpenAI apontado para o Connect e alterna entre modelos conforme a tarefa."
+      },
+      {
+        "title": "Comparar modelos",
+        "body": "Rode o mesmo prompt em modelos de provedores diferentes mudando só o model, para escolher o melhor custo e qualidade."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso usar o SDK da OpenAI?",
+        "a": "Sim. O corpo, a resposta e o stream são os da OpenAI, então o SDK funciona sem adaptação: aponte a base URL para o Connect, use o Bearer do merchant e escolha o model de GET /llm/models."
+      },
+      {
+        "q": "Quem paga pelo uso dos modelos?",
+        "a": "O provedor, na sua conta. O gateway só chama um provedor com a chave que você cadastrou em /merchants/credentials/{openai|anthropic|meta}. O Connect registra os tokens e o custo de cada chamada."
+      },
+      {
+        "q": "Preciso do x-customer-token?",
+        "a": "Não. As rotas de LLM usam só o Bearer do merchant: o uso e o custo são do merchant, não de um cliente."
+      }
+    ]
+  },
+  "en": {
+    "title": "One LLM API for OpenAI, Anthropic and Meta",
+    "tagline": "Call OpenAI, Anthropic and Meta (Muse) models with the OpenAI chat completions format, using the SDK you already have.",
+    "intro": "POST /llm/chat/completions has the same body, response and stream as OpenAI's POST /v1/chat/completions, and serves models from three providers. You register each provider key once and the OpenAI SDK works without adaptation: only the base URL and the model change.",
+    "can": [
+      "Call OpenAI, Anthropic and Meta (Muse) models with a single body in the OpenAI format.",
+      "List the available models, with price and limits, in GET /llm/models.",
+      "Switch provider by changing only the value of model, for example anthropic/claude-sonnet-5-5 or openai/gpt-5.4-mini.",
+      "Use stream, tools and images on the models that support them.",
+      "Authenticate with the merchant Bearer only, no x-customer-token."
+    ],
+    "rules": [
+      "The gateway only calls a provider with the merchant's own key, registered once in /merchants/credentials/{openai|anthropic|meta}. The provider bills you directly.",
+      "Without the provider key for a model in the call, the response is 400 llm_credential_missing.",
+      "max_tokens (or max_completion_tokens) is required on every call.",
+      "n must be 1 or absent; audio, modalities, prediction, logprobs, top_logprobs and logit_bias are not accepted (llm_unsupported_field).",
+      "Errors come in the OpenAI error format: {\"error\": {\"message\", \"type\", \"code\"}}. Branch on error.code."
+    ],
+    "useCases": [
+      {
+        "title": "AI features in your SaaS",
+        "body": "Summarize reports, write captions or answer customer questions with the model of your choice, without writing one client per provider."
+      },
+      {
+        "title": "AI agents",
+        "body": "Your agent uses the OpenAI SDK pointed at Connect and switches models depending on the task."
+      },
+      {
+        "title": "Comparing models",
+        "body": "Run the same prompt on models from different providers by changing only model, to pick the best cost and quality."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use the OpenAI SDK?",
+        "a": "Yes. The body, response and stream are OpenAI's, so the SDK works without adaptation: point the base URL to Connect, use the merchant Bearer and pick the model from GET /llm/models."
+      },
+      {
+        "q": "Who pays for model usage?",
+        "a": "The provider, on your account. The gateway only calls a provider with the key you registered in /merchants/credentials/{openai|anthropic|meta}. Connect records the tokens and cost of each call."
+      },
+      {
+        "q": "Do I need the x-customer-token?",
+        "a": "No. LLM routes use only the merchant Bearer: usage and cost belong to the merchant, not to a customer."
+      }
+    ]
+  },
+  "es": {
+    "title": "Una API de LLM para OpenAI, Anthropic y Meta",
+    "tagline": "Llama a modelos de OpenAI, Anthropic y Meta (Muse) con el formato de chat completions de OpenAI, usando el SDK que ya tienes.",
+    "intro": "POST /llm/chat/completions tiene el mismo cuerpo, la misma respuesta y el mismo stream que POST /v1/chat/completions de OpenAI, y atiende modelos de tres proveedores. Registras la clave de cada proveedor una vez y el SDK de OpenAI funciona sin adaptación: solo cambian la base URL y el model.",
+    "can": [
+      "Llamar a modelos de OpenAI, Anthropic y Meta (Muse) con un único cuerpo en formato OpenAI.",
+      "Listar los modelos disponibles, con precio y límites, en GET /llm/models.",
+      "Cambiar de proveedor modificando solo el valor de model, por ejemplo anthropic/claude-sonnet-5-5 u openai/gpt-5.4-mini.",
+      "Usar stream, tools e imágenes en los modelos que lo soportan.",
+      "Autenticar solo con el Bearer del merchant, sin x-customer-token."
+    ],
+    "rules": [
+      "El gateway solo llama a un proveedor con la clave del propio merchant, registrada una vez en /merchants/credentials/{openai|anthropic|meta}. El proveedor te cobra directamente.",
+      "Sin la clave del proveedor de un modelo de la llamada, la respuesta es 400 llm_credential_missing.",
+      "max_tokens (o max_completion_tokens) es obligatorio en toda llamada.",
+      "n debe ser 1 o estar ausente; audio, modalities, prediction, logprobs, top_logprobs y logit_bias no se aceptan (llm_unsupported_field).",
+      "Los errores vienen en el formato de error de OpenAI: {\"error\": {\"message\", \"type\", \"code\"}}. Ramifica por error.code."
+    ],
+    "useCases": [
+      {
+        "title": "Funciones de IA en tu SaaS",
+        "body": "Resume informes, genera descripciones o responde preguntas de los clientes con el modelo que elijas, sin escribir un cliente por proveedor."
+      },
+      {
+        "title": "Agentes de IA",
+        "body": "Tu agente usa el SDK de OpenAI apuntado a Connect y alterna entre modelos según la tarea."
+      },
+      {
+        "title": "Comparar modelos",
+        "body": "Ejecuta el mismo prompt en modelos de distintos proveedores cambiando solo model, para elegir el mejor costo y calidad."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo usar el SDK de OpenAI?",
+        "a": "Sí. El cuerpo, la respuesta y el stream son los de OpenAI, así que el SDK funciona sin adaptación: apunta la base URL a Connect, usa el Bearer del merchant y elige el model de GET /llm/models."
+      },
+      {
+        "q": "¿Quién paga el uso de los modelos?",
+        "a": "El proveedor, en tu cuenta. El gateway solo llama a un proveedor con la clave que registraste en /merchants/credentials/{openai|anthropic|meta}. Connect registra los tokens y el costo de cada llamada."
+      },
+      {
+        "q": "¿Necesito el x-customer-token?",
+        "a": "No. Las rutas de LLM usan solo el Bearer del merchant: el uso y el costo son del merchant, no de un cliente."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Une API LLM pour OpenAI, Anthropic et Meta",
+    "tagline": "Appelez des modèles OpenAI, Anthropic et Meta (Muse) au format chat completions d'OpenAI, avec le SDK que vous utilisez déjà.",
+    "intro": "POST /llm/chat/completions a le même corps, la même réponse et le même stream que POST /v1/chat/completions d'OpenAI, et sert des modèles de trois fournisseurs. Vous enregistrez la clé de chaque fournisseur une fois et le SDK OpenAI fonctionne sans adaptation : seuls la base URL et le model changent.",
+    "can": [
+      "Appeler des modèles OpenAI, Anthropic et Meta (Muse) avec un seul corps au format OpenAI.",
+      "Lister les modèles disponibles, avec prix et limites, dans GET /llm/models.",
+      "Changer de fournisseur en modifiant seulement la valeur de model, par exemple anthropic/claude-sonnet-5-5 ou openai/gpt-5.4-mini.",
+      "Utiliser stream, tools et images sur les modèles qui les gèrent.",
+      "S'authentifier avec le seul Bearer du merchant, sans x-customer-token."
+    ],
+    "rules": [
+      "La passerelle n'appelle un fournisseur qu'avec la clé du merchant lui-même, enregistrée une fois dans /merchants/credentials/{openai|anthropic|meta}. Le fournisseur vous facture directement.",
+      "Sans la clé du fournisseur d'un modèle de l'appel, la réponse est 400 llm_credential_missing.",
+      "max_tokens (ou max_completion_tokens) est obligatoire à chaque appel.",
+      "n doit valoir 1 ou être absent ; audio, modalities, prediction, logprobs, top_logprobs et logit_bias ne sont pas acceptés (llm_unsupported_field).",
+      "Les erreurs arrivent au format d'erreur d'OpenAI : {\"error\": {\"message\", \"type\", \"code\"}}. Branchez sur error.code."
+    ],
+    "useCases": [
+      {
+        "title": "Fonctions d'IA dans votre SaaS",
+        "body": "Résumez des rapports, rédigez des légendes ou répondez aux questions des clients avec le modèle de votre choix, sans écrire un client par fournisseur."
+      },
+      {
+        "title": "Agents IA",
+        "body": "Votre agent utilise le SDK OpenAI pointé vers Connect et alterne entre les modèles selon la tâche."
+      },
+      {
+        "title": "Comparer des modèles",
+        "body": "Exécutez le même prompt sur des modèles de fournisseurs différents en ne changeant que model, pour choisir le meilleur coût et la meilleure qualité."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je utiliser le SDK OpenAI ?",
+        "a": "Oui. Le corps, la réponse et le stream sont ceux d'OpenAI, le SDK fonctionne donc sans adaptation : pointez la base URL vers Connect, utilisez le Bearer du merchant et choisissez le model dans GET /llm/models."
+      },
+      {
+        "q": "Qui paie l'usage des modèles ?",
+        "a": "Le fournisseur, sur votre compte. La passerelle n'appelle un fournisseur qu'avec la clé que vous avez enregistrée dans /merchants/credentials/{openai|anthropic|meta}. Connect enregistre les tokens et le coût de chaque appel."
+      },
+      {
+        "q": "Ai-je besoin du x-customer-token ?",
+        "a": "Non. Les routes LLM n'utilisent que le Bearer du merchant : l'usage et le coût sont ceux du merchant, pas d'un client."
+      }
+    ]
+  }
+}

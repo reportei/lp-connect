@@ -1,0 +1,290 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "fb-reel-55",
+      "format": "reels",
+      "caption": "Bastidores da loja",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://cdn.example.com/reel.mp4"
+        }
+      ],
+      "facebook": {
+        "title": "Bastidores",
+        "cover_url": "https://cdn.example.com/capa.jpg"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Texto do post. Até 2200 caracteres. Stories não levam legenda.",
+        "en": "Post text. Up to 2200 characters. Stories carry no caption.",
+        "es": "Texto del post. Hasta 2200 caracteres. Los stories no llevan leyenda.",
+        "fr": "Texte du post. Jusqu'à 2200 caractères. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "facebook.title",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Título do reel, até 255 caracteres. Só em reels.",
+        "en": "Reel title, up to 255 characters. Reels only.",
+        "es": "Título del reel, hasta 255 caracteres. Solo en reels.",
+        "fr": "Titre du reel, 255 caractères max. Reels uniquement."
+      }
+    },
+    {
+      "name": "facebook.cover_url",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "URL https:// da capa do reel. Se a rede recusar a imagem, o reel sai com a capa que ela escolher. Só em reels.",
+        "en": "https:// URL of the reel's cover. If the network refuses the image, the reel goes out with the cover it picks. Reels only.",
+        "es": "URL https:// de la portada del reel. Si la red rechaza la imagen, el reel sale con la portada que ella elija. Solo en reels.",
+        "fr": "URL https:// de la couverture du reel. Si le réseau refuse l'image, le reel sort avec la couverture qu'il choisit. Reels uniquement."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar reels na Página do Facebook",
+    "tagline": "Publique reels na Página do Facebook dos seus clientes com POST /posts, com título e capa, sem app review e sem lidar com tokens.",
+    "intro": "Com format reels e integration_slug facebook, o Connect publica um reel na Página que o seu cliente conectou. Vídeo de Página no Facebook vai por esse formato.",
+    "can": [
+      "Publicar um reel a partir de uma URL de vídeo https:// pública.",
+      "Definir o título com facebook.title.",
+      "Escolher a capa com facebook.cover_url.",
+      "Usar a Página pela conexão ou por integration_slug e source_name."
+    ],
+    "rules": [
+      "Reels aceita exatamente 1 vídeo.",
+      "O título vai até 255 caracteres.",
+      "Se a rede recusar a imagem de cover_url, o reel sai com a capa que ela escolher.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e Idempotency-Key evita duplicar a publicação."
+    ],
+    "useCases": [
+      {
+        "title": "Ferramenta de vídeo",
+        "body": "Seu SaaS publica o vídeo curto exportado direto na Página do cliente, com título e capa."
+      },
+      {
+        "title": "Agência",
+        "body": "Publique o mesmo reel nas Páginas de vários clientes com uma chamada por conexão."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Um agente gera o vídeo, define o título e publica o reel sem intervenção."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Por que não posso enviar vídeo no feed?",
+        "a": "O feed da Página recusa vídeo: vídeo de Página vai como reels."
+      },
+      {
+        "q": "Posso escolher a capa?",
+        "a": "Sim, com facebook.cover_url. Se a rede recusar a imagem, o reel sai com a capa escolhida por ela."
+      },
+      {
+        "q": "Quantos vídeos por reel?",
+        "a": "Exatamente 1."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish reels to a Facebook Page",
+    "tagline": "Publish reels to your customers' Facebook Page with POST /posts, with title and cover, no app review and no token handling.",
+    "intro": "With format reels and integration_slug facebook, Connect publishes a reel to the Page your customer connected. Video on a Facebook Page goes through this format.",
+    "can": [
+      "Publish a reel from a public https:// video URL.",
+      "Set the title with facebook.title.",
+      "Pick the cover with facebook.cover_url.",
+      "Target the Page by connection or by integration_slug and source_name."
+    ],
+    "rules": [
+      "Reels takes exactly 1 video.",
+      "The title goes up to 255 characters.",
+      "If the network refuses the cover_url image, the reel goes out with the cover it picks.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and Idempotency-Key avoids duplicating the publication."
+    ],
+    "useCases": [
+      {
+        "title": "Video tool",
+        "body": "Your SaaS publishes the exported short video straight to the customer's Page, with title and cover."
+      },
+      {
+        "title": "Agency",
+        "body": "Publish the same reel to several clients' Pages with one call per connection."
+      },
+      {
+        "title": "AI agent",
+        "body": "An agent generates the video, sets the title and publishes the reel with no intervention."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why can't I send video on the feed?",
+        "a": "The Page feed refuses video: Page video goes as reels."
+      },
+      {
+        "q": "Can I choose the cover?",
+        "a": "Yes, with facebook.cover_url. If the network refuses the image, the reel goes out with the cover it picks."
+      },
+      {
+        "q": "How many videos per reel?",
+        "a": "Exactly 1."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar reels en la Página de Facebook",
+    "tagline": "Publica reels en la Página de Facebook de tus clientes con POST /posts, con título y portada, sin app review y sin manejar tokens.",
+    "intro": "Con format reels e integration_slug facebook, Connect publica un reel en la Página que tu cliente conectó. El video de Página en Facebook va por este formato.",
+    "can": [
+      "Publicar un reel desde una URL de video https:// pública.",
+      "Definir el título con facebook.title.",
+      "Elegir la portada con facebook.cover_url.",
+      "Apuntar a la Página por conexión o por integration_slug y source_name."
+    ],
+    "rules": [
+      "Reels acepta exactamente 1 video.",
+      "El título llega hasta 255 caracteres.",
+      "Si la red rechaza la imagen de cover_url, el reel sale con la portada que ella elija.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio e Idempotency-Key evita duplicar la publicación."
+    ],
+    "useCases": [
+      {
+        "title": "Herramienta de video",
+        "body": "Tu SaaS publica el video corto exportado directo en la Página del cliente, con título y portada."
+      },
+      {
+        "title": "Agencia",
+        "body": "Publica el mismo reel en las Páginas de varios clientes con una llamada por conexión."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Un agente genera el video, define el título y publica el reel sin intervención."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué no puedo enviar video en el feed?",
+        "a": "El feed de la Página rechaza video: el video de Página va como reels."
+      },
+      {
+        "q": "¿Puedo elegir la portada?",
+        "a": "Sí, con facebook.cover_url. Si la red rechaza la imagen, el reel sale con la portada que ella elija."
+      },
+      {
+        "q": "¿Cuántos videos por reel?",
+        "a": "Exactamente 1."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des reels sur une Page Facebook",
+    "tagline": "Publiez des reels sur la Page Facebook de vos clients avec POST /posts, avec titre et couverture, sans app review ni gestion de tokens.",
+    "intro": "Avec format reels et integration_slug facebook, Connect publie un reel sur la Page que votre client a connectée. La vidéo de Page Facebook passe par ce format.",
+    "can": [
+      "Publier un reel à partir d'une URL de vidéo https:// publique.",
+      "Définir le titre avec facebook.title.",
+      "Choisir la couverture avec facebook.cover_url.",
+      "Cibler la Page par connexion ou par integration_slug et source_name."
+    ],
+    "rules": [
+      "Reels accepte exactement 1 vidéo.",
+      "Le titre va jusqu'à 255 caractères.",
+      "Si le réseau refuse l'image de cover_url, le reel sort avec la couverture qu'il choisit.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et Idempotency-Key évite de dupliquer la publication."
+    ],
+    "useCases": [
+      {
+        "title": "Outil vidéo",
+        "body": "Votre SaaS publie la vidéo courte exportée directement sur la Page du client, avec titre et couverture."
+      },
+      {
+        "title": "Agence",
+        "body": "Publiez le même reel sur les Pages de plusieurs clients avec un appel par connexion."
+      },
+      {
+        "title": "Agent IA",
+        "body": "Un agent génère la vidéo, définit le titre et publie le reel sans intervention."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi ne puis-je pas envoyer une vidéo dans le feed ?",
+        "a": "Le feed de la Page refuse la vidéo : la vidéo de Page passe en reels."
+      },
+      {
+        "q": "Puis-je choisir la couverture ?",
+        "a": "Oui, avec facebook.cover_url. Si le réseau refuse l'image, le reel sort avec la couverture qu'il choisit."
+      },
+      {
+        "q": "Combien de vidéos par reel ?",
+        "a": "Exactement 1."
+      }
+    ]
+  }
+}

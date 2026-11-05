@@ -1,0 +1,343 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/adsets",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "campaign_id": "120250000000000001",
+      "name": "BR 25-45",
+      "budget": {
+        "amount": 20,
+        "type": "daily"
+      },
+      "targeting": {
+        "countries": [
+          "BR"
+        ],
+        "age_min": 25,
+        "age_max": 45
+      },
+      "facebook_ads": {
+        "optimization_goal": "link_clicks",
+        "billing_event": "impressions"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "campaign_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "A campanha, pelo id dela ou pelo uuid do Connect.",
+        "en": "The campaign, by its id or by the Connect uuid.",
+        "es": "La campaña, por su id o por el uuid de Connect.",
+        "fr": "La campagne, par son id ou par l'uuid Connect."
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome do conjunto de anúncios.",
+        "en": "Ad set name.",
+        "es": "Nombre del conjunto de anuncios.",
+        "fr": "Nom de l'ensemble de publicités."
+      }
+    },
+    {
+      "name": "budget.amount",
+      "type": "number",
+      "required": false,
+      "description": {
+        "pt": "Orçamento do conjunto (ABO), na moeda da conta. Só vale se a campanha não tem orçamento.",
+        "en": "Ad set budget (ABO), in the account's currency. Only valid when the campaign has no budget.",
+        "es": "Presupuesto del conjunto (ABO), en la moneda de la cuenta. Solo vale si la campaña no tiene presupuesto.",
+        "fr": "Budget de l'ensemble (ABO), dans la devise du compte. Valable seulement si la campagne n'a pas de budget."
+      }
+    },
+    {
+      "name": "schedule.end",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Data de término. Obrigatória quando budget.type é lifetime.",
+        "en": "End date. Required when budget.type is lifetime.",
+        "es": "Fecha de fin. Obligatoria cuando budget.type es lifetime.",
+        "fr": "Date de fin. Obligatoire quand budget.type vaut lifetime."
+      }
+    },
+    {
+      "name": "targeting.countries",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Países do público, por exemplo [\"BR\"]. O restante da segmentação vai em facebook_ads.targeting.",
+        "en": "Audience countries, for example [\"BR\"]. The rest of the targeting goes in facebook_ads.targeting.",
+        "es": "Países del público, por ejemplo [\"BR\"]. El resto de la segmentación va en facebook_ads.targeting.",
+        "fr": "Pays de l'audience, par exemple [\"BR\"]. Le reste du ciblage va dans facebook_ads.targeting."
+      }
+    },
+    {
+      "name": "facebook_ads.optimization_goal",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Meta de otimização. Obrigatório na criação; valores em GET /ads/options.",
+        "en": "Optimization goal. Required on create; values in GET /ads/options.",
+        "es": "Meta de optimización. Obligatorio al crear; valores en GET /ads/options.",
+        "fr": "Objectif d'optimisation. Obligatoire à la création ; valeurs dans GET /ads/options."
+      }
+    },
+    {
+      "name": "facebook_ads.billing_event",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Evento de cobrança. Obrigatório na criação.",
+        "en": "Billing event. Required on create.",
+        "es": "Evento de facturación. Obligatorio al crear.",
+        "fr": "Événement de facturation. Obligatoire à la création."
+      }
+    },
+    {
+      "name": "facebook_ads.bid_strategy",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "lowest_cost, bid_cap ou cost_cap.",
+        "en": "lowest_cost, bid_cap or cost_cap.",
+        "es": "lowest_cost, bid_cap o cost_cap.",
+        "fr": "lowest_cost, bid_cap ou cost_cap."
+      }
+    },
+    {
+      "name": "facebook_ads.bid_amount",
+      "type": "number",
+      "required": false,
+      "description": {
+        "pt": "Valor do lance. Exige bid_strategy.",
+        "en": "Bid amount. Requires bid_strategy.",
+        "es": "Valor de la puja. Exige bid_strategy.",
+        "fr": "Montant de l'enchère. Exige bid_strategy."
+      }
+    },
+    {
+      "name": "facebook_ads.targeting.interests",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Interesses do público, com id e name.",
+        "en": "Audience interests, with id and name.",
+        "es": "Intereses del público, con id y name.",
+        "fr": "Centres d'intérêt de l'audience, avec id et name."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Criar conjunto de anúncios no Meta Ads",
+    "tagline": "Crie conjuntos de anúncios no Meta Ads com público, orçamento, agenda e lance por API. Nasce pausado e idempotente.",
+    "intro": "Crie o conjunto dentro de uma campanha existente na conta que o cliente conectou: público, agenda, posicionamentos, meta de otimização e lance. Os campos comuns a qualquer plataforma ficam no topo e o que é específico do Meta vai no bloco facebook_ads. Sem app review e sem lidar com tokens.",
+    "can": [
+      "Segmentar por países, idade (age_min e age_max) e gêneros.",
+      "Segmentar por interesses e públicos personalizados, incluindo exclusões, em facebook_ads.targeting.",
+      "Definir agenda com schedule.start e schedule.end.",
+      "Escolher posicionamentos com facebook_ads.placements.",
+      "Escolher lance com bid_strategy (lowest_cost, bid_cap, cost_cap) e bid_amount.",
+      "Informar promoted_object, destination_type e attribution_spec na criação."
+    ],
+    "rules": [
+      "Idempotency-Key é obrigatório no header; repetir com a mesma chave devolve 200 com Idempotent-Replay: true.",
+      "Sem status, o conjunto nasce pausado.",
+      "O orçamento fica na campanha (CBO) ou no conjunto (ABO), nunca nos dois. Orçamento num conjunto de campanha CBO responde 409 budget_level_mismatch.",
+      "budget.type lifetime exige schedule.end.",
+      "facebook_ads.optimization_goal e facebook_ads.billing_event são obrigatórios; os valores aceitos estão em GET /ads/options.",
+      "promoted_object (pixel, página ou conversão personalizada) deve pertencer à conta da conexão, e vale só na criação.",
+      "bid_amount exige bid_strategy."
+    ],
+    "useCases": [
+      {
+        "title": "Construtor de campanhas dentro do SaaS",
+        "body": "Seu produto monta o público (país, idade, interesses) numa tela própria e cria o conjunto na conta do cliente com uma chamada."
+      },
+      {
+        "title": "Testes A/B de público",
+        "body": "Crie vários conjuntos na mesma campanha, mudando só a segmentação, e compare o desempenho depois."
+      },
+      {
+        "title": "Agente de IA que sugere públicos",
+        "body": "O agente propõe a segmentação, cria o conjunto pausado e entrega para aprovação antes de ativar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso criar a campanha antes?",
+        "a": "Para esta rota sim: campaign_id é obrigatório. Para criar campanha, conjunto e anúncio de uma vez, use POST /ads."
+      },
+      {
+        "q": "Onde coloco o orçamento?",
+        "a": "No conjunto só se a campanha não tiver orçamento (ABO). Se a campanha tem budget (CBO), mandar budget no conjunto responde 409 budget_level_mismatch."
+      },
+      {
+        "q": "Como descubro os valores válidos de otimização e cobrança?",
+        "a": "Em GET /ads/options?integration_slug=facebook_ads. Valor inválido responde 422 validation_error com supported_values."
+      }
+    ]
+  },
+  "en": {
+    "title": "Create a Meta Ads ad set",
+    "tagline": "Create Meta Ads ad sets with audience, budget, schedule and bid through the API. Created paused and idempotent.",
+    "intro": "Create the ad set inside an existing campaign, in the account your client connected: audience, schedule, placements, optimization goal and bid. Fields common to any platform sit at the top level and what is specific to Meta goes in the facebook_ads block. No app review and no token handling.",
+    "can": [
+      "Target by countries, age (age_min and age_max) and genders.",
+      "Target by interests and custom audiences, including exclusions, in facebook_ads.targeting.",
+      "Set a schedule with schedule.start and schedule.end.",
+      "Choose placements with facebook_ads.placements.",
+      "Choose a bid with bid_strategy (lowest_cost, bid_cap, cost_cap) and bid_amount.",
+      "Send promoted_object, destination_type and attribution_spec on create."
+    ],
+    "rules": [
+      "Idempotency-Key is required in the header; repeating with the same key returns 200 with Idempotent-Replay: true.",
+      "Without status, the ad set is created paused.",
+      "The budget sits on the campaign (CBO) or on the ad set (ABO), never on both. A budget on an ad set of a CBO campaign returns 409 budget_level_mismatch.",
+      "budget.type lifetime requires schedule.end.",
+      "facebook_ads.optimization_goal and facebook_ads.billing_event are required; accepted values are in GET /ads/options.",
+      "promoted_object (pixel, page or custom conversion) must belong to the connection's account, and applies on create only.",
+      "bid_amount requires bid_strategy."
+    ],
+    "useCases": [
+      {
+        "title": "Campaign builder inside your SaaS",
+        "body": "Your product collects the audience (country, age, interests) in its own screen and creates the ad set in the client's account with one call."
+      },
+      {
+        "title": "Audience A/B tests",
+        "body": "Create several ad sets in the same campaign, changing only the targeting, and compare performance afterwards."
+      },
+      {
+        "title": "AI agent that suggests audiences",
+        "body": "The agent proposes the targeting, creates the ad set paused and hands it over for approval before activating."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need to create the campaign first?",
+        "a": "For this route, yes: campaign_id is required. To create campaign, ad set and ad at once, use POST /ads."
+      },
+      {
+        "q": "Where do I put the budget?",
+        "a": "On the ad set only if the campaign has no budget (ABO). If the campaign has a budget (CBO), sending budget on the ad set returns 409 budget_level_mismatch."
+      },
+      {
+        "q": "How do I find valid optimization and billing values?",
+        "a": "In GET /ads/options?integration_slug=facebook_ads. An invalid value returns 422 validation_error with supported_values."
+      }
+    ]
+  },
+  "es": {
+    "title": "Crear un conjunto de anuncios en Meta Ads",
+    "tagline": "Crea conjuntos de anuncios en Meta Ads con público, presupuesto, agenda y puja por API. Nace pausado e idempotente.",
+    "intro": "Crea el conjunto dentro de una campaña existente, en la cuenta que el cliente conectó: público, agenda, ubicaciones, meta de optimización y puja. Los campos comunes a cualquier plataforma van arriba y lo específico de Meta va en el bloque facebook_ads. Sin revisión de app y sin manejar tokens.",
+    "can": [
+      "Segmentar por países, edad (age_min y age_max) y géneros.",
+      "Segmentar por intereses y públicos personalizados, incluidas exclusiones, en facebook_ads.targeting.",
+      "Definir la agenda con schedule.start y schedule.end.",
+      "Elegir ubicaciones con facebook_ads.placements.",
+      "Elegir la puja con bid_strategy (lowest_cost, bid_cap, cost_cap) y bid_amount.",
+      "Enviar promoted_object, destination_type y attribution_spec al crear."
+    ],
+    "rules": [
+      "Idempotency-Key es obligatorio en el header; repetir con la misma clave devuelve 200 con Idempotent-Replay: true.",
+      "Sin status, el conjunto nace pausado.",
+      "El presupuesto va en la campaña (CBO) o en el conjunto (ABO), nunca en los dos. Presupuesto en un conjunto de campaña CBO responde 409 budget_level_mismatch.",
+      "budget.type lifetime exige schedule.end.",
+      "facebook_ads.optimization_goal y facebook_ads.billing_event son obligatorios; los valores aceptados están en GET /ads/options.",
+      "promoted_object (píxel, página o conversión personalizada) debe pertenecer a la cuenta de la conexión y vale solo al crear.",
+      "bid_amount exige bid_strategy."
+    ],
+    "useCases": [
+      {
+        "title": "Constructor de campañas dentro del SaaS",
+        "body": "Tu producto arma el público (país, edad, intereses) en su propia pantalla y crea el conjunto en la cuenta del cliente con una llamada."
+      },
+      {
+        "title": "Pruebas A/B de público",
+        "body": "Crea varios conjuntos en la misma campaña, cambiando solo la segmentación, y compara el rendimiento después."
+      },
+      {
+        "title": "Agente de IA que sugiere públicos",
+        "body": "El agente propone la segmentación, crea el conjunto pausado y lo entrega para aprobación antes de activar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Debo crear la campaña antes?",
+        "a": "Para esta ruta sí: campaign_id es obligatorio. Para crear campaña, conjunto y anuncio de una vez, usa POST /ads."
+      },
+      {
+        "q": "¿Dónde pongo el presupuesto?",
+        "a": "En el conjunto solo si la campaña no tiene presupuesto (ABO). Si la campaña tiene budget (CBO), enviar budget en el conjunto responde 409 budget_level_mismatch."
+      },
+      {
+        "q": "¿Cómo averiguo los valores válidos de optimización y facturación?",
+        "a": "En GET /ads/options?integration_slug=facebook_ads. Un valor inválido responde 422 validation_error con supported_values."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Créer un ensemble de publicités Meta Ads",
+    "tagline": "Créez des ensembles Meta Ads avec audience, budget, calendrier et enchère par API. Créé en pause et idempotent.",
+    "intro": "Créez l'ensemble dans une campagne existante, dans le compte que le client a connecté : audience, calendrier, emplacements, objectif d'optimisation et enchère. Les champs communs à toute plateforme sont au premier niveau et ce qui est propre à Meta va dans le bloc facebook_ads. Sans revue d'app ni gestion de tokens.",
+    "can": [
+      "Cibler par pays, âge (age_min et age_max) et genres.",
+      "Cibler par centres d'intérêt et audiences personnalisées, exclusions comprises, dans facebook_ads.targeting.",
+      "Définir un calendrier avec schedule.start et schedule.end.",
+      "Choisir les emplacements avec facebook_ads.placements.",
+      "Choisir une enchère avec bid_strategy (lowest_cost, bid_cap, cost_cap) et bid_amount.",
+      "Envoyer promoted_object, destination_type et attribution_spec à la création."
+    ],
+    "rules": [
+      "Idempotency-Key est obligatoire dans le header ; répéter avec la même clé renvoie 200 avec Idempotent-Replay: true.",
+      "Sans status, l'ensemble est créé en pause.",
+      "Le budget est sur la campagne (CBO) ou sur l'ensemble (ABO), jamais sur les deux. Un budget sur un ensemble d'une campagne CBO renvoie 409 budget_level_mismatch.",
+      "budget.type lifetime exige schedule.end.",
+      "facebook_ads.optimization_goal et facebook_ads.billing_event sont obligatoires ; les valeurs acceptées sont dans GET /ads/options.",
+      "promoted_object (pixel, page ou conversion personnalisée) doit appartenir au compte de la connexion et ne vaut qu'à la création.",
+      "bid_amount exige bid_strategy."
+    ],
+    "useCases": [
+      {
+        "title": "Constructeur de campagnes dans votre SaaS",
+        "body": "Votre produit collecte l'audience (pays, âge, intérêts) dans son propre écran et crée l'ensemble dans le compte du client en un appel."
+      },
+      {
+        "title": "Tests A/B d'audience",
+        "body": "Créez plusieurs ensembles dans la même campagne, en ne changeant que le ciblage, puis comparez les performances."
+      },
+      {
+        "title": "Agent IA qui suggère des audiences",
+        "body": "L'agent propose le ciblage, crée l'ensemble en pause et le soumet à validation avant activation."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Dois-je créer la campagne avant ?",
+        "a": "Pour cette route, oui : campaign_id est obligatoire. Pour créer campagne, ensemble et annonce d'un coup, utilisez POST /ads."
+      },
+      {
+        "q": "Où mettre le budget ?",
+        "a": "Sur l'ensemble seulement si la campagne n'a pas de budget (ABO). Si la campagne a un budget (CBO), envoyer budget sur l'ensemble renvoie 409 budget_level_mismatch."
+      },
+      {
+        "q": "Comment connaître les valeurs valides d'optimisation et de facturation ?",
+        "a": "Dans GET /ads/options?integration_slug=facebook_ads. Une valeur invalide renvoie 422 validation_error avec supported_values."
+      }
+    ]
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "post-4410",
+      "format": "feed",
+      "caption": "Nova coleção no ar",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/colecao.jpg"
+        }
+      ],
+      "instagram": {
+        "first_comment": "#colecao #verao #moda",
+        "comments_disabled": false
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Legenda. No Instagram, até 2200 caracteres, 30 hashtags e 20 menções. Stories não levam legenda.",
+        "en": "Caption. On Instagram, up to 2200 characters, 30 hashtags and 20 mentions. Stories carry no caption.",
+        "es": "Leyenda. En Instagram, hasta 2200 caracteres, 30 hashtags y 20 menciones. Los stories no llevan leyenda.",
+        "fr": "Légende. Sur Instagram, jusqu'à 2200 caractères, 30 hashtags et 20 mentions. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "instagram.first_comment",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Comentário publicado pela própria conta logo após o post, até 2200 caracteres. Só em feed e reels.",
+        "en": "Comment posted by the account right after the post, up to 2200 characters. Feed and reels only.",
+        "es": "Comentario publicado por la propia cuenta justo después del post, hasta 2200 caracteres. Solo en feed y reels.",
+        "fr": "Commentaire publié par le compte juste après le post, 2200 caractères max. Feed et reels uniquement."
+      }
+    },
+    {
+      "name": "instagram.comments_disabled",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Desativa os comentários depois da publicação. Só em feed e reels.",
+        "en": "Turns comments off after publishing. Feed and reels only.",
+        "es": "Desactiva los comentarios después de publicar. Solo en feed y reels.",
+        "fr": "Désactive les commentaires après la publication. Feed et reels uniquement."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar o primeiro comentário no Instagram",
+    "tagline": "Publique um primeiro comentário junto com o post no Instagram usando instagram.first_comment no POST /posts, em feed e reels.",
+    "intro": "Com instagram.first_comment, a própria conta comenta logo depois de publicar. É útil para hashtags, links e chamadas à ação sem poluir a legenda, e vale para feed e reels.",
+    "can": [
+      "Comentar com a própria conta logo após o post.",
+      "Colocar hashtags ou um texto de apoio fora da legenda.",
+      "Desativar os comentários depois da publicação com instagram.comments_disabled.",
+      "Usar em posts de imagem, carrossel e reels, nas contas instagram e instagram_business."
+    ],
+    "rules": [
+      "first_comment aceita até 2200 caracteres.",
+      "Só vale em format feed e reels. Story não aceita.",
+      "O comentário é publicado pela própria conta, logo após o post.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Hashtags fora da legenda",
+        "body": "O SaaS publica a legenda limpa e envia as hashtags no primeiro comentário."
+      },
+      {
+        "title": "Chamada para ação",
+        "body": "Uma loja publica o produto e comenta o link de compra ou o cupom logo em seguida."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Um agente gera legenda e comentário separados e publica os dois em uma só chamada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quem publica o primeiro comentário?",
+        "a": "A própria conta conectada, logo após o post."
+      },
+      {
+        "q": "Posso usar em stories?",
+        "a": "Não. first_comment só vale em feed e reels."
+      },
+      {
+        "q": "Qual o tamanho máximo?",
+        "a": "Até 2200 caracteres."
+      }
+    ]
+  },
+  "en": {
+    "title": "Post a first comment on Instagram",
+    "tagline": "Post a first comment together with an Instagram post using instagram.first_comment in POST /posts, on feed and reels.",
+    "intro": "With instagram.first_comment, the account itself comments right after publishing. It is handy for hashtags, links and calls to action without cluttering the caption, and it works on feed and reels.",
+    "can": [
+      "Comment from the account itself right after the post.",
+      "Put hashtags or supporting text outside the caption.",
+      "Turn comments off after publishing with instagram.comments_disabled.",
+      "Use it on image posts, carousels and reels, on instagram and instagram_business accounts."
+    ],
+    "rules": [
+      "first_comment takes up to 2200 characters.",
+      "It only works on format feed and reels. Stories do not accept it.",
+      "The comment is posted by the account itself, right after the post.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and Idempotency-Key avoids duplicating."
+    ],
+    "useCases": [
+      {
+        "title": "Hashtags outside the caption",
+        "body": "Your SaaS publishes a clean caption and sends the hashtags in the first comment."
+      },
+      {
+        "title": "Call to action",
+        "body": "A store publishes the product and comments the purchase link or coupon right after."
+      },
+      {
+        "title": "AI agent",
+        "body": "An agent generates caption and comment separately and publishes both in one call."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Who posts the first comment?",
+        "a": "The connected account itself, right after the post."
+      },
+      {
+        "q": "Can I use it on stories?",
+        "a": "No. first_comment only works on feed and reels."
+      },
+      {
+        "q": "What is the maximum length?",
+        "a": "Up to 2200 characters."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar el primer comentario en Instagram",
+    "tagline": "Publica un primer comentario junto con el post de Instagram usando instagram.first_comment en POST /posts, en feed y reels.",
+    "intro": "Con instagram.first_comment, la propia cuenta comenta justo después de publicar. Es útil para hashtags, links y llamadas a la acción sin llenar la leyenda, y vale para feed y reels.",
+    "can": [
+      "Comentar con la propia cuenta justo después del post.",
+      "Poner hashtags o un texto de apoyo fuera de la leyenda.",
+      "Desactivar los comentarios después de publicar con instagram.comments_disabled.",
+      "Usarlo en posts de imagen, carrusel y reels, en cuentas instagram e instagram_business."
+    ],
+    "rules": [
+      "first_comment acepta hasta 2200 caracteres.",
+      "Solo vale en format feed y reels. Los stories no lo aceptan.",
+      "El comentario lo publica la propia cuenta, justo después del post.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Hashtags fuera de la leyenda",
+        "body": "Tu SaaS publica la leyenda limpia y envía los hashtags en el primer comentario."
+      },
+      {
+        "title": "Llamada a la acción",
+        "body": "Una tienda publica el producto y comenta el link de compra o el cupón justo después."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Un agente genera leyenda y comentario por separado y publica ambos en una sola llamada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Quién publica el primer comentario?",
+        "a": "La propia cuenta conectada, justo después del post."
+      },
+      {
+        "q": "¿Puedo usarlo en stories?",
+        "a": "No. first_comment solo vale en feed y reels."
+      },
+      {
+        "q": "¿Cuál es el tamaño máximo?",
+        "a": "Hasta 2200 caracteres."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier le premier commentaire sur Instagram",
+    "tagline": "Publiez un premier commentaire avec le post Instagram grâce à instagram.first_comment dans POST /posts, en feed et reels.",
+    "intro": "Avec instagram.first_comment, le compte lui-même commente juste après la publication. Pratique pour les hashtags, liens et appels à l'action sans encombrer la légende, en feed et reels.",
+    "can": [
+      "Commenter depuis le compte lui-même juste après le post.",
+      "Placer des hashtags ou un texte d'appui hors de la légende.",
+      "Désactiver les commentaires après publication avec instagram.comments_disabled.",
+      "L'utiliser sur les posts image, carrousels et reels, pour les comptes instagram et instagram_business."
+    ],
+    "rules": [
+      "first_comment accepte jusqu'à 2200 caractères.",
+      "Il ne vaut qu'en format feed et reels. Les stories ne l'acceptent pas.",
+      "Le commentaire est publié par le compte lui-même, juste après le post.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et Idempotency-Key évite de dupliquer."
+    ],
+    "useCases": [
+      {
+        "title": "Hashtags hors légende",
+        "body": "Votre SaaS publie une légende propre et envoie les hashtags dans le premier commentaire."
+      },
+      {
+        "title": "Appel à l'action",
+        "body": "Une boutique publie le produit et commente le lien d'achat ou le code promo juste après."
+      },
+      {
+        "title": "Agent IA",
+        "body": "Un agent génère légende et commentaire séparément et publie les deux en un seul appel."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qui publie le premier commentaire ?",
+        "a": "Le compte connecté lui-même, juste après le post."
+      },
+      {
+        "q": "Puis-je l'utiliser sur les stories ?",
+        "a": "Non. first_comment ne vaut qu'en feed et reels."
+      },
+      {
+        "q": "Quelle est la taille maximale ?",
+        "a": "Jusqu'à 2200 caractères."
+      }
+    ]
+  }
+}

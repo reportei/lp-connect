@@ -1,0 +1,338 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "video-88",
+      "format": "shorts",
+      "caption": "Behind the scenes of our latest shoot.",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://cdn.example.com/short.mp4"
+        }
+      ],
+      "youtube": {
+        "title": "Behind the scenes",
+        "privacy_status": "public",
+        "category_id": "<category id>",
+        "tags": [
+          "bts",
+          "making of"
+        ],
+        "made_for_kids": false,
+        "notify_subscribers": true
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do vídeo no seu sistema (até 100 caracteres). Impede publicar o mesmo vídeo duas vezes no mesmo canal.",
+        "en": "The video's id in your system (up to 100 characters). Stops the same video from being published twice on the same channel.",
+        "es": "El id del video en tu sistema (hasta 100 caracteres). Evita publicar el mismo video dos veces en el mismo canal.",
+        "fr": "L'id de la vidéo dans votre système (100 caractères max). Évite de publier deux fois la même vidéo sur la même chaîne."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Sempre shorts no YouTube.",
+        "en": "Always shorts on YouTube.",
+        "es": "Siempre shorts en YouTube.",
+        "fr": "Toujours shorts sur YouTube."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Vira a descrição do vídeo. Até 5000 bytes, sem < e >.",
+        "en": "Becomes the video description. Up to 5000 bytes, no < or >.",
+        "es": "Se vuelve la descripción del video. Hasta 5000 bytes, sin < ni >.",
+        "fr": "Devient la description de la vidéo. 5000 octets max, sans < ni >."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Exatamente 1 vídeo, sem alt_text.",
+        "en": "Exactly 1 video, without alt_text.",
+        "es": "Exactamente 1 video, sin alt_text.",
+        "fr": "Exactement 1 vidéo, sans alt_text."
+      }
+    },
+    {
+      "name": "youtube.title",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Título do vídeo, até 100 caracteres, sem < e >.",
+        "en": "Video title, up to 100 characters, no < or >.",
+        "es": "Título del video, hasta 100 caracteres, sin < ni >.",
+        "fr": "Titre de la vidéo, 100 caractères max, sans < ni >."
+      }
+    },
+    {
+      "name": "youtube.privacy_status",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Visibilidade: public, unlisted ou private.",
+        "en": "Visibility: public, unlisted or private.",
+        "es": "Visibilidad: public, unlisted o private.",
+        "fr": "Visibilité : public, unlisted ou private."
+      }
+    },
+    {
+      "name": "youtube.category_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Categoria do vídeo. Vem de GET /posts/youtube/categories.",
+        "en": "The video category. Comes from GET /posts/youtube/categories.",
+        "es": "Categoría del video. Viene de GET /posts/youtube/categories.",
+        "fr": "Catégorie de la vidéo. Vient de GET /posts/youtube/categories."
+      }
+    },
+    {
+      "name": "youtube.tags",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Tags do vídeo, sem <, > e vírgula. Juntas, até 500 caracteres.",
+        "en": "Video tags, without <, > or commas. Together, up to 500 characters.",
+        "es": "Etiquetas del video, sin <, > ni comas. Juntas, hasta 500 caracteres.",
+        "fr": "Tags de la vidéo, sans <, > ni virgule. Ensemble, 500 caractères max."
+      }
+    },
+    {
+      "name": "youtube.made_for_kids",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Declara o vídeo como feito para crianças.",
+        "en": "Declares the video as made for kids.",
+        "es": "Declara el video como hecho para niños.",
+        "fr": "Déclare la vidéo comme conçue pour les enfants."
+      }
+    },
+    {
+      "name": "youtube.notify_subscribers",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Notifica os inscritos do canal.",
+        "en": "Notifies the channel's subscribers.",
+        "es": "Notifica a los suscriptores del canal.",
+        "fr": "Notifie les abonnés de la chaîne."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar Shorts no YouTube",
+    "tagline": "Publique YouTube Shorts no canal do seu cliente pela API, com título, privacidade, categoria e tags, sem implementar o OAuth do Google.",
+    "intro": "Um POST /posts com a conexão youtube e o format shorts envia o vídeo para o canal que o cliente conectou. Seu produto não implementa o OAuth do YouTube nem guarda tokens: manda a URL do vídeo e o Connect publica em segundo plano, no mesmo endpoint das outras redes.",
+    "can": [
+      "Publicar um vídeo curto no canal, com título e descrição.",
+      "Escolher a visibilidade: public, unlisted ou private.",
+      "Listar as categorias atribuíveis com GET /posts/youtube/categories e usar o id em youtube.category_id.",
+      "Definir tags, a marcação de conteúdo para crianças (made_for_kids) e a notificação aos inscritos.",
+      "Escolher o canal pela conexão (customer_integration) ou pelo source_name."
+    ],
+    "rules": [
+      "O format é sempre shorts, com exatamente 1 vídeo e sem alt_text.",
+      "youtube.title (até 100 caracteres) e youtube.privacy_status são obrigatórios. Título e descrição não aceitam < e >.",
+      "A descrição (caption) vai até 5000 bytes. As tags não aceitam <, > e vírgula, e somam até 500 caracteres.",
+      "O YouTube decide se é um Short pelo próprio vídeo: vertical e de até 3 minutos.",
+      "O POST /posts responde 202 e a publicação roda depois. Acompanhe por GET /posts/{uuid}.",
+      "Vídeos acima de 8 MB podem ser enviados antes em partes pelo módulo de mídia, que devolve a URL para usar em media.url."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma de criadores",
+        "body": "O criador grava uma vez e o produto publica o Short no canal conectado, com título, tags e visibilidade definidos."
+      },
+      {
+        "title": "Reaproveitamento de vídeo curto",
+        "body": "Uma ferramenta de social media envia o mesmo vídeo vertical para Reels e YouTube Shorts em chamadas separadas."
+      },
+      {
+        "title": "Agente de IA de vídeo",
+        "body": "Um agente gera o vídeo e os metadados, escolhe a categoria em GET /posts/youtube/categories e publica como private para revisão."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como o YouTube sabe que é um Short?",
+        "a": "Pelo próprio vídeo: vertical e de até 3 minutos. Você envia format shorts e o YouTube decide."
+      },
+      {
+        "q": "Como descubro o category_id?",
+        "a": "Chame GET /posts/youtube/categories com a conexão ou o source_name. region_code (padrão BR) e hl ajustam o país e o idioma dos títulos."
+      },
+      {
+        "q": "Posso publicar como privado primeiro?",
+        "a": "Sim. youtube.privacy_status aceita public, unlisted ou private."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish YouTube Shorts",
+    "tagline": "Publish YouTube Shorts to your customer's channel through the API, with title, privacy, category and tags, with no Google OAuth to build.",
+    "intro": "A POST /posts with the youtube connection and format shorts sends the video to the channel your customer connected. Your product doesn't implement YouTube OAuth or store tokens: it sends the video URL and Connect publishes it in the background, on the same endpoint as the other networks.",
+    "can": [
+      "Publish a short video to the channel, with a title and description.",
+      "Choose the visibility: public, unlisted or private.",
+      "List the assignable categories with GET /posts/youtube/categories and use the id in youtube.category_id.",
+      "Set tags, the made-for-kids flag (made_for_kids) and the subscriber notification.",
+      "Pick the channel by connection (customer_integration) or by source_name."
+    ],
+    "rules": [
+      "The format is always shorts, with exactly 1 video and no alt_text.",
+      "youtube.title (up to 100 characters) and youtube.privacy_status are required. Title and description do not accept < or >.",
+      "The description (caption) goes up to 5000 bytes. Tags do not accept <, > or commas, and add up to 500 characters.",
+      "YouTube decides whether it is a Short from the video itself: vertical and up to 3 minutes.",
+      "POST /posts responds 202 and publishing runs afterwards. Track it with GET /posts/{uuid}.",
+      "Videos above 8 MB can be uploaded first in parts through the media module, which returns the URL to use in media.url."
+    ],
+    "useCases": [
+      {
+        "title": "Creator platform",
+        "body": "The creator records once and the product publishes the Short to the connected channel, with title, tags and visibility set."
+      },
+      {
+        "title": "Short video repurposing",
+        "body": "A social media tool sends the same vertical video to Reels and YouTube Shorts in separate calls."
+      },
+      {
+        "title": "Video AI agent",
+        "body": "An agent generates the video and metadata, picks the category from GET /posts/youtube/categories and publishes as private for review."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How does YouTube know it is a Short?",
+        "a": "From the video itself: vertical and up to 3 minutes. You send format shorts and YouTube decides."
+      },
+      {
+        "q": "How do I find the category_id?",
+        "a": "Call GET /posts/youtube/categories with the connection or source_name. region_code (default BR) and hl set the country and the language of the titles."
+      },
+      {
+        "q": "Can I publish as private first?",
+        "a": "Yes. youtube.privacy_status accepts public, unlisted or private."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar Shorts en YouTube",
+    "tagline": "Publica YouTube Shorts en el canal de tu cliente por API, con título, privacidad, categoría y etiquetas, sin implementar el OAuth de Google.",
+    "intro": "Un POST /posts con la conexión youtube y el format shorts envía el video al canal que el cliente conectó. Tu producto no implementa el OAuth de YouTube ni guarda tokens: envía la URL del video y Connect publica en segundo plano, en el mismo endpoint de las otras redes.",
+    "can": [
+      "Publicar un video corto en el canal, con título y descripción.",
+      "Elegir la visibilidad: public, unlisted o private.",
+      "Listar las categorías asignables con GET /posts/youtube/categories y usar el id en youtube.category_id.",
+      "Definir etiquetas, la marca de contenido para niños (made_for_kids) y la notificación a los suscriptores.",
+      "Elegir el canal por la conexión (customer_integration) o por source_name."
+    ],
+    "rules": [
+      "El format es siempre shorts, con exactamente 1 video y sin alt_text.",
+      "youtube.title (hasta 100 caracteres) y youtube.privacy_status son obligatorios. Título y descripción no aceptan < ni >.",
+      "La descripción (caption) llega hasta 5000 bytes. Las etiquetas no aceptan <, > ni comas, y suman hasta 500 caracteres.",
+      "YouTube decide si es un Short por el propio video: vertical y de hasta 3 minutos.",
+      "POST /posts responde 202 y la publicación corre después. Síguela con GET /posts/{uuid}.",
+      "Los videos de más de 8 MB pueden subirse antes por partes con el módulo de medios, que devuelve la URL para usar en media.url."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma para creadores",
+        "body": "El creador graba una vez y el producto publica el Short en el canal conectado, con título, etiquetas y visibilidad definidos."
+      },
+      {
+        "title": "Reutilización de video corto",
+        "body": "Una herramienta de redes sociales envía el mismo video vertical a Reels y a YouTube Shorts en llamadas separadas."
+      },
+      {
+        "title": "Agente de IA de video",
+        "body": "Un agente genera el video y los metadatos, elige la categoría en GET /posts/youtube/categories y publica como private para revisión."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo sabe YouTube que es un Short?",
+        "a": "Por el propio video: vertical y de hasta 3 minutos. Envías format shorts y YouTube decide."
+      },
+      {
+        "q": "¿Cómo encuentro el category_id?",
+        "a": "Llama a GET /posts/youtube/categories con la conexión o source_name. region_code (por defecto BR) y hl ajustan el país y el idioma de los títulos."
+      },
+      {
+        "q": "¿Puedo publicar primero como privado?",
+        "a": "Sí. youtube.privacy_status acepta public, unlisted o private."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des Shorts YouTube",
+    "tagline": "Publiez des YouTube Shorts sur la chaîne de votre client par API, avec titre, confidentialité, catégorie et tags, sans OAuth Google à développer.",
+    "intro": "Un POST /posts avec la connexion youtube et le format shorts envoie la vidéo sur la chaîne que le client a connectée. Votre produit n'implémente pas l'OAuth de YouTube et ne stocke aucun token : il envoie l'URL de la vidéo et Connect publie en arrière-plan, sur le même endpoint que les autres réseaux.",
+    "can": [
+      "Publier une vidéo courte sur la chaîne, avec titre et description.",
+      "Choisir la visibilité : public, unlisted ou private.",
+      "Lister les catégories attribuables avec GET /posts/youtube/categories et utiliser l'id dans youtube.category_id.",
+      "Définir les tags, le marquage contenu pour enfants (made_for_kids) et la notification aux abonnés.",
+      "Choisir la chaîne par la connexion (customer_integration) ou par source_name."
+    ],
+    "rules": [
+      "Le format est toujours shorts, avec exactement 1 vidéo et sans alt_text.",
+      "youtube.title (100 caractères max) et youtube.privacy_status sont obligatoires. Titre et description n'acceptent ni < ni >.",
+      "La description (caption) va jusqu'à 5000 octets. Les tags n'acceptent ni <, > ni virgule, et totalisent 500 caractères max.",
+      "YouTube décide si c'est un Short d'après la vidéo elle-même : verticale et de 3 minutes maximum.",
+      "POST /posts répond 202 et la publication se fait ensuite. Suivez-la avec GET /posts/{uuid}.",
+      "Les vidéos de plus de 8 Mo peuvent être envoyées d'abord en parties via le module média, qui renvoie l'URL à utiliser dans media.url."
+    ],
+    "useCases": [
+      {
+        "title": "Plateforme de créateurs",
+        "body": "Le créateur enregistre une fois et le produit publie le Short sur la chaîne connectée, avec titre, tags et visibilité définis."
+      },
+      {
+        "title": "Réemploi de vidéo courte",
+        "body": "Un outil de réseaux sociaux envoie la même vidéo verticale vers Reels et YouTube Shorts, dans des appels séparés."
+      },
+      {
+        "title": "Agent IA vidéo",
+        "body": "Un agent génère la vidéo et les métadonnées, choisit la catégorie dans GET /posts/youtube/categories et publie en private pour relecture."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment YouTube sait-il que c'est un Short ?",
+        "a": "D'après la vidéo elle-même : verticale et de 3 minutes maximum. Vous envoyez format shorts et YouTube décide."
+      },
+      {
+        "q": "Comment trouver le category_id ?",
+        "a": "Appelez GET /posts/youtube/categories avec la connexion ou source_name. region_code (BR par défaut) et hl règlent le pays et la langue des titres."
+      },
+      {
+        "q": "Puis-je publier d'abord en privé ?",
+        "a": "Oui. youtube.privacy_status accepte public, unlisted ou private."
+      }
+    ]
+  }
+}

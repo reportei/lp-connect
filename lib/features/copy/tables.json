@@ -1,0 +1,292 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/metrics/get-data",
+    "body": {
+      "customer_integration": "<connection uuid>",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "metrics": [
+        {
+          "id": "80e06171-759e-472e-9cff-25ae8e91e1e0",
+          "reference_key": "fb_ads:insights_by_campaign",
+          "component": "datatable_v1",
+          "metrics": [
+            "results",
+            "cost_per_results",
+            "spend",
+            "reach",
+            "impressions",
+            "ctr",
+            "cpc",
+            "cpm",
+            "frequency"
+          ]
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "UUID da conexão do cliente de onde as métricas são lidas. Uma por chamada.",
+        "en": "UUID of the customer's connection the metrics are read from. One per call.",
+        "es": "UUID de la conexión del cliente de donde se leen las métricas. Una por llamada.",
+        "fr": "UUID de la connexion du client dont les métriques sont lues. Une par appel."
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Início do período (YYYY-MM-DD). Deve ser menor ou igual a end.",
+        "en": "Start of the period (YYYY-MM-DD). Must be less than or equal to end.",
+        "es": "Inicio del período (YYYY-MM-DD). Debe ser menor o igual a end.",
+        "fr": "Début de la période (YYYY-MM-DD). Doit être inférieur ou égal à end."
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Fim do período (YYYY-MM-DD).",
+        "en": "End of the period (YYYY-MM-DD).",
+        "es": "Fin del período (YYYY-MM-DD).",
+        "fr": "Fin de la période (YYYY-MM-DD)."
+      }
+    },
+    {
+      "name": "metrics.reference_key",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Métrica do catálogo cujo component é datatable_v1 ou datagrid_v1, como fb_ads:insights_by_campaign.",
+        "en": "A catalog metric whose component is datatable_v1 or datagrid_v1, such as fb_ads:insights_by_campaign.",
+        "es": "Métrica del catálogo cuyo component es datatable_v1 o datagrid_v1, como fb_ads:insights_by_campaign.",
+        "fr": "Métrique du catalogue dont le component est datatable_v1 ou datagrid_v1, comme fb_ads:insights_by_campaign."
+      }
+    },
+    {
+      "name": "metrics.component",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "datatable_v1 para dados tabulares; datagrid_v1 para grades, como stories do Instagram.",
+        "en": "datatable_v1 for tabular data; datagrid_v1 for grids, such as Instagram stories.",
+        "es": "datatable_v1 para datos tabulares; datagrid_v1 para grillas, como stories de Instagram.",
+        "fr": "datatable_v1 pour des données tabulaires ; datagrid_v1 pour des grilles, comme les stories Instagram."
+      }
+    },
+    {
+      "name": "metrics.metrics",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "As colunas pedidas (por exemplo spend, reach, ctr).",
+        "en": "The requested columns (for example spend, reach, ctr).",
+        "es": "Las columnas pedidas (por ejemplo spend, reach, ctr).",
+        "fr": "Les colonnes demandées (par exemple spend, reach, ctr)."
+      }
+    },
+    {
+      "name": "metrics.dimensions",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "A quebra do resultado. Copie do item do catálogo.",
+        "en": "The breakdown of the result. Copy it from the catalog item.",
+        "es": "El desglose del resultado. Cópialo del ítem del catálogo.",
+        "fr": "La ventilation du résultat. Copiez-la depuis l'élément du catalogue."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Obter métricas em tabelas e grades",
+    "tagline": "Peça métricas com datatable_v1 ou datagrid_v1 e receba dados tabulares, como campanhas do Meta Ads por gasto, alcance e CTR.",
+    "intro": "Com component datatable_v1 em POST /metrics/get-data, a métrica volta como dados tabulares, com colunas (metrics) e quebra por dimensão. Há também datagrid_v1 para grades, como os stories do Instagram. Uma API para todas as contas conectadas, sem integrar rede por rede.",
+    "can": [
+      "Listar campanhas do Meta Ads com resultados, custo, gasto, alcance, impressões, CTR, CPC, CPM e frequência com fb_ads:insights_by_campaign.",
+      "Escolher as colunas em metrics e a quebra em dimensions, usando os valores do catálogo GET /metrics/{integration_slug}.",
+      "Pedir tabelas junto de números e gráficos na mesma chamada.",
+      "Usar datagrid_v1 para grades, como os stories do Instagram."
+    ],
+    "rules": [
+      "Copie o item do catálogo para metrics[] e troque metrics e dimensions pelas chaves de meta.setup do catálogo se quiser outro recorte.",
+      "Os itens do catálogo já trazem metrics e dimensions no formato aceito: copie-os como vêm.",
+      "O resultado vem em data, sob o id (UUID) de cada métrica, no formato do component.",
+      "Se uma métrica falhar sozinha, ela volta com um objeto de erro e as demais vêm com status 200.",
+      "Cada chamada lê uma conexão (customer_integration) e exige o x-customer-token do cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Tabela de campanhas no seu produto",
+        "body": "Liste as campanhas do cliente com gasto, alcance e CTR dentro da sua interface, sem integrar o Meta Ads."
+      },
+      {
+        "title": "Relatórios de performance de mídia paga",
+        "body": "Monte o ranking de campanhas de cada cliente para o relatório mensal da agência."
+      },
+      {
+        "title": "Agentes que analisam campanhas",
+        "body": "Um agente lê a tabela e aponta as campanhas com pior custo por resultado."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qual a diferença entre datatable_v1 e datagrid_v1?",
+        "a": "datatable_v1 entrega dados tabulares; datagrid_v1 entrega uma grade, como a de stories do Instagram. O catálogo de cada plataforma mostra qual component cada métrica usa."
+      },
+      {
+        "q": "Como quebro o resultado por campanha?",
+        "a": "Use fb_ads:insights_by_campaign, o item do catálogo do Meta Ads que já vem com a dimensão de campanha, e copie metrics e dimensions dele."
+      },
+      {
+        "q": "Posso paginar a tabela?",
+        "a": "A spec não descreve paginação nem ordenação para tabelas, então isso não é documentado aqui. O recorte é feito pelo período, pelas métricas e pelas dimensões."
+      }
+    ]
+  },
+  "en": {
+    "title": "Get metrics as tables and grids",
+    "tagline": "Request metrics with datatable_v1 or datagrid_v1 and get tabular data, such as Meta Ads campaigns by spend, reach and CTR.",
+    "intro": "With component datatable_v1 in POST /metrics/get-data, the metric comes back as tabular data, with columns (metrics) and a breakdown by dimension. There is also datagrid_v1 for grids, such as Instagram stories. One API for every connected account, with no network-by-network integration.",
+    "can": [
+      "List Meta Ads campaigns with results, cost per result, spend, reach, impressions, CTR, CPC, CPM and frequency using fb_ads:insights_by_campaign.",
+      "Pick the columns in metrics and the breakdown in dimensions, using the values from the GET /metrics/{integration_slug} catalog.",
+      "Request tables next to numbers and charts in the same call.",
+      "Use datagrid_v1 for grids, such as Instagram stories."
+    ],
+    "rules": [
+      "Copy the catalog item into metrics[] and swap metrics and dimensions for keys from the catalog's meta.setup if you want a different cut.",
+      "Catalog items already carry metrics and dimensions in the accepted shape: copy them as they come.",
+      "The result comes in data, under each metric's id (UUID), in the component's format.",
+      "If one metric fails on its own, it comes back as an error object and the others come with status 200.",
+      "Each call reads one connection (customer_integration) and needs the customer's x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Campaign table in your product",
+        "body": "List the customer's campaigns with spend, reach and CTR inside your interface, without integrating Meta Ads."
+      },
+      {
+        "title": "Paid media performance reports",
+        "body": "Build each client's campaign ranking for the agency's monthly report."
+      },
+      {
+        "title": "Agents that analyze campaigns",
+        "body": "An agent reads the table and points out the campaigns with the worst cost per result."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between datatable_v1 and datagrid_v1?",
+        "a": "datatable_v1 delivers tabular data; datagrid_v1 delivers a grid, such as the Instagram stories one. Each platform's catalog shows which component each metric uses."
+      },
+      {
+        "q": "How do I break the result down by campaign?",
+        "a": "Use fb_ads:insights_by_campaign, the Meta Ads catalog item that already comes with the campaign dimension, and copy its metrics and dimensions."
+      },
+      {
+        "q": "Can I paginate the table?",
+        "a": "The spec does not describe pagination or sorting for tables, so it is not documented here. You shape the result with the period, the metrics and the dimensions."
+      }
+    ]
+  },
+  "es": {
+    "title": "Obtener métricas en tablas y grillas",
+    "tagline": "Pide métricas con datatable_v1 o datagrid_v1 y recibe datos tabulares, como campañas de Meta Ads por gasto, alcance y CTR.",
+    "intro": "Con el component datatable_v1 en POST /metrics/get-data, la métrica vuelve como datos tabulares, con columnas (metrics) y desglose por dimensión. También existe datagrid_v1 para grillas, como los stories de Instagram. Una API para todas las cuentas conectadas, sin integrar red por red.",
+    "can": [
+      "Listar campañas de Meta Ads con resultados, costo por resultado, gasto, alcance, impresiones, CTR, CPC, CPM y frecuencia con fb_ads:insights_by_campaign.",
+      "Elegir las columnas en metrics y el desglose en dimensions, con los valores del catálogo GET /metrics/{integration_slug}.",
+      "Pedir tablas junto a números y gráficos en la misma llamada.",
+      "Usar datagrid_v1 para grillas, como los stories de Instagram."
+    ],
+    "rules": [
+      "Copia el ítem del catálogo en metrics[] y cambia metrics y dimensions por claves de meta.setup del catálogo si quieres otro recorte.",
+      "Los ítems del catálogo ya traen metrics y dimensions en el formato aceptado: cópialos tal cual.",
+      "El resultado viene en data, bajo el id (UUID) de cada métrica, en el formato del component.",
+      "Si una métrica falla por separado, vuelve como objeto de error y las demás vienen con status 200.",
+      "Cada llamada lee una conexión (customer_integration) y exige el x-customer-token del cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Tabla de campañas en tu producto",
+        "body": "Lista las campañas del cliente con gasto, alcance y CTR dentro de tu interfaz, sin integrar Meta Ads."
+      },
+      {
+        "title": "Informes de desempeño de medios pagos",
+        "body": "Arma el ranking de campañas de cada cliente para el informe mensual de la agencia."
+      },
+      {
+        "title": "Agentes que analizan campañas",
+        "body": "Un agente lee la tabla y señala las campañas con peor costo por resultado."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre datatable_v1 y datagrid_v1?",
+        "a": "datatable_v1 entrega datos tabulares; datagrid_v1 entrega una grilla, como la de stories de Instagram. El catálogo de cada plataforma muestra qué component usa cada métrica."
+      },
+      {
+        "q": "¿Cómo desgloso el resultado por campaña?",
+        "a": "Usa fb_ads:insights_by_campaign, el ítem del catálogo de Meta Ads que ya viene con la dimensión de campaña, y copia sus metrics y dimensions."
+      },
+      {
+        "q": "¿Puedo paginar la tabla?",
+        "a": "La spec no describe paginación ni orden para las tablas, así que no se documenta aquí. El recorte se hace con el período, las métricas y las dimensiones."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Obtenir des métriques en tableaux et grilles",
+    "tagline": "Demandez des métriques avec datatable_v1 ou datagrid_v1 et recevez des données tabulaires, comme les campagnes Meta Ads par dépense, portée et CTR.",
+    "intro": "Avec le component datatable_v1 dans POST /metrics/get-data, la métrique revient sous forme de données tabulaires, avec des colonnes (metrics) et une ventilation par dimension. Il existe aussi datagrid_v1 pour les grilles, comme les stories Instagram. Une seule API pour tous les comptes connectés, sans intégration réseau par réseau.",
+    "can": [
+      "Lister les campagnes Meta Ads avec résultats, coût par résultat, dépense, portée, impressions, CTR, CPC, CPM et fréquence avec fb_ads:insights_by_campaign.",
+      "Choisir les colonnes dans metrics et la ventilation dans dimensions, avec les valeurs du catalogue GET /metrics/{integration_slug}.",
+      "Demander des tableaux avec des nombres et des graphiques dans le même appel.",
+      "Utiliser datagrid_v1 pour les grilles, comme les stories Instagram."
+    ],
+    "rules": [
+      "Copiez l'élément du catalogue dans metrics[] et remplacez metrics et dimensions par des clés de meta.setup du catalogue pour un autre découpage.",
+      "Les éléments du catalogue portent déjà metrics et dimensions au format accepté : copiez-les tels quels.",
+      "Le résultat arrive dans data, sous l'id (UUID) de chaque métrique, au format du component.",
+      "Si une métrique échoue seule, elle revient sous forme d'objet d'erreur et les autres arrivent avec le statut 200.",
+      "Chaque appel lit une connexion (customer_integration) et exige le x-customer-token du client."
+    ],
+    "useCases": [
+      {
+        "title": "Tableau de campagnes dans votre produit",
+        "body": "Listez les campagnes du client avec dépense, portée et CTR dans votre interface, sans intégrer Meta Ads."
+      },
+      {
+        "title": "Rapports de performance média payant",
+        "body": "Construisez le classement des campagnes de chaque client pour le rapport mensuel de l'agence."
+      },
+      {
+        "title": "Agents qui analysent les campagnes",
+        "body": "Un agent lit le tableau et signale les campagnes au pire coût par résultat."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelle différence entre datatable_v1 et datagrid_v1 ?",
+        "a": "datatable_v1 livre des données tabulaires ; datagrid_v1 livre une grille, comme celle des stories Instagram. Le catalogue de chaque plateforme indique le component de chaque métrique."
+      },
+      {
+        "q": "Comment ventiler le résultat par campagne ?",
+        "a": "Utilisez fb_ads:insights_by_campaign, l'élément du catalogue Meta Ads qui porte déjà la dimension de campagne, et copiez ses metrics et dimensions."
+      },
+      {
+        "q": "Puis-je paginer le tableau ?",
+        "a": "La spec ne décrit ni pagination ni tri pour les tableaux, ce n'est donc pas documenté ici. Le découpage se fait par la période, les métriques et les dimensions."
+      }
+    ]
+  }
+}

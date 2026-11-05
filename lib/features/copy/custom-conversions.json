@@ -1,0 +1,272 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/facebook_ads/custom-conversions",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "name": "Purchase completed",
+      "pixel_id": "900000000000001",
+      "rule": {
+        "url_contains": "/obrigado"
+      },
+      "event_type": "purchase"
+    }
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome da conversão personalizada, até 255 caracteres.",
+        "en": "Name of the custom conversion, up to 255 characters.",
+        "es": "Nombre de la conversión personalizada, hasta 255 caracteres.",
+        "fr": "Nom de la conversion personnalisée, 255 caractères maximum."
+      }
+    },
+    {
+      "name": "pixel_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O pixel por trás da regra. Obrigatório: sem ele a plataforma recusa a criação. Vem de GET /ads/facebook_ads/pixels.",
+        "en": "The pixel behind the rule. Required: without it the platform refuses the creation. It comes from GET /ads/facebook_ads/pixels.",
+        "es": "El pixel detrás de la regla. Obligatorio: sin él la plataforma rechaza la creación. Viene de GET /ads/facebook_ads/pixels.",
+        "fr": "Le pixel derrière la règle. Obligatoire : sans lui la plateforme refuse la création. Il vient de GET /ads/facebook_ads/pixels."
+      }
+    },
+    {
+      "name": "rule.url_contains",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Dispara quando o endereço visitado contém este trecho. Use esta chave ou rule.event, nunca as duas.",
+        "en": "Fires when the visited address contains this fragment. Use this key or rule.event, never both.",
+        "es": "Se dispara cuando la dirección visitada contiene este fragmento. Usa esta clave o rule.event, nunca ambas.",
+        "fr": "Se déclenche quand l'adresse visitée contient ce fragment. Utilisez cette clé ou rule.event, jamais les deux."
+      }
+    },
+    {
+      "name": "rule.event",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Dispara quando o pixel reporta este evento. Use esta chave ou rule.url_contains, nunca as duas.",
+        "en": "Fires when the pixel reports this event. Use this key or rule.url_contains, never both.",
+        "es": "Se dispara cuando el pixel reporta este evento. Usa esta clave o rule.url_contains, nunca ambas.",
+        "fr": "Se déclenche quand le pixel signale cet événement. Utilisez cette clé ou rule.url_contains, jamais les deux."
+      }
+    },
+    {
+      "name": "event_type",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "A categoria da conversão, como purchase, lead ou add_to_cart. Sem ele, a plataforma recebe other.",
+        "en": "The conversion category, such as purchase, lead or add_to_cart. Omitted, the platform receives other.",
+        "es": "La categoría de la conversión, como purchase, lead o add_to_cart. Si se omite, la plataforma recibe other.",
+        "fr": "La catégorie de la conversion, comme purchase, lead ou add_to_cart. Omis, la plateforme reçoit other."
+      }
+    },
+    {
+      "name": "Idempotency-Key",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Header obrigatório, até 255 caracteres. Gere uma vez e reenvie a mesma em cada nova tentativa.",
+        "en": "Required header, up to 255 characters. Generate it once and resend the same one on every retry.",
+        "es": "Header obligatorio, hasta 255 caracteres. Genéralo una vez y reenvía el mismo en cada reintento.",
+        "fr": "Header obligatoire, 255 caractères maximum. Générez-la une fois et renvoyez la même à chaque nouvelle tentative."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Criar conversões personalizadas no Meta Ads",
+    "tagline": "Crie e liste conversões personalizadas do Meta Ads por regra de URL ou de evento do pixel, e use o id para otimizar um conjunto de anúncios.",
+    "intro": "Duas rotas criam e listam as conversões personalizadas da conta de anúncios do cliente. Você define a conversão pela regra que a dispara, uma URL ou um evento do pixel, e usa o id no conjunto de anúncios, sem implementar a API da Meta nem passar pelo app review.",
+    "can": [
+      "Criar uma conversão com POST /ads/facebook_ads/custom-conversions, pela regra rule.url_contains ou rule.event.",
+      "Escolher a categoria com event_type, como purchase, lead, add_to_cart ou subscribe.",
+      "Listar as conversões da conta com GET /ads/facebook_ads/custom-conversions.",
+      "Usar o id em adset.facebook_ads.promoted_object.custom_conversion_id num conjunto de anúncios."
+    ],
+    "rules": [
+      "A conversão é definida pela regra, e rule aceita exatamente uma das chaves: url_contains ou event. pixel_id é obrigatório.",
+      "A regra por URL é a verificada numa conta real. A regra por evento existe no contrato, mas a plataforma a recusa em alguns pixels, e essa recusa chega como ads_integration_error.",
+      "event_type aceita um conjunto fechado de valores. Fora dele, a resposta é 422 com a lista. Sem event_type, a plataforma recebe other.",
+      "O Idempotency-Key é obrigatório e vai no header. A conversão criada aparece na listagem seguinte sem refresh.",
+      "A listagem não é paginada (200 itens no máximo) e tem cache de 600 s por conexão."
+    ],
+    "useCases": [
+      {
+        "title": "Conversão de página de obrigado",
+        "body": "Seu SaaS cria uma conversão com url_contains \"/obrigado\" para o cliente otimizar anúncios pela compra concluída."
+      },
+      {
+        "title": "Onboarding de campanhas em agência",
+        "body": "Uma agência cria as conversões padrão do cliente de e-commerce (compra, lead) numa chamada por conversão, de forma idempotente."
+      },
+      {
+        "title": "Agente de IA que prepara a medição",
+        "body": "Um agente lista as conversões, cria a que falta e usa o id no conjunto de anúncios novo."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso criar a conversão por evento do pixel?",
+        "a": "O contrato aceita rule.event, mas a plataforma recusa essa forma em alguns pixels, e a recusa chega como ads_integration_error. A regra por URL (rule.url_contains) é a verificada numa conta real."
+      },
+      {
+        "q": "Preciso informar o pixel?",
+        "a": "Sim. pixel_id é obrigatório, porque a plataforma recusa a criação sem o pixel por trás da regra. Liste os pixels em GET /ads/facebook_ads/pixels."
+      },
+      {
+        "q": "Onde uso o id da conversão?",
+        "a": "Em adset.facebook_ads.promoted_object.custom_conversion_id, no conjunto de anúncios."
+      }
+    ]
+  },
+  "en": {
+    "title": "Create Meta Ads custom conversions",
+    "tagline": "Create and list Meta Ads custom conversions by URL or pixel event rule, and use the id to optimize an ad set.",
+    "intro": "Two routes create and list the custom conversions in the customer's ad account. You define the conversion by the rule that fires it, a URL or a pixel event, and use the id in the ad set, without implementing the Meta API or going through app review.",
+    "can": [
+      "Create a conversion with POST /ads/facebook_ads/custom-conversions, by the rule.url_contains or rule.event rule.",
+      "Pick the category with event_type, such as purchase, lead, add_to_cart or subscribe.",
+      "List the account's conversions with GET /ads/facebook_ads/custom-conversions.",
+      "Use the id in adset.facebook_ads.promoted_object.custom_conversion_id on an ad set."
+    ],
+    "rules": [
+      "The conversion is defined by the rule, and rule accepts exactly one of the keys: url_contains or event. pixel_id is required.",
+      "The URL rule is the one verified against a real account. The event rule exists in the contract, but the platform refuses it on some pixels, and that refusal reaches you as ads_integration_error.",
+      "event_type accepts a closed set of values. Outside it, the response is 422 with the list. Without event_type, the platform receives other.",
+      "Idempotency-Key is required and goes in the header. The created conversion appears in the next listing without refresh.",
+      "The listing is not paginated (200 items at most) and is cached for 600 s per connection."
+    ],
+    "useCases": [
+      {
+        "title": "Thank-you page conversion",
+        "body": "Your SaaS creates a conversion with url_contains \"/obrigado\" so the customer can optimize ads for completed purchases."
+      },
+      {
+        "title": "Campaign onboarding at an agency",
+        "body": "An agency creates the standard conversions for an e-commerce customer (purchase, lead), one idempotent call per conversion."
+      },
+      {
+        "title": "AI agent that prepares measurement",
+        "body": "An agent lists the conversions, creates the missing one and uses its id in the new ad set."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I create the conversion from a pixel event?",
+        "a": "The contract accepts rule.event, but the platform refuses that form on some pixels, and the refusal reaches you as ads_integration_error. The URL rule (rule.url_contains) is the one verified against a real account."
+      },
+      {
+        "q": "Do I have to provide the pixel?",
+        "a": "Yes. pixel_id is required, because the platform refuses the creation without the pixel behind the rule. List pixels with GET /ads/facebook_ads/pixels."
+      },
+      {
+        "q": "Where do I use the conversion id?",
+        "a": "In adset.facebook_ads.promoted_object.custom_conversion_id, on the ad set."
+      }
+    ]
+  },
+  "es": {
+    "title": "Crear conversiones personalizadas en Meta Ads",
+    "tagline": "Crea y lista conversiones personalizadas de Meta Ads por regla de URL o de evento del pixel, y usa el id para optimizar un conjunto de anuncios.",
+    "intro": "Dos rutas crean y listan las conversiones personalizadas de la cuenta de anuncios del cliente. Defines la conversión por la regla que la dispara, una URL o un evento del pixel, y usas el id en el conjunto de anuncios, sin implementar la API de Meta ni pasar por el app review.",
+    "can": [
+      "Crear una conversión con POST /ads/facebook_ads/custom-conversions, por la regla rule.url_contains o rule.event.",
+      "Elegir la categoría con event_type, como purchase, lead, add_to_cart o subscribe.",
+      "Listar las conversiones de la cuenta con GET /ads/facebook_ads/custom-conversions.",
+      "Usar el id en adset.facebook_ads.promoted_object.custom_conversion_id en un conjunto de anuncios."
+    ],
+    "rules": [
+      "La conversión se define por la regla, y rule acepta exactamente una de las claves: url_contains o event. pixel_id es obligatorio.",
+      "La regla por URL es la verificada en una cuenta real. La regla por evento existe en el contrato, pero la plataforma la rechaza en algunos pixels, y ese rechazo llega como ads_integration_error.",
+      "event_type acepta un conjunto cerrado de valores. Fuera de él, la respuesta es 422 con la lista. Sin event_type, la plataforma recibe other.",
+      "Idempotency-Key es obligatorio y va en el header. La conversión creada aparece en la siguiente lista sin refresh.",
+      "La lista no está paginada (200 ítems como máximo) y tiene caché de 600 s por conexión."
+    ],
+    "useCases": [
+      {
+        "title": "Conversión de página de agradecimiento",
+        "body": "Tu SaaS crea una conversión con url_contains \"/obrigado\" para que el cliente optimice anuncios por compra completada."
+      },
+      {
+        "title": "Onboarding de campañas en agencia",
+        "body": "Una agencia crea las conversiones estándar del cliente de e-commerce (compra, lead), una llamada idempotente por conversión."
+      },
+      {
+        "title": "Agente de IA que prepara la medición",
+        "body": "Un agente lista las conversiones, crea la que falta y usa su id en el nuevo conjunto de anuncios."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo crear la conversión por evento del pixel?",
+        "a": "El contrato acepta rule.event, pero la plataforma rechaza esa forma en algunos pixels, y el rechazo llega como ads_integration_error. La regla por URL (rule.url_contains) es la verificada en una cuenta real."
+      },
+      {
+        "q": "¿Debo informar el pixel?",
+        "a": "Sí. pixel_id es obligatorio, porque la plataforma rechaza la creación sin el pixel detrás de la regla. Lista los pixels en GET /ads/facebook_ads/pixels."
+      },
+      {
+        "q": "¿Dónde uso el id de la conversión?",
+        "a": "En adset.facebook_ads.promoted_object.custom_conversion_id, en el conjunto de anuncios."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Créer des conversions personnalisées Meta Ads",
+    "tagline": "Créez et listez des conversions personnalisées Meta Ads par règle d'URL ou d'événement du pixel, et utilisez l'id pour optimiser un ensemble d'annonces.",
+    "intro": "Deux routes créent et listent les conversions personnalisées du compte publicitaire du client. Vous définissez la conversion par la règle qui la déclenche, une URL ou un événement du pixel, et utilisez l'id dans l'ensemble d'annonces, sans implémenter l'API Meta ni passer par l'app review.",
+    "can": [
+      "Créer une conversion avec POST /ads/facebook_ads/custom-conversions, par la règle rule.url_contains ou rule.event.",
+      "Choisir la catégorie avec event_type, comme purchase, lead, add_to_cart ou subscribe.",
+      "Lister les conversions du compte avec GET /ads/facebook_ads/custom-conversions.",
+      "Utiliser l'id dans adset.facebook_ads.promoted_object.custom_conversion_id sur un ensemble d'annonces."
+    ],
+    "rules": [
+      "La conversion est définie par la règle, et rule accepte exactement l'une des clés : url_contains ou event. pixel_id est obligatoire.",
+      "La règle par URL est celle vérifiée sur un compte réel. La règle par événement existe dans le contrat, mais la plateforme la refuse sur certains pixels, et ce refus arrive sous forme d'ads_integration_error.",
+      "event_type accepte un ensemble fermé de valeurs. En dehors, la réponse est 422 avec la liste. Sans event_type, la plateforme reçoit other.",
+      "Idempotency-Key est obligatoire et va dans le header. La conversion créée apparaît dans la liste suivante sans refresh.",
+      "La liste n'est pas paginée (200 éléments maximum) et mise en cache 600 s par connexion."
+    ],
+    "useCases": [
+      {
+        "title": "Conversion de page de remerciement",
+        "body": "Votre SaaS crée une conversion avec url_contains \"/obrigado\" pour que le client optimise ses annonces sur les achats terminés."
+      },
+      {
+        "title": "Onboarding de campagnes en agence",
+        "body": "Une agence crée les conversions standard du client e-commerce (achat, lead), un appel idempotent par conversion."
+      },
+      {
+        "title": "Agent IA qui prépare la mesure",
+        "body": "Un agent liste les conversions, crée celle qui manque et utilise son id dans le nouvel ensemble d'annonces."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je créer la conversion à partir d'un événement du pixel ?",
+        "a": "Le contrat accepte rule.event, mais la plateforme refuse cette forme sur certains pixels, et le refus arrive sous forme d'ads_integration_error. La règle par URL (rule.url_contains) est celle vérifiée sur un compte réel."
+      },
+      {
+        "q": "Dois-je fournir le pixel ?",
+        "a": "Oui. pixel_id est obligatoire, car la plateforme refuse la création sans le pixel derrière la règle. Listez les pixels avec GET /ads/facebook_ads/pixels."
+      },
+      {
+        "q": "Où utiliser l'id de la conversion ?",
+        "a": "Dans adset.facebook_ads.promoted_object.custom_conversion_id, sur l'ensemble d'annonces."
+      }
+    ]
+  }
+}

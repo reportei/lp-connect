@@ -1,0 +1,265 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/llm/chat/completions",
+    "body": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "max_tokens": 1024,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "You summarize marketing data in English."
+        },
+        {
+          "role": "user",
+          "content": "Summarize the account's week."
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "model",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Id do modelo, de GET /llm/models, no formato provedor/modelo.",
+        "en": "Model id from GET /llm/models, in provider/model form.",
+        "es": "Id del modelo, de GET /llm/models, con formato proveedor/modelo.",
+        "fr": "Id du modèle, issu de GET /llm/models, au format fournisseur/modèle."
+      }
+    },
+    {
+      "name": "messages",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "A conversa, como na OpenAI. role: system, developer, user, assistant ou tool.",
+        "en": "The conversation, as in OpenAI. role: system, developer, user, assistant or tool.",
+        "es": "La conversación, como en OpenAI. role: system, developer, user, assistant o tool.",
+        "fr": "La conversation, comme chez OpenAI. role : system, developer, user, assistant ou tool."
+      }
+    },
+    {
+      "name": "max_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Obrigatório (ou max_completion_tokens). Até o teto da conta e o max_output_tokens de cada modelo da chamada.",
+        "en": "Required (or max_completion_tokens). Up to the account cap and each model's max_output_tokens in the call.",
+        "es": "Obligatorio (o max_completion_tokens). Hasta el tope de la cuenta y el max_output_tokens de cada modelo de la llamada.",
+        "fr": "Obligatoire (ou max_completion_tokens). Jusqu'au plafond du compte et au max_output_tokens de chaque modèle de l'appel."
+      }
+    },
+    {
+      "name": "stream",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Com true, a resposta é text/event-stream.",
+        "en": "With true, the response is text/event-stream.",
+        "es": "Con true, la respuesta es text/event-stream.",
+        "fr": "Avec true, la réponse est en text/event-stream."
+      }
+    },
+    {
+      "name": "stream_options.include_usage",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Com true, o chunk final traz usage (tokens).",
+        "en": "With true, the last chunk carries usage (tokens).",
+        "es": "Con true, el chunk final trae usage (tokens).",
+        "fr": "Avec true, le dernier chunk porte usage (tokens)."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Streaming de respostas de LLM por SSE",
+    "tagline": "Use stream: true e receba a resposta do modelo aos poucos, em text/event-stream, no formato da OpenAI e com os modelos de três provedores.",
+    "intro": "Com stream: true em POST /llm/chat/completions, o Connect responde em text/event-stream, uma linha data: por pedaço e data: [DONE] no fim, como na OpenAI. O stream do SDK da OpenAI funciona sem adaptação, com modelos da OpenAI, da Anthropic e da Meta.",
+    "can": [
+      "Mostrar a resposta ao usuário enquanto ela é gerada.",
+      "Pedir o consumo no stream com stream_options: {\"include_usage\": true}.",
+      "Usar o mesmo código de stream para os três provedores.",
+      "Combinar stream com fallback (models) e tools nos modelos que suportam."
+    ],
+    "rules": [
+      "Com stream: true a resposta é text/event-stream: uma linha data: {chunk} por pedaço e data: [DONE] ao final.",
+      "O chunk com usage só vem se você enviar stream_options: {\"include_usage\": true}.",
+      "Sem stream, a resposta pode começar com espaços em branco enquanto o modelo gera; espaço antes do JSON continua sendo JSON válido e o SDK da OpenAI lê normalmente.",
+      "Um erro depois que a resposta começou não muda o status 200: no stream ele chega como um evento data: {\"error\": {...}} e o stream termina sem data: [DONE]. Verifique error antes de ler choices.",
+      "Timeouts: 30s até o primeiro token, 60s sem novo token e 300s no total (llm_timeout, 504)."
+    ],
+    "useCases": [
+      {
+        "title": "Chat dentro do seu SaaS",
+        "body": "O assistente do seu produto escreve a resposta em tempo real, sem o usuário esperar a resposta inteira."
+      },
+      {
+        "title": "Interfaces de agente",
+        "body": "Mostre o raciocínio ou o texto parcial de um agente enquanto ele trabalha."
+      },
+      {
+        "title": "Geração longa de relatórios",
+        "body": "Exiba o resumo de um relatório conforme o texto é gerado, em vez de uma tela de carregamento."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como ativo o streaming?",
+        "a": "Envie stream: true no corpo de POST /llm/chat/completions. A resposta passa a ser text/event-stream, com data: [DONE] no fim."
+      },
+      {
+        "q": "Como recebo o consumo de tokens no stream?",
+        "a": "Envie stream_options: {\"include_usage\": true}. O chunk com usage só vem se você pedir."
+      },
+      {
+        "q": "O que acontece se der erro no meio do stream?",
+        "a": "O status 200 já saiu, então o erro chega como um evento data: {\"error\": {...}} e o stream acaba sem data: [DONE]. O SDK da OpenAI levanta o erro."
+      }
+    ]
+  },
+  "en": {
+    "title": "Stream LLM responses over SSE",
+    "tagline": "Use stream: true and receive the model's answer piece by piece, as text/event-stream, in the OpenAI format with models from three providers.",
+    "intro": "With stream: true in POST /llm/chat/completions, Connect answers as text/event-stream, one data: line per piece and data: [DONE] at the end, as in OpenAI. The OpenAI SDK stream works without adaptation, with OpenAI, Anthropic and Meta models.",
+    "can": [
+      "Show the answer to the user while it is being generated.",
+      "Ask for usage in the stream with stream_options: {\"include_usage\": true}.",
+      "Use the same stream code for all three providers.",
+      "Combine stream with fallback (models) and tools on the models that support them."
+    ],
+    "rules": [
+      "With stream: true the response is text/event-stream: one data: {chunk} line per piece and data: [DONE] at the end.",
+      "The chunk with usage only comes if you send stream_options: {\"include_usage\": true}.",
+      "Without stream, the response may start with whitespace while the model generates; whitespace before the JSON is still valid JSON and the OpenAI SDK reads it normally.",
+      "An error after the response started does not change the 200 status: in the stream it arrives as a data: {\"error\": {...}} event and the stream ends without data: [DONE]. Check error before reading choices.",
+      "Timeouts: 30s to the first token, 60s without a new token and 300s in total (llm_timeout, 504)."
+    ],
+    "useCases": [
+      {
+        "title": "Chat inside your SaaS",
+        "body": "Your product's assistant writes the answer in real time, without the user waiting for the whole reply."
+      },
+      {
+        "title": "Agent interfaces",
+        "body": "Show an agent's partial text while it works."
+      },
+      {
+        "title": "Long report generation",
+        "body": "Display a report summary as the text is generated, instead of a loading screen."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I turn streaming on?",
+        "a": "Send stream: true in the body of POST /llm/chat/completions. The response becomes text/event-stream, with data: [DONE] at the end."
+      },
+      {
+        "q": "How do I get token usage in the stream?",
+        "a": "Send stream_options: {\"include_usage\": true}. The chunk with usage only comes if you ask for it."
+      },
+      {
+        "q": "What happens if there is an error mid-stream?",
+        "a": "The 200 status has already gone out, so the error arrives as a data: {\"error\": {...}} event and the stream ends without data: [DONE]. The OpenAI SDK raises the error."
+      }
+    ]
+  },
+  "es": {
+    "title": "Streaming de respuestas de LLM por SSE",
+    "tagline": "Usa stream: true y recibe la respuesta del modelo poco a poco, en text/event-stream, con formato OpenAI y modelos de tres proveedores.",
+    "intro": "Con stream: true en POST /llm/chat/completions, Connect responde en text/event-stream, una línea data: por fragmento y data: [DONE] al final, como en OpenAI. El stream del SDK de OpenAI funciona sin adaptación, con modelos de OpenAI, Anthropic y Meta.",
+    "can": [
+      "Mostrar la respuesta al usuario mientras se genera.",
+      "Pedir el consumo en el stream con stream_options: {\"include_usage\": true}.",
+      "Usar el mismo código de stream para los tres proveedores.",
+      "Combinar stream con fallback (models) y tools en los modelos que lo soportan."
+    ],
+    "rules": [
+      "Con stream: true la respuesta es text/event-stream: una línea data: {chunk} por fragmento y data: [DONE] al final.",
+      "El chunk con usage solo viene si envías stream_options: {\"include_usage\": true}.",
+      "Sin stream, la respuesta puede empezar con espacios en blanco mientras el modelo genera; el espacio antes del JSON sigue siendo JSON válido y el SDK de OpenAI lo lee con normalidad.",
+      "Un error después de que la respuesta empezó no cambia el status 200: en el stream llega como un evento data: {\"error\": {...}} y el stream termina sin data: [DONE]. Revisa error antes de leer choices.",
+      "Timeouts: 30s hasta el primer token, 60s sin token nuevo y 300s en total (llm_timeout, 504)."
+    ],
+    "useCases": [
+      {
+        "title": "Chat dentro de tu SaaS",
+        "body": "El asistente de tu producto escribe la respuesta en tiempo real, sin que el usuario espere la respuesta completa."
+      },
+      {
+        "title": "Interfaces de agente",
+        "body": "Muestra el texto parcial de un agente mientras trabaja."
+      },
+      {
+        "title": "Generación larga de informes",
+        "body": "Muestra el resumen de un informe a medida que se genera el texto, en lugar de una pantalla de carga."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo activo el streaming?",
+        "a": "Envía stream: true en el cuerpo de POST /llm/chat/completions. La respuesta pasa a ser text/event-stream, con data: [DONE] al final."
+      },
+      {
+        "q": "¿Cómo obtengo el consumo de tokens en el stream?",
+        "a": "Envía stream_options: {\"include_usage\": true}. El chunk con usage solo viene si lo pides."
+      },
+      {
+        "q": "¿Qué pasa si hay un error a mitad del stream?",
+        "a": "El status 200 ya salió, así que el error llega como un evento data: {\"error\": {...}} y el stream termina sin data: [DONE]. El SDK de OpenAI lanza el error."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Streaming des réponses LLM en SSE",
+    "tagline": "Utilisez stream: true et recevez la réponse du modèle morceau par morceau, en text/event-stream, au format OpenAI avec trois fournisseurs.",
+    "intro": "Avec stream: true dans POST /llm/chat/completions, Connect répond en text/event-stream, une ligne data: par morceau et data: [DONE] à la fin, comme chez OpenAI. Le stream du SDK OpenAI fonctionne sans adaptation, avec des modèles OpenAI, Anthropic et Meta.",
+    "can": [
+      "Afficher la réponse à l'utilisateur pendant sa génération.",
+      "Demander la consommation dans le stream avec stream_options: {\"include_usage\": true}.",
+      "Utiliser le même code de stream pour les trois fournisseurs.",
+      "Combiner stream avec le repli (models) et tools sur les modèles qui les gèrent."
+    ],
+    "rules": [
+      "Avec stream: true, la réponse est en text/event-stream : une ligne data: {chunk} par morceau et data: [DONE] à la fin.",
+      "Le chunk avec usage n'arrive que si vous envoyez stream_options: {\"include_usage\": true}.",
+      "Sans stream, la réponse peut commencer par des espaces pendant que le modèle génère ; des espaces avant le JSON restent du JSON valide et le SDK OpenAI les lit normalement.",
+      "Une erreur après le début de la réponse ne change pas le statut 200 : dans le stream, elle arrive comme un évènement data: {\"error\": {...}} et le stream se termine sans data: [DONE]. Vérifiez error avant de lire choices.",
+      "Timeouts : 30 s jusqu'au premier token, 60 s sans nouveau token et 300 s au total (llm_timeout, 504)."
+    ],
+    "useCases": [
+      {
+        "title": "Chat dans votre SaaS",
+        "body": "L'assistant de votre produit écrit la réponse en temps réel, sans que l'utilisateur attende la réponse entière."
+      },
+      {
+        "title": "Interfaces d'agent",
+        "body": "Affichez le texte partiel d'un agent pendant qu'il travaille."
+      },
+      {
+        "title": "Génération longue de rapports",
+        "body": "Affichez le résumé d'un rapport au fil de la génération du texte, au lieu d'un écran de chargement."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment activer le streaming ?",
+        "a": "Envoyez stream: true dans le corps de POST /llm/chat/completions. La réponse devient text/event-stream, avec data: [DONE] à la fin."
+      },
+      {
+        "q": "Comment obtenir la consommation de tokens dans le stream ?",
+        "a": "Envoyez stream_options: {\"include_usage\": true}. Le chunk avec usage n'arrive que si vous le demandez."
+      },
+      {
+        "q": "Que se passe-t-il en cas d'erreur en plein stream ?",
+        "a": "Le statut 200 est déjà parti, l'erreur arrive donc comme un évènement data: {\"error\": {...}} et le stream se termine sans data: [DONE]. Le SDK OpenAI lève l'erreur."
+      }
+    ]
+  }
+}

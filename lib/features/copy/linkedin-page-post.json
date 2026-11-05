@@ -1,0 +1,293 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "post-7001",
+      "format": "feed",
+      "caption": "Our 2026 benchmark report is out. Download the full PDF below.",
+      "media": [
+        {
+          "type": "document",
+          "url": "https://cdn.example.com/benchmark-2026.pdf"
+        }
+      ],
+      "linkedin": {
+        "title": "2026 benchmark report"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Stops the same post from being published twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Évite de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Sempre feed no LinkedIn.",
+        "en": "Always feed on LinkedIn.",
+        "es": "Siempre feed en LinkedIn.",
+        "fr": "Toujours feed sur LinkedIn."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O texto do post, até 3000 caracteres. Obrigatório quando não há mídia.",
+        "en": "The post text, up to 3000 characters. Required when there is no media.",
+        "es": "El texto del post, hasta 3000 caracteres. Obligatorio cuando no hay medios.",
+        "fr": "Le texte du post, 3000 caractères max. Obligatoire sans média."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Imagens (1 a 20), ou 1 vídeo, ou 1 documento. Vídeo e documento não se misturam com outras mídias.",
+        "en": "Images (1 to 20), or 1 video, or 1 document. A video or document cannot be mixed with other media.",
+        "es": "Imágenes (1 a 20), o 1 video, o 1 documento. Un video o documento no se mezcla con otros medios.",
+        "fr": "Images (1 à 20), ou 1 vidéo, ou 1 document. Une vidéo ou un document ne se mélange pas à d'autres médias."
+      }
+    },
+    {
+      "name": "media.type",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "image, video ou document. Documento (por exemplo um PDF) só existe no LinkedIn.",
+        "en": "image, video or document. A document (for example a PDF) only exists on LinkedIn.",
+        "es": "image, video o document. Un documento (por ejemplo un PDF) solo existe en LinkedIn.",
+        "fr": "image, video ou document. Un document (par exemple un PDF) n'existe que sur LinkedIn."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consiga baixar.",
+        "en": "A public https:// URL the network can download.",
+        "es": "URL https:// pública que la red pueda descargar.",
+        "fr": "URL https:// publique que le réseau peut télécharger."
+      }
+    },
+    {
+      "name": "linkedin.title",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Título do vídeo ou documento (até 255 caracteres). Só com 1 vídeo ou 1 documento sozinho; obrigatório no documento.",
+        "en": "Title of the video or document (up to 255 characters). Only with a single video or document; required on a document.",
+        "es": "Título del video o documento (hasta 255 caracteres). Solo con 1 video o 1 documento solo; obligatorio en el documento.",
+        "fr": "Titre de la vidéo ou du document (255 caractères max). Seulement avec 1 vidéo ou 1 document seul ; obligatoire sur un document."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar em páginas do LinkedIn",
+    "tagline": "Publique texto, imagens, vídeo ou PDF na página de empresa do LinkedIn do seu cliente pela API, com uma única chamada e sem OAuth próprio.",
+    "intro": "Um POST /posts com a conexão linkedin publica na página de empresa que o cliente conectou. Você não passa pelo OAuth do LinkedIn nem guarda tokens: envia o conteúdo e o Connect publica em segundo plano, no mesmo endpoint das outras redes.",
+    "can": [
+      "Publicar texto puro, com legenda de até 3000 caracteres.",
+      "Publicar de 1 a 20 imagens em um post.",
+      "Publicar 1 vídeo, com título opcional em linkedin.title.",
+      "Publicar 1 documento (PDF, por exemplo), com linkedin.title obrigatório.",
+      "Escolher a página pela conexão (customer_integration) ou pelo nome (integration_slug e source_name)."
+    ],
+    "rules": [
+      "Páginas usam a conexão linkedin (integration_slug linkedin). Perfis pessoais usam linkedin_personal.",
+      "Só o format feed existe no LinkedIn. Aceita texto puro (com legenda), 1 a 20 imagens, 1 vídeo sozinho ou 1 documento sozinho.",
+      "A legenda vai até 3000 caracteres. O linkedin.title só vale com 1 vídeo ou 1 documento, e é obrigatório no documento.",
+      "O POST /posts responde 202 e a publicação roda depois. Acompanhe por GET /posts/{uuid}.",
+      "external_reference é obrigatória: a mesma referência publicando ou já publicada na mesma conta retorna 409. O header Idempotency-Key devolve o post já gravado em uma repetição."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma de employer branding",
+        "body": "Cada empresa cliente conecta a própria página e publica vagas e novidades de dentro do seu produto."
+      },
+      {
+        "title": "Agência com várias contas",
+        "body": "O painel da agência publica o mesmo conteúdo nas páginas de vários clientes, uma chamada por conta."
+      },
+      {
+        "title": "Agente de IA de conteúdo",
+        "body": "Um agente transforma um relatório em PDF e publica o documento na página da empresa com título e legenda."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso de um app aprovado pelo LinkedIn?",
+        "a": "Não. O cliente conecta a página pelo fluxo de conexão do Connect e você publica com o Bearer do merchant e o x-customer-token."
+      },
+      {
+        "q": "Como publico um PDF?",
+        "a": "Envie uma mídia com type document e a URL https do arquivo, sozinha no post, e preencha linkedin.title, que é obrigatório no documento."
+      },
+      {
+        "q": "Qual a diferença para o perfil pessoal?",
+        "a": "A página usa a conexão linkedin e o perfil pessoal usa linkedin_personal. O corpo do POST /posts é o mesmo."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish to LinkedIn pages",
+    "tagline": "Publish text, images, video or a PDF to your customer's LinkedIn company page through the API, in one call and with no OAuth of your own.",
+    "intro": "A POST /posts with the linkedin connection publishes to the company page your customer connected. You don't go through LinkedIn OAuth or store tokens: you send the content and Connect publishes it in the background, on the same endpoint as the other networks.",
+    "can": [
+      "Publish plain text, with a caption of up to 3000 characters.",
+      "Publish 1 to 20 images in a post.",
+      "Publish 1 video, with an optional title in linkedin.title.",
+      "Publish 1 document (a PDF, for example), with linkedin.title required.",
+      "Pick the page by connection (customer_integration) or by name (integration_slug and source_name)."
+    ],
+    "rules": [
+      "Pages use the linkedin connection (integration_slug linkedin). Personal profiles use linkedin_personal.",
+      "LinkedIn only has the feed format. It takes plain text (with a caption), 1 to 20 images, a single video or a single document.",
+      "The caption goes up to 3000 characters. linkedin.title only applies to a single video or document, and is required on a document.",
+      "POST /posts responds 202 and publishing runs afterwards. Track it with GET /posts/{uuid}.",
+      "external_reference is required: the same reference publishing or already published on the same account returns 409. The Idempotency-Key header returns the already stored post on a repeat."
+    ],
+    "useCases": [
+      {
+        "title": "Employer branding platform",
+        "body": "Each customer company connects its own page and publishes jobs and news from inside your product."
+      },
+      {
+        "title": "Agency with many accounts",
+        "body": "The agency dashboard publishes the same content to several clients' pages, one call per account."
+      },
+      {
+        "title": "Content AI agent",
+        "body": "An agent turns a report into a PDF and publishes the document to the company page with a title and caption."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need an app approved by LinkedIn?",
+        "a": "No. The customer connects the page through Connect's connection flow and you publish with the merchant Bearer and the x-customer-token."
+      },
+      {
+        "q": "How do I publish a PDF?",
+        "a": "Send one media item with type document and the https URL of the file, alone in the post, and fill linkedin.title, which is required on a document."
+      },
+      {
+        "q": "What is the difference from a personal profile?",
+        "a": "A page uses the linkedin connection and a personal profile uses linkedin_personal. The POST /posts body is the same."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar en páginas de LinkedIn",
+    "tagline": "Publica texto, imágenes, video o PDF en la página de empresa de LinkedIn de tu cliente por API, con una sola llamada y sin OAuth propio.",
+    "intro": "Un POST /posts con la conexión linkedin publica en la página de empresa que el cliente conectó. No pasas por el OAuth de LinkedIn ni guardas tokens: envías el contenido y Connect publica en segundo plano, en el mismo endpoint de las otras redes.",
+    "can": [
+      "Publicar texto puro, con un pie de hasta 3000 caracteres.",
+      "Publicar de 1 a 20 imágenes en un post.",
+      "Publicar 1 video, con título opcional en linkedin.title.",
+      "Publicar 1 documento (un PDF, por ejemplo), con linkedin.title obligatorio.",
+      "Elegir la página por la conexión (customer_integration) o por el nombre (integration_slug y source_name)."
+    ],
+    "rules": [
+      "Las páginas usan la conexión linkedin (integration_slug linkedin). Los perfiles personales usan linkedin_personal.",
+      "En LinkedIn solo existe el format feed. Acepta texto puro (con pie), 1 a 20 imágenes, 1 video solo o 1 documento solo.",
+      "El pie llega hasta 3000 caracteres. linkedin.title solo vale con 1 video o 1 documento, y es obligatorio en el documento.",
+      "POST /posts responde 202 y la publicación corre después. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatoria: la misma referencia publicando o ya publicada en la misma cuenta devuelve 409. El header Idempotency-Key devuelve el post ya guardado en una repetición."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma de employer branding",
+        "body": "Cada empresa cliente conecta su propia página y publica vacantes y novedades desde tu producto."
+      },
+      {
+        "title": "Agencia con varias cuentas",
+        "body": "El panel de la agencia publica el mismo contenido en las páginas de varios clientes, una llamada por cuenta."
+      },
+      {
+        "title": "Agente de IA de contenido",
+        "body": "Un agente convierte un informe en PDF y publica el documento en la página de la empresa con título y pie."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito una app aprobada por LinkedIn?",
+        "a": "No. El cliente conecta la página por el flujo de conexión de Connect y tú publicas con el Bearer del merchant y el x-customer-token."
+      },
+      {
+        "q": "¿Cómo publico un PDF?",
+        "a": "Envía un medio con type document y la URL https del archivo, solo en el post, y completa linkedin.title, que es obligatorio en el documento."
+      },
+      {
+        "q": "¿Qué diferencia hay con el perfil personal?",
+        "a": "La página usa la conexión linkedin y el perfil personal usa linkedin_personal. El cuerpo de POST /posts es el mismo."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier sur les pages LinkedIn",
+    "tagline": "Publiez texte, images, vidéo ou PDF sur la page entreprise LinkedIn de votre client par API, en un appel et sans OAuth à gérer.",
+    "intro": "Un POST /posts avec la connexion linkedin publie sur la page entreprise que le client a connectée. Vous ne passez pas par l'OAuth de LinkedIn et ne stockez aucun token : vous envoyez le contenu et Connect publie en arrière-plan, sur le même endpoint que les autres réseaux.",
+    "can": [
+      "Publier du texte seul, avec une légende de 3000 caractères maximum.",
+      "Publier de 1 à 20 images dans un post.",
+      "Publier 1 vidéo, avec un titre optionnel dans linkedin.title.",
+      "Publier 1 document (un PDF, par exemple), avec linkedin.title obligatoire.",
+      "Choisir la page par la connexion (customer_integration) ou par le nom (integration_slug et source_name)."
+    ],
+    "rules": [
+      "Les pages utilisent la connexion linkedin (integration_slug linkedin). Les profils personnels utilisent linkedin_personal.",
+      "Sur LinkedIn, seul le format feed existe. Il accepte du texte seul (avec légende), 1 à 20 images, 1 vidéo seule ou 1 document seul.",
+      "La légende va jusqu'à 3000 caractères. linkedin.title ne vaut qu'avec 1 vidéo ou 1 document, et il est obligatoire sur un document.",
+      "POST /posts répond 202 et la publication se fait ensuite. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire : la même référence en cours de publication ou déjà publiée sur le même compte retourne 409. Le header Idempotency-Key renvoie le post déjà enregistré en cas de répétition."
+    ],
+    "useCases": [
+      {
+        "title": "Plateforme de marque employeur",
+        "body": "Chaque entreprise cliente connecte sa page et publie offres et actualités depuis votre produit."
+      },
+      {
+        "title": "Agence multi-comptes",
+        "body": "Le tableau de bord de l'agence publie le même contenu sur les pages de plusieurs clients, un appel par compte."
+      },
+      {
+        "title": "Agent IA de contenu",
+        "body": "Un agent transforme un rapport en PDF et publie le document sur la page de l'entreprise avec titre et légende."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Faut-il une app validée par LinkedIn ?",
+        "a": "Non. Le client connecte la page via le flux de connexion de Connect et vous publiez avec le Bearer du merchant et le x-customer-token."
+      },
+      {
+        "q": "Comment publier un PDF ?",
+        "a": "Envoyez un média avec type document et l'URL https du fichier, seul dans le post, et renseignez linkedin.title, obligatoire sur un document."
+      },
+      {
+        "q": "Quelle différence avec un profil personnel ?",
+        "a": "La page utilise la connexion linkedin et le profil personnel utilise linkedin_personal. Le corps de POST /posts est identique."
+      }
+    ]
+  }
+}
