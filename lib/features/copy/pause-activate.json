@@ -1,0 +1,264 @@
+{
+  "sample": {
+    "method": "PATCH",
+    "path": "/api/ads/campaigns/{id}",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "status": "active"
+    }
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "No caminho: o id do objeto (ou o uuid do Connect).",
+        "en": "In the path: the object's id (or the Connect uuid).",
+        "es": "En la ruta: el id del objeto (o el uuid de Connect).",
+        "fr": "Dans le chemin : l'id de l'objet (ou l'uuid Connect)."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "active ou paused.",
+        "en": "active or paused.",
+        "es": "active o paused.",
+        "fr": "active ou paused."
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Novo nome, se quiser mudar junto.",
+        "en": "New name, if you want to change it at the same time.",
+        "es": "Nuevo nombre, si quieres cambiarlo a la vez.",
+        "fr": "Nouveau nom, si vous voulez le changer en même temps."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Na query: a conexão do cliente com a conta de anúncios.",
+        "en": "In the query: the client's connection to the ad account.",
+        "es": "En la query: la conexión del cliente con la cuenta de anuncios.",
+        "fr": "Dans la query : la connexion du client au compte publicitaire."
+      }
+    },
+    {
+      "name": "Idempotency-Key",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "No header. Opcional em PATCH, recomendado para poder repetir com segurança.",
+        "en": "In the header. Optional on PATCH, recommended so you can retry safely.",
+        "es": "En el header. Opcional en PATCH, recomendado para poder repetir con seguridad.",
+        "fr": "Dans le header. Facultatif sur PATCH, recommandé pour pouvoir rejouer sans risque."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Pausar e ativar campanhas, conjuntos e anúncios",
+    "tagline": "Pause ou ative campanhas, conjuntos e anúncios do Meta Ads do seu cliente com um PATCH de status. Funciona mesmo para objetos criados fora do Connect.",
+    "intro": "Ligar e desligar anúncios é um PATCH com status active ou paused, no nível que você quer controlar: campanha, conjunto ou anúncio. Funciona para qualquer objeto da conta conectada, inclusive os criados direto no Gerenciador de Anúncios. Sem implementar a API do Meta.",
+    "can": [
+      "Pausar ou ativar uma campanha com PATCH /ads/campaigns/{id}.",
+      "Pausar ou ativar um conjunto com PATCH /ads/adsets/{id}.",
+      "Pausar ou ativar um anúncio com PATCH /ads/{id}.",
+      "Trocar o nome no mesmo PATCH.",
+      "Identificar o objeto pelo id da plataforma ou pelo uuid do Connect."
+    ],
+    "rules": [
+      "Valores aceitos em status: active e paused.",
+      "Funciona para qualquer objeto da conta, inclusive criados fora do Connect: ele passa a ser guardado na primeira escrita.",
+      "Idempotency-Key é opcional em PATCH.",
+      "O id é conferido contra a conta da conexão; de outra conta, a resposta é 404 ads_object_not_found.",
+      "A conexão em customer_integration precisa pertencer ao cliente (403 se não pertencer) e estar válida (422 ads_connection_expired se o token expirou).",
+      "A resposta é síncrona (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Botão liga/desliga no painel",
+        "body": "Seu cliente pausa uma campanha direto no seu produto, sem abrir o Gerenciador de Anúncios."
+      },
+      {
+        "title": "Regra automática de segurança",
+        "body": "Pause anúncios quando uma métrica passar de um limite que você define, como custo por resultado alto."
+      },
+      {
+        "title": "Agente de IA que gerencia verba",
+        "body": "O agente pausa o que performa mal e ativa o que foi aprovado, tudo por chamadas simples."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso ter criado o anúncio pelo Connect para pausá-lo?",
+        "a": "Não. Qualquer objeto da conta conectada pode ser pausado ou ativado; ele entra na base do Connect na primeira escrita."
+      },
+      {
+        "q": "Quais valores de status são aceitos?",
+        "a": "active e paused."
+      },
+      {
+        "q": "Posso repetir a chamada com segurança?",
+        "a": "Sim. Envie um Idempotency-Key (opcional em PATCH) e a repetição com a mesma chave devolve a resposta da primeira."
+      }
+    ]
+  },
+  "en": {
+    "title": "Pause and activate campaigns, ad sets and ads",
+    "tagline": "Pause or activate your client's Meta Ads campaigns, ad sets and ads with a status PATCH. Works for objects created outside Connect too.",
+    "intro": "Turning ads on and off is a PATCH with status active or paused, at the level you want to control: campaign, ad set or ad. It works for any object in the connected account, including those created directly in Ads Manager. No Meta API to implement.",
+    "can": [
+      "Pause or activate a campaign with PATCH /ads/campaigns/{id}.",
+      "Pause or activate an ad set with PATCH /ads/adsets/{id}.",
+      "Pause or activate an ad with PATCH /ads/{id}.",
+      "Change the name in the same PATCH.",
+      "Identify the object by the platform id or by the Connect uuid."
+    ],
+    "rules": [
+      "Accepted status values: active and paused.",
+      "Works for any object in the account, including those created outside Connect: it is stored on the first write.",
+      "Idempotency-Key is optional on PATCH.",
+      "The id is checked against the connection's account; from another account, the response is 404 ads_object_not_found.",
+      "The connection in customer_integration must belong to the customer (403 otherwise) and be valid (422 ads_connection_expired if the token expired).",
+      "The response is synchronous (200)."
+    ],
+    "useCases": [
+      {
+        "title": "On/off switch in the dashboard",
+        "body": "Your client pauses a campaign right in your product, without opening Ads Manager."
+      },
+      {
+        "title": "Automatic safety rule",
+        "body": "Pause ads when a metric passes a threshold you define, such as a high cost per result."
+      },
+      {
+        "title": "AI agent that manages budget",
+        "body": "The agent pauses what underperforms and activates what was approved, all through simple calls."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need to have created the ad through Connect to pause it?",
+        "a": "No. Any object in the connected account can be paused or activated; it enters Connect's records on the first write."
+      },
+      {
+        "q": "Which status values are accepted?",
+        "a": "active and paused."
+      },
+      {
+        "q": "Can I safely repeat the call?",
+        "a": "Yes. Send an Idempotency-Key (optional on PATCH) and a repeat with the same key returns the first response."
+      }
+    ]
+  },
+  "es": {
+    "title": "Pausar y activar campañas, conjuntos y anuncios",
+    "tagline": "Pausa o activa campañas, conjuntos y anuncios de Meta Ads de tu cliente con un PATCH de status. Funciona también con objetos creados fuera de Connect.",
+    "intro": "Encender y apagar anuncios es un PATCH con status active o paused, en el nivel que quieras controlar: campaña, conjunto o anuncio. Funciona con cualquier objeto de la cuenta conectada, incluidos los creados directamente en el Administrador de Anuncios. Sin implementar la API de Meta.",
+    "can": [
+      "Pausar o activar una campaña con PATCH /ads/campaigns/{id}.",
+      "Pausar o activar un conjunto con PATCH /ads/adsets/{id}.",
+      "Pausar o activar un anuncio con PATCH /ads/{id}.",
+      "Cambiar el nombre en el mismo PATCH.",
+      "Identificar el objeto por el id de la plataforma o por el uuid de Connect."
+    ],
+    "rules": [
+      "Valores aceptados en status: active y paused.",
+      "Funciona con cualquier objeto de la cuenta, incluidos los creados fuera de Connect: se guarda en la primera escritura.",
+      "Idempotency-Key es opcional en PATCH.",
+      "El id se comprueba contra la cuenta de la conexión; de otra cuenta, la respuesta es 404 ads_object_not_found.",
+      "La conexión de customer_integration debe pertenecer al cliente (403 si no) y estar vigente (422 ads_connection_expired si el token expiró).",
+      "La respuesta es síncrona (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Interruptor en el panel",
+        "body": "Tu cliente pausa una campaña desde tu producto, sin abrir el Administrador de Anuncios."
+      },
+      {
+        "title": "Regla automática de seguridad",
+        "body": "Pausa anuncios cuando una métrica pase un límite que defines, como un costo por resultado alto."
+      },
+      {
+        "title": "Agente de IA que gestiona presupuesto",
+        "body": "El agente pausa lo que rinde mal y activa lo aprobado, todo con llamadas simples."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Debo haber creado el anuncio con Connect para pausarlo?",
+        "a": "No. Cualquier objeto de la cuenta conectada se puede pausar o activar; entra en los registros de Connect en la primera escritura."
+      },
+      {
+        "q": "¿Qué valores de status se aceptan?",
+        "a": "active y paused."
+      },
+      {
+        "q": "¿Puedo repetir la llamada con seguridad?",
+        "a": "Sí. Envía un Idempotency-Key (opcional en PATCH) y una repetición con la misma clave devuelve la respuesta de la primera."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Mettre en pause et activer campagnes, ensembles et annonces",
+    "tagline": "Mettez en pause ou activez les campagnes, ensembles et annonces Meta Ads de votre client avec un PATCH de status. Fonctionne aussi hors Connect.",
+    "intro": "Allumer et éteindre des annonces, c'est un PATCH avec status active ou paused, au niveau que vous voulez contrôler : campagne, ensemble ou annonce. Cela fonctionne pour tout objet du compte connecté, y compris ceux créés directement dans le Gestionnaire de publicités. Sans implémenter l'API Meta.",
+    "can": [
+      "Mettre en pause ou activer une campagne avec PATCH /ads/campaigns/{id}.",
+      "Mettre en pause ou activer un ensemble avec PATCH /ads/adsets/{id}.",
+      "Mettre en pause ou activer une annonce avec PATCH /ads/{id}.",
+      "Changer le nom dans le même PATCH.",
+      "Identifier l'objet par l'id de la plateforme ou par l'uuid Connect."
+    ],
+    "rules": [
+      "Valeurs de status acceptées : active et paused.",
+      "Fonctionne pour tout objet du compte, y compris ceux créés hors de Connect : il est enregistré à la première écriture.",
+      "Idempotency-Key est facultatif sur PATCH.",
+      "L'id est vérifié par rapport au compte de la connexion ; d'un autre compte, la réponse est 404 ads_object_not_found.",
+      "La connexion de customer_integration doit appartenir au client (403 sinon) et être valide (422 ads_connection_expired si le token a expiré).",
+      "La réponse est synchrone (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Interrupteur dans le tableau de bord",
+        "body": "Votre client met une campagne en pause depuis votre produit, sans ouvrir le Gestionnaire de publicités."
+      },
+      {
+        "title": "Règle de sécurité automatique",
+        "body": "Mettez des annonces en pause quand une métrique dépasse un seuil que vous définissez, comme un coût par résultat élevé."
+      },
+      {
+        "title": "Agent IA qui gère le budget",
+        "body": "L'agent met en pause ce qui sous-performe et active ce qui a été approuvé, par de simples appels."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Faut-il avoir créé l'annonce via Connect pour la mettre en pause ?",
+        "a": "Non. Tout objet du compte connecté peut être mis en pause ou activé ; il entre dans les enregistrements de Connect à la première écriture."
+      },
+      {
+        "q": "Quelles valeurs de status sont acceptées ?",
+        "a": "active et paused."
+      },
+      {
+        "q": "Puis-je rejouer l'appel sans risque ?",
+        "a": "Oui. Envoyez une Idempotency-Key (facultative sur PATCH) et une répétition avec la même clé renvoie la première réponse."
+      }
+    ]
+  }
+}

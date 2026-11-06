@@ -1,0 +1,290 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/ads/targeting/search",
+    "query": {
+      "customer_integration": "<connection uuid>",
+      "type": "interest",
+      "q": "running",
+      "limit": 10
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "uuid da conexão do cliente. Define a conta de anúncios. Vai sempre na query.",
+        "en": "The uuid of the customer's connection. It defines the ad account. Always goes in the query.",
+        "es": "El uuid de la conexión del cliente. Define la cuenta de anuncios. Va siempre en la query.",
+        "fr": "L'uuid de la connexion du client. Il définit le compte publicitaire. Toujours dans la query."
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O que buscar: interest, geo ou behavior.",
+        "en": "What to search: interest, geo or behavior.",
+        "es": "Qué buscar: interest, geo o behavior.",
+        "fr": "Que chercher : interest, geo ou behavior."
+      }
+    },
+    {
+      "name": "q",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "O termo buscado. Obrigatório para interest e geo. behavior lista tudo sem q.",
+        "en": "The search term. Required for interest and geo. behavior lists everything without q.",
+        "es": "El término buscado. Obligatorio para interest y geo. behavior lista todo sin q.",
+        "fr": "Le terme recherché. Obligatoire pour interest et geo. behavior liste tout sans q."
+      }
+    },
+    {
+      "name": "country_code",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Código do país com 2 letras. Só tem efeito em geo.",
+        "en": "Two-letter country code. Only takes effect on geo.",
+        "es": "Código de país de 2 letras. Solo tiene efecto en geo.",
+        "fr": "Code pays à 2 lettres. N'a d'effet que sur geo."
+      }
+    },
+    {
+      "name": "limit",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Máximo de resultados, de 1 a 200.",
+        "en": "Maximum results, from 1 to 200.",
+        "es": "Máximo de resultados, de 1 a 200.",
+        "fr": "Nombre maximum de résultats, de 1 à 200."
+      }
+    },
+    {
+      "name": "refresh",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Ignora o cache de 600 s e busca de novo na plataforma.",
+        "en": "Bypasses the 600 s cache and fetches again from the platform.",
+        "es": "Ignora el caché de 600 s y consulta de nuevo la plataforma.",
+        "fr": "Ignore le cache de 600 s et interroge à nouveau la plateforme."
+      }
+    },
+    {
+      "name": "subtype",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta, só em geo: country, region, city, neighborhood ou zip. Diz em qual campo o resultado entra.",
+        "en": "In the response, geo only: country, region, city, neighborhood or zip. It says which field the result goes in.",
+        "es": "En la respuesta, solo en geo: country, region, city, neighborhood o zip. Indica en qué campo entra el resultado.",
+        "fr": "Dans la réponse, geo uniquement : country, region, city, neighborhood ou zip. Indique dans quel champ le résultat va."
+      }
+    },
+    {
+      "name": "audience_size",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: a faixa estimada de pessoas (lower e upper). É uma faixa, e geo não tem.",
+        "en": "In the response: the estimated range of people (lower and upper). It is a range, and geo has none.",
+        "es": "En la respuesta: el rango estimado de personas (lower y upper). Es un rango, y geo no lo tiene.",
+        "fr": "Dans la réponse : la fourchette estimée de personnes (lower et upper). C'est une fourchette, et geo n'en a pas."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Buscar interesses, locais e comportamentos do Meta Ads",
+    "tagline": "Transforme um termo como \"corrida\" nos ids de interesse, local ou comportamento que a segmentação do Meta Ads espera, com tamanho estimado do público.",
+    "intro": "Uma rota resolve um termo nos ids que a segmentação de um conjunto de anúncios espera, para você não precisar conhecer o id de antemão. Funciona para interesses, locais e comportamentos, com a conta do cliente conectada e sem passar pelo app review da Meta.",
+    "can": [
+      "Buscar interesses por termo com type=interest e usar o id em targeting.interests.",
+      "Buscar locais com type=geo, filtrando por país com country_code.",
+      "Navegar por todos os comportamentos com type=behavior, sem precisar de q.",
+      "Ver o tamanho estimado do público em audience_size, como faixa de lower a upper.",
+      "Limitar a quantidade de resultados com limit, de 1 a 200."
+    ],
+    "rules": [
+      "q é obrigatório para interest e geo. Só behavior lista tudo sem termo, e country_code só tem efeito em geo.",
+      "Cada resultado vem no mesmo formato nos três tipos, com id, name, type, subtype, path, description, country_code e audience_size. Para geo o id é a chave do local.",
+      "interest e behavior entram em targeting.interests. Em geo, só país cabe em targeting.countries: cidade, região e bairro entram por facebook_ads.targeting.raw.geo_locations, e o subtype diz qual.",
+      "A resposta não é paginada: vêm no máximo 200 itens por busca.",
+      "Cache de 600 s por conexão. meta.cached e meta.cached_at dizem se veio do cache, e refresh=true ignora."
+    ],
+    "useCases": [
+      {
+        "title": "Seletor de público no seu SaaS",
+        "body": "Você digita um termo, mostra as opções de interesse com o tamanho do público e monta o conjunto de anúncios com os ids escolhidos."
+      },
+      {
+        "title": "Segmentação por cidade",
+        "body": "Uma agência busca a cidade do cliente com type=geo, vê o subtype e coloca o id no lugar certo da segmentação."
+      },
+      {
+        "title": "Agente de IA que monta públicos",
+        "body": "Um agente recebe \"pessoas que gostam de corrida\", busca o interesse, escolhe o resultado mais próximo e cria o conjunto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso saber o id do interesse antes?",
+        "a": "Não. Essa rota existe para isso: você busca o termo com type=interest e q, e recebe o id que a segmentação espera."
+      },
+      {
+        "q": "Posso segmentar por cidade?",
+        "a": "Sim, mas cidade, região e bairro não entram em targeting.countries. Eles vão por facebook_ads.targeting.raw.geo_locations, e o subtype do resultado diz qual é. Só país entra em targeting.countries."
+      },
+      {
+        "q": "A busca tem paginação?",
+        "a": "Não. Vêm no máximo 200 itens por busca, controlados por limit. Refine o termo se precisar de mais precisão."
+      }
+    ]
+  },
+  "en": {
+    "title": "Search Meta Ads interests, places and behaviors",
+    "tagline": "Turn a term like \"running\" into the interest, place or behavior ids Meta Ads targeting expects, with the estimated audience size.",
+    "intro": "One route resolves a term into the ids an ad set's targeting expects, so you do not have to know the id up front. It works for interests, places and behaviors, with the customer's account connected and no Meta app review.",
+    "can": [
+      "Search interests by term with type=interest and use the id in targeting.interests.",
+      "Search places with type=geo, narrowing by country with country_code.",
+      "Browse all behaviors with type=behavior, without needing q.",
+      "See the estimated audience size in audience_size, as a range from lower to upper.",
+      "Limit the number of results with limit, from 1 to 200."
+    ],
+    "rules": [
+      "q is required for interest and geo. Only behavior lists everything without a term, and country_code only takes effect on geo.",
+      "Each result has the same shape for all three types, with id, name, type, subtype, path, description, country_code and audience_size. For geo the id is the place's key.",
+      "interest and behavior go in targeting.interests. For geo, only a country fits in targeting.countries: city, region and neighborhood go in through facebook_ads.targeting.raw.geo_locations, and the subtype says which.",
+      "The response is not paginated: at most 200 items come back per search.",
+      "Cached for 600 s per connection. meta.cached and meta.cached_at say whether it came from the cache, and refresh=true bypasses it."
+    ],
+    "useCases": [
+      {
+        "title": "Audience picker in your SaaS",
+        "body": "You type a term, show the interest options with audience size and build the ad set with the chosen ids."
+      },
+      {
+        "title": "City targeting",
+        "body": "An agency searches the customer's city with type=geo, reads the subtype and puts the id in the right place in the targeting."
+      },
+      {
+        "title": "AI agent that builds audiences",
+        "body": "An agent receives \"people who like running\", searches the interest, picks the closest result and creates the ad set."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need to know the interest id beforehand?",
+        "a": "No. This route exists for that: you search the term with type=interest and q, and get the id targeting expects."
+      },
+      {
+        "q": "Can I target by city?",
+        "a": "Yes, but city, region and neighborhood do not go in targeting.countries. They go through facebook_ads.targeting.raw.geo_locations, and the result's subtype says which one it is. Only a country goes in targeting.countries."
+      },
+      {
+        "q": "Is the search paginated?",
+        "a": "No. At most 200 items come back per search, controlled by limit. Refine the term if you need more precision."
+      }
+    ]
+  },
+  "es": {
+    "title": "Buscar intereses, lugares y comportamientos de Meta Ads",
+    "tagline": "Convierte un término como \"running\" en los ids de interés, lugar o comportamiento que espera la segmentación de Meta Ads, con el tamaño estimado de audiencia.",
+    "intro": "Una ruta resuelve un término en los ids que espera la segmentación de un conjunto de anuncios, para que no tengas que conocer el id de antemano. Funciona para intereses, lugares y comportamientos, con la cuenta del cliente conectada y sin pasar por el app review de Meta.",
+    "can": [
+      "Buscar intereses por término con type=interest y usar el id en targeting.interests.",
+      "Buscar lugares con type=geo, filtrando por país con country_code.",
+      "Navegar por todos los comportamientos con type=behavior, sin necesitar q.",
+      "Ver el tamaño estimado de la audiencia en audience_size, como rango de lower a upper.",
+      "Limitar la cantidad de resultados con limit, de 1 a 200."
+    ],
+    "rules": [
+      "q es obligatorio para interest y geo. Solo behavior lista todo sin término, y country_code solo tiene efecto en geo.",
+      "Cada resultado viene en el mismo formato en los tres tipos, con id, name, type, subtype, path, description, country_code y audience_size. Para geo el id es la clave del lugar.",
+      "interest y behavior entran en targeting.interests. En geo, solo un país cabe en targeting.countries: ciudad, región y barrio entran por facebook_ads.targeting.raw.geo_locations, y el subtype dice cuál.",
+      "La respuesta no está paginada: vienen como máximo 200 ítems por búsqueda.",
+      "Caché de 600 s por conexión. meta.cached y meta.cached_at indican si vino del caché, y refresh=true lo ignora."
+    ],
+    "useCases": [
+      {
+        "title": "Selector de audiencia en tu SaaS",
+        "body": "Escribes un término, muestras las opciones de interés con el tamaño de audiencia y armas el conjunto de anuncios con los ids elegidos."
+      },
+      {
+        "title": "Segmentación por ciudad",
+        "body": "Una agencia busca la ciudad del cliente con type=geo, lee el subtype y pone el id en el lugar correcto de la segmentación."
+      },
+      {
+        "title": "Agente de IA que arma audiencias",
+        "body": "Un agente recibe \"personas a las que les gusta correr\", busca el interés, elige el resultado más cercano y crea el conjunto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito saber el id del interés de antemano?",
+        "a": "No. Esta ruta existe para eso: buscas el término con type=interest y q, y recibes el id que espera la segmentación."
+      },
+      {
+        "q": "¿Puedo segmentar por ciudad?",
+        "a": "Sí, pero ciudad, región y barrio no entran en targeting.countries. Van por facebook_ads.targeting.raw.geo_locations, y el subtype del resultado dice cuál es. Solo un país entra en targeting.countries."
+      },
+      {
+        "q": "¿La búsqueda tiene paginación?",
+        "a": "No. Vienen como máximo 200 ítems por búsqueda, controlados por limit. Afina el término si necesitas más precisión."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Rechercher intérêts, lieux et comportements Meta Ads",
+    "tagline": "Transformez un terme comme \"running\" en ids d'intérêt, de lieu ou de comportement attendus par le ciblage Meta Ads, avec la taille d'audience estimée.",
+    "intro": "Une route résout un terme en ids attendus par le ciblage d'un ensemble d'annonces, pour que vous n'ayez pas à connaître l'id à l'avance. Elle fonctionne pour les intérêts, lieux et comportements, avec le compte du client connecté et sans app review Meta.",
+    "can": [
+      "Rechercher des intérêts par terme avec type=interest et utiliser l'id dans targeting.interests.",
+      "Rechercher des lieux avec type=geo, en filtrant par pays avec country_code.",
+      "Parcourir tous les comportements avec type=behavior, sans besoin de q.",
+      "Voir la taille d'audience estimée dans audience_size, sous forme de fourchette de lower à upper.",
+      "Limiter le nombre de résultats avec limit, de 1 à 200."
+    ],
+    "rules": [
+      "q est obligatoire pour interest et geo. Seul behavior liste tout sans terme, et country_code n'a d'effet que sur geo.",
+      "Chaque résultat a le même format pour les trois types, avec id, name, type, subtype, path, description, country_code et audience_size. Pour geo, l'id est la clé du lieu.",
+      "interest et behavior vont dans targeting.interests. Pour geo, seul un pays tient dans targeting.countries : ville, région et quartier passent par facebook_ads.targeting.raw.geo_locations, et le subtype indique lequel.",
+      "La réponse n'est pas paginée : 200 éléments maximum par recherche.",
+      "Cache de 600 s par connexion. meta.cached et meta.cached_at indiquent si cela vient du cache, et refresh=true l'ignore."
+    ],
+    "useCases": [
+      {
+        "title": "Sélecteur d'audience dans votre SaaS",
+        "body": "Vous saisissez un terme, affichez les intérêts avec la taille d'audience et construisez l'ensemble d'annonces avec les ids choisis."
+      },
+      {
+        "title": "Ciblage par ville",
+        "body": "Une agence recherche la ville du client avec type=geo, lit le subtype et place l'id au bon endroit du ciblage."
+      },
+      {
+        "title": "Agent IA qui construit des audiences",
+        "body": "Un agent reçoit \"les gens qui aiment courir\", recherche l'intérêt, choisit le résultat le plus proche et crée l'ensemble."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Dois-je connaître l'id de l'intérêt à l'avance ?",
+        "a": "Non. Cette route existe pour cela : vous cherchez le terme avec type=interest et q, et recevez l'id attendu par le ciblage."
+      },
+      {
+        "q": "Peut-on cibler par ville ?",
+        "a": "Oui, mais ville, région et quartier ne vont pas dans targeting.countries. Ils passent par facebook_ads.targeting.raw.geo_locations, et le subtype du résultat indique lequel. Seul un pays va dans targeting.countries."
+      },
+      {
+        "q": "La recherche est-elle paginée ?",
+        "a": "Non. 200 éléments maximum par recherche, contrôlés par limit. Affinez le terme si vous avez besoin de plus de précision."
+      }
+    ]
+  }
+}

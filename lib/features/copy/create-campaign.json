@@ -1,0 +1,298 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/campaigns",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "name": "Black Friday",
+      "budget": {
+        "amount": 50,
+        "type": "daily"
+      },
+      "facebook_ads": {
+        "objective": "traffic",
+        "special_ad_categories": []
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome da campanha.",
+        "en": "Campaign name.",
+        "es": "Nombre de la campaña.",
+        "fr": "Nom de la campagne."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "active ou paused. Sem o campo, a campanha nasce pausada.",
+        "en": "active or paused. Without it, the campaign is created paused.",
+        "es": "active o paused. Sin el campo, la campaña nace pausada.",
+        "fr": "active ou paused. Sans ce champ, la campagne est créée en pause."
+      }
+    },
+    {
+      "name": "budget.amount",
+      "type": "number",
+      "required": true,
+      "description": {
+        "pt": "Valor na moeda da conta de anúncios, nunca em centavos. Mandar o budget aqui faz a campanha ser CBO.",
+        "en": "Amount in the ad account's currency, never in cents. Sending the budget here makes the campaign CBO.",
+        "es": "Valor en la moneda de la cuenta de anuncios, nunca en centavos. Enviar el budget aquí hace la campaña CBO.",
+        "fr": "Montant dans la devise du compte publicitaire, jamais en centimes. Envoyer le budget ici rend la campagne CBO."
+      }
+    },
+    {
+      "name": "budget.type",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "daily ou lifetime. lifetime exige schedule.end no conjunto.",
+        "en": "daily or lifetime. lifetime requires schedule.end on the ad set.",
+        "es": "daily o lifetime. lifetime exige schedule.end en el conjunto.",
+        "fr": "daily ou lifetime. lifetime exige schedule.end sur l'ensemble."
+      }
+    },
+    {
+      "name": "facebook_ads.objective",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "awareness, traffic, engagement, leads, app_promotion ou sales. Obrigatório na criação e não muda depois.",
+        "en": "awareness, traffic, engagement, leads, app_promotion or sales. Required on create and can't be changed afterwards.",
+        "es": "awareness, traffic, engagement, leads, app_promotion o sales. Obligatorio al crear y no cambia después.",
+        "fr": "awareness, traffic, engagement, leads, app_promotion ou sales. Obligatoire à la création, non modifiable ensuite."
+      }
+    },
+    {
+      "name": "facebook_ads.special_ad_categories",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Obrigatório para crédito, emprego, moradia e política.",
+        "en": "Required for credit, employment, housing and politics.",
+        "es": "Obligatorio para crédito, empleo, vivienda y política.",
+        "fr": "Obligatoire pour le crédit, l'emploi, le logement et la politique."
+      }
+    },
+    {
+      "name": "facebook_ads.spend_cap",
+      "type": "number",
+      "required": false,
+      "description": {
+        "pt": "Limite de gasto da campanha, na moeda da conta. null remove o limite.",
+        "en": "The campaign's spending limit, in the account's currency. null removes it.",
+        "es": "Límite de gasto de la campaña, en la moneda de la cuenta. null lo quita.",
+        "fr": "Plafond de dépense de la campagne, dans la devise du compte. null le supprime."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Criar campanha no Meta Ads",
+    "tagline": "Crie campanhas no Meta Ads da conta do seu cliente com um POST: objetivo, orçamento e limite de gasto. Nasce pausada e é idempotente.",
+    "intro": "Uma chamada cria a campanha na conta de anúncios que o cliente conectou, sem você implementar a API do Meta nem passar pela revisão de app. Você descreve objetivo e orçamento em um vocabulário único e o Connect cuida do token e da tradução. A campanha nasce pausada, então nada gasta até você ativar.",
+    "can": [
+      "Escolher o objetivo: awareness, traffic, engagement, leads, app_promotion ou sales.",
+      "Definir o orçamento na campanha (CBO) ou deixá-lo para cada conjunto (ABO).",
+      "Usar orçamento daily ou lifetime, na moeda da conta do cliente.",
+      "Informar special_ad_categories para crédito, emprego, moradia e política.",
+      "Definir um limite de gasto com facebook_ads.spend_cap.",
+      "Consultar os valores aceitos em GET /ads/options?integration_slug=facebook_ads."
+    ],
+    "rules": [
+      "Sem status, a campanha nasce pausada.",
+      "Idempotency-Key é obrigatório no header. Repetir a chamada com a mesma chave e o mesmo corpo devolve 200 com Idempotent-Replay: true, sem criar outra campanha.",
+      "O orçamento fica na campanha (CBO) ou em cada conjunto (ABO), nunca nos dois. Não existe campo level: o nível é onde o budget está.",
+      "budget.amount é na moeda da conta, nunca em centavos.",
+      "facebook_ads.objective é obrigatório e não muda depois de criado.",
+      "A resposta é síncrona: 201 com a campanha criada. Se a chave de idempotência já foi usada com outro corpo, a resposta é 422 idempotency_key_reused."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma de anúncios para PMEs",
+        "body": "O cliente final preenche objetivo e verba no seu produto e você cria a campanha na conta dele, sem montar um fluxo OAuth com o Meta."
+      },
+      {
+        "title": "Agência com painel próprio",
+        "body": "Crie campanhas padronizadas para vários clientes a partir de um template, trocando só nome, objetivo e orçamento."
+      },
+      {
+        "title": "Agente de IA de mídia paga",
+        "body": "O agente lê o vocabulário em GET /ads/options, monta a campanha e a deixa pausada para um humano revisar antes de ativar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A campanha começa gastando dinheiro assim que é criada?",
+        "a": "Não. Sem status, ela nasce pausada. Você ativa quando quiser com PATCH /ads/campaigns/{id} e status active."
+      },
+      {
+        "q": "Posso repetir a chamada sem criar uma campanha duplicada?",
+        "a": "Sim. Mande sempre o mesmo Idempotency-Key. Se a primeira chamada deu certo, a repetição devolve a mesma resposta com Idempotent-Replay: true."
+      },
+      {
+        "q": "Onde o orçamento deve ficar, na campanha ou no conjunto?",
+        "a": "Em um dos dois. Com budget na campanha o orçamento é CBO; sem ele, cada conjunto leva o seu (ABO). Mandar para o nível errado responde 409 budget_level_mismatch."
+      }
+    ]
+  },
+  "en": {
+    "title": "Create a Meta Ads campaign",
+    "tagline": "Create Meta Ads campaigns in your client's ad account with one POST: objective, budget and spend cap. Created paused and idempotent.",
+    "intro": "One call creates the campaign in the ad account your client connected, with no Meta API integration to build and no app review. You describe objective and budget in a single vocabulary and Connect handles the token and the translation. The campaign is created paused, so nothing spends until you activate it.",
+    "can": [
+      "Pick the objective: awareness, traffic, engagement, leads, app_promotion or sales.",
+      "Set the budget on the campaign (CBO) or leave it to each ad set (ABO).",
+      "Use a daily or lifetime budget, in the client account's currency.",
+      "Send special_ad_categories for credit, employment, housing and politics.",
+      "Set a spending limit with facebook_ads.spend_cap.",
+      "Read the accepted values from GET /ads/options?integration_slug=facebook_ads."
+    ],
+    "rules": [
+      "Without status, the campaign is created paused.",
+      "Idempotency-Key is required in the header. Repeating the call with the same key and the same body returns 200 with Idempotent-Replay: true and does not create another campaign.",
+      "The budget sits on the campaign (CBO) or on each ad set (ABO), never on both. There is no level field: the level is where the budget is.",
+      "budget.amount is in the account's currency, never in cents.",
+      "facebook_ads.objective is required and can't be changed after creation.",
+      "The response is synchronous: 201 with the created campaign. Reusing the key with a different body returns 422 idempotency_key_reused."
+    ],
+    "useCases": [
+      {
+        "title": "Ads platform for small businesses",
+        "body": "The end client fills in objective and budget in your product and you create the campaign in their account, without building an OAuth flow with Meta."
+      },
+      {
+        "title": "Agency with its own dashboard",
+        "body": "Create standardized campaigns for many clients from a template, changing only name, objective and budget."
+      },
+      {
+        "title": "Paid media AI agent",
+        "body": "The agent reads the vocabulary in GET /ads/options, builds the campaign and leaves it paused for a human to review before activating."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the campaign start spending as soon as it is created?",
+        "a": "No. Without status it is created paused. You activate it when you want with PATCH /ads/campaigns/{id} and status active."
+      },
+      {
+        "q": "Can I retry the call without creating a duplicate campaign?",
+        "a": "Yes. Always send the same Idempotency-Key. If the first call succeeded, the retry returns the same response with Idempotent-Replay: true."
+      },
+      {
+        "q": "Should the budget go on the campaign or on the ad set?",
+        "a": "On one of them. With budget on the campaign it is CBO; without it, each ad set carries its own (ABO). Sending it to the wrong level returns 409 budget_level_mismatch."
+      }
+    ]
+  },
+  "es": {
+    "title": "Crear una campaña en Meta Ads",
+    "tagline": "Crea campañas de Meta Ads en la cuenta de tu cliente con un POST: objetivo, presupuesto y límite de gasto. Nace pausada y es idempotente.",
+    "intro": "Una llamada crea la campaña en la cuenta de anuncios que el cliente conectó, sin implementar la API de Meta ni pasar por la revisión de app. Describes objetivo y presupuesto en un vocabulario único y Connect se encarga del token y de la traducción. La campaña nace pausada, así que nada gasta hasta que la actives.",
+    "can": [
+      "Elegir el objetivo: awareness, traffic, engagement, leads, app_promotion o sales.",
+      "Definir el presupuesto en la campaña (CBO) o dejarlo para cada conjunto (ABO).",
+      "Usar presupuesto daily o lifetime, en la moneda de la cuenta del cliente.",
+      "Enviar special_ad_categories para crédito, empleo, vivienda y política.",
+      "Definir un límite de gasto con facebook_ads.spend_cap.",
+      "Consultar los valores aceptados en GET /ads/options?integration_slug=facebook_ads."
+    ],
+    "rules": [
+      "Sin status, la campaña nace pausada.",
+      "Idempotency-Key es obligatorio en el header. Repetir la llamada con la misma clave y el mismo cuerpo devuelve 200 con Idempotent-Replay: true, sin crear otra campaña.",
+      "El presupuesto va en la campaña (CBO) o en cada conjunto (ABO), nunca en los dos. No existe un campo level: el nivel es donde está el budget.",
+      "budget.amount va en la moneda de la cuenta, nunca en centavos.",
+      "facebook_ads.objective es obligatorio y no cambia después de crear.",
+      "La respuesta es síncrona: 201 con la campaña creada. Si la clave ya se usó con otro cuerpo, responde 422 idempotency_key_reused."
+    ],
+    "useCases": [
+      {
+        "title": "Plataforma de anuncios para pymes",
+        "body": "El cliente final completa objetivo y presupuesto en tu producto y tú creas la campaña en su cuenta, sin armar un flujo OAuth con Meta."
+      },
+      {
+        "title": "Agencia con panel propio",
+        "body": "Crea campañas estandarizadas para varios clientes desde una plantilla, cambiando solo nombre, objetivo y presupuesto."
+      },
+      {
+        "title": "Agente de IA de medios pagos",
+        "body": "El agente lee el vocabulario en GET /ads/options, arma la campaña y la deja pausada para que una persona la revise antes de activar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿La campaña empieza a gastar apenas se crea?",
+        "a": "No. Sin status nace pausada. La activas cuando quieras con PATCH /ads/campaigns/{id} y status active."
+      },
+      {
+        "q": "¿Puedo repetir la llamada sin crear una campaña duplicada?",
+        "a": "Sí. Envía siempre el mismo Idempotency-Key. Si la primera llamada funcionó, la repetición devuelve la misma respuesta con Idempotent-Replay: true."
+      },
+      {
+        "q": "¿El presupuesto va en la campaña o en el conjunto?",
+        "a": "En uno de los dos. Con budget en la campaña es CBO; sin él, cada conjunto lleva el suyo (ABO). Enviarlo al nivel equivocado responde 409 budget_level_mismatch."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Créer une campagne Meta Ads",
+    "tagline": "Créez des campagnes Meta Ads dans le compte de votre client avec un POST : objectif, budget et plafond. Créée en pause et idempotente.",
+    "intro": "Un appel crée la campagne dans le compte publicitaire que le client a connecté, sans implémenter l'API Meta ni passer par la revue d'app. Vous décrivez objectif et budget dans un vocabulaire unique et Connect gère le token et la traduction. La campagne est créée en pause : rien ne dépense avant que vous l'activiez.",
+    "can": [
+      "Choisir l'objectif : awareness, traffic, engagement, leads, app_promotion ou sales.",
+      "Définir le budget sur la campagne (CBO) ou le laisser à chaque ensemble (ABO).",
+      "Utiliser un budget daily ou lifetime, dans la devise du compte du client.",
+      "Envoyer special_ad_categories pour le crédit, l'emploi, le logement et la politique.",
+      "Définir un plafond de dépense avec facebook_ads.spend_cap.",
+      "Lire les valeurs acceptées via GET /ads/options?integration_slug=facebook_ads."
+    ],
+    "rules": [
+      "Sans status, la campagne est créée en pause.",
+      "Idempotency-Key est obligatoire dans le header. Répéter l'appel avec la même clé et le même corps renvoie 200 avec Idempotent-Replay: true, sans créer une autre campagne.",
+      "Le budget est sur la campagne (CBO) ou sur chaque ensemble (ABO), jamais sur les deux. Il n'y a pas de champ level : le niveau est l'endroit où se trouve le budget.",
+      "budget.amount est dans la devise du compte, jamais en centimes.",
+      "facebook_ads.objective est obligatoire et ne change plus après la création.",
+      "La réponse est synchrone : 201 avec la campagne créée. Réutiliser la clé avec un autre corps renvoie 422 idempotency_key_reused."
+    ],
+    "useCases": [
+      {
+        "title": "Plateforme publicitaire pour PME",
+        "body": "Le client final renseigne objectif et budget dans votre produit et vous créez la campagne dans son compte, sans monter un flux OAuth avec Meta."
+      },
+      {
+        "title": "Agence avec son propre tableau de bord",
+        "body": "Créez des campagnes standardisées pour plusieurs clients depuis un modèle, en ne changeant que le nom, l'objectif et le budget."
+      },
+      {
+        "title": "Agent IA de média payant",
+        "body": "L'agent lit le vocabulaire dans GET /ads/options, construit la campagne et la laisse en pause pour qu'un humain la relise avant activation."
+      }
+    ],
+    "faq": [
+      {
+        "q": "La campagne dépense-t-elle dès sa création ?",
+        "a": "Non. Sans status, elle est créée en pause. Vous l'activez quand vous voulez avec PATCH /ads/campaigns/{id} et status active."
+      },
+      {
+        "q": "Puis-je rejouer l'appel sans créer de doublon ?",
+        "a": "Oui. Envoyez toujours la même Idempotency-Key. Si le premier appel a réussi, la répétition renvoie la même réponse avec Idempotent-Replay: true."
+      },
+      {
+        "q": "Le budget va-t-il sur la campagne ou sur l'ensemble ?",
+        "a": "Sur l'un des deux. Avec budget sur la campagne, c'est du CBO ; sans, chaque ensemble porte le sien (ABO). L'envoyer au mauvais niveau renvoie 409 budget_level_mismatch."
+      }
+    ]
+  }
+}

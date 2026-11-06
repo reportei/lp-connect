@@ -1,0 +1,319 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "pin-3301",
+      "format": "feed",
+      "caption": "Linen sofa in warm oat. Free shipping this month.",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/sofa.jpg",
+          "alt_text": "Oat linen sofa in a bright living room"
+        }
+      ],
+      "pinterest": {
+        "board_id": "<board id>",
+        "board_section_id": "<section id>",
+        "title": "Oat linen sofa",
+        "link": "https://shop.example.com/sofa"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do pin no seu sistema (até 100 caracteres). Impede publicar o mesmo pin duas vezes na mesma conta.",
+        "en": "The pin's id in your system (up to 100 characters). Stops the same pin from being published twice on the same account.",
+        "es": "El id del pin en tu sistema (hasta 100 caracteres). Evita publicar el mismo pin dos veces en la misma cuenta.",
+        "fr": "L'id du pin dans votre système (100 caractères max). Évite de publier deux fois le même pin sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Sempre feed no Pinterest.",
+        "en": "Always feed on Pinterest.",
+        "es": "Siempre feed en Pinterest.",
+        "fr": "Toujours feed sur Pinterest."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "A descrição do pin, até 800 caracteres.",
+        "en": "The pin description, up to 800 characters.",
+        "es": "La descripción del pin, hasta 800 caracteres.",
+        "fr": "La description du pin, 800 caractères max."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Exatamente 1 imagem ou 1 vídeo. alt_text vai até 500 caracteres.",
+        "en": "Exactly 1 image or 1 video. alt_text goes up to 500 characters.",
+        "es": "Exactamente 1 imagen o 1 video. alt_text llega hasta 500 caracteres.",
+        "fr": "Exactement 1 image ou 1 vidéo. alt_text va jusqu'à 500 caractères."
+      }
+    },
+    {
+      "name": "pinterest.board_id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O board onde o pin é salvo (string numérica, até 50 caracteres). Vem de GET /posts/pinterest/boards.",
+        "en": "The board the pin is saved to (numeric string, up to 50 characters). Comes from GET /posts/pinterest/boards.",
+        "es": "El tablero donde se guarda el pin (cadena numérica, hasta 50 caracteres). Viene de GET /posts/pinterest/boards.",
+        "fr": "Le tableau où le pin est enregistré (chaîne numérique, 50 caractères max). Vient de GET /posts/pinterest/boards."
+      }
+    },
+    {
+      "name": "pinterest.board_section_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "A seção do board. Vem de GET /posts/pinterest/boards/{board_id}/sections.",
+        "en": "The board section. Comes from GET /posts/pinterest/boards/{board_id}/sections.",
+        "es": "La sección del tablero. Viene de GET /posts/pinterest/boards/{board_id}/sections.",
+        "fr": "La section du tableau. Vient de GET /posts/pinterest/boards/{board_id}/sections."
+      }
+    },
+    {
+      "name": "pinterest.title",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Título do pin, até 100 caracteres.",
+        "en": "Pin title, up to 100 characters.",
+        "es": "Título del pin, hasta 100 caracteres.",
+        "fr": "Titre du pin, 100 caractères max."
+      }
+    },
+    {
+      "name": "pinterest.link",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "URL de destino ao clicar no pin (http ou https).",
+        "en": "Destination URL when the pin is clicked (http or https).",
+        "es": "URL de destino al hacer clic en el pin (http o https).",
+        "fr": "URL de destination au clic sur le pin (http ou https)."
+      }
+    },
+    {
+      "name": "pinterest.cover_url",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Capa do pin. Obrigatória em pin de vídeo e recusada em pin de imagem.",
+        "en": "The pin cover. Required on a video pin and refused on an image pin.",
+        "es": "Portada del pin. Obligatoria en un pin de video y rechazada en uno de imagen.",
+        "fr": "Couverture du pin. Obligatoire sur un pin vidéo et refusée sur un pin image."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar pins no Pinterest",
+    "tagline": "Publique pins de imagem ou vídeo no board certo do Pinterest do seu cliente pela API, com título, link de destino e seção do board.",
+    "intro": "Um POST /posts com a conexão pinterest cria um pin no board que você escolher. O Connect lista os boards e as seções da conta do cliente em tempo real, então seu produto não implementa o OAuth do Pinterest nem guarda tokens.",
+    "can": [
+      "Publicar um pin de imagem ou de vídeo.",
+      "Listar os boards da conta com GET /posts/pinterest/boards e as seções com GET /posts/pinterest/boards/{board_id}/sections.",
+      "Definir título, link de destino e descrição do pin.",
+      "Salvar o pin em uma seção específica do board com board_section_id.",
+      "Informar alt_text de até 500 caracteres para acessibilidade."
+    ],
+    "rules": [
+      "Um pin é exatamente 1 mídia (imagem ou vídeo) e o format é sempre feed.",
+      "pinterest.board_id é obrigatório. pinterest.cover_url é obrigatória em pin de vídeo e recusada em pin de imagem.",
+      "Na escolha da conta por nome, só o source_name é usado, sem integration_slug.",
+      "O POST /posts responde 202 e a publicação roda depois. Acompanhe por GET /posts/{uuid}.",
+      "external_reference é obrigatória e o header Idempotency-Key evita duplicar a requisição."
+    ],
+    "useCases": [
+      {
+        "title": "E-commerce e catálogo",
+        "body": "A loja publica cada produto novo como pin no board da coleção, com link de volta para a página de compra."
+      },
+      {
+        "title": "Plataforma de marketing de conteúdo",
+        "body": "Cada artigo publicado vira um pin com imagem de capa, título e link, na seção certa do board."
+      },
+      {
+        "title": "Agente de IA de social media",
+        "body": "Um agente lista os boards da conta, escolhe o mais adequado e publica o pin com descrição e alt_text gerados."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como descubro o board_id?",
+        "a": "Chame GET /posts/pinterest/boards com a conexão do cliente. A resposta traz id, name, description e privacy de cada board."
+      },
+      {
+        "q": "Posso publicar um vídeo?",
+        "a": "Sim: 1 vídeo por pin, com pinterest.cover_url obrigatória como capa."
+      },
+      {
+        "q": "Quantas mídias cabem em um pin?",
+        "a": "Exatamente 1, uma imagem ou um vídeo."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish pins to Pinterest",
+    "tagline": "Publish image or video pins to the right board on your customer's Pinterest through the API, with title, destination link and board section.",
+    "intro": "A POST /posts with the pinterest connection creates a pin on the board you choose. Connect lists the customer account's boards and sections live, so your product doesn't implement Pinterest OAuth or store tokens.",
+    "can": [
+      "Publish an image pin or a video pin.",
+      "List the account's boards with GET /posts/pinterest/boards and the sections with GET /posts/pinterest/boards/{board_id}/sections.",
+      "Set the pin's title, destination link and description.",
+      "Save the pin to a specific board section with board_section_id.",
+      "Add alt_text of up to 500 characters for accessibility."
+    ],
+    "rules": [
+      "A pin is exactly 1 media item (image or video) and the format is always feed.",
+      "pinterest.board_id is required. pinterest.cover_url is required on a video pin and refused on an image pin.",
+      "When choosing the account by name, only source_name is used, without integration_slug.",
+      "POST /posts responds 202 and publishing runs afterwards. Track it with GET /posts/{uuid}.",
+      "external_reference is required and the Idempotency-Key header prevents duplicating the request."
+    ],
+    "useCases": [
+      {
+        "title": "E-commerce and catalogs",
+        "body": "The store publishes each new product as a pin on the collection's board, with a link back to the purchase page."
+      },
+      {
+        "title": "Content marketing platform",
+        "body": "Each published article becomes a pin with a cover image, title and link, in the right board section."
+      },
+      {
+        "title": "Social media AI agent",
+        "body": "An agent lists the account's boards, picks the best fit and publishes the pin with generated description and alt_text."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I find the board_id?",
+        "a": "Call GET /posts/pinterest/boards with the customer's connection. The response carries id, name, description and privacy for each board."
+      },
+      {
+        "q": "Can I publish a video?",
+        "a": "Yes: 1 video per pin, with pinterest.cover_url required as the cover."
+      },
+      {
+        "q": "How many media items fit in a pin?",
+        "a": "Exactly 1, an image or a video."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar pins en Pinterest",
+    "tagline": "Publica pins de imagen o video en el tablero correcto del Pinterest de tu cliente por API, con título, enlace de destino y sección del tablero.",
+    "intro": "Un POST /posts con la conexión pinterest crea un pin en el tablero que elijas. Connect lista en vivo los tableros y secciones de la cuenta del cliente, así que tu producto no implementa el OAuth de Pinterest ni guarda tokens.",
+    "can": [
+      "Publicar un pin de imagen o de video.",
+      "Listar los tableros de la cuenta con GET /posts/pinterest/boards y las secciones con GET /posts/pinterest/boards/{board_id}/sections.",
+      "Definir título, enlace de destino y descripción del pin.",
+      "Guardar el pin en una sección concreta del tablero con board_section_id.",
+      "Informar alt_text de hasta 500 caracteres para accesibilidad."
+    ],
+    "rules": [
+      "Un pin es exactamente 1 medio (imagen o video) y el format es siempre feed.",
+      "pinterest.board_id es obligatorio. pinterest.cover_url es obligatoria en un pin de video y se rechaza en uno de imagen.",
+      "Al elegir la cuenta por nombre, solo se usa source_name, sin integration_slug.",
+      "POST /posts responde 202 y la publicación corre después. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatoria y el header Idempotency-Key evita duplicar la solicitud."
+    ],
+    "useCases": [
+      {
+        "title": "E-commerce y catálogos",
+        "body": "La tienda publica cada producto nuevo como pin en el tablero de la colección, con enlace a la página de compra."
+      },
+      {
+        "title": "Plataforma de marketing de contenidos",
+        "body": "Cada artículo publicado se vuelve un pin con imagen de portada, título y enlace, en la sección correcta del tablero."
+      },
+      {
+        "title": "Agente de IA de redes sociales",
+        "body": "Un agente lista los tableros de la cuenta, elige el más adecuado y publica el pin con descripción y alt_text generados."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo encuentro el board_id?",
+        "a": "Llama a GET /posts/pinterest/boards con la conexión del cliente. La respuesta trae id, name, description y privacy de cada tablero."
+      },
+      {
+        "q": "¿Puedo publicar un video?",
+        "a": "Sí: 1 video por pin, con pinterest.cover_url obligatoria como portada."
+      },
+      {
+        "q": "¿Cuántos medios caben en un pin?",
+        "a": "Exactamente 1, una imagen o un video."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des pins sur Pinterest",
+    "tagline": "Publiez des pins image ou vidéo sur le bon tableau Pinterest de votre client par API, avec titre, lien de destination et section du tableau.",
+    "intro": "Un POST /posts avec la connexion pinterest crée un pin sur le tableau de votre choix. Connect liste en direct les tableaux et sections du compte du client, donc votre produit n'implémente pas l'OAuth de Pinterest et ne stocke aucun token.",
+    "can": [
+      "Publier un pin image ou un pin vidéo.",
+      "Lister les tableaux du compte avec GET /posts/pinterest/boards et les sections avec GET /posts/pinterest/boards/{board_id}/sections.",
+      "Définir le titre, le lien de destination et la description du pin.",
+      "Enregistrer le pin dans une section précise du tableau avec board_section_id.",
+      "Renseigner un alt_text de 500 caractères maximum pour l'accessibilité."
+    ],
+    "rules": [
+      "Un pin est exactement 1 média (image ou vidéo) et le format est toujours feed.",
+      "pinterest.board_id est obligatoire. pinterest.cover_url est obligatoire sur un pin vidéo et refusée sur un pin image.",
+      "En choisissant le compte par nom, seul source_name est utilisé, sans integration_slug.",
+      "POST /posts répond 202 et la publication se fait ensuite. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et le header Idempotency-Key évite de dupliquer la requête."
+    ],
+    "useCases": [
+      {
+        "title": "E-commerce et catalogues",
+        "body": "La boutique publie chaque nouveau produit en pin sur le tableau de la collection, avec un lien vers la page d'achat."
+      },
+      {
+        "title": "Plateforme de content marketing",
+        "body": "Chaque article publié devient un pin avec image de couverture, titre et lien, dans la bonne section du tableau."
+      },
+      {
+        "title": "Agent IA de réseaux sociaux",
+        "body": "Un agent liste les tableaux du compte, choisit le plus adapté et publie le pin avec description et alt_text générés."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment trouver le board_id ?",
+        "a": "Appelez GET /posts/pinterest/boards avec la connexion du client. La réponse contient id, name, description et privacy de chaque tableau."
+      },
+      {
+        "q": "Puis-je publier une vidéo ?",
+        "a": "Oui : 1 vidéo par pin, avec pinterest.cover_url obligatoire comme couverture."
+      },
+      {
+        "q": "Combien de médias dans un pin ?",
+        "a": "Exactement 1, une image ou une vidéo."
+      }
+    ]
+  }
+}

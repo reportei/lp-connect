@@ -1,0 +1,295 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/media/uploads",
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "file_name": "reels-summer.mp4",
+      "size": 52428800
+    }
+  },
+  "fields": [
+    {
+      "name": "file_name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O nome do arquivo (até 255 caracteres).",
+        "en": "The file name (up to 255 characters).",
+        "es": "El nombre del archivo (hasta 255 caracteres).",
+        "fr": "Le nom du fichier (255 caractères max)."
+      }
+    },
+    {
+      "name": "size",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "O tamanho exato do arquivo em bytes, de 1 até 1073741824 (1 GB).",
+        "en": "The exact file size in bytes, from 1 up to 1073741824 (1 GB).",
+        "es": "El tamaño exacto del archivo en bytes, de 1 hasta 1073741824 (1 GB).",
+        "fr": "La taille exacte du fichier en octets, de 1 à 1073741824 (1 Go)."
+      }
+    },
+    {
+      "name": "upload.part_size",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: os bytes de cada parte. A última leva o resto.",
+        "en": "In the response: the bytes in each part. The last one carries the remainder.",
+        "es": "En la respuesta: los bytes de cada parte. La última lleva el resto.",
+        "fr": "Dans la réponse : les octets de chaque partie. La dernière porte le reste."
+      }
+    },
+    {
+      "name": "upload.parts",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: quantas partes o arquivo tem, numeradas a partir de 1.",
+        "en": "In the response: how many parts the file has, numbered from 1.",
+        "es": "En la respuesta: cuántas partes tiene el archivo, numeradas desde 1.",
+        "fr": "Dans la réponse : le nombre de parties du fichier, numérotées à partir de 1."
+      }
+    },
+    {
+      "name": "upload.expires_at",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: até quando o upload pode ser concluído. Depois disso as partes são descartadas.",
+        "en": "In the response: until when the upload can be completed. After that the parts are discarded.",
+        "es": "En la respuesta: hasta cuándo se puede completar el upload. Después se descartan las partes.",
+        "fr": "Dans la réponse : jusqu'à quand l'envoi peut être terminé. Ensuite les parties sont supprimées."
+      }
+    },
+    {
+      "name": "received_parts",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "No GET /media/uploads/{uuid}: as partes já recebidas, para retomar um envio interrompido.",
+        "en": "In GET /media/uploads/{uuid}: the parts already received, to resume an interrupted upload.",
+        "es": "En GET /media/uploads/{uuid}: las partes ya recibidas, para retomar un envío interrumpido.",
+        "fr": "Dans GET /media/uploads/{uuid} : les parties déjà reçues, pour reprendre un envoi interrompu."
+      }
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Quando status é ready: a URL pública para usar em media.url do POST /posts.",
+        "en": "When status is ready: the public URL to use in media.url of POST /posts.",
+        "es": "Cuando status es ready: la URL pública para usar en media.url de POST /posts.",
+        "fr": "Quand status est ready : l'URL publique à utiliser dans media.url de POST /posts."
+      }
+    },
+    {
+      "name": "expires_at",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Quando a URL deixa de valer e o arquivo é apagado: 30 dias depois de a mídia ficar ready.",
+        "en": "When the URL stops being valid and the file is deleted: 30 days after the media becomes ready.",
+        "es": "Cuándo la URL deja de valer y se borra el archivo: 30 días después de que el medio queda ready.",
+        "fr": "Quand l'URL cesse d'être valide et le fichier est supprimé : 30 jours après que le média est ready."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Enviar vídeos grandes para usar em posts",
+    "tagline": "Envie vídeos de até 1 GB em partes pela API e receba uma URL pública para usar em posts de Instagram, Facebook, YouTube e outras redes.",
+    "intro": "Os posts recebem a mídia por URL. Se você não tem onde hospedar o arquivo, envie ao Connect e receba uma URL em um domínio que as redes aceitam. Até 8 MB vai em uma única requisição; acima disso, o vídeo sobe em partes, até 1 GB, e você usa a URL no media.url do POST /posts.",
+    "can": [
+      "Enviar um arquivo de até 8 MB em uma requisição só, com POST /media.",
+      "Abrir um upload em partes com POST /media/uploads para arquivos de até 1 GB.",
+      "Enviar as partes com PUT /media/uploads/{uuid}/parts/{part}, em paralelo depois da parte 1.",
+      "Retomar um envio interrompido: GET /media/uploads/{uuid} diz quais partes já chegaram.",
+      "Concluir com POST /media/uploads/{uuid}/complete e receber a URL pronta para usar em um post."
+    ],
+    "rules": [
+      "POST /media aceita até 8 MB. Acima disso responde 413 media_too_large_for_single_upload e o envio vai em partes.",
+      "Na parte 1 o Connect lê o tipo do arquivo. A parte 1 vai primeiro; as outras podem ir em qualquer ordem e ao mesmo tempo. Reenviar uma parte substitui a anterior.",
+      "Cada parte exige Content-Length igual ao tamanho exato (upload.part_size, ou o resto na última). Sem ele, a resposta é 411.",
+      "Aceita JPEG, PNG, WebP e GIF (imagem de até 30 MB), MP4 e MOV (até 1 GB). O tipo vem do conteúdo, não do nome, e o arquivo inteiro é conferido ao concluir (422 media_content_invalid se não for válido).",
+      "A URL vale até expires_at, 30 dias depois de a mídia ficar ready, e então o arquivo é apagado. Quem tiver o link lê o arquivo, então só repasse a quem vai publicar.",
+      "POST /media e POST /media/uploads exigem o header Idempotency-Key. Até 20 uploads abertos por cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Editor de vídeo em SaaS",
+        "body": "O usuário exporta um Reels de 200 MB; o produto sobe em partes e publica em Instagram e Facebook usando a URL devolvida."
+      },
+      {
+        "title": "Agência com vídeos pesados",
+        "body": "O painel envia os vídeos da campanha uma vez e reaproveita a mesma URL em posts de várias redes."
+      },
+      {
+        "title": "Agente de IA de vídeo",
+        "body": "O agente gera um vídeo, envia ao Connect em partes e passa a URL para o POST /posts sem hospedar nada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qual o tamanho máximo?",
+        "a": "Até 8 MB em uma única requisição (POST /media) e até 1 GB em partes (POST /media/uploads). Imagens têm limite de 30 MB."
+      },
+      {
+        "q": "Quanto tempo a URL fica no ar?",
+        "a": "30 dias a partir de a mídia ficar ready. Depois o arquivo é apagado, então use a URL em um post nesse prazo."
+      },
+      {
+        "q": "O que acontece se o envio cair no meio?",
+        "a": "Consulte GET /media/uploads/{uuid}: received_parts lista as partes recebidas. Envie só as que faltam e conclua. O envio fica aberto até upload.expires_at."
+      }
+    ]
+  },
+  "en": {
+    "title": "Upload large videos to use in posts",
+    "tagline": "Upload videos of up to 1 GB in parts through the API and get a public URL to use in Instagram, Facebook, YouTube and other network posts.",
+    "intro": "Posts take media by URL. If you have nowhere to host the file, send it to Connect and get a URL on a domain the networks accept. Up to 8 MB goes in a single request; above that, the video is uploaded in parts, up to 1 GB, and you use the URL in media.url of POST /posts.",
+    "can": [
+      "Upload a file of up to 8 MB in a single request with POST /media.",
+      "Open an upload in parts with POST /media/uploads for files of up to 1 GB.",
+      "Send the parts with PUT /media/uploads/{uuid}/parts/{part}, in parallel after part 1.",
+      "Resume an interrupted upload: GET /media/uploads/{uuid} tells you which parts have arrived.",
+      "Finish with POST /media/uploads/{uuid}/complete and get the URL ready to use in a post."
+    ],
+    "rules": [
+      "POST /media takes up to 8 MB. Above that it responds 413 media_too_large_for_single_upload and the upload goes in parts.",
+      "Connect reads the file type from part 1. Part 1 goes first; the others can go in any order and at the same time. Resending a part replaces the previous one.",
+      "Each part requires a Content-Length equal to its exact size (upload.part_size, or the remainder on the last one). Without it, the response is 411.",
+      "It accepts JPEG, PNG, WebP and GIF (images up to 30 MB), MP4 and MOV (up to 1 GB). The type comes from the content, not the name, and the whole file is checked on completion (422 media_content_invalid if it is not valid).",
+      "The URL is valid until expires_at, 30 days after the media becomes ready, and then the file is deleted. Anyone with the link can read the file, so only pass it to whoever will publish.",
+      "POST /media and POST /media/uploads require the Idempotency-Key header. Up to 20 open uploads per customer."
+    ],
+    "useCases": [
+      {
+        "title": "Video editor SaaS",
+        "body": "The user exports a 200 MB Reels; the product uploads it in parts and publishes to Instagram and Facebook using the returned URL."
+      },
+      {
+        "title": "Agency with heavy videos",
+        "body": "The dashboard uploads the campaign videos once and reuses the same URL in posts across several networks."
+      },
+      {
+        "title": "Video AI agent",
+        "body": "The agent generates a video, uploads it to Connect in parts and passes the URL to POST /posts without hosting anything."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the maximum size?",
+        "a": "Up to 8 MB in a single request (POST /media) and up to 1 GB in parts (POST /media/uploads). Images are limited to 30 MB."
+      },
+      {
+        "q": "How long does the URL stay up?",
+        "a": "30 days from when the media becomes ready. After that the file is deleted, so use the URL in a post within that window."
+      },
+      {
+        "q": "What happens if the upload drops midway?",
+        "a": "Call GET /media/uploads/{uuid}: received_parts lists the parts received. Send only the missing ones and complete. The upload stays open until upload.expires_at."
+      }
+    ]
+  },
+  "es": {
+    "title": "Subir videos grandes para usar en posts",
+    "tagline": "Sube videos de hasta 1 GB por partes a través de la API y recibe una URL pública para usar en posts de Instagram, Facebook, YouTube y otras redes.",
+    "intro": "Los posts reciben el medio por URL. Si no tienes dónde alojar el archivo, envíalo a Connect y recibe una URL en un dominio que las redes aceptan. Hasta 8 MB va en una sola solicitud; por encima, el video se sube por partes, hasta 1 GB, y usas la URL en media.url de POST /posts.",
+    "can": [
+      "Subir un archivo de hasta 8 MB en una sola solicitud con POST /media.",
+      "Abrir un upload por partes con POST /media/uploads para archivos de hasta 1 GB.",
+      "Enviar las partes con PUT /media/uploads/{uuid}/parts/{part}, en paralelo después de la parte 1.",
+      "Retomar un envío interrumpido: GET /media/uploads/{uuid} dice qué partes ya llegaron.",
+      "Terminar con POST /media/uploads/{uuid}/complete y recibir la URL lista para usar en un post."
+    ],
+    "rules": [
+      "POST /media acepta hasta 8 MB. Por encima responde 413 media_too_large_for_single_upload y el envío va por partes.",
+      "Connect lee el tipo del archivo en la parte 1. La parte 1 va primero; las demás pueden ir en cualquier orden y a la vez. Reenviar una parte reemplaza la anterior.",
+      "Cada parte exige un Content-Length igual a su tamaño exacto (upload.part_size, o el resto en la última). Sin él, la respuesta es 411.",
+      "Acepta JPEG, PNG, WebP y GIF (imágenes de hasta 30 MB), MP4 y MOV (hasta 1 GB). El tipo sale del contenido, no del nombre, y el archivo entero se verifica al completar (422 media_content_invalid si no es válido).",
+      "La URL vale hasta expires_at, 30 días después de que el medio queda ready, y luego el archivo se borra. Quien tenga el enlace puede leer el archivo, así que pásalo solo a quien va a publicar.",
+      "POST /media y POST /media/uploads exigen el header Idempotency-Key. Hasta 20 uploads abiertos por cliente."
+    ],
+    "useCases": [
+      {
+        "title": "SaaS de edición de video",
+        "body": "El usuario exporta un Reels de 200 MB; el producto lo sube por partes y publica en Instagram y Facebook con la URL devuelta."
+      },
+      {
+        "title": "Agencia con videos pesados",
+        "body": "El panel sube los videos de la campaña una vez y reutiliza la misma URL en posts de varias redes."
+      },
+      {
+        "title": "Agente de IA de video",
+        "body": "El agente genera un video, lo sube a Connect por partes y pasa la URL a POST /posts sin alojar nada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuál es el tamaño máximo?",
+        "a": "Hasta 8 MB en una sola solicitud (POST /media) y hasta 1 GB por partes (POST /media/uploads). Las imágenes tienen un límite de 30 MB."
+      },
+      {
+        "q": "¿Cuánto tiempo queda activa la URL?",
+        "a": "30 días desde que el medio queda ready. Después el archivo se borra, así que usa la URL en un post dentro de ese plazo."
+      },
+      {
+        "q": "¿Qué pasa si el envío se corta a la mitad?",
+        "a": "Consulta GET /media/uploads/{uuid}: received_parts lista las partes recibidas. Envía solo las que faltan y completa. El envío sigue abierto hasta upload.expires_at."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Envoyer de grandes vidéos à utiliser dans les posts",
+    "tagline": "Envoyez des vidéos jusqu'à 1 Go en parties par API et obtenez une URL publique à utiliser dans les posts Instagram, Facebook, YouTube et autres réseaux.",
+    "intro": "Les posts reçoivent le média par URL. Si vous n'avez nulle part où héberger le fichier, envoyez-le à Connect et obtenez une URL sur un domaine que les réseaux acceptent. Jusqu'à 8 Mo en une seule requête ; au-delà, la vidéo est envoyée en parties, jusqu'à 1 Go, et vous utilisez l'URL dans media.url de POST /posts.",
+    "can": [
+      "Envoyer un fichier de 8 Mo maximum en une requête avec POST /media.",
+      "Ouvrir un envoi en parties avec POST /media/uploads pour des fichiers jusqu'à 1 Go.",
+      "Envoyer les parties avec PUT /media/uploads/{uuid}/parts/{part}, en parallèle après la partie 1.",
+      "Reprendre un envoi interrompu : GET /media/uploads/{uuid} indique quelles parties sont arrivées.",
+      "Terminer avec POST /media/uploads/{uuid}/complete et obtenir l'URL prête à utiliser dans un post."
+    ],
+    "rules": [
+      "POST /media accepte jusqu'à 8 Mo. Au-delà, il répond 413 media_too_large_for_single_upload et l'envoi se fait en parties.",
+      "Connect lit le type du fichier dans la partie 1. La partie 1 part en premier ; les autres peuvent partir dans n'importe quel ordre et en même temps. Renvoyer une partie remplace la précédente.",
+      "Chaque partie exige un Content-Length égal à sa taille exacte (upload.part_size, ou le reste pour la dernière). Sans lui, la réponse est 411.",
+      "Il accepte JPEG, PNG, WebP et GIF (images jusqu'à 30 Mo), MP4 et MOV (jusqu'à 1 Go). Le type vient du contenu, pas du nom, et le fichier entier est vérifié à la fin (422 media_content_invalid s'il n'est pas valide).",
+      "L'URL est valide jusqu'à expires_at, 30 jours après que le média est ready, puis le fichier est supprimé. Quiconque a le lien peut lire le fichier : ne le transmettez qu'à celui qui publie.",
+      "POST /media et POST /media/uploads exigent le header Idempotency-Key. 20 envois ouverts maximum par client."
+    ],
+    "useCases": [
+      {
+        "title": "SaaS d'édition vidéo",
+        "body": "L'utilisateur exporte un Reels de 200 Mo ; le produit l'envoie en parties et publie sur Instagram et Facebook avec l'URL renvoyée."
+      },
+      {
+        "title": "Agence avec vidéos lourdes",
+        "body": "Le tableau de bord envoie les vidéos de campagne une fois et réutilise la même URL dans les posts de plusieurs réseaux."
+      },
+      {
+        "title": "Agent IA vidéo",
+        "body": "L'agent génère une vidéo, l'envoie à Connect en parties et passe l'URL à POST /posts sans rien héberger."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelle est la taille maximale ?",
+        "a": "Jusqu'à 8 Mo en une seule requête (POST /media) et jusqu'à 1 Go en parties (POST /media/uploads). Les images sont limitées à 30 Mo."
+      },
+      {
+        "q": "Combien de temps l'URL reste-t-elle active ?",
+        "a": "30 jours à partir du moment où le média est ready. Ensuite le fichier est supprimé : utilisez l'URL dans un post pendant ce délai."
+      },
+      {
+        "q": "Que se passe-t-il si l'envoi s'interrompt ?",
+        "a": "Interrogez GET /media/uploads/{uuid} : received_parts liste les parties reçues. Envoyez uniquement les manquantes et terminez. L'envoi reste ouvert jusqu'à upload.expires_at."
+      }
+    ]
+  }
+}

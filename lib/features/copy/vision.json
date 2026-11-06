@@ -1,0 +1,257 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/llm/chat/completions",
+    "body": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "max_tokens": 512,
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Describe this ad creative."
+            },
+            {
+              "type": "image_url",
+              "image_url": {
+                "url": "https://example.com/creative.jpg"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "model",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Id do modelo, de GET /llm/models, no formato provedor/modelo.",
+        "en": "Model id from GET /llm/models, in provider/model form.",
+        "es": "Id del modelo, de GET /llm/models, con formato proveedor/modelo.",
+        "fr": "Id du modèle, issu de GET /llm/models, au format fournisseur/modèle."
+      }
+    },
+    {
+      "name": "messages",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "A conversa. content pode ser texto ou partes text e image_url.",
+        "en": "The conversation. content can be text or text and image_url parts.",
+        "es": "La conversación. content puede ser texto o partes text e image_url.",
+        "fr": "La conversation. content peut être du texte ou des parties text et image_url."
+      }
+    },
+    {
+      "name": "max_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Obrigatório (ou max_completion_tokens). Até o teto da conta e o max_output_tokens de cada modelo da chamada.",
+        "en": "Required (or max_completion_tokens). Up to the account cap and each model's max_output_tokens in the call.",
+        "es": "Obligatorio (o max_completion_tokens). Hasta el tope de la cuenta y el max_output_tokens de cada modelo de la llamada.",
+        "fr": "Obligatoire (ou max_completion_tokens). Jusqu'au plafond du compte et au max_output_tokens de chaque modèle de l'appel."
+      }
+    },
+    {
+      "name": "models",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Fallback: até 3 modelos de GET /llm/models, tentados em ordem se model falhar antes do primeiro token.",
+        "en": "Fallback: up to 3 models from GET /llm/models, tried in order if model fails before the first token.",
+        "es": "Fallback: hasta 3 modelos de GET /llm/models, probados en orden si model falla antes del primer token.",
+        "fr": "Repli : jusqu'à 3 modèles de GET /llm/models, essayés dans l'ordre si model échoue avant le premier token."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Enviar imagens para LLMs (visão)",
+    "tagline": "Mande partes image_url nas mensagens e peça ao modelo para analisar imagens, no formato da OpenAI e com modelos de três provedores.",
+    "intro": "Em POST /llm/chat/completions, o content de uma mensagem pode misturar partes text e image_url, como na OpenAI. Os modelos com supports_vision em GET /llm/models aceitam imagens, e o Connect traduz image_url para a Anthropic, então o código é o mesmo.",
+    "can": [
+      "Pedir ao modelo para descrever ou analisar uma imagem.",
+      "Misturar texto e várias imagens na mesma mensagem.",
+      "Conferir em GET /llm/models quais modelos têm supports_vision.",
+      "Combinar imagens com stream e fallback."
+    ],
+    "rules": [
+      "Partes image_url só são aceitas se todo modelo da chamada (model e cada item de models) tiver supports_vision. Caso contrário: 400 llm_unsupported_field.",
+      "Na Anthropic, partes de áudio ou arquivo retornam 400 llm_unsupported_field; imagens via image_url são traduzidas.",
+      "O corpo da requisição tem no máximo 1 MB (413 llm_request_too_large).",
+      "max_tokens continua obrigatório e não pode passar do teto da conta nem do max_output_tokens dos modelos.",
+      "Imagens contam como tokens de entrada, cobrados pelo provedor na sua chave."
+    ],
+    "useCases": [
+      {
+        "title": "Análise de criativos de anúncios",
+        "body": "O seu produto envia o criativo de uma campanha e recebe uma avaliação do visual e do texto."
+      },
+      {
+        "title": "Texto alternativo e legendas",
+        "body": "Gere descrições de imagens para posts de clientes direto do seu SaaS."
+      },
+      {
+        "title": "Agentes que leem prints e gráficos",
+        "body": "Um agente recebe o print de um dashboard e explica os números em texto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quais modelos aceitam imagens?",
+        "a": "Os que têm supports_vision verdadeiro em GET /llm/models. Enviar image_url para um modelo sem isso retorna 400 llm_unsupported_field."
+      },
+      {
+        "q": "Como envio a imagem?",
+        "a": "Como na OpenAI: uma parte do content com type image_url e o objeto image_url. O Connect traduz para a Anthropic."
+      },
+      {
+        "q": "Há limite de tamanho?",
+        "a": "O corpo inteiro da requisição pode ter até 1 MB. Acima disso a resposta é 413 llm_request_too_large."
+      }
+    ]
+  },
+  "en": {
+    "title": "Send images to LLMs (vision)",
+    "tagline": "Send image_url parts in messages and ask the model to analyze images, in the OpenAI format and with models from three providers.",
+    "intro": "In POST /llm/chat/completions, a message's content can mix text and image_url parts, as in OpenAI. Models with supports_vision in GET /llm/models accept images, and Connect translates image_url for Anthropic, so the code is the same.",
+    "can": [
+      "Ask the model to describe or analyze an image.",
+      "Mix text and several images in the same message.",
+      "Check in GET /llm/models which models have supports_vision.",
+      "Combine images with stream and fallback."
+    ],
+    "rules": [
+      "image_url parts are only accepted if every model in the call (model and each item of models) has supports_vision. Otherwise: 400 llm_unsupported_field.",
+      "On Anthropic, audio or file parts return 400 llm_unsupported_field; images through image_url are translated.",
+      "The request body is at most 1 MB (413 llm_request_too_large).",
+      "max_tokens is still required and cannot exceed the account cap or the models' max_output_tokens.",
+      "Images count as input tokens, billed by the provider on your key."
+    ],
+    "useCases": [
+      {
+        "title": "Ad creative analysis",
+        "body": "Your product sends a campaign's creative and gets an assessment of the visual and the copy."
+      },
+      {
+        "title": "Alt text and captions",
+        "body": "Generate image descriptions for customers' posts straight from your SaaS."
+      },
+      {
+        "title": "Agents that read screenshots and charts",
+        "body": "An agent receives a dashboard screenshot and explains the numbers in text."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which models accept images?",
+        "a": "Those with supports_vision true in GET /llm/models. Sending image_url to a model without it returns 400 llm_unsupported_field."
+      },
+      {
+        "q": "How do I send the image?",
+        "a": "As in OpenAI: a content part with type image_url and the image_url object. Connect translates it for Anthropic."
+      },
+      {
+        "q": "Is there a size limit?",
+        "a": "The whole request body can be up to 1 MB. Above that the response is 413 llm_request_too_large."
+      }
+    ]
+  },
+  "es": {
+    "title": "Enviar imágenes a LLMs (visión)",
+    "tagline": "Envía partes image_url en los mensajes y pide al modelo analizar imágenes, con formato OpenAI y modelos de tres proveedores.",
+    "intro": "En POST /llm/chat/completions, el content de un mensaje puede mezclar partes text e image_url, como en OpenAI. Los modelos con supports_vision en GET /llm/models aceptan imágenes, y Connect traduce image_url para Anthropic, así que el código es el mismo.",
+    "can": [
+      "Pedir al modelo que describa o analice una imagen.",
+      "Mezclar texto y varias imágenes en el mismo mensaje.",
+      "Consultar en GET /llm/models qué modelos tienen supports_vision.",
+      "Combinar imágenes con stream y fallback."
+    ],
+    "rules": [
+      "Las partes image_url solo se aceptan si todo modelo de la llamada (model y cada ítem de models) tiene supports_vision. Si no: 400 llm_unsupported_field.",
+      "En Anthropic, las partes de audio o archivo devuelven 400 llm_unsupported_field; las imágenes por image_url se traducen.",
+      "El cuerpo de la solicitud es de máximo 1 MB (413 llm_request_too_large).",
+      "max_tokens sigue siendo obligatorio y no puede superar el tope de la cuenta ni el max_output_tokens de los modelos.",
+      "Las imágenes cuentan como tokens de entrada, cobrados por el proveedor en tu clave."
+    ],
+    "useCases": [
+      {
+        "title": "Análisis de creativos de anuncios",
+        "body": "Tu producto envía el creativo de una campaña y recibe una evaluación del visual y del texto."
+      },
+      {
+        "title": "Texto alternativo y descripciones",
+        "body": "Genera descripciones de imágenes para publicaciones de clientes directo desde tu SaaS."
+      },
+      {
+        "title": "Agentes que leen capturas y gráficos",
+        "body": "Un agente recibe la captura de un dashboard y explica los números en texto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué modelos aceptan imágenes?",
+        "a": "Los que tienen supports_vision verdadero en GET /llm/models. Enviar image_url a un modelo sin él devuelve 400 llm_unsupported_field."
+      },
+      {
+        "q": "¿Cómo envío la imagen?",
+        "a": "Como en OpenAI: una parte del content con type image_url y el objeto image_url. Connect la traduce para Anthropic."
+      },
+      {
+        "q": "¿Hay límite de tamaño?",
+        "a": "Todo el cuerpo de la solicitud puede tener hasta 1 MB. Por encima, la respuesta es 413 llm_request_too_large."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Envoyer des images aux LLM (vision)",
+    "tagline": "Envoyez des parties image_url dans les messages et demandez au modèle d'analyser des images, au format OpenAI avec trois fournisseurs.",
+    "intro": "Dans POST /llm/chat/completions, le content d'un message peut mêler des parties text et image_url, comme chez OpenAI. Les modèles avec supports_vision dans GET /llm/models acceptent les images, et Connect traduit image_url pour Anthropic : le code est donc le même.",
+    "can": [
+      "Demander au modèle de décrire ou d'analyser une image.",
+      "Mêler texte et plusieurs images dans le même message.",
+      "Vérifier dans GET /llm/models quels modèles ont supports_vision.",
+      "Combiner images avec stream et le repli."
+    ],
+    "rules": [
+      "Les parties image_url ne sont acceptées que si chaque modèle de l'appel (model et chaque élément de models) a supports_vision. Sinon : 400 llm_unsupported_field.",
+      "Chez Anthropic, les parties audio ou fichier renvoient 400 llm_unsupported_field ; les images via image_url sont traduites.",
+      "Le corps de la requête fait 1 Mo au maximum (413 llm_request_too_large).",
+      "max_tokens reste obligatoire et ne peut dépasser ni le plafond du compte ni le max_output_tokens des modèles.",
+      "Les images comptent comme des tokens d'entrée, facturés par le fournisseur sur votre clé."
+    ],
+    "useCases": [
+      {
+        "title": "Analyse de visuels publicitaires",
+        "body": "Votre produit envoie le visuel d'une campagne et reçoit une évaluation de l'image et du texte."
+      },
+      {
+        "title": "Texte alternatif et légendes",
+        "body": "Générez des descriptions d'images pour les publications des clients directement depuis votre SaaS."
+      },
+      {
+        "title": "Agents qui lisent captures et graphiques",
+        "body": "Un agent reçoit la capture d'un dashboard et explique les chiffres en texte."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quels modèles acceptent les images ?",
+        "a": "Ceux dont supports_vision est vrai dans GET /llm/models. Envoyer image_url à un modèle qui ne l'a pas renvoie 400 llm_unsupported_field."
+      },
+      {
+        "q": "Comment envoyer l'image ?",
+        "a": "Comme chez OpenAI : une partie du content avec type image_url et l'objet image_url. Connect la traduit pour Anthropic."
+      },
+      {
+        "q": "Y a-t-il une limite de taille ?",
+        "a": "Tout le corps de la requête peut faire jusqu'à 1 Mo. Au-delà, la réponse est 413 llm_request_too_large."
+      }
+    ]
+  }
+}

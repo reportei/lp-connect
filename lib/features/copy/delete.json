@@ -1,0 +1,246 @@
+{
+  "sample": {
+    "method": "DELETE",
+    "path": "/api/ads/campaigns/120250000000000001",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    }
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Em /ads/campaigns/{id}, /ads/adsets/{id} ou /ads/{id}: o id numérico do objeto na plataforma de anúncios (o mesmo do Gerenciador de Anúncios) ou o uuid do Connect.",
+        "en": "In /ads/campaigns/{id}, /ads/adsets/{id} or /ads/{id}: the numeric id the ad platform gave the object (the same as in Ads Manager) or the Connect uuid.",
+        "es": "En /ads/campaigns/{id}, /ads/adsets/{id} o /ads/{id}: el id numérico del objeto en la plataforma de anuncios (el mismo del Administrador de Anuncios) o el uuid de Connect.",
+        "fr": "Dans /ads/campaigns/{id}, /ads/adsets/{id} ou /ads/{id} : l'id numérique de l'objet sur la plateforme publicitaire (le même que dans le Gestionnaire de publicités) ou l'uuid Connect."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "uuid da conexão do cliente. Define a conta de anúncios. Vai sempre na query.",
+        "en": "The uuid of the customer's connection. It defines the ad account. Always goes in the query.",
+        "es": "El uuid de la conexión del cliente. Define la cuenta de anuncios. Va siempre en la query.",
+        "fr": "L'uuid de la connexion du client. Il définit le compte publicitaire. Toujours dans la query."
+      }
+    },
+    {
+      "name": "Idempotency-Key",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Header opcional aqui (até 255 caracteres). Com ele, repetir a chamada devolve a primeira resposta em vez de apagar de novo.",
+        "en": "Optional header here (up to 255 characters). With it, repeating the call returns the first response instead of deleting again.",
+        "es": "Header opcional aquí (hasta 255 caracteres). Con él, repetir la llamada devuelve la primera respuesta en lugar de borrar de nuevo.",
+        "fr": "Header facultatif ici (255 caractères maximum). Avec lui, répéter l'appel renvoie la première réponse au lieu de supprimer à nouveau."
+      }
+    },
+    {
+      "name": "deleted",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Na resposta, em data: confirma que o objeto foi apagado, junto com o id.",
+        "en": "In the response, inside data: confirms the object was deleted, along with its id.",
+        "es": "En la respuesta, dentro de data: confirma que el objeto fue eliminado, junto con su id.",
+        "fr": "Dans la réponse, sous data : confirme que l'objet a été supprimé, avec son id."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Apagar campanhas, conjuntos e anúncios do Meta Ads",
+    "tagline": "Apague uma campanha, um conjunto ou um anúncio do Meta Ads com um DELETE. A campanha leva os conjuntos e anúncios junto. Sem app review.",
+    "intro": "Três rotas DELETE apagam um objeto da conta de anúncios do cliente: campanha, conjunto ou anúncio. Você usa o id que o Gerenciador de Anúncios mostra ou o uuid do Connect, e a conexão do cliente cuida do acesso, sem implementar OAuth nem passar pelo app review da Meta.",
+    "can": [
+      "Apagar uma campanha com DELETE /ads/campaigns/{id}, que leva os conjuntos e anúncios dela junto, na plataforma e no banco do Connect.",
+      "Apagar um conjunto com DELETE /ads/adsets/{id}, que leva os anúncios dele junto.",
+      "Apagar um anúncio com DELETE /ads/{id}, e a campanha e o conjunto continuam existindo.",
+      "Apagar qualquer objeto da conta, inclusive o criado fora do Connect, usando o id numérico da plataforma.",
+      "Listar também os apagados com include_deleted=true em source=connect, onde cada um traz deleted_at."
+    ],
+    "rules": [
+      "Apagar uma campanha apaga os conjuntos e anúncios dela. Para preservar o histórico, pause em vez de apagar.",
+      "A conexão vai sempre em ?customer_integration= e a chamada exige Authorization e x-customer-token.",
+      "O Idempotency-Key é opcional no DELETE. Com ele, repetir a chamada devolve a primeira resposta.",
+      "O objeto precisa ser da conta da conexão: um id de outra conta responde 404 ads_object_not_found, e um uuid que o Connect não guarda também.",
+      "A resposta 200 traz data com id e deleted. Se a plataforma recusar, o status dela é espelhado e integration_error traz o código."
+    ],
+    "useCases": [
+      {
+        "title": "Limpar rascunhos de campanhas",
+        "body": "Uma plataforma de gestão de tráfego apaga campanhas de teste criadas por engano com um clique, sem o cliente abrir o Gerenciador de Anúncios."
+      },
+      {
+        "title": "Agente de IA que arruma contas",
+        "body": "Um agente identifica anúncios reprovados e apaga só eles, mantendo o conjunto e a campanha para receber novos criativos."
+      },
+      {
+        "title": "Encerrar uma ação do cliente",
+        "body": "Uma agência encerra uma promoção apagando a campanha, e os conjuntos e anúncios saem junto numa única chamada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apagar uma campanha apaga os anúncios dela?",
+        "a": "Sim. DELETE /ads/campaigns/{id} leva os conjuntos e anúncios junto, na plataforma e no banco do Connect. Apagar um conjunto leva os anúncios dele, e apagar um anúncio mantém o conjunto e a campanha."
+      },
+      {
+        "q": "Dá para ver o que foi apagado depois?",
+        "a": "Dá. Nas listagens com source=connect, include_deleted=true inclui os apagados, cada um com deleted_at. Sem esse parâmetro eles não aparecem."
+      },
+      {
+        "q": "Posso apagar um objeto criado fora do Connect?",
+        "a": "Pode. O id aceito é o numérico da plataforma, que vale para qualquer objeto da conta. Só é recusado (404) se o objeto for de outra conta."
+      }
+    ]
+  },
+  "en": {
+    "title": "Delete Meta Ads campaigns, ad sets and ads",
+    "tagline": "Delete a Meta Ads campaign, ad set or ad with one DELETE. A campaign takes its ad sets and ads with it. No Meta app review needed.",
+    "intro": "Three DELETE routes remove an object from the customer's ad account: a campaign, an ad set or an ad. You use the id Ads Manager shows or the Connect uuid, and the customer's connection handles access, with no OAuth to build and no Meta app review.",
+    "can": [
+      "Delete a campaign with DELETE /ads/campaigns/{id}, which takes its ad sets and ads with it, on the platform and in the Connect database.",
+      "Delete an ad set with DELETE /ads/adsets/{id}, which takes its ads with it.",
+      "Delete an ad with DELETE /ads/{id}, and the campaign and ad set remain.",
+      "Delete any object in the account, including ones created outside Connect, using the platform's numeric id.",
+      "List deleted objects too with include_deleted=true on source=connect, each one carrying deleted_at."
+    ],
+    "rules": [
+      "Deleting a campaign deletes its ad sets and ads. To keep the history, pause instead of deleting.",
+      "The connection always goes in ?customer_integration= and the call needs Authorization and x-customer-token.",
+      "Idempotency-Key is optional on DELETE. With it, repeating the call returns the first response.",
+      "The object must belong to the connection's account: an id from another account answers 404 ads_object_not_found, and so does a uuid Connect does not store.",
+      "The 200 response carries data with id and deleted. If the platform refuses, its status is mirrored and integration_error carries the code."
+    ],
+    "useCases": [
+      {
+        "title": "Clean up draft campaigns",
+        "body": "A traffic management platform deletes test campaigns created by mistake in one click, without the customer opening Ads Manager."
+      },
+      {
+        "title": "AI agent that tidies accounts",
+        "body": "An agent finds rejected ads and deletes only those, keeping the ad set and campaign to receive new creatives."
+      },
+      {
+        "title": "End a customer promotion",
+        "body": "An agency ends a promotion by deleting the campaign, and its ad sets and ads go with it in a single call."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does deleting a campaign delete its ads?",
+        "a": "Yes. DELETE /ads/campaigns/{id} takes the ad sets and ads with it, on the platform and in the Connect database. Deleting an ad set takes its ads, and deleting an ad leaves the ad set and campaign."
+      },
+      {
+        "q": "Can I still see what was deleted?",
+        "a": "Yes. On lists with source=connect, include_deleted=true includes deleted objects, each with deleted_at. Without it they do not show up."
+      },
+      {
+        "q": "Can I delete an object created outside Connect?",
+        "a": "Yes. The accepted id is the platform's numeric one, which works for any object in the account. It is only refused (404) if the object belongs to another account."
+      }
+    ]
+  },
+  "es": {
+    "title": "Eliminar campañas, conjuntos y anuncios de Meta Ads",
+    "tagline": "Elimina una campaña, un conjunto o un anuncio de Meta Ads con un DELETE. La campaña se lleva sus conjuntos y anuncios. Sin app review.",
+    "intro": "Tres rutas DELETE quitan un objeto de la cuenta de anuncios del cliente: campaña, conjunto o anuncio. Usas el id que muestra el Administrador de Anuncios o el uuid de Connect, y la conexión del cliente se encarga del acceso, sin implementar OAuth ni pasar por el app review de Meta.",
+    "can": [
+      "Eliminar una campaña con DELETE /ads/campaigns/{id}, que se lleva sus conjuntos y anuncios, en la plataforma y en la base de Connect.",
+      "Eliminar un conjunto con DELETE /ads/adsets/{id}, que se lleva sus anuncios.",
+      "Eliminar un anuncio con DELETE /ads/{id}, y la campaña y el conjunto siguen existiendo.",
+      "Eliminar cualquier objeto de la cuenta, incluso uno creado fuera de Connect, con el id numérico de la plataforma.",
+      "Listar también los eliminados con include_deleted=true en source=connect, cada uno con deleted_at."
+    ],
+    "rules": [
+      "Eliminar una campaña elimina sus conjuntos y anuncios. Para conservar el historial, pausa en lugar de eliminar.",
+      "La conexión va siempre en ?customer_integration= y la llamada exige Authorization y x-customer-token.",
+      "Idempotency-Key es opcional en DELETE. Con él, repetir la llamada devuelve la primera respuesta.",
+      "El objeto debe ser de la cuenta de la conexión: un id de otra cuenta responde 404 ads_object_not_found, y un uuid que Connect no guarda también.",
+      "La respuesta 200 trae data con id y deleted. Si la plataforma rechaza, se replica su status e integration_error trae el código."
+    ],
+    "useCases": [
+      {
+        "title": "Limpiar borradores de campañas",
+        "body": "Una plataforma de gestión de tráfico elimina con un clic las campañas de prueba creadas por error, sin que el cliente abra el Administrador de Anuncios."
+      },
+      {
+        "title": "Agente de IA que ordena cuentas",
+        "body": "Un agente detecta anuncios rechazados y elimina solo esos, manteniendo el conjunto y la campaña para recibir nuevos creativos."
+      },
+      {
+        "title": "Terminar una promoción del cliente",
+        "body": "Una agencia termina una promoción eliminando la campaña, y sus conjuntos y anuncios salen con ella en una sola llamada."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Eliminar una campaña elimina sus anuncios?",
+        "a": "Sí. DELETE /ads/campaigns/{id} se lleva los conjuntos y anuncios, en la plataforma y en la base de Connect. Eliminar un conjunto se lleva sus anuncios, y eliminar un anuncio mantiene el conjunto y la campaña."
+      },
+      {
+        "q": "¿Puedo ver después lo que se eliminó?",
+        "a": "Sí. En las listas con source=connect, include_deleted=true incluye los eliminados, cada uno con deleted_at. Sin ese parámetro no aparecen."
+      },
+      {
+        "q": "¿Puedo eliminar un objeto creado fuera de Connect?",
+        "a": "Sí. El id aceptado es el numérico de la plataforma, que vale para cualquier objeto de la cuenta. Solo se rechaza (404) si el objeto es de otra cuenta."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Supprimer campagnes, ensembles et annonces Meta Ads",
+    "tagline": "Supprimez une campagne, un ensemble ou une annonce Meta Ads avec un DELETE. La campagne emporte ses ensembles et annonces. Sans app review.",
+    "intro": "Trois routes DELETE retirent un objet du compte publicitaire du client : campagne, ensemble ou annonce. Vous utilisez l'id affiché par le Gestionnaire de publicités ou l'uuid Connect, et la connexion du client gère l'accès, sans OAuth à développer ni app review Meta.",
+    "can": [
+      "Supprimer une campagne avec DELETE /ads/campaigns/{id}, qui emporte ses ensembles et annonces, sur la plateforme et dans la base de Connect.",
+      "Supprimer un ensemble avec DELETE /ads/adsets/{id}, qui emporte ses annonces.",
+      "Supprimer une annonce avec DELETE /ads/{id}, la campagne et l'ensemble restant en place.",
+      "Supprimer n'importe quel objet du compte, même créé hors de Connect, avec l'id numérique de la plateforme.",
+      "Lister aussi les objets supprimés avec include_deleted=true sur source=connect, chacun avec deleted_at."
+    ],
+    "rules": [
+      "Supprimer une campagne supprime ses ensembles et annonces. Pour garder l'historique, mettez en pause au lieu de supprimer.",
+      "La connexion va toujours dans ?customer_integration= et l'appel exige Authorization et x-customer-token.",
+      "Idempotency-Key est facultatif sur DELETE. Avec lui, répéter l'appel renvoie la première réponse.",
+      "L'objet doit appartenir au compte de la connexion : un id d'un autre compte répond 404 ads_object_not_found, tout comme un uuid que Connect ne stocke pas.",
+      "La réponse 200 contient data avec id et deleted. Si la plateforme refuse, son statut est répercuté et integration_error porte le code."
+    ],
+    "useCases": [
+      {
+        "title": "Nettoyer les campagnes brouillon",
+        "body": "Une plateforme de gestion de trafic supprime en un clic les campagnes de test créées par erreur, sans que le client ouvre le Gestionnaire de publicités."
+      },
+      {
+        "title": "Agent IA qui range les comptes",
+        "body": "Un agent repère les annonces refusées et supprime uniquement celles-ci, en gardant l'ensemble et la campagne pour de nouveaux visuels."
+      },
+      {
+        "title": "Terminer une promotion client",
+        "body": "Une agence termine une promotion en supprimant la campagne, et ses ensembles et annonces partent avec elle en un seul appel."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Supprimer une campagne supprime-t-il ses annonces ?",
+        "a": "Oui. DELETE /ads/campaigns/{id} emporte les ensembles et annonces, sur la plateforme et dans la base de Connect. Supprimer un ensemble emporte ses annonces, et supprimer une annonce laisse l'ensemble et la campagne."
+      },
+      {
+        "q": "Peut-on revoir ce qui a été supprimé ?",
+        "a": "Oui. Sur les listes avec source=connect, include_deleted=true inclut les objets supprimés, chacun avec deleted_at. Sans ce paramètre, ils n'apparaissent pas."
+      },
+      {
+        "q": "Peut-on supprimer un objet créé hors de Connect ?",
+        "a": "Oui. L'id accepté est l'id numérique de la plateforme, valable pour tout objet du compte. Il n'est refusé (404) que si l'objet appartient à un autre compte."
+      }
+    ]
+  }
+}

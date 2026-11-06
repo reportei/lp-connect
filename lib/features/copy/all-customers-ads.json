@@ -1,0 +1,289 @@
+{
+  "sample": {
+    "method": "GET",
+    "path": "/api/merchants/ads/campaigns",
+    "query": {
+      "customer": "<customer uuid>",
+      "effective_status": "disapproved",
+      "per_page": 50
+    }
+  },
+  "fields": [
+    {
+      "name": "customer",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "uuid de um dos seus clientes. Sem ele, a resposta inclui todos os clientes.",
+        "en": "The uuid of one of your customers. Without it, the response includes all customers.",
+        "es": "El uuid de uno de tus clientes. Sin él, la respuesta incluye a todos los clientes.",
+        "fr": "L'uuid d'un de vos clients. Sans lui, la réponse inclut tous les clients."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "uuid de uma conexão de um dos seus clientes, para restringir a uma só conta. Com customer, a conexão precisa ser desse cliente.",
+        "en": "The uuid of a connection of one of your customers, to narrow to one account. With customer, the connection must belong to that customer.",
+        "es": "El uuid de una conexión de uno de tus clientes, para limitar a una sola cuenta. Con customer, la conexión debe ser de ese cliente.",
+        "fr": "L'uuid d'une connexion de l'un de vos clients, pour se limiter à un seul compte. Avec customer, la connexion doit appartenir à ce client."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtra pelo último status conhecido: active ou paused.",
+        "en": "Filters by the last known status: active or paused.",
+        "es": "Filtra por el último estado conocido: active o paused.",
+        "fr": "Filtre par le dernier statut connu : active ou paused."
+      }
+    },
+    {
+      "name": "effective_status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Filtra pelo último status efetivo visto, como pending_review, disapproved ou with_issues.",
+        "en": "Filters by the last effective status seen, such as pending_review, disapproved or with_issues.",
+        "es": "Filtra por el último estado efectivo visto, como pending_review, disapproved o with_issues.",
+        "fr": "Filtre par le dernier statut effectif vu, comme pending_review, disapproved ou with_issues."
+      }
+    },
+    {
+      "name": "refresh",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Relê os objetos da resposta na plataforma e atualiza o Connect. Exige customer_integration.",
+        "en": "Re-reads the response's objects from the platform and updates Connect. Requires customer_integration.",
+        "es": "Relee los objetos de la respuesta en la plataforma y actualiza Connect. Exige customer_integration.",
+        "fr": "Relit les objets de la réponse sur la plateforme et met Connect à jour. Exige customer_integration."
+      }
+    },
+    {
+      "name": "include_deleted",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Inclui os objetos apagados, com deleted_at.",
+        "en": "Includes deleted objects, with deleted_at.",
+        "es": "Incluye los objetos eliminados, con deleted_at.",
+        "fr": "Inclut les objets supprimés, avec deleted_at."
+      }
+    },
+    {
+      "name": "per_page",
+      "type": "integer",
+      "required": false,
+      "description": {
+        "pt": "Itens por página, de 1 a 100. O padrão é 15.",
+        "en": "Items per page, from 1 to 100. The default is 15.",
+        "es": "Ítems por página, de 1 a 100. El valor por defecto es 15.",
+        "fr": "Éléments par page, de 1 à 100. La valeur par défaut est 15."
+      }
+    },
+    {
+      "name": "customer_uuid",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o cliente dono da conta de cada objeto.",
+        "en": "In the response: the customer that owns each object's account.",
+        "es": "En la respuesta: el cliente dueño de la cuenta de cada objeto.",
+        "fr": "Dans la réponse : le client propriétaire du compte de chaque objet."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Ver os anúncios de todos os clientes do Meta Ads",
+    "tagline": "Liste campanhas, conjuntos e anúncios do Meta Ads de todos os seus clientes numa só chamada, só com a chave do merchant e filtros por cliente.",
+    "intro": "Três rotas em /merchants/ads dão o panorama de campanhas, conjuntos e anúncios de todos os seus clientes, só com o token do merchant, sem x-customer-token. Você monitora a base inteira numa chamada, sem percorrer cliente por cliente e sem implementar a API da Meta.",
+    "can": [
+      "Listar campanhas, conjuntos e anúncios de todos os clientes com GET /merchants/ads/campaigns, /merchants/ads/adsets e /merchants/ads.",
+      "Restringir a um cliente com customer ou a uma conta com customer_integration.",
+      "Filtrar por status e por effective_status, como disapproved, with_issues ou pending_review.",
+      "Identificar o dono de cada objeto pelos campos customer_uuid e customer_integration_uuid.",
+      "Incluir os apagados com include_deleted=true e paginar com page e per_page."
+    ],
+    "rules": [
+      "Essas rotas usam só Authorization: Bearer. Não levam x-customer-token, e customer e customer_integration são filtros, nunca credencial.",
+      "Mostram o que o Connect guarda: o que ele criou ou já escreveu nas contas. Uma conta com campanhas antigas só aparece depois da primeira escrita pelo Connect.",
+      "Os dados são o último estado conhecido, com synced_at. refresh=true relê os objetos da resposta, mas exige customer_integration.",
+      "O customer e a conexão informados precisam ser do merchant do token. Com os dois, a conexão precisa ser desse cliente.",
+      "per_page vai de 1 a 100 (padrão 15) e a resposta é {data, links, meta}."
+    ],
+    "useCases": [
+      {
+        "title": "Monitorar anúncios reprovados na base inteira",
+        "body": "Um SaaS de tráfego lista com effective_status=disapproved e avisa cada cliente afetado, sem consultar conta por conta."
+      },
+      {
+        "title": "Visão do gestor numa agência",
+        "body": "Uma agência vê campanhas ativas de todos os clientes numa única tela, filtrando por cliente quando precisa aprofundar."
+      },
+      {
+        "title": "Agente de IA de suporte",
+        "body": "Um agente recebe o pedido de um cliente, filtra por customer e responde o que está ativo, pausado ou com problema."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Preciso do x-customer-token nessas rotas?",
+        "a": "Não. Elas usam só o Bearer do merchant. O cliente e a conexão entram como filtros (customer e customer_integration), e são conferidos contra o seu merchant."
+      },
+      {
+        "q": "Qual a diferença para GET /ads/campaigns?",
+        "a": "GET /ads/campaigns é de um cliente, com x-customer-token e conexão obrigatória. A rota de /merchants/ads cobre todos os clientes e mostra o que o Connect guarda."
+      },
+      {
+        "q": "Os dados estão atualizados?",
+        "a": "São o último estado conhecido, indicado em synced_at. Para atualizar, use refresh=true junto com customer_integration."
+      }
+    ]
+  },
+  "en": {
+    "title": "See all your customers' Meta Ads in one call",
+    "tagline": "List Meta Ads campaigns, ad sets and ads across all your customers in one call, with just the merchant token and filters by customer.",
+    "intro": "Three routes under /merchants/ads give you the overview of campaigns, ad sets and ads across all your customers, with just the merchant token and no x-customer-token. You monitor the whole base in one call, without walking customer by customer and without implementing the Meta API.",
+    "can": [
+      "List campaigns, ad sets and ads of all customers with GET /merchants/ads/campaigns, /merchants/ads/adsets and /merchants/ads.",
+      "Narrow to one customer with customer or to one account with customer_integration.",
+      "Filter by status and by effective_status, such as disapproved, with_issues or pending_review.",
+      "Identify each object's owner through customer_uuid and customer_integration_uuid.",
+      "Include deleted ones with include_deleted=true and paginate with page and per_page."
+    ],
+    "rules": [
+      "These routes use only Authorization: Bearer. They take no x-customer-token, and customer and customer_integration are filters, never credentials.",
+      "They show what Connect stores: what it created or already wrote in the accounts. An account with older campaigns only shows up after the first write through Connect.",
+      "The data is the last known state, with synced_at. refresh=true re-reads the response's objects, but requires customer_integration.",
+      "The customer and connection you pass must belong to the token's merchant. With both, the connection must belong to that customer.",
+      "per_page goes from 1 to 100 (default 15) and the response is {data, links, meta}."
+    ],
+    "useCases": [
+      {
+        "title": "Monitor rejected ads across the base",
+        "body": "A traffic SaaS lists with effective_status=disapproved and notifies each affected customer, without querying account by account."
+      },
+      {
+        "title": "Manager view at an agency",
+        "body": "An agency sees every customer's active campaigns on one screen, filtering by customer when it needs to dig in."
+      },
+      {
+        "title": "Support AI agent",
+        "body": "An agent gets a customer's question, filters by customer and answers what is active, paused or having problems."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need x-customer-token on these routes?",
+        "a": "No. They use only the merchant Bearer. The customer and connection come in as filters (customer and customer_integration) and are checked against your merchant."
+      },
+      {
+        "q": "How is this different from GET /ads/campaigns?",
+        "a": "GET /ads/campaigns is for one customer, with x-customer-token and a required connection. The /merchants/ads route covers all customers and shows what Connect stores."
+      },
+      {
+        "q": "Is the data up to date?",
+        "a": "It is the last known state, shown in synced_at. To update it, use refresh=true together with customer_integration."
+      }
+    ]
+  },
+  "es": {
+    "title": "Ver los anuncios de todos tus clientes de Meta Ads",
+    "tagline": "Lista campañas, conjuntos y anuncios de Meta Ads de todos tus clientes en una sola llamada, solo con el token del merchant y filtros por cliente.",
+    "intro": "Tres rutas bajo /merchants/ads dan el panorama de campañas, conjuntos y anuncios de todos tus clientes, solo con el token del merchant y sin x-customer-token. Monitoreas toda la base en una llamada, sin recorrer cliente por cliente y sin implementar la API de Meta.",
+    "can": [
+      "Listar campañas, conjuntos y anuncios de todos los clientes con GET /merchants/ads/campaigns, /merchants/ads/adsets y /merchants/ads.",
+      "Limitar a un cliente con customer o a una cuenta con customer_integration.",
+      "Filtrar por status y por effective_status, como disapproved, with_issues o pending_review.",
+      "Identificar al dueño de cada objeto con customer_uuid y customer_integration_uuid.",
+      "Incluir los eliminados con include_deleted=true y paginar con page y per_page."
+    ],
+    "rules": [
+      "Estas rutas usan solo Authorization: Bearer. No llevan x-customer-token, y customer y customer_integration son filtros, nunca credencial.",
+      "Muestran lo que Connect guarda: lo que creó o ya escribió en las cuentas. Una cuenta con campañas antiguas solo aparece tras la primera escritura por Connect.",
+      "Los datos son el último estado conocido, con synced_at. refresh=true relee los objetos de la respuesta, pero exige customer_integration.",
+      "El customer y la conexión informados deben ser del merchant del token. Con ambos, la conexión debe ser de ese cliente.",
+      "per_page va de 1 a 100 (por defecto 15) y la respuesta es {data, links, meta}."
+    ],
+    "useCases": [
+      {
+        "title": "Monitorear anuncios rechazados en toda la base",
+        "body": "Un SaaS de tráfico lista con effective_status=disapproved y avisa a cada cliente afectado, sin consultar cuenta por cuenta."
+      },
+      {
+        "title": "Vista del gestor en una agencia",
+        "body": "Una agencia ve las campañas activas de todos los clientes en una sola pantalla, filtrando por cliente cuando necesita profundizar."
+      },
+      {
+        "title": "Agente de IA de soporte",
+        "body": "Un agente recibe la consulta de un cliente, filtra por customer y responde qué está activo, pausado o con problemas."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito x-customer-token en estas rutas?",
+        "a": "No. Usan solo el Bearer del merchant. El cliente y la conexión entran como filtros (customer y customer_integration) y se verifican contra tu merchant."
+      },
+      {
+        "q": "¿En qué se diferencia de GET /ads/campaigns?",
+        "a": "GET /ads/campaigns es de un cliente, con x-customer-token y conexión obligatoria. La ruta de /merchants/ads cubre a todos los clientes y muestra lo que Connect guarda."
+      },
+      {
+        "q": "¿Los datos están actualizados?",
+        "a": "Son el último estado conocido, indicado en synced_at. Para actualizar, usa refresh=true junto con customer_integration."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Voir les annonces Meta Ads de tous vos clients",
+    "tagline": "Listez campagnes, ensembles et annonces Meta Ads de tous vos clients en un appel, avec le seul token du merchant et des filtres par client.",
+    "intro": "Trois routes sous /merchants/ads donnent la vue d'ensemble des campagnes, ensembles et annonces de tous vos clients, avec le seul token du merchant et sans x-customer-token. Vous surveillez toute la base en un appel, sans parcourir client par client et sans implémenter l'API Meta.",
+    "can": [
+      "Lister campagnes, ensembles et annonces de tous les clients avec GET /merchants/ads/campaigns, /merchants/ads/adsets et /merchants/ads.",
+      "Restreindre à un client avec customer ou à un compte avec customer_integration.",
+      "Filtrer par status et par effective_status, comme disapproved, with_issues ou pending_review.",
+      "Identifier le propriétaire de chaque objet via customer_uuid et customer_integration_uuid.",
+      "Inclure les supprimés avec include_deleted=true et paginer avec page et per_page."
+    ],
+    "rules": [
+      "Ces routes n'utilisent que Authorization: Bearer. Pas de x-customer-token, et customer et customer_integration sont des filtres, jamais un identifiant.",
+      "Elles montrent ce que Connect stocke : ce qu'il a créé ou déjà écrit dans les comptes. Un compte avec d'anciennes campagnes n'apparaît qu'après la première écriture via Connect.",
+      "Les données sont le dernier état connu, avec synced_at. refresh=true relit les objets de la réponse, mais exige customer_integration.",
+      "Le customer et la connexion fournis doivent appartenir au merchant du token. Avec les deux, la connexion doit appartenir à ce client.",
+      "per_page va de 1 à 100 (15 par défaut) et la réponse est {data, links, meta}."
+    ],
+    "useCases": [
+      {
+        "title": "Surveiller les annonces refusées sur toute la base",
+        "body": "Un SaaS de trafic liste avec effective_status=disapproved et prévient chaque client concerné, sans interroger compte par compte."
+      },
+      {
+        "title": "Vue du gestionnaire dans une agence",
+        "body": "Une agence voit les campagnes actives de tous les clients sur un seul écran, en filtrant par client pour approfondir."
+      },
+      {
+        "title": "Agent IA de support",
+        "body": "Un agent reçoit la question d'un client, filtre par customer et répond ce qui est actif, en pause ou en difficulté."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Ai-je besoin de x-customer-token sur ces routes ?",
+        "a": "Non. Elles n'utilisent que le Bearer du merchant. Le client et la connexion sont des filtres (customer et customer_integration), vérifiés par rapport à votre merchant."
+      },
+      {
+        "q": "En quoi est-ce différent de GET /ads/campaigns ?",
+        "a": "GET /ads/campaigns concerne un client, avec x-customer-token et une connexion obligatoire. La route /merchants/ads couvre tous les clients et montre ce que Connect stocke."
+      },
+      {
+        "q": "Les données sont-elles à jour ?",
+        "a": "C'est le dernier état connu, indiqué dans synced_at. Pour le mettre à jour, utilisez refresh=true avec customer_integration."
+      }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 import { HeaderBar } from "@/components/header-bar"
-import { appUrl, DEFAULT_LOCALE, languageLinks, pageHref, type AlternatePath, type Locale, type TranslatedPage } from "@/lib/i18n"
+import { withBase } from "@/lib/base-path"
+import { appUrl, DEFAULT_LOCALE, languageLinks, localePath, pageHref, type AlternatePath, type Locale, type TranslatedPage } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 
 type HeaderProps = {
@@ -22,6 +23,7 @@ export function Header({ locale = DEFAULT_LOCALE, page, alternatePath }: HeaderP
       nav={[
         { href: home("#na-pratica"), label: t.nav.practice },
         { href: home("#networks"), label: t.nav.integrations },
+        { href: withBase(localePath(locale, "/toolkits")), label: m.footer.toolkits },
         { href: home("#clientes"), label: t.nav.clients },
         { href: home("#ia"), label: t.nav.ai },
         { href: home("#precos"), label: t.nav.pricing },

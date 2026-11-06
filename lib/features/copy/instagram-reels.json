@@ -1,0 +1,310 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "reel-310",
+      "format": "reels",
+      "caption": "Bastidores da campanha #reels",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://cdn.example.com/reel.mp4"
+        }
+      ],
+      "instagram": {
+        "share_to_feed": true,
+        "cover_url": "https://cdn.example.com/capa.jpg",
+        "first_comment": "Qual parte você mais gostou?"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Legenda. No Instagram, até 2200 caracteres, 30 hashtags e 20 menções. Stories não levam legenda.",
+        "en": "Caption. On Instagram, up to 2200 characters, 30 hashtags and 20 mentions. Stories carry no caption.",
+        "es": "Leyenda. En Instagram, hasta 2200 caracteres, 30 hashtags y 20 menciones. Los stories no llevan leyenda.",
+        "fr": "Légende. Sur Instagram, jusqu'à 2200 caractères, 30 hashtags et 20 mentions. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "instagram.share_to_feed",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Se o reel também aparece no grid do perfil. Só em reels.",
+        "en": "Whether the reel also shows on the profile grid. Reels only.",
+        "es": "Si el reel también aparece en la grilla del perfil. Solo en reels.",
+        "fr": "Si le reel apparaît aussi dans la grille du profil. Reels uniquement."
+      }
+    },
+    {
+      "name": "instagram.cover_url",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "URL https:// da imagem de capa do reel. Só em reels.",
+        "en": "https:// URL of the reel's cover image. Reels only.",
+        "es": "URL https:// de la imagen de portada del reel. Solo en reels.",
+        "fr": "URL https:// de l'image de couverture du reel. Reels uniquement."
+      }
+    },
+    {
+      "name": "instagram.audio_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Id de um áudio do Instagram para o reel. Só em reels.",
+        "en": "Id of an Instagram audio for the reel. Reels only.",
+        "es": "Id de un audio de Instagram para el reel. Solo en reels.",
+        "fr": "Id d'un audio Instagram pour le reel. Reels uniquement."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar reels no Instagram",
+    "tagline": "Publique reels no Instagram dos seus clientes com POST /posts: capa, áudio, grid do perfil e primeiro comentário, sem lidar com tokens da Meta.",
+    "intro": "Com format reels e um vídeo em media, o Connect publica um reel na conta Instagram conectada pelo seu cliente. Uma só chamada serve para todas as contas, sem app review e sem guardar tokens.",
+    "can": [
+      "Publicar um reel a partir de uma URL de vídeo https:// pública.",
+      "Escolher uma imagem de capa com instagram.cover_url.",
+      "Decidir se o reel também aparece no grid do perfil com instagram.share_to_feed.",
+      "Usar um áudio do Instagram com audio_id e ajustar audio_volume e video_volume.",
+      "Adicionar colaboradores, local, primeiro comentário e desativar comentários."
+    ],
+    "rules": [
+      "Reels aceita exatamente 1 vídeo.",
+      "A legenda vai até 2200 caracteres, com no máximo 30 hashtags e 20 menções.",
+      "share_to_feed vale true por padrão.",
+      "audio_volume e video_volume exigem audio_id.",
+      "A resposta é 202: a publicação roda em segundo plano e você acompanha pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório (409 se já existir publicação igual) e Idempotency-Key, de até 255 caracteres, devolve o post já gravado com 200 no replay."
+    ],
+    "useCases": [
+      {
+        "title": "Ferramenta de vídeo curto",
+        "body": "Seu editor exporta o vídeo e publica o reel direto na conta do usuário, com capa e legenda definidas na hora."
+      },
+      {
+        "title": "Agência com muitos clientes",
+        "body": "Um único fluxo publica o mesmo reel em dezenas de contas Instagram conectadas, cada uma com seu customer_integration."
+      },
+      {
+        "title": "Agente de IA de social media",
+        "body": "Um agente gera o vídeo, escolhe a capa e publica o reel, deixando o primeiro comentário já pronto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso publicar um vídeo sozinho como feed?",
+        "a": "Não. Um vídeo sozinho deve ir como reels; feed é para 1 imagem ou carrossel de 2 a 10 mídias."
+      },
+      {
+        "q": "O reel aparece no grid do perfil?",
+        "a": "Por padrão sim, porque share_to_feed vale true. Envie instagram.share_to_feed como false para não aparecer."
+      },
+      {
+        "q": "Funciona com contas instagram e instagram_business?",
+        "a": "Sim. As duas conexões aceitam o mesmo POST /posts e o mesmo bloco instagram."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish reels on Instagram",
+    "tagline": "Publish reels on your customers' Instagram with POST /posts: cover, audio, profile grid and first comment, without handling Meta tokens.",
+    "intro": "With format reels and one video in media, Connect publishes a reel on the Instagram account your customer connected. One call works for every account, with no app review and no token storage.",
+    "can": [
+      "Publish a reel from a public https:// video URL.",
+      "Pick a cover image with instagram.cover_url.",
+      "Decide whether the reel also shows on the profile grid with instagram.share_to_feed.",
+      "Use an Instagram audio with audio_id and adjust audio_volume and video_volume.",
+      "Add collaborators, a location, a first comment and turn comments off."
+    ],
+    "rules": [
+      "Reels takes exactly 1 video.",
+      "The caption goes up to 2200 characters, with at most 30 hashtags and 20 mentions.",
+      "share_to_feed defaults to true.",
+      "audio_volume and video_volume require audio_id.",
+      "The answer is 202: publishing runs in the background and you follow it with GET /posts/{uuid}.",
+      "external_reference is required (409 if an equal publication exists) and Idempotency-Key, up to 255 characters, returns the stored post with 200 on replay."
+    ],
+    "useCases": [
+      {
+        "title": "Short-video tool",
+        "body": "Your editor exports the video and publishes the reel straight to the user's account, with cover and caption set on the spot."
+      },
+      {
+        "title": "Agency with many clients",
+        "body": "One flow publishes the same reel to dozens of connected Instagram accounts, each with its own customer_integration."
+      },
+      {
+        "title": "Social media AI agent",
+        "body": "An agent generates the video, picks the cover and publishes the reel, with the first comment ready to go."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I publish a single video as feed?",
+        "a": "No. A single video must go as reels; feed is for 1 image or a carousel of 2 to 10 media items."
+      },
+      {
+        "q": "Does the reel show on the profile grid?",
+        "a": "By default yes, because share_to_feed is true. Send instagram.share_to_feed as false to keep it off."
+      },
+      {
+        "q": "Does it work with instagram and instagram_business accounts?",
+        "a": "Yes. Both connections take the same POST /posts and the same instagram block."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar reels en Instagram",
+    "tagline": "Publica reels en el Instagram de tus clientes con POST /posts: portada, audio, grilla del perfil y primer comentario, sin manejar tokens de Meta.",
+    "intro": "Con format reels y un video en media, Connect publica un reel en la cuenta de Instagram que tu cliente conectó. Una sola llamada sirve para todas las cuentas, sin app review y sin guardar tokens.",
+    "can": [
+      "Publicar un reel desde una URL de video https:// pública.",
+      "Elegir una imagen de portada con instagram.cover_url.",
+      "Decidir si el reel también aparece en la grilla del perfil con instagram.share_to_feed.",
+      "Usar un audio de Instagram con audio_id y ajustar audio_volume y video_volume.",
+      "Añadir colaboradores, ubicación, primer comentario y desactivar comentarios."
+    ],
+    "rules": [
+      "Reels acepta exactamente 1 video.",
+      "La leyenda llega hasta 2200 caracteres, con máximo 30 hashtags y 20 menciones.",
+      "share_to_feed vale true por defecto.",
+      "audio_volume y video_volume exigen audio_id.",
+      "La respuesta es 202: la publicación corre en segundo plano y la sigues con GET /posts/{uuid}.",
+      "external_reference es obligatorio (409 si ya existe una publicación igual) e Idempotency-Key, de hasta 255 caracteres, devuelve el post ya guardado con 200 en el replay."
+    ],
+    "useCases": [
+      {
+        "title": "Herramienta de video corto",
+        "body": "Tu editor exporta el video y publica el reel directo en la cuenta del usuario, con portada y leyenda definidas al instante."
+      },
+      {
+        "title": "Agencia con muchos clientes",
+        "body": "Un solo flujo publica el mismo reel en decenas de cuentas de Instagram conectadas, cada una con su customer_integration."
+      },
+      {
+        "title": "Agente de IA de redes sociales",
+        "body": "Un agente genera el video, elige la portada y publica el reel, con el primer comentario ya listo."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo publicar un video solo como feed?",
+        "a": "No. Un video solo debe ir como reels; feed es para 1 imagen o un carrusel de 2 a 10 medios."
+      },
+      {
+        "q": "¿El reel aparece en la grilla del perfil?",
+        "a": "Por defecto sí, porque share_to_feed vale true. Envía instagram.share_to_feed como false para que no aparezca."
+      },
+      {
+        "q": "¿Funciona con cuentas instagram e instagram_business?",
+        "a": "Sí. Las dos conexiones aceptan el mismo POST /posts y el mismo bloque instagram."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des reels sur Instagram",
+    "tagline": "Publiez des reels sur l'Instagram de vos clients avec POST /posts : couverture, audio, grille du profil et premier commentaire, sans gérer de tokens Meta.",
+    "intro": "Avec format reels et une vidéo dans media, Connect publie un reel sur le compte Instagram connecté par votre client. Un seul appel pour tous les comptes, sans app review et sans stocker de tokens.",
+    "can": [
+      "Publier un reel à partir d'une URL de vidéo https:// publique.",
+      "Choisir une image de couverture avec instagram.cover_url.",
+      "Décider si le reel apparaît aussi dans la grille du profil avec instagram.share_to_feed.",
+      "Utiliser un audio Instagram avec audio_id et régler audio_volume et video_volume.",
+      "Ajouter des collaborateurs, un lieu, un premier commentaire et désactiver les commentaires."
+    ],
+    "rules": [
+      "Reels accepte exactement 1 vidéo.",
+      "La légende va jusqu'à 2200 caractères, avec au plus 30 hashtags et 20 mentions.",
+      "share_to_feed vaut true par défaut.",
+      "audio_volume et video_volume exigent audio_id.",
+      "La réponse est 202 : la publication tourne en arrière-plan et vous la suivez avec GET /posts/{uuid}.",
+      "external_reference est obligatoire (409 si une publication identique existe) et Idempotency-Key, 255 caractères max, renvoie le post déjà enregistré avec 200 lors du rejeu."
+    ],
+    "useCases": [
+      {
+        "title": "Outil de vidéo courte",
+        "body": "Votre éditeur exporte la vidéo et publie le reel directement sur le compte de l'utilisateur, avec couverture et légende définies sur le moment."
+      },
+      {
+        "title": "Agence avec beaucoup de clients",
+        "body": "Un seul flux publie le même reel sur des dizaines de comptes Instagram connectés, chacun avec son customer_integration."
+      },
+      {
+        "title": "Agent IA de réseaux sociaux",
+        "body": "Un agent génère la vidéo, choisit la couverture et publie le reel, avec le premier commentaire déjà prêt."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je publier une vidéo seule en feed ?",
+        "a": "Non. Une vidéo seule doit passer en reels ; feed sert pour 1 image ou un carrousel de 2 à 10 médias."
+      },
+      {
+        "q": "Le reel apparaît-il dans la grille du profil ?",
+        "a": "Par défaut oui, car share_to_feed vaut true. Envoyez instagram.share_to_feed à false pour l'éviter."
+      },
+      {
+        "q": "Cela marche avec les comptes instagram et instagram_business ?",
+        "a": "Oui. Les deux connexions acceptent le même POST /posts et le même bloc instagram."
+      }
+    ]
+  }
+}

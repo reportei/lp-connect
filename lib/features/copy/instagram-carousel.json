@@ -1,0 +1,321 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "post-4410",
+      "format": "feed",
+      "caption": "Nova coleção no ar #verao",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/1.jpg",
+          "alt_text": "Vestido azul",
+          "user_tags": [
+            {
+              "username": "marca_parceira",
+              "x": 0.5,
+              "y": 0.4
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "url": "https://cdn.example.com/2.mp4"
+        },
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/3.jpg"
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Legenda. No Instagram, até 2200 caracteres, 30 hashtags e 20 menções. Stories não levam legenda.",
+        "en": "Caption. On Instagram, up to 2200 characters, 30 hashtags and 20 mentions. Stories carry no caption.",
+        "es": "Leyenda. En Instagram, hasta 2200 caracteres, 30 hashtags y 20 menciones. Los stories no llevan leyenda.",
+        "fr": "Légende. Sur Instagram, jusqu'à 2200 caractères, 30 hashtags et 20 mentions. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.type",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Tipo da mídia: image, video ou document (documento só no LinkedIn).",
+        "en": "Media type: image, video or document (document is LinkedIn only).",
+        "es": "Tipo de medio: image, video o document (documento solo en LinkedIn).",
+        "fr": "Type de média : image, video ou document (document : LinkedIn uniquement)."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "media.alt_text",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Texto alternativo da mídia, até 1000 caracteres.",
+        "en": "Alt text for the media, up to 1000 characters.",
+        "es": "Texto alternativo del medio, hasta 1000 caracteres.",
+        "fr": "Texte alternatif du média, 1000 caractères max."
+      }
+    },
+    {
+      "name": "media.user_tags",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Só Instagram. Marcações de usuário (username, x e y), até 20 por mídia. Em imagem, x e y de 0 a 1 vão juntos.",
+        "en": "Instagram only. User tags (username, x and y), up to 20 per media. On an image, x and y from 0 to 1 go together.",
+        "es": "Solo Instagram. Etiquetas de usuario (username, x e y), hasta 20 por medio. En imagen, x e y de 0 a 1 van juntos.",
+        "fr": "Instagram uniquement. Identifications d'utilisateurs (username, x et y), 20 max par média. Sur une image, x et y de 0 à 1 vont ensemble."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar carrossel no Instagram",
+    "tagline": "Publique carrosséis de 2 a 10 imagens e vídeos no Instagram dos seus clientes com uma chamada POST /posts, sem app review.",
+    "intro": "Com format feed e várias mídias, o Connect publica um carrossel na conta Instagram que o seu cliente conectou. Você não precisa passar pelo app review da Meta nem cuidar de tokens: é uma única chamada, a mesma para todas as contas conectadas.",
+    "can": [
+      "Publicar um carrossel de 2 a 10 imagens e vídeos, na ordem em que vierem em media.",
+      "Misturar imagens e vídeos no mesmo carrossel.",
+      "Marcar usuários em cada mídia com media[].user_tags, com posição x e y nas imagens.",
+      "Enviar texto alternativo em cada mídia com alt_text.",
+      "Acrescentar colaboradores, primeiro comentário e local no bloco instagram."
+    ],
+    "rules": [
+      "Feed aceita 1 imagem ou um carrossel de 2 a 10 imagens e vídeos. Um vídeo sozinho não é feed: use reels.",
+      "A legenda vai até 2200 caracteres, com no máximo 30 hashtags e 20 menções.",
+      "Cada mídia aceita até 20 user_tags. Em imagem, x e y (de 0 a 1) vão juntos ou nenhum; em vídeo, sem x e y.",
+      "Um carrossel de uma conta conectada pelo Instagram Login não aceita user_tags.",
+      "A resposta é 202: o post é gravado e publicado em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e evita publicar o mesmo post duas vezes (409). O header Idempotency-Key repete a chamada com segurança."
+    ],
+    "useCases": [
+      {
+        "title": "Agendador social dentro do seu SaaS",
+        "body": "O usuário monta o carrossel no seu editor e o seu backend publica com um POST /posts na conta Instagram que ele conectou."
+      },
+      {
+        "title": "Lançamentos de e-commerce",
+        "body": "Gere um carrossel com as fotos do catálogo e marque a marca parceira em cada imagem no momento do lançamento."
+      },
+      {
+        "title": "Agente de IA de conteúdo",
+        "body": "Um agente cria as imagens e a legenda e publica o carrossel sozinho, usando external_reference para nunca duplicar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quantas imagens cabem em um carrossel?",
+        "a": "De 2 a 10 mídias, entre imagens e vídeos, no formato feed. Uma única imagem também é feed; um vídeo sozinho deve ir como reels."
+      },
+      {
+        "q": "Preciso do app review da Meta?",
+        "a": "Não. O cliente conecta a conta uma vez e você publica pelo Connect, enviando só o Bearer do merchant e o x-customer-token."
+      },
+      {
+        "q": "Como sei que o carrossel foi publicado?",
+        "a": "O POST /posts responde 202 e a publicação roda em segundo plano. Consulte GET /posts/{uuid}: o status passa por created, publishing, published ou failed, e em caso de falha publishing.error traz code e message."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish a carousel on Instagram",
+    "tagline": "Publish carousels of 2 to 10 images and videos on your customers' Instagram with one POST /posts call, no app review needed.",
+    "intro": "With format feed and several media items, Connect publishes a carousel on the Instagram account your customer connected. There is no Meta app review and no token handling: it is one call, the same for every connected account.",
+    "can": [
+      "Publish a carousel of 2 to 10 images and videos, in the order they appear in media.",
+      "Mix images and videos in the same carousel.",
+      "Tag users on each media with media[].user_tags, with x and y position on images.",
+      "Send alt text for each media with alt_text.",
+      "Add collaborators, a first comment and a location in the instagram block."
+    ],
+    "rules": [
+      "Feed takes 1 image or a carousel of 2 to 10 images and videos. A single video is not feed: use reels.",
+      "The caption goes up to 2200 characters, with at most 30 hashtags and 20 mentions.",
+      "Each media takes up to 20 user_tags. On an image, x and y (from 0 to 1) go together or not at all; on a video, no x and y.",
+      "A carousel from an account connected through Instagram Login does not accept user_tags.",
+      "The answer is 202: the post is stored and published in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and prevents publishing the same post twice (409). The Idempotency-Key header makes retries safe."
+    ],
+    "useCases": [
+      {
+        "title": "Social scheduler inside your SaaS",
+        "body": "The user builds the carousel in your editor and your backend publishes it with one POST /posts on the Instagram account they connected."
+      },
+      {
+        "title": "E-commerce launches",
+        "body": "Generate a carousel from catalog photos and tag the partner brand on each image when the launch goes live."
+      },
+      {
+        "title": "Content AI agent",
+        "body": "An agent creates the images and caption and publishes the carousel on its own, using external_reference to never duplicate."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many images fit in a carousel?",
+        "a": "From 2 to 10 media items, images and videos, in the feed format. A single image is also feed; a single video must go as reels."
+      },
+      {
+        "q": "Do I need Meta app review?",
+        "a": "No. The customer connects the account once and you publish through Connect, sending only the merchant Bearer and the x-customer-token."
+      },
+      {
+        "q": "How do I know the carousel was published?",
+        "a": "POST /posts answers 202 and publishing runs in the background. Check GET /posts/{uuid}: the status goes through created, publishing, published or failed, and on failure publishing.error carries code and message."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar un carrusel en Instagram",
+    "tagline": "Publica carruseles de 2 a 10 imágenes y videos en el Instagram de tus clientes con una llamada POST /posts, sin app review.",
+    "intro": "Con format feed y varios medios, Connect publica un carrusel en la cuenta de Instagram que tu cliente conectó. No necesitas pasar por el app review de Meta ni manejar tokens: es una sola llamada, igual para todas las cuentas conectadas.",
+    "can": [
+      "Publicar un carrusel de 2 a 10 imágenes y videos, en el orden en que vengan en media.",
+      "Mezclar imágenes y videos en el mismo carrusel.",
+      "Etiquetar usuarios en cada medio con media[].user_tags, con posición x e y en las imágenes.",
+      "Enviar texto alternativo en cada medio con alt_text.",
+      "Añadir colaboradores, primer comentario y ubicación en el bloque instagram."
+    ],
+    "rules": [
+      "Feed acepta 1 imagen o un carrusel de 2 a 10 imágenes y videos. Un video solo no es feed: usa reels.",
+      "La leyenda llega hasta 2200 caracteres, con máximo 30 hashtags y 20 menciones.",
+      "Cada medio acepta hasta 20 user_tags. En imagen, x e y (de 0 a 1) van juntos o ninguno; en video, sin x e y.",
+      "Un carrusel de una cuenta conectada por Instagram Login no acepta user_tags.",
+      "La respuesta es 202: el post se guarda y se publica en segundo plano. Síguelo con GET /posts/{uuid}.",
+      "external_reference es obligatorio y evita publicar el mismo post dos veces (409). El header Idempotency-Key hace seguros los reintentos."
+    ],
+    "useCases": [
+      {
+        "title": "Programador social dentro de tu SaaS",
+        "body": "El usuario arma el carrusel en tu editor y tu backend lo publica con un POST /posts en la cuenta de Instagram que conectó."
+      },
+      {
+        "title": "Lanzamientos de e-commerce",
+        "body": "Genera un carrusel con las fotos del catálogo y etiqueta a la marca aliada en cada imagen al lanzar."
+      },
+      {
+        "title": "Agente de IA de contenido",
+        "body": "Un agente crea las imágenes y la leyenda y publica el carrusel solo, usando external_reference para no duplicar nunca."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuántas imágenes caben en un carrusel?",
+        "a": "De 2 a 10 medios, entre imágenes y videos, en el formato feed. Una sola imagen también es feed; un video solo debe ir como reels."
+      },
+      {
+        "q": "¿Necesito el app review de Meta?",
+        "a": "No. El cliente conecta la cuenta una vez y tú publicas por Connect, enviando solo el Bearer del merchant y el x-customer-token."
+      },
+      {
+        "q": "¿Cómo sé que el carrusel se publicó?",
+        "a": "POST /posts responde 202 y la publicación corre en segundo plano. Consulta GET /posts/{uuid}: el status pasa por created, publishing, published o failed, y si falla publishing.error trae code y message."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier un carrousel sur Instagram",
+    "tagline": "Publiez des carrousels de 2 à 10 images et vidéos sur l'Instagram de vos clients avec un appel POST /posts, sans app review.",
+    "intro": "Avec format feed et plusieurs médias, Connect publie un carrousel sur le compte Instagram que votre client a connecté. Pas d'app review Meta ni de gestion de tokens : un seul appel, identique pour tous les comptes connectés.",
+    "can": [
+      "Publier un carrousel de 2 à 10 images et vidéos, dans l'ordre de media.",
+      "Mélanger images et vidéos dans le même carrousel.",
+      "Identifier des utilisateurs sur chaque média avec media[].user_tags, avec la position x et y sur les images.",
+      "Envoyer un texte alternatif pour chaque média avec alt_text.",
+      "Ajouter des collaborateurs, un premier commentaire et un lieu dans le bloc instagram."
+    ],
+    "rules": [
+      "Feed accepte 1 image ou un carrousel de 2 à 10 images et vidéos. Une vidéo seule n'est pas du feed : utilisez reels.",
+      "La légende va jusqu'à 2200 caractères, avec au plus 30 hashtags et 20 mentions.",
+      "Chaque média accepte jusqu'à 20 user_tags. Sur une image, x et y (de 0 à 1) vont ensemble ou pas du tout ; sur une vidéo, sans x ni y.",
+      "Un carrousel d'un compte connecté via Instagram Login n'accepte pas user_tags.",
+      "La réponse est 202 : le post est enregistré et publié en arrière-plan. Suivez-le avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et évite de publier deux fois le même post (409). L'en-tête Idempotency-Key rend les nouvelles tentatives sûres."
+    ],
+    "useCases": [
+      {
+        "title": "Planificateur social dans votre SaaS",
+        "body": "L'utilisateur compose le carrousel dans votre éditeur et votre backend le publie avec un POST /posts sur le compte Instagram qu'il a connecté."
+      },
+      {
+        "title": "Lancements e-commerce",
+        "body": "Générez un carrousel à partir des photos du catalogue et identifiez la marque partenaire sur chaque image au lancement."
+      },
+      {
+        "title": "Agent IA de contenu",
+        "body": "Un agent crée les images et la légende et publie le carrousel seul, en utilisant external_reference pour ne jamais dupliquer."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Combien d'images dans un carrousel ?",
+        "a": "De 2 à 10 médias, images et vidéos, au format feed. Une seule image est aussi du feed ; une vidéo seule doit passer en reels."
+      },
+      {
+        "q": "Faut-il l'app review de Meta ?",
+        "a": "Non. Le client connecte le compte une fois et vous publiez via Connect, en n'envoyant que le Bearer du merchant et le x-customer-token."
+      },
+      {
+        "q": "Comment savoir que le carrousel est publié ?",
+        "a": "POST /posts répond 202 et la publication tourne en arrière-plan. Consultez GET /posts/{uuid} : le status passe par created, publishing, published ou failed, et en cas d'échec publishing.error contient code et message."
+      }
+    ]
+  }
+}

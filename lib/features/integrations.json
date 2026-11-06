@@ -1,0 +1,238 @@
+{
+ "facebook": {
+  "name": "Facebook",
+  "logo": "facebook"
+ },
+ "google_analytics": {
+  "name": "Google Analytics",
+  "logo": "google_analytics"
+ },
+ "instagram": {
+  "name": "Instagram",
+  "logo": "instagram_business"
+ },
+ "twitter": {
+  "name": "Twitter",
+  "logo": "twitter"
+ },
+ "youtube": {
+  "name": "YouTube",
+  "logo": "youtube"
+ },
+ "linkedin": {
+  "name": "LinkedIn",
+  "logo": "linkedin"
+ },
+ "facebook_ads": {
+  "name": "Meta Ads",
+  "logo": "meta_ads"
+ },
+ "instagram_business": {
+  "name": "Instagram Business",
+  "logo": "instagram_business"
+ },
+ "google_adwords": {
+  "name": "Google Ads",
+  "logo": "google_ads"
+ },
+ "linkedin_ads": {
+  "name": "LinkedIn Ads",
+  "logo": "linkedin"
+ },
+ "rdstation": {
+  "name": "RD Station Marketing",
+  "logo": "rd"
+ },
+ "search_console": {
+  "name": "Google Search Console",
+  "logo": "search_console"
+ },
+ "google_my_business": {
+  "name": "Google My Business",
+  "logo": "google_my_business"
+ },
+ "mailchimp": {
+  "name": "Mailchimp",
+  "logo": "mailchimp"
+ },
+ "twitter_ads": {
+  "name": "Twitter Ads",
+  "logo": "twitter_ads"
+ },
+ "google_analytics_4": {
+  "name": "Google Analytics 4",
+  "logo": "google_analytics_4"
+ },
+ "hotmart": {
+  "name": "Hotmart",
+  "logo": "hotmart"
+ },
+ "tiktok_ads": {
+  "name": "TikTok Ads",
+  "logo": "tiktokads"
+ },
+ "pinterest": {
+  "name": "Pinterest",
+  "logo": "pinterest"
+ },
+ "tiktok": {
+  "name": "TikTok",
+  "logo": "tiktokads"
+ },
+ "tiktok_business": {
+  "name": "TikTok Business",
+  "logo": "tiktokads"
+ },
+ "pinterest_ads": {
+  "name": "Pinterest Ads",
+  "logo": "pinterest"
+ },
+ "pipedrive": {
+  "name": "Pipedrive",
+  "logo": "pipedrive"
+ },
+ "phonetrack": {
+  "name": "Phonetrack",
+  "logo": "phonetrack"
+ },
+ "active_campaign": {
+  "name": "Active Campaign",
+  "logo": "active_campaign"
+ },
+ "rd_crm": {
+  "name": "RD Station CRM",
+  "logo": "rd_crm"
+ },
+ "hubspot_marketing": {
+  "name": "HubSpot Marketing",
+  "logo": "hubspot_marketing"
+ },
+ "hubspot_crm": {
+  "name": "HubSpot CRM",
+  "logo": "hubspot_marketing"
+ },
+ "egoi": {
+  "name": "Egoi",
+  "logo": "egoi"
+ },
+ "shopify": {
+  "name": "Shopify",
+  "logo": "shopify"
+ },
+ "google_sheets": {
+  "name": "Google Sheets",
+  "logo": "google_sheets"
+ },
+ "woo_commerce": {
+  "name": "WooCommerce",
+  "logo": "woo_commerce"
+ },
+ "nuvem_shop": {
+  "name": "NuvemShop",
+  "logo": "nuvem_shop"
+ },
+ "threads": {
+  "name": "Threads",
+  "logo": "threads"
+ },
+ "linkedin_personal": {
+  "name": "Linkedin Personal",
+  "logo": "linkedin"
+ },
+ "spotify_ads": {
+  "name": "Spotify Ads",
+  "logo": "spotify_ads"
+ },
+ "kommo": {
+  "name": "Kommo",
+  "logo": "kommo"
+ },
+ "ifood": {
+  "name": "iFood Financial",
+  "logo": "ifood"
+ },
+ "eduzz": {
+  "name": "Eduzz",
+  "logo": "eduzz"
+ },
+ "go_high_level": {
+  "name": "GoHighLevel",
+  "logo": "go_high_level"
+ },
+ "microsoft_ads": {
+  "name": "Microsoft Ads",
+  "logo": "microsoft_ads"
+ },
+ "klaviyo": {
+  "name": "Klaviyo",
+  "logo": "klaviyo"
+ },
+ "kiwify": {
+  "name": "Kiwify",
+  "logo": "kiwify"
+ },
+ "repediuapi": {
+  "name": "Repediu",
+  "logo": "repediuapi"
+ },
+ "magazord": {
+  "name": "Magazord",
+  "logo": "magazord"
+ },
+ "kwai_ads": {
+  "name": "Kwai Ads",
+  "logo": "kwai_ads"
+ },
+ "callrail": {
+  "name": "CallRail",
+  "logo": "callrail"
+ },
+ "keyword": {
+  "name": "Keyword.com",
+  "logo": "keyword"
+ },
+ "twilio": {
+  "name": "Twilio",
+  "logo": "twilio"
+ },
+ "great_pages": {
+  "name": "GreatPages",
+  "logo": "great_pages"
+ },
+ "olist": {
+  "name": "Olist",
+  "logo": "olist"
+ },
+ "goomer": {
+  "name": "Goomer",
+  "logo": "goomer"
+ },
+ "cardapio_web": {
+  "name": "Cardapio Web",
+  "logo": "cardapio_web"
+ },
+ "google_local_services": {
+  "name": "Google Local Services",
+  "logo": "google_local_services"
+ },
+ "chatgpt_ads": {
+  "name": "ChatGPT Ads",
+  "logo": "chatgpt_ads"
+ },
+ "ahrefs": {
+  "name": "Ahrefs",
+  "logo": "ahrefs"
+ },
+ "tiktok_shop": {
+  "name": "TikTok Shop",
+  "logo": "tiktok_shop"
+ },
+ "airtable": {
+  "name": "Airtable",
+  "logo": "airtable"
+ },
+ "ifood_analytics": {
+  "name": "iFood Analytics",
+  "logo": "ifood_analytics"
+ }
+}

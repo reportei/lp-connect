@@ -1,0 +1,260 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/llm/chat/completions",
+    "body": {
+      "model": "openai/gpt-5.4-mini",
+      "models": [
+        "anthropic/claude-haiku-5-5"
+      ],
+      "max_tokens": 512,
+      "messages": [
+        {
+          "role": "user",
+          "content": "What was yesterday's reach?"
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "model",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Id do modelo, de GET /llm/models, no formato provedor/modelo.",
+        "en": "Model id from GET /llm/models, in provider/model form.",
+        "es": "Id del modelo, de GET /llm/models, con formato proveedor/modelo.",
+        "fr": "Id du modèle, issu de GET /llm/models, au format fournisseur/modèle."
+      }
+    },
+    {
+      "name": "models",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Fallback: até 3 modelos de GET /llm/models, tentados em ordem se model falhar antes do primeiro token.",
+        "en": "Fallback: up to 3 models from GET /llm/models, tried in order if model fails before the first token.",
+        "es": "Fallback: hasta 3 modelos de GET /llm/models, probados en orden si model falla antes del primer token.",
+        "fr": "Repli : jusqu'à 3 modèles de GET /llm/models, essayés dans l'ordre si model échoue avant le premier token."
+      }
+    },
+    {
+      "name": "messages",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "A conversa, como na OpenAI. role: system, developer, user, assistant ou tool.",
+        "en": "The conversation, as in OpenAI. role: system, developer, user, assistant or tool.",
+        "es": "La conversación, como en OpenAI. role: system, developer, user, assistant o tool.",
+        "fr": "La conversation, comme chez OpenAI. role : system, developer, user, assistant ou tool."
+      }
+    },
+    {
+      "name": "max_tokens",
+      "type": "integer",
+      "required": true,
+      "description": {
+        "pt": "Obrigatório (ou max_completion_tokens). Até o teto da conta e o max_output_tokens de cada modelo da chamada.",
+        "en": "Required (or max_completion_tokens). Up to the account cap and each model's max_output_tokens in the call.",
+        "es": "Obligatorio (o max_completion_tokens). Hasta el tope de la cuenta y el max_output_tokens de cada modelo de la llamada.",
+        "fr": "Obligatoire (ou max_completion_tokens). Jusqu'au plafond du compte et au max_output_tokens de chaque modèle de l'appel."
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta: o modelo que respondeu, o model ou um dos models.",
+        "en": "In the response: the model that answered, model or one of models.",
+        "es": "En la respuesta: el modelo que respondió, model o uno de models.",
+        "fr": "Dans la réponse : le modèle qui a répondu, model ou l'un des models."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Fallback automático entre modelos de LLM",
+    "tagline": "Envie até 3 modelos de reserva em models e a chamada segue para o próximo se o principal falhar, mesmo entre provedores diferentes.",
+    "intro": "Em POST /llm/chat/completions, o campo opcional models lista até 3 modelos para tentar, em ordem, quando o model falha antes do primeiro token. A resposta diz qual modelo respondeu. Dá para ter um plano B em outro provedor sem escrever lógica de retry.",
+    "can": [
+      "Definir até 3 modelos de reserva, inclusive de outro provedor, como openai/gpt-5.4-mini com anthropic/claude-haiku-5-5 de fallback.",
+      "Saber qual modelo respondeu pelo campo model da resposta.",
+      "Combinar fallback com stream e tools, desde que todos os modelos da chamada suportem o que você pediu.",
+      "Evitar indisponibilidade quando um provedor falha ou demora."
+    ],
+    "rules": [
+      "O fallback entra quando o model falha antes de enviar o primeiro token: erro do provedor, limite ou timeout. Depois do primeiro token, o erro chega até você.",
+      "Nunca há nova tentativa no mesmo modelo.",
+      "models aceita no máximo 3 itens, todos de GET /llm/models; um id fora da lista retorna 400 llm_model_not_allowed.",
+      "Você precisa da chave de cada provedor da cadeia, model e models, senão 400 llm_credential_missing.",
+      "tools e imagens só valem se todos os modelos da chamada tiverem supports_tools e supports_vision; o fallback recebe o mesmo max_tokens, que precisa caber em todos."
+    ],
+    "useCases": [
+      {
+        "title": "Assistente de IA sempre no ar",
+        "body": "Seu produto continua respondendo quando um provedor cai, porque o próximo modelo da lista assume."
+      },
+      {
+        "title": "Custo primeiro, qualidade como reserva",
+        "body": "Tente um modelo barato e deixe um maior como reserva para quando ele falhar."
+      },
+      {
+        "title": "Agentes resilientes",
+        "body": "Um agente de longa duração não para por uma falha pontual de um provedor."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quando o fallback é acionado?",
+        "a": "Quando o model falha antes de enviar o primeiro token: erro do provedor, limite ou timeout. Depois do primeiro token, o erro vai para você e não há troca de modelo."
+      },
+      {
+        "q": "Como sei qual modelo respondeu?",
+        "a": "Pelo campo model da resposta: ele traz o model ou um dos models, se houve fallback."
+      },
+      {
+        "q": "Posso usar fallback com tools?",
+        "a": "Sim, se todos os modelos da chamada (model e cada item de models) tiverem supports_tools. Se algum não tiver, a chamada é recusada com 400 llm_unsupported_field."
+      }
+    ]
+  },
+  "en": {
+    "title": "Automatic fallback between LLM models",
+    "tagline": "Send up to 3 backup models in models and the call moves to the next if the main one fails, even across different providers.",
+    "intro": "In POST /llm/chat/completions, the optional models field lists up to 3 models to try, in order, when model fails before the first token. The response says which model answered. You get a plan B on another provider without writing retry logic.",
+    "can": [
+      "Set up to 3 backup models, including from another provider, such as openai/gpt-5.4-mini with anthropic/claude-haiku-5-5 as fallback.",
+      "Know which model answered from the model field of the response.",
+      "Combine fallback with stream and tools, as long as every model in the call supports what you asked for.",
+      "Avoid downtime when a provider fails or is slow."
+    ],
+    "rules": [
+      "Fallback kicks in when model fails before sending the first token: provider error, limit or timeout. After the first token, the error reaches you.",
+      "There is never a retry on the same model.",
+      "models accepts at most 3 items, all from GET /llm/models; an id outside the list returns 400 llm_model_not_allowed.",
+      "You need the key of every provider in the chain, model and models, otherwise 400 llm_credential_missing.",
+      "tools and images only work if every model in the call has supports_tools and supports_vision; the fallback gets the same max_tokens, which must fit all of them."
+    ],
+    "useCases": [
+      {
+        "title": "An AI assistant that stays up",
+        "body": "Your product keeps answering when a provider goes down, because the next model in the list takes over."
+      },
+      {
+        "title": "Cost first, quality as backup",
+        "body": "Try a cheap model and keep a larger one as backup for when it fails."
+      },
+      {
+        "title": "Resilient agents",
+        "body": "A long-running agent does not stop because of a one-off provider failure."
+      }
+    ],
+    "faq": [
+      {
+        "q": "When is the fallback triggered?",
+        "a": "When model fails before sending the first token: provider error, limit or timeout. After the first token, the error goes to you and the model is not switched."
+      },
+      {
+        "q": "How do I know which model answered?",
+        "a": "From the model field of the response: it carries model or one of models, if there was a fallback."
+      },
+      {
+        "q": "Can I use fallback with tools?",
+        "a": "Yes, if every model in the call (model and each item of models) has supports_tools. If any lacks it, the call is refused with 400 llm_unsupported_field."
+      }
+    ]
+  },
+  "es": {
+    "title": "Fallback automático entre modelos de LLM",
+    "tagline": "Envía hasta 3 modelos de respaldo en models y la llamada pasa al siguiente si el principal falla, incluso entre proveedores distintos.",
+    "intro": "En POST /llm/chat/completions, el campo opcional models lista hasta 3 modelos para probar, en orden, cuando model falla antes del primer token. La respuesta dice qué modelo respondió. Tienes un plan B en otro proveedor sin escribir lógica de reintentos.",
+    "can": [
+      "Definir hasta 3 modelos de respaldo, incluso de otro proveedor, como openai/gpt-5.4-mini con anthropic/claude-haiku-5-5 de fallback.",
+      "Saber qué modelo respondió por el campo model de la respuesta.",
+      "Combinar el fallback con stream y tools, siempre que todos los modelos de la llamada soporten lo que pides.",
+      "Evitar la indisponibilidad cuando un proveedor falla o tarda."
+    ],
+    "rules": [
+      "El fallback entra cuando model falla antes de enviar el primer token: error del proveedor, límite o timeout. Después del primer token, el error te llega a ti.",
+      "Nunca hay un nuevo intento en el mismo modelo.",
+      "models acepta como máximo 3 ítems, todos de GET /llm/models; un id fuera de la lista devuelve 400 llm_model_not_allowed.",
+      "Necesitas la clave de cada proveedor de la cadena, model y models; si no, 400 llm_credential_missing.",
+      "tools e imágenes solo valen si todos los modelos de la llamada tienen supports_tools y supports_vision; el fallback recibe el mismo max_tokens, que debe caber en todos."
+    ],
+    "useCases": [
+      {
+        "title": "Un asistente de IA siempre activo",
+        "body": "Tu producto sigue respondiendo cuando un proveedor cae, porque el siguiente modelo de la lista asume."
+      },
+      {
+        "title": "Costo primero, calidad de respaldo",
+        "body": "Prueba un modelo barato y deja uno mayor de respaldo para cuando falle."
+      },
+      {
+        "title": "Agentes resilientes",
+        "body": "Un agente de larga duración no se detiene por una falla puntual de un proveedor."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuándo se activa el fallback?",
+        "a": "Cuando model falla antes de enviar el primer token: error del proveedor, límite o timeout. Después del primer token, el error va a ti y no se cambia de modelo."
+      },
+      {
+        "q": "¿Cómo sé qué modelo respondió?",
+        "a": "Por el campo model de la respuesta: trae model o uno de models, si hubo fallback."
+      },
+      {
+        "q": "¿Puedo usar fallback con tools?",
+        "a": "Sí, si todos los modelos de la llamada (model y cada ítem de models) tienen supports_tools. Si alguno no lo tiene, la llamada se rechaza con 400 llm_unsupported_field."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Repli automatique entre modèles LLM",
+    "tagline": "Envoyez jusqu'à 3 modèles de secours dans models et l'appel passe au suivant si le principal échoue, même entre fournisseurs différents.",
+    "intro": "Dans POST /llm/chat/completions, le champ optionnel models liste jusqu'à 3 modèles à essayer, dans l'ordre, quand model échoue avant le premier token. La réponse indique quel modèle a répondu. Vous avez un plan B chez un autre fournisseur sans écrire de logique de retry.",
+    "can": [
+      "Définir jusqu'à 3 modèles de secours, y compris d'un autre fournisseur, comme openai/gpt-5.4-mini avec anthropic/claude-haiku-5-5 en repli.",
+      "Savoir quel modèle a répondu grâce au champ model de la réponse.",
+      "Combiner le repli avec stream et tools, tant que tous les modèles de l'appel gèrent ce que vous demandez.",
+      "Éviter l'indisponibilité quand un fournisseur échoue ou est lent."
+    ],
+    "rules": [
+      "Le repli s'active quand model échoue avant d'envoyer le premier token : erreur du fournisseur, limite ou timeout. Après le premier token, l'erreur vous parvient.",
+      "Il n'y a jamais de nouvelle tentative sur le même modèle.",
+      "models accepte 3 éléments au maximum, tous de GET /llm/models ; un id hors liste renvoie 400 llm_model_not_allowed.",
+      "Il vous faut la clé de chaque fournisseur de la chaîne, model et models, sinon 400 llm_credential_missing.",
+      "tools et images ne valent que si tous les modèles de l'appel ont supports_tools et supports_vision ; le repli reçoit le même max_tokens, qui doit convenir à tous."
+    ],
+    "useCases": [
+      {
+        "title": "Un assistant IA toujours disponible",
+        "body": "Votre produit continue de répondre quand un fournisseur tombe, car le modèle suivant de la liste prend le relais."
+      },
+      {
+        "title": "Le coût d'abord, la qualité en secours",
+        "body": "Essayez un modèle économique et gardez un plus grand en secours pour quand il échoue."
+      },
+      {
+        "title": "Agents résilients",
+        "body": "Un agent de longue durée ne s'arrête pas pour une panne ponctuelle d'un fournisseur."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quand le repli se déclenche-t-il ?",
+        "a": "Quand model échoue avant d'envoyer le premier token : erreur du fournisseur, limite ou timeout. Après le premier token, l'erreur vous est transmise et le modèle n'est pas changé."
+      },
+      {
+        "q": "Comment savoir quel modèle a répondu ?",
+        "a": "Par le champ model de la réponse : il porte model ou l'un des models, s'il y a eu repli."
+      },
+      {
+        "q": "Puis-je utiliser le repli avec tools ?",
+        "a": "Oui, si tous les modèles de l'appel (model et chaque élément de models) ont supports_tools. Si l'un ne l'a pas, l'appel est refusé avec 400 llm_unsupported_field."
+      }
+    ]
+  }
+}

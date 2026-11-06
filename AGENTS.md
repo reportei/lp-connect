@@ -56,6 +56,25 @@ O slug da URL troca `_` por `-` e a tool perde o prefixo do toolkit (`whatsapp_s
 - **Sitemap próprio:** as páginas de toolkits ficam em `/connect/sitemap-toolkits.xml` (`app/sitemap-toolkits.xml/route.ts`), separadas do `/connect/sitemap.xml`. Cada página aparece nos quatro idiomas com os `hreflang`, e um toolkit novo entra sozinho depois do sync. O `robots.txt` do domínio é o do WordPress (Yoast) e não cita os sitemaps do Connect: os dois são enviados no Search Console.
 - **Títulos:** o sufixo ` | Reportei Connect` só entra quando o título inteiro cabe em 60 caracteres (`withBrand`). Descrição de tool com menos de 110 caracteres ganha uma frase com o nome do app (`metaSuffix`), para nenhuma descrição se repetir.
 
+## Funcionalidades (Posts, Ads, Metrics, LLM)
+
+Uma página para cada coisa que dá para fazer com o Connect, nos quatro idiomas, com o mesmo caminho em todos:
+
+| Página | Caminho |
+|---|---|
+| Visão geral da área | `/posts`, `/ads`, `/metrics`, `/llm` |
+| Uma ação | `/{área}/{slug}` (ex.: `/posts/instagram-reels`, `/ads/boost-post`) |
+| Métricas de uma integração | `/metrics/{integração}` (ex.: `/metrics/meta-ads`) |
+| Um modelo de LLM | `/llm/{modelo}` (ex.: `/llm/claude-sonnet-5-5`) |
+
+- **Ações:** a lista fica em `lib/features/catalog.ts`, cada uma com as operações do Connect que ela usa. O texto, o exemplo de chamada e os campos ficam em `lib/features/copy/{slug}.json`. Ação sem arquivo de textos não ganha página.
+- **Conferir contra o contrato:** `node scripts/check-feature-copy.mjs <connect>/resources/openapi.json` recusa operação, campo ou chave do exemplo que não existe no spec do Connect, texto faltando em algum idioma e travessão. Rodar sempre que mexer num texto ou quando o spec mudar.
+- **Métricas por integração:** `lib/features/metrics.json` é exportado do catálogo do Reportei (configs estáticas em `app/Reportei/V4/Configs`, traduzidas), na branch padrão dele (`v4/master`), com `scripts/export-metrics.php` pelo tinker no container e depois `node scripts/sync-features.mjs metrics <saída>`. As instruções estão no topo do script. Integração sem catálogo fixo de métricas (Google Sheets, Airtable) não ganha página.
+- **Modelos de LLM:** `lib/features/llm-models.json` vem do `database/data/llm_models.php` do Connect, por `node scripts/sync-features.mjs llm ../connect`. Só entram os modelos `active`.
+- **Interface:** os rótulos ficam em `features` nos `lib/messages/*.ts`, as páginas em `components/feature-pages.tsx` e as rotas em `app/(pt)/{posts,ads,metrics,llm}` e no equivalente de cada idioma.
+- **Sitemap:** essas páginas entram no `/connect/sitemap.xml`.
+- **O que não vai para as páginas:** detalhe interno (tabelas, jobs, generator, nginx), rota `abilities:admin` (como a leitura de várias contas numa chamada de métricas e os eventos de webhook de post) e o que o Connect não faz (agendamento de post).
+
 ---
 
 ## Deploy

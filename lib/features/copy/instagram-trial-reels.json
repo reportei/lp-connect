@@ -1,0 +1,285 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "reel-trial-12",
+      "format": "reels",
+      "caption": "Teste novo: o que acha?",
+      "media": [
+        {
+          "type": "video",
+          "url": "https://cdn.example.com/trial.mp4"
+        }
+      ],
+      "instagram": {
+        "trial_graduation_strategy": "SS_PERFORMANCE"
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Legenda. No Instagram, até 2200 caracteres, 30 hashtags e 20 menções. Stories não levam legenda.",
+        "en": "Caption. On Instagram, up to 2200 characters, 30 hashtags and 20 mentions. Stories carry no caption.",
+        "es": "Leyenda. En Instagram, hasta 2200 caracteres, 30 hashtags y 20 menciones. Los stories no llevan leyenda.",
+        "fr": "Légende. Sur Instagram, jusqu'à 2200 caractères, 30 hashtags et 20 mentions. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "instagram.trial_graduation_strategy",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Publica como trial reel. MANUAL: a conta decide se promove ao perfil. SS_PERFORMANCE: o Instagram promove se o desempenho for bom. Só em reels.",
+        "en": "Publishes as a trial reel. MANUAL: the account decides whether to promote it to the profile. SS_PERFORMANCE: Instagram promotes it if it performs well. Reels only.",
+        "es": "Publica como trial reel. MANUAL: la cuenta decide si lo promueve al perfil. SS_PERFORMANCE: Instagram lo promueve si rinde bien. Solo en reels.",
+        "fr": "Publie en trial reel. MANUAL : le compte décide de le promouvoir sur le profil. SS_PERFORMANCE : Instagram le promeut si la performance est bonne. Reels uniquement."
+      }
+    },
+    {
+      "name": "instagram.share_to_feed",
+      "type": "boolean",
+      "required": false,
+      "description": {
+        "pt": "Se o reel também aparece no grid do perfil. Só em reels.",
+        "en": "Whether the reel also shows on the profile grid. Reels only.",
+        "es": "Si el reel también aparece en la grilla del perfil. Solo en reels.",
+        "fr": "Si le reel apparaît aussi dans la grille du profil. Reels uniquement."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar trial reels no Instagram",
+    "tagline": "Publique trial reels no Instagram com POST /posts: o reel vai primeiro a não seguidores e é promovido por você ou pelo desempenho.",
+    "intro": "Um trial reel é mostrado primeiro a quem ainda não segue a conta. Com format reels e instagram.trial_graduation_strategy, o Connect publica o reel nesse modo, sem app review e sem lidar com tokens.",
+    "can": [
+      "Publicar um reel como trial reel com uma única opção, trial_graduation_strategy.",
+      "Escolher MANUAL para a conta decidir se promove o reel ao perfil.",
+      "Escolher SS_PERFORMANCE para o Instagram promover sozinho se o desempenho for bom.",
+      "Combinar com capa, áudio, colaboradores e primeiro comentário, como em qualquer reel."
+    ],
+    "rules": [
+      "trial_graduation_strategy só vale em format reels e aceita MANUAL ou SS_PERFORMANCE.",
+      "Reels aceita exatamente 1 vídeo.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e Idempotency-Key permite repetir a chamada sem duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Teste de conteúdo",
+        "body": "Seu SaaS publica variações de um vídeo como trial reel para medir o alcance entre não seguidores antes de ir ao perfil."
+      },
+      {
+        "title": "Agência",
+        "body": "Valide criativos de vários clientes: SS_PERFORMANCE promove só os que performarem bem."
+      },
+      {
+        "title": "Agente de IA de growth",
+        "body": "Um agente publica um lote de reels em teste e, com MANUAL, deixa a decisão final para a conta."
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é um trial reel?",
+        "a": "É um reel mostrado primeiro a não seguidores. Você define como ele é promovido ao perfil: MANUAL ou SS_PERFORMANCE."
+      },
+      {
+        "q": "Qual a diferença entre MANUAL e SS_PERFORMANCE?",
+        "a": "Com MANUAL a conta decide se promove o reel ao perfil. Com SS_PERFORMANCE o Instagram promove automaticamente se o desempenho for bom."
+      },
+      {
+        "q": "Posso usar trial_graduation_strategy em feed ou story?",
+        "a": "Não. A opção só vale em reels."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish trial reels on Instagram",
+    "tagline": "Publish trial reels on Instagram with POST /posts: the reel goes to non-followers first and is promoted by you or by performance.",
+    "intro": "A trial reel is shown first to people who do not follow the account yet. With format reels and instagram.trial_graduation_strategy, Connect publishes the reel in that mode, with no app review and no token handling.",
+    "can": [
+      "Publish a reel as a trial reel with a single option, trial_graduation_strategy.",
+      "Pick MANUAL so the account decides whether to promote the reel to the profile.",
+      "Pick SS_PERFORMANCE so Instagram promotes it on its own if it performs well.",
+      "Combine it with cover, audio, collaborators and first comment, as on any reel."
+    ],
+    "rules": [
+      "trial_graduation_strategy only works with format reels and accepts MANUAL or SS_PERFORMANCE.",
+      "Reels takes exactly 1 video.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and Idempotency-Key lets you retry without duplicating."
+    ],
+    "useCases": [
+      {
+        "title": "Content testing",
+        "body": "Your SaaS publishes variations of a video as trial reels to measure reach among non-followers before going to the profile."
+      },
+      {
+        "title": "Agency",
+        "body": "Validate creatives for several clients: SS_PERFORMANCE promotes only the ones that perform well."
+      },
+      {
+        "title": "Growth AI agent",
+        "body": "An agent publishes a batch of test reels and, with MANUAL, leaves the final call to the account."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a trial reel?",
+        "a": "A reel shown first to non-followers. You set how it gets promoted to the profile: MANUAL or SS_PERFORMANCE."
+      },
+      {
+        "q": "What is the difference between MANUAL and SS_PERFORMANCE?",
+        "a": "With MANUAL the account decides whether to promote the reel to the profile. With SS_PERFORMANCE Instagram promotes it automatically if it performs well."
+      },
+      {
+        "q": "Can I use trial_graduation_strategy on feed or story?",
+        "a": "No. The option only works on reels."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar trial reels en Instagram",
+    "tagline": "Publica trial reels en Instagram con POST /posts: el reel llega primero a no seguidores y lo promueves tú o el rendimiento.",
+    "intro": "Un trial reel se muestra primero a quienes aún no siguen la cuenta. Con format reels e instagram.trial_graduation_strategy, Connect publica el reel en ese modo, sin app review y sin manejar tokens.",
+    "can": [
+      "Publicar un reel como trial reel con una sola opción, trial_graduation_strategy.",
+      "Elegir MANUAL para que la cuenta decida si promueve el reel al perfil.",
+      "Elegir SS_PERFORMANCE para que Instagram lo promueva solo si rinde bien.",
+      "Combinarlo con portada, audio, colaboradores y primer comentario, como en cualquier reel."
+    ],
+    "rules": [
+      "trial_graduation_strategy solo vale con format reels y acepta MANUAL o SS_PERFORMANCE.",
+      "Reels acepta exactamente 1 video.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio e Idempotency-Key permite repetir la llamada sin duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Pruebas de contenido",
+        "body": "Tu SaaS publica variaciones de un video como trial reels para medir el alcance entre no seguidores antes de ir al perfil."
+      },
+      {
+        "title": "Agencia",
+        "body": "Valida creativos de varios clientes: SS_PERFORMANCE promueve solo los que rindan bien."
+      },
+      {
+        "title": "Agente de IA de growth",
+        "body": "Un agente publica un lote de reels de prueba y, con MANUAL, deja la decisión final a la cuenta."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué es un trial reel?",
+        "a": "Es un reel que se muestra primero a no seguidores. Tú defines cómo se promueve al perfil: MANUAL o SS_PERFORMANCE."
+      },
+      {
+        "q": "¿Cuál es la diferencia entre MANUAL y SS_PERFORMANCE?",
+        "a": "Con MANUAL la cuenta decide si promueve el reel al perfil. Con SS_PERFORMANCE Instagram lo promueve automáticamente si rinde bien."
+      },
+      {
+        "q": "¿Puedo usar trial_graduation_strategy en feed o story?",
+        "a": "No. La opción solo vale en reels."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier des trial reels sur Instagram",
+    "tagline": "Publiez des trial reels sur Instagram avec POST /posts : le reel est d'abord montré aux non-abonnés, puis promu par vous ou par la performance.",
+    "intro": "Un trial reel est d'abord montré aux personnes qui ne suivent pas encore le compte. Avec format reels et instagram.trial_graduation_strategy, Connect publie le reel dans ce mode, sans app review ni gestion de tokens.",
+    "can": [
+      "Publier un reel en trial reel avec une seule option, trial_graduation_strategy.",
+      "Choisir MANUAL pour que le compte décide de promouvoir le reel sur le profil.",
+      "Choisir SS_PERFORMANCE pour qu'Instagram le promeuve seul si la performance est bonne.",
+      "Combiner avec couverture, audio, collaborateurs et premier commentaire, comme pour tout reel."
+    ],
+    "rules": [
+      "trial_graduation_strategy ne vaut qu'avec format reels et accepte MANUAL ou SS_PERFORMANCE.",
+      "Reels accepte exactement 1 vidéo.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et Idempotency-Key permet de réessayer sans dupliquer."
+    ],
+    "useCases": [
+      {
+        "title": "Test de contenu",
+        "body": "Votre SaaS publie des variantes d'une vidéo en trial reels pour mesurer la portée chez les non-abonnés avant le profil."
+      },
+      {
+        "title": "Agence",
+        "body": "Validez les créations de plusieurs clients : SS_PERFORMANCE ne promeut que celles qui performent."
+      },
+      {
+        "title": "Agent IA de growth",
+        "body": "Un agent publie un lot de reels de test et, avec MANUAL, laisse la décision finale au compte."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu'est-ce qu'un trial reel ?",
+        "a": "Un reel montré d'abord aux non-abonnés. Vous définissez comment il est promu sur le profil : MANUAL ou SS_PERFORMANCE."
+      },
+      {
+        "q": "Quelle différence entre MANUAL et SS_PERFORMANCE ?",
+        "a": "Avec MANUAL le compte décide de promouvoir le reel sur le profil. Avec SS_PERFORMANCE Instagram le promeut automatiquement si la performance est bonne."
+      },
+      {
+        "q": "Puis-je utiliser trial_graduation_strategy en feed ou story ?",
+        "a": "Non. L'option ne vaut que pour reels."
+      }
+    ]
+  }
+}

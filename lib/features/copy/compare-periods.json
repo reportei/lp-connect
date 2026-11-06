@@ -1,0 +1,286 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/metrics/get-data",
+    "body": {
+      "customer_integration": "<connection uuid>",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "comparison_start": "2026-07-01",
+      "comparison_end": "2026-07-31",
+      "metrics": [
+        {
+          "id": "f35a44ce-dac5-4188-aace-5c44a8952176",
+          "reference_key": "fb_ads:spend",
+          "component": "number_v1",
+          "metrics": [
+            "spend"
+          ]
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "UUID da conexão do cliente de onde as métricas são lidas. Uma por chamada.",
+        "en": "UUID of the customer's connection the metrics are read from. One per call.",
+        "es": "UUID de la conexión del cliente de donde se leen las métricas. Una por llamada.",
+        "fr": "UUID de la connexion du client dont les métriques sont lues. Une par appel."
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Início do período (YYYY-MM-DD). Deve ser menor ou igual a end.",
+        "en": "Start of the period (YYYY-MM-DD). Must be less than or equal to end.",
+        "es": "Inicio del período (YYYY-MM-DD). Debe ser menor o igual a end.",
+        "fr": "Début de la période (YYYY-MM-DD). Doit être inférieur ou égal à end."
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Fim do período (YYYY-MM-DD).",
+        "en": "End of the period (YYYY-MM-DD).",
+        "es": "Fin del período (YYYY-MM-DD).",
+        "fr": "Fin de la période (YYYY-MM-DD)."
+      }
+    },
+    {
+      "name": "comparison_start",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Início do período de comparação (YYYY-MM-DD). Só é considerado se comparison_end também for enviado.",
+        "en": "Start of the comparison period (YYYY-MM-DD). Only considered if comparison_end is also sent.",
+        "es": "Inicio del período de comparación (YYYY-MM-DD). Solo se considera si también se envía comparison_end.",
+        "fr": "Début de la période de comparaison (YYYY-MM-DD). Pris en compte seulement si comparison_end est aussi envoyé."
+      }
+    },
+    {
+      "name": "comparison_end",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Fim do período de comparação (YYYY-MM-DD).",
+        "en": "End of the comparison period (YYYY-MM-DD).",
+        "es": "Fin del período de comparación (YYYY-MM-DD).",
+        "fr": "Fin de la période de comparaison (YYYY-MM-DD)."
+      }
+    },
+    {
+      "name": "client_timezone",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Fuso horário, como America/Sao_Paulo (padrão).",
+        "en": "Timezone identifier, such as America/Sao_Paulo (default).",
+        "es": "Zona horaria, como America/Sao_Paulo (por defecto).",
+        "fr": "Fuseau horaire, comme America/Sao_Paulo (par défaut)."
+      }
+    },
+    {
+      "name": "metrics",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de métricas pedidas, ao menos uma. Cada item traz id, reference_key, component e metrics.",
+        "en": "The requested metrics, at least one. Each item carries id, reference_key, component and metrics.",
+        "es": "Lista de métricas pedidas, al menos una. Cada ítem trae id, reference_key, component y metrics.",
+        "fr": "Liste des métriques demandées, au moins une. Chaque élément porte id, reference_key, component et metrics."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Comparar períodos de métricas",
+    "tagline": "Leia uma métrica e o período anterior numa só chamada com comparison_start e comparison_end, e mostre a variação sem fazer contas.",
+    "intro": "Em POST /metrics/get-data você manda o período principal e, se quiser, um período de comparação. A resposta já traz o valor atual e o anterior, então o seu produto mostra variação sem uma segunda chamada. Sem OAuth, sem revisão de app, sem renovar token.",
+    "can": [
+      "Comparar o mês atual com o anterior, ou qualquer par de períodos, numa única chamada.",
+      "Pedir várias métricas de uma vez, cada uma com o seu component.",
+      "Ajustar o fuso com client_timezone para que os dias fechem como o seu cliente espera.",
+      "Usar a versão assíncrona (get-data-async) com os mesmos campos de comparação em períodos longos."
+    ],
+    "rules": [
+      "comparison_start só é considerado se comparison_end também for enviado.",
+      "No exemplo da spec, um number_v1 volta com value (período atual) e previous_value (período de comparação).",
+      "O resultado vem no objeto data, com o id (UUID) de cada métrica como chave.",
+      "Se uma métrica falhar sozinha, ela volta com um objeto de erro (por exemplo no_data_in_period) e as outras vêm normalmente, com status 200.",
+      "Cada chamada lê uma conexão (customer_integration) e exige o x-customer-token do cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Cartões de variação em dashboards",
+        "body": "Seu painel mostra gasto ou seguidores com a seta de alta ou queda sobre o período anterior, a partir de uma só resposta."
+      },
+      {
+        "title": "Relatórios mensais de agência",
+        "body": "Gere o comparativo mês a mês de cada cliente sem calcular a diferença do seu lado."
+      },
+      {
+        "title": "Agentes que explicam variações",
+        "body": "Um agente lê atual e anterior e escreve a análise do que mudou, com os números vindos da API."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como peço a comparação?",
+        "a": "Envie comparison_start e comparison_end junto com start e end em POST /metrics/get-data. Se mandar só um dos dois, a comparação não é considerada."
+      },
+      {
+        "q": "O período de comparação precisa ter o mesmo tamanho?",
+        "a": "A spec não impõe isso: você escolhe as duas datas. Para uma comparação justa, use períodos do mesmo tamanho."
+      },
+      {
+        "q": "Funciona com todas as métricas?",
+        "a": "Depende da métrica e do component. O exemplo da spec mostra number_v1 voltando com value e previous_value. Teste a métrica que você precisa no catálogo GET /metrics/{integration_slug}."
+      }
+    ]
+  },
+  "en": {
+    "title": "Compare metrics across periods",
+    "tagline": "Read a metric and the previous period in one call with comparison_start and comparison_end, and show the change without doing the math.",
+    "intro": "In POST /metrics/get-data you send the main period and, if you want, a comparison period. The response already carries the current and the previous value, so your product shows the change without a second call. No OAuth, no app review, no token renewal.",
+    "can": [
+      "Compare this month with the previous one, or any pair of periods, in one call.",
+      "Request several metrics at once, each with its own component.",
+      "Set the timezone with client_timezone so days close the way your customer expects.",
+      "Use the async version (get-data-async) with the same comparison fields for long periods."
+    ],
+    "rules": [
+      "comparison_start is only considered if comparison_end is also sent.",
+      "In the spec example, a number_v1 comes back with value (current period) and previous_value (comparison period).",
+      "The result comes in the data object, keyed by each metric's id (UUID).",
+      "If one metric fails on its own, it comes back as an error object (for example no_data_in_period) and the others come normally, with status 200.",
+      "Each call reads one connection (customer_integration) and needs the customer's x-customer-token."
+    ],
+    "useCases": [
+      {
+        "title": "Change cards on dashboards",
+        "body": "Your panel shows spend or followers with an up or down arrow against the previous period, from a single response."
+      },
+      {
+        "title": "Agency monthly reports",
+        "body": "Generate the month-over-month comparison for each client without computing the difference on your side."
+      },
+      {
+        "title": "Agents that explain changes",
+        "body": "An agent reads current and previous values and writes the analysis of what changed, with numbers coming from the API."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I ask for the comparison?",
+        "a": "Send comparison_start and comparison_end along with start and end in POST /metrics/get-data. If you send only one of the two, the comparison is not considered."
+      },
+      {
+        "q": "Does the comparison period need the same length?",
+        "a": "The spec does not require it: you choose both dates. For a fair comparison, use periods of the same length."
+      },
+      {
+        "q": "Does it work with every metric?",
+        "a": "It depends on the metric and the component. The spec example shows number_v1 coming back with value and previous_value. Try the metric you need from the GET /metrics/{integration_slug} catalog."
+      }
+    ]
+  },
+  "es": {
+    "title": "Comparar períodos de métricas",
+    "tagline": "Lee una métrica y el período anterior en una llamada con comparison_start y comparison_end, y muestra la variación sin hacer cuentas.",
+    "intro": "En POST /metrics/get-data envías el período principal y, si quieres, un período de comparación. La respuesta ya trae el valor actual y el anterior, así tu producto muestra la variación sin una segunda llamada. Sin OAuth, sin revisión de app, sin renovar tokens.",
+    "can": [
+      "Comparar el mes actual con el anterior, o cualquier par de períodos, en una sola llamada.",
+      "Pedir varias métricas a la vez, cada una con su component.",
+      "Ajustar la zona horaria con client_timezone para que los días cierren como espera tu cliente.",
+      "Usar la versión asíncrona (get-data-async) con los mismos campos de comparación en períodos largos."
+    ],
+    "rules": [
+      "comparison_start solo se considera si también se envía comparison_end.",
+      "En el ejemplo de la spec, un number_v1 vuelve con value (período actual) y previous_value (período de comparación).",
+      "El resultado viene en el objeto data, con el id (UUID) de cada métrica como clave.",
+      "Si una métrica falla por separado, vuelve como objeto de error (por ejemplo no_data_in_period) y las demás vienen normalmente, con status 200.",
+      "Cada llamada lee una conexión (customer_integration) y exige el x-customer-token del cliente."
+    ],
+    "useCases": [
+      {
+        "title": "Tarjetas de variación en dashboards",
+        "body": "Tu panel muestra gasto o seguidores con la flecha de alza o caída sobre el período anterior, a partir de una sola respuesta."
+      },
+      {
+        "title": "Informes mensuales de agencia",
+        "body": "Genera el comparativo mes a mes de cada cliente sin calcular la diferencia de tu lado."
+      },
+      {
+        "title": "Agentes que explican variaciones",
+        "body": "Un agente lee actual y anterior y escribe el análisis de lo que cambió, con los números que vienen de la API."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo pido la comparación?",
+        "a": "Envía comparison_start y comparison_end junto con start y end en POST /metrics/get-data. Si envías solo uno de los dos, la comparación no se considera."
+      },
+      {
+        "q": "¿El período de comparación debe tener el mismo tamaño?",
+        "a": "La spec no lo exige: tú eliges las dos fechas. Para una comparación justa, usa períodos del mismo tamaño."
+      },
+      {
+        "q": "¿Funciona con todas las métricas?",
+        "a": "Depende de la métrica y del component. El ejemplo de la spec muestra number_v1 volviendo con value y previous_value. Prueba la métrica que necesitas del catálogo GET /metrics/{integration_slug}."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Comparer des périodes de métriques",
+    "tagline": "Lisez une métrique et la période précédente en un appel avec comparison_start et comparison_end, et affichez l'évolution sans calcul.",
+    "intro": "Dans POST /metrics/get-data, vous envoyez la période principale et, si vous voulez, une période de comparaison. La réponse apporte déjà la valeur actuelle et la précédente : votre produit affiche l'évolution sans second appel. Sans OAuth, sans revue d'app, sans renouvellement de token.",
+    "can": [
+      "Comparer le mois en cours au précédent, ou n'importe quelle paire de périodes, en un seul appel.",
+      "Demander plusieurs métriques à la fois, chacune avec son component.",
+      "Régler le fuseau avec client_timezone pour que les journées se terminent comme l'attend votre client.",
+      "Utiliser la version asynchrone (get-data-async) avec les mêmes champs de comparaison pour les longues périodes."
+    ],
+    "rules": [
+      "comparison_start n'est pris en compte que si comparison_end est aussi envoyé.",
+      "Dans l'exemple de la spec, un number_v1 revient avec value (période actuelle) et previous_value (période de comparaison).",
+      "Le résultat arrive dans l'objet data, avec l'id (UUID) de chaque métrique comme clé.",
+      "Si une métrique échoue seule, elle revient sous forme d'objet d'erreur (par exemple no_data_in_period) et les autres arrivent normalement, avec le statut 200.",
+      "Chaque appel lit une connexion (customer_integration) et exige le x-customer-token du client."
+    ],
+    "useCases": [
+      {
+        "title": "Cartes d'évolution dans les dashboards",
+        "body": "Votre panneau affiche dépense ou abonnés avec la flèche de hausse ou de baisse face à la période précédente, à partir d'une seule réponse."
+      },
+      {
+        "title": "Rapports mensuels d'agence",
+        "body": "Générez la comparaison mois sur mois de chaque client sans calculer la différence de votre côté."
+      },
+      {
+        "title": "Agents qui expliquent les variations",
+        "body": "Un agent lit l'actuel et le précédent et rédige l'analyse de ce qui a changé, avec les chiffres venant de l'API."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment demander la comparaison ?",
+        "a": "Envoyez comparison_start et comparison_end avec start et end dans POST /metrics/get-data. Si vous n'en envoyez qu'un, la comparaison n'est pas prise en compte."
+      },
+      {
+        "q": "La période de comparaison doit-elle avoir la même durée ?",
+        "a": "La spec ne l'impose pas : vous choisissez les deux dates. Pour une comparaison juste, utilisez des périodes de même durée."
+      },
+      {
+        "q": "Cela marche-t-il avec toutes les métriques ?",
+        "a": "Cela dépend de la métrique et du component. L'exemple de la spec montre number_v1 revenant avec value et previous_value. Testez la métrique voulue dans le catalogue GET /metrics/{integration_slug}."
+      }
+    ]
+  }
+}

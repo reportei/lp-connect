@@ -1,0 +1,270 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "post-5120",
+      "format": "feed",
+      "caption": "Parceria nova",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/parceria.jpg"
+        }
+      ],
+      "instagram": {
+        "collaborators": [
+          "marca_parceira",
+          "criador_oficial"
+        ]
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "instagram.collaborators",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Até 5 usuários convidados como colaboradores, sem @. Vale em feed, reels e story.",
+        "en": "Up to 5 users invited as collaborators, without @. Works on feed, reels and story.",
+        "es": "Hasta 5 usuarios invitados como colaboradores, sin @. Vale en feed, reels y story.",
+        "fr": "Jusqu'à 5 utilisateurs invités comme collaborateurs, sans @. Valable en feed, reels et story."
+      }
+    },
+    {
+      "name": "media.user_tags",
+      "type": "array",
+      "required": false,
+      "description": {
+        "pt": "Só Instagram. Marcações de usuário (username, x e y), até 20 por mídia. Em imagem, x e y de 0 a 1 vão juntos.",
+        "en": "Instagram only. User tags (username, x and y), up to 20 per media. On an image, x and y from 0 to 1 go together.",
+        "es": "Solo Instagram. Etiquetas de usuario (username, x e y), hasta 20 por medio. En imagen, x e y de 0 a 1 van juntos.",
+        "fr": "Instagram uniquement. Identifications d'utilisateurs (username, x et y), 20 max par média. Sur une image, x et y de 0 à 1 vont ensemble."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Adicionar colaboradores a posts do Instagram",
+    "tagline": "Convide até 5 colaboradores em posts, reels e stories do Instagram com instagram.collaborators no POST /posts.",
+    "intro": "Com instagram.collaborators, o post sai com outras contas convidadas como colaboradoras. Funciona em feed, reels e story, pela mesma chamada POST /posts, sem app review.",
+    "can": [
+      "Convidar colaboradores em feed, reels e story.",
+      "Enviar os usernames sem @: o Connect remove o @ inicial e usa minúsculas.",
+      "Combinar com marcações de usuário em media[].user_tags nas mídias.",
+      "Usar as contas instagram e instagram_business."
+    ],
+    "rules": [
+      "No máximo 5 colaboradores por post.",
+      "Cada username tem até 30 caracteres: letras, números, ponto e underscore, sem @.",
+      "No story, collaborators é a única opção do bloco instagram.",
+      "A resposta é 202: o post é publicado em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Posts de parceria",
+        "body": "Marcas e criadores publicam juntos: o SaaS envia o post pela conta da marca e convida o criador como colaborador."
+      },
+      {
+        "title": "Agências",
+        "body": "A agência publica pela conta do cliente e convida a conta da própria agência como colaboradora."
+      },
+      {
+        "title": "Agente de IA de influenciadores",
+        "body": "Um agente monta o post de campanha e convida automaticamente os perfis da lista de parceiros."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quantos colaboradores posso convidar?",
+        "a": "Até 5 por post, em feed, reels ou story."
+      },
+      {
+        "q": "Preciso enviar o @ no username?",
+        "a": "Não. Envie sem @; se vier com @ inicial, ele é removido e o valor vai para minúsculas."
+      },
+      {
+        "q": "Colaborador é o mesmo que marcar um usuário?",
+        "a": "Não. Colaboradores ficam no bloco instagram; marcações de usuário ficam em media[].user_tags."
+      }
+    ]
+  },
+  "en": {
+    "title": "Add collaborators to Instagram posts",
+    "tagline": "Invite up to 5 collaborators on Instagram posts, reels and stories with instagram.collaborators in POST /posts.",
+    "intro": "With instagram.collaborators, the post goes out with other accounts invited as collaborators. It works on feed, reels and story, through the same POST /posts call, with no app review.",
+    "can": [
+      "Invite collaborators on feed, reels and story.",
+      "Send usernames without @: Connect strips a leading @ and lowercases them.",
+      "Combine it with user tags in media[].user_tags on the media.",
+      "Use both instagram and instagram_business accounts."
+    ],
+    "rules": [
+      "At most 5 collaborators per post.",
+      "Each username is up to 30 characters: letters, numbers, period and underscore, without @.",
+      "On a story, collaborators is the only option of the instagram block.",
+      "The answer is 202: the post is published in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required and Idempotency-Key avoids duplicating."
+    ],
+    "useCases": [
+      {
+        "title": "Partnership posts",
+        "body": "Brands and creators publish together: the SaaS sends the post from the brand account and invites the creator as a collaborator."
+      },
+      {
+        "title": "Agencies",
+        "body": "The agency publishes from the client's account and invites its own account as a collaborator."
+      },
+      {
+        "title": "Influencer AI agent",
+        "body": "An agent builds the campaign post and automatically invites the profiles on the partner list."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many collaborators can I invite?",
+        "a": "Up to 5 per post, on feed, reels or story."
+      },
+      {
+        "q": "Do I send the @ in the username?",
+        "a": "No. Send it without @; a leading @ is stripped and the value is lowercased."
+      },
+      {
+        "q": "Is a collaborator the same as tagging a user?",
+        "a": "No. Collaborators go in the instagram block; user tags go in media[].user_tags."
+      }
+    ]
+  },
+  "es": {
+    "title": "Añadir colaboradores a posts de Instagram",
+    "tagline": "Invita hasta 5 colaboradores en posts, reels y stories de Instagram con instagram.collaborators en POST /posts.",
+    "intro": "Con instagram.collaborators, el post sale con otras cuentas invitadas como colaboradoras. Funciona en feed, reels y story, con la misma llamada POST /posts, sin app review.",
+    "can": [
+      "Invitar colaboradores en feed, reels y story.",
+      "Enviar los usernames sin @: Connect quita el @ inicial y usa minúsculas.",
+      "Combinar con etiquetas de usuario en media[].user_tags en los medios.",
+      "Usar cuentas instagram e instagram_business."
+    ],
+    "rules": [
+      "Máximo 5 colaboradores por post.",
+      "Cada username tiene hasta 30 caracteres: letras, números, punto y guion bajo, sin @.",
+      "En el story, collaborators es la única opción del bloque instagram.",
+      "La respuesta es 202: el post se publica en segundo plano. Síguelo con GET /posts/{uuid}.",
+      "external_reference es obligatorio e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Posts de colaboración",
+        "body": "Marcas y creadores publican juntos: el SaaS envía el post desde la cuenta de la marca e invita al creador como colaborador."
+      },
+      {
+        "title": "Agencias",
+        "body": "La agencia publica desde la cuenta del cliente e invita a su propia cuenta como colaboradora."
+      },
+      {
+        "title": "Agente de IA de influencers",
+        "body": "Un agente arma el post de campaña e invita automáticamente a los perfiles de la lista de aliados."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuántos colaboradores puedo invitar?",
+        "a": "Hasta 5 por post, en feed, reels o story."
+      },
+      {
+        "q": "¿Debo enviar el @ en el username?",
+        "a": "No. Envíalo sin @; si llega con @ inicial, se quita y el valor pasa a minúsculas."
+      },
+      {
+        "q": "¿Colaborador es lo mismo que etiquetar a un usuario?",
+        "a": "No. Los colaboradores van en el bloque instagram; las etiquetas de usuario van en media[].user_tags."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Ajouter des collaborateurs aux posts Instagram",
+    "tagline": "Invitez jusqu'à 5 collaborateurs sur les posts, reels et stories Instagram avec instagram.collaborators dans POST /posts.",
+    "intro": "Avec instagram.collaborators, le post part avec d'autres comptes invités comme collaborateurs. Cela marche en feed, reels et story, avec le même appel POST /posts, sans app review.",
+    "can": [
+      "Inviter des collaborateurs en feed, reels et story.",
+      "Envoyer les usernames sans @ : Connect retire le @ initial et met en minuscules.",
+      "Combiner avec les identifications d'utilisateurs dans media[].user_tags sur les médias.",
+      "Utiliser les comptes instagram et instagram_business."
+    ],
+    "rules": [
+      "5 collaborateurs au maximum par post.",
+      "Chaque username fait 30 caractères max : lettres, chiffres, point et underscore, sans @.",
+      "Sur une story, collaborators est la seule option du bloc instagram.",
+      "La réponse est 202 : le post est publié en arrière-plan. Suivez-le avec GET /posts/{uuid}.",
+      "external_reference est obligatoire et Idempotency-Key évite de dupliquer."
+    ],
+    "useCases": [
+      {
+        "title": "Posts de partenariat",
+        "body": "Marques et créateurs publient ensemble : le SaaS envoie le post depuis le compte de la marque et invite le créateur comme collaborateur."
+      },
+      {
+        "title": "Agences",
+        "body": "L'agence publie depuis le compte du client et invite son propre compte comme collaborateur."
+      },
+      {
+        "title": "Agent IA d'influence",
+        "body": "Un agent construit le post de campagne et invite automatiquement les profils de la liste de partenaires."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Combien de collaborateurs puis-je inviter ?",
+        "a": "Jusqu'à 5 par post, en feed, reels ou story."
+      },
+      {
+        "q": "Dois-je envoyer le @ dans le username ?",
+        "a": "Non. Envoyez-le sans @ ; un @ initial est retiré et la valeur est mise en minuscules."
+      },
+      {
+        "q": "Un collaborateur est-il la même chose qu'une identification ?",
+        "a": "Non. Les collaborateurs vont dans le bloc instagram ; les identifications vont dans media[].user_tags."
+      }
+    ]
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/posts",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "external_reference": "fb-post-901",
+      "format": "feed",
+      "caption": "Conheça a novidade da semana",
+      "media": [
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/foto1.jpg"
+        },
+        {
+          "type": "image",
+          "url": "https://cdn.example.com/foto2.jpg"
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "external_reference",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "O id do post no seu sistema (até 100 caracteres). Impede publicar o mesmo post duas vezes na mesma conta.",
+        "en": "The post's id in your system (up to 100 characters). Prevents publishing the same post twice on the same account.",
+        "es": "El id del post en tu sistema (hasta 100 caracteres). Evita publicar el mismo post dos veces en la misma cuenta.",
+        "fr": "L'id du post dans votre système (100 caractères max). Empêche de publier deux fois le même post sur le même compte."
+      }
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Formato do post. No Instagram: feed, reels ou story. No Facebook: feed, reels ou story.",
+        "en": "Post format. On Instagram: feed, reels or story. On Facebook: feed, reels or story.",
+        "es": "Formato del post. En Instagram: feed, reels o story. En Facebook: feed, reels o story.",
+        "fr": "Format du post. Sur Instagram : feed, reels ou story. Sur Facebook : feed, reels ou story."
+      }
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Texto do post. Até 2200 caracteres. Stories não levam legenda.",
+        "en": "Post text. Up to 2200 characters. Stories carry no caption.",
+        "es": "Texto del post. Hasta 2200 caracteres. Los stories no llevan leyenda.",
+        "fr": "Texte du post. Jusqu'à 2200 caractères. Les stories n'ont pas de légende."
+      }
+    },
+    {
+      "name": "media",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de mídias, em ordem. Cada item tem type e url.",
+        "en": "List of media, in order. Each item has type and url.",
+        "es": "Lista de medios, en orden. Cada ítem tiene type y url.",
+        "fr": "Liste des médias, dans l'ordre. Chaque élément a type et url."
+      }
+    },
+    {
+      "name": "media.url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL https:// pública que a rede consegue baixar (até 2048 caracteres).",
+        "en": "Public https:// URL the network can download (up to 2048 characters).",
+        "es": "URL https:// pública que la red puede descargar (hasta 2048 caracteres).",
+        "fr": "URL https:// publique que le réseau peut télécharger (2048 caractères max)."
+      }
+    },
+    {
+      "name": "facebook.link",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Link compartilhado no post (até 2048 caracteres). Só em feed. Post com link não leva mídia.",
+        "en": "Link shared on the post (up to 2048 characters). Feed only. A post with a link carries no media.",
+        "es": "Link compartido en el post (hasta 2048 caracteres). Solo en feed. Un post con link no lleva medios.",
+        "fr": "Lien partagé dans le post (2048 caractères max). Feed uniquement. Un post avec lien n'a pas de média."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Publicar na Página do Facebook",
+    "tagline": "Publique texto, link ou até 10 fotos na Página do Facebook dos seus clientes com POST /posts, sem app review e sem lidar com tokens.",
+    "intro": "Com format feed e integration_slug facebook, o Connect publica na Página que o seu cliente conectou. A mesma chamada POST /posts serve para texto, link ou fotos.",
+    "can": [
+      "Publicar um post só de texto.",
+      "Compartilhar um link com facebook.link.",
+      "Publicar até 10 fotos em um único post.",
+      "Usar a Página pela conexão (customer_integration) ou por integration_slug e source_name."
+    ],
+    "rules": [
+      "O feed precisa de pelo menos legenda, link ou mídia.",
+      "A legenda vai até 2200 caracteres.",
+      "Post com link não aceita mídia.",
+      "Vídeo no feed é recusado: vídeo de Página vai como reels.",
+      "A resposta é 202: a publicação roda em segundo plano. Acompanhe pelo GET /posts/{uuid}.",
+      "external_reference é obrigatório (409 se já houver publicação igual) e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Gerenciador de redes sociais",
+        "body": "O usuário escreve o post no seu SaaS e ele sai na Página do Facebook que ele conectou."
+      },
+      {
+        "title": "Comunicados de lojas",
+        "body": "Uma rede de lojas publica o mesmo comunicado, com fotos, em dezenas de Páginas."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Um agente resume uma notícia e publica o texto com o link na Página do cliente."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Posso publicar vídeo no feed da Página?",
+        "a": "Não. Vídeo vai como reels. O feed aceita texto, link ou fotos."
+      },
+      {
+        "q": "Quantas fotos cabem em um post?",
+        "a": "Até 10. Post com link não leva mídia."
+      },
+      {
+        "q": "Publica em perfil pessoal?",
+        "a": "Não. O formato descrito é para Páginas do Facebook, com integration_slug facebook."
+      }
+    ]
+  },
+  "en": {
+    "title": "Publish to a Facebook Page",
+    "tagline": "Publish text, a link or up to 10 photos to your customers' Facebook Page with POST /posts, with no app review and no token handling.",
+    "intro": "With format feed and integration_slug facebook, Connect publishes to the Page your customer connected. The same POST /posts call covers text, links and photos.",
+    "can": [
+      "Publish a text-only post.",
+      "Share a link with facebook.link.",
+      "Publish up to 10 photos in a single post.",
+      "Target the Page by connection (customer_integration) or by integration_slug and source_name."
+    ],
+    "rules": [
+      "The feed needs at least a caption, a link or media.",
+      "The caption goes up to 2200 characters.",
+      "A post with a link does not accept media.",
+      "Video on the feed is refused: Page video goes as reels.",
+      "The answer is 202: publishing runs in the background. Follow it with GET /posts/{uuid}.",
+      "external_reference is required (409 if an equal publication exists) and Idempotency-Key avoids duplicating."
+    ],
+    "useCases": [
+      {
+        "title": "Social media manager",
+        "body": "The user writes the post in your SaaS and it goes out on the Facebook Page they connected."
+      },
+      {
+        "title": "Store announcements",
+        "body": "A store chain publishes the same announcement, with photos, on dozens of Pages."
+      },
+      {
+        "title": "AI agent",
+        "body": "An agent summarizes a news item and publishes the text with the link on the customer's Page."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I publish video on the Page feed?",
+        "a": "No. Video goes as reels. The feed takes text, a link or photos."
+      },
+      {
+        "q": "How many photos fit in a post?",
+        "a": "Up to 10. A post with a link carries no media."
+      },
+      {
+        "q": "Does it publish to a personal profile?",
+        "a": "No. This format is for Facebook Pages, with integration_slug facebook."
+      }
+    ]
+  },
+  "es": {
+    "title": "Publicar en la Página de Facebook",
+    "tagline": "Publica texto, un link o hasta 10 fotos en la Página de Facebook de tus clientes con POST /posts, sin app review y sin manejar tokens.",
+    "intro": "Con format feed e integration_slug facebook, Connect publica en la Página que tu cliente conectó. La misma llamada POST /posts sirve para texto, links o fotos.",
+    "can": [
+      "Publicar un post solo de texto.",
+      "Compartir un link con facebook.link.",
+      "Publicar hasta 10 fotos en un único post.",
+      "Apuntar a la Página por conexión (customer_integration) o por integration_slug y source_name."
+    ],
+    "rules": [
+      "El feed necesita al menos leyenda, link o medios.",
+      "La leyenda llega hasta 2200 caracteres.",
+      "Un post con link no acepta medios.",
+      "El video en el feed se rechaza: el video de Página va como reels.",
+      "La respuesta es 202: la publicación corre en segundo plano. Síguela con GET /posts/{uuid}.",
+      "external_reference es obligatorio (409 si ya existe una publicación igual) e Idempotency-Key evita duplicar."
+    ],
+    "useCases": [
+      {
+        "title": "Gestor de redes sociales",
+        "body": "El usuario escribe el post en tu SaaS y sale en la Página de Facebook que conectó."
+      },
+      {
+        "title": "Comunicados de tiendas",
+        "body": "Una cadena de tiendas publica el mismo comunicado, con fotos, en decenas de Páginas."
+      },
+      {
+        "title": "Agente de IA",
+        "body": "Un agente resume una noticia y publica el texto con el link en la Página del cliente."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo publicar video en el feed de la Página?",
+        "a": "No. El video va como reels. El feed acepta texto, link o fotos."
+      },
+      {
+        "q": "¿Cuántas fotos caben en un post?",
+        "a": "Hasta 10. Un post con link no lleva medios."
+      },
+      {
+        "q": "¿Publica en un perfil personal?",
+        "a": "No. Este formato es para Páginas de Facebook, con integration_slug facebook."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Publier sur une Page Facebook",
+    "tagline": "Publiez du texte, un lien ou jusqu'à 10 photos sur la Page Facebook de vos clients avec POST /posts, sans app review ni gestion de tokens.",
+    "intro": "Avec format feed et integration_slug facebook, Connect publie sur la Page que votre client a connectée. Le même appel POST /posts couvre texte, liens et photos.",
+    "can": [
+      "Publier un post de texte seul.",
+      "Partager un lien avec facebook.link.",
+      "Publier jusqu'à 10 photos dans un seul post.",
+      "Cibler la Page par connexion (customer_integration) ou par integration_slug et source_name."
+    ],
+    "rules": [
+      "Le feed exige au moins une légende, un lien ou un média.",
+      "La légende va jusqu'à 2200 caractères.",
+      "Un post avec lien n'accepte pas de média.",
+      "La vidéo dans le feed est refusée : la vidéo de Page passe en reels.",
+      "La réponse est 202 : la publication tourne en arrière-plan. Suivez-la avec GET /posts/{uuid}.",
+      "external_reference est obligatoire (409 si une publication identique existe) et Idempotency-Key évite de dupliquer."
+    ],
+    "useCases": [
+      {
+        "title": "Gestionnaire de réseaux sociaux",
+        "body": "L'utilisateur rédige le post dans votre SaaS et il sort sur la Page Facebook qu'il a connectée."
+      },
+      {
+        "title": "Annonces de magasins",
+        "body": "Une chaîne de magasins publie la même annonce, avec photos, sur des dizaines de Pages."
+      },
+      {
+        "title": "Agent IA",
+        "body": "Un agent résume une actualité et publie le texte avec le lien sur la Page du client."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Puis-je publier une vidéo dans le feed de la Page ?",
+        "a": "Non. La vidéo passe en reels. Le feed accepte texte, lien ou photos."
+      },
+      {
+        "q": "Combien de photos par post ?",
+        "a": "Jusqu'à 10. Un post avec lien n'a pas de média."
+      },
+      {
+        "q": "Cela publie-t-il sur un profil personnel ?",
+        "a": "Non. Ce format est pour les Pages Facebook, avec integration_slug facebook."
+      }
+    ]
+  }
+}

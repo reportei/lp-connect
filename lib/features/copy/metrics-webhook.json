@@ -1,0 +1,274 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/metrics/get-data-async",
+    "body": {
+      "metrics_webhook_url": "https://sua-aplicacao.com/webhooks/metricas",
+      "customer_integration": "<connection uuid>",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "metrics": [
+        {
+          "id": "f35a44ce-dac5-4188-aace-5c44a8952176",
+          "reference_key": "ig:story_replies",
+          "component": "number_v1",
+          "metrics": [
+            "replies"
+          ]
+        }
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "metrics_webhook_url",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "URL http ou https pública que recebe as métricas. IPs privados, loopback e link-local são recusados.",
+        "en": "Public http or https URL that receives the metrics. Private IPs, loopback and link-local addresses are refused.",
+        "es": "URL http o https pública que recibe las métricas. Se rechazan IP privadas, loopback y link-local.",
+        "fr": "URL http ou https publique qui reçoit les métriques. Les IP privées, loopback et link-local sont refusées."
+      }
+    },
+    {
+      "name": "customer_integration",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "UUID da conexão do cliente de onde as métricas são lidas. Uma por chamada.",
+        "en": "UUID of the customer's connection the metrics are read from. One per call.",
+        "es": "UUID de la conexión del cliente de donde se leen las métricas. Una por llamada.",
+        "fr": "UUID de la connexion du client dont les métriques sont lues. Une par appel."
+      }
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Início do período (YYYY-MM-DD). Deve ser menor ou igual a end.",
+        "en": "Start of the period (YYYY-MM-DD). Must be less than or equal to end.",
+        "es": "Inicio del período (YYYY-MM-DD). Debe ser menor o igual a end.",
+        "fr": "Début de la période (YYYY-MM-DD). Doit être inférieur ou égal à end."
+      }
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Fim do período (YYYY-MM-DD).",
+        "en": "End of the period (YYYY-MM-DD).",
+        "es": "Fin del período (YYYY-MM-DD).",
+        "fr": "Fin de la période (YYYY-MM-DD)."
+      }
+    },
+    {
+      "name": "metrics",
+      "type": "array",
+      "required": true,
+      "description": {
+        "pt": "Lista de métricas pedidas, ao menos uma. Cada item traz id, reference_key, component e metrics.",
+        "en": "The requested metrics, at least one. Each item carries id, reference_key, component and metrics.",
+        "es": "Lista de métricas pedidas, al menos una. Cada ítem trae id, reference_key, component y metrics.",
+        "fr": "Liste des métriques demandées, au moins une. Chaque élément porte id, reference_key, component et metrics."
+      }
+    },
+    {
+      "name": "metrics.reference_key",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Identificador da métrica, do catálogo GET /metrics/{integration_slug}.",
+        "en": "The metric's identifier, from the GET /metrics/{integration_slug} catalog.",
+        "es": "Identificador de la métrica, del catálogo GET /metrics/{integration_slug}.",
+        "fr": "Identifiant de la métrique, issu du catalogue GET /metrics/{integration_slug}."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Receber métricas por webhook",
+    "tagline": "Peça métricas de Instagram, Meta Ads e outras plataformas e receba o resultado por webhook, sem segurar a requisição aberta.",
+    "intro": "Com POST /metrics/get-data-async você pede as métricas e a API responde na hora. O resultado chega depois, num POST para a sua metrics_webhook_url. É o caminho recomendado para períodos longos, e você não precisa de OAuth, revisão de app nem renovação de token.",
+    "can": [
+      "Pedir várias métricas de uma conexão numa única chamada, cada uma com o seu component.",
+      "Receber o resultado em um endpoint seu, sem manter a requisição aberta enquanto os dados são coletados.",
+      "Usar os mesmos reference_keys do catálogo GET /metrics/{integration_slug} que a versão síncrona.",
+      "Pedir também um período de comparação com comparison_start e comparison_end."
+    ],
+    "rules": [
+      "A resposta imediata é 200 com success: true e a mensagem Metrics will be sent to your webhook.",
+      "O corpo entregue no webhook é o mapa de métricas na raiz, sem o envelope data da versão síncrona. Cada chave é o id (UUID) que você enviou.",
+      "metrics_webhook_url precisa ser http ou https e apontar para um endereço público: IP privado, loopback e link-local retornam 422.",
+      "Cada chamada lê uma única conexão (customer_integration) e exige o x-customer-token do cliente dono dela.",
+      "No período de teste, start pode voltar no máximo 62 dias e metrics aceita até 15 itens (trial_history_limit e trial_metrics_limit)."
+    ],
+    "useCases": [
+      {
+        "title": "Relatórios mensais em lote",
+        "body": "Seu SaaS dispara a coleta de todos os clientes à noite e processa cada resultado quando ele chega no webhook, sem threads presas esperando."
+      },
+      {
+        "title": "Dashboards de agência",
+        "body": "Peça o ano inteiro de uma conta no carregamento do painel e atualize a tela quando o webhook entregar os dados."
+      },
+      {
+        "title": "Agentes de IA",
+        "body": "Um agente pede a coleta, segue com outras tarefas e retoma a análise quando o webhook traz as métricas."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qual a diferença entre get-data e get-data-async?",
+        "a": "get-data mantém a requisição aberta e responde com os dados num objeto data. get-data-async responde na hora e entrega as métricas num POST para a sua metrics_webhook_url, sem o envelope data. Para períodos longos, use a assíncrona."
+      },
+      {
+        "q": "Posso apontar o webhook para localhost?",
+        "a": "Não. A URL é validada e precisa ser pública: IP privado, loopback e link-local são recusados com 422. Para testar localmente, use um túnel com URL pública."
+      },
+      {
+        "q": "Posso coletar de várias contas numa chamada só?",
+        "a": "Não. Cada chamada lê uma conexão, informada em customer_integration. Para várias contas, faça uma chamada por conexão."
+      }
+    ]
+  },
+  "en": {
+    "title": "Receive metrics by webhook",
+    "tagline": "Request metrics from Instagram, Meta Ads and other platforms and get the result by webhook, without holding the request open.",
+    "intro": "With POST /metrics/get-data-async you ask for the metrics and the API answers right away. The result arrives later in a POST to your metrics_webhook_url. It is the recommended path for long periods, and you need no OAuth, no app review and no token renewal.",
+    "can": [
+      "Request several metrics from one connection in a single call, each with its own component.",
+      "Receive the result at an endpoint of yours, without keeping the request open while data is collected.",
+      "Use the same reference_keys from the GET /metrics/{integration_slug} catalog as the synchronous version.",
+      "Also request a comparison period with comparison_start and comparison_end."
+    ],
+    "rules": [
+      "The immediate response is 200 with success: true and the message Metrics will be sent to your webhook.",
+      "The body delivered to the webhook is the metrics map at the root, without the data envelope of the synchronous version. Each key is the id (UUID) you sent.",
+      "metrics_webhook_url must be http or https and point to a public address: private IPs, loopback and link-local return 422.",
+      "Each call reads a single connection (customer_integration) and needs the x-customer-token of the customer that owns it.",
+      "On trial, start can go back at most 62 days and metrics accepts up to 15 items (trial_history_limit and trial_metrics_limit)."
+    ],
+    "useCases": [
+      {
+        "title": "Batch monthly reports",
+        "body": "Your SaaS fires collection for every client overnight and processes each result as it lands on the webhook, with no threads stuck waiting."
+      },
+      {
+        "title": "Agency dashboards",
+        "body": "Ask for a whole year of an account when the panel loads and update the screen when the webhook delivers the data."
+      },
+      {
+        "title": "AI agents",
+        "body": "An agent requests the collection, moves on to other tasks and resumes the analysis when the webhook brings the metrics."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between get-data and get-data-async?",
+        "a": "get-data keeps the request open and answers with the data inside a data object. get-data-async answers right away and delivers the metrics in a POST to your metrics_webhook_url, without the data envelope. For long periods, use the async one."
+      },
+      {
+        "q": "Can I point the webhook to localhost?",
+        "a": "No. The URL is validated and must be public: private IPs, loopback and link-local are refused with 422. To test locally, use a tunnel with a public URL."
+      },
+      {
+        "q": "Can I collect from several accounts in one call?",
+        "a": "No. Each call reads one connection, given in customer_integration. For several accounts, make one call per connection."
+      }
+    ]
+  },
+  "es": {
+    "title": "Recibir métricas por webhook",
+    "tagline": "Pide métricas de Instagram, Meta Ads y otras plataformas y recibe el resultado por webhook, sin mantener la solicitud abierta.",
+    "intro": "Con POST /metrics/get-data-async pides las métricas y la API responde al instante. El resultado llega después, en un POST a tu metrics_webhook_url. Es el camino recomendado para períodos largos, y no necesitas OAuth, revisión de app ni renovación de tokens.",
+    "can": [
+      "Pedir varias métricas de una conexión en una sola llamada, cada una con su component.",
+      "Recibir el resultado en un endpoint tuyo, sin mantener la solicitud abierta mientras se recolectan los datos.",
+      "Usar los mismos reference_keys del catálogo GET /metrics/{integration_slug} que la versión síncrona.",
+      "Pedir también un período de comparación con comparison_start y comparison_end."
+    ],
+    "rules": [
+      "La respuesta inmediata es 200 con success: true y el mensaje Metrics will be sent to your webhook.",
+      "El cuerpo entregado al webhook es el mapa de métricas en la raíz, sin el envoltorio data de la versión síncrona. Cada clave es el id (UUID) que enviaste.",
+      "metrics_webhook_url debe ser http o https y apuntar a una dirección pública: IP privadas, loopback y link-local devuelven 422.",
+      "Cada llamada lee una sola conexión (customer_integration) y exige el x-customer-token del cliente dueño de ella.",
+      "En el período de prueba, start puede retroceder como máximo 62 días y metrics acepta hasta 15 ítems (trial_history_limit y trial_metrics_limit)."
+    ],
+    "useCases": [
+      {
+        "title": "Informes mensuales en lote",
+        "body": "Tu SaaS lanza la recolección de todos los clientes por la noche y procesa cada resultado cuando llega al webhook, sin hilos bloqueados esperando."
+      },
+      {
+        "title": "Dashboards de agencia",
+        "body": "Pide el año completo de una cuenta al cargar el panel y actualiza la pantalla cuando el webhook entregue los datos."
+      },
+      {
+        "title": "Agentes de IA",
+        "body": "Un agente pide la recolección, sigue con otras tareas y retoma el análisis cuando el webhook trae las métricas."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuál es la diferencia entre get-data y get-data-async?",
+        "a": "get-data mantiene la solicitud abierta y responde con los datos dentro de un objeto data. get-data-async responde al instante y entrega las métricas en un POST a tu metrics_webhook_url, sin el envoltorio data. Para períodos largos, usa la asíncrona."
+      },
+      {
+        "q": "¿Puedo apuntar el webhook a localhost?",
+        "a": "No. La URL se valida y debe ser pública: IP privadas, loopback y link-local se rechazan con 422. Para probar en local, usa un túnel con URL pública."
+      },
+      {
+        "q": "¿Puedo recolectar de varias cuentas en una sola llamada?",
+        "a": "No. Cada llamada lee una conexión, indicada en customer_integration. Para varias cuentas, haz una llamada por conexión."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Recevoir des métriques par webhook",
+    "tagline": "Demandez des métriques Instagram, Meta Ads et d'autres plateformes et recevez le résultat par webhook, sans garder la requête ouverte.",
+    "intro": "Avec POST /metrics/get-data-async, vous demandez les métriques et l'API répond immédiatement. Le résultat arrive ensuite dans un POST vers votre metrics_webhook_url. C'est la voie recommandée pour les longues périodes, sans OAuth, sans revue d'app ni renouvellement de token.",
+    "can": [
+      "Demander plusieurs métriques d'une connexion en un seul appel, chacune avec son component.",
+      "Recevoir le résultat sur un endpoint à vous, sans garder la requête ouverte pendant la collecte.",
+      "Utiliser les mêmes reference_keys du catalogue GET /metrics/{integration_slug} que la version synchrone.",
+      "Demander aussi une période de comparaison avec comparison_start et comparison_end."
+    ],
+    "rules": [
+      "La réponse immédiate est 200 avec success: true et le message Metrics will be sent to your webhook.",
+      "Le corps livré au webhook est la table des métriques à la racine, sans l'enveloppe data de la version synchrone. Chaque clé est l'id (UUID) que vous avez envoyé.",
+      "metrics_webhook_url doit être http ou https et pointer vers une adresse publique : IP privées, loopback et link-local renvoient 422.",
+      "Chaque appel lit une seule connexion (customer_integration) et exige le x-customer-token du client qui en est propriétaire.",
+      "En période d'essai, start peut remonter de 62 jours au maximum et metrics accepte jusqu'à 15 éléments (trial_history_limit et trial_metrics_limit)."
+    ],
+    "useCases": [
+      {
+        "title": "Rapports mensuels en lot",
+        "body": "Votre SaaS lance la collecte de tous les clients la nuit et traite chaque résultat à son arrivée sur le webhook, sans threads bloqués."
+      },
+      {
+        "title": "Tableaux de bord d'agence",
+        "body": "Demandez toute l'année d'un compte au chargement du panneau et mettez l'écran à jour quand le webhook livre les données."
+      },
+      {
+        "title": "Agents IA",
+        "body": "Un agent demande la collecte, passe à d'autres tâches et reprend l'analyse quand le webhook apporte les métriques."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelle différence entre get-data et get-data-async ?",
+        "a": "get-data garde la requête ouverte et répond avec les données dans un objet data. get-data-async répond immédiatement et livre les métriques dans un POST vers votre metrics_webhook_url, sans l'enveloppe data. Pour les longues périodes, utilisez l'asynchrone."
+      },
+      {
+        "q": "Puis-je pointer le webhook vers localhost ?",
+        "a": "Non. L'URL est validée et doit être publique : IP privées, loopback et link-local sont refusées avec 422. Pour tester en local, utilisez un tunnel avec une URL publique."
+      },
+      {
+        "q": "Puis-je collecter plusieurs comptes en un seul appel ?",
+        "a": "Non. Chaque appel lit une connexion, indiquée dans customer_integration. Pour plusieurs comptes, faites un appel par connexion."
+      }
+    ]
+  }
+}

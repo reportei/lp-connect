@@ -54,6 +54,16 @@ export function Footer({ locale = DEFAULT_LOCALE, page, alternatePath }: FooterP
       ],
     },
     {
+      title: m.features.nav,
+      links: [
+        ...(["posts", "ads", "metrics", "llm"] as const).map((area) => ({
+          href: withBase(localePath(locale, `/${area}`)),
+          label: m.features.areas[area].name,
+        })),
+        { href: withBase(localePath(locale, "/toolkits")), label: t.toolkits },
+      ],
+    },
+    {
       title: t.developers,
       links: [
         { href: "https://developers.reportei.com/connect", label: t.docs },
@@ -66,7 +76,7 @@ export function Footer({ locale = DEFAULT_LOCALE, page, alternatePath }: FooterP
   return (
     <footer className="connect-page border-t py-16">
       <div className="lp-container">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
           <div>
             <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{t.tagline(NATIVE_COUNT, TOOLKIT_COUNT)}</p>

@@ -1,0 +1,270 @@
+{
+  "sample": {
+    "method": "PATCH",
+    "path": "/api/ads/campaigns/{id}",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "budget": {
+        "amount": 80,
+        "type": "daily"
+      },
+      "facebook_ads": {
+        "spend_cap": 2000
+      }
+    }
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "No caminho: o id do objeto (ou o uuid do Connect).",
+        "en": "In the path: the object's id (or the Connect uuid).",
+        "es": "En la ruta: el id del objeto (o el uuid de Connect).",
+        "fr": "Dans le chemin : l'id de l'objet (ou l'uuid Connect)."
+      }
+    },
+    {
+      "name": "budget.amount",
+      "type": "number",
+      "required": true,
+      "description": {
+        "pt": "Novo valor, na moeda da conta de anúncios, nunca em centavos.",
+        "en": "New amount, in the ad account's currency, never in cents.",
+        "es": "Nuevo valor, en la moneda de la cuenta de anuncios, nunca en centavos.",
+        "fr": "Nouveau montant, dans la devise du compte publicitaire, jamais en centimes."
+      }
+    },
+    {
+      "name": "budget.type",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "daily ou lifetime. lifetime exige schedule.end no conjunto.",
+        "en": "daily or lifetime. lifetime requires schedule.end on the ad set.",
+        "es": "daily o lifetime. lifetime exige schedule.end en el conjunto.",
+        "fr": "daily ou lifetime. lifetime exige schedule.end sur l'ensemble."
+      }
+    },
+    {
+      "name": "facebook_ads.spend_cap",
+      "type": "number",
+      "required": false,
+      "description": {
+        "pt": "Só na campanha: limite de gasto, na moeda da conta. null remove.",
+        "en": "Campaign only: spending limit, in the account's currency. null removes it.",
+        "es": "Solo en la campaña: límite de gasto, en la moneda de la cuenta. null lo quita.",
+        "fr": "Campagne seulement : plafond de dépense, dans la devise du compte. null le supprime."
+      }
+    },
+    {
+      "name": "schedule.end",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só no conjunto: data de término, obrigatória com orçamento lifetime.",
+        "en": "Ad set only: end date, required with a lifetime budget.",
+        "es": "Solo en el conjunto: fecha de fin, obligatoria con presupuesto lifetime.",
+        "fr": "Ensemble seulement : date de fin, obligatoire avec un budget lifetime."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Editar orçamento de campanha ou conjunto no Meta Ads",
+    "tagline": "Altere o orçamento de uma campanha (CBO) ou de um conjunto (ABO) do Meta Ads por API, na moeda da conta, com um PATCH.",
+    "intro": "Mudar a verba é um PATCH com budget no nível em que o orçamento está: na campanha, se ela usa orçamento de campanha (CBO), ou no conjunto, se cada conjunto tem o seu (ABO). Valores na moeda da conta do cliente, sem conversão para centavos e sem implementar a API do Meta.",
+    "can": [
+      "Alterar o orçamento de uma campanha CBO com PATCH /ads/campaigns/{id}.",
+      "Alterar o orçamento de um conjunto ABO com PATCH /ads/adsets/{id}.",
+      "Trocar o tipo entre daily e lifetime.",
+      "Definir ou remover o limite de gasto da campanha com facebook_ads.spend_cap.",
+      "Ajustar a agenda do conjunto no mesmo PATCH, com schedule.start e schedule.end."
+    ],
+    "rules": [
+      "O orçamento fica na campanha (CBO) ou em cada conjunto (ABO), nunca nos dois. Não existe campo level: o nível é onde o budget está.",
+      "Budget numa campanha ABO, ou num conjunto de campanha CBO, responde 409 budget_level_mismatch, e budget_level indica o nível certo.",
+      "budget.amount é na moeda da conta, nunca em centavos.",
+      "budget.type lifetime exige schedule.end no conjunto.",
+      "spend_cap null remove o limite de gasto da campanha.",
+      "Idempotency-Key é opcional em PATCH. A resposta é síncrona (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Controle de verba no seu painel",
+        "body": "O cliente aumenta ou reduz o orçamento diário de uma campanha direto no seu produto."
+      },
+      {
+        "title": "Pacing automático",
+        "body": "Reduza o orçamento de conjuntos que passaram da meta do mês e aumente os que estão abaixo."
+      },
+      {
+        "title": "Agente de IA que realoca verba",
+        "body": "O agente lê o desempenho, move orçamento entre conjuntos ABO e registra cada mudança."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Como sei se meu orçamento fica na campanha ou no conjunto?",
+        "a": "Pelo nível em que o budget foi criado. Se você mandar para o nível errado, a resposta é 409 budget_level_mismatch com budget_level indicando o nível certo."
+      },
+      {
+        "q": "O valor é em centavos?",
+        "a": "Não. budget.amount é na moeda da conta de anúncios, por exemplo 50 para 50 reais."
+      },
+      {
+        "q": "Dá para limitar o gasto total de uma campanha?",
+        "a": "Sim, com facebook_ads.spend_cap na campanha. Enviar null remove o limite."
+      }
+    ]
+  },
+  "en": {
+    "title": "Edit a Meta Ads campaign or ad set budget",
+    "tagline": "Change the budget of a Meta Ads campaign (CBO) or ad set (ABO) via API, in the account's currency, with one PATCH.",
+    "intro": "Changing the budget is a PATCH with budget at the level where the budget lives: on the campaign if it uses a campaign budget (CBO), or on the ad set if each ad set has its own (ABO). Values are in the client account's currency, with no conversion to cents and no Meta API to implement.",
+    "can": [
+      "Change the budget of a CBO campaign with PATCH /ads/campaigns/{id}.",
+      "Change the budget of an ABO ad set with PATCH /ads/adsets/{id}.",
+      "Switch the type between daily and lifetime.",
+      "Set or remove the campaign's spending limit with facebook_ads.spend_cap.",
+      "Adjust the ad set's schedule in the same PATCH, with schedule.start and schedule.end."
+    ],
+    "rules": [
+      "The budget sits on the campaign (CBO) or on each ad set (ABO), never on both. There is no level field: the level is where the budget is.",
+      "Budget on an ABO campaign, or on an ad set of a CBO campaign, returns 409 budget_level_mismatch, and budget_level tells you the right level.",
+      "budget.amount is in the account's currency, never in cents.",
+      "budget.type lifetime requires schedule.end on the ad set.",
+      "spend_cap null removes the campaign's spending limit.",
+      "Idempotency-Key is optional on PATCH. The response is synchronous (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Budget control in your dashboard",
+        "body": "The client raises or lowers a campaign's daily budget right in your product."
+      },
+      {
+        "title": "Automatic pacing",
+        "body": "Lower the budget of ad sets that passed the month's target and raise the ones below it."
+      },
+      {
+        "title": "AI agent that reallocates budget",
+        "body": "The agent reads performance, moves budget between ABO ad sets and records each change."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How do I know whether my budget sits on the campaign or the ad set?",
+        "a": "By the level where the budget was created. If you send it to the wrong level, the response is 409 budget_level_mismatch with budget_level showing the right one."
+      },
+      {
+        "q": "Is the value in cents?",
+        "a": "No. budget.amount is in the ad account's currency, for example 50 for 50 dollars."
+      },
+      {
+        "q": "Can I cap a campaign's total spend?",
+        "a": "Yes, with facebook_ads.spend_cap on the campaign. Sending null removes the cap."
+      }
+    ]
+  },
+  "es": {
+    "title": "Editar el presupuesto de una campaña o conjunto en Meta Ads",
+    "tagline": "Cambia el presupuesto de una campaña (CBO) o de un conjunto (ABO) de Meta Ads por API, en la moneda de la cuenta, con un PATCH.",
+    "intro": "Cambiar el presupuesto es un PATCH con budget en el nivel donde está el presupuesto: en la campaña, si usa presupuesto de campaña (CBO), o en el conjunto, si cada conjunto tiene el suyo (ABO). Los valores van en la moneda de la cuenta del cliente, sin conversión a centavos y sin implementar la API de Meta.",
+    "can": [
+      "Cambiar el presupuesto de una campaña CBO con PATCH /ads/campaigns/{id}.",
+      "Cambiar el presupuesto de un conjunto ABO con PATCH /ads/adsets/{id}.",
+      "Cambiar el tipo entre daily y lifetime.",
+      "Definir o quitar el límite de gasto de la campaña con facebook_ads.spend_cap.",
+      "Ajustar la agenda del conjunto en el mismo PATCH, con schedule.start y schedule.end."
+    ],
+    "rules": [
+      "El presupuesto va en la campaña (CBO) o en cada conjunto (ABO), nunca en los dos. No existe un campo level: el nivel es donde está el budget.",
+      "Budget en una campaña ABO, o en un conjunto de campaña CBO, responde 409 budget_level_mismatch, y budget_level indica el nivel correcto.",
+      "budget.amount va en la moneda de la cuenta, nunca en centavos.",
+      "budget.type lifetime exige schedule.end en el conjunto.",
+      "spend_cap null quita el límite de gasto de la campaña.",
+      "Idempotency-Key es opcional en PATCH. La respuesta es síncrona (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Control de presupuesto en tu panel",
+        "body": "El cliente sube o baja el presupuesto diario de una campaña desde tu producto."
+      },
+      {
+        "title": "Pacing automático",
+        "body": "Baja el presupuesto de conjuntos que superaron la meta del mes y sube los que están por debajo."
+      },
+      {
+        "title": "Agente de IA que reasigna presupuesto",
+        "body": "El agente lee el rendimiento, mueve presupuesto entre conjuntos ABO y registra cada cambio."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cómo sé si mi presupuesto está en la campaña o en el conjunto?",
+        "a": "Por el nivel donde se creó el budget. Si lo envías al nivel equivocado, la respuesta es 409 budget_level_mismatch con budget_level indicando el correcto."
+      },
+      {
+        "q": "¿El valor va en centavos?",
+        "a": "No. budget.amount va en la moneda de la cuenta de anuncios, por ejemplo 50 para 50 dólares."
+      },
+      {
+        "q": "¿Puedo limitar el gasto total de una campaña?",
+        "a": "Sí, con facebook_ads.spend_cap en la campaña. Enviar null quita el límite."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Modifier le budget d'une campagne ou d'un ensemble Meta Ads",
+    "tagline": "Modifiez le budget d'une campagne (CBO) ou d'un ensemble (ABO) Meta Ads par API, dans la devise du compte, avec un PATCH.",
+    "intro": "Changer le budget, c'est un PATCH avec budget au niveau où se trouve le budget : sur la campagne si elle utilise un budget de campagne (CBO), ou sur l'ensemble si chacun a le sien (ABO). Les valeurs sont dans la devise du compte du client, sans conversion en centimes et sans implémenter l'API Meta.",
+    "can": [
+      "Modifier le budget d'une campagne CBO avec PATCH /ads/campaigns/{id}.",
+      "Modifier le budget d'un ensemble ABO avec PATCH /ads/adsets/{id}.",
+      "Passer le type de daily à lifetime et inversement.",
+      "Définir ou supprimer le plafond de dépense de la campagne avec facebook_ads.spend_cap.",
+      "Ajuster le calendrier de l'ensemble dans le même PATCH, avec schedule.start et schedule.end."
+    ],
+    "rules": [
+      "Le budget est sur la campagne (CBO) ou sur chaque ensemble (ABO), jamais sur les deux. Il n'y a pas de champ level : le niveau est l'endroit où se trouve le budget.",
+      "Un budget sur une campagne ABO, ou sur un ensemble d'une campagne CBO, renvoie 409 budget_level_mismatch, et budget_level indique le bon niveau.",
+      "budget.amount est dans la devise du compte, jamais en centimes.",
+      "budget.type lifetime exige schedule.end sur l'ensemble.",
+      "spend_cap null supprime le plafond de dépense de la campagne.",
+      "Idempotency-Key est facultatif sur PATCH. La réponse est synchrone (200)."
+    ],
+    "useCases": [
+      {
+        "title": "Contrôle du budget dans votre tableau de bord",
+        "body": "Le client augmente ou réduit le budget quotidien d'une campagne directement dans votre produit."
+      },
+      {
+        "title": "Pacing automatique",
+        "body": "Réduisez le budget des ensembles qui ont dépassé l'objectif du mois et augmentez ceux qui sont en dessous."
+      },
+      {
+        "title": "Agent IA qui réalloue le budget",
+        "body": "L'agent lit les performances, déplace du budget entre ensembles ABO et enregistre chaque changement."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Comment savoir si mon budget est sur la campagne ou sur l'ensemble ?",
+        "a": "Par le niveau où le budget a été créé. Si vous l'envoyez au mauvais niveau, la réponse est 409 budget_level_mismatch avec budget_level indiquant le bon."
+      },
+      {
+        "q": "La valeur est-elle en centimes ?",
+        "a": "Non. budget.amount est dans la devise du compte publicitaire, par exemple 50 pour 50 euros."
+      },
+      {
+        "q": "Puis-je plafonner la dépense totale d'une campagne ?",
+        "a": "Oui, avec facebook_ads.spend_cap sur la campagne. Envoyer null supprime le plafond."
+      }
+    ]
+  }
+}

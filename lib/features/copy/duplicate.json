@@ -1,0 +1,279 @@
+{
+  "sample": {
+    "method": "POST",
+    "path": "/api/ads/{id}/duplicate",
+    "query": {
+      "customer_integration": "<connection uuid>"
+    },
+    "headers": {
+      "Idempotency-Key": "<unique key>"
+    },
+    "body": {
+      "name": "Black Friday, copy"
+    }
+  },
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "No caminho: o id do anúncio, conjunto ou campanha a copiar (ou o uuid do Connect).",
+        "en": "In the path: the id of the ad, ad set or campaign to copy (or the Connect uuid).",
+        "es": "En la ruta: el id del anuncio, conjunto o campaña a copiar (o el uuid de Connect).",
+        "fr": "Dans le chemin : l'id de l'annonce, de l'ensemble ou de la campagne à copier (ou l'uuid Connect)."
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": {
+        "pt": "Nome da cópia. Opcional ao duplicar um anúncio (sem nome, a plataforma atribui um); obrigatório para conjunto e campanha.",
+        "en": "Name of the copy. Optional when duplicating an ad (without it the platform assigns one); required for ad sets and campaigns.",
+        "es": "Nombre de la copia. Opcional al duplicar un anuncio (sin nombre, la plataforma asigna uno); obligatorio para conjunto y campaña.",
+        "fr": "Nom de la copie. Facultatif pour une annonce (sans nom, la plateforme en attribue un) ; obligatoire pour un ensemble et une campagne."
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só em conjunto e campanha: paused (padrão) ou active.",
+        "en": "Ad sets and campaigns only: paused (default) or active.",
+        "es": "Solo en conjunto y campaña: paused (por defecto) o active.",
+        "fr": "Ensembles et campagnes seulement : paused (par défaut) ou active."
+      }
+    },
+    {
+      "name": "campaign_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só em conjunto: a campanha de destino. Sem ele, a cópia fica na campanha de origem.",
+        "en": "Ad sets only: the target campaign. Without it, the copy stays in the source's campaign.",
+        "es": "Solo en conjunto: la campaña de destino. Sin él, la copia queda en la campaña de origen.",
+        "fr": "Ensembles seulement : la campagne cible. Sans lui, la copie reste dans la campagne d'origine."
+      }
+    },
+    {
+      "name": "budget.amount",
+      "type": "number",
+      "required": false,
+      "description": {
+        "pt": "Só em conjunto e campanha: novo orçamento, na moeda da conta.",
+        "en": "Ad sets and campaigns only: new budget, in the account's currency.",
+        "es": "Solo en conjunto y campaña: nuevo presupuesto, en la moneda de la cuenta.",
+        "fr": "Ensembles et campagnes seulement : nouveau budget, dans la devise du compte."
+      }
+    },
+    {
+      "name": "schedule.start",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Só em conjunto: nova data de início.",
+        "en": "Ad sets only: new start date.",
+        "es": "Solo en conjunto: nueva fecha de inicio.",
+        "fr": "Ensembles seulement : nouvelle date de début."
+      }
+    }
+  ],
+  "pt": {
+    "title": "Duplicar anúncio, conjunto ou campanha no Meta Ads",
+    "tagline": "Duplique anúncios, conjuntos ou campanhas do Meta Ads com um POST, trocando nome, orçamento ou agenda. A cópia nasce pausada por padrão.",
+    "intro": "Clone um anúncio, um conjunto ou uma campanha da conta do cliente sem remontar tudo. Você pode ajustar nome, orçamento, agenda ou a campanha de destino na própria chamada. A cópia nasce pausada, então nada gasta até você ativar.",
+    "can": [
+      "Duplicar um anúncio com POST /ads/{id}/duplicate.",
+      "Duplicar um conjunto com POST /ads/adsets/{id}/duplicate, escolhendo outra campanha de destino com campaign_id.",
+      "Duplicar uma campanha com POST /ads/campaigns/{id}/duplicate.",
+      "Mudar o nome da cópia e, em conjunto e campanha, o orçamento.",
+      "Mudar a data de início de um conjunto copiado.",
+      "Usar o id numérico da plataforma ou o uuid do Connect."
+    ],
+    "rules": [
+      "Idempotency-Key é obrigatório no header; repetir com a mesma chave devolve 200 com Idempotent-Replay: true, sem criar outra cópia.",
+      "A cópia de um anúncio é sempre criada pausada, no mesmo conjunto. Em conjunto e campanha, status é paused por padrão.",
+      "name é obrigatório ao duplicar conjunto e campanha, e opcional ao duplicar anúncio.",
+      "O orçamento segue a regra CBO/ABO: mandar para o nível errado responde 409 budget_level_mismatch.",
+      "O objeto precisa existir na conta da conexão; id de outra conta responde 404 ads_object_not_found.",
+      "A resposta é síncrona (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Escalar o que funciona",
+        "body": "Duplique um conjunto vencedor com um orçamento maior ou outra campanha de destino, e ative quando estiver pronto."
+      },
+      {
+        "title": "Testes de criativo",
+        "body": "Copie um anúncio e depois altere o texto ou o título da cópia para comparar variações."
+      },
+      {
+        "title": "Templates por cliente",
+        "body": "Mantenha uma campanha modelo e duplique-a para cada novo cliente, mudando só o nome e o orçamento."
+      }
+    ],
+    "faq": [
+      {
+        "q": "A cópia começa gastando?",
+        "a": "A cópia de um anúncio nasce sempre pausada. Para conjunto e campanha o padrão também é paused, e você só ativa se enviar status active."
+      },
+      {
+        "q": "Posso duplicar uma campanha criada fora do Connect?",
+        "a": "Sim, desde que o id seja de um objeto da conta conectada. O id numérico da plataforma funciona para qualquer objeto da conta."
+      },
+      {
+        "q": "E se eu repetir a chamada por engano?",
+        "a": "Com o mesmo Idempotency-Key, a repetição devolve a resposta da primeira e não cria outra cópia."
+      }
+    ]
+  },
+  "en": {
+    "title": "Duplicate a Meta Ads ad, ad set or campaign",
+    "tagline": "Duplicate Meta Ads ads, ad sets or campaigns with one POST, changing name, budget or schedule. The copy is created paused by default.",
+    "intro": "Clone an ad, an ad set or a campaign in the client's account without rebuilding everything. You can adjust name, budget, schedule or the target campaign in the same call. The copy is created paused, so nothing spends until you activate it.",
+    "can": [
+      "Duplicate an ad with POST /ads/{id}/duplicate.",
+      "Duplicate an ad set with POST /ads/adsets/{id}/duplicate, choosing another target campaign with campaign_id.",
+      "Duplicate a campaign with POST /ads/campaigns/{id}/duplicate.",
+      "Change the copy's name and, for ad sets and campaigns, the budget.",
+      "Change the start date of a copied ad set.",
+      "Use the platform's numeric id or the Connect uuid."
+    ],
+    "rules": [
+      "Idempotency-Key is required in the header; repeating with the same key returns 200 with Idempotent-Replay: true and does not create another copy.",
+      "An ad's copy is always created paused, in the same ad set. For ad sets and campaigns, status defaults to paused.",
+      "name is required when duplicating an ad set or a campaign, and optional when duplicating an ad.",
+      "The budget follows the CBO/ABO rule: sending it to the wrong level returns 409 budget_level_mismatch.",
+      "The object must exist in the connection's account; an id from another account returns 404 ads_object_not_found.",
+      "The response is synchronous (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Scale what works",
+        "body": "Duplicate a winning ad set with a bigger budget or another target campaign, and activate it when ready."
+      },
+      {
+        "title": "Creative tests",
+        "body": "Copy an ad and then change the copy's text or headline to compare variations."
+      },
+      {
+        "title": "Per-client templates",
+        "body": "Keep a template campaign and duplicate it for each new client, changing only the name and budget."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the copy start spending?",
+        "a": "An ad's copy is always created paused. For ad sets and campaigns the default is also paused, and it only activates if you send status active."
+      },
+      {
+        "q": "Can I duplicate a campaign created outside Connect?",
+        "a": "Yes, as long as the id belongs to an object in the connected account. The platform's numeric id works for any object in the account."
+      },
+      {
+        "q": "What if I repeat the call by mistake?",
+        "a": "With the same Idempotency-Key, the repeat returns the first response and does not create another copy."
+      }
+    ]
+  },
+  "es": {
+    "title": "Duplicar un anuncio, conjunto o campaña de Meta Ads",
+    "tagline": "Duplica anuncios, conjuntos o campañas de Meta Ads con un POST, cambiando nombre, presupuesto o agenda. La copia nace pausada por defecto.",
+    "intro": "Clona un anuncio, un conjunto o una campaña de la cuenta del cliente sin rehacer todo. Puedes ajustar nombre, presupuesto, agenda o la campaña de destino en la misma llamada. La copia nace pausada, así que nada gasta hasta que la actives.",
+    "can": [
+      "Duplicar un anuncio con POST /ads/{id}/duplicate.",
+      "Duplicar un conjunto con POST /ads/adsets/{id}/duplicate, eligiendo otra campaña de destino con campaign_id.",
+      "Duplicar una campaña con POST /ads/campaigns/{id}/duplicate.",
+      "Cambiar el nombre de la copia y, en conjunto y campaña, el presupuesto.",
+      "Cambiar la fecha de inicio de un conjunto copiado.",
+      "Usar el id numérico de la plataforma o el uuid de Connect."
+    ],
+    "rules": [
+      "Idempotency-Key es obligatorio en el header; repetir con la misma clave devuelve 200 con Idempotent-Replay: true, sin crear otra copia.",
+      "La copia de un anuncio siempre se crea pausada, en el mismo conjunto. En conjunto y campaña, status es paused por defecto.",
+      "name es obligatorio al duplicar conjunto y campaña, y opcional al duplicar un anuncio.",
+      "El presupuesto sigue la regla CBO/ABO: enviarlo al nivel equivocado responde 409 budget_level_mismatch.",
+      "El objeto debe existir en la cuenta de la conexión; un id de otra cuenta responde 404 ads_object_not_found.",
+      "La respuesta es síncrona (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Escalar lo que funciona",
+        "body": "Duplica un conjunto ganador con más presupuesto u otra campaña de destino, y actívalo cuando esté listo."
+      },
+      {
+        "title": "Pruebas de creativos",
+        "body": "Copia un anuncio y luego cambia el texto o el título de la copia para comparar variaciones."
+      },
+      {
+        "title": "Plantillas por cliente",
+        "body": "Mantén una campaña modelo y duplícala para cada cliente nuevo, cambiando solo el nombre y el presupuesto."
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿La copia empieza a gastar?",
+        "a": "La copia de un anuncio siempre nace pausada. Para conjunto y campaña el valor por defecto también es paused, y solo se activa si envías status active."
+      },
+      {
+        "q": "¿Puedo duplicar una campaña creada fuera de Connect?",
+        "a": "Sí, siempre que el id sea de un objeto de la cuenta conectada. El id numérico de la plataforma sirve para cualquier objeto de la cuenta."
+      },
+      {
+        "q": "¿Y si repito la llamada por error?",
+        "a": "Con el mismo Idempotency-Key, la repetición devuelve la respuesta de la primera y no crea otra copia."
+      }
+    ]
+  },
+  "fr": {
+    "title": "Dupliquer une annonce, un ensemble ou une campagne Meta Ads",
+    "tagline": "Dupliquez annonces, ensembles ou campagnes Meta Ads avec un POST, en changeant nom, budget ou calendrier. La copie est créée en pause par défaut.",
+    "intro": "Clonez une annonce, un ensemble ou une campagne du compte du client sans tout reconstruire. Vous pouvez ajuster nom, budget, calendrier ou campagne cible dans le même appel. La copie est créée en pause : rien ne dépense avant que vous l'activiez.",
+    "can": [
+      "Dupliquer une annonce avec POST /ads/{id}/duplicate.",
+      "Dupliquer un ensemble avec POST /ads/adsets/{id}/duplicate, en choisissant une autre campagne cible avec campaign_id.",
+      "Dupliquer une campagne avec POST /ads/campaigns/{id}/duplicate.",
+      "Changer le nom de la copie et, pour ensembles et campagnes, le budget.",
+      "Changer la date de début d'un ensemble copié.",
+      "Utiliser l'id numérique de la plateforme ou l'uuid Connect."
+    ],
+    "rules": [
+      "Idempotency-Key est obligatoire dans le header ; répéter avec la même clé renvoie 200 avec Idempotent-Replay: true, sans créer une autre copie.",
+      "La copie d'une annonce est toujours créée en pause, dans le même ensemble. Pour ensembles et campagnes, status vaut paused par défaut.",
+      "name est obligatoire pour dupliquer un ensemble ou une campagne, et facultatif pour une annonce.",
+      "Le budget suit la règle CBO/ABO : l'envoyer au mauvais niveau renvoie 409 budget_level_mismatch.",
+      "L'objet doit exister dans le compte de la connexion ; un id d'un autre compte renvoie 404 ads_object_not_found.",
+      "La réponse est synchrone (201)."
+    ],
+    "useCases": [
+      {
+        "title": "Passer à l'échelle ce qui marche",
+        "body": "Dupliquez un ensemble gagnant avec un budget plus grand ou une autre campagne cible, et activez-le quand tout est prêt."
+      },
+      {
+        "title": "Tests de visuels",
+        "body": "Copiez une annonce puis modifiez le texte ou le titre de la copie pour comparer des variantes."
+      },
+      {
+        "title": "Modèles par client",
+        "body": "Gardez une campagne modèle et dupliquez-la pour chaque nouveau client, en ne changeant que le nom et le budget."
+      }
+    ],
+    "faq": [
+      {
+        "q": "La copie dépense-t-elle dès le départ ?",
+        "a": "La copie d'une annonce est toujours créée en pause. Pour ensembles et campagnes, le défaut est aussi paused, et elle ne s'active que si vous envoyez status active."
+      },
+      {
+        "q": "Puis-je dupliquer une campagne créée hors de Connect ?",
+        "a": "Oui, tant que l'id appartient à un objet du compte connecté. L'id numérique de la plateforme fonctionne pour tout objet du compte."
+      },
+      {
+        "q": "Et si je répète l'appel par erreur ?",
+        "a": "Avec la même Idempotency-Key, la répétition renvoie la première réponse et ne crée pas une autre copie."
+      }
+    ]
+  }
+}
