@@ -1,7 +1,7 @@
 import { AgentLogos } from "@/components/agent-logos"
 import { ProductShots } from "@/components/product-shots"
 import { appUrl, type Locale } from "@/lib/i18n"
-import { INTEGRATIONS } from "@/lib/integrations"
+import { CATALOG_COUNT, NATIVE_COUNT, TOOLKIT_COUNT } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 
 export function HeroSection({ locale }: { locale: Locale }) {
@@ -12,8 +12,8 @@ export function HeroSection({ locale }: { locale: Locale }) {
     <section className="lp-hero">
       <div className="lp-container grid items-center gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
         <div>
-          <h1 className="lp-hero-title lg:text-[clamp(2.6rem,4vw,3.9rem)]">{t.title}</h1>
-          <p className="lp-copy mt-7 max-w-lg">{t.copy(INTEGRATIONS.length)}</p>
+          <h1 className="lp-hero-title lg:text-[clamp(2.6rem,4vw,3.9rem)]">{t.title(CATALOG_COUNT)}</h1>
+          <p className="lp-copy mt-7 max-w-lg">{t.copy(NATIVE_COUNT, TOOLKIT_COUNT)}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-5">
             <a href={appUrl(locale, "/signup")} className="lp-button">
               {t.signup}

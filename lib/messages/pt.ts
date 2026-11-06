@@ -1,7 +1,8 @@
 // A paragraph with inline links. `link` names a destination the component resolves for the current locale.
 export type Rich = (string | { link: "ia" | "precos" | "terms"; text: string })[]
 
-type Faq = { q: (integrations: number) => string; a: (integrations: number) => Rich[] }
+// `integrations` counts the native integrations, the ones with metrics; `toolkits` counts the toolkits.
+type Faq = { q: (integrations: number) => string; a: (integrations: number, toolkits: number) => Rich[] }
 const faqs = (items: Faq[]) => items
 
 // Strings that reach client components must be plain data, so those use {placeholders} filled by `fill`.
@@ -12,10 +13,10 @@ export const pt = {
       `API para o seu software consultar Instagram, Meta Ads, Google Ads, RD Station e mais ${n - 4} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     softwareDescription: (n: number) =>
       `API para levar ao seu produto as métricas de ${n} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
-    integrationsTitle: (n: number) => `Integrações do Reportei Connect: ${n} APIs de marketing, CRM e e-commerce`,
+    integrationsTitle: (n: number) => `Integrações do Reportei Connect: ${n} plataformas em uma API`,
     integrationsDescription: (n: number) =>
-      `Meta Ads, Google Ads, Instagram, TikTok, RD Station, HubSpot, Nuvemshop e mais: as ${n} plataformas que o seu produto acessa por uma única API.`,
-    ogImageAlt: "Reportei Connect: dados de 50 plataformas em uma API",
+      `Meta Ads, Google Ads, Instagram, RD Station, HubSpot, WhatsApp, Slack e mais: as ${n} plataformas que o seu produto acessa por uma única API.`,
+    ogImageAlt: (n: number) => `Reportei Connect: ${n} integrações em uma API`,
   },
   language: {
     label: "Idioma",
@@ -35,7 +36,8 @@ export const pt = {
     closeMenu: "Fechar menu",
   },
   footer: {
-    tagline: (n: number) => `${n} integrações de marketing, CRM e e-commerce em uma API para o seu sistema.`,
+    tagline: (n: number, toolkits: number) =>
+      `Métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${toolkits} apps, em uma API para o seu sistema.`,
     product: "Produto",
     company: "Empresa",
     apis: "APIs",
@@ -59,9 +61,9 @@ export const pt = {
     terms: "Termos de serviço",
   },
   hero: {
-    title: "API de dados de marketing para o seu produto.",
-    copy: (n: number) =>
-      `Conecte as contas dos seus clientes em ${n} plataformas de marketing, CRM e e-commerce, como Instagram, Meta Ads, Google Ads e RD Station. Acesse as métricas em uma única API e crie suas próprias análises, relatórios e dashboards.`,
+    title: (total: number) => `Integre ${total} plataformas ao seu sistema com uma única API.`,
+    copy: (n: number, toolkits: number) =>
+      `Consulte métricas de ${n} plataformas de marketing, CRM e e-commerce, como Meta Ads, Google Ads e RD Station, e execute ações em mais ${toolkits} apps dos seus clientes, como WhatsApp, Slack e ClickUp.`,
     signup: "Começar teste grátis",
     demo: "Agendar demonstração",
     trial: "15 dias para testar. Sem cartão de crédito.",
@@ -261,7 +263,7 @@ export const pt = {
       {
         problem: "APIs que mudam o tempo todo",
         solution:
-          "Versões novas, campos depreciados e limites de requisição ficam com o time do Reportei, que mantém essas integrações há mais de 10 anos.",
+          "Versões novas, campos depreciados e limites de requisição ficam com o time do Reportei, que mantém integrações de marketing há mais de 10 anos.",
       },
     ],
   },
@@ -291,7 +293,7 @@ export const pt = {
   },
   networks: {
     title: "{n} integrações para o seu produto",
-    copy: "Mídia paga, redes sociais, CRM e e-commerce. Encontre as plataformas que você precisa e acesse seus dados pela API do Reportei Connect.",
+    copy: "Mídia paga, redes sociais, CRM e e-commerce para consultar métricas, e toolkits para executar ações em apps como WhatsApp, Slack e ClickUp. Encontre as plataformas que você precisa e use todas pela API do Reportei Connect.",
     searchLabel: "Buscar integração",
     searchPlaceholder: "Ex.: Google Ads, HubSpot ou Shopify",
     filterLabel: "Filtrar integrações por categoria",
@@ -300,6 +302,8 @@ export const pt = {
     note: "Uma integração é uma plataforma disponível no catálogo. Uma conexão é uma conta dessa plataforma vinculada ao Connect, e é a unidade usada na cobrança.",
     seePlan: "Veja como funciona o plano.",
     details: "Detalhes de cada integração.",
+    toolkitBadge: "Toolkit",
+    toolkitHint: "Executa ações, sem métricas",
   },
   // Keys are the category ids in lib/integrations.ts.
   categories: {
@@ -307,8 +311,11 @@ export const pt = {
     "Redes sociais": "Redes sociais",
     "Analytics e SEO": "Analytics e SEO",
     "Marketing e CRM": "Marketing e CRM",
-    Atendimento: "Atendimento",
+    Atendimento: "Atendimento e comunicação",
     "E-commerce e vendas": "E-commerce e vendas",
+    Financeiro: "Financeiro",
+    Produtividade: "Produtividade",
+    "Ferramentas de dev": "Ferramentas de dev",
   },
   // Only the names that change between languages; brand names stay as they are.
   integrationNames: {} as Record<string, string>,
@@ -383,12 +390,15 @@ export const pt = {
     product: faqs([
       {
         q: () => "O que dá para fazer com o Reportei Connect?",
-        a: (n: number): Rich[] => [
+        a: (n: number, toolkits: number): Rich[] => [
           [
             `Conectar as contas dos seus clientes em ${n} plataformas de marketing, CRM e e-commerce e consultar as métricas delas por uma única API.`,
           ],
           [
             "Também dá para publicar no Instagram e no Facebook dos seus clientes e, no Meta Ads, criar e gerenciar campanhas, conjuntos e anúncios, tudo pelas mesmas contas conectadas.",
+          ],
+          [
+            `Com os toolkits, seu produto executa ações em mais ${toolkits} apps dos seus clientes, como enviar mensagens no WhatsApp, criar tarefas no ClickUp ou avisar um canal do Slack. Toolkits não trazem métricas.`,
           ],
         ],
       },
@@ -510,7 +520,8 @@ export const pt = {
   integrationsPage: {
     eyebrow: "Integrações",
     title: (n: number) => `${n} plataformas em uma API para o seu produto`,
-    copy: "Seus clientes conectam as contas de mídia paga, redes sociais, CRM e e-commerce. Seu sistema consulta as métricas de todas elas pela mesma API, no mesmo formato.",
+    copy: (n: number, toolkits: number) =>
+      `Seus clientes conectam as contas de mídia paga, redes sociais, CRM e e-commerce. Seu sistema consulta as métricas dessas ${n} plataformas pela mesma API, no mesmo formato, e executa ações em mais ${toolkits} apps com os toolkits.`,
     popular: "APIs mais procuradas",
     apiOf: (platform: string) => `API do ${platform}`,
     catalog: "Catálogo completo",

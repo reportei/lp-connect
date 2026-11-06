@@ -14,8 +14,8 @@ import { FaqSection, faqItems } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { JsonLd, faqJsonLd } from "@/components/platform-page"
-import { DEFAULT_LOCALE, LOCALE_INFO, pageHref, pagePath, type Locale } from "@/lib/i18n"
-import { INTEGRATIONS } from "@/lib/integrations"
+import { LOCALE_INFO, pageHref, pagePath, type Locale } from "@/lib/i18n"
+import { CATALOG_COUNT, NATIVE_COUNT, catalogEntries } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
 
@@ -23,11 +23,11 @@ export function homeMetadata(locale: Locale) {
   const t = getMessages(locale).meta
   return pageMetadata({
     title: t.homeTitle,
-    description: t.homeDescription(INTEGRATIONS.length),
+    description: t.homeDescription(NATIVE_COUNT),
     path: pagePath(locale, "home"),
     locale,
     page: "home",
-    imageAlt: t.ogImageAlt,
+    imageAlt: t.ogImageAlt(CATALOG_COUNT),
   })
 }
 
@@ -40,7 +40,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     url: absoluteUrl(pagePath(locale, "home")),
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web",
-    description: m.meta.softwareDescription(INTEGRATIONS.length),
+    description: m.meta.softwareDescription(NATIVE_COUNT),
     inLanguage: LOCALE_INFO[locale].hreflang,
     publisher: { "@type": "Organization", name: "Reportei", url: "https://reportei.com" },
   }
@@ -61,9 +61,8 @@ export function HomePage({ locale }: { locale: Locale }) {
         <NetworksSection
           t={m.networks}
           categories={m.categories}
-          names={m.integrationNames}
+          entries={catalogEntries(locale)}
           integrationsHref={pageHref(locale, "integrations")}
-          linkPages={locale === DEFAULT_LOCALE}
         />
         <ToolkitsHomeSection locale={locale} />
         <AiSection locale={locale} />

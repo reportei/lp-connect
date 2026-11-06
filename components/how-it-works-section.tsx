@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import type { Locale } from "@/lib/i18n"
-import { INTEGRATIONS } from "@/lib/integrations"
+import { CATALOG_COUNT } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 
 export function HowItWorksSection({ locale }: { locale: Locale }) {
@@ -19,7 +19,7 @@ export function HowItWorksSection({ locale }: { locale: Locale }) {
                 {i + 1}
               </div>
               <h3 className="text-xl font-semibold tracking-tight">{step.title}</h3>
-              <p className="mt-3 max-w-[42ch] text-base leading-relaxed text-muted-foreground">{step.body(INTEGRATIONS.length)}</p>
+              <p className="mt-3 max-w-[42ch] text-base leading-relaxed text-muted-foreground">{step.body(CATALOG_COUNT)}</p>
             </li>
           ))}
         </ol>

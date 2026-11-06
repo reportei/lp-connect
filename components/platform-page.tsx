@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, ChevronDown, XCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
+import { CATALOG_COUNT } from "@/lib/catalog"
 import { INTEGRATIONS, integrationLogoSrc } from "@/lib/integrations"
 import { GUIDES } from "@/lib/guias"
 import { findPlatformPage, type PlatformFaq, type PlatformPage } from "@/lib/plataformas"
@@ -256,7 +257,7 @@ export function PlatformPageView({ page }: { page: PlatformPage }) {
                 </a>
               )}
               <a href={withBase("/integracoes")} className="lp-link mt-6 inline-flex items-center gap-1.5 text-sm">
-                Ver as {INTEGRATIONS.length} integrações
+                Ver as {CATALOG_COUNT} integrações
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>

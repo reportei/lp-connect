@@ -5,7 +5,8 @@ import { Footer } from "@/components/footer"
 import { CTASection } from "@/components/cta-section"
 import { ALTERNATIVE_PAGES } from "@/lib/alternativas"
 import { DEFAULT_LOCALE, pagePath, type Locale } from "@/lib/i18n"
-import { INTEGRATION_CATEGORIES, INTEGRATIONS, integrationLogoSrc } from "@/lib/integrations"
+import { CATALOG_COUNT, NATIVE_COUNT, TOOLKIT_COUNT, catalogEntries } from "@/lib/catalog"
+import { INTEGRATION_CATEGORIES, integrationLogoSrc } from "@/lib/integrations"
 import { getMessages } from "@/lib/messages"
 import { PLATFORM_PAGES } from "@/lib/plataformas"
 import { pageMetadata } from "@/lib/seo"
@@ -13,12 +14,12 @@ import { pageMetadata } from "@/lib/seo"
 export function integrationsMetadata(locale: Locale) {
   const t = getMessages(locale).meta
   return pageMetadata({
-    title: t.integrationsTitle(INTEGRATIONS.length),
-    description: t.integrationsDescription(INTEGRATIONS.length),
+    title: t.integrationsTitle(CATALOG_COUNT),
+    description: t.integrationsDescription(CATALOG_COUNT),
     path: pagePath(locale, "integrations"),
     locale,
     page: "integrations",
-    imageAlt: t.ogImageAlt,
+    imageAlt: t.ogImageAlt(CATALOG_COUNT),
   })
 }
 
@@ -27,6 +28,7 @@ export function IntegrationsPage({ locale }: { locale: Locale }) {
   const t = m.integrationsPage
   // The platform and comparison pages are written for Brazilian searches and exist only in Portuguese.
   const portugueseOnly = locale === DEFAULT_LOCALE
+  const entries = catalogEntries(locale)
 
   return (
     <div className="connect-page min-h-screen">
@@ -35,8 +37,8 @@ export function IntegrationsPage({ locale }: { locale: Locale }) {
         <section className="lp-hero">
           <div className="lp-container">
             <p className="lp-eyebrow mb-4">{t.eyebrow}</p>
-            <h1 className="lp-title max-w-[22ch] text-[clamp(2.2rem,4vw,3.4rem)]">{t.title(INTEGRATIONS.length)}</h1>
-            <p className="lp-copy mt-6">{t.copy}</p>
+            <h1 className="lp-title max-w-[22ch] text-[clamp(2.2rem,4vw,3.4rem)]">{t.title(CATALOG_COUNT)}</h1>
+            <p className="lp-copy mt-6">{t.copy(NATIVE_COUNT, TOOLKIT_COUNT)}</p>
           </div>
         </section>
 
@@ -74,26 +76,32 @@ export function IntegrationsPage({ locale }: { locale: Locale }) {
                 <div key={category}>
                   <h3 className="mb-4 text-lg font-semibold tracking-tight">{m.categories[category]}</h3>
                   <ul className="space-y-2">
-                    {INTEGRATIONS.filter((item) => item.category === category).map((item) => {
-                      const logo = item.logo ? (
-                        <img src={integrationLogoSrc(item.logo)} alt="" loading="lazy" className="h-5 w-5 object-contain" />
-                      ) : (
-                        <Plug className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
-                      )
-                      const name = m.integrationNames[item.name] ?? item.name
-                      return (
-                        <li key={item.name} className="flex items-center gap-3 text-sm">
-                          {logo}
-                          {item.page && portugueseOnly ? (
-                            <a href={withBase(`/${item.page}`)} className="lp-link">
-                              {name}
+                    {entries
+                      .filter((item) => item.category === category)
+                      .map((item) => (
+                        <li key={`${item.toolkit ? "toolkit" : "native"}-${item.name}`} className="flex items-center gap-3 text-sm">
+                          {item.logo ? (
+                            <img src={item.logo} alt="" loading="lazy" className="h-5 w-5 object-contain" />
+                          ) : (
+                            <Plug className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
+                          )}
+                          {item.href ? (
+                            <a href={item.href} className="lp-link">
+                              {item.name}
                             </a>
                           ) : (
-                            <span>{name}</span>
+                            <span>{item.name}</span>
+                          )}
+                          {item.toolkit && (
+                            <span
+                              title={m.networks.toolkitHint}
+                              className="rounded border px-1.5 text-xs font-medium text-muted-foreground"
+                            >
+                              {m.networks.toolkitBadge}
+                            </span>
                           )}
                         </li>
-                      )
-                    })}
+                      ))}
                   </ul>
                 </div>
               ))}

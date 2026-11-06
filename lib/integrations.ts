@@ -7,6 +7,9 @@ export const INTEGRATION_CATEGORIES = [
   "Marketing e CRM",
   "Atendimento",
   "E-commerce e vendas",
+  "Financeiro",
+  "Produtividade",
+  "Ferramentas de dev",
 ] as const
 
 export type IntegrationCategory = (typeof INTEGRATION_CATEGORIES)[number]
@@ -21,6 +24,7 @@ export type Integration = {
   page?: string
 }
 
+// Native integrations: the ones that bring metrics. Toolkits live in lib/toolkits and join them in lib/catalog.ts.
 export const INTEGRATIONS: Integration[] = [
   { name: "Meta Ads", category: "Mídia paga", logo: "meta_ads", page: "api-meta-ads" },
   { name: "Facebook", category: "Redes sociais", logo: "facebook" },
@@ -38,8 +42,8 @@ export const INTEGRATIONS: Integration[] = [
   },
   { name: "Google Search Console", category: "Analytics e SEO", logo: "search_console" },
   { name: "Ahrefs", category: "Analytics e SEO", logo: "ahrefs" },
-  { name: "Google Sheets", category: "Analytics e SEO", logo: "google_sheets", aliases: "Planilhas Google" },
-  { name: "Airtable", category: "Analytics e SEO", logo: "airtable" },
+  { name: "Google Sheets", category: "Produtividade", logo: "google_sheets", aliases: "Planilhas Google" },
+  { name: "Airtable", category: "Produtividade", logo: "airtable" },
   { name: "YouTube", category: "Redes sociais", logo: "youtube" },
   { name: "LinkedIn (páginas)", category: "Redes sociais", logo: "linkedin" },
   { name: "LinkedIn (perfis pessoais)", category: "Redes sociais", logo: "linkedin", aliases: "LinkedIn Personal" },
@@ -95,4 +99,14 @@ export const INTEGRATIONS: Integration[] = [
 
 export function integrationLogoSrc(logo: string) {
   return withBase(logo.startsWith("/") ? logo : `/images/integrations/${logo}.svg`)
+}
+
+// One card of the catalog the pages show, natives and toolkits alike, already resolved for the page's language.
+export type CatalogEntry = {
+  name: string
+  search: string
+  category: IntegrationCategory
+  logo: string | null
+  href: string | null
+  toolkit: boolean
 }
