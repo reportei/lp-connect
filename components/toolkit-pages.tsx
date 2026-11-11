@@ -8,6 +8,7 @@ import { withBase } from "@/lib/base-path"
 import { appUrl, formatNumber, LOCALE_INFO, localePath, type AlternatePath, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
+import { reviewedToolExample } from "@/lib/toolkits/examples"
 import {
   TOOL_COUNT,
   TOOLKIT_CATEGORIES,
@@ -117,11 +118,13 @@ export function Page({
   )
 }
 
-function executeSample(toolkit: Toolkit, tool: Tool) {
-  const body = { customer_toolkit: "<connection id>", arguments: sampleArguments(tool) }
-  return `POST /api/tools/${tool.slug}/execute
+function executeSample(tool: Tool, locale: Locale) {
+  const body = { customer_toolkit: "<connection UUID>", arguments: sampleArguments(tool, locale) }
+  return `POST https://connect.reportei.com/api/tools/${tool.slug}/execute
 Authorization: Bearer <merchant token>
 x-customer-token: <customer token>
+Content-Type: application/json
+Accept: application/json
 
 ${JSON.stringify(body, null, 2)}`
 }
@@ -371,6 +374,7 @@ export function ToolkitPage({ locale, slug }: { locale: Locale; slug: string }) 
   const copy = toolkitCopy(toolkit, locale)
   // A write shows what the toolkit is for better than a listing does.
   const featured = toolkit.tools.find((tool) => tool.method === "POST") ?? toolkit.tools[0]
+  const featuredExample = reviewedToolExample(featured.slug, locale)
   const faq = t.toolkit.faq(toolkit.name, toolkit.tools.length, authLabels(locale, toolkit))
   const preview = toolkit.tools.slice(0, 10)
 
@@ -406,9 +410,12 @@ export function ToolkitPage({ locale, slug }: { locale: Locale; slug: string }) 
               <p className="mt-5 text-sm text-muted-foreground">{t.toolkit.trial}</p>
             </div>
             <figure className="min-w-0 self-start">
-              <pre className="lp-code overflow-x-auto p-5 text-[13px]">{executeSample(toolkit, featured)}</pre>
+              <pre className="lp-code overflow-x-auto p-5 text-[13px]">{executeSample(featured, locale)}</pre>
               <figcaption className="mt-3 text-sm text-muted-foreground">
                 {t.toolkit.sampleCaption(toolText(toolkit, featured, locale).name)}
+                {featuredExample && (
+                  <span className="mt-2 block">{featuredExample.placeholderNote}</span>
+                )}
               </figcaption>
             </figure>
           </div>
@@ -571,7 +578,7 @@ export function toolMetadata(locale: Locale, slug: string, toolSlug: string) {
   const text = toolText(toolkit, tool, locale)
   return pageMetadata({
     title: withBrand(t.metaTitle(text.name, toolkit.name)),
-    description: truncate(toolDescription(locale, toolkit, text.description), 160),
+    description: reviewedToolExample(tool.slug, locale)?.metaDescription ?? truncate(toolDescription(locale, toolkit, text.description), 160),
     path: localePath(locale, toolPath(toolkit, tool)),
     locale,
     page: () => toolPath(toolkit, tool),
@@ -583,6 +590,7 @@ export function ToolPage({ locale, slug, toolSlug }: { locale: Locale; slug: str
   const tool = findTool(toolkit, toolSlug)!
   const t = getMessages(locale).toolkits
   const text = toolText(toolkit, tool, locale)
+  const reviewed = reviewedToolExample(tool.slug, locale)
   const others = toolkit.tools.filter((other) => other.slug !== tool.slug).slice(0, 8)
   const techArticle = {
     "@context": "https://schema.org",
@@ -642,12 +650,30 @@ export function ToolPage({ locale, slug, toolSlug }: { locale: Locale; slug: str
             </div>
             <div className="min-w-0 self-start">
               <h2 className="mb-3 text-lg font-semibold tracking-tight">{t.tool.requestTitle}</h2>
-              <pre className="lp-code overflow-x-auto p-5 text-[13px]">{executeSample(toolkit, tool)}</pre>
+              <pre className="lp-code overflow-x-auto p-5 text-[13px]">{executeSample(tool, locale)}</pre>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.tool.requestCopy}</p>
+              {reviewed && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{reviewed.placeholderNote}</p>}
             </div>
           </div>
         </div>
       </section>
+
+      {reviewed && (
+        <section id="example-notes" className="lp-section border-t bg-muted/40">
+          <div className="lp-container">
+            <h2 className="mb-5 text-xl font-semibold tracking-tight">{reviewed.notesTitle}</h2>
+            <ul className="max-w-4xl list-disc space-y-3 pl-5 leading-relaxed text-muted-foreground">
+              {reviewed.notes.map((note) => <li key={note}>{note}</li>)}
+            </ul>
+            {reviewed.preparationCode && (
+              <details className="mt-8 rounded-lg border bg-white p-5">
+                <summary className="cursor-pointer font-semibold">{reviewed.preparationTitle}</summary>
+                <pre className="lp-code mt-5 overflow-x-auto p-5 text-[13px]">{reviewed.preparationCode}</pre>
+              </details>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="lp-section border-t">
         <div className="lp-container">
@@ -673,7 +699,7 @@ export function ToolPage({ locale, slug, toolSlug }: { locale: Locale; slug: str
                     <tr key={param.name} className="align-top">
                       <td className="px-5 py-4 font-mono text-[13px] font-medium">{param.name}</td>
                       <td className="px-5 py-4 font-mono text-[13px] text-muted-foreground">{param.type}</td>
-                      <td className="px-5 py-4">{param.required ? t.tool.yes : t.tool.no}</td>
+                      <td className="px-5 py-4">{reviewed?.conditions?.[param.name] ?? (param.required ? t.tool.yes : t.tool.no)}</td>
                       <td className="px-5 py-4 leading-relaxed text-muted-foreground" lang="en">
                         {param.description}
                         {param.enum && (
@@ -700,10 +726,17 @@ export function ToolPage({ locale, slug, toolSlug }: { locale: Locale; slug: str
               <ConnectionModes locale={locale} toolkit={toolkit} />
             </div>
           </div>
-          <div className="space-y-8">
+          <div className="min-w-0 space-y-8">
             <div className="rounded-lg border bg-white p-6">
               <h2 className="text-lg font-semibold tracking-tight">{t.tool.responseTitle}</h2>
-              <p className="mt-2 leading-relaxed text-muted-foreground">{t.tool.responseCopy}</p>
+              <p className="mt-2 break-words leading-relaxed text-muted-foreground">{t.tool.responseCopy}</p>
+              {reviewed && (
+                <>
+                  <h3 className="mt-5 text-sm font-semibold">{reviewed.responseLabel}</h3>
+                  <pre className="lp-code mt-3 overflow-x-auto p-4 text-[13px]">{reviewed.responseExample}</pre>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{reviewed.responseNote}</p>
+                </>
+              )}
             </div>
             <div className="rounded-lg border bg-white p-6">
               <h2 className="text-lg font-semibold tracking-tight">{t.tool.aiTitle}</h2>

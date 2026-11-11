@@ -2,6 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { withBase } from "@/lib/base-path"
 import type { Locale } from "@/lib/i18n"
+import { reviewedToolExample } from "./examples"
 
 // Server side only: the catalog and the copy are read at build time and never reach the browser.
 // catalog.json comes from the Connect specs (scripts/sync-toolkits.mjs); copy/{slug}.json holds the
@@ -133,8 +134,11 @@ export function relatedToolkits(toolkit: Toolkit, limit = 6) {
   return TOOLKITS.filter((other) => other.category === toolkit.category && other.slug !== toolkit.slug).slice(0, limit)
 }
 
-// Placeholder arguments for the code sample: every required parameter, else the first one.
-export function sampleArguments(tool: Tool) {
+// Reviewed examples include conditional fields that a required-only template cannot infer.
+// Other tools keep the generic placeholder sample until they have an editorial example.
+export function sampleArguments(tool: Tool, locale: Locale = "en") {
+  const reviewed = reviewedToolExample(tool.slug, locale)
+  if (reviewed) return reviewed.arguments
   const chosen = tool.params.filter((param) => param.required)
   const params = chosen.length ? chosen : tool.params.slice(0, 1)
   return Object.fromEntries(params.map((param) => [param.name, sampleValue(param)]))

@@ -3,6 +3,7 @@ import { ArrowRight, Check, CheckCircle2, Info, Plug, X } from "lucide-react"
 import { FaqList, faqJsonLd } from "@/components/platform-page"
 import { Breadcrumb, Page, breadcrumbJsonLd, truncate, withBrand } from "@/components/toolkit-pages"
 import { withBase } from "@/lib/base-path"
+import { NATIVE_COUNT } from "@/lib/catalog"
 import { appUrl, formatNumber, localePath, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
@@ -165,7 +166,7 @@ export function FeaturesHomeSection({ locale }: { locale: Locale }) {
                   {m.areas[area].name}
                 </a>
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{area === "metrics" ? t.cards.metrics(METRICS_INTEGRATIONS.length) : t.cards[area]}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{area === "metrics" ? t.cards.metrics(NATIVE_COUNT) : t.cards[area]}</p>
               <ul className="mt-5 space-y-2 text-sm">
                 {HOME_PICKS[area]
                   .map((slug) => findCapability(area, slug))

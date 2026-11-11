@@ -85,11 +85,27 @@ export function AlternativePageView({ page }: { page: AlternativePage }) {
               </table>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Informações da {page.competitor} tiradas do site{" "}
-              <a href={page.competitorUrl} rel="nofollow noopener noreferrer" target="_blank" className="underline underline-offset-4">
-                {page.competitorUrl.replace("https://", "")}
-              </a>{" "}
-              em {CHECKED_AT}. {page.competitor} é marca de seus respectivos donos.
+              {page.sources?.length ? (
+                <>
+                  Fontes da comparação: {page.sources.map((source, index) => (
+                    <span key={source.href}>
+                      {index > 0 && "; "}
+                      <a href={source.href} rel="nofollow noopener noreferrer" target="_blank" className="underline underline-offset-4">
+                        {source.label}
+                      </a>
+                    </span>
+                  ))}. Revisado em {page.checkedAt ?? CHECKED_AT}.
+                </>
+              ) : (
+                <>
+                  Informações da {page.competitor} tiradas do site{" "}
+                  <a href={page.competitorUrl} rel="nofollow noopener noreferrer" target="_blank" className="underline underline-offset-4">
+                    {page.competitorUrl.replace("https://", "")}
+                  </a>{" "}
+                  em {page.checkedAt ?? CHECKED_AT}.
+                </>
+              )}{" "}
+              {page.competitor} é marca de seus respectivos donos.
             </p>
           </div>
         </section>
