@@ -238,17 +238,17 @@ export const pt = {
       {
         problem: "Aprovação de app em cada plataforma",
         solution:
-          "Meta, Google, LinkedIn e TikTok revisam o app antes de liberar dados de terceiros. Com o Connect, você usa integrações que já passaram por essas revisões.",
+          "Nas integrações nativas padrão, você usa os apps mantidos pelo Connect, já revisados pelas plataformas. Toolkits com OAuth exigem cadastrar o app do seu produto.",
       },
       {
         problem: "Um fluxo de OAuth por rede",
         solution:
-          "Você gera um link de conexão e seu cliente autoriza as contas numa tela pronta, hospedada pelo Connect. Seu código não implementa OAuth de nenhuma plataforma.",
+          "Você gera um link e seu cliente autoriza as contas numa tela hospedada pelo Connect. Nos toolkits com OAuth, você cadastra antes as credenciais do app do seu produto.",
       },
       {
         problem: "Tokens que expiram",
         solution:
-          "O Connect renova os tokens antes de vencerem e verifica periodicamente se cada conexão continua com acesso.",
+          "O Connect gerencia a renovação nas integrações com suporte a ela. Contas conectadas com app próprio da Meta exigem reconexão quando o token perde a validade.",
       },
       {
         problem: "Conexões que caem sem aviso",
@@ -395,7 +395,7 @@ export const pt = {
             `Conectar as contas dos seus clientes em ${n} plataformas de marketing, CRM e e-commerce e consultar as métricas delas por uma única API.`,
           ],
           [
-            "Também dá para publicar no Instagram e no Facebook dos seus clientes e, no Meta Ads, criar e gerenciar campanhas, conjuntos e anúncios, tudo pelas mesmas contas conectadas.",
+            "Também dá para publicar no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts dos seus clientes e, no Meta Ads, criar e gerenciar campanhas, conjuntos e anúncios, conforme as permissões das contas conectadas.",
           ],
           [
             `Com os toolkits, seu produto executa ações em mais ${toolkits} apps dos seus clientes, como enviar mensagens no WhatsApp, criar tarefas no ClickUp ou avisar um canal do Slack. Toolkits não trazem métricas.`,
@@ -406,7 +406,7 @@ export const pt = {
         q: () => "Preciso criar e aprovar um app em cada plataforma?",
         a: (): Rich[] => [
           [
-            "Não. As integrações do Connect já passaram pelas revisões das plataformas. Seu cliente autoriza o acesso às contas e você consulta os dados pela API, sem cadastrar app próprio em cada rede.",
+            "Nas integrações nativas padrão, você usa os apps mantidos pelo Connect, sem cadastrar um app próprio em cada rede. Já os toolkits com OAuth exigem registrar as credenciais do app do seu produto no Connect e cumprir as exigências da plataforma. Seu cliente sempre precisa autorizar o acesso. Outros modos de conexão usam as credenciais exigidas pelo app.",
           ],
         ],
       },
@@ -430,7 +430,7 @@ export const pt = {
         q: () => "Como os tokens dos meus clientes ficam guardados?",
         a: (): Rich[] => [
           [
-            "Seu sistema não lida com os tokens das plataformas. Eles ficam criptografados no Connect, que renova cada um antes de vencer e o usa só para buscar os dados que você pediu.",
+            "O Connect guarda as credenciais criptografadas e as usa nas consultas e ações autorizadas. A renovação depende do modo de conexão e do suporte do provedor. Quando você usa um app próprio da Meta, o Connect não verifica nem renova os tokens emitidos por esse app; se perderem a validade, é preciso reconectar a conta.",
           ],
         ],
       },
@@ -438,7 +438,7 @@ export const pt = {
         q: () => "E se a conexão de um cliente perder o acesso?",
         a: (): Rich[] => [
           [
-            "O Connect verifica as conexões periodicamente. Quando uma delas muda de status ou é removida, seu sistema recebe um webhook e pode pedir ao cliente que conecte a conta de novo.",
+            "Nas integrações nativas gerenciadas, o Connect verifica as conexões periodicamente e avisa por webhook quando mudam de status ou são removidas. Seu sistema também deve tratar erros de autorização nas chamadas e pedir a reconexão quando necessário. Tokens de app próprio da Meta não passam por essa verificação automática.",
           ],
         ],
       },
@@ -596,11 +596,11 @@ export const pt = {
         },
         {
           title: "Seu produto chama a tool",
-          body: "Um POST em /api/tools/{tool}/execute com o id da conexão e os argumentos. A resposta é a do próprio app, com o mesmo status e corpo.",
+          body: "Um POST em /api/tools/{tool}/execute com o id da conexão e os argumentos. Em caso de sucesso, o Connect preserva o status e o corpo da resposta do app.",
         },
         {
           title: "O Connect cuida do resto",
-          body: "Guarda a credencial criptografada, renova tokens OAuth e registra cada execução numa trilha de auditoria que você consulta pela API.",
+          body: "Guarda a credencial criptografada, renova tokens quando a conexão usa OAuth com suporte a renovação e registra as execuções numa trilha de auditoria consultável pela API.",
         },
       ],
       useCasesEyebrow: "Para que usar",
@@ -650,7 +650,7 @@ export const pt = {
         "Seu sistema envia o id da conexão do cliente e os argumentos da tool. Os headers são os mesmos de toda a API do Connect: o token do seu produto e o token do cliente.",
       responseTitle: "A resposta",
       responseCopy:
-        "O Connect devolve o status e o corpo da resposta do app como vieram, com o header X-Toolkit-Execution-Id. Cada execução fica registrada e pode ser consultada em GET /api/tools/executions/{uuid}.",
+        "Em caso de sucesso, o Connect preserva o status e o corpo da resposta do app. Erros HTTP retornados pelo app usam o envelope {error, api_error}; falhas de autenticação ou validação podem ocorrer antes da execução. O header X-Toolkit-Execution-Id identifica a execução registrada, consultável em GET /api/tools/executions/{uuid}.",
       paramsTitle: "Parâmetros",
       paramsNote: "As descrições dos parâmetros seguem a documentação oficial do app, em inglês.",
       columns: { name: "Parâmetro", type: "Tipo", required: "Obrigatório", description: "Descrição" },
@@ -672,9 +672,9 @@ export const pt = {
     home: {
       eyebrow: "Funcionalidades",
       title: "Além de ler dados: publique, anuncie e chame LLMs pela mesma API",
-      copy: "As mesmas contas que seu cliente conectou servem para publicar posts, gerenciar anúncios no Meta Ads, consultar métricas e chamar modelos de IA. Cada ação tem uma página com a chamada pronta.",
+      copy: "Use as contas conectadas dos seus clientes para publicar posts, gerenciar Meta Ads e consultar métricas. Para chamar modelos de IA, cadastre sua própria chave do provedor. Cada ação tem uma página com um exemplo de chamada.",
       cards: {
-        posts: "Publique no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube.",
+        posts: "Publique no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts.",
         ads: "Crie, impulsione e gerencie anúncios no Meta Ads dos seus clientes.",
         metrics: (n: number) => `Números, gráficos e tabelas de ${n} plataformas no mesmo formato.`,
         llm: "OpenAI, Anthropic e Meta no formato da OpenAI, com a sua chave.",
@@ -689,7 +689,7 @@ export const pt = {
         metaTitle: "API de publicação em redes sociais para SaaS",
         metaDescription: "Publique carrossel, reels, stories, pins e Shorts nas contas dos seus clientes no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube por uma API.",
         h1: "Publique nas redes dos seus clientes por uma API",
-        intro: "Seu cliente conecta as contas uma vez. Seu produto publica no Instagram, no Facebook, no Threads, no LinkedIn, no Pinterest e no YouTube pelo mesmo endpoint, e acompanha cada publicação até o fim.",
+        intro: "Seu cliente conecta as contas uma vez. Seu produto publica no Instagram, no Facebook, no Threads, no LinkedIn, no Pinterest e no YouTube Shorts pelo mesmo endpoint, e acompanha cada publicação até o fim.",
       },
       ads: {
         name: "Ads",

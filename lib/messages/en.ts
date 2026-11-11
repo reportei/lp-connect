@@ -230,16 +230,16 @@ export const en: Messages = {
       {
         problem: "App review on every platform",
         solution:
-          "Meta, Google, LinkedIn and TikTok review your app before releasing third-party data. With Connect, you use integrations that have already passed those reviews.",
+          "Standard native integrations use apps maintained by Connect that have passed the platforms' reviews. OAuth toolkits require you to register your product's own app.",
       },
       {
         problem: "One OAuth flow per network",
         solution:
-          "You generate a connection link and your customer authorizes the accounts on a ready-made screen hosted by Connect. Your code implements no platform's OAuth.",
+          "You generate a link and your customer authorizes accounts on a screen hosted by Connect. For OAuth toolkits, you first register your product's app credentials.",
       },
       {
         problem: "Tokens that expire",
-        solution: "Connect renews tokens before they expire and regularly checks that each connection still has access.",
+        solution: "Connect manages renewal where the integration supports it. Accounts connected through your own Meta app need reconnection when their token becomes invalid.",
       },
       {
         problem: "Connections that drop without warning",
@@ -388,7 +388,7 @@ export const en: Messages = {
             `Connect your customers' accounts on ${n} marketing, CRM and e-commerce platforms and query their metrics through a single API.`,
           ],
           [
-            "You can also publish to your customers' Instagram and Facebook and, on Meta Ads, create and manage campaigns, ad sets and ads, all through the same connected accounts.",
+            "You can also publish to your customers' Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts and create and manage Meta Ads campaigns, ad sets and ads, subject to the connected accounts' permissions.",
           ],
           [
             `With toolkits, your product runs actions in ${toolkits} more of your customers' apps, such as sending WhatsApp messages, creating tasks in ClickUp or posting to a Slack channel. Toolkits bring no metrics.`,
@@ -399,7 +399,7 @@ export const en: Messages = {
         q: () => "Do I need to create and get an app approved on each platform?",
         a: (): Rich[] => [
           [
-            "No. Connect's integrations have already passed the platforms' reviews. Your customer authorizes access to the accounts and you query the data through the API, without registering your own app on each network.",
+            "Standard native integrations use apps maintained by Connect, so you do not need your own app on each network. OAuth toolkits require you to register your product's app credentials in Connect and meet the platform's requirements. Your customer must always authorize access. Other connection modes use the credentials required by the app.",
           ],
         ],
       },
@@ -423,7 +423,7 @@ export const en: Messages = {
         q: () => "How are my customers' tokens stored?",
         a: (): Rich[] => [
           [
-            "Your system never handles the platforms' tokens. They are stored encrypted in Connect, which renews each one before it expires and uses it only to fetch the data you requested.",
+            "Connect stores credentials encrypted and uses them for authorized queries and actions. Renewal depends on the connection mode and provider support. When you use your own Meta app, Connect neither verifies nor renews tokens issued by that app; the account must be reconnected if they become invalid.",
           ],
         ],
       },
@@ -431,7 +431,7 @@ export const en: Messages = {
         q: () => "What if a customer's connection loses access?",
         a: (): Rich[] => [
           [
-            "Connect checks connections regularly. When one changes status or is removed, your system receives a webhook and can ask the customer to connect the account again.",
+            "For managed native integrations, Connect checks connections regularly and sends a webhook when their status changes or they are removed. Your system should also handle authorization errors from API calls and request reconnection when needed. Tokens from your own Meta app are not checked automatically.",
           ],
         ],
       },
@@ -586,11 +586,11 @@ export const en: Messages = {
         },
         {
           title: "Your product calls the tool",
-          body: "A POST to /api/tools/{tool}/execute with the connection id and the arguments. The response is the app's own, with the same status and body.",
+          body: "A POST to /api/tools/{tool}/execute with the connection id and arguments. On success, Connect preserves the app's response status and body.",
         },
         {
           title: "Connect handles the rest",
-          body: "It stores the credential encrypted, renews OAuth tokens and records every execution in an audit trail you query through the API.",
+          body: "It stores the credential encrypted, renews tokens for OAuth connections that support renewal and records executions in an audit trail available through the API.",
         },
       ],
       useCasesEyebrow: "Use cases",
@@ -640,7 +640,7 @@ export const en: Messages = {
         "Your system sends your customer's connection id and the tool arguments. The headers are the same as the rest of the Connect API: your product's token and your customer's token.",
       responseTitle: "The response",
       responseCopy:
-        "Connect returns the app's response status and body as they came, with the X-Toolkit-Execution-Id header. Every execution is recorded and can be read with GET /api/tools/executions/{uuid}.",
+        "On success, Connect preserves the app's response status and body. HTTP errors returned by the app use the {error, api_error} envelope; authentication or validation can fail before execution. The X-Toolkit-Execution-Id header identifies the recorded execution, available at GET /api/tools/executions/{uuid}.",
       paramsTitle: "Parameters",
       paramsNote: "",
       columns: { name: "Parameter", type: "Type", required: "Required", description: "Description" },
@@ -662,9 +662,9 @@ export const en: Messages = {
     home: {
       eyebrow: "Features",
       title: "Beyond reading data: publish, advertise and call LLMs through the same API",
-      copy: "The accounts your customer connected also publish posts, manage Meta Ads, return metrics and call AI models. Each action has its own page with the request ready.",
+      copy: "Use your customers' connected accounts to publish posts, manage Meta Ads and query metrics. To call AI models, register your own provider key. Each action has a page with an example request.",
       cards: {
-        posts: "Publish to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube.",
+        posts: "Publish to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts.",
         ads: "Create, boost and manage ads in your customers' Meta Ads.",
         metrics: (n) => `Numbers, charts and tables from ${n} platforms in the same format.`,
         llm: "OpenAI, Anthropic and Meta in the OpenAI format, with your own key.",
@@ -679,7 +679,7 @@ export const en: Messages = {
         metaTitle: "Social media publishing API for SaaS",
         metaDescription: "Publish carousels, reels, stories, pins and Shorts to your customers' Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube accounts through one API.",
         h1: "Publish to your customers' social accounts through one API",
-        intro: "Your customer connects the accounts once. Your product publishes to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube through the same endpoint, and follows each post to the end.",
+        intro: "Your customer connects the accounts once. Your product publishes to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts through the same endpoint, and follows each post to the end.",
       },
       ads: {
         name: "Ads",
