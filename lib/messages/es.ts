@@ -390,7 +390,7 @@ export const es: Messages = {
             `Conectar las cuentas de tus clientes en ${n} plataformas de marketing, CRM y e-commerce y consultar sus métricas con una única API.`,
           ],
           [
-            "También puedes publicar en Instagram, Facebook, Threads, LinkedIn, Pinterest y YouTube Shorts de tus clientes y crear y gestionar campañas, conjuntos y anuncios de Meta Ads, según los permisos de las cuentas conectadas.",
+            "También puedes publicar en Instagram, Facebook, Threads, LinkedIn, Pinterest y YouTube Shorts de tus clientes y crear y gestionar campañas, conjuntos y anuncios de Meta Ads y Google Ads, según los permisos de las cuentas conectadas.",
           ],
           [
             `Con los toolkits, tu producto ejecuta acciones en ${toolkits} apps más de tus clientes, como enviar mensajes por WhatsApp, crear tareas en ClickUp o avisar a un canal de Slack. Los toolkits no traen métricas.`,
@@ -666,10 +666,10 @@ export const es: Messages = {
     home: {
       eyebrow: "Funcionalidades",
       title: "Más allá de leer datos: publica, anuncia y llama a LLMs con la misma API",
-      copy: "Usa las cuentas conectadas de tus clientes para publicar posts, gestionar Meta Ads y consultar métricas. Para llamar a modelos de IA, registra tu propia clave del proveedor. Cada acción tiene una página con un ejemplo de llamada.",
+      copy: "Usa las cuentas conectadas de tus clientes para publicar posts, gestionar Meta Ads y Google Ads y consultar métricas. Para llamar a modelos de IA, registra tu propia clave del proveedor. Cada acción tiene una página con un ejemplo de llamada.",
       cards: {
         posts: "Publica en Instagram, Facebook, Threads, LinkedIn, Pinterest y YouTube Shorts.",
-        ads: "Crea, impulsa y gestiona anuncios en el Meta Ads de tus clientes.",
+        ads: "Crea, impulsa y gestiona anuncios en el Meta Ads y el Google Ads de tus clientes.",
         metrics: (n) => `Números, gráficos y tablas de ${n} plataformas en el mismo formato.`,
         llm: "OpenAI, Anthropic y Meta en el formato de OpenAI, con tu clave.",
       },
@@ -687,9 +687,9 @@ export const es: Messages = {
       },
       ads: {
         name: "Ads",
-        metaTitle: "API de Meta Ads para crear y gestionar anuncios",
-        metaDescription: "Crea campañas, conjuntos y anuncios en el Meta Ads de tus clientes, impulsa posts, segmenta públicos y edita presupuestos con una API.",
-        h1: "Crea y gestiona anuncios en el Meta Ads de tus clientes con una API",
+        metaTitle: "API de Meta Ads y Google Ads para crear y gestionar anuncios",
+        metaDescription: "Crea campañas, conjuntos y anuncios en el Meta Ads y el Google Ads de tus clientes, impulsa posts, segmenta públicos y edita presupuestos con una API.",
+        h1: "Crea y gestiona anuncios en el Meta Ads y el Google Ads de tus clientes con una API",
         intro: "Todo se crea pausado, cada escritura es idempotente y un fallo a mitad de camino deshace lo que ya se había creado. Tu producto opera la cuenta publicitaria del cliente sin pasar por la revisión de apps de Meta.",
       },
       metrics: {

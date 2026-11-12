@@ -70,10 +70,10 @@
       "type": "string",
       "required": true,
       "description": {
-        "pt": "awareness, traffic, engagement, leads, app_promotion ou sales. Obrigatório na criação e não muda depois.",
-        "en": "awareness, traffic, engagement, leads, app_promotion or sales. Required on create and can't be changed afterwards.",
-        "es": "awareness, traffic, engagement, leads, app_promotion o sales. Obligatorio al crear y no cambia después.",
-        "fr": "awareness, traffic, engagement, leads, app_promotion ou sales. Obligatoire à la création, non modifiable ensuite."
+        "pt": "awareness, traffic, engagement, leads, app_promotion ou sales. Obrigatório na criação e não muda depois. Só no Meta Ads.",
+        "en": "awareness, traffic, engagement, leads, app_promotion or sales. Required on create and can't be changed afterwards. Meta Ads only.",
+        "es": "awareness, traffic, engagement, leads, app_promotion o sales. Obligatorio al crear y no cambia después. Solo en Meta Ads.",
+        "fr": "awareness, traffic, engagement, leads, app_promotion ou sales. Obligatoire à la création, non modifiable ensuite. Meta Ads uniquement."
       }
     },
     {
@@ -97,19 +97,43 @@
         "es": "Límite de gasto de la campaña, en la moneda de la cuenta. null lo quita.",
         "fr": "Plafond de dépense de la campagne, dans la devise du compte. null le supprime."
       }
+    },
+    {
+      "name": "google_adwords.type",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Google Ads: demand_gen ou performance_max. Obrigatório no Google.",
+        "en": "Google Ads: demand_gen or performance_max. Required on Google.",
+        "es": "Google Ads: demand_gen o performance_max. Obligatorio en Google.",
+        "fr": "Google Ads : demand_gen ou performance_max. Obligatoire sur Google."
+      }
+    },
+    {
+      "name": "google_adwords.bidding",
+      "type": "object",
+      "required": false,
+      "description": {
+        "pt": "Google Ads: strategy (maximize_conversions, o padrão, ou maximize_conversion_value) e, opcional, target_cpa ou target_roas (4 é 400%).",
+        "en": "Google Ads: strategy (maximize_conversions, the default, or maximize_conversion_value) and, optionally, target_cpa or target_roas (4 means 400%).",
+        "es": "Google Ads: strategy (maximize_conversions, por defecto, o maximize_conversion_value) y, opcional, target_cpa o target_roas (4 es 400%).",
+        "fr": "Google Ads : strategy (maximize_conversions, par défaut, ou maximize_conversion_value) et, en option, target_cpa ou target_roas (4 vaut 400 %)."
+      }
     }
   ],
   "pt": {
-    "title": "Criar campanha no Meta Ads",
-    "tagline": "Crie campanhas no Meta Ads da conta do seu cliente com um POST: objetivo, orçamento e limite de gasto. Nasce pausada e é idempotente.",
-    "intro": "Uma chamada cria a campanha na conta de anúncios que o cliente conectou, sem você implementar a API do Meta nem passar pela revisão de app. Você descreve objetivo e orçamento em um vocabulário único e o Connect cuida do token e da tradução. A campanha nasce pausada, então nada gasta até você ativar.",
+    "title": "Criar campanha no Meta Ads e no Google Ads",
+    "tagline": "Crie campanhas no Meta Ads ou campanhas Demand Gen e Performance Max no Google Ads com um POST, com orçamento e lance. Nasce pausada e é idempotente.",
+    "intro": "Uma chamada cria a campanha na conta de anúncios que o cliente conectou, sem você implementar a API do Meta nem passar pela revisão de app. Você descreve objetivo e orçamento em um vocabulário único e o Connect cuida do token e da tradução. A campanha nasce pausada, então nada gasta até você ativar. No Google Ads, a mesma rota cria campanhas Demand Gen e Performance Max, com orçamento diário e estratégia de lance.",
     "can": [
       "Escolher o objetivo: awareness, traffic, engagement, leads, app_promotion ou sales.",
       "Definir o orçamento na campanha (CBO) ou deixá-lo para cada conjunto (ABO).",
       "Usar orçamento daily ou lifetime, na moeda da conta do cliente.",
       "Informar special_ad_categories para crédito, emprego, moradia e política.",
       "Definir um limite de gasto com facebook_ads.spend_cap.",
-      "Consultar os valores aceitos em GET /ads/options?integration_slug=facebook_ads."
+      "Consultar os valores aceitos em GET /ads/options?integration_slug=facebook_ads.",
+      "No Google Ads, criar uma campanha Demand Gen ou Performance Max com google_adwords.type e orçamento diário próprio.",
+      "No Google Ads, escolher o lance em google_adwords.bidding: maximize_conversions, com target_cpa opcional, ou maximize_conversion_value, com target_roas opcional."
     ],
     "rules": [
       "Sem status, a campanha nasce pausada.",
@@ -117,7 +141,8 @@
       "O orçamento fica na campanha (CBO) ou em cada conjunto (ABO), nunca nos dois. Não existe campo level: o nível é onde o budget está.",
       "budget.amount é na moeda da conta, nunca em centavos.",
       "facebook_ads.objective é obrigatório e não muda depois de criado.",
-      "A resposta é síncrona: 201 com a campanha criada. Se a chave de idempotência já foi usada com outro corpo, a resposta é 422 idempotency_key_reused."
+      "A resposta é síncrona: 201 com a campanha criada. Se a chave de idempotência já foi usada com outro corpo, a resposta é 422 idempotency_key_reused.",
+      "No Google Ads, budget é obrigatório e só daily: o orçamento fica sempre na campanha. facebook_ads é recusado."
     ],
     "useCases": [
       {
@@ -149,16 +174,18 @@
     ]
   },
   "en": {
-    "title": "Create a Meta Ads campaign",
-    "tagline": "Create Meta Ads campaigns in your client's ad account with one POST: objective, budget and spend cap. Created paused and idempotent.",
-    "intro": "One call creates the campaign in the ad account your client connected, with no Meta API integration to build and no app review. You describe objective and budget in a single vocabulary and Connect handles the token and the translation. The campaign is created paused, so nothing spends until you activate it.",
+    "title": "Create a campaign on Meta Ads and Google Ads",
+    "tagline": "Create Meta Ads campaigns or Google Ads Demand Gen and Performance Max campaigns with one POST, with budget and bidding. Starts paused, idempotent.",
+    "intro": "One call creates the campaign in the ad account your client connected, with no Meta API integration to build and no app review. You describe objective and budget in a single vocabulary and Connect handles the token and the translation. The campaign is created paused, so nothing spends until you activate it. On Google Ads, the same route creates Demand Gen and Performance Max campaigns, with a daily budget and a bidding strategy.",
     "can": [
       "Pick the objective: awareness, traffic, engagement, leads, app_promotion or sales.",
       "Set the budget on the campaign (CBO) or leave it to each ad set (ABO).",
       "Use a daily or lifetime budget, in the client account's currency.",
       "Send special_ad_categories for credit, employment, housing and politics.",
       "Set a spending limit with facebook_ads.spend_cap.",
-      "Read the accepted values from GET /ads/options?integration_slug=facebook_ads."
+      "Read the accepted values from GET /ads/options?integration_slug=facebook_ads.",
+      "On Google Ads, create a Demand Gen or Performance Max campaign with google_adwords.type and its own daily budget.",
+      "On Google Ads, pick the bidding in google_adwords.bidding: maximize_conversions, with an optional target_cpa, or maximize_conversion_value, with an optional target_roas."
     ],
     "rules": [
       "Without status, the campaign is created paused.",
@@ -166,7 +193,8 @@
       "The budget sits on the campaign (CBO) or on each ad set (ABO), never on both. There is no level field: the level is where the budget is.",
       "budget.amount is in the account's currency, never in cents.",
       "facebook_ads.objective is required and can't be changed after creation.",
-      "The response is synchronous: 201 with the created campaign. Reusing the key with a different body returns 422 idempotency_key_reused."
+      "The response is synchronous: 201 with the created campaign. Reusing the key with a different body returns 422 idempotency_key_reused.",
+      "On Google Ads, budget is required and daily only: the budget always lives on the campaign. facebook_ads is refused."
     ],
     "useCases": [
       {
@@ -198,16 +226,18 @@
     ]
   },
   "es": {
-    "title": "Crear una campaña en Meta Ads",
-    "tagline": "Crea campañas de Meta Ads en la cuenta de tu cliente con un POST: objetivo, presupuesto y límite de gasto. Nace pausada y es idempotente.",
-    "intro": "Una llamada crea la campaña en la cuenta de anuncios que el cliente conectó, sin implementar la API de Meta ni pasar por la revisión de app. Describes objetivo y presupuesto en un vocabulario único y Connect se encarga del token y de la traducción. La campaña nace pausada, así que nada gasta hasta que la actives.",
+    "title": "Crear una campaña en Meta Ads y Google Ads",
+    "tagline": "Crea campañas en Meta Ads o campañas Demand Gen y Performance Max en Google Ads con un POST, con presupuesto y puja. Nace pausada y es idempotente.",
+    "intro": "Una llamada crea la campaña en la cuenta de anuncios que el cliente conectó, sin implementar la API de Meta ni pasar por la revisión de app. Describes objetivo y presupuesto en un vocabulario único y Connect se encarga del token y de la traducción. La campaña nace pausada, así que nada gasta hasta que la actives. En Google Ads, la misma ruta crea campañas Demand Gen y Performance Max, con presupuesto diario y estrategia de puja.",
     "can": [
       "Elegir el objetivo: awareness, traffic, engagement, leads, app_promotion o sales.",
       "Definir el presupuesto en la campaña (CBO) o dejarlo para cada conjunto (ABO).",
       "Usar presupuesto daily o lifetime, en la moneda de la cuenta del cliente.",
       "Enviar special_ad_categories para crédito, empleo, vivienda y política.",
       "Definir un límite de gasto con facebook_ads.spend_cap.",
-      "Consultar los valores aceptados en GET /ads/options?integration_slug=facebook_ads."
+      "Consultar los valores aceptados en GET /ads/options?integration_slug=facebook_ads.",
+      "En Google Ads, crear una campaña Demand Gen o Performance Max con google_adwords.type y presupuesto diario propio.",
+      "En Google Ads, elegir la puja en google_adwords.bidding: maximize_conversions, con target_cpa opcional, o maximize_conversion_value, con target_roas opcional."
     ],
     "rules": [
       "Sin status, la campaña nace pausada.",
@@ -215,7 +245,8 @@
       "El presupuesto va en la campaña (CBO) o en cada conjunto (ABO), nunca en los dos. No existe un campo level: el nivel es donde está el budget.",
       "budget.amount va en la moneda de la cuenta, nunca en centavos.",
       "facebook_ads.objective es obligatorio y no cambia después de crear.",
-      "La respuesta es síncrona: 201 con la campaña creada. Si la clave ya se usó con otro cuerpo, responde 422 idempotency_key_reused."
+      "La respuesta es síncrona: 201 con la campaña creada. Si la clave ya se usó con otro cuerpo, responde 422 idempotency_key_reused.",
+      "En Google Ads, budget es obligatorio y solo daily: el presupuesto va siempre en la campaña. facebook_ads se rechaza."
     ],
     "useCases": [
       {
@@ -247,16 +278,18 @@
     ]
   },
   "fr": {
-    "title": "Créer une campagne Meta Ads",
-    "tagline": "Créez des campagnes Meta Ads dans le compte de votre client avec un POST : objectif, budget et plafond. Créée en pause et idempotente.",
-    "intro": "Un appel crée la campagne dans le compte publicitaire que le client a connecté, sans implémenter l'API Meta ni passer par la revue d'app. Vous décrivez objectif et budget dans un vocabulaire unique et Connect gère le token et la traduction. La campagne est créée en pause : rien ne dépense avant que vous l'activiez.",
+    "title": "Créer une campagne sur Meta Ads et Google Ads",
+    "tagline": "Créez des campagnes Meta Ads ou Demand Gen et Performance Max sur Google Ads en un POST, avec budget et enchères. En pause, idempotent.",
+    "intro": "Un appel crée la campagne dans le compte publicitaire que le client a connecté, sans implémenter l'API Meta ni passer par la revue d'app. Vous décrivez objectif et budget dans un vocabulaire unique et Connect gère le token et la traduction. La campagne est créée en pause : rien ne dépense avant que vous l'activiez. Sur Google Ads, la même route crée des campagnes Demand Gen et Performance Max, avec un budget quotidien et une stratégie d'enchères.",
     "can": [
       "Choisir l'objectif : awareness, traffic, engagement, leads, app_promotion ou sales.",
       "Définir le budget sur la campagne (CBO) ou le laisser à chaque ensemble (ABO).",
       "Utiliser un budget daily ou lifetime, dans la devise du compte du client.",
       "Envoyer special_ad_categories pour le crédit, l'emploi, le logement et la politique.",
       "Définir un plafond de dépense avec facebook_ads.spend_cap.",
-      "Lire les valeurs acceptées via GET /ads/options?integration_slug=facebook_ads."
+      "Lire les valeurs acceptées via GET /ads/options?integration_slug=facebook_ads.",
+      "Sur Google Ads, créer une campagne Demand Gen ou Performance Max avec google_adwords.type et son propre budget quotidien.",
+      "Sur Google Ads, choisir les enchères dans google_adwords.bidding : maximize_conversions, avec target_cpa facultatif, ou maximize_conversion_value, avec target_roas facultatif."
     ],
     "rules": [
       "Sans status, la campagne est créée en pause.",
@@ -264,7 +297,8 @@
       "Le budget est sur la campagne (CBO) ou sur chaque ensemble (ABO), jamais sur les deux. Il n'y a pas de champ level : le niveau est l'endroit où se trouve le budget.",
       "budget.amount est dans la devise du compte, jamais en centimes.",
       "facebook_ads.objective est obligatoire et ne change plus après la création.",
-      "La réponse est synchrone : 201 avec la campagne créée. Réutiliser la clé avec un autre corps renvoie 422 idempotency_key_reused."
+      "La réponse est synchrone : 201 avec la campagne créée. Réutiliser la clé avec un autre corps renvoie 422 idempotency_key_reused.",
+      "Sur Google Ads, budget est obligatoire et uniquement daily : le budget est toujours sur la campagne. facebook_ads est refusé."
     ],
     "useCases": [
       {
