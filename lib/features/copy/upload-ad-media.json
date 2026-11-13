@@ -64,10 +64,10 @@
       "type": "string",
       "required": false,
       "description": {
-        "pt": "Na resposta, só para imagem: o que o anúncio usa para referenciá-la.",
-        "en": "In the response, image only: what the ad uses to reference it.",
-        "es": "En la respuesta, solo imagen: lo que el anuncio usa para referenciarla.",
-        "fr": "Dans la réponse, image uniquement : ce que l'annonce utilise pour la référencer."
+        "pt": "Na resposta, só para imagem: o que o anúncio usa para referenciá-la. Só no Meta Ads.",
+        "en": "In the response, image only: what the ad uses to reference it. Meta Ads only.",
+        "es": "En la respuesta, solo imagen: lo que el anuncio usa para referenciarla. Solo en Meta Ads.",
+        "fr": "Dans la réponse, image uniquement : ce que l'annonce utilise pour la référencer. Meta Ads uniquement."
       }
     },
     {
@@ -91,25 +91,51 @@
         "es": "En la respuesta: ready o processing. En el GET del video, también failed.",
         "fr": "Dans la réponse : ready ou processing. Sur le GET de la vidéo, aussi failed."
       }
+    },
+    {
+      "name": "asset_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta, no Google Ads: o que o anúncio usa em google_adwords.images, logo_asset_ids e video_asset_ids.",
+        "en": "In the response, on Google Ads: what the ad uses in google_adwords.images, logo_asset_ids and video_asset_ids.",
+        "es": "En la respuesta, en Google Ads: lo que el anuncio usa en google_adwords.images, logo_asset_ids y video_asset_ids.",
+        "fr": "Dans la réponse, sur Google Ads : ce que l'annonce utilise dans google_adwords.images, logo_asset_ids et video_asset_ids."
+      }
+    },
+    {
+      "name": "video_id",
+      "type": "string",
+      "required": false,
+      "description": {
+        "pt": "Na resposta, no Google Ads, para vídeo: o id do vídeo no YouTube.",
+        "en": "In the response, on Google Ads, video only: the video's YouTube id.",
+        "es": "En la respuesta, en Google Ads, solo video: el id del video en YouTube.",
+        "fr": "Dans la réponse, sur Google Ads, vidéo uniquement : l'id de la vidéo sur YouTube."
+      }
     }
   ],
   "pt": {
-    "title": "Enviar imagem e vídeo para a conta do Meta Ads",
-    "tagline": "Envie imagens e vídeos por URL para a biblioteca da conta de anúncios do cliente e receba o hash ou o id para usar nos anúncios do Meta Ads.",
-    "intro": "Uma chamada entrega uma imagem ou um vídeo, por URL, à conta de anúncios do cliente e devolve o que os anúncios usam para referenciar o arquivo: o hash da imagem ou o id do vídeo. Você envia uma vez e reaproveita em quantos anúncios quiser, sem implementar a API da Meta.",
+    "title": "Enviar imagem e vídeo para o Meta Ads e o Google Ads",
+    "tagline": "Envie imagens e vídeos por URL para a conta de anúncios do cliente no Meta Ads ou no Google Ads e receba o que os anúncios usam para citá-los.",
+    "intro": "Uma chamada entrega uma imagem ou um vídeo, por URL, à conta de anúncios do cliente e devolve o que os anúncios usam para referenciar o arquivo: o hash da imagem ou o id do vídeo. Você envia uma vez e reaproveita em quantos anúncios quiser, sem implementar a API da Meta. No Google Ads, a rota é POST /ads/google_adwords/media e a resposta traz o asset_id.",
     "can": [
       "Enviar uma imagem JPEG ou PNG por URL com POST /ads/facebook_ads/media e type: image, e receber o hash.",
       "Enviar um vídeo por URL com type: video e receber o id.",
       "Usar a URL devolvida por POST /media, que sobe o arquivo e devolve o endereço público.",
       "Acompanhar o processamento do vídeo com GET /ads/facebook_ads/videos/{id}, que traz status e thumbnail_url.",
-      "Reutilizar o mesmo hash ou id em vários anúncios, como a versão de feed e a de stories do mesmo criativo."
+      "Reutilizar o mesmo hash ou id em vários anúncios, como a versão de feed e a de stories do mesmo criativo.",
+      "No Google Ads, enviar uma imagem com POST /ads/google_adwords/media e receber o asset_id, já pronto.",
+      "No Google Ads, importar um vídeo do YouTube pelo link, pronto na hora, ou enviar um arquivo de vídeo, que sobe para o YouTube como não listado.",
+      "No Google Ads, listar as imagens e os vídeos do YouTube que já estão na conta com GET /ads/google_adwords/library, com o asset_id, para não enviar de novo."
     ],
     "rules": [
       "O Idempotency-Key é obrigatório e vai sempre no header. Gere uma vez e reenvie a mesma chave nas tentativas. Repetir o mesmo pedido devolve 200 com Idempotent-Replay: true.",
       "A imagem fica pronta na hora. O vídeo começa em processing e só deve ir num anúncio quando o status for ready.",
       "O status do vídeo pode ser processing, ready ou failed. thumbnail_url é um quadro escolhido pela rede, usado como miniatura do anúncio.",
       "GET /ads/facebook_ads/videos/{id} só responde por vídeos que esta conta recebeu por POST /ads/facebook_ads/media. Qualquer outro id dá 404.",
-      "O Connect não guarda o arquivo: guarde o hash ou o id do seu lado. Se um anúncio usar um vídeo ainda processando, a resposta é 409 ads_video_not_ready, e repetir com a mesma chave retoma."
+      "O Connect não guarda o arquivo: guarde o hash ou o id do seu lado. Se um anúncio usar um vídeo ainda processando, a resposta é 409 ads_video_not_ready, e repetir com a mesma chave retoma.",
+      "No Google Ads, um vídeo enviado por arquivo começa em processing, e GET /ads/google_adwords/videos/{id} diz quando fica ready e devolve o asset_id. O envio ao YouTube precisa terminar em 60 segundos: para um vídeo grande, publique no YouTube e mande o link."
     ],
     "useCases": [
       {
@@ -131,8 +157,8 @@
         "a": "Sim. O vídeo começa em processing. Consulte GET /ads/facebook_ads/videos/{id} e use o id no anúncio quando o status for ready. Se usar antes, a resposta é 409 ads_video_not_ready e você repete com a mesma Idempotency-Key."
       },
       {
-        "q": "De onde vem a URL do arquivo?",
-        "a": "Precisa ser um endereço https público. Uma opção é a URL devolvida por POST /media, que sobe o arquivo e devolve o endereço."
+        "q": "Funciona com o Google Ads?",
+        "a": "Sim. Use POST /ads/google_adwords/media: a resposta traz o asset_id, que o anúncio do Google usa. Um link do YouTube é importado e já volta ready; outro vídeo sobe para o YouTube, não listado, e fica pronto quando GET /ads/google_adwords/videos/{id} disser ready."
       },
       {
         "q": "O Connect guarda a imagem ou o vídeo?",
@@ -141,22 +167,26 @@
     ]
   },
   "en": {
-    "title": "Upload images and videos to a Meta Ads account",
-    "tagline": "Send images and videos by URL to the customer's ad account library and get back the hash or id to use in Meta Ads ads.",
-    "intro": "One call delivers an image or a video, by URL, to the customer's ad account and returns what ads use to reference the file: the image hash or the video id. You upload once and reuse it in as many ads as you want, without implementing the Meta API.",
+    "title": "Upload images and videos to Meta Ads and Google Ads",
+    "tagline": "Send images and videos by URL to the customer's Meta Ads or Google Ads account and get back what ads use to reference them.",
+    "intro": "One call delivers an image or a video, by URL, to the customer's ad account and returns what ads use to reference the file: the image hash or the video id. You upload once and reuse it in as many ads as you want, without implementing the Meta API. On Google Ads, the route is POST /ads/google_adwords/media and the response carries the asset_id.",
     "can": [
       "Upload a JPEG or PNG image by URL with POST /ads/facebook_ads/media and type: image, and get the hash.",
       "Upload a video by URL with type: video and get the id.",
       "Use the URL returned by POST /media, which uploads the file and returns the public address.",
       "Track video processing with GET /ads/facebook_ads/videos/{id}, which returns status and thumbnail_url.",
-      "Reuse the same hash or id across several ads, such as the feed and stories versions of one creative."
+      "Reuse the same hash or id across several ads, such as the feed and stories versions of one creative.",
+      "On Google Ads, upload an image with POST /ads/google_adwords/media and get its asset_id, ready at once.",
+      "On Google Ads, import a YouTube video by its link, ready at once, or upload a video file, which goes to YouTube as unlisted.",
+      "On Google Ads, list the images and YouTube videos already in the account with GET /ads/google_adwords/library, with their asset_id, so you don't upload them again."
     ],
     "rules": [
       "Idempotency-Key is required and always goes in the header. Generate it once and resend the same key on retries. Repeating the same request returns 200 with Idempotent-Replay: true.",
       "The image is ready immediately. The video starts as processing and should only go in an ad once the status is ready.",
       "The video status can be processing, ready or failed. thumbnail_url is a frame chosen by the network, used as the ad's thumbnail.",
       "GET /ads/facebook_ads/videos/{id} only answers for videos this account received via POST /ads/facebook_ads/media. Any other id is 404.",
-      "Connect does not store the file: keep the hash or id on your side. If an ad uses a video still processing, the response is 409 ads_video_not_ready, and retrying with the same key resumes."
+      "Connect does not store the file: keep the hash or id on your side. If an ad uses a video still processing, the response is 409 ads_video_not_ready, and retrying with the same key resumes.",
+      "On Google Ads, a video uploaded as a file starts as processing, and GET /ads/google_adwords/videos/{id} says when it is ready and returns its asset_id. The upload to YouTube must finish within 60 seconds: for a large video, publish it on YouTube and send the link."
     ],
     "useCases": [
       {
@@ -178,8 +208,8 @@
         "a": "Yes. The video starts as processing. Check GET /ads/facebook_ads/videos/{id} and use the id in the ad when the status is ready. If you use it earlier, the response is 409 ads_video_not_ready and you retry with the same Idempotency-Key."
       },
       {
-        "q": "Where does the file URL come from?",
-        "a": "It must be a public https address. One option is the URL returned by POST /media, which uploads the file and returns the address."
+        "q": "Does it work with Google Ads?",
+        "a": "Yes. Use POST /ads/google_adwords/media: the response carries the asset_id, which the Google ad uses. A YouTube link is imported and comes back ready; any other video is uploaded to YouTube, unlisted, and is ready when GET /ads/google_adwords/videos/{id} says ready."
       },
       {
         "q": "Does Connect store the image or video?",
@@ -188,22 +218,26 @@
     ]
   },
   "es": {
-    "title": "Subir imágenes y videos a una cuenta de Meta Ads",
-    "tagline": "Envía imágenes y videos por URL a la biblioteca de la cuenta de anuncios del cliente y recibe el hash o el id para usar en anuncios de Meta Ads.",
-    "intro": "Una llamada entrega una imagen o un video, por URL, a la cuenta de anuncios del cliente y devuelve lo que los anuncios usan para referenciar el archivo: el hash de la imagen o el id del video. Subes una vez y reutilizas en cuantos anuncios quieras, sin implementar la API de Meta.",
+    "title": "Subir imágenes y videos a Meta Ads y Google Ads",
+    "tagline": "Envía imágenes y videos por URL a la cuenta de anuncios del cliente en Meta Ads o Google Ads y recibe lo que los anuncios usan para citarlos.",
+    "intro": "Una llamada entrega una imagen o un video, por URL, a la cuenta de anuncios del cliente y devuelve lo que los anuncios usan para referenciar el archivo: el hash de la imagen o el id del video. Subes una vez y reutilizas en cuantos anuncios quieras, sin implementar la API de Meta. En Google Ads, la ruta es POST /ads/google_adwords/media y la respuesta trae el asset_id.",
     "can": [
       "Subir una imagen JPEG o PNG por URL con POST /ads/facebook_ads/media y type: image, y recibir el hash.",
       "Subir un video por URL con type: video y recibir el id.",
       "Usar la URL devuelta por POST /media, que sube el archivo y devuelve la dirección pública.",
       "Seguir el procesamiento del video con GET /ads/facebook_ads/videos/{id}, que trae status y thumbnail_url.",
-      "Reutilizar el mismo hash o id en varios anuncios, como la versión de feed y la de stories de un mismo creativo."
+      "Reutilizar el mismo hash o id en varios anuncios, como la versión de feed y la de stories de un mismo creativo.",
+      "En Google Ads, subir una imagen con POST /ads/google_adwords/media y recibir el asset_id, lista al instante.",
+      "En Google Ads, importar un video de YouTube por el enlace, listo al instante, o subir un archivo de video, que va a YouTube como no listado.",
+      "En Google Ads, listar las imágenes y los videos de YouTube que ya están en la cuenta con GET /ads/google_adwords/library, con el asset_id, para no subirlos de nuevo."
     ],
     "rules": [
       "Idempotency-Key es obligatorio y va siempre en el header. Genéralo una vez y reenvía la misma clave en los reintentos. Repetir el mismo pedido devuelve 200 con Idempotent-Replay: true.",
       "La imagen queda lista al instante. El video empieza en processing y solo debe ir en un anuncio cuando el status sea ready.",
       "El status del video puede ser processing, ready o failed. thumbnail_url es un fotograma elegido por la red, usado como miniatura del anuncio.",
       "GET /ads/facebook_ads/videos/{id} solo responde por videos que esta cuenta recibió por POST /ads/facebook_ads/media. Cualquier otro id da 404.",
-      "Connect no guarda el archivo: guarda el hash o el id de tu lado. Si un anuncio usa un video aún en procesamiento, la respuesta es 409 ads_video_not_ready, y repetir con la misma clave retoma."
+      "Connect no guarda el archivo: guarda el hash o el id de tu lado. Si un anuncio usa un video aún en procesamiento, la respuesta es 409 ads_video_not_ready, y repetir con la misma clave retoma.",
+      "En Google Ads, un video subido como archivo empieza en processing, y GET /ads/google_adwords/videos/{id} indica cuándo queda ready y devuelve el asset_id. La subida a YouTube debe terminar en 60 segundos: para un video grande, publícalo en YouTube y envía el enlace."
     ],
     "useCases": [
       {
@@ -225,8 +259,8 @@
         "a": "Sí. El video empieza en processing. Consulta GET /ads/facebook_ads/videos/{id} y usa el id en el anuncio cuando el status sea ready. Si lo usas antes, la respuesta es 409 ads_video_not_ready y repites con la misma Idempotency-Key."
       },
       {
-        "q": "¿De dónde sale la URL del archivo?",
-        "a": "Debe ser una dirección https pública. Una opción es la URL devuelta por POST /media, que sube el archivo y devuelve la dirección."
+        "q": "¿Funciona con Google Ads?",
+        "a": "Sí. Usa POST /ads/google_adwords/media: la respuesta trae el asset_id, que usa el anuncio de Google. Un enlace de YouTube se importa y vuelve ready; otro video se sube a YouTube, no listado, y queda listo cuando GET /ads/google_adwords/videos/{id} diga ready."
       },
       {
         "q": "¿Connect guarda la imagen o el video?",
@@ -235,22 +269,26 @@
     ]
   },
   "fr": {
-    "title": "Envoyer images et vidéos vers un compte Meta Ads",
-    "tagline": "Envoyez images et vidéos par URL vers la bibliothèque du compte publicitaire du client et récupérez le hash ou l'id à utiliser dans les annonces Meta Ads.",
-    "intro": "Un appel livre une image ou une vidéo, par URL, au compte publicitaire du client et renvoie ce que les annonces utilisent pour référencer le fichier : le hash de l'image ou l'id de la vidéo. Vous envoyez une fois et réutilisez dans autant d'annonces que vous voulez, sans implémenter l'API Meta.",
+    "title": "Envoyer images et vidéos vers Meta Ads et Google Ads",
+    "tagline": "Envoyez images et vidéos par URL vers le compte Meta Ads ou Google Ads du client et récupérez ce que les annonces utilisent pour les citer.",
+    "intro": "Un appel livre une image ou une vidéo, par URL, au compte publicitaire du client et renvoie ce que les annonces utilisent pour référencer le fichier : le hash de l'image ou l'id de la vidéo. Vous envoyez une fois et réutilisez dans autant d'annonces que vous voulez, sans implémenter l'API Meta. Sur Google Ads, la route est POST /ads/google_adwords/media et la réponse porte l'asset_id.",
     "can": [
       "Envoyer une image JPEG ou PNG par URL avec POST /ads/facebook_ads/media et type: image, et recevoir le hash.",
       "Envoyer une vidéo par URL avec type: video et recevoir l'id.",
       "Utiliser l'URL renvoyée par POST /media, qui envoie le fichier et renvoie l'adresse publique.",
       "Suivre le traitement de la vidéo avec GET /ads/facebook_ads/videos/{id}, qui renvoie status et thumbnail_url.",
-      "Réutiliser le même hash ou id dans plusieurs annonces, comme les versions feed et stories d'un même visuel."
+      "Réutiliser le même hash ou id dans plusieurs annonces, comme les versions feed et stories d'un même visuel.",
+      "Sur Google Ads, envoyer une image avec POST /ads/google_adwords/media et recevoir l'asset_id, prête tout de suite.",
+      "Sur Google Ads, importer une vidéo YouTube par son lien, prête tout de suite, ou envoyer un fichier vidéo, publié sur YouTube en non répertorié.",
+      "Sur Google Ads, lister les images et les vidéos YouTube déjà dans le compte avec GET /ads/google_adwords/library, avec l'asset_id, pour ne pas les renvoyer."
     ],
     "rules": [
       "Idempotency-Key est obligatoire et va toujours dans le header. Générez-la une fois et renvoyez la même clé lors des nouvelles tentatives. Répéter la même requête renvoie 200 avec Idempotent-Replay: true.",
       "L'image est prête immédiatement. La vidéo démarre en processing et ne doit aller dans une annonce que lorsque le status est ready.",
       "Le status de la vidéo peut être processing, ready ou failed. thumbnail_url est une image choisie par le réseau, utilisée comme miniature de l'annonce.",
       "GET /ads/facebook_ads/videos/{id} ne répond que pour les vidéos que ce compte a reçues via POST /ads/facebook_ads/media. Tout autre id donne 404.",
-      "Connect ne stocke pas le fichier : conservez le hash ou l'id de votre côté. Si une annonce utilise une vidéo encore en traitement, la réponse est 409 ads_video_not_ready, et réessayer avec la même clé reprend."
+      "Connect ne stocke pas le fichier : conservez le hash ou l'id de votre côté. Si une annonce utilise une vidéo encore en traitement, la réponse est 409 ads_video_not_ready, et réessayer avec la même clé reprend.",
+      "Sur Google Ads, une vidéo envoyée en fichier démarre en processing, et GET /ads/google_adwords/videos/{id} indique quand elle est ready et renvoie l'asset_id. L'envoi sur YouTube doit finir en 60 secondes : pour une grande vidéo, publiez-la sur YouTube et envoyez le lien."
     ],
     "useCases": [
       {
@@ -272,8 +310,8 @@
         "a": "Oui. La vidéo démarre en processing. Consultez GET /ads/facebook_ads/videos/{id} et utilisez l'id dans l'annonce quand le status est ready. Si vous l'utilisez avant, la réponse est 409 ads_video_not_ready et vous réessayez avec la même Idempotency-Key."
       },
       {
-        "q": "D'où vient l'URL du fichier ?",
-        "a": "Ce doit être une adresse https publique. Une option est l'URL renvoyée par POST /media, qui envoie le fichier et renvoie l'adresse."
+        "q": "Est-ce que ça fonctionne avec Google Ads ?",
+        "a": "Oui. Utilisez POST /ads/google_adwords/media : la réponse porte l'asset_id, que l'annonce Google utilise. Un lien YouTube est importé et revient ready ; toute autre vidéo est envoyée sur YouTube, en non répertorié, et est prête quand GET /ads/google_adwords/videos/{id} indique ready."
       },
       {
         "q": "Connect stocke-t-il l'image ou la vidéo ?",

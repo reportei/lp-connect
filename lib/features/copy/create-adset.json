@@ -89,10 +89,10 @@
       "type": "string",
       "required": true,
       "description": {
-        "pt": "Meta de otimização. Obrigatório na criação; valores em GET /ads/options.",
-        "en": "Optimization goal. Required on create; values in GET /ads/options.",
-        "es": "Meta de optimización. Obligatorio al crear; valores en GET /ads/options.",
-        "fr": "Objectif d'optimisation. Obligatoire à la création ; valeurs dans GET /ads/options."
+        "pt": "Meta de otimização. Obrigatório na criação; valores em GET /ads/options. Só no Meta Ads.",
+        "en": "Optimization goal. Required on create; values in GET /ads/options. Meta Ads only.",
+        "es": "Meta de optimización. Obligatorio al crear; valores en GET /ads/options. Solo en Meta Ads.",
+        "fr": "Objectif d'optimisation. Obligatoire à la création ; valeurs dans GET /ads/options. Meta Ads uniquement."
       }
     },
     {
@@ -100,10 +100,10 @@
       "type": "string",
       "required": true,
       "description": {
-        "pt": "Evento de cobrança. Obrigatório na criação.",
-        "en": "Billing event. Required on create.",
-        "es": "Evento de facturación. Obligatorio al crear.",
-        "fr": "Événement de facturation. Obligatoire à la création."
+        "pt": "Evento de cobrança. Obrigatório na criação. Só no Meta Ads.",
+        "en": "Billing event. Required on create. Meta Ads only.",
+        "es": "Evento de facturación. Obligatorio al crear. Solo en Meta Ads.",
+        "fr": "Événement de facturation. Obligatoire à la création. Meta Ads uniquement."
       }
     },
     {
@@ -141,16 +141,17 @@
     }
   ],
   "pt": {
-    "title": "Criar conjunto de anúncios no Meta Ads",
-    "tagline": "Crie conjuntos de anúncios no Meta Ads com público, orçamento, agenda e lance por API. Nasce pausado e idempotente.",
-    "intro": "Crie o conjunto dentro de uma campanha existente na conta que o cliente conectou: público, agenda, posicionamentos, meta de otimização e lance. Os campos comuns a qualquer plataforma ficam no topo e o que é específico do Meta vai no bloco facebook_ads. Sem app review e sem lidar com tokens.",
+    "title": "Criar conjunto no Meta Ads ou grupo de anúncios no Google Ads",
+    "tagline": "Crie conjuntos no Meta Ads, com público, orçamento, agenda e lance, ou grupos de anúncios Demand Gen no Google Ads, por API. Nasce pausado e idempotente.",
+    "intro": "Crie o conjunto dentro de uma campanha existente na conta que o cliente conectou: público, agenda, posicionamentos, meta de otimização e lance. Os campos comuns a qualquer plataforma ficam no topo e o que é específico do Meta vai no bloco facebook_ads. Sem app review e sem lidar com tokens. No Google Ads, a mesma rota cria um grupo de anúncios numa campanha Demand Gen.",
     "can": [
       "Segmentar por países, idade (age_min e age_max) e gêneros.",
       "Segmentar por interesses e públicos personalizados, incluindo exclusões, em facebook_ads.targeting.",
       "Definir agenda com schedule.start e schedule.end.",
       "Escolher posicionamentos com facebook_ads.placements.",
       "Escolher lance com bid_strategy (lowest_cost, bid_cap, cost_cap) e bid_amount.",
-      "Informar promoted_object, destination_type e attribution_spec na criação."
+      "Informar promoted_object, destination_type e attribution_spec na criação.",
+      "No Google Ads, criar um grupo de anúncios numa campanha Demand Gen só com campaign_id, name e status."
     ],
     "rules": [
       "Idempotency-Key é obrigatório no header; repetir com a mesma chave devolve 200 com Idempotent-Replay: true.",
@@ -159,7 +160,8 @@
       "budget.type lifetime exige schedule.end.",
       "facebook_ads.optimization_goal e facebook_ads.billing_event são obrigatórios; os valores aceitos estão em GET /ads/options.",
       "promoted_object (pixel, página ou conversão personalizada) deve pertencer à conta da conexão, e vale só na criação.",
-      "bid_amount exige bid_strategy."
+      "bid_amount exige bid_strategy.",
+      "No Google Ads, budget, schedule, targeting e facebook_ads são recusados: o orçamento fica na campanha. Numa campanha Performance Max, a rota responde 422 ads_unsupported_operation, e o grupo de recursos é criado com os recursos pelo POST /ads."
     ],
     "useCases": [
       {
@@ -191,16 +193,17 @@
     ]
   },
   "en": {
-    "title": "Create a Meta Ads ad set",
-    "tagline": "Create Meta Ads ad sets with audience, budget, schedule and bid through the API. Created paused and idempotent.",
-    "intro": "Create the ad set inside an existing campaign, in the account your client connected: audience, schedule, placements, optimization goal and bid. Fields common to any platform sit at the top level and what is specific to Meta goes in the facebook_ads block. No app review and no token handling.",
+    "title": "Create a Meta Ads ad set or a Google Ads ad group",
+    "tagline": "Create Meta Ads ad sets, with audience, budget, schedule and bidding, or Google Ads Demand Gen ad groups, by API. Starts paused and idempotent.",
+    "intro": "Create the ad set inside an existing campaign, in the account your client connected: audience, schedule, placements, optimization goal and bid. Fields common to any platform sit at the top level and what is specific to Meta goes in the facebook_ads block. No app review and no token handling. On Google Ads, the same route creates an ad group in a Demand Gen campaign.",
     "can": [
       "Target by countries, age (age_min and age_max) and genders.",
       "Target by interests and custom audiences, including exclusions, in facebook_ads.targeting.",
       "Set a schedule with schedule.start and schedule.end.",
       "Choose placements with facebook_ads.placements.",
       "Choose a bid with bid_strategy (lowest_cost, bid_cap, cost_cap) and bid_amount.",
-      "Send promoted_object, destination_type and attribution_spec on create."
+      "Send promoted_object, destination_type and attribution_spec on create.",
+      "On Google Ads, create an ad group in a Demand Gen campaign with just campaign_id, name and status."
     ],
     "rules": [
       "Idempotency-Key is required in the header; repeating with the same key returns 200 with Idempotent-Replay: true.",
@@ -209,7 +212,8 @@
       "budget.type lifetime requires schedule.end.",
       "facebook_ads.optimization_goal and facebook_ads.billing_event are required; accepted values are in GET /ads/options.",
       "promoted_object (pixel, page or custom conversion) must belong to the connection's account, and applies on create only.",
-      "bid_amount requires bid_strategy."
+      "bid_amount requires bid_strategy.",
+      "On Google Ads, budget, schedule, targeting and facebook_ads are refused: the budget lives on the campaign. Under a Performance Max campaign the route answers 422 ads_unsupported_operation, and the asset group is created with its assets through POST /ads."
     ],
     "useCases": [
       {
@@ -241,16 +245,17 @@
     ]
   },
   "es": {
-    "title": "Crear un conjunto de anuncios en Meta Ads",
-    "tagline": "Crea conjuntos de anuncios en Meta Ads con público, presupuesto, agenda y puja por API. Nace pausado e idempotente.",
-    "intro": "Crea el conjunto dentro de una campaña existente, en la cuenta que el cliente conectó: público, agenda, ubicaciones, meta de optimización y puja. Los campos comunes a cualquier plataforma van arriba y lo específico de Meta va en el bloque facebook_ads. Sin revisión de app y sin manejar tokens.",
+    "title": "Crear un conjunto en Meta Ads o un grupo en Google Ads",
+    "tagline": "Crea conjuntos en Meta Ads, con público, presupuesto, agenda y puja, o grupos de anuncios Demand Gen en Google Ads, por API. Nace pausado e idempotente.",
+    "intro": "Crea el conjunto dentro de una campaña existente, en la cuenta que el cliente conectó: público, agenda, ubicaciones, meta de optimización y puja. Los campos comunes a cualquier plataforma van arriba y lo específico de Meta va en el bloque facebook_ads. Sin revisión de app y sin manejar tokens. En Google Ads, la misma ruta crea un grupo de anuncios en una campaña Demand Gen.",
     "can": [
       "Segmentar por países, edad (age_min y age_max) y géneros.",
       "Segmentar por intereses y públicos personalizados, incluidas exclusiones, en facebook_ads.targeting.",
       "Definir la agenda con schedule.start y schedule.end.",
       "Elegir ubicaciones con facebook_ads.placements.",
       "Elegir la puja con bid_strategy (lowest_cost, bid_cap, cost_cap) y bid_amount.",
-      "Enviar promoted_object, destination_type y attribution_spec al crear."
+      "Enviar promoted_object, destination_type y attribution_spec al crear.",
+      "En Google Ads, crear un grupo de anuncios en una campaña Demand Gen solo con campaign_id, name y status."
     ],
     "rules": [
       "Idempotency-Key es obligatorio en el header; repetir con la misma clave devuelve 200 con Idempotent-Replay: true.",
@@ -259,7 +264,8 @@
       "budget.type lifetime exige schedule.end.",
       "facebook_ads.optimization_goal y facebook_ads.billing_event son obligatorios; los valores aceptados están en GET /ads/options.",
       "promoted_object (píxel, página o conversión personalizada) debe pertenecer a la cuenta de la conexión y vale solo al crear.",
-      "bid_amount exige bid_strategy."
+      "bid_amount exige bid_strategy.",
+      "En Google Ads, budget, schedule, targeting y facebook_ads se rechazan: el presupuesto va en la campaña. En una campaña Performance Max, la ruta responde 422 ads_unsupported_operation, y el grupo de recursos se crea con sus recursos por POST /ads."
     ],
     "useCases": [
       {
@@ -291,16 +297,17 @@
     ]
   },
   "fr": {
-    "title": "Créer un ensemble de publicités Meta Ads",
-    "tagline": "Créez des ensembles Meta Ads avec audience, budget, calendrier et enchère par API. Créé en pause et idempotent.",
-    "intro": "Créez l'ensemble dans une campagne existante, dans le compte que le client a connecté : audience, calendrier, emplacements, objectif d'optimisation et enchère. Les champs communs à toute plateforme sont au premier niveau et ce qui est propre à Meta va dans le bloc facebook_ads. Sans revue d'app ni gestion de tokens.",
+    "title": "Créer un ensemble Meta Ads ou un groupe d'annonces Google Ads",
+    "tagline": "Créez des ensembles Meta Ads, avec audience, budget, calendrier et enchères, ou des groupes Demand Gen Google Ads, par API. En pause, idempotent.",
+    "intro": "Créez l'ensemble dans une campagne existante, dans le compte que le client a connecté : audience, calendrier, emplacements, objectif d'optimisation et enchère. Les champs communs à toute plateforme sont au premier niveau et ce qui est propre à Meta va dans le bloc facebook_ads. Sans revue d'app ni gestion de tokens. Sur Google Ads, la même route crée un groupe d'annonces dans une campagne Demand Gen.",
     "can": [
       "Cibler par pays, âge (age_min et age_max) et genres.",
       "Cibler par centres d'intérêt et audiences personnalisées, exclusions comprises, dans facebook_ads.targeting.",
       "Définir un calendrier avec schedule.start et schedule.end.",
       "Choisir les emplacements avec facebook_ads.placements.",
       "Choisir une enchère avec bid_strategy (lowest_cost, bid_cap, cost_cap) et bid_amount.",
-      "Envoyer promoted_object, destination_type et attribution_spec à la création."
+      "Envoyer promoted_object, destination_type et attribution_spec à la création.",
+      "Sur Google Ads, créer un groupe d'annonces dans une campagne Demand Gen avec seulement campaign_id, name et status."
     ],
     "rules": [
       "Idempotency-Key est obligatoire dans le header ; répéter avec la même clé renvoie 200 avec Idempotent-Replay: true.",
@@ -309,7 +316,8 @@
       "budget.type lifetime exige schedule.end.",
       "facebook_ads.optimization_goal et facebook_ads.billing_event sont obligatoires ; les valeurs acceptées sont dans GET /ads/options.",
       "promoted_object (pixel, page ou conversion personnalisée) doit appartenir au compte de la connexion et ne vaut qu'à la création.",
-      "bid_amount exige bid_strategy."
+      "bid_amount exige bid_strategy.",
+      "Sur Google Ads, budget, schedule, targeting et facebook_ads sont refusés : le budget est sur la campagne. Sous une campagne Performance Max, la route répond 422 ads_unsupported_operation, et le groupe d'éléments est créé avec ses éléments par POST /ads."
     ],
     "useCases": [
       {

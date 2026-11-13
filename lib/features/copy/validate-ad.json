@@ -141,10 +141,10 @@
       "type": "array",
       "required": true,
       "description": {
-        "pt": "Arquivo(s) do criativo, por url, hash ou id.",
-        "en": "The creative's file(s), by url, hash or id.",
-        "es": "Archivo(s) del creativo, por url, hash o id.",
-        "fr": "Fichier(s) du visuel, par url, hash ou id."
+        "pt": "Arquivo(s) do criativo, por url, hash ou id. Só no Meta Ads.",
+        "en": "The creative's file(s), by url, hash or id. Meta Ads only.",
+        "es": "Archivo(s) del creativo, por url, hash o id. Solo en Meta Ads.",
+        "fr": "Fichier(s) du visuel, par url, hash ou id. Meta Ads uniquement."
       }
     },
     {
@@ -152,29 +152,31 @@
       "type": "string",
       "required": true,
       "description": {
-        "pt": "Página que assina o anúncio. Deve ser da conta da conexão.",
-        "en": "The page that publishes the ad. Must belong to the connection's account.",
-        "es": "Página que firma el anuncio. Debe ser de la cuenta de la conexión.",
-        "fr": "Page qui publie l'annonce. Doit appartenir au compte de la connexion."
+        "pt": "Página que assina o anúncio. Deve ser da conta da conexão. Só no Meta Ads.",
+        "en": "The page that publishes the ad. Must belong to the connection's account. Meta Ads only.",
+        "es": "Página que firma el anuncio. Debe ser de la cuenta de la conexión. Solo en Meta Ads.",
+        "fr": "Page qui publie l'annonce. Doit appartenir au compte de la connexion. Meta Ads uniquement."
       }
     }
   ],
   "pt": {
-    "title": "Validar anúncio do Meta Ads sem criar",
-    "tagline": "Faça um dry run da árvore campanha, conjunto e anúncio no Meta Ads: o mesmo corpo do POST /ads, validado nível a nível sem criar nada.",
+    "title": "Validar anúncio do Meta Ads ou do Google Ads sem criar",
+    "tagline": "Faça um dry run da árvore campanha, conjunto e anúncio no Meta Ads ou no Google Ads: o mesmo corpo do POST /ads, validado nível a nível sem criar nada.",
     "intro": "POST /ads/validate recebe exatamente o corpo do POST /ads e valida cada nível sem criar nada na conta do cliente. Você descobre erros de campo, de página ou de mídia antes de gastar tempo e antes de qualquer risco de verba.",
     "can": [
       "Validar a árvore inteira (campanha, conjunto e anúncio) antes de criar.",
       "Validar um anúncio sobre campanha e conjunto existentes, passando {\"id\": ...}.",
       "Receber o resultado por nível.",
-      "Usar o mesmo corpo depois no POST /ads, sem adaptar nada."
+      "Usar o mesmo corpo depois no POST /ads, sem adaptar nada.",
+      "Validar no Google Ads um anúncio Demand Gen ou um grupo de recursos Performance Max, com o mesmo corpo do POST /ads."
     ],
     "rules": [
       "Não cria nada na conta do cliente e não registra operação.",
       "Não precisa de Idempotency-Key.",
       "Cada nível é validado pela integração; os que dependem de um pai que ainda não existe voltam como skipped.",
       "Erros de campo respondem 422 validation_error com errors e supported_values quando o campo é um enum.",
-      "Usa só a conexão em customer_integration, na query, e confere que ela pertence ao cliente."
+      "Usa só a conexão em customer_integration, na query, e confere que ela pertence ao cliente.",
+      "No Google Ads, o resultado vem por nível como no Meta Ads. Na Performance Max não há nível ad: o grupo de recursos é o conjunto."
     ],
     "useCases": [
       {
@@ -206,21 +208,23 @@
     ]
   },
   "en": {
-    "title": "Validate a Meta Ads ad without creating it",
-    "tagline": "Dry-run the campaign, ad set and ad tree on Meta Ads: the same body as POST /ads, validated level by level without creating anything.",
+    "title": "Validate a Meta Ads or Google Ads ad without creating it",
+    "tagline": "Dry run the campaign, ad set and ad tree on Meta Ads or Google Ads: the same body as POST /ads, validated level by level without creating anything.",
     "intro": "POST /ads/validate takes exactly the body of POST /ads and validates each level without creating anything in the client's account. You find field, page or media errors before wasting time and before any risk to the budget.",
     "can": [
       "Validate the whole tree (campaign, ad set and ad) before creating.",
       "Validate an ad over an existing campaign and ad set, by passing {\"id\": ...}.",
       "Get the result per level.",
-      "Reuse the same body later in POST /ads, with no changes."
+      "Reuse the same body later in POST /ads, with no changes.",
+      "Validate a Demand Gen ad or a Performance Max asset group on Google Ads, with the same body as POST /ads."
     ],
     "rules": [
       "Creates nothing in the client's account and records no operation.",
       "Does not need an Idempotency-Key.",
       "Each level is validated by the integration; levels that depend on a parent that doesn't exist yet come back as skipped.",
       "Field errors return 422 validation_error with errors and, for enums, supported_values.",
-      "Uses only the connection in customer_integration, in the query, and checks that it belongs to the customer."
+      "Uses only the connection in customer_integration, in the query, and checks that it belongs to the customer.",
+      "On Google Ads the result comes per level, as on Meta Ads. Performance Max has no ad level: the asset group is the ad set."
     ],
     "useCases": [
       {
@@ -252,21 +256,23 @@
     ]
   },
   "es": {
-    "title": "Validar un anuncio de Meta Ads sin crearlo",
-    "tagline": "Haz un dry run del árbol campaña, conjunto y anuncio en Meta Ads: el mismo cuerpo de POST /ads, validado nivel por nivel sin crear nada.",
+    "title": "Validar un anuncio de Meta Ads o Google Ads sin crearlo",
+    "tagline": "Haz un dry run del árbol campaña, conjunto y anuncio en Meta Ads o Google Ads: el mismo cuerpo del POST /ads, validado nivel a nivel sin crear nada.",
     "intro": "POST /ads/validate recibe exactamente el cuerpo de POST /ads y valida cada nivel sin crear nada en la cuenta del cliente. Descubres errores de campo, de página o de media antes de perder tiempo y antes de cualquier riesgo para el presupuesto.",
     "can": [
       "Validar el árbol completo (campaña, conjunto y anuncio) antes de crear.",
       "Validar un anuncio sobre una campaña y un conjunto existentes, pasando {\"id\": ...}.",
       "Recibir el resultado por nivel.",
-      "Usar luego el mismo cuerpo en POST /ads, sin adaptar nada."
+      "Usar luego el mismo cuerpo en POST /ads, sin adaptar nada.",
+      "Validar en Google Ads un anuncio Demand Gen o un grupo de recursos Performance Max, con el mismo cuerpo del POST /ads."
     ],
     "rules": [
       "No crea nada en la cuenta del cliente y no registra operación.",
       "No necesita Idempotency-Key.",
       "Cada nivel lo valida la integración; los que dependen de un padre que aún no existe vuelven como skipped.",
       "Los errores de campo responden 422 validation_error con errors y, en enums, supported_values.",
-      "Usa solo la conexión de customer_integration, en la query, y comprueba que pertenece al cliente."
+      "Usa solo la conexión de customer_integration, en la query, y comprueba que pertenece al cliente.",
+      "En Google Ads el resultado viene por nivel, como en Meta Ads. En Performance Max no hay nivel ad: el grupo de recursos es el conjunto."
     ],
     "useCases": [
       {
@@ -298,21 +304,23 @@
     ]
   },
   "fr": {
-    "title": "Valider une annonce Meta Ads sans la créer",
-    "tagline": "Faites un dry run de l'arbre campagne, ensemble et annonce sur Meta Ads : le même corps que POST /ads, validé niveau par niveau sans rien créer.",
+    "title": "Valider une annonce Meta Ads ou Google Ads sans la créer",
+    "tagline": "Faites un dry run de l'arbre campagne, ensemble et annonce sur Meta Ads ou Google Ads : le même corps que POST /ads, validé niveau par niveau.",
     "intro": "POST /ads/validate reçoit exactement le corps de POST /ads et valide chaque niveau sans rien créer dans le compte du client. Vous détectez les erreurs de champ, de page ou de média avant de perdre du temps et avant tout risque pour le budget.",
     "can": [
       "Valider tout l'arbre (campagne, ensemble et annonce) avant de créer.",
       "Valider une annonce sur une campagne et un ensemble existants, en passant {\"id\": ...}.",
       "Obtenir le résultat par niveau.",
-      "Réutiliser ensuite le même corps dans POST /ads, sans rien adapter."
+      "Réutiliser ensuite le même corps dans POST /ads, sans rien adapter.",
+      "Valider sur Google Ads une annonce Demand Gen ou un groupe d'éléments Performance Max, avec le même corps que POST /ads."
     ],
     "rules": [
       "Ne crée rien dans le compte du client et n'enregistre aucune opération.",
       "N'a pas besoin d'Idempotency-Key.",
       "Chaque niveau est validé par l'intégration ; ceux qui dépendent d'un parent qui n'existe pas encore reviennent en skipped.",
       "Les erreurs de champ renvoient 422 validation_error avec errors et, pour les enums, supported_values.",
-      "N'utilise que la connexion de customer_integration, dans la query, et vérifie qu'elle appartient au client."
+      "N'utilise que la connexion de customer_integration, dans la query, et vérifie qu'elle appartient au client.",
+      "Sur Google Ads, le résultat vient par niveau, comme sur Meta Ads. Performance Max n'a pas de niveau ad : le groupe d'éléments est l'ensemble."
     ],
     "useCases": [
       {
