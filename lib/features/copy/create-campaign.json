@@ -133,7 +133,8 @@
       "Definir um limite de gasto com facebook_ads.spend_cap.",
       "Consultar os valores aceitos em GET /ads/options?integration_slug=facebook_ads.",
       "No Google Ads, criar uma campanha Demand Gen ou Performance Max com google_adwords.type e orçamento diário próprio.",
-      "No Google Ads, escolher o lance em google_adwords.bidding: maximize_conversions, com target_cpa opcional, ou maximize_conversion_value, com target_roas opcional."
+      "No Google Ads, escolher o lance em google_adwords.bidding: maximize_conversions, com target_cpa opcional, ou maximize_conversion_value, com target_roas opcional.",
+      "No Google Ads, listar as ações de conversão ativas da conta com GET /ads/google_adwords/conversion-actions; o lance otimiza pelas que têm primary_for_goal."
     ],
     "rules": [
       "Sem status, a campanha nasce pausada.",
@@ -185,7 +186,8 @@
       "Set a spending limit with facebook_ads.spend_cap.",
       "Read the accepted values from GET /ads/options?integration_slug=facebook_ads.",
       "On Google Ads, create a Demand Gen or Performance Max campaign with google_adwords.type and its own daily budget.",
-      "On Google Ads, pick the bidding in google_adwords.bidding: maximize_conversions, with an optional target_cpa, or maximize_conversion_value, with an optional target_roas."
+      "On Google Ads, pick the bidding in google_adwords.bidding: maximize_conversions, with an optional target_cpa, or maximize_conversion_value, with an optional target_roas.",
+      "On Google Ads, list the account's enabled conversion actions with GET /ads/google_adwords/conversion-actions; bidding optimizes for the ones with primary_for_goal."
     ],
     "rules": [
       "Without status, the campaign is created paused.",
@@ -237,7 +239,8 @@
       "Definir un límite de gasto con facebook_ads.spend_cap.",
       "Consultar los valores aceptados en GET /ads/options?integration_slug=facebook_ads.",
       "En Google Ads, crear una campaña Demand Gen o Performance Max con google_adwords.type y presupuesto diario propio.",
-      "En Google Ads, elegir la puja en google_adwords.bidding: maximize_conversions, con target_cpa opcional, o maximize_conversion_value, con target_roas opcional."
+      "En Google Ads, elegir la puja en google_adwords.bidding: maximize_conversions, con target_cpa opcional, o maximize_conversion_value, con target_roas opcional.",
+      "En Google Ads, listar las acciones de conversión activas de la cuenta con GET /ads/google_adwords/conversion-actions; la puja optimiza por las que tienen primary_for_goal."
     ],
     "rules": [
       "Sin status, la campaña nace pausada.",
@@ -289,7 +292,8 @@
       "Définir un plafond de dépense avec facebook_ads.spend_cap.",
       "Lire les valeurs acceptées via GET /ads/options?integration_slug=facebook_ads.",
       "Sur Google Ads, créer une campagne Demand Gen ou Performance Max avec google_adwords.type et son propre budget quotidien.",
-      "Sur Google Ads, choisir les enchères dans google_adwords.bidding : maximize_conversions, avec target_cpa facultatif, ou maximize_conversion_value, avec target_roas facultatif."
+      "Sur Google Ads, choisir les enchères dans google_adwords.bidding : maximize_conversions, avec target_cpa facultatif, ou maximize_conversion_value, avec target_roas facultatif.",
+      "Sur Google Ads, lister les actions de conversion actives du compte avec GET /ads/google_adwords/conversion-actions ; les enchères optimisent pour celles qui ont primary_for_goal."
     ],
     "rules": [
       "Sans status, la campagne est créée en pause.",

@@ -26,10 +26,10 @@
       "type": "string",
       "required": true,
       "description": {
-        "pt": "O que buscar: interest, geo ou behavior.",
-        "en": "What to search: interest, geo or behavior.",
-        "es": "Qué buscar: interest, geo o behavior.",
-        "fr": "Que chercher : interest, geo ou behavior."
+        "pt": "O que buscar: interest, geo ou behavior. No Google Ads: geo ou language.",
+        "en": "What to search: interest, geo or behavior. On Google Ads: geo or language.",
+        "es": "Qué buscar: interest, geo o behavior. En Google Ads: geo o language.",
+        "fr": "Que chercher : interest, geo ou behavior. Sur Google Ads : geo ou language."
       }
     },
     {
@@ -100,22 +100,25 @@
     }
   ],
   "pt": {
-    "title": "Buscar interesses, locais e comportamentos do Meta Ads",
-    "tagline": "Transforme um termo como \"corrida\" nos ids de interesse, local ou comportamento que a segmentação do Meta Ads espera, com tamanho estimado do público.",
+    "title": "Buscar interesses, locais e idiomas no Meta Ads e no Google Ads",
+    "tagline": "Transforme um termo como \"corrida\" nos ids de interesse, local ou comportamento do Meta Ads, ou de local e idioma do Google Ads, que a segmentação espera.",
     "intro": "Uma rota resolve um termo nos ids que a segmentação de um conjunto de anúncios espera, para você não precisar conhecer o id de antemão. Funciona para interesses, locais e comportamentos, com a conta do cliente conectada e sem passar pelo app review da Meta.",
     "can": [
       "Buscar interesses por termo com type=interest e usar o id em targeting.interests.",
       "Buscar locais com type=geo, filtrando por país com country_code.",
       "Navegar por todos os comportamentos com type=behavior, sem precisar de q.",
       "Ver o tamanho estimado do público em audience_size, como faixa de lower a upper.",
-      "Limitar a quantidade de resultados com limit, de 1 a 200."
+      "Limitar a quantidade de resultados com limit, de 1 a 200.",
+      "No Google Ads, buscar locais com type=geo (subtype é o tipo do local e path o nome completo) e idiomas com type=language, os dois com q."
     ],
     "rules": [
       "q é obrigatório para interest e geo. Só behavior lista tudo sem termo, e country_code só tem efeito em geo.",
       "Cada resultado vem no mesmo formato nos três tipos, com id, name, type, subtype, path, description, country_code e audience_size. Para geo o id é a chave do local.",
       "interest e behavior entram em targeting.interests. Em geo, só país cabe em targeting.countries: cidade, região e bairro entram por facebook_ads.targeting.raw.geo_locations, e o subtype diz qual.",
       "A resposta não é paginada: vêm no máximo 200 itens por busca.",
-      "Cache de 600 s por conexão. meta.cached e meta.cached_at dizem se veio do cache, e refresh=true ignora."
+      "Cache de 600 s por conexão. meta.cached e meta.cached_at dizem se veio do cache, e refresh=true ignora.",
+      "No Google Ads, type aceita só geo e language, e o id é a constante de local ou de idioma do Google.",
+      "No Google Ads, os resultados ainda não entram na criação: campanha e grupo nascem sem segmentação de local, idioma ou público."
     ],
     "useCases": [
       {
@@ -147,22 +150,25 @@
     ]
   },
   "en": {
-    "title": "Search Meta Ads interests, places and behaviors",
-    "tagline": "Turn a term like \"running\" into the interest, place or behavior ids Meta Ads targeting expects, with the estimated audience size.",
+    "title": "Search interests, places and languages on Meta Ads and Google Ads",
+    "tagline": "Turn a term like \"running\" into the Meta Ads interest, place or behavior ids, or the Google Ads place and language ids, that targeting expects.",
     "intro": "One route resolves a term into the ids an ad set's targeting expects, so you do not have to know the id up front. It works for interests, places and behaviors, with the customer's account connected and no Meta app review.",
     "can": [
       "Search interests by term with type=interest and use the id in targeting.interests.",
       "Search places with type=geo, narrowing by country with country_code.",
       "Browse all behaviors with type=behavior, without needing q.",
       "See the estimated audience size in audience_size, as a range from lower to upper.",
-      "Limit the number of results with limit, from 1 to 200."
+      "Limit the number of results with limit, from 1 to 200.",
+      "On Google Ads, search places with type=geo (subtype is the kind of place and path its full name) and languages with type=language, both with q."
     ],
     "rules": [
       "q is required for interest and geo. Only behavior lists everything without a term, and country_code only takes effect on geo.",
       "Each result has the same shape for all three types, with id, name, type, subtype, path, description, country_code and audience_size. For geo the id is the place's key.",
       "interest and behavior go in targeting.interests. For geo, only a country fits in targeting.countries: city, region and neighborhood go in through facebook_ads.targeting.raw.geo_locations, and the subtype says which.",
       "The response is not paginated: at most 200 items come back per search.",
-      "Cached for 600 s per connection. meta.cached and meta.cached_at say whether it came from the cache, and refresh=true bypasses it."
+      "Cached for 600 s per connection. meta.cached and meta.cached_at say whether it came from the cache, and refresh=true bypasses it.",
+      "On Google Ads, type takes only geo and language, and the id is Google's location or language constant.",
+      "On Google Ads, the results do not feed creation yet: campaigns and groups are created without location, language or audience targeting."
     ],
     "useCases": [
       {
@@ -194,22 +200,25 @@
     ]
   },
   "es": {
-    "title": "Buscar intereses, lugares y comportamientos de Meta Ads",
-    "tagline": "Convierte un término como \"running\" en los ids de interés, lugar o comportamiento que espera la segmentación de Meta Ads, con el tamaño estimado de audiencia.",
+    "title": "Buscar intereses, lugares e idiomas en Meta Ads y Google Ads",
+    "tagline": "Convierte un término como \"running\" en los ids de interés, lugar o comportamiento de Meta Ads, o de lugar e idioma de Google Ads, que espera la segmentación.",
     "intro": "Una ruta resuelve un término en los ids que espera la segmentación de un conjunto de anuncios, para que no tengas que conocer el id de antemano. Funciona para intereses, lugares y comportamientos, con la cuenta del cliente conectada y sin pasar por el app review de Meta.",
     "can": [
       "Buscar intereses por término con type=interest y usar el id en targeting.interests.",
       "Buscar lugares con type=geo, filtrando por país con country_code.",
       "Navegar por todos los comportamientos con type=behavior, sin necesitar q.",
       "Ver el tamaño estimado de la audiencia en audience_size, como rango de lower a upper.",
-      "Limitar la cantidad de resultados con limit, de 1 a 200."
+      "Limitar la cantidad de resultados con limit, de 1 a 200.",
+      "En Google Ads, buscar lugares con type=geo (subtype es el tipo de lugar y path su nombre completo) e idiomas con type=language, los dos con q."
     ],
     "rules": [
       "q es obligatorio para interest y geo. Solo behavior lista todo sin término, y country_code solo tiene efecto en geo.",
       "Cada resultado viene en el mismo formato en los tres tipos, con id, name, type, subtype, path, description, country_code y audience_size. Para geo el id es la clave del lugar.",
       "interest y behavior entran en targeting.interests. En geo, solo un país cabe en targeting.countries: ciudad, región y barrio entran por facebook_ads.targeting.raw.geo_locations, y el subtype dice cuál.",
       "La respuesta no está paginada: vienen como máximo 200 ítems por búsqueda.",
-      "Caché de 600 s por conexión. meta.cached y meta.cached_at indican si vino del caché, y refresh=true lo ignora."
+      "Caché de 600 s por conexión. meta.cached y meta.cached_at indican si vino del caché, y refresh=true lo ignora.",
+      "En Google Ads, type acepta solo geo y language, y el id es la constante de lugar o de idioma de Google.",
+      "En Google Ads, los resultados todavía no entran en la creación: campaña y grupo se crean sin segmentación de lugar, idioma ni público."
     ],
     "useCases": [
       {
@@ -241,22 +250,25 @@
     ]
   },
   "fr": {
-    "title": "Rechercher intérêts, lieux et comportements Meta Ads",
-    "tagline": "Transformez un terme comme \"running\" en ids d'intérêt, de lieu ou de comportement attendus par le ciblage Meta Ads, avec la taille d'audience estimée.",
+    "title": "Rechercher intérêts, lieux et langues sur Meta Ads et Google Ads",
+    "tagline": "Transformez un terme comme \"running\" en ids d'intérêt, de lieu ou de comportement Meta Ads, ou de lieu et de langue Google Ads, attendus par le ciblage.",
     "intro": "Une route résout un terme en ids attendus par le ciblage d'un ensemble d'annonces, pour que vous n'ayez pas à connaître l'id à l'avance. Elle fonctionne pour les intérêts, lieux et comportements, avec le compte du client connecté et sans app review Meta.",
     "can": [
       "Rechercher des intérêts par terme avec type=interest et utiliser l'id dans targeting.interests.",
       "Rechercher des lieux avec type=geo, en filtrant par pays avec country_code.",
       "Parcourir tous les comportements avec type=behavior, sans besoin de q.",
       "Voir la taille d'audience estimée dans audience_size, sous forme de fourchette de lower à upper.",
-      "Limiter le nombre de résultats avec limit, de 1 à 200."
+      "Limiter le nombre de résultats avec limit, de 1 à 200.",
+      "Sur Google Ads, chercher des lieux avec type=geo (subtype est le type de lieu et path son nom complet) et des langues avec type=language, les deux avec q."
     ],
     "rules": [
       "q est obligatoire pour interest et geo. Seul behavior liste tout sans terme, et country_code n'a d'effet que sur geo.",
       "Chaque résultat a le même format pour les trois types, avec id, name, type, subtype, path, description, country_code et audience_size. Pour geo, l'id est la clé du lieu.",
       "interest et behavior vont dans targeting.interests. Pour geo, seul un pays tient dans targeting.countries : ville, région et quartier passent par facebook_ads.targeting.raw.geo_locations, et le subtype indique lequel.",
       "La réponse n'est pas paginée : 200 éléments maximum par recherche.",
-      "Cache de 600 s par connexion. meta.cached et meta.cached_at indiquent si cela vient du cache, et refresh=true l'ignore."
+      "Cache de 600 s par connexion. meta.cached et meta.cached_at indiquent si cela vient du cache, et refresh=true l'ignore.",
+      "Sur Google Ads, type n'accepte que geo et language, et l'id est la constante de lieu ou de langue de Google.",
+      "Sur Google Ads, les résultats n'alimentent pas encore la création : campagne et groupe sont créés sans ciblage de lieu, de langue ni d'audience."
     ],
     "useCases": [
       {

@@ -126,7 +126,8 @@
       "Acompanhar o processamento do vídeo com GET /ads/facebook_ads/videos/{id}, que traz status e thumbnail_url.",
       "Reutilizar o mesmo hash ou id em vários anúncios, como a versão de feed e a de stories do mesmo criativo.",
       "No Google Ads, enviar uma imagem com POST /ads/google_adwords/media e receber o asset_id, já pronto.",
-      "No Google Ads, importar um vídeo do YouTube pelo link, pronto na hora, ou enviar um arquivo de vídeo, que sobe para o YouTube como não listado."
+      "No Google Ads, importar um vídeo do YouTube pelo link, pronto na hora, ou enviar um arquivo de vídeo, que sobe para o YouTube como não listado.",
+      "No Google Ads, listar as imagens e os vídeos do YouTube que já estão na conta com GET /ads/google_adwords/library, com o asset_id, para não enviar de novo."
     ],
     "rules": [
       "O Idempotency-Key é obrigatório e vai sempre no header. Gere uma vez e reenvie a mesma chave nas tentativas. Repetir o mesmo pedido devolve 200 com Idempotent-Replay: true.",
@@ -176,7 +177,8 @@
       "Track video processing with GET /ads/facebook_ads/videos/{id}, which returns status and thumbnail_url.",
       "Reuse the same hash or id across several ads, such as the feed and stories versions of one creative.",
       "On Google Ads, upload an image with POST /ads/google_adwords/media and get its asset_id, ready at once.",
-      "On Google Ads, import a YouTube video by its link, ready at once, or upload a video file, which goes to YouTube as unlisted."
+      "On Google Ads, import a YouTube video by its link, ready at once, or upload a video file, which goes to YouTube as unlisted.",
+      "On Google Ads, list the images and YouTube videos already in the account with GET /ads/google_adwords/library, with their asset_id, so you don't upload them again."
     ],
     "rules": [
       "Idempotency-Key is required and always goes in the header. Generate it once and resend the same key on retries. Repeating the same request returns 200 with Idempotent-Replay: true.",
@@ -226,7 +228,8 @@
       "Seguir el procesamiento del video con GET /ads/facebook_ads/videos/{id}, que trae status y thumbnail_url.",
       "Reutilizar el mismo hash o id en varios anuncios, como la versión de feed y la de stories de un mismo creativo.",
       "En Google Ads, subir una imagen con POST /ads/google_adwords/media y recibir el asset_id, lista al instante.",
-      "En Google Ads, importar un video de YouTube por el enlace, listo al instante, o subir un archivo de video, que va a YouTube como no listado."
+      "En Google Ads, importar un video de YouTube por el enlace, listo al instante, o subir un archivo de video, que va a YouTube como no listado.",
+      "En Google Ads, listar las imágenes y los videos de YouTube que ya están en la cuenta con GET /ads/google_adwords/library, con el asset_id, para no subirlos de nuevo."
     ],
     "rules": [
       "Idempotency-Key es obligatorio y va siempre en el header. Genéralo una vez y reenvía la misma clave en los reintentos. Repetir el mismo pedido devuelve 200 con Idempotent-Replay: true.",
@@ -276,7 +279,8 @@
       "Suivre le traitement de la vidéo avec GET /ads/facebook_ads/videos/{id}, qui renvoie status et thumbnail_url.",
       "Réutiliser le même hash ou id dans plusieurs annonces, comme les versions feed et stories d'un même visuel.",
       "Sur Google Ads, envoyer une image avec POST /ads/google_adwords/media et recevoir l'asset_id, prête tout de suite.",
-      "Sur Google Ads, importer une vidéo YouTube par son lien, prête tout de suite, ou envoyer un fichier vidéo, publié sur YouTube en non répertorié."
+      "Sur Google Ads, importer une vidéo YouTube par son lien, prête tout de suite, ou envoyer un fichier vidéo, publié sur YouTube en non répertorié.",
+      "Sur Google Ads, lister les images et les vidéos YouTube déjà dans le compte avec GET /ads/google_adwords/library, avec l'asset_id, pour ne pas les renvoyer."
     ],
     "rules": [
       "Idempotency-Key est obligatoire et va toujours dans le header. Générez-la une fois et renvoyez la même clé lors des nouvelles tentatives. Répéter la même requête renvoie 200 avec Idempotent-Replay: true.",

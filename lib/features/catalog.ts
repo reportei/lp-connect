@@ -39,7 +39,7 @@ export const CAPABILITIES: Capability[] = [
   { slug: "all-customers-posts", area: "posts", operations: ["GET /merchants/posts"], integrations: ["instagram_business", "facebook", "threads", "linkedin", "pinterest", "youtube"], related: ["post-status", "linkedin-page-post", "instagram-carousel"] },
 
   // Ads (Meta Ads, and Google Ads where it is supported)
-  { slug: "create-campaign", area: "ads", operations: ["POST /ads/campaigns", "GET /ads/options"], integrations: ["facebook_ads", "google_adwords"], related: ["create-adset", "create-ad", "edit-budget"] },
+  { slug: "create-campaign", area: "ads", operations: ["POST /ads/campaigns", "GET /ads/options", "GET /ads/google_adwords/conversion-actions"], integrations: ["facebook_ads", "google_adwords"], related: ["create-adset", "create-ad", "edit-budget"] },
   { slug: "create-adset", area: "ads", operations: ["POST /ads/adsets", "GET /ads/options"], integrations: ["facebook_ads", "google_adwords"], related: ["targeting", "edit-budget", "create-ad"] },
   { slug: "create-ad", area: "ads", operations: ["POST /ads"], integrations: ["facebook_ads", "google_adwords"], related: ["validate-ad", "upload-ad-media", "create-campaign"] },
   { slug: "boost-post", area: "ads", operations: ["POST /ads/boost", "GET /ads/facebook_ads/posts"], integrations: ["facebook_ads"], related: ["create-ad", "targeting", "pause-activate"] },
@@ -50,9 +50,9 @@ export const CAPABILITIES: Capability[] = [
   { slug: "delete", area: "ads", operations: ["DELETE /ads/campaigns/{id}", "DELETE /ads/adsets/{id}", "DELETE /ads/{id}"], integrations: ["facebook_ads"], related: ["pause-activate", "live-campaigns", "all-customers-ads"] },
   { slug: "live-campaigns", area: "ads", operations: ["GET /ads/campaigns", "GET /ads/adsets", "GET /ads"], integrations: ["facebook_ads"], related: ["all-customers-ads", "pause-activate", "edit-budget"] },
   { slug: "all-customers-ads", area: "ads", operations: ["GET /merchants/ads/campaigns", "GET /merchants/ads/adsets", "GET /merchants/ads"], integrations: ["facebook_ads"], related: ["live-campaigns", "pause-activate", "create-campaign"] },
-  { slug: "upload-ad-media", area: "ads", operations: ["POST /ads/facebook_ads/media", "GET /ads/facebook_ads/videos/{id}", "POST /ads/google_adwords/media", "GET /ads/google_adwords/videos/{id}"], integrations: ["facebook_ads", "google_adwords"], related: ["create-ad", "validate-ad", "boost-post"] },
-  { slug: "targeting", area: "ads", operations: ["GET /ads/targeting/search"], integrations: ["facebook_ads"], related: ["custom-audiences", "create-adset", "boost-post"] },
-  { slug: "custom-audiences", area: "ads", operations: ["GET /ads/audiences"], integrations: ["facebook_ads"], related: ["targeting", "create-adset", "pixel-events"] },
+  { slug: "upload-ad-media", area: "ads", operations: ["POST /ads/facebook_ads/media", "GET /ads/facebook_ads/videos/{id}", "POST /ads/google_adwords/media", "GET /ads/google_adwords/videos/{id}", "GET /ads/google_adwords/library"], integrations: ["facebook_ads", "google_adwords"], related: ["create-ad", "validate-ad", "boost-post"] },
+  { slug: "targeting", area: "ads", operations: ["GET /ads/targeting/search"], integrations: ["facebook_ads", "google_adwords"], related: ["custom-audiences", "create-adset", "boost-post"] },
+  { slug: "custom-audiences", area: "ads", operations: ["GET /ads/audiences"], integrations: ["facebook_ads", "google_adwords"], related: ["targeting", "create-adset", "pixel-events"] },
   { slug: "pixel-events", area: "ads", operations: ["GET /ads/facebook_ads/pixels", "GET /ads/facebook_ads/pixels/{id}/events"], integrations: ["facebook_ads"], related: ["custom-conversions", "create-adset", "custom-audiences"] },
   { slug: "custom-conversions", area: "ads", operations: ["POST /ads/facebook_ads/custom-conversions", "GET /ads/facebook_ads/custom-conversions"], integrations: ["facebook_ads"], related: ["pixel-events", "create-adset", "create-ad"] },
 
