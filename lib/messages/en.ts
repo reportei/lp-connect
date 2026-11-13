@@ -388,7 +388,7 @@ export const en: Messages = {
             `Connect your customers' accounts on ${n} marketing, CRM and e-commerce platforms and query their metrics through a single API.`,
           ],
           [
-            "You can also publish to your customers' Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts and create and manage Meta Ads and Google Ads campaigns, ad sets and ads, subject to the connected accounts' permissions.",
+            "You can also publish to your customers' Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts and create and manage Meta Ads, Google Ads and TikTok Ads campaigns, ad sets and ads, subject to the connected accounts' permissions.",
           ],
           [
             `With toolkits, your product runs actions in ${toolkits} more of your customers' apps, such as sending WhatsApp messages, creating tasks in ClickUp or posting to a Slack channel. Toolkits bring no metrics.`,
@@ -662,10 +662,10 @@ export const en: Messages = {
     home: {
       eyebrow: "Features",
       title: "Beyond reading data: publish, advertise and call LLMs through the same API",
-      copy: "Use your customers' connected accounts to publish posts, manage Meta Ads and Google Ads and query metrics. To call AI models, register your own provider key. Each action has a page with an example request.",
+      copy: "Use your customers' connected accounts to publish posts, manage Meta Ads, Google Ads and TikTok Ads and query metrics. To call AI models, register your own provider key. Each action has a page with an example request.",
       cards: {
         posts: "Publish to Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts.",
-        ads: "Create, boost and manage ads in your customers' Meta Ads and Google Ads.",
+        ads: "Create, boost and manage ads in your customers' Meta Ads, Google Ads and TikTok Ads.",
         metrics: (n) => `Numbers, charts and tables from ${n} platforms in the same format.`,
         llm: "OpenAI, Anthropic and Meta in the OpenAI format, with your own key.",
       },
@@ -683,9 +683,9 @@ export const en: Messages = {
       },
       ads: {
         name: "Ads",
-        metaTitle: "Meta Ads and Google Ads API to create and manage ads",
-        metaDescription: "Create campaigns, ad sets and ads in your customers' Meta Ads and Google Ads accounts, boost posts, target audiences and edit budgets through one API.",
-        h1: "Create and manage ads in your customers' Meta Ads and Google Ads through one API",
+        metaTitle: "Meta Ads, Google Ads and TikTok Ads API to create and manage ads",
+        metaDescription: "Create campaigns, ad sets and ads in your customers' Meta Ads, Google Ads and TikTok Ads accounts, boost posts, target audiences and edit budgets through one API.",
+        h1: "Create and manage ads in your customers' Meta Ads, Google Ads and TikTok Ads through one API",
         intro: "Everything is created paused, every write is idempotent and a failure midway undoes what was already created. Your product runs your customer's ad account without going through Meta's app review.",
       },
       metrics: {

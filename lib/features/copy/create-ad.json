@@ -215,12 +215,57 @@
         "es": "Google Ads: las imágenes, cada una con field (marketing, square, portrait, logo o landscape_logo) y asset_id.",
         "fr": "Google Ads : les images, chacune avec field (marketing, square, portrait, logo ou landscape_logo) et asset_id."
       }
+    },
+    {
+      "name": "campaign.tiktok_ads.objective",
+      "description": {
+        "pt": "TikTok Ads, numa campanha nova: traffic. A campanha não leva budget.",
+        "en": "TikTok Ads, on a new campaign: traffic. The campaign takes no budget.",
+        "es": "TikTok Ads, en una campaña nueva: traffic. La campaña no lleva budget.",
+        "fr": "TikTok Ads, sur une nouvelle campagne : traffic. La campagne ne prend pas de budget."
+      }
+    },
+    {
+      "name": "ad.body",
+      "description": {
+        "pt": "Texto principal do anúncio. No TikTok Ads, até 100 caracteres.",
+        "en": "The ad's main text. On TikTok Ads, up to 100 characters.",
+        "es": "Texto principal del anuncio. En TikTok Ads, hasta 100 caracteres.",
+        "fr": "Texte principal de l'annonce. Sur TikTok Ads, jusqu'à 100 caractères."
+      }
+    },
+    {
+      "name": "ad.tiktok_ads.identity_id",
+      "description": {
+        "pt": "TikTok Ads: a conta do TikTok que assina o anúncio, de GET /ads/tiktok_ads/identities, com o type dela em identity_type.",
+        "en": "TikTok Ads: the TikTok account the ad runs as, from GET /ads/tiktok_ads/identities, with its type in identity_type.",
+        "es": "TikTok Ads: la cuenta de TikTok que firma el anuncio, de GET /ads/tiktok_ads/identities, con su type en identity_type.",
+        "fr": "TikTok Ads : le compte TikTok sous lequel l'annonce est diffusée, de GET /ads/tiktok_ads/identities, avec son type dans identity_type."
+      }
+    },
+    {
+      "name": "ad.tiktok_ads.video_id",
+      "description": {
+        "pt": "TikTok Ads: o id do vídeo de POST /ads/tiktok_ads/media, já ready.",
+        "en": "TikTok Ads: the video id from POST /ads/tiktok_ads/media, once ready.",
+        "es": "TikTok Ads: el id del video de POST /ads/tiktok_ads/media, ya ready.",
+        "fr": "TikTok Ads : l'id de la vidéo de POST /ads/tiktok_ads/media, une fois ready."
+      }
+    },
+    {
+      "name": "ad.tiktok_ads.cover_image_id",
+      "description": {
+        "pt": "TikTok Ads: o image_id da capa, de POST /ads/tiktok_ads/media, na proporção do vídeo.",
+        "en": "TikTok Ads: the cover's image_id, from POST /ads/tiktok_ads/media, in the video's aspect ratio.",
+        "es": "TikTok Ads: el image_id de la portada, de POST /ads/tiktok_ads/media, en la proporción del video.",
+        "fr": "TikTok Ads : l'image_id de la couverture, de POST /ads/tiktok_ads/media, au format de la vidéo."
+      }
     }
   ],
   "pt": {
-    "title": "Criar anúncio no Meta Ads e no Google Ads",
-    "tagline": "Crie o anúncio e a árvore acima dele (campanha e conjunto) no Meta Ads ou no Google Ads com um POST. Tudo nasce pausado e a ativação é o último passo.",
-    "intro": "Um único POST /ads cria o anúncio e, se você quiser, a campanha e o conjunto acima dele. Cada nível usa um existente ({\"id\": ...}) ou descreve o novo. Se algo falhar no meio, o que foi criado é desfeito, e nada fica gastando. No Google Ads, o mesmo POST /ads cria anúncios Demand Gen e grupos de recursos Performance Max.",
+    "title": "Criar anúncio no Meta Ads, no Google Ads e no TikTok Ads",
+    "tagline": "Crie o anúncio e a árvore acima dele (campanha e conjunto) no Meta Ads, no Google Ads ou no TikTok Ads com um POST. Tudo nasce pausado.",
+    "intro": "Um único POST /ads cria o anúncio e, se você quiser, a campanha e o conjunto acima dele. Cada nível usa um existente ({\"id\": ...}) ou descreve o novo. Se algo falhar no meio, o que foi criado é desfeito, e nada fica gastando. No Google Ads, o mesmo POST /ads cria anúncios Demand Gen e grupos de recursos Performance Max. No TikTok Ads, ele cria um anúncio de vídeo numa campanha de Tráfego.",
     "can": [
       "Criar campanha, conjunto e anúncio em uma só chamada.",
       "Reaproveitar uma campanha ou um conjunto existente passando {\"id\": ...}.",
@@ -229,7 +274,8 @@
       "Definir página e conta do Instagram que assinam o anúncio no bloco facebook_ads.",
       "Pedir status active para ativar a árvore no final.",
       "No Google Ads, criar um anúncio Demand Gen, com campanha e grupo de anúncios novos ou existentes.",
-      "No Google Ads, criar um grupo de recursos Performance Max, ou somar recursos a um existente, com títulos, títulos longos, descrições, imagens, vídeos e logo no bloco google_adwords."
+      "No Google Ads, criar um grupo de recursos Performance Max, ou somar recursos a um existente, com títulos, títulos longos, descrições, imagens, vídeos e logo no bloco google_adwords.",
+      "No TikTok Ads, criar um anúncio de vídeo com capa, numa campanha de Tráfego e num grupo de anúncios novos ou existentes, rodando como uma das contas do TikTok de GET /ads/tiktok_ads/identities."
     ],
     "rules": [
       "Tudo é criado pausado. O status pedido é aplicado no último passo, depois que a árvore inteira existe.",
@@ -240,7 +286,8 @@
       "campaign é proibido quando adset.id é enviado. A página precisa ser da conta da conexão.",
       "A resposta é síncrona: 201 com o resultado.",
       "No Google Ads, imagens, vídeos e logos entram pelo asset_id de POST /ads/google_adwords/media. Uma campanha nova leva budget diário e google_adwords.type: demand_gen ou performance_max.",
-      "Na Performance Max não há anúncio: o grupo de recursos carrega o criativo, então a resposta é o conjunto. Uma campanha que não seja Demand Gen nem Performance Max responde 422 ads_unsupported_operation."
+      "Na Performance Max não há anúncio: o grupo de recursos carrega o criativo, então a resposta é o conjunto. Uma campanha que não seja Demand Gen nem Performance Max responde 422 ads_unsupported_operation.",
+      "No TikTok Ads, o anúncio é um vídeo: ad.body (até 100 caracteres), link_url, call_to_action e, no bloco tiktok_ads, identity_id, identity_type, video_id e cover_image_id, estes dois de POST /ads/tiktok_ads/media. A campanha nova leva tiktok_ads.objective: traffic e nenhum budget; o grupo novo leva budget diário e targeting.countries. Antes da primeira escrita, tudo é conferido na conta só com leituras."
     ],
     "useCases": [
       {
@@ -266,15 +313,15 @@
         "a": "O que já foi criado é desfeito e nada fica gastando. O que não pôde ser desfeito vem em created. Repetindo com o mesmo Idempotency-Key, a chamada retoma de onde parou."
       },
       {
-        "q": "Funciona no Google Ads?",
-        "a": "Sim, em campanhas Demand Gen e Performance Max. O corpo é o mesmo POST /ads, com os campos do Google no bloco google_adwords. Na Performance Max, a resposta é o grupo de recursos, porque ela não tem anúncio."
+        "q": "Funciona no Google Ads e no TikTok Ads?",
+        "a": "Sim, em campanhas Demand Gen e Performance Max. O corpo é o mesmo POST /ads, com os campos do Google no bloco google_adwords. Na Performance Max, a resposta é o grupo de recursos, porque ela não tem anúncio. No TikTok Ads, por enquanto, em campanhas de Tráfego com um anúncio de vídeo, com os campos da TikTok no bloco tiktok_ads."
       }
     ]
   },
   "en": {
-    "title": "Create an ad on Meta Ads and Google Ads",
-    "tagline": "Create the ad and the tree above it (campaign and ad set) on Meta Ads or Google Ads with one POST. Everything starts paused and activation comes last.",
-    "intro": "A single POST /ads creates the ad and, if you want, the campaign and ad set above it. Each level uses an existing one ({\"id\": ...}) or describes the new one. If something fails midway, what was created is undone, so nothing is left spending. On Google Ads, the same POST /ads creates Demand Gen ads and Performance Max asset groups.",
+    "title": "Create an ad on Meta Ads, Google Ads and TikTok Ads",
+    "tagline": "Create the ad and the tree above it (campaign and ad set) on Meta Ads, Google Ads or TikTok Ads with one POST. Everything starts paused.",
+    "intro": "A single POST /ads creates the ad and, if you want, the campaign and ad set above it. Each level uses an existing one ({\"id\": ...}) or describes the new one. If something fails midway, what was created is undone, so nothing is left spending. On Google Ads, the same POST /ads creates Demand Gen ads and Performance Max asset groups. On TikTok Ads, it creates a video ad in a Traffic campaign.",
     "can": [
       "Create campaign, ad set and ad in one call.",
       "Reuse an existing campaign or ad set by passing {\"id\": ...}.",
@@ -283,7 +330,8 @@
       "Set the page and Instagram account that publish the ad in the facebook_ads block.",
       "Ask for status active to activate the tree at the end.",
       "On Google Ads, create a Demand Gen ad, with a new or existing campaign and ad group.",
-      "On Google Ads, create a Performance Max asset group, or add assets to an existing one, with headlines, long headlines, descriptions, images, videos and logo in the google_adwords block."
+      "On Google Ads, create a Performance Max asset group, or add assets to an existing one, with headlines, long headlines, descriptions, images, videos and logo in the google_adwords block.",
+      "On TikTok Ads, create a video ad with a cover, in a new or existing Traffic campaign and ad group, running as one of the TikTok accounts from GET /ads/tiktok_ads/identities."
     ],
     "rules": [
       "Everything is created paused. The requested status is applied in the last step, after the whole tree exists.",
@@ -294,7 +342,8 @@
       "campaign is forbidden when adset.id is sent. The page must belong to the connection's account.",
       "The response is synchronous: 201 with the result.",
       "On Google Ads, images, videos and logos go in by the asset_id from POST /ads/google_adwords/media. A new campaign takes a daily budget and google_adwords.type: demand_gen or performance_max.",
-      "Performance Max has no ads: the asset group carries the creative, so the response is the ad set. A campaign that is neither Demand Gen nor Performance Max answers 422 ads_unsupported_operation."
+      "Performance Max has no ads: the asset group carries the creative, so the response is the ad set. A campaign that is neither Demand Gen nor Performance Max answers 422 ads_unsupported_operation.",
+      "On TikTok Ads, the ad is a video: ad.body (up to 100 characters), link_url, call_to_action and, in the tiktok_ads block, identity_id, identity_type, video_id and cover_image_id, the last two from POST /ads/tiktok_ads/media. A new campaign takes tiktok_ads.objective: traffic and no budget; a new ad group takes a daily budget and targeting.countries. Before the first write, everything is checked in the account with reads only."
     ],
     "useCases": [
       {
@@ -320,15 +369,15 @@
         "a": "What was already created is undone and nothing is left spending. What could not be undone comes in created. Retrying with the same Idempotency-Key resumes where it stopped."
       },
       {
-        "q": "Does it work on Google Ads?",
-        "a": "Yes, on Demand Gen and Performance Max campaigns. The body is the same POST /ads, with Google's fields in the google_adwords block. On Performance Max the response is the asset group, since it has no ads."
+        "q": "Does it work on Google Ads and TikTok Ads?",
+        "a": "Yes, on Demand Gen and Performance Max campaigns. The body is the same POST /ads, with Google's fields in the google_adwords block. On Performance Max the response is the asset group, since it has no ads. On TikTok Ads, for now, on Traffic campaigns with a video ad, with TikTok's fields in the tiktok_ads block."
       }
     ]
   },
   "es": {
-    "title": "Crear un anuncio en Meta Ads y Google Ads",
-    "tagline": "Crea el anuncio y el árbol por encima (campaña y conjunto) en Meta Ads o Google Ads con un POST. Todo nace pausado y la activación es el último paso.",
-    "intro": "Un solo POST /ads crea el anuncio y, si quieres, la campaña y el conjunto que lo contienen. Cada nivel usa uno existente ({\"id\": ...}) o describe el nuevo. Si algo falla a mitad, lo creado se deshace y nada queda gastando. En Google Ads, el mismo POST /ads crea anuncios Demand Gen y grupos de recursos Performance Max.",
+    "title": "Crear un anuncio en Meta Ads, Google Ads y TikTok Ads",
+    "tagline": "Crea el anuncio y el árbol por encima (campaña y conjunto) en Meta Ads, Google Ads o TikTok Ads con un POST. Todo nace pausado.",
+    "intro": "Un solo POST /ads crea el anuncio y, si quieres, la campaña y el conjunto que lo contienen. Cada nivel usa uno existente ({\"id\": ...}) o describe el nuevo. Si algo falla a mitad, lo creado se deshace y nada queda gastando. En Google Ads, el mismo POST /ads crea anuncios Demand Gen y grupos de recursos Performance Max. En TikTok Ads, crea un anuncio de video en una campaña de Tráfico.",
     "can": [
       "Crear campaña, conjunto y anuncio en una sola llamada.",
       "Reutilizar una campaña o un conjunto existente pasando {\"id\": ...}.",
@@ -337,7 +386,8 @@
       "Definir la página y la cuenta de Instagram que firman el anuncio en el bloque facebook_ads.",
       "Pedir status active para activar el árbol al final.",
       "En Google Ads, crear un anuncio Demand Gen, con campaña y grupo de anuncios nuevos o existentes.",
-      "En Google Ads, crear un grupo de recursos Performance Max, o sumar recursos a uno existente, con títulos, títulos largos, descripciones, imágenes, videos y logo en el bloque google_adwords."
+      "En Google Ads, crear un grupo de recursos Performance Max, o sumar recursos a uno existente, con títulos, títulos largos, descripciones, imágenes, videos y logo en el bloque google_adwords.",
+      "En TikTok Ads, crear un anuncio de video con portada, en una campaña de Tráfico y un grupo de anuncios nuevos o existentes, que corre como una de las cuentas de TikTok de GET /ads/tiktok_ads/identities."
     ],
     "rules": [
       "Todo se crea pausado. El status pedido se aplica en el último paso, cuando todo el árbol ya existe.",
@@ -348,7 +398,8 @@
       "campaign está prohibido cuando se envía adset.id. La página debe ser de la cuenta de la conexión.",
       "La respuesta es síncrona: 201 con el resultado.",
       "En Google Ads, imágenes, videos y logos entran por el asset_id de POST /ads/google_adwords/media. Una campaña nueva lleva budget diario y google_adwords.type: demand_gen o performance_max.",
-      "Performance Max no tiene anuncios: el grupo de recursos lleva el creativo, así que la respuesta es el conjunto. Una campaña que no sea Demand Gen ni Performance Max responde 422 ads_unsupported_operation."
+      "Performance Max no tiene anuncios: el grupo de recursos lleva el creativo, así que la respuesta es el conjunto. Una campaña que no sea Demand Gen ni Performance Max responde 422 ads_unsupported_operation.",
+      "En TikTok Ads, el anuncio es un video: ad.body (hasta 100 caracteres), link_url, call_to_action y, en el bloque tiktok_ads, identity_id, identity_type, video_id y cover_image_id, estos dos de POST /ads/tiktok_ads/media. La campaña nueva lleva tiktok_ads.objective: traffic y ningún budget; el grupo nuevo lleva budget diario y targeting.countries. Antes de la primera escritura, todo se verifica en la cuenta solo con lecturas."
     ],
     "useCases": [
       {
@@ -374,15 +425,15 @@
         "a": "Lo ya creado se deshace y nada queda gastando. Lo que no se pudo deshacer viene en created. Repitiendo con el mismo Idempotency-Key, retoma donde quedó."
       },
       {
-        "q": "¿Funciona en Google Ads?",
-        "a": "Sí, en campañas Demand Gen y Performance Max. El cuerpo es el mismo POST /ads, con los campos de Google en el bloque google_adwords. En Performance Max la respuesta es el grupo de recursos, porque no tiene anuncios."
+        "q": "¿Funciona en Google Ads y TikTok Ads?",
+        "a": "Sí, en campañas Demand Gen y Performance Max. El cuerpo es el mismo POST /ads, con los campos de Google en el bloque google_adwords. En Performance Max la respuesta es el grupo de recursos, porque no tiene anuncios. En TikTok Ads, por ahora, en campañas de Tráfico con un anuncio de video, con los campos de TikTok en el bloque tiktok_ads."
       }
     ]
   },
   "fr": {
-    "title": "Créer une annonce sur Meta Ads et Google Ads",
-    "tagline": "Créez l'annonce et l'arbre au-dessus (campagne et ensemble) sur Meta Ads ou Google Ads en un POST. Tout naît en pause et l'activation vient en dernier.",
-    "intro": "Un seul POST /ads crée l'annonce et, si vous le souhaitez, la campagne et l'ensemble au-dessus. Chaque niveau utilise un niveau existant ({\"id\": ...}) ou décrit le nouveau. Si une étape échoue, ce qui a été créé est annulé et rien ne reste en train de dépenser. Sur Google Ads, le même POST /ads crée des annonces Demand Gen et des groupes d'éléments Performance Max.",
+    "title": "Créer une annonce sur Meta Ads, Google Ads et TikTok Ads",
+    "tagline": "Créez l'annonce et l'arbre au-dessus (campagne et ensemble) sur Meta Ads, Google Ads ou TikTok Ads en un POST. Tout naît en pause.",
+    "intro": "Un seul POST /ads crée l'annonce et, si vous le souhaitez, la campagne et l'ensemble au-dessus. Chaque niveau utilise un niveau existant ({\"id\": ...}) ou décrit le nouveau. Si une étape échoue, ce qui a été créé est annulé et rien ne reste en train de dépenser. Sur Google Ads, le même POST /ads crée des annonces Demand Gen et des groupes d'éléments Performance Max. Sur TikTok Ads, il crée une annonce vidéo dans une campagne Trafic.",
     "can": [
       "Créer campagne, ensemble et annonce en un seul appel.",
       "Réutiliser une campagne ou un ensemble existant en passant {\"id\": ...}.",
@@ -391,7 +442,8 @@
       "Définir la page et le compte Instagram qui publient l'annonce dans le bloc facebook_ads.",
       "Demander status active pour activer l'arbre à la fin.",
       "Sur Google Ads, créer une annonce Demand Gen, avec une campagne et un groupe d'annonces nouveaux ou existants.",
-      "Sur Google Ads, créer un groupe d'éléments Performance Max, ou ajouter des éléments à un groupe existant, avec titres, titres longs, descriptions, images, vidéos et logo dans le bloc google_adwords."
+      "Sur Google Ads, créer un groupe d'éléments Performance Max, ou ajouter des éléments à un groupe existant, avec titres, titres longs, descriptions, images, vidéos et logo dans le bloc google_adwords.",
+      "Sur TikTok Ads, créer une annonce vidéo avec couverture, dans une campagne Trafic et un groupe d'annonces nouveaux ou existants, diffusée sous l'un des comptes TikTok de GET /ads/tiktok_ads/identities."
     ],
     "rules": [
       "Tout est créé en pause. Le status demandé est appliqué à la dernière étape, quand tout l'arbre existe.",
@@ -402,7 +454,8 @@
       "campaign est interdit quand adset.id est envoyé. La page doit appartenir au compte de la connexion.",
       "La réponse est synchrone : 201 avec le résultat.",
       "Sur Google Ads, images, vidéos et logos passent par l'asset_id de POST /ads/google_adwords/media. Une nouvelle campagne prend un budget quotidien et google_adwords.type : demand_gen ou performance_max.",
-      "Performance Max n'a pas d'annonces : le groupe d'éléments porte le visuel, donc la réponse est l'ensemble. Une campagne qui n'est ni Demand Gen ni Performance Max répond 422 ads_unsupported_operation."
+      "Performance Max n'a pas d'annonces : le groupe d'éléments porte le visuel, donc la réponse est l'ensemble. Une campagne qui n'est ni Demand Gen ni Performance Max répond 422 ads_unsupported_operation.",
+      "Sur TikTok Ads, l'annonce est une vidéo : ad.body (jusqu'à 100 caractères), link_url, call_to_action et, dans le bloc tiktok_ads, identity_id, identity_type, video_id et cover_image_id, ces deux derniers venant de POST /ads/tiktok_ads/media. Une nouvelle campagne prend tiktok_ads.objective: traffic et aucun budget ; un nouveau groupe prend un budget quotidien et targeting.countries. Avant la première écriture, tout est vérifié dans le compte par des lectures seulement."
     ],
     "useCases": [
       {
@@ -428,8 +481,8 @@
         "a": "Ce qui a déjà été créé est annulé et rien ne reste en dépense. Ce qui n'a pas pu l'être figure dans created. En rejouant avec la même Idempotency-Key, l'appel reprend là où il s'est arrêté."
       },
       {
-        "q": "Est-ce que ça fonctionne sur Google Ads ?",
-        "a": "Oui, sur les campagnes Demand Gen et Performance Max. Le corps est le même POST /ads, avec les champs de Google dans le bloc google_adwords. Sur Performance Max, la réponse est le groupe d'éléments, car il n'y a pas d'annonce."
+        "q": "Est-ce que ça fonctionne sur Google Ads et TikTok Ads ?",
+        "a": "Oui, sur les campagnes Demand Gen et Performance Max. Le corps est le même POST /ads, avec les champs de Google dans le bloc google_adwords. Sur Performance Max, la réponse est le groupe d'éléments, car il n'y a pas d'annonce. Sur TikTok Ads, pour l'instant, sur les campagnes Trafic avec une annonce vidéo, avec les champs de TikTok dans le bloc tiktok_ads."
       }
     ]
   }

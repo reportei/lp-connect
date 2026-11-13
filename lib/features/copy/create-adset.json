@@ -138,12 +138,21 @@
         "es": "Intereses del público, con id y name.",
         "fr": "Centres d'intérêt de l'audience, avec id et name."
       }
+    },
+    {
+      "name": "tiktok_ads.location_ids",
+      "description": {
+        "pt": "Na resposta, no TikTok Ads: os países do grupo como ids de local da TikTok.",
+        "en": "In the response, on TikTok Ads: the ad group's countries as TikTok location ids.",
+        "es": "En la respuesta, en TikTok Ads: los países del grupo como ids de ubicación de TikTok.",
+        "fr": "Dans la réponse, sur TikTok Ads : les pays du groupe en ids de lieu TikTok."
+      }
     }
   ],
   "pt": {
-    "title": "Criar conjunto no Meta Ads ou grupo de anúncios no Google Ads",
-    "tagline": "Crie conjuntos no Meta Ads, com público, orçamento, agenda e lance, ou grupos de anúncios Demand Gen no Google Ads, por API. Nasce pausado e idempotente.",
-    "intro": "Crie o conjunto dentro de uma campanha existente na conta que o cliente conectou: público, agenda, posicionamentos, meta de otimização e lance. Os campos comuns a qualquer plataforma ficam no topo e o que é específico do Meta vai no bloco facebook_ads. Sem app review e sem lidar com tokens. No Google Ads, a mesma rota cria um grupo de anúncios numa campanha Demand Gen.",
+    "title": "Criar conjunto ou grupo de anúncios no Meta, Google e TikTok Ads",
+    "tagline": "Crie conjuntos no Meta Ads e grupos de anúncios no Google Ads (Demand Gen) e no TikTok Ads (Tráfego) por API. Nasce pausado e idempotente.",
+    "intro": "Crie o conjunto dentro de uma campanha existente na conta que o cliente conectou: público, agenda, posicionamentos, meta de otimização e lance. Os campos comuns a qualquer plataforma ficam no topo e o que é específico do Meta vai no bloco facebook_ads. Sem app review e sem lidar com tokens. No Google Ads, a mesma rota cria um grupo de anúncios numa campanha Demand Gen. No TikTok Ads, ela cria um grupo de anúncios numa campanha de Tráfego, com orçamento diário e países.",
     "can": [
       "Segmentar por países, idade (age_min e age_max) e gêneros.",
       "Segmentar por interesses e públicos personalizados, incluindo exclusões, em facebook_ads.targeting.",
@@ -151,7 +160,8 @@
       "Escolher posicionamentos com facebook_ads.placements.",
       "Escolher lance com bid_strategy (lowest_cost, bid_cap, cost_cap) e bid_amount.",
       "Informar promoted_object, destination_type e attribution_spec na criação.",
-      "No Google Ads, criar um grupo de anúncios numa campanha Demand Gen só com campaign_id, name e status."
+      "No Google Ads, criar um grupo de anúncios numa campanha Demand Gen só com campaign_id, name e status.",
+      "No TikTok Ads, criar um grupo de anúncios numa campanha de Tráfego com budget diário e targeting.countries."
     ],
     "rules": [
       "Idempotency-Key é obrigatório no header; repetir com a mesma chave devolve 200 com Idempotent-Replay: true.",
@@ -161,7 +171,8 @@
       "facebook_ads.optimization_goal e facebook_ads.billing_event são obrigatórios; os valores aceitos estão em GET /ads/options.",
       "promoted_object (pixel, página ou conversão personalizada) deve pertencer à conta da conexão, e vale só na criação.",
       "bid_amount exige bid_strategy.",
-      "No Google Ads, budget, schedule, targeting e facebook_ads são recusados: o orçamento fica na campanha. Numa campanha Performance Max, a rota responde 422 ads_unsupported_operation, e o grupo de recursos é criado com os recursos pelo POST /ads."
+      "No Google Ads, budget, schedule, targeting e facebook_ads são recusados: o orçamento fica na campanha. Numa campanha Performance Max, a rota responde 422 ads_unsupported_operation, e o grupo de recursos é criado com os recursos pelo POST /ads.",
+      "No TikTok Ads, budget (diário) e targeting.countries são obrigatórios, e schedule e facebook_ads são recusados. O grupo roda só no posicionamento TikTok, otimizado para clique, a partir de agora. Numa campanha que não seja de Tráfego, a rota responde 422 ads_unsupported_operation."
     ],
     "useCases": [
       {
@@ -193,9 +204,9 @@
     ]
   },
   "en": {
-    "title": "Create a Meta Ads ad set or a Google Ads ad group",
-    "tagline": "Create Meta Ads ad sets, with audience, budget, schedule and bidding, or Google Ads Demand Gen ad groups, by API. Starts paused and idempotent.",
-    "intro": "Create the ad set inside an existing campaign, in the account your client connected: audience, schedule, placements, optimization goal and bid. Fields common to any platform sit at the top level and what is specific to Meta goes in the facebook_ads block. No app review and no token handling. On Google Ads, the same route creates an ad group in a Demand Gen campaign.",
+    "title": "Create an ad set or ad group on Meta, Google and TikTok Ads",
+    "tagline": "Create Meta Ads ad sets and ad groups on Google Ads (Demand Gen) and TikTok Ads (Traffic) by API. Starts paused and idempotent.",
+    "intro": "Create the ad set inside an existing campaign, in the account your client connected: audience, schedule, placements, optimization goal and bid. Fields common to any platform sit at the top level and what is specific to Meta goes in the facebook_ads block. No app review and no token handling. On Google Ads, the same route creates an ad group in a Demand Gen campaign. On TikTok Ads, it creates an ad group in a Traffic campaign, with a daily budget and countries.",
     "can": [
       "Target by countries, age (age_min and age_max) and genders.",
       "Target by interests and custom audiences, including exclusions, in facebook_ads.targeting.",
@@ -203,7 +214,8 @@
       "Choose placements with facebook_ads.placements.",
       "Choose a bid with bid_strategy (lowest_cost, bid_cap, cost_cap) and bid_amount.",
       "Send promoted_object, destination_type and attribution_spec on create.",
-      "On Google Ads, create an ad group in a Demand Gen campaign with just campaign_id, name and status."
+      "On Google Ads, create an ad group in a Demand Gen campaign with just campaign_id, name and status.",
+      "On TikTok Ads, create an ad group in a Traffic campaign with a daily budget and targeting.countries."
     ],
     "rules": [
       "Idempotency-Key is required in the header; repeating with the same key returns 200 with Idempotent-Replay: true.",
@@ -213,7 +225,8 @@
       "facebook_ads.optimization_goal and facebook_ads.billing_event are required; accepted values are in GET /ads/options.",
       "promoted_object (pixel, page or custom conversion) must belong to the connection's account, and applies on create only.",
       "bid_amount requires bid_strategy.",
-      "On Google Ads, budget, schedule, targeting and facebook_ads are refused: the budget lives on the campaign. Under a Performance Max campaign the route answers 422 ads_unsupported_operation, and the asset group is created with its assets through POST /ads."
+      "On Google Ads, budget, schedule, targeting and facebook_ads are refused: the budget lives on the campaign. Under a Performance Max campaign the route answers 422 ads_unsupported_operation, and the asset group is created with its assets through POST /ads.",
+      "On TikTok Ads, budget (daily) and targeting.countries are required, and schedule and facebook_ads are refused. The ad group runs on the TikTok placement only, optimized for clicks, starting now. Under a campaign that is not Traffic, the route answers 422 ads_unsupported_operation."
     ],
     "useCases": [
       {
@@ -245,9 +258,9 @@
     ]
   },
   "es": {
-    "title": "Crear un conjunto en Meta Ads o un grupo en Google Ads",
-    "tagline": "Crea conjuntos en Meta Ads, con público, presupuesto, agenda y puja, o grupos de anuncios Demand Gen en Google Ads, por API. Nace pausado e idempotente.",
-    "intro": "Crea el conjunto dentro de una campaña existente, en la cuenta que el cliente conectó: público, agenda, ubicaciones, meta de optimización y puja. Los campos comunes a cualquier plataforma van arriba y lo específico de Meta va en el bloque facebook_ads. Sin revisión de app y sin manejar tokens. En Google Ads, la misma ruta crea un grupo de anuncios en una campaña Demand Gen.",
+    "title": "Crear un conjunto o grupo de anuncios en Meta, Google y TikTok Ads",
+    "tagline": "Crea conjuntos en Meta Ads y grupos de anuncios en Google Ads (Demand Gen) y TikTok Ads (Tráfico) por API. Nace pausado e idempotente.",
+    "intro": "Crea el conjunto dentro de una campaña existente, en la cuenta que el cliente conectó: público, agenda, ubicaciones, meta de optimización y puja. Los campos comunes a cualquier plataforma van arriba y lo específico de Meta va en el bloque facebook_ads. Sin revisión de app y sin manejar tokens. En Google Ads, la misma ruta crea un grupo de anuncios en una campaña Demand Gen. En TikTok Ads, crea un grupo de anuncios en una campaña de Tráfico, con presupuesto diario y países.",
     "can": [
       "Segmentar por países, edad (age_min y age_max) y géneros.",
       "Segmentar por intereses y públicos personalizados, incluidas exclusiones, en facebook_ads.targeting.",
@@ -255,7 +268,8 @@
       "Elegir ubicaciones con facebook_ads.placements.",
       "Elegir la puja con bid_strategy (lowest_cost, bid_cap, cost_cap) y bid_amount.",
       "Enviar promoted_object, destination_type y attribution_spec al crear.",
-      "En Google Ads, crear un grupo de anuncios en una campaña Demand Gen solo con campaign_id, name y status."
+      "En Google Ads, crear un grupo de anuncios en una campaña Demand Gen solo con campaign_id, name y status.",
+      "En TikTok Ads, crear un grupo de anuncios en una campaña de Tráfico con budget diario y targeting.countries."
     ],
     "rules": [
       "Idempotency-Key es obligatorio en el header; repetir con la misma clave devuelve 200 con Idempotent-Replay: true.",
@@ -265,7 +279,8 @@
       "facebook_ads.optimization_goal y facebook_ads.billing_event son obligatorios; los valores aceptados están en GET /ads/options.",
       "promoted_object (píxel, página o conversión personalizada) debe pertenecer a la cuenta de la conexión y vale solo al crear.",
       "bid_amount exige bid_strategy.",
-      "En Google Ads, budget, schedule, targeting y facebook_ads se rechazan: el presupuesto va en la campaña. En una campaña Performance Max, la ruta responde 422 ads_unsupported_operation, y el grupo de recursos se crea con sus recursos por POST /ads."
+      "En Google Ads, budget, schedule, targeting y facebook_ads se rechazan: el presupuesto va en la campaña. En una campaña Performance Max, la ruta responde 422 ads_unsupported_operation, y el grupo de recursos se crea con sus recursos por POST /ads.",
+      "En TikTok Ads, budget (diario) y targeting.countries son obligatorios, y schedule y facebook_ads se rechazan. El grupo corre solo en la ubicación TikTok, optimizado para clics, desde ahora. En una campaña que no sea de Tráfico, la ruta responde 422 ads_unsupported_operation."
     ],
     "useCases": [
       {
@@ -297,9 +312,9 @@
     ]
   },
   "fr": {
-    "title": "Créer un ensemble Meta Ads ou un groupe d'annonces Google Ads",
-    "tagline": "Créez des ensembles Meta Ads, avec audience, budget, calendrier et enchères, ou des groupes Demand Gen Google Ads, par API. En pause, idempotent.",
-    "intro": "Créez l'ensemble dans une campagne existante, dans le compte que le client a connecté : audience, calendrier, emplacements, objectif d'optimisation et enchère. Les champs communs à toute plateforme sont au premier niveau et ce qui est propre à Meta va dans le bloc facebook_ads. Sans revue d'app ni gestion de tokens. Sur Google Ads, la même route crée un groupe d'annonces dans une campagne Demand Gen.",
+    "title": "Créer un ensemble ou groupe d'annonces Meta, Google et TikTok Ads",
+    "tagline": "Créez des ensembles Meta Ads et des groupes d'annonces Google Ads (Demand Gen) et TikTok Ads (Trafic) par API. En pause, idempotent.",
+    "intro": "Créez l'ensemble dans une campagne existante, dans le compte que le client a connecté : audience, calendrier, emplacements, objectif d'optimisation et enchère. Les champs communs à toute plateforme sont au premier niveau et ce qui est propre à Meta va dans le bloc facebook_ads. Sans revue d'app ni gestion de tokens. Sur Google Ads, la même route crée un groupe d'annonces dans une campagne Demand Gen. Sur TikTok Ads, elle crée un groupe d'annonces dans une campagne Trafic, avec un budget quotidien et des pays.",
     "can": [
       "Cibler par pays, âge (age_min et age_max) et genres.",
       "Cibler par centres d'intérêt et audiences personnalisées, exclusions comprises, dans facebook_ads.targeting.",
@@ -307,7 +322,8 @@
       "Choisir les emplacements avec facebook_ads.placements.",
       "Choisir une enchère avec bid_strategy (lowest_cost, bid_cap, cost_cap) et bid_amount.",
       "Envoyer promoted_object, destination_type et attribution_spec à la création.",
-      "Sur Google Ads, créer un groupe d'annonces dans une campagne Demand Gen avec seulement campaign_id, name et status."
+      "Sur Google Ads, créer un groupe d'annonces dans une campagne Demand Gen avec seulement campaign_id, name et status.",
+      "Sur TikTok Ads, créer un groupe d'annonces dans une campagne Trafic avec un budget quotidien et targeting.countries."
     ],
     "rules": [
       "Idempotency-Key est obligatoire dans le header ; répéter avec la même clé renvoie 200 avec Idempotent-Replay: true.",
@@ -317,7 +333,8 @@
       "facebook_ads.optimization_goal et facebook_ads.billing_event sont obligatoires ; les valeurs acceptées sont dans GET /ads/options.",
       "promoted_object (pixel, page ou conversion personnalisée) doit appartenir au compte de la connexion et ne vaut qu'à la création.",
       "bid_amount exige bid_strategy.",
-      "Sur Google Ads, budget, schedule, targeting et facebook_ads sont refusés : le budget est sur la campagne. Sous une campagne Performance Max, la route répond 422 ads_unsupported_operation, et le groupe d'éléments est créé avec ses éléments par POST /ads."
+      "Sur Google Ads, budget, schedule, targeting et facebook_ads sont refusés : le budget est sur la campagne. Sous une campagne Performance Max, la route répond 422 ads_unsupported_operation, et le groupe d'éléments est créé avec ses éléments par POST /ads.",
+      "Sur TikTok Ads, budget (quotidien) et targeting.countries sont obligatoires, et schedule et facebook_ads sont refusés. Le groupe diffuse uniquement sur l'emplacement TikTok, optimisé pour les clics, à partir de maintenant. Sous une campagne qui n'est pas Trafic, la route répond 422 ads_unsupported_operation."
     ],
     "useCases": [
       {

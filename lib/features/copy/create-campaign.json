@@ -119,12 +119,21 @@
         "es": "Google Ads: strategy (maximize_conversions, por defecto, o maximize_conversion_value) y, opcional, target_cpa o target_roas (4 es 400%).",
         "fr": "Google Ads : strategy (maximize_conversions, par défaut, ou maximize_conversion_value) et, en option, target_cpa ou target_roas (4 vaut 400 %)."
       }
+    },
+    {
+      "name": "tiktok_ads.objective",
+      "description": {
+        "pt": "TikTok Ads: por enquanto só traffic. Obrigatório no TikTok, que não aceita budget na campanha.",
+        "en": "TikTok Ads: only traffic for now. Required on TikTok, which takes no budget on the campaign.",
+        "es": "TikTok Ads: por ahora solo traffic. Obligatorio en TikTok, que no acepta budget en la campaña.",
+        "fr": "TikTok Ads : seulement traffic pour l'instant. Obligatoire sur TikTok, qui n'accepte pas de budget sur la campagne."
+      }
     }
   ],
   "pt": {
-    "title": "Criar campanha no Meta Ads e no Google Ads",
-    "tagline": "Crie campanhas no Meta Ads ou campanhas Demand Gen e Performance Max no Google Ads com um POST, com orçamento e lance. Nasce pausada e é idempotente.",
-    "intro": "Uma chamada cria a campanha na conta de anúncios que o cliente conectou, sem você implementar a API do Meta nem passar pela revisão de app. Você descreve objetivo e orçamento em um vocabulário único e o Connect cuida do token e da tradução. A campanha nasce pausada, então nada gasta até você ativar. No Google Ads, a mesma rota cria campanhas Demand Gen e Performance Max, com orçamento diário e estratégia de lance.",
+    "title": "Criar campanha no Meta Ads, no Google Ads e no TikTok Ads",
+    "tagline": "Crie campanhas no Meta Ads, Demand Gen e Performance Max no Google Ads ou de Tráfego no TikTok Ads com um POST. Nasce pausada e é idempotente.",
+    "intro": "Uma chamada cria a campanha na conta de anúncios que o cliente conectou, sem você implementar a API do Meta nem passar pela revisão de app. Você descreve objetivo e orçamento em um vocabulário único e o Connect cuida do token e da tradução. A campanha nasce pausada, então nada gasta até você ativar. No Google Ads, a mesma rota cria campanhas Demand Gen e Performance Max, com orçamento diário e estratégia de lance. No TikTok Ads, a rota cria campanhas de Tráfego, sem orçamento próprio: o orçamento fica em cada grupo de anúncios.",
     "can": [
       "Escolher o objetivo: awareness, traffic, engagement, leads, app_promotion ou sales.",
       "Definir o orçamento na campanha (CBO) ou deixá-lo para cada conjunto (ABO).",
@@ -133,7 +142,8 @@
       "Definir um limite de gasto com facebook_ads.spend_cap.",
       "Consultar os valores aceitos em GET /ads/options?integration_slug=facebook_ads.",
       "No Google Ads, criar uma campanha Demand Gen ou Performance Max com google_adwords.type e orçamento diário próprio.",
-      "No Google Ads, escolher o lance em google_adwords.bidding: maximize_conversions, com target_cpa opcional, ou maximize_conversion_value, com target_roas opcional."
+      "No Google Ads, escolher o lance em google_adwords.bidding: maximize_conversions, com target_cpa opcional, ou maximize_conversion_value, com target_roas opcional.",
+      "No TikTok Ads, criar uma campanha de Tráfego com tiktok_ads.objective: traffic."
     ],
     "rules": [
       "Sem status, a campanha nasce pausada.",
@@ -142,7 +152,8 @@
       "budget.amount é na moeda da conta, nunca em centavos.",
       "facebook_ads.objective é obrigatório e não muda depois de criado.",
       "A resposta é síncrona: 201 com a campanha criada. Se a chave de idempotência já foi usada com outro corpo, a resposta é 422 idempotency_key_reused.",
-      "No Google Ads, budget é obrigatório e só daily: o orçamento fica sempre na campanha. facebook_ads é recusado."
+      "No Google Ads, budget é obrigatório e só daily: o orçamento fica sempre na campanha. facebook_ads é recusado.",
+      "No TikTok Ads, por enquanto só traffic, e budget é recusado na campanha: o orçamento diário vai em cada grupo de anúncios. facebook_ads também é recusado."
     ],
     "useCases": [
       {
@@ -174,9 +185,9 @@
     ]
   },
   "en": {
-    "title": "Create a campaign on Meta Ads and Google Ads",
-    "tagline": "Create Meta Ads campaigns or Google Ads Demand Gen and Performance Max campaigns with one POST, with budget and bidding. Starts paused, idempotent.",
-    "intro": "One call creates the campaign in the ad account your client connected, with no Meta API integration to build and no app review. You describe objective and budget in a single vocabulary and Connect handles the token and the translation. The campaign is created paused, so nothing spends until you activate it. On Google Ads, the same route creates Demand Gen and Performance Max campaigns, with a daily budget and a bidding strategy.",
+    "title": "Create a campaign on Meta Ads, Google Ads and TikTok Ads",
+    "tagline": "Create Meta Ads campaigns, Google Ads Demand Gen and Performance Max campaigns or TikTok Ads Traffic campaigns with one POST. Starts paused, idempotent.",
+    "intro": "One call creates the campaign in the ad account your client connected, with no Meta API integration to build and no app review. You describe objective and budget in a single vocabulary and Connect handles the token and the translation. The campaign is created paused, so nothing spends until you activate it. On Google Ads, the same route creates Demand Gen and Performance Max campaigns, with a daily budget and a bidding strategy. On TikTok Ads, the route creates Traffic campaigns without a budget of their own: each ad group carries it.",
     "can": [
       "Pick the objective: awareness, traffic, engagement, leads, app_promotion or sales.",
       "Set the budget on the campaign (CBO) or leave it to each ad set (ABO).",
@@ -185,7 +196,8 @@
       "Set a spending limit with facebook_ads.spend_cap.",
       "Read the accepted values from GET /ads/options?integration_slug=facebook_ads.",
       "On Google Ads, create a Demand Gen or Performance Max campaign with google_adwords.type and its own daily budget.",
-      "On Google Ads, pick the bidding in google_adwords.bidding: maximize_conversions, with an optional target_cpa, or maximize_conversion_value, with an optional target_roas."
+      "On Google Ads, pick the bidding in google_adwords.bidding: maximize_conversions, with an optional target_cpa, or maximize_conversion_value, with an optional target_roas.",
+      "On TikTok Ads, create a Traffic campaign with tiktok_ads.objective: traffic."
     ],
     "rules": [
       "Without status, the campaign is created paused.",
@@ -194,7 +206,8 @@
       "budget.amount is in the account's currency, never in cents.",
       "facebook_ads.objective is required and can't be changed after creation.",
       "The response is synchronous: 201 with the created campaign. Reusing the key with a different body returns 422 idempotency_key_reused.",
-      "On Google Ads, budget is required and daily only: the budget always lives on the campaign. facebook_ads is refused."
+      "On Google Ads, budget is required and daily only: the budget always lives on the campaign. facebook_ads is refused.",
+      "On TikTok Ads, only traffic for now, and budget is refused on the campaign: the daily budget goes on each ad group. facebook_ads is refused too."
     ],
     "useCases": [
       {
@@ -226,9 +239,9 @@
     ]
   },
   "es": {
-    "title": "Crear una campaña en Meta Ads y Google Ads",
-    "tagline": "Crea campañas en Meta Ads o campañas Demand Gen y Performance Max en Google Ads con un POST, con presupuesto y puja. Nace pausada y es idempotente.",
-    "intro": "Una llamada crea la campaña en la cuenta de anuncios que el cliente conectó, sin implementar la API de Meta ni pasar por la revisión de app. Describes objetivo y presupuesto en un vocabulario único y Connect se encarga del token y de la traducción. La campaña nace pausada, así que nada gasta hasta que la actives. En Google Ads, la misma ruta crea campañas Demand Gen y Performance Max, con presupuesto diario y estrategia de puja.",
+    "title": "Crear una campaña en Meta Ads, Google Ads y TikTok Ads",
+    "tagline": "Crea campañas en Meta Ads, Demand Gen y Performance Max en Google Ads o de Tráfico en TikTok Ads con un POST. Nace pausada y es idempotente.",
+    "intro": "Una llamada crea la campaña en la cuenta de anuncios que el cliente conectó, sin implementar la API de Meta ni pasar por la revisión de app. Describes objetivo y presupuesto en un vocabulario único y Connect se encarga del token y de la traducción. La campaña nace pausada, así que nada gasta hasta que la actives. En Google Ads, la misma ruta crea campañas Demand Gen y Performance Max, con presupuesto diario y estrategia de puja. En TikTok Ads, la ruta crea campañas de Tráfico sin presupuesto propio: el presupuesto va en cada grupo de anuncios.",
     "can": [
       "Elegir el objetivo: awareness, traffic, engagement, leads, app_promotion o sales.",
       "Definir el presupuesto en la campaña (CBO) o dejarlo para cada conjunto (ABO).",
@@ -237,7 +250,8 @@
       "Definir un límite de gasto con facebook_ads.spend_cap.",
       "Consultar los valores aceptados en GET /ads/options?integration_slug=facebook_ads.",
       "En Google Ads, crear una campaña Demand Gen o Performance Max con google_adwords.type y presupuesto diario propio.",
-      "En Google Ads, elegir la puja en google_adwords.bidding: maximize_conversions, con target_cpa opcional, o maximize_conversion_value, con target_roas opcional."
+      "En Google Ads, elegir la puja en google_adwords.bidding: maximize_conversions, con target_cpa opcional, o maximize_conversion_value, con target_roas opcional.",
+      "En TikTok Ads, crear una campaña de Tráfico con tiktok_ads.objective: traffic."
     ],
     "rules": [
       "Sin status, la campaña nace pausada.",
@@ -246,7 +260,8 @@
       "budget.amount va en la moneda de la cuenta, nunca en centavos.",
       "facebook_ads.objective es obligatorio y no cambia después de crear.",
       "La respuesta es síncrona: 201 con la campaña creada. Si la clave ya se usó con otro cuerpo, responde 422 idempotency_key_reused.",
-      "En Google Ads, budget es obligatorio y solo daily: el presupuesto va siempre en la campaña. facebook_ads se rechaza."
+      "En Google Ads, budget es obligatorio y solo daily: el presupuesto va siempre en la campaña. facebook_ads se rechaza.",
+      "En TikTok Ads, por ahora solo traffic, y budget se rechaza en la campaña: el presupuesto diario va en cada grupo de anuncios. facebook_ads también se rechaza."
     ],
     "useCases": [
       {
@@ -278,9 +293,9 @@
     ]
   },
   "fr": {
-    "title": "Créer une campagne sur Meta Ads et Google Ads",
-    "tagline": "Créez des campagnes Meta Ads ou Demand Gen et Performance Max sur Google Ads en un POST, avec budget et enchères. En pause, idempotent.",
-    "intro": "Un appel crée la campagne dans le compte publicitaire que le client a connecté, sans implémenter l'API Meta ni passer par la revue d'app. Vous décrivez objectif et budget dans un vocabulaire unique et Connect gère le token et la traduction. La campagne est créée en pause : rien ne dépense avant que vous l'activiez. Sur Google Ads, la même route crée des campagnes Demand Gen et Performance Max, avec un budget quotidien et une stratégie d'enchères.",
+    "title": "Créer une campagne sur Meta Ads, Google Ads et TikTok Ads",
+    "tagline": "Créez des campagnes Meta Ads, Demand Gen et Performance Max sur Google Ads ou Trafic sur TikTok Ads en un POST. En pause, idempotent.",
+    "intro": "Un appel crée la campagne dans le compte publicitaire que le client a connecté, sans implémenter l'API Meta ni passer par la revue d'app. Vous décrivez objectif et budget dans un vocabulaire unique et Connect gère le token et la traduction. La campagne est créée en pause : rien ne dépense avant que vous l'activiez. Sur Google Ads, la même route crée des campagnes Demand Gen et Performance Max, avec un budget quotidien et une stratégie d'enchères. Sur TikTok Ads, la route crée des campagnes Trafic sans budget propre : le budget est sur chaque groupe d'annonces.",
     "can": [
       "Choisir l'objectif : awareness, traffic, engagement, leads, app_promotion ou sales.",
       "Définir le budget sur la campagne (CBO) ou le laisser à chaque ensemble (ABO).",
@@ -289,7 +304,8 @@
       "Définir un plafond de dépense avec facebook_ads.spend_cap.",
       "Lire les valeurs acceptées via GET /ads/options?integration_slug=facebook_ads.",
       "Sur Google Ads, créer une campagne Demand Gen ou Performance Max avec google_adwords.type et son propre budget quotidien.",
-      "Sur Google Ads, choisir les enchères dans google_adwords.bidding : maximize_conversions, avec target_cpa facultatif, ou maximize_conversion_value, avec target_roas facultatif."
+      "Sur Google Ads, choisir les enchères dans google_adwords.bidding : maximize_conversions, avec target_cpa facultatif, ou maximize_conversion_value, avec target_roas facultatif.",
+      "Sur TikTok Ads, créer une campagne Trafic avec tiktok_ads.objective: traffic."
     ],
     "rules": [
       "Sans status, la campagne est créée en pause.",
@@ -298,7 +314,8 @@
       "budget.amount est dans la devise du compte, jamais en centimes.",
       "facebook_ads.objective est obligatoire et ne change plus après la création.",
       "La réponse est synchrone : 201 avec la campagne créée. Réutiliser la clé avec un autre corps renvoie 422 idempotency_key_reused.",
-      "Sur Google Ads, budget est obligatoire et uniquement daily : le budget est toujours sur la campagne. facebook_ads est refusé."
+      "Sur Google Ads, budget est obligatoire et uniquement daily : le budget est toujours sur la campagne. facebook_ads est refusé.",
+      "Sur TikTok Ads, seulement traffic pour l'instant, et budget est refusé sur la campagne : le budget quotidien va sur chaque groupe d'annonces. facebook_ads est refusé aussi."
     ],
     "useCases": [
       {
