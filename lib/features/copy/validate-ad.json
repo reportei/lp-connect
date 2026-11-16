@@ -178,7 +178,7 @@
       "Receber o resultado por nível.",
       "Usar o mesmo corpo depois no POST /ads, sem adaptar nada.",
       "Validar no Google Ads um anúncio Demand Gen ou um grupo de recursos Performance Max, com o mesmo corpo do POST /ads.",
-      "Validar no TikTok Ads um anúncio de vídeo numa campanha de Tráfego: campanha e grupo citados, objetivo, países, identidade, vídeo e capa."
+      "Validar no TikTok Ads um anúncio de vídeo: campanha e grupo citados, objetivo, orçamento entre os níveis, meta, países, identidade, vídeo e capa."
     ],
     "rules": [
       "Não cria nada na conta do cliente e não registra operação.",
@@ -228,7 +228,7 @@
       "Get the result per level.",
       "Reuse the same body later in POST /ads, with no changes.",
       "Validate a Demand Gen ad or a Performance Max asset group on Google Ads, with the same body as POST /ads.",
-      "Validate a video ad in a Traffic campaign on TikTok Ads: the campaign and ad group named, objective, countries, identity, video and cover."
+      "Validate a video ad on TikTok Ads: the campaign and ad group named, objective, budget across levels, goal, countries, identity, video and cover."
     ],
     "rules": [
       "Creates nothing in the client's account and records no operation.",
@@ -278,7 +278,7 @@
       "Recibir el resultado por nivel.",
       "Usar luego el mismo cuerpo en POST /ads, sin adaptar nada.",
       "Validar en Google Ads un anuncio Demand Gen o un grupo de recursos Performance Max, con el mismo cuerpo del POST /ads.",
-      "Validar en TikTok Ads un anuncio de video en una campaña de Tráfico: campaña y grupo citados, objetivo, países, identidad, video y portada."
+      "Validar en TikTok Ads un anuncio de video: campaña y grupo citados, objetivo, presupuesto entre niveles, meta, países, identidad, video y portada."
     ],
     "rules": [
       "No crea nada en la cuenta del cliente y no registra operación.",
@@ -328,7 +328,7 @@
       "Obtenir le résultat par niveau.",
       "Réutiliser ensuite le même corps dans POST /ads, sans rien adapter.",
       "Valider sur Google Ads une annonce Demand Gen ou un groupe d'éléments Performance Max, avec le même corps que POST /ads.",
-      "Valider sur TikTok Ads une annonce vidéo dans une campagne Trafic : campagne et groupe cités, objectif, pays, identité, vidéo et couverture."
+      "Valider sur TikTok Ads une annonce vidéo : campagne et groupe cités, objectif, budget entre les niveaux, objectif d'optimisation, pays, identité, vidéo et couverture."
     ],
     "rules": [
       "Ne crée rien dans le compte du client et n'enregistre aucune opération.",
