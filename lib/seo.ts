@@ -14,8 +14,12 @@ import {
 export const SITE_URL = "https://reportei.com/connect"
 export const SITE_NAME = "Reportei Connect"
 export const SIGNUP_URL = "https://app.connect.reportei.com/signup"
-const OG_IMAGE_BASE = { url: `${SITE_URL}/og.png?v=2`, width: 1200, height: 630 }
-export const OG_IMAGE = { ...OG_IMAGE_BASE, alt: "Reportei Connect: métricas e ações nos apps dos seus clientes em uma API" }
+// One image per language, with the headline in that language. Bump `v` when an image changes, so X and other crawlers fetch it again.
+export function ogImageBase(locale: Locale = DEFAULT_LOCALE) {
+  const file = locale === DEFAULT_LOCALE ? "og.png?v=2" : `og-${locale}.png?v=1`
+  return { url: `${SITE_URL}/${file}`, width: 1200, height: 630 }
+}
+const OG_IMAGE_ALT = "Reportei Connect: métricas e ações nos apps dos seus clientes em uma API"
 
 export function absoluteUrl(path: string) {
   return path === "/" ? SITE_URL : `${SITE_URL}${path}`
@@ -53,7 +57,7 @@ export function pageMetadata({
   canonical?: string
 }): Metadata {
   const url = canonical ?? absoluteUrl(path)
-  const image = imageAlt ? { ...OG_IMAGE_BASE, alt: imageAlt } : OG_IMAGE
+  const image = { ...ogImageBase(locale), alt: imageAlt ?? OG_IMAGE_ALT }
   return {
     title,
     description,
