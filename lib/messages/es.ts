@@ -2,7 +2,7 @@ import type { Messages, Rich } from "@/lib/messages/pt"
 
 export const es: Messages = {
   meta: {
-    homeTitle: "API de datos de marketing para SaaS | Reportei Connect",
+    homeTitle: (total: number) => `API de datos de marketing: integra ${total} plataformas | Reportei Connect`,
     homeDescription: (n) =>
       `API para que tu software consulte Instagram, Meta Ads, Google Ads, RD Station y ${n - 4} plataformas más de marketing, CRM y e-commerce de tus clientes.`,
     softwareDescription: (n) =>

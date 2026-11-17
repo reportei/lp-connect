@@ -16,10 +16,10 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display
 // Pages set their own canonical through pageMetadata; the layout only holds what every page shares.
 export function rootMetadata(locale: Locale): Metadata {
   const t = getMessages(locale).meta
-  const image = { url: "https://reportei.com/connect/og.png", width: 1200, height: 630, alt: t.ogImageAlt(CATALOG_COUNT) }
+  const image = { url: "https://reportei.com/connect/og.png?v=2", width: 1200, height: 630, alt: t.ogImageAlt(CATALOG_COUNT) }
   return {
     metadataBase: new URL("https://reportei.com"),
-    title: t.homeTitle,
+    title: t.homeTitle(CATALOG_COUNT),
     description: t.homeDescription(NATIVE_COUNT),
     // Same Reportei mark the Connect app uses, so the tab looks the same on both.
     icons: {

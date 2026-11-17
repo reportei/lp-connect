@@ -23,7 +23,7 @@ import { absoluteUrl, pageMetadata } from "@/lib/seo"
 export function homeMetadata(locale: Locale) {
   const t = getMessages(locale).meta
   return pageMetadata({
-    title: t.homeTitle,
+    title: t.homeTitle(CATALOG_COUNT),
     description: t.homeDescription(NATIVE_COUNT),
     path: pagePath(locale, "home"),
     locale,

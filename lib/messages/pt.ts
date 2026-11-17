@@ -8,7 +8,7 @@ const faqs = (items: Faq[]) => items
 // Strings that reach client components must be plain data, so those use {placeholders} filled by `fill`.
 export const pt = {
   meta: {
-    homeTitle: "API de dados de marketing para SaaS | Reportei Connect",
+    homeTitle: (total: number) => `API de dados de marketing: integre ${total} plataformas | Reportei Connect`,
     homeDescription: (n: number) =>
       `API para o seu software consultar Instagram, Meta Ads, Google Ads, RD Station e mais ${n - 4} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     softwareDescription: (n: number) =>
