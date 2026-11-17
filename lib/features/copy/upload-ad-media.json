@@ -136,6 +136,7 @@
       "Reutilizar o mesmo hash ou id em vários anúncios, como a versão de feed e a de stories do mesmo criativo.",
       "No Google Ads, enviar uma imagem com POST /ads/google_adwords/media e receber o asset_id, já pronto.",
       "No Google Ads, importar um vídeo do YouTube pelo link, pronto na hora, ou enviar um arquivo de vídeo, que sobe para o YouTube como não listado.",
+      "No Google Ads, listar as imagens e os vídeos do YouTube que já estão na conta com GET /ads/google_adwords/library, com o asset_id, para não enviar de novo.",
       "No TikTok Ads, enviar o vídeo e a capa com POST /ads/tiktok_ads/media, acompanhar o vídeo com GET /ads/tiktok_ads/videos/{id} e listar o que a conta já tem com GET /ads/tiktok_ads/library."
     ],
     "rules": [
@@ -188,6 +189,7 @@
       "Reuse the same hash or id across several ads, such as the feed and stories versions of one creative.",
       "On Google Ads, upload an image with POST /ads/google_adwords/media and get its asset_id, ready at once.",
       "On Google Ads, import a YouTube video by its link, ready at once, or upload a video file, which goes to YouTube as unlisted.",
+      "On Google Ads, list the images and YouTube videos already in the account with GET /ads/google_adwords/library, with their asset_id, so you don't upload them again.",
       "On TikTok Ads, send the video and its cover with POST /ads/tiktok_ads/media, follow the video with GET /ads/tiktok_ads/videos/{id} and list what the account already has with GET /ads/tiktok_ads/library."
     ],
     "rules": [
@@ -240,6 +242,7 @@
       "Reutilizar el mismo hash o id en varios anuncios, como la versión de feed y la de stories de un mismo creativo.",
       "En Google Ads, subir una imagen con POST /ads/google_adwords/media y recibir el asset_id, lista al instante.",
       "En Google Ads, importar un video de YouTube por el enlace, listo al instante, o subir un archivo de video, que va a YouTube como no listado.",
+      "En Google Ads, listar las imágenes y los videos de YouTube que ya están en la cuenta con GET /ads/google_adwords/library, con el asset_id, para no subirlos de nuevo.",
       "En TikTok Ads, enviar el video y la portada con POST /ads/tiktok_ads/media, seguir el video con GET /ads/tiktok_ads/videos/{id} y listar lo que la cuenta ya tiene con GET /ads/tiktok_ads/library."
     ],
     "rules": [
@@ -292,6 +295,7 @@
       "Réutiliser le même hash ou id dans plusieurs annonces, comme les versions feed et stories d'un même visuel.",
       "Sur Google Ads, envoyer une image avec POST /ads/google_adwords/media et recevoir l'asset_id, prête tout de suite.",
       "Sur Google Ads, importer une vidéo YouTube par son lien, prête tout de suite, ou envoyer un fichier vidéo, publié sur YouTube en non répertorié.",
+      "Sur Google Ads, lister les images et les vidéos YouTube déjà dans le compte avec GET /ads/google_adwords/library, avec l'asset_id, pour ne pas les renvoyer.",
       "Sur TikTok Ads, envoyer la vidéo et sa couverture avec POST /ads/tiktok_ads/media, suivre la vidéo avec GET /ads/tiktok_ads/videos/{id} et lister ce que le compte a déjà avec GET /ads/tiktok_ads/library."
     ],
     "rules": [
