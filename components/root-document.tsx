@@ -8,7 +8,7 @@ import { GoogleTagManager, GoogleTagManagerNoScript, SignupCampaignParams } from
 import { LOCALE_INFO, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 import { CATALOG_COUNT, NATIVE_COUNT } from "@/lib/catalog"
-import { SITE_NAME } from "@/lib/seo"
+import { SITE_NAME, ogImageBase } from "@/lib/seo"
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" })
 
@@ -16,7 +16,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display
 // Pages set their own canonical through pageMetadata; the layout only holds what every page shares.
 export function rootMetadata(locale: Locale): Metadata {
   const t = getMessages(locale).meta
-  const image = { url: "https://reportei.com/connect/og.png?v=2", width: 1200, height: 630, alt: t.ogImageAlt(CATALOG_COUNT) }
+  const image = { ...ogImageBase(locale), alt: t.ogImageAlt(CATALOG_COUNT) }
   return {
     metadataBase: new URL("https://reportei.com"),
     title: t.homeTitle(CATALOG_COUNT),

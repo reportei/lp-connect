@@ -34,7 +34,7 @@ O catálogo tem dois tipos de integração: as **nativas** (`INTEGRATIONS` em `l
 - `lib/catalog.ts` junta as duas listas: `NATIVE_COUNT`, `TOOLKIT_COUNT`, `CATALOG_COUNT` (a soma) e `catalogEntries(locale)`, que alimenta o catálogo da home (`NetworksSection`) e o de `/integracoes`, com a etiqueta "Toolkit". Só no servidor, porque `lib/toolkits` lê arquivos.
 - **Qual contagem usar:** frase sobre métricas ("métricas de N plataformas", FAQ, JSON-LD, páginas de plataforma, comparativos) usa `NATIVE_COUNT`. Frase sobre integrações em geral (título do topo, catálogo, `/integracoes`) usa `CATALOG_COUNT`. Nunca escrever o número fixo no texto.
 - Nativa nova: entrada em `INTEGRATIONS` e logo em `public/images/integrations/{logo}.svg`. Toolkit novo: só o sync descrito abaixo. A categoria de cada toolkit no filtro vem de `TOOLKIT_GROUPS` em `lib/catalog.ts`.
-- A imagem `public/og.png` tem o número escrito nela. Ao mudar o catálogo, ela precisa de uma versão nova do design.
+- As imagens de compartilhamento `public/og.png` (pt) e `public/og-{en,es,fr}.png` têm o número escrito nelas. Ao mudar o catálogo, as quatro precisam de versão nova e o `v` delas em `ogImageBase` (`lib/seo.ts`) sobe, senão o X segue mostrando a antiga.
 
 ## Toolkits (pSEO)
 
