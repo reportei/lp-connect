@@ -395,7 +395,7 @@ export const pt = {
             `Conectar as contas dos seus clientes em ${n} plataformas de marketing, CRM e e-commerce e consultar as métricas delas por uma única API.`,
           ],
           [
-            "Também dá para publicar no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts dos seus clientes e, no Meta Ads e no Google Ads, criar e gerenciar campanhas, conjuntos e anúncios, conforme as permissões das contas conectadas.",
+            "Também dá para publicar no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts dos seus clientes e, no Meta Ads, no Google Ads e no TikTok Ads, criar e gerenciar campanhas, conjuntos e anúncios, conforme as permissões das contas conectadas.",
           ],
           [
             `Com os toolkits, seu produto executa ações em mais ${toolkits} apps dos seus clientes, como enviar mensagens no WhatsApp, criar tarefas no ClickUp ou avisar um canal do Slack. Toolkits não trazem métricas.`,
@@ -672,10 +672,10 @@ export const pt = {
     home: {
       eyebrow: "Funcionalidades",
       title: "Além de ler dados: publique, anuncie e chame LLMs pela mesma API",
-      copy: "Use as contas conectadas dos seus clientes para publicar posts, gerenciar Meta Ads e Google Ads e consultar métricas. Para chamar modelos de IA, cadastre sua própria chave do provedor. Cada ação tem uma página com um exemplo de chamada.",
+      copy: "Use as contas conectadas dos seus clientes para publicar posts, gerenciar Meta Ads, Google Ads e TikTok Ads e consultar métricas. Para chamar modelos de IA, cadastre sua própria chave do provedor. Cada ação tem uma página com um exemplo de chamada.",
       cards: {
         posts: "Publique no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts.",
-        ads: "Crie, impulsione e gerencie anúncios no Meta Ads e no Google Ads dos seus clientes.",
+        ads: "Crie, impulsione e gerencie anúncios no Meta Ads, no Google Ads e no TikTok Ads dos seus clientes.",
         metrics: (n: number) => `Números, gráficos e tabelas de ${n} plataformas no mesmo formato.`,
         llm: "OpenAI, Anthropic e Meta no formato da OpenAI, com a sua chave.",
       },
@@ -693,9 +693,9 @@ export const pt = {
       },
       ads: {
         name: "Ads",
-        metaTitle: "API de Meta Ads e Google Ads para criar e gerenciar anúncios",
-        metaDescription: "Crie campanhas, conjuntos e anúncios no Meta Ads e no Google Ads dos seus clientes, impulsione posts, segmente públicos e edite orçamentos por uma API.",
-        h1: "Crie e gerencie anúncios no Meta Ads e no Google Ads dos seus clientes por uma API",
+        metaTitle: "API de Meta Ads, Google Ads e TikTok Ads para criar e gerenciar anúncios",
+        metaDescription: "Crie campanhas, conjuntos e anúncios no Meta Ads, no Google Ads e no TikTok Ads dos seus clientes, impulsione posts, segmente públicos e edite orçamentos por uma API.",
+        h1: "Crie e gerencie anúncios no Meta Ads, no Google Ads e no TikTok Ads dos seus clientes por uma API",
         intro: "Tudo nasce pausado, toda escrita é idempotente e uma falha no meio desfaz o que já tinha sido criado. Seu produto opera a conta de anúncios do cliente sem passar pela revisão de app da Meta.",
       },
       metrics: {
