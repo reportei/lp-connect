@@ -47,6 +47,11 @@ export function appUrl(locale: Locale, path: string) {
   return `${url}${url.includes("?") ? "&" : "?"}lang=${LOCALE_INFO[locale].app}`
 }
 
+// Always names the language, Portuguese included: unnamed, the app falls back to the viewer's account or session.
+export function appEmbedUrl(locale: Locale, path: string) {
+  return `${APP_ORIGIN}${path}?lang=${LOCALE_INFO[locale].app}`
+}
+
 export function formatNumber(locale: Locale, value: number) {
   return new Intl.NumberFormat(LOCALE_INFO[locale].hreflang).format(value)
 }

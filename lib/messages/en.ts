@@ -3,8 +3,8 @@ import type { Messages, Rich } from "@/lib/messages/pt"
 export const en: Messages = {
   meta: {
     homeTitle: (total: number) => `Marketing data API: integrate ${total} platforms | Reportei Connect`,
-    homeDescription: (n) =>
-      `An API for your software to query your customers' Instagram, Meta Ads, Google Ads, RD Station and ${n - 4} more marketing, CRM and e-commerce platforms.`,
+    homeDescription: (n, toolkits) =>
+      `Integrate ${n + toolkits} platforms into your software with a single API: metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${toolkits} more of your customers' apps.`,
     softwareDescription: (n) =>
       `An API that brings your customers' metrics from ${n} marketing, CRM and e-commerce platforms into your product.`,
     integrationsTitle: (n) => `Reportei Connect integrations: ${n} platforms in one API`,

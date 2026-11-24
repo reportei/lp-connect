@@ -133,7 +133,7 @@ function AdTree({ t, budget, status }: { t: T; budget: ReactNode; status: ReactN
     <Panel title={t.ads.panel}>
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
-          <img src={withBase("/images/integrations/meta_ads.svg")} alt="" className="h-5 w-5" />
+          <img src={withBase("/images/integrations/meta_ads.svg")} alt="Meta Ads" className="h-5 w-5" />
           <p className="font-semibold">Black Friday</p>
         </div>
         {status}
@@ -478,7 +478,7 @@ function SocialPost({
           </div>
           <img
             src={withBase(instagram ? "/images/integrations/instagram_business.svg" : "/images/integrations/facebook.svg")}
-            alt=""
+            alt={instagram ? "Instagram" : "Facebook"}
             className="h-4 w-4"
           />
         </div>

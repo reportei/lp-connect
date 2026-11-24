@@ -23,7 +23,8 @@ A home, a página de integrações e as páginas de toolkits existem em portugu�
 - **Textos:** em `lib/messages/{pt,en,es,fr}.ts`. O `pt.ts` define o tipo `Messages`; os outros são tipados por ele, então chave faltando aparece no `npx tsc --noEmit` (o build ignora erros de tipo). Textos que vão para client components usam `{placeholders}` preenchidos por `fill()`, porque função não atravessa a fronteira servidor/cliente.
 - **`getMessages()` só no servidor.** Importar de um client component põe os quatro idiomas no bundle. Client components recebem só a fatia de que precisam, por props, e importam `Messages` como `import type`.
 - **SEO:** `pageMetadata({ locale, page })` gera `canonical`, `hreflang` dos quatro idiomas mais `x-default` (inglês) e `og:locale`. O sitemap lista cada versão com os alternates.
-- **Links para o app:** `appUrl(locale, path)` acrescenta `?lang=en|es|fr` fora do português (login, signup, termos, `/prices` e o embed `/prices/embed`). O português segue sem parâmetro.
+- **Links para o app:** `appUrl(locale, path)` acrescenta `?lang=en|es|fr` fora do português (login, signup, termos, `/prices`). O português segue sem parâmetro.
+- **Embed de preços:** `appEmbedUrl(locale, path)` manda `?lang=` sempre, inclusive `pt_BR`. Sem ele, o iframe na página em português seguia o idioma da conta logada ou da sessão de quem visitava, e aparecia em inglês.
 - **Seletor de idioma:** `components/language-switcher.tsx`, na navbar e no rodapé. Leva para a mesma página no outro idioma quando ela é traduzida, e para a home do idioma nas demais.
 - **Página nova traduzida:** acrescentar a entrada em `TRANSLATED_PAGES`, os textos nos quatro arquivos e um arquivo de rota em cada route group.
 

@@ -16,7 +16,7 @@ import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { JsonLd, faqJsonLd } from "@/components/platform-page"
 import { LOCALE_INFO, pageHref, pagePath, type Locale } from "@/lib/i18n"
-import { CATALOG_COUNT, NATIVE_COUNT, catalogEntries } from "@/lib/catalog"
+import { CATALOG_COUNT, NATIVE_COUNT, TOOLKIT_COUNT, catalogEntries } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
 
@@ -24,7 +24,7 @@ export function homeMetadata(locale: Locale) {
   const t = getMessages(locale).meta
   return pageMetadata({
     title: t.homeTitle(CATALOG_COUNT),
-    description: t.homeDescription(NATIVE_COUNT),
+    description: t.homeDescription(NATIVE_COUNT, TOOLKIT_COUNT),
     path: pagePath(locale, "home"),
     locale,
     page: "home",
