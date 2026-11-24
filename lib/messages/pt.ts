@@ -9,8 +9,8 @@ const faqs = (items: Faq[]) => items
 export const pt = {
   meta: {
     homeTitle: (total: number) => `API de dados de marketing: integre ${total} plataformas | Reportei Connect`,
-    homeDescription: (n: number) =>
-      `API para o seu software consultar Instagram, Meta Ads, Google Ads, RD Station e mais ${n - 4} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
+    homeDescription: (n: number, toolkits: number) =>
+      `Integre ${n + toolkits} plataformas ao seu software com uma única API: métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${toolkits} apps dos seus clientes.`,
     softwareDescription: (n: number) =>
       `API para levar ao seu produto as métricas de ${n} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     integrationsTitle: (n: number) => `Integrações do Reportei Connect: ${n} plataformas em uma API`,

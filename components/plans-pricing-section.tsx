@@ -1,5 +1,5 @@
 import { PricingEmbed } from "@/components/pricing-embed"
-import { appUrl, type Locale } from "@/lib/i18n"
+import { appEmbedUrl, appUrl, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
 
 export function PlansPricingSection({ locale }: { locale: Locale }) {
@@ -17,7 +17,7 @@ export function PlansPricingSection({ locale }: { locale: Locale }) {
         <div className="grid items-start gap-8 lg:grid-cols-[1.25fr_0.75fr]">
           {/* Served by the app rather than rebuilt here: a copy would be a second published price. */}
           <PricingEmbed
-            src={appUrl(locale, "/prices/embed")}
+            src={appEmbedUrl(locale, "/prices/embed")}
             pricesUrl={appUrl(locale, "/prices")}
             t={{
               embedTitle: t.embedTitle,

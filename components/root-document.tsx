@@ -7,7 +7,7 @@ import "@/app/globals.css"
 import { GoogleTagManager, GoogleTagManagerNoScript, SignupCampaignParams } from "@/components/tracking"
 import { LOCALE_INFO, type Locale } from "@/lib/i18n"
 import { getMessages } from "@/lib/messages"
-import { CATALOG_COUNT, NATIVE_COUNT } from "@/lib/catalog"
+import { CATALOG_COUNT, NATIVE_COUNT, TOOLKIT_COUNT } from "@/lib/catalog"
 import { SITE_NAME, ogImageBase } from "@/lib/seo"
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" })
@@ -20,7 +20,7 @@ export function rootMetadata(locale: Locale): Metadata {
   return {
     metadataBase: new URL("https://reportei.com"),
     title: t.homeTitle(CATALOG_COUNT),
-    description: t.homeDescription(NATIVE_COUNT),
+    description: t.homeDescription(NATIVE_COUNT, TOOLKIT_COUNT),
     // Same Reportei mark the Connect app uses, so the tab looks the same on both.
     icons: {
       icon: [
