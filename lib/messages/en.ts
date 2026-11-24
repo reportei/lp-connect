@@ -290,7 +290,7 @@ export const en: Messages = {
     filterLabel: "Filter integrations by category",
     all: "All ({n})",
     found: { one: "1 integration found", other: "{n} integrations found" },
-    note: "An integration is a platform available in the catalog. A connection is an account on that platform linked to Connect, and it is the unit used for billing.",
+    note: "An integration is a platform available in the catalog. A connection is an account on that platform linked to Connect, whether a native integration or a toolkit, and it is the unit used for billing.",
     seePlan: "See how the plan works.",
     details: "Details of each integration.",
     toolkitBadge: "Toolkit",
@@ -360,9 +360,9 @@ export const en: Messages = {
     copy: "One plan with connections included and a fixed price per additional connection, the same on every platform in the catalog. No setup fee.",
     connectionTitle: "What counts as a connection?",
     connectionBody:
-      "Each platform account your customer connects to Connect counts as one connection. A single customer can have several connections.",
+      "Each account your customer connects to Connect counts as one connection, whether from a native integration or a toolkit. A single customer can have several connections.",
     exampleTitle: "Example: one customer of your software",
-    example: ["1 Instagram profile", "1 Google Ads account", "1 Meta Ads account"],
+    example: ["1 Instagram profile", "1 Google Ads account", "1 Notion workspace (toolkit)"],
     oneConnection: "1 connection",
     exampleTotal: "1 customer, 3 connected accounts = 3 connections",
     footer:
@@ -451,7 +451,7 @@ export const en: Messages = {
         q: () => "What is the difference between a customer and a connection?",
         a: (): Rich[] => [
           [
-            "One end customer of your product can have several connections. Each connection is one of that customer's accounts on one platform. If they connect an Instagram account and a Google Ads account, that is two connections.",
+            "One end customer of your product can have several connections. Each connection is one of that customer's accounts on one platform. If they connect an Instagram account, a Google Ads account and a Notion workspace, that is three connections: toolkits count like native integrations.",
           ],
         ],
       },

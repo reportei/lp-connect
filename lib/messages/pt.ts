@@ -299,7 +299,7 @@ export const pt = {
     filterLabel: "Filtrar integrações por categoria",
     all: "Todas ({n})",
     found: { one: "1 integração encontrada", other: "{n} integrações encontradas" },
-    note: "Uma integração é uma plataforma disponível no catálogo. Uma conexão é uma conta dessa plataforma vinculada ao Connect, e é a unidade usada na cobrança.",
+    note: "Uma integração é uma plataforma disponível no catálogo. Uma conexão é uma conta dessa plataforma vinculada ao Connect, seja integração nativa ou toolkit, e é a unidade usada na cobrança.",
     seePlan: "Veja como funciona o plano.",
     details: "Detalhes de cada integração.",
     toolkitBadge: "Toolkit",
@@ -367,9 +367,9 @@ export const pt = {
     copy: "Um plano com conexões incluídas e preço fixo por conexão adicional, igual em qualquer plataforma do catálogo. Sem custo de implantação.",
     connectionTitle: "O que conta como uma conexão?",
     connectionBody:
-      "Cada conta de uma plataforma que seu cliente conecta ao Connect conta como uma conexão. Um mesmo cliente pode ter várias conexões.",
+      "Cada conta que seu cliente conecta ao Connect conta como uma conexão, seja de uma integração nativa ou de um toolkit. Um mesmo cliente pode ter várias conexões.",
     exampleTitle: "Exemplo: um cliente do seu software",
-    example: ["1 perfil do Instagram", "1 conta do Google Ads", "1 conta do Meta Ads"],
+    example: ["1 perfil do Instagram", "1 conta do Google Ads", "1 workspace do Notion (toolkit)"],
     oneConnection: "1 conexão",
     exampleTotal: "1 cliente, 3 contas conectadas = 3 conexões",
     footer:
@@ -458,7 +458,7 @@ export const pt = {
         q: () => "Qual é a diferença entre cliente e conexão?",
         a: (): Rich[] => [
           [
-            "Um cliente final do seu produto pode ter várias conexões. Cada conexão corresponde a uma conta desse cliente em uma plataforma. Se ele conectar uma conta do Instagram e uma do Google Ads, serão duas conexões.",
+            "Um cliente final do seu produto pode ter várias conexões. Cada conexão corresponde a uma conta desse cliente em uma plataforma. Se ele conectar uma conta do Instagram, uma do Google Ads e um workspace do Notion, serão três conexões: toolkits contam como as integrações nativas.",
           ],
         ],
       },

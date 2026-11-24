@@ -292,7 +292,7 @@ export const es: Messages = {
     filterLabel: "Filtrar integraciones por categoría",
     all: "Todas ({n})",
     found: { one: "1 integración encontrada", other: "{n} integraciones encontradas" },
-    note: "Una integración es una plataforma disponible en el catálogo. Una conexión es una cuenta de esa plataforma vinculada a Connect, y es la unidad que se usa para facturar.",
+    note: "Una integración es una plataforma disponible en el catálogo. Una conexión es una cuenta de esa plataforma vinculada a Connect, sea de una integración nativa o de un toolkit, y es la unidad que se usa para facturar.",
     seePlan: "Mira cómo funciona el plan.",
     details: "Detalles de cada integración.",
     toolkitBadge: "Toolkit",
@@ -362,9 +362,9 @@ export const es: Messages = {
     copy: "Un plan con conexiones incluidas y precio fijo por conexión adicional, igual en cualquier plataforma del catálogo. Sin costo de implementación.",
     connectionTitle: "¿Qué cuenta como una conexión?",
     connectionBody:
-      "Cada cuenta de una plataforma que tu cliente conecta a Connect cuenta como una conexión. Un mismo cliente puede tener varias conexiones.",
+      "Cada cuenta que tu cliente conecta a Connect cuenta como una conexión, sea de una integración nativa o de un toolkit. Un mismo cliente puede tener varias conexiones.",
     exampleTitle: "Ejemplo: un cliente de tu software",
-    example: ["1 perfil de Instagram", "1 cuenta de Google Ads", "1 cuenta de Meta Ads"],
+    example: ["1 perfil de Instagram", "1 cuenta de Google Ads", "1 workspace de Notion (toolkit)"],
     oneConnection: "1 conexión",
     exampleTotal: "1 cliente, 3 cuentas conectadas = 3 conexiones",
     footer:
@@ -453,7 +453,7 @@ export const es: Messages = {
         q: () => "¿Cuál es la diferencia entre cliente y conexión?",
         a: (): Rich[] => [
           [
-            "Un cliente final de tu producto puede tener varias conexiones. Cada conexión corresponde a una cuenta de ese cliente en una plataforma. Si conecta una cuenta de Instagram y una de Google Ads, serán dos conexiones.",
+            "Un cliente final de tu producto puede tener varias conexiones. Cada conexión corresponde a una cuenta de ese cliente en una plataforma. Si conecta una cuenta de Instagram, una de Google Ads y un workspace de Notion, serán tres conexiones: los toolkits cuentan igual que las integraciones nativas.",
           ],
         ],
       },
