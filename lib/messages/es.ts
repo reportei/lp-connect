@@ -364,7 +364,7 @@ export const es: Messages = {
     copy: "Un plan con conexiones incluidas y precio fijo por conexión adicional, igual en cualquier plataforma del catálogo. Sin costo de implementación.",
     connectionTitle: "¿Qué cuenta como una conexión?",
     connectionBody:
-      "Cada cuenta que tu cliente vincula a Connect equivale a una conexión, venga de una integración nativa o de un toolkit. Un mismo cliente puede tener varias.",
+      "Cada cuenta que tu cliente vincula a Connect equivale a una conexión. Un mismo cliente puede tener varias.",
     exampleTitle: "Ejemplo: un cliente de tu software",
     example: ["1 perfil de Instagram", "1 cuenta de Google Ads", "1 workspace de Notion (toolkit)"],
     oneConnection: "1 conexión",

@@ -364,7 +364,7 @@ export const fr: Messages = {
     copy: "Une offre avec des connexions incluses et un prix fixe par connexion supplémentaire, identique pour toutes les plateformes du catalogue. Sans frais de mise en place.",
     connectionTitle: "Qu'est-ce qui compte comme une connexion ?",
     connectionBody:
-      "Chaque compte que votre client relie à Connect vaut une connexion, qu'il provienne d'une intégration native ou d'un toolkit. Un même client peut en avoir plusieurs.",
+      "Chaque compte que votre client relie à Connect vaut une connexion. Un même client peut en avoir plusieurs.",
     exampleTitle: "Exemple : un client de votre logiciel",
     example: ["1 profil Instagram", "1 compte Google Ads", "1 espace de travail Notion (toolkit)"],
     oneConnection: "1 connexion",
