@@ -369,7 +369,7 @@ export const pt = {
     copy: "Um plano com conexões incluídas e preço fixo por conexão adicional, igual em qualquer plataforma do catálogo. Sem custo de implantação.",
     connectionTitle: "O que conta como uma conexão?",
     connectionBody:
-      "Cada conta que seu cliente vincula ao Connect vale uma conexão, venha de uma integração nativa ou de um toolkit. Um mesmo cliente pode ter várias.",
+      "Cada conta que seu cliente vincula ao Connect vale uma conexão. Um mesmo cliente pode ter várias.",
     exampleTitle: "Exemplo: um cliente do seu software",
     example: ["1 perfil do Instagram", "1 conta do Google Ads", "1 workspace do Notion (toolkit)"],
     oneConnection: "1 conexão",

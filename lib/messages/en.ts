@@ -362,7 +362,7 @@ export const en: Messages = {
     copy: "One plan with connections included and a fixed price per additional connection, the same on every platform in the catalog. No setup fee.",
     connectionTitle: "What counts as a connection?",
     connectionBody:
-      "Every account your customer links to Connect is one connection, from a native integration or a toolkit alike. A single customer can have several.",
+      "Every account your customer links to Connect is one connection. A single customer can have several.",
     exampleTitle: "Example: one customer of your software",
     example: ["1 Instagram profile", "1 Google Ads account", "1 Notion workspace (toolkit)"],
     oneConnection: "1 connection",
