@@ -5,18 +5,20 @@ export type Rich = (string | { link: "ia" | "precos" | "terms"; text: string })[
 type Faq = { q: (integrations: number) => string; a: (integrations: number, toolkits: number) => Rich[] }
 const faqs = (items: Faq[]) => items
 
+const num = (value: number) => value.toLocaleString("pt-BR")
+
 // Strings that reach client components must be plain data, so those use {placeholders} filled by `fill`.
 export const pt = {
   meta: {
-    homeTitle: (total: number) => `API de dados de marketing: integre ${total} plataformas | Reportei Connect`,
+    homeTitle: (total: number) => `API de dados de marketing: integre ${num(total)} plataformas | Reportei Connect`,
     homeDescription: (n: number, toolkits: number) =>
-      `Integre ${n + toolkits} plataformas ao seu software com uma única API: métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${toolkits} apps dos seus clientes.`,
+      `Integre ${num(n + toolkits)} plataformas ao seu software com uma única API: métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${num(toolkits)} apps dos seus clientes.`,
     softwareDescription: (n: number) =>
       `API para levar ao seu produto as métricas de ${n} plataformas de marketing, CRM e e-commerce dos seus clientes.`,
     integrationsTitle: (n: number) => `Integrações do Reportei Connect: ${n} plataformas em uma API`,
     integrationsDescription: (n: number) =>
       `Meta Ads, Google Ads, Instagram, RD Station, HubSpot, WhatsApp, Slack e mais: as ${n} plataformas que o seu produto acessa por uma única API.`,
-    ogImageAlt: (n: number) => `Reportei Connect: ${n} integrações em uma API`,
+    ogImageAlt: (n: number) => `Reportei Connect: ${num(n)} integrações em uma API`,
   },
   language: {
     label: "Idioma",
@@ -37,7 +39,7 @@ export const pt = {
   },
   footer: {
     tagline: (n: number, toolkits: number) =>
-      `Métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${toolkits} apps, em uma API para o seu sistema.`,
+      `Métricas de ${n} plataformas de marketing, CRM e e-commerce e ações em mais ${num(toolkits)} apps, em uma API para o seu sistema.`,
     product: "Produto",
     company: "Empresa",
     apis: "APIs",
@@ -61,9 +63,9 @@ export const pt = {
     terms: "Termos de serviço",
   },
   hero: {
-    title: (total: number) => `Integre ${total} plataformas ao seu sistema com uma única API.`,
+    title: (total: number) => `Integre ${num(total)} plataformas ao seu sistema com uma única API.`,
     copy: (n: number, toolkits: number) =>
-      `Consulte métricas de ${n} plataformas de marketing, CRM e e-commerce, como Meta Ads, Google Ads e RD Station, e execute ações em mais ${toolkits} apps dos seus clientes, como WhatsApp, Slack e ClickUp.`,
+      `Consulte métricas de ${n} plataformas de marketing, CRM e e-commerce, como Meta Ads, Google Ads e RD Station, e execute ações em mais ${num(toolkits)} apps dos seus clientes, como WhatsApp, Slack e ClickUp.`,
     signup: "Começar teste grátis",
     demo: "Agendar demonstração",
     trial: "15 dias para testar. Sem cartão de crédito.",
@@ -398,7 +400,7 @@ export const pt = {
             "Também dá para publicar no Instagram, Facebook, Threads, LinkedIn, Pinterest e YouTube Shorts dos seus clientes e, no Meta Ads, no Google Ads e no TikTok Ads, criar e gerenciar campanhas, conjuntos e anúncios, conforme as permissões das contas conectadas.",
           ],
           [
-            `Com os toolkits, seu produto executa ações em mais ${toolkits} apps dos seus clientes, como enviar mensagens no WhatsApp, criar tarefas no ClickUp ou avisar um canal do Slack. Toolkits não trazem métricas.`,
+            `Com os toolkits, seu produto executa ações em mais ${num(toolkits)} apps dos seus clientes, como enviar mensagens no WhatsApp, criar tarefas no ClickUp ou avisar um canal do Slack. Toolkits não trazem métricas.`,
           ],
         ],
       },
@@ -521,7 +523,7 @@ export const pt = {
     eyebrow: "Integrações",
     title: (n: number) => `${n} plataformas em uma API para o seu produto`,
     copy: (n: number, toolkits: number) =>
-      `Seus clientes conectam as contas de mídia paga, redes sociais, CRM e e-commerce. Seu sistema consulta as métricas dessas ${n} plataformas pela mesma API, no mesmo formato, e executa ações em mais ${toolkits} apps com os toolkits.`,
+      `Seus clientes conectam as contas de mídia paga, redes sociais, CRM e e-commerce. Seu sistema consulta as métricas dessas ${n} plataformas pela mesma API, no mesmo formato, e executa ações em mais ${num(toolkits)} apps com os toolkits.`,
     popular: "APIs mais procuradas",
     apiOf: (platform: string) => `API do ${platform}`,
     catalog: "Catálogo completo",
@@ -533,10 +535,10 @@ export const pt = {
     breadcrumbLabel: "Trilha",
     home: {
       eyebrow: "Toolkits",
-      title: (n: number) => `Além dos dados: ${n} apps que o seu produto opera`,
+      title: (n: number) => `Além dos dados: ${num(n)} apps que o seu produto opera`,
       copy: (tools: string) =>
         `Envie mensagens no WhatsApp, crie tarefas no Jira, agende no Google Calendar. São ${tools} tools que o seu produto e os seus agentes de IA executam na conta do cliente, pela mesma API.`,
-      cta: (n: number) => `Ver os ${n} toolkits`,
+      cta: (n: number) => `Ver os ${num(n)} toolkits`,
     },
     hub: {
       metaTitle: (n: number, tools: string) => `Toolkits do Reportei Connect: ${n} apps e ${tools} tools por uma API`,

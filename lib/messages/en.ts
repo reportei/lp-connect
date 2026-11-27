@@ -1,16 +1,18 @@
 import type { Messages, Rich } from "@/lib/messages/pt"
 
+const num = (value: number) => value.toLocaleString("en-US")
+
 export const en: Messages = {
   meta: {
-    homeTitle: (total: number) => `Marketing data API: integrate ${total} platforms | Reportei Connect`,
+    homeTitle: (total: number) => `Marketing data API: integrate ${num(total)} platforms | Reportei Connect`,
     homeDescription: (n, toolkits) =>
-      `Integrate ${n + toolkits} platforms into your software with a single API: metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${toolkits} more of your customers' apps.`,
+      `Integrate ${num(n + toolkits)} platforms into your software with a single API: metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${num(toolkits)} more of your customers' apps.`,
     softwareDescription: (n) =>
       `An API that brings your customers' metrics from ${n} marketing, CRM and e-commerce platforms into your product.`,
     integrationsTitle: (n) => `Reportei Connect integrations: ${n} platforms in one API`,
     integrationsDescription: (n) =>
       `Meta Ads, Google Ads, Instagram, HubSpot, Shopify, WhatsApp, Slack and more: the ${n} platforms your product reaches through a single API.`,
-    ogImageAlt: (n) => `Reportei Connect: ${n} integrations in one API`,
+    ogImageAlt: (n) => `Reportei Connect: ${num(n)} integrations in one API`,
   },
   language: {
     label: "Language",
@@ -31,7 +33,7 @@ export const en: Messages = {
   },
   footer: {
     tagline: (n, toolkits) =>
-      `Metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${toolkits} more apps, in one API for your system.`,
+      `Metrics from ${n} marketing, CRM and e-commerce platforms and actions in ${num(toolkits)} more apps, in one API for your system.`,
     product: "Product",
     company: "Company",
     apis: "APIs",
@@ -55,9 +57,9 @@ export const en: Messages = {
     terms: "Terms of service",
   },
   hero: {
-    title: (total) => `Integrate ${total} platforms into your system with a single API.`,
+    title: (total) => `Integrate ${num(total)} platforms into your system with a single API.`,
     copy: (n, toolkits) =>
-      `Query metrics from ${n} marketing, CRM and e-commerce platforms, such as Meta Ads, Google Ads and RD Station, and run actions in ${toolkits} more of your customers' apps, such as WhatsApp, Slack and ClickUp.`,
+      `Query metrics from ${n} marketing, CRM and e-commerce platforms, such as Meta Ads, Google Ads and RD Station, and run actions in ${num(toolkits)} more of your customers' apps, such as WhatsApp, Slack and ClickUp.`,
     signup: "Start free trial",
     demo: "Book a demo",
     trial: "15-day trial. No credit card required.",
@@ -391,7 +393,7 @@ export const en: Messages = {
             "You can also publish to your customers' Instagram, Facebook, Threads, LinkedIn, Pinterest and YouTube Shorts and create and manage Meta Ads, Google Ads and TikTok Ads campaigns, ad sets and ads, subject to the connected accounts' permissions.",
           ],
           [
-            `With toolkits, your product runs actions in ${toolkits} more of your customers' apps, such as sending WhatsApp messages, creating tasks in ClickUp or posting to a Slack channel. Toolkits bring no metrics.`,
+            `With toolkits, your product runs actions in ${num(toolkits)} more of your customers' apps, such as sending WhatsApp messages, creating tasks in ClickUp or posting to a Slack channel. Toolkits bring no metrics.`,
           ],
         ],
       },
@@ -512,7 +514,7 @@ export const en: Messages = {
     eyebrow: "Integrations",
     title: (n) => `${n} platforms in one API for your product`,
     copy: (n, toolkits) =>
-      `Your customers connect their paid media, social, CRM and e-commerce accounts. Your system queries the metrics of these ${n} platforms through the same API, in the same format, and runs actions in ${toolkits} more apps with toolkits.`,
+      `Your customers connect their paid media, social, CRM and e-commerce accounts. Your system queries the metrics of these ${n} platforms through the same API, in the same format, and runs actions in ${num(toolkits)} more apps with toolkits.`,
     popular: "Most requested APIs",
     apiOf: (platform) => `${platform} API`,
     catalog: "Full catalog",
@@ -524,10 +526,10 @@ export const en: Messages = {
     breadcrumbLabel: "Breadcrumb",
     home: {
       eyebrow: "Toolkits",
-      title: (n) => `Beyond data: ${n} apps your product operates`,
+      title: (n) => `Beyond data: ${num(n)} apps your product operates`,
       copy: (tools) =>
         `Send WhatsApp messages, create Jira issues, book on Google Calendar. ${tools} tools your product and your AI agents run on your customer's account, through the same API.`,
-      cta: (n) => `See all ${n} toolkits`,
+      cta: (n) => `See all ${num(n)} toolkits`,
     },
     hub: {
       metaTitle: (n, tools) => `Reportei Connect toolkits: ${n} apps and ${tools} tools in one API`,

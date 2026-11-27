@@ -10,6 +10,11 @@ export const NATIVE_COUNT = INTEGRATIONS.length
 export const TOOLKIT_COUNT = TOOLKITS.length
 export const CATALOG_COUNT = NATIVE_COUNT + TOOLKIT_COUNT
 
+// The home quotes the totals live in the Connect, which run ahead of the toolkits synced into lib/toolkits.
+export const HOME_TOOLKIT_COUNT = 1100
+export const HOME_TOOL_COUNT = 10090
+export const HOME_CATALOG_COUNT = NATIVE_COUNT + HOME_TOOLKIT_COUNT
+
 // Where each toolkit category of the spec shows up in the catalog filter.
 const TOOLKIT_GROUPS: Record<ToolkitCategory, IntegrationCategory> = {
   analytics: "Analytics e SEO",
