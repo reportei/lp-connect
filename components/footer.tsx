@@ -1,7 +1,7 @@
 import { withBase } from "@/lib/base-path"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { appUrl, DEFAULT_LOCALE, languageLinks, localePath, pageHref, type AlternatePath, type Locale, type TranslatedPage } from "@/lib/i18n"
-import { NATIVE_COUNT, TOOLKIT_COUNT } from "@/lib/catalog"
+import { HOME_TOOLKIT_COUNT, NATIVE_COUNT, TOOLKIT_COUNT } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 
 type FooterProps = {
@@ -79,7 +79,7 @@ export function Footer({ locale = DEFAULT_LOCALE, page, alternatePath }: FooterP
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
           <div>
             <img src={withBase("/images/reportei-connect-logo-horizontal.png")} alt="Reportei Connect" className="h-12 w-auto" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{t.tagline(NATIVE_COUNT, TOOLKIT_COUNT)}</p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{t.tagline(NATIVE_COUNT, page === "home" ? HOME_TOOLKIT_COUNT : TOOLKIT_COUNT)}</p>
             <a href="mailto:connect@reportei.com" className="lp-link mt-4 inline-block text-sm">
               connect@reportei.com
             </a>

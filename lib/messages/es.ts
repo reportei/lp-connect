@@ -1,16 +1,18 @@
 import type { Messages, Rich } from "@/lib/messages/pt"
 
+const num = (value: number) => value.toLocaleString("es-ES")
+
 export const es: Messages = {
   meta: {
-    homeTitle: (total: number) => `API de datos de marketing: integra ${total} plataformas | Reportei Connect`,
+    homeTitle: (total: number) => `API de datos de marketing: integra ${num(total)} plataformas | Reportei Connect`,
     homeDescription: (n, toolkits) =>
-      `Integra ${n + toolkits} plataformas a tu software con una única API: métricas de ${n} plataformas de marketing, CRM y e-commerce y acciones en ${toolkits} apps más de tus clientes.`,
+      `Integra ${num(n + toolkits)} plataformas a tu software con una única API: métricas de ${n} plataformas de marketing, CRM y e-commerce y acciones en ${num(toolkits)} apps más de tus clientes.`,
     softwareDescription: (n) =>
       `API para llevar a tu producto las métricas de ${n} plataformas de marketing, CRM y e-commerce de tus clientes.`,
     integrationsTitle: (n) => `Integraciones de Reportei Connect: ${n} plataformas en una API`,
     integrationsDescription: (n) =>
       `Meta Ads, Google Ads, Instagram, HubSpot, Shopify, WhatsApp, Slack y más: las ${n} plataformas a las que tu producto accede con una única API.`,
-    ogImageAlt: (n) => `Reportei Connect: ${n} integraciones en una API`,
+    ogImageAlt: (n) => `Reportei Connect: ${num(n)} integraciones en una API`,
   },
   language: {
     label: "Idioma",
@@ -31,7 +33,7 @@ export const es: Messages = {
   },
   footer: {
     tagline: (n, toolkits) =>
-      `Métricas de ${n} plataformas de marketing, CRM y e-commerce y acciones en ${toolkits} apps más, en una API para tu sistema.`,
+      `Métricas de ${n} plataformas de marketing, CRM y e-commerce y acciones en ${num(toolkits)} apps más, en una API para tu sistema.`,
     product: "Producto",
     company: "Empresa",
     apis: "APIs",
@@ -55,9 +57,9 @@ export const es: Messages = {
     terms: "Términos de servicio",
   },
   hero: {
-    title: (total) => `Integra ${total} plataformas a tu sistema con una única API.`,
+    title: (total) => `Integra ${num(total)} plataformas a tu sistema con una única API.`,
     copy: (n, toolkits) =>
-      `Consulta métricas de ${n} plataformas de marketing, CRM y e-commerce, como Meta Ads, Google Ads y RD Station, y ejecuta acciones en ${toolkits} apps más de tus clientes, como WhatsApp, Slack y ClickUp.`,
+      `Consulta métricas de ${n} plataformas de marketing, CRM y e-commerce, como Meta Ads, Google Ads y RD Station, y ejecuta acciones en ${num(toolkits)} apps más de tus clientes, como WhatsApp, Slack y ClickUp.`,
     signup: "Empezar prueba gratis",
     demo: "Agendar una demo",
     trial: "15 días de prueba. Sin tarjeta de crédito.",
@@ -292,7 +294,7 @@ export const es: Messages = {
     filterLabel: "Filtrar integraciones por categoría",
     all: "Todas ({n})",
     found: { one: "1 integración encontrada", other: "{n} integraciones encontradas" },
-    note: "Una integración es una plataforma disponible en el catálogo. Una conexión es una cuenta de esa plataforma vinculada a Connect, y es la unidad que se usa para facturar.",
+    note: "Una integración es una plataforma disponible en el catálogo. Una conexión es una cuenta de esa plataforma vinculada a Connect, sea de una integración nativa o de un toolkit, y es la unidad que se usa para facturar.",
     seePlan: "Mira cómo funciona el plan.",
     details: "Detalles de cada integración.",
     toolkitBadge: "Toolkit",
@@ -362,9 +364,9 @@ export const es: Messages = {
     copy: "Un plan con conexiones incluidas y precio fijo por conexión adicional, igual en cualquier plataforma del catálogo. Sin costo de implementación.",
     connectionTitle: "¿Qué cuenta como una conexión?",
     connectionBody:
-      "Cada cuenta de una plataforma que tu cliente conecta a Connect cuenta como una conexión. Un mismo cliente puede tener varias conexiones.",
+      "Cada cuenta que tu cliente conecta a Connect cuenta como una conexión, sea de una integración nativa o de un toolkit. Un mismo cliente puede tener varias conexiones.",
     exampleTitle: "Ejemplo: un cliente de tu software",
-    example: ["1 perfil de Instagram", "1 cuenta de Google Ads", "1 cuenta de Meta Ads"],
+    example: ["1 perfil de Instagram", "1 cuenta de Google Ads", "1 workspace de Notion (toolkit)"],
     oneConnection: "1 conexión",
     exampleTotal: "1 cliente, 3 cuentas conectadas = 3 conexiones",
     footer:
@@ -393,7 +395,7 @@ export const es: Messages = {
             "También puedes publicar en Instagram, Facebook, Threads, LinkedIn, Pinterest y YouTube Shorts de tus clientes y crear y gestionar campañas, conjuntos y anuncios de Meta Ads, Google Ads y TikTok Ads, según los permisos de las cuentas conectadas.",
           ],
           [
-            `Con los toolkits, tu producto ejecuta acciones en ${toolkits} apps más de tus clientes, como enviar mensajes por WhatsApp, crear tareas en ClickUp o avisar a un canal de Slack. Los toolkits no traen métricas.`,
+            `Con los toolkits, tu producto ejecuta acciones en ${num(toolkits)} apps más de tus clientes, como enviar mensajes por WhatsApp, crear tareas en ClickUp o avisar a un canal de Slack. Los toolkits no traen métricas.`,
           ],
         ],
       },
@@ -453,7 +455,7 @@ export const es: Messages = {
         q: () => "¿Cuál es la diferencia entre cliente y conexión?",
         a: (): Rich[] => [
           [
-            "Un cliente final de tu producto puede tener varias conexiones. Cada conexión corresponde a una cuenta de ese cliente en una plataforma. Si conecta una cuenta de Instagram y una de Google Ads, serán dos conexiones.",
+            "Un cliente final de tu producto puede tener varias conexiones. Cada conexión corresponde a una cuenta de ese cliente en una plataforma. Si conecta una cuenta de Instagram, una de Google Ads y un workspace de Notion, serán tres conexiones: los toolkits cuentan igual que las integraciones nativas.",
           ],
         ],
       },
@@ -516,7 +518,7 @@ export const es: Messages = {
     eyebrow: "Integraciones",
     title: (n) => `${n} plataformas en una API para tu producto`,
     copy: (n, toolkits) =>
-      `Tus clientes conectan sus cuentas de medios pagados, redes sociales, CRM y e-commerce. Tu sistema consulta las métricas de esas ${n} plataformas con la misma API, en el mismo formato, y ejecuta acciones en ${toolkits} apps más con los toolkits.`,
+      `Tus clientes conectan sus cuentas de medios pagados, redes sociales, CRM y e-commerce. Tu sistema consulta las métricas de esas ${n} plataformas con la misma API, en el mismo formato, y ejecuta acciones en ${num(toolkits)} apps más con los toolkits.`,
     popular: "APIs más buscadas",
     apiOf: (platform) => `API de ${platform}`,
     catalog: "Catálogo completo",
@@ -528,10 +530,10 @@ export const es: Messages = {
     breadcrumbLabel: "Ruta de navegación",
     home: {
       eyebrow: "Toolkits",
-      title: (n) => `Más allá de los datos: ${n} apps que tu producto opera`,
+      title: (n) => `Más allá de los datos: ${num(n)} apps que tu producto opera`,
       copy: (tools) =>
         `Envía mensajes por WhatsApp, crea tareas en Jira, agenda en Google Calendar. Son ${tools} tools que tu producto y tus agentes de IA ejecutan en la cuenta de tu cliente, con la misma API.`,
-      cta: (n) => `Ver los ${n} toolkits`,
+      cta: (n) => `Ver los ${num(n)} toolkits`,
     },
     hub: {
       metaTitle: (n, tools) => `Toolkits de Reportei Connect: ${n} apps y ${tools} tools en una API`,

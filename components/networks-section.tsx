@@ -48,10 +48,11 @@ type NetworksSectionProps = {
   t: Messages["networks"]
   categories: Messages["categories"]
   entries: CatalogEntry[]
+  total: string
   integrationsHref: string
 }
 
-export function NetworksSection({ t, categories, entries, integrationsHref }: NetworksSectionProps) {
+export function NetworksSection({ t, categories, entries, total, integrationsHref }: NetworksSectionProps) {
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState<IntegrationCategory | null>(null)
 
@@ -74,7 +75,7 @@ export function NetworksSection({ t, categories, entries, integrationsHref }: Ne
       <div className="lp-container">
         <div className="mb-10 max-w-3xl">
           <h2 id="integrations-title" className="lp-title mb-5">
-            {fill(t.title, { n: entries.length })}
+            {fill(t.title, { n: total })}
           </h2>
           <p className="text-lg leading-relaxed text-muted-foreground">{t.copy}</p>
         </div>

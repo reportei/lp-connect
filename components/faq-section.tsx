@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react"
 import { appUrl, type Locale } from "@/lib/i18n"
-import { NATIVE_COUNT, TOOLKIT_COUNT } from "@/lib/catalog"
+import { HOME_TOOLKIT_COUNT, NATIVE_COUNT } from "@/lib/catalog"
 import { getMessages, type Rich } from "@/lib/messages"
 import type { PlatformFaq } from "@/lib/plataformas"
 
@@ -12,7 +12,7 @@ const plain = (parts: Rich) => parts.map((part) => (typeof part === "string" ? p
 export function faqItems(locale: Locale): PlatformFaq[] {
   const t = getMessages(locale).faq
   const n = NATIVE_COUNT
-  return [...t.product, ...t.pricing].map((item) => ({ q: item.q(n), a: item.a(n, TOOLKIT_COUNT).map(plain).join(" ") }))
+  return [...t.product, ...t.pricing].map((item) => ({ q: item.q(n), a: item.a(n, HOME_TOOLKIT_COUNT).map(plain).join(" ") }))
 }
 
 function RichText({ parts, locale }: { parts: Rich; locale: Locale }) {
@@ -57,7 +57,7 @@ function Group({ title, questions, locale }: { title: string; questions: Questio
 export function FaqSection({ locale }: { locale: Locale }) {
   const t = getMessages(locale).faq
   const n = NATIVE_COUNT
-  const resolve = (items: typeof t.product): Question[] => items.map((item) => ({ q: item.q(n), a: item.a(n, TOOLKIT_COUNT) }))
+  const resolve = (items: typeof t.product): Question[] => items.map((item) => ({ q: item.q(n), a: item.a(n, HOME_TOOLKIT_COUNT) }))
 
   return (
     <section id="faq" className="lp-section bg-background">

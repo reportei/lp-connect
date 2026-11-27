@@ -6,6 +6,7 @@ import { CTASection } from "@/components/cta-section"
 import { FaqList, JsonLd, faqJsonLd } from "@/components/platform-page"
 import { withBase } from "@/lib/base-path"
 import { appUrl, formatNumber, LOCALE_INFO, localePath, type AlternatePath, type Locale } from "@/lib/i18n"
+import { HOME_TOOL_COUNT, HOME_TOOLKIT_COUNT } from "@/lib/catalog"
 import { getMessages } from "@/lib/messages"
 import { absoluteUrl, pageMetadata } from "@/lib/seo"
 import { reviewedToolExample } from "@/lib/toolkits/examples"
@@ -240,8 +241,8 @@ export function ToolkitsHomeSection({ locale }: { locale: Locale }) {
       <div className="lp-container">
         <div className="mb-10 max-w-3xl">
           <p className="lp-eyebrow mb-3">{t.eyebrow}</p>
-          <h2 className="lp-title mb-5">{t.title(TOOLKITS.length)}</h2>
-          <p className="text-lg leading-relaxed text-muted-foreground">{t.copy(formatNumber(locale, TOOL_COUNT))}</p>
+          <h2 className="lp-title mb-5">{t.title(HOME_TOOLKIT_COUNT)}</h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">{t.copy(formatNumber(locale, HOME_TOOL_COUNT))}</p>
         </div>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {picks.map((toolkit) => (
@@ -257,7 +258,7 @@ export function ToolkitsHomeSection({ locale }: { locale: Locale }) {
           ))}
         </ul>
         <a href={href(locale, toolkitsHubPath())} className="lp-button mt-10 inline-flex items-center gap-2">
-          {t.cta(TOOLKITS.length)}
+          {t.cta(HOME_TOOLKIT_COUNT)}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
